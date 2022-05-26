@@ -1,0 +1,25 @@
+\begin{thebibliography}{HIWK15}
+
+\bibitem[HIWK15]{Huete2015PastPA}
+Mar{\'i}a~Isabel Huete, {\'O}scar Ib{\'a}{\~n}ez, Caroline Wilkinson, and Tzipi
+  Kahana.
+\newblock Past, present, and future of craniofacial superimposition: Literature
+  and international surveys.
+\newblock {\em Legal medicine}, 17 4:267--78, 2015.
+
+\bibitem[Mal00]{MallatWavelets}
+St{\'e}phane Mallat.
+\newblock {\em Une exploration des signaux en ondelettes.}
+\newblock Palaiseau: Les {\'E}ditions de l'{\'E}cole Polytechnique, 2000.
+
+\bibitem[RC18]{DigitalImageProcessing}
+Richard~E.Woods Rafael~C.Gonzalez.
+\newblock {\em Digital Image Processing}.
+\newblock Pearson, 2018.
+
+\bibitem[TY05]{doi:10.1137/S0036141002404838}
+Alain Trouvé and Laurent Younes.
+\newblock Local geometry of deformable templates.
+\newblock {\em SIAM Journal on Mathematical Analysis}, 37(1):17--59, 2005.
+
+\end{thebibliography}

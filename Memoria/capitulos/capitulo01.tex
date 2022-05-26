@@ -1,0 +1,1018 @@
+% !TeX root = ../libro.tex
+% !TeX encoding = utf8
+
+
+\chapter{Análisis de Redes Convolucionales}\label{ch:analisis}
+
+\section{Introducción}
+
+
+\noindent En el contexto del procesamiento de imágenes, se define el término \textbf{invarianza} como la capacidad de reconocer un objeto en la imagen incluso si su apariencia ha variado en algún sentido (rotando, deformando ligeramente o trasladando el objeto por ejemplo). Esto es algo muy importante y positivo, pues esto indica que se preserva la identidad del objeto incluso a pesar de haberse sometido a ciertos cambios.
+
+\medskip
+
+\noindent Las simetrías e invarianzas, aunque juegan un papel más importante en el campo de la Física, van abriéndose paso en el procesamiento de información de señales. La información contenida en las señales referente a imágenes o sonidos no suele verse afectada bajo la acción de grupos finitos como las traslaciones o las rotaciones, y es estable a la acción de pequeños difeomorfismos que deforman las señales. Esto motiva el estudio de las representaciones de traslaciones e invarianzas de las funciones de $L^2(\mathbb{R}^d)$, que son Lipschitz-continuas por la acción de difeomorfismos y que mantienen información de alta frecuencia para diferenciar entre distintos tipos de señales. 
+
+\medskip
+
+\noindent En primer lugar nos centraremos en la invarianza por traslaciones, entendida en el contexto de las imágenes como trasladar cada pixel de la imagen en una misma dirección la misma distancia. En este sentido: 
+\begin{definicion}
+$L_cf(x)=f(x-c)$ es la traslación de $f \in L^2(\mathbb{R}^d)$ por $c \in \mathbb{R}^d$ .
+\end{definicion}
+
+\noindent Así, decimos que un operador $\Phi$ de  $L^2(\mathbb{R}^d)$ en un espacio de Hilbert $\mathcal{H}$ es invariante por traslaciones si $\Phi(L_cf(x))=\Phi(f)$ para todo $f \in L^2(\mathbb{R}^d)$ y para todo $c \in \mathbb{R}^d$. El módulo de la transformada de Fourier de $f$ es un ejemplo de un operador invariante por traslaciones no canónico que estudiaremos en la sección siguiente. 
+
+\medskip
+
+\noindent Sin embargo, estos operadores invariantes a traslaciones no son Lipshcitz-continuos por la acción de difeomorfismos. Es conocido el hecho de que aparecen inestabilidades frente a deformaciones en las altas frecuencias, y el mayor reto es preservar la Lipschitz-continuidad en esta situación.
+
+\medskip
+
+\noindent Para preservar la estabilidad en $L^2(\mathbb{R}^d)$ queremos que $\Phi$ sea no-expansiva. 
+
+\begin{definicion}
+Decimos que $\Phi$ es no-expansiva si: 
+$$\forall (f,h) \in L^2(\mathbb{R}^d)^2 \; || \Phi(f)-\Phi(h)||_\mathcal{H} \leq ||f-h||$$
+\end{definicion}
+
+\noindent Es entonces suficiente verificar su Lipschitz-continuidad relativa a la acción de pequeños difeomorfismos cercanos a las traslaciones. Dichos difeomorfismos transforman $x \in \mathbb{R}^d$ en $x-\tau (x)$ dónde $\tau$ es el campo de desplazamiento. 
+
+\begin{definicion}
+Denotemos $L_{\tau} f(x)=f(x-\tau(x))$ como la acción del difeomorfismo $\mathbb{1}-\tau$ en $f$.
+\end{definicion} 
+
+\medskip
+
+\noindent La condición de Lipschitz nos dice que $||\Phi(f)-\Phi(L_\tau f)||$ está acotada por el "tamaño" del difeomorfismo, y por tanto por la distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$, hasta $||f||$ por una constante multiplicativa. 
+
+\medskip
+
+\noindent Sea $|\tau (x)|$ la norma euclídea en $\mathbb{R}^d$, $\nabla |\tau (x)|$ la norma del supremo de la matriz $\nabla \tau (x)$, y $|H \tau (x)|$ la norma del supremo del tensor Hessiano.  
+
+La topología débil (recordemos que es la topología menos fina de un espacio normado que hace continuas todas las aplicaciones de su dual) en los difeomorfismos $C^2$  permite definir la siguiente aplicación: 
+\begin{definicion}
+Así, se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subconjunto compacto $\Omega$ de $\mathbb{R}^d$ como 
+
+$$(1.1) \; \; d_\Omega(\mathbb{1},\mathbb{1}-\tau) = \sup_{x \in \Omega} |\tau (x)| + \sup_{x \in \Omega} |\nabla \tau (x)| + \sup_{x \in \Omega}|H \tau (x)|  $$
+\end{definicion}
+\medskip
+
+\begin{definicion}
+\noindent Un operador invariante por traslaciones $\Phi$ se dice \entrecomillado{Lipchitz-continuo} por la acción de los difeomorfismos $C^2$  si para cualquier compacto $\Omega \subset \mathbb{R}^d$ existe una constante $C$ tal que para todo $f \in L^2(\mathbb{R}^d)$ con Soporte en $\Omega$ y para todo $\tau \in C^2(\mathbb{R}^d)$ se cumple:
+
+$$(1.2)  \; \; || \Phi(f)-\Phi(L_{\tau}f)||_\mathcal{H} \leq C||f||(\sup_{x \in \mathbb{R}^d} |\nabla \tau (x)| + \sup_{x \in \mathbb{R}^d}|H \tau (x)|)$$
+
+\end{definicion}
+
+\medskip
+
+\noindent Debido a que $\Phi$ es invariante a traslaciones, la cota superior de Lipschitz no depende de la amplitud máxima de traslación $\sup_x|\tau (x)|$ de la métrica del difeomorfismo (1.1). Por otro lado la continuidad Lipschitz de (1.2) implica que $\Phi$ es invariante por traslaciones globales, pero es mucho más fuerte. $\Phi$ se ve poco afectada por los términos de primer y segundo grado de difeomorfismos que son traslaciones locales.
+
+\medskip
+
+\noindent Las inestabilidades por altas frecuencias de las deformaciones se pueden evitar agrupando las frecuencias en paquetes diádicos en $\mathbb{R}^d$ con transformadas de ondeletas. Sin embargo, una transformada de ondeletas no es invariante por traslaciones. Es posible construir un operador invariante por traslaciones mediante un procedimiento de dispersión a lo largo de múltiples caminos, que preservan la condición de lipschitz de las ondeletas por la acción de difeomorfismos. Un propagador de dispersión se define en primer lugar como una composición organizada de convoluciones de operadores no lineales y no conmutativos, cada uno de los cuales calcula el módulo de la transformada de ondeletas. Esta cascada de convoluciones y módulos también pueden interpretarse como una red neuronal convolucional. Para ondeletas apropiadas, en la sección 2 veremos el principal teorema que demuestra que una ventana de dispersión mantiene la norma: $||\Phi(f)||_{\mathcal{H}}=||f|| \; \forall f \in L^2(\mathbb{R}^d)$ y es Lipschitz-continua por difeomorfismos de clase $C^2$.
+
+\subsection{Notación}
+
+\begin{itemize}
+    \item $|| \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\tau(x)|$
+    \item $||\nabla \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\nabla \tau(x)|$
+    \item $||\mathcal{H} \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\mathcal{H} \tau(x)|$ dónde $|\mathcal{H} \tau(x)|$ es la norma del tensor Hessiano. 
+    \item El producto interno de $(x,y) \in \mathbb{R}^{2d}$ es $x\cdot y$.
+    \item La norma de $f$ en un espacio de Hilbert se denota por $||f||$.
+    \item La norma de $f$ en $L^2(\mathbb{R}^d)$ se denota por $||f||^2=\int{|f(x)|^2 dx}$.
+    \item La norma de $f$ en $L^1(\mathbb{R}^d)$ es $||f||_1=\int{|f(x)| dx}$.
+    \item La transformada de Fourier se denota por $\widehat{f}(\omega):= \int{f(x)e^{-ix\omega}d\omega}$.
+    \item Un operador  $\mathcal{R}$ parametrizado por $p$ es denotado por $\mathcal{R}[p]$ y $\mathcal{R}[\Omega]=\lbrace \mathcal{R}[p] \rbrace_{p \in \Omega}$. 
+    \item La norma del supremo de un operador lineal $A$ en $L^2(\mathbb{R}^d)$ lo denotamos por $||A||$ y el conmutador entre dos operadores $[A,B]=AB-BA$.
+\end{itemize}
+
+\section{Modelización Matemática de una Red Neuronal Convolucional} \label{ch:seccion12}
+
+\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{Red Neuronal Convolucional}, para ello vamos a comenzar explicando la problemática de las inestabilidades en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos y de la importancia de elegir un operador que las evite, en concreto usaremos el ejemplo de la transformada de Fourier para comprobar este hecho. 
+
+\medskip
+
+\noindent Tras esto  veremos posibles alternativas para evitar que se produzcan estas inestabilidades, mediante el uso de bases de ondeletas o la transformada de ondeletas de \textbf{Littlewood-Paley}. En concreto con esta segunda alternativa obtendremos un operador que es \textbf{Lipschitz-continuo} bajo la acción de difeomorfismos. 
+
+\medskip
+
+\noindent Después, nuestra tarea será conseguir calcular coeficientes que sean invariantes por traslaciones, y para ello veremos que la solución será aplicar el operador módulo al que habíamos obtenido anteriormente con la transformada de Littlewood-Paley. 
+
+\medskip
+
+\noindent Una vez tengamos un operador con todas las propiedades anteriores definiremos lo que denominaremos como \textbf{propagador de dispersión}, que será la aplicación en cadena de los operadores anteriores sobre un "camino" de frecuencias y rotaciones y que supondrá la modelización matemática de una  red neuronal convolucional debido a las grandes similitudes que tendrá su comportamiento con el comportamiento clásico de una Red Neuronal Convolucional.
+
+
+
+\subsection{De Fourier a las ondeletas de Littlewood-Paley}
+
+\noindent El análisis de Fourier juega un papel fundamental en el procesamiento de señales \cite{DigitalImageProcessing} y puesto que las imágenes se procesan como señales, vamos a poner de manifiesto la importancia del análisis de Fourier y en concreto de su transformada en el tratamiento clásico de imágenes, así como sus inconvenientes y alternativas actuales.
+
+\medskip
+
+\noindent La \textbf{transformada de Fourier} es una de las herramientas matemáticas más potente en el tratamiento de señales. La intuición detrás de su fórmula es la de representar funciones no periódicas (pero que tienen área bajo la curva finita) como la integral de senos y cosenos multiplicados por una función que determina los pesos en cada instante. Formalmente tiene la siguiente expresión:
+
+$$\widehat{f}(\omega):= \int{f(x)e^{-ix\omega}d\omega}=\int{f(x)\left[\cos{x\omega} -i\sin{x\omega}\right]d\omega}$$.
+
+\noindent Entre las propiedades más destacables de la transformada encontramos el hecho de que una función se puede recuperar sin pérdida de información a partir de su transformada de Fourier, lo cual nos permite poder trabajar en el \entrecomillado{Dominio de Fourier} (también llamado \entrecomillado{Dominio de Frecuencia}) ya que al calcular la integral, la función resultante sólo depende de $t$ que es la frecuencia. También nos permite pasar de nuevo al dominio original de la función, aplicando la inversa de la transformada, e interpretar los resultados obtenidos.
+
+\noindent Normalmente, en el estudio de señales se suele emplear el módulo de la transformada de Fourirer para evitar fases complejas en el análisis, de esta forma: 
+
+\begin{definicion}
+Sea $\Phi(f)=|\widehat{f}|$ el módulo de la transformada de Fourier. 
+\end{definicion}
+
+\noindent Vamos a comprobar si se trata de un operador válido para nuestro propósito de construir un propagador de dispersión. Para ello necesitamos en primer lugar que sea un operador \textbf{Invariante por traslaciones}, algo esencial en el procesamiento de imágenes y concretamente en tareas de clasificación y detección. 
+
+\begin{figure} [!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/translation_invariance.png}
+    \caption{Las tres estatuas deben identificarse como iguales, aunque se ecuentren desplazadas.}
+    \label{fig:invarianza_traslaciones}
+\end{figure}
+
+\medskip
+
+\begin{lema}
+    El operador $\Phi(f)=|\widehat{f}|$ es invariante por traslaciones.
+\end{lema}
+
+\begin{proof}
+    \noindent Para ello tenemos que ver que si definimos para cada $c \in \mathbb{R}^d$, la traslación $L_cf(x)=f(x-c)$ se tiene que :  
+    
+    $$\widehat{L_cf}(w)=\int_{\mathbb{R}^d}{L_cf(x) e^{-ixw} dx}=\int_{\mathbb{R}^d}{f(x-c)e^{-ixw}dx}$$
+    
+    \noindent Y realizando el cambio de variable $x-c=y$ se tendría que: 
+    
+    \begin{align*}
+        \int_{\mathbb{R}^d}{f(x-c)e^{-ixw}dx} &= \int_{\mathbb{R}^d}{f(y)e^{-i(y+c)w}dy}= \\      &=\int_{\mathbb{R}^d}{f(y)e^{-iyw}e^{-icw}dy}= \\ &=\int_{\mathbb{R}^d}=e^{-icw}\int_{\mathbb{R}^d}{f(y)e^{-iyw}dy}=e^{-icw}\widehat{f}(w)
+    \end{align*}
+    
+    \noindent Por lo que se tiene que $|\widehat{L_cf}(w)|=|e^{-icw}| |\widehat{f}(w)|=|\widehat{f}(w)|$ y entonces $\Phi(f)=|\widehat{f}|$ es invariante a traslaciones. \qedhere
+\end{proof}
+
+\medskip
+    
+\noindent Sin embargo, la invaianza por traslaciones no es suficiente y necesitamos que sea invariante también a pequeñas deformaciones llamadas difeomorfismos. Este hecho es de vital importancia en el contexto del procesamiento de imágenes, ya que en tareas como clasificación o segmentación resulta de vital importancia el reconocer objetos o clasificarlos incluso en imágenes que están en baja resolución o deformadas (afectadas por un difeomorfismo), por lo tanto definimos en primer lugar el concepto de difeomorfismo: 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{img/Diffeomorphism.png}
+    \caption{Acción de un difeomorfismo en una rejilla.}
+    \label{fig:difeomorfismo}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/5_deformado.png}
+    \caption{Pequeñas deformaciones del número 5 que deberían ser todas identificadas como similares.}
+    \label{fig:deformaciones_5}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/1_excesivamente_deformado.png}
+    \caption{Deformación excesiva que permite confundir el 1 con el 2 cuando se le aplica el difeomorfismo.}
+    \label{fig:deformaciones_1}
+\end{figure}
+
+\begin{definicion}
+    Una función diferenciable $f: X \rightarrow \Omega$ dónde $X$ y $\Omega$ son variedades, es un \entrecomillado{Difeomorfismo} si $f$ es una biyección y su inversa $f^{-1}:\Omega \rightarrow X$ es también diferenciable. 
+\end{definicion}
+
+\noindent Por otro lado:
+
+\begin{definicion}
+    La topología débil de los difeomorfismos de $C^2$ define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subconjunto compacto $\Omega \in  \mathbb{R}^d$ mediante: 
+    
+    $$d_\Omega(\mathbb{1},\mathbb{1}-\tau) = \sup_{x \in \Omega} |\tau (x)| + \sup_{x \in \Omega} |\nabla \tau (x)| + \sup_{x \in \Omega}|H \tau (x)|$$
+\end{definicion}
+
+\noindent Dónde $|\tau(x)|$ es la norma euclídea en $\mathbb{R}^d$, $|\nabla \tau (x)|$ el supremo de la matriz $\nabla \tau (x)$ y $|H \tau (x)|$ el supremo de la norma del tensor Hessiano. Además se define $||\tau||_{\infty}\coloneqq \sup_{x\in\mathbb{R}^d} |\tau|$.
+
+
+De esta forma, un operador $\Phi(f)$ diremos que es estable frente a deformaciones si su norma euclídea $\left|\left| \Phi(f) - \Phi(L_\tau \right| \right|$ (con $L_{\tau} f(x)=f(x-\tau(x))$ definiendo la acción del difeomorfismo $\mathbb{1}-\tau$ en $f$) es \entrecomillado{pequeña} cuando la deformación se mide por $d_\Omega(\mathbb{1},\mathbb{1}-\tau)$. En otras palabras, la estabilidad se da cuando se verifica lo siguiente: 
+
+\begin{definicion}
+    Un Operador $\Phi$ invariante por traslaciones  se dice \entrecomillado{Lipschitz-continuo} bajo la acción de difeomorfismos de $C^2$ si para cualquier compacto $\Omega \in \mathbb{R}^d$ existe una constante $c\in \mathbb{R}^d$ tal que para todo $f\in L^2(\mathbb{R}^d)$ con soporte en $\Omega$ y $\tau \in C^2(\mathbb{R}^d)$ se tiene
+    
+    $$\left|\left| \Phi(f) - \Phi(L_\tau \right| \right| \leq c ||f|| (||\nabla \tau ||_{\infty} + ||H\tau||_\infty)$$
+    
+    con  $|| \nabla \tau ||_\infty + ||H \tau ||_\infty < 1$ para asegurarnos de que la deformación sea invertible \cite{doi:10.1137/S0036141002404838}.
+\end{definicion}
+
+\noindent Como podemos comprobar, la cota superior no depende de $||\tau(x)||_\infty$ ya que hemos supuesto que $\Phi$ es invariante por traslaciones. 
+
+\noindent Sin embargo, el operador que estábamos empleando hasta ahora (el módulo de la Transformada de Fourier) no es invariante frente a pequeños difeomorfismos, como podemos ver a continuación:
+
+\begin{lema}
+El módulo de la Transformada de Fourier no es estable frente a pequeñas deformaciones y no es \entrecomillado{Lipschitz-continuo}.
+\end{lema}
+
+\begin{proof}
+\noindent Vamos a considerar la función $\tau(x)\coloneqq \epsilon x$ con $0 < \epsilon << 1$. De esta forma $||\nabla \tau (x) ||_\infty = \epsilon$ y $||H\tau(x)||_\infty=0$ con esto, la condición de Lipschitz debería ser
+
+$$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c ||f|| (||\nabla \tau ||_{\infty} + ||H\tau||_\infty) \leq c ||f|| \epsilon$$
+
+\noindent Si suponemos que $f(x)=e^{i\xi x} \Theta(x)$ el escalado por medio de $\tau$ produce que la frecuencia $\xi$ se traslade de $\xi$ a $(1-\epsilon)\xi$, si suponemos que $\Theta$ además es regular con decrecimiento rápido, se tiene que:
+
+$$(2.1) \; \; || |\widehat{L_\tau f}|-|\widehat{f}| || \sim |s| |\xi| ||\Theta|| = ||\nabla \tau||_\infty |\xi| ||f||.$$
+
+\noindent Y como $|\xi|$ puede ser arbitrariamente grande, $\Phi(f)=|\widehat{f}|$ no satisface la continuidad de Lipschitz cuando se alcanzan altas frecuencias.
+\end{proof}
+    
+\medskip
+
+\noindent No obstante, este desplazamiento de frecuencia de $\xi$ a $(1-s)\xi$ tiene un impacto menor si las ondas sinusoidales de la transformada de Fourier son reemplazadas por funciones localizadas con un soporte mayor en altas frecuencias. Esto se consigue empleando ondeletas. Esto puede consultarse en el libro \cite{MallatWavelets}. A menudo, la discretización de señales tiene un tamaño muy grande ( superior a $10^6$) y sólo pueden procesarse por medio de algoritmos rápidos, idealmente $O(N logN)$ en tiempo y memoria. El análisis de Fourier y las ondeletas ilustran la fuerte conexión entre los algoritmos rápidos y las herramientas matemáticas.
+
+\medskip
+
+\noindent Las ondeletas están bien localizadas y se necesitan pocos coeficientes para representar estructuras transitorias locales. Al contrario que las bases de Fourier, las bases de ondeletas definen  representaciones dispersas de señales regulares a trozos, que podrían incluir transiciones y singularidades. En las imágenes, los mayores coeficientes de las ondeletas se localizan en el entorno de las esquinas y en las texturas irregulares.
+
+\medskip
+
+\noindent Podemos revisar por ejemplo la función que creó Haar en 1910: 
+
+$$ \psi(t)= \begin{cases} 
+      1 & 0\leq t < 1/2 \\
+      -1 & 1/2\leq t < 1 \\
+      0 & \; en \; otro \; caso
+   \end{cases}$$
+
+\noindent Que generan la siguiente base ortonormal
+
+\medskip
+
+$$\left \lbrace \psi_{j,n}(t)= \frac{1}{\sqrt{2^j}} \psi\left(\frac{t-2^jn}{2^j}\right) \right\rbrace_{(j,n) \in \mathbb{Z}^2}$$
+
+\noindent del espacio $L^2(\mathbb{R})$ de señales con energía finita: 
+
+$$||f||^2=\int_{-\infty}^{+\infty} |f(t)|^2 dt < +\infty$$
+
+\noindent Así, cualquier señal $f$ de energía finita puede ser representada por los coeficientes que se obtienen mediante el producto interno en $L^2(\mathbb{R})$ con la base anterior: 
+
+$$\langle f,\psi_{j,n} \rangle =\int_{-\infty}^{+\infty} f(t) \psi_{j,n} (t) dt  $$
+
+\noindent y puede recuperarse sumando en su base ortonormal:
+
+$$f=\sum_{j=-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}  \langle f,\psi_{j,n} \rangle \psi_{j,n} $$
+
+\noindent Además, se verifica que cada ondeleta $\psi_{j,n}$ tiene media $0$ en su soporte $[2^jn, 2^j(n+1)]$. Por otro lado, si $f$ es localmente regular y $2^j$ es pequeño, entonces es casi constante en su intervalo y su coeficiente de ondeleta $\langle f,\psi_{j,n} \rangle$ es casi cero. Lo que significa que los coeficientes grandes de ondeletas están únicamente en los cambios bruscos de señal.
+
+\medskip
+
+\noindent Para el caso concreto de imágenes (ver por ejemplo sección 1.1 de \cite{MallatWavelets}), las bases de ondeletas ortonormales pueden construirse a partir de bases ortonormales en señales de una dimensión. Así, a partir de tres ondeletas $\psi^1(x)$, $\psi^2(x)$ y$\psi^3(x)$ con $x=(x_1,x_2)\in \mathbb{R}^2$, dilatadas por el factor $2^j$ y trasladadas por $2^jn$ con $n=(n1,n2)\in \mathbb{Z}^2$, se construye una base ortonormal para el espacio $L^2(\mathbb{R}^2)$ de funciones de energía finita: 
+$$\lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{2^j}\right) \rbrace_{(j,n) \in \mathbb{Z}^2}$$
+
+\medskip
+
+\noindent El soporte de la ondeleta $\psi_{j,n}^k(x)$ es un cuadrado proporcional a la escala $2^j$. Las bases de ondeletas en dos dimensiones se discretizan para definir bases ortonormales de imágenes de N píxeles. Los coeficientes se calculan rápidamente, en un tiempo $O(N)$.
+
+\noindent Del mismo modo que en una dimensión, los coeficientes de ondeletas $\langle f,\psi_{j,n}^k \rangle$ serán pequeños si $f(x)$ es regular, y serán grandes cerca de los cambios bruscos de frecuencias como en los bordes o esquinas de las imágenes.
+
+\medskip 
+
+\noindent La transformada de ondeletas por lo tanto, permite que el deslpacamiento de $\xi$ a $(1-s)\xi$ tenga un menor impacto en las ondas sinusoidales en las altas frecuencias.
+
+\medskip 
+
+\noindent Volviendo al caso que nos ocupaba del módulo de la transformada de Fourier. Una transformada de dispersión se calcula con ondeletas del tipo:
+
+$$\psi(x)=e^{i\cdot \eta \cdot  x} \Theta(x)$$
+
+\noindent Donde $\widehat{\Theta}(x)$ es una función real centrada en una bola de baja frecuencia en $x=0$, cuyo radio es del orden de $\pi$.
+
+\medskip
+
+\noindent Y como podemos ver:
+
+$$(2.2) \;\;\; \widehat{\psi}(\omega)=\int_{\mathbb{R}^d}e^{i\cdot \eta \cdot  x} \Theta(x) e^{-i\omega x} dx=\int_{\mathbb{R}^d}\Theta(x) e^{ix(\omega-\eta)} dx=\widehat{\Theta}(\omega-\eta).$$
+
+\medskip
+
+\noindent Por lo tanto, $\widehat{\psi}(\omega)$ es real y centrada en una bola de mismo radio pero centrada en $\omega=\eta$. Tras la dialtación y rotación, $\widehat{\psi}_\lambda(\omega)= \widehat{\Theta} (\lambda^{-1}\omega-\eta)$, donde $\lambda=2^jr \in 2^{\mathbb{Z}}\times G$, siendo $G$ el grupo finito de rotaciones. Por lo tanto $\widehat{\psi}_\lambda(\omega)$ recubre una bola centrada en $\lambda\eta$ con radio proporcional a $|\lambda|=2^j$. El índice $\lambda$ especifica la localización de la frecuencia y la dispersión de la transformada $\widehat{\psi}_\lambda$.
+ 
+\medskip 
+
+\noindent En contraposición a las bases de ondeletas, la Transformada de ondeleta de Littlewood-Paley es una representacion redundante que calcula convoluciones para todo $x \in \mathbb{R}^d$ sin realizar sub-muestreo: 
+
+$$(2.4) \; \; \forall x \in  \mathbb{R}^d \;\; W[\lambda]f(x)= f \ast \psi_\lambda(x)=\int f(u)\psi_\lambda(x-u) du .$$
+
+\noindent Su transformada de Fourier es: 
+
+$$\widehat{W[\lambda]f(\omega)}=\widehat{f}(\omega)\widehat{\psi_\lambda}(\omega)=\widehat{\psi_\lambda}(\lambda^{-1}\omega).$$
+
+\noindent Si la función $f$ es real, entonces $\widehat{f}(-\omega)=\widehat{f}^{\ast}(\omega)$, y si $\widehat{\psi}(\omega)$ es real entonces $W[-\lambda]f=W[\lambda]f^{\ast}$. Si denotamos por $G^{+}$ al cociente de G con $\lbrace-\mathbb{1},\mathbb{1}\rbrace$, conjunto en el cual las dos rotaciones $r$ y $-r$ son equivalentes, sería suficiente calcular $W[2^jr]f$ para las rotaciones "positivas" de $G^{+}$. Si la función $f$ es compleja, entonces $W[2^jr]f$ tendría que calcularse para todo $r \in G$. 
+
+\medskip
+ 
+\noindent Una transformada de ondeleta a escala $2^J$ sólo mantiene las ondeletas de frecuencias $2^j>2^{-J}$.
+\noindent Las bajas frecuencias que no son cubiertas por estas ondeletas vienen dadas por un promedio en el dominio proporcional a $2^J$:
+
+$$(2.5) \; \; A_Jf=f \ast \phi_ {2^J} \; \; con \; \phi_ {2^J}(x)=2^{-dJ} \phi(2^{-J}x). $$
+\medskip
+ 
+\noindent Si f es real, entonces la transformada de ondeleta $W_Jf=\lbrace A_Jf,(W[\lambda]f)_{\lambda \in \Lambda_J} \rbrace$ se indexa por $\Lambda_J=\lbrace \lambda=2^jr:\;r\in G^{+}, \; 2^j>2^{-J}\rbrace$. Su norma sería: 
+
+$$(2.6) \; \; ||W_Jf||^2=||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2.$$
+
+\medskip
+ 
+\noindent Si $J=\infty$ entonces $W_\infty f=\lbrace W[\lambda]f\rbrace_{\lambda \in \Lambda_\infty}$ con $\Lambda_\infty=2^\mathbb{Z} \times G^{+}$. Su norma es $||W_\infty f||^2=\sum_{\lambda \in \Lambda_\infty} ||W[\lambda]f||^2$.
+
+\noindent En el caso en que $f$ sea compleja, se incluyen todas las rotaciones definiendo $W_Jf=\lbrace A_J f,(W[\lambda]f)_{-\lambda,\lambda \in \Lambda_J} \rbrace$ y $W_\infty f=\lbrace W[\lambda]f\rbrace_{-\lambda,\lambda \in \Lambda_\infty}$. 
+
+\medskip
+
+\noindent La siguiente proposición da una condición estándar de Littlewood-Paley para que $W_J$ sea unitario.
+
+\begin{proposicion} \label{unitario}
+ Para cualquier $J \in \mathbb{Z}$ o $J=\infty$, $W_J$ es unitario en el espacio de funciones reales o complejas de $L^2(\mathbb{R}^d)$ si y sólo si para casi todo $\omega \in \mathbb{R}^d$: 
+ 
+     \begin{align*}
+        (2.7) \; \; \beta \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2=1 & \; \; y
+        \;\;|\widehat{\phi}(\omega)|^2= \beta \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2,
+    \end{align*}
+ Dónde $\beta=1$ para funciones complejas y $\beta=\frac{1}{2}$ para funciones reales.
+\end{proposicion}
+
+\begin{proof}
+\noindent Si $f$ es una función compleja, $\beta=1$, y vamos a demostrar que (2.7) es equivalente a : 
+
+$$(2.8) \; \; \forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=1. $$
+
+\noindent Para ello partimos de que si $\beta=1$ se tiene sustituyendo en (2.7) que: 
+     \begin{align*}
+        \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2=1 & \; \; y
+        \;\;|\widehat{\phi}(\omega)|^2= \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2.
+    \end{align*}
+
+\noindent Si ahora sumamos $\sum_{j=0}^{\infty} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2$ en el segundo término obtenemos: 
+
+$$|\widehat{\phi}(\omega)|^2 + \sum_{j=0}^{\infty} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2=1.$$
+
+\noindent Por otro lado si vamos a la expresión a la que queremos llegar se tiene que: 
+
+$$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=1 \iff \forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2=\sum_{j=-\infty}^{-J} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2.$$
+
+\noindent Con lo que si demostramos esto último tendríamos que (2.7) y (2.8) son equivalentes para el caso $\beta=1$. 
+
+
+     \begin{align*}
+        \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 & =\sum_{j=-\infty}^{0} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}2^J\omega)|^2 \\
+        & = \sum_{j=-\infty}^{0} \sum_{r\in G} |\widehat{\psi}(2^{J-j}r^{-1}\omega)|^2  \\
+        & =\sum_{j=-\infty}^{-J} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2  
+    \end{align*}
+    
+\noindent con lo que queda demostrado que (2.7) y (2.8) son equivalentes. Si ahora tenemos en cuenta que $\widehat{W\left[2^jr\right]f}(\omega)=\widehat{f}(\omega)\widehat{\psi}_{s^jr}(\omega)$, multiplicando (2.8) por $|\widehat{f}(\omega)|^2$ obtenemos: 
+
+$$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 \left|\widehat{f}(\omega)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{f}(\omega)\right|^2\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=\left|\widehat{f}(\omega)\right|^2.$$
+
+\noindent Si ahora integramos en ambos miembros en $\mathbb{R}^d$ obtenemos: 
+
+     \begin{align*}
+        \int_{\mathbb{R}^d}\left(\left|\widehat{\phi}\left(2^J\omega\right)\right|^2 \left|\widehat{f}(\omega)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{f}(\omega)\right|^2\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2 \right) d\omega=\int_{\mathbb{R}^d}\left|\widehat{f}(\omega)\right|^2 d\omega.
+    \end{align*}
+    
+\noindent Recordamos la fórmula de Plancharel en el caso de $\mathbb{R}^d$: 
+
+$$\int_{\mathbb{R}^d} \left|f(x)\right|^2 dx= \int_{\mathbb{R}^d}\left|\widehat{f}(\omega)\right|^2 d\omega.$$
+
+\noindent Si la aplicamos a la expresión anterior se obtiene:
+
+$$\int_{\mathbb{R}^d}\left(\left|\phi\left(2^J\omega\right)\right|^2 \left|f(\omega)\right|^2 + \sum_{j>-J,r\in G}\left|f(\omega)\right|^2\left|\psi\left(2^{-j}r^{-1}\omega\right)\right|^2 \right) d\omega=\int_{\mathbb{R}^d}\left|f(\omega)\right|^2 d\omega.$$
+
+\noindent Si ahora recordamos la expresión (2.6), tenemos que la expresión anterior equivale a:
+
+$$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,$$
+
+\noindent que es válido para todo $J$ y en particular también cuando $J=\infty$.
+
+\medskip
+
+\noindent Recíprocamente, si tenemos que $||W_J f||^2=||f||^2$ entonces (2.8) se verifica para casi todo $\omega$. De no ser así podríamos contruir una función $f$ no nula cuya transformada de fourier $\widehat{f}$ tuviera soporte en el dominio de $\omega$ dónde (2.8) no fuera válido, y en estos casos al aplicar la fórmula de Plancherel se verificaría que $||W_J f||^2 \neq ||f||^2$ contradiciendo la hipótesis. Y como la expresión (2.8) era equivalente a la que nos daba el teorema tenemos demostrado el resultado para el caso en que $f$ sea compleja. 
+
+\medskip
+
+\noindent Si ahora $f$ es real entonces $|\widehat{f}(\omega)|=|\widehat{f}(-\omega)|$ lo que implica que $||W[2^jr]f||=||W[-2^jr]f||$. Por lo que $||W_J f||$ permanece constante si restringimos $r$ a $G^+$ y multiplicando $\psi$ por $\sqrt{2}$ se obtiene la condición (2.7) con $\beta=\frac{1}{2}$. \qedhere
+
+\end{proof}
+
+\medskip
+
+\noindent En todo lo que sigue: 
+
+\begin{itemize}
+    \item $\widehat{\psi}$ es una función real que satisface la condición (2.7). Lo que implica que $\widehat{\psi}(0)=\int \psi(x)dx=0$ y $|\widehat{\phi}(r\omega)|=|\widehat{\phi}(\omega)| \;\; \forall r\in G$.
+    \item $\widehat{\phi}(\omega)$ es real y simétrica y $\phi(rx)=\phi(x) \;\; \forall r \in G$. 
+    \item Suponemos que $\phi$ y $\psi$ son dos veces diferenciables y su decrecimineto así como el de sus derivadas de primer y segundo orden es $O((1+|x|)^{-d-2})$.
+\end{itemize}
+
+\medskip
+
+\noindent Un cambio de variable en la integral de la transformada de ondeleta nos muestra que si $f$ se escala y rota, $2^lg \circ f=f(2^lgx)$ con $2^lg \in 2^{\mathbb{Z}} \times G$, entonces la transformada de ondeleta se escala y rota de acuerdo a: 
+
+$$(2.9) \;\;\; W[\lambda](2^lg\circ f)=2^lg \circ W[2^{-l}g\lambda]f.$$
+
+\medskip
+
+\noindent Como $\phi$ es invariante a traslaciones en $G$, podemos comprobar que $A_J$ conmuta con las rotaciones de $G$: $A_J(g\circ f)=g\circ A_J f \;\; \forall g \in G$.
+
+
+\subsection{Camino de dispersión Ordenado}
+
+\noindent Las convoluciones con ondeletas definen operadores Lipschitz-conitnuos por la acción de difeomorfismos, porque las ondeletas son funciones regulares y localizadas. Sin embargo, la transformada de ondeletas no es invariante a traslaciones y $W[\lambda]f=f\ast\psi_\lambda$ se traslada cuando lo hace $f$. Por eso el mayor reto es conseguir calcular coeficientes que sean invariantes a traslaciones, que permanezcan estables bajo la acción de difeomorfismos y que retengan la información en altas frecuencias que proporcionan las ondeletas. Un operador de dispersión calcula una representación invariante a traslaciones de este tipo. Primero explicaremos como obtener coeficientes invariantes a traslaciones a partir de la transformada de ondeletas mientras que a su vez se mantiene la estabilidad bajo la acción de difeomorfismos. Tras esto definiremos los operadores de dispersión y sus principales propiedades.
+
+\medskip
+
+\noindent De esta forma si $U[\lambda]$ es un operador definido en $L^2(\mathbb{R}^d)$, no necesariamente lineal pero que conmuta con traslaciones, entonces $\int_{\mathbb{R}^d} U[\lambda]f(x)dx$ es invariante a traslaciones si es finito. En nuestro caso $W[\lambda]f=f\ast\psi_\lambda$ conmuta con traslaciones, pero $\int_{\mathbb{R}^d}=0$ porque $\int_{\mathbb{R}^d} \psi(x)dx=0$. De forma más general, uno puede verificar que cualquier transformación lineal de $W[\lambda]f$ que sea invariante a traslaciones tiene que ser necesariamente $0$. Para obtener uno que no sea cero, definimos $U[\lambda]f=M[\lambda]W[\lambda]f$ dónde $M[\lambda]$ es una "demodulación" no lineal que convierte $W[\lambda]f$ en una función de baja frecuencia con integral distinta de cero. La elección de $M[\lambda]$ debe preservar la Lipschitz-continuidad por la acción de difeomorfismos.
+
+\medskip
+
+\noindent Si $\psi(x)=e^{i\eta x}\Theta(x)$, entonces $\psi_\lambda(x)=e^{i\lambda\eta x}\Theta_\lambda(x)$, y por lo tanto 
+
+$$(2.11) \; \; \; W[\lambda]f(x)=e^{i\lambda\eta x}(f^\lambda \ast \Theta_\lambda(x)) \; \; \; con \; f^\lambda(x)=e^{-i\lambda\eta x}f(x).$$
+
+\noindent La convolución $f^\lambda \ast \Theta_\lambda(x)$ es un filtro de bajas frecuencias porque $\widehat{\Theta}_\lambda(\omega)=\widehat{\Theta}(\lambda^{-1} \omega)$ que cubre una bola de frecuencia centrada en $\omega=0$ y de radio proporcional a $|\lambda|$. Por lo tanto se podría obtener un operador invariante por traslaciones si se cancela el término de modilación $e^{-i\lambda\eta x}$ con una función $M[\lambda]$ pertinente. Por ejemplo: 
+
+$$(2.12) \;\;\; M[\lambda]h(x)=e^{-i\lambda\eta x} e^{-i \Phi(\widehat{h}(\lambda\eta))}h(x).$$
+
+\noindent Dónde $\Phi(\widehat{h}(\lambda\eta))$ es la fase compleja de $\widehat{h}(\lambda\eta)$. Este registro de fase no lineal garantiza que $M[\lambda]$ conmuta con las traslaciones. De $(2.11)$ tenemos que $\int_{\mathbb{R}^d}M[\lambda]W[\lambda]f(x)dx=|\widehat{f}(\lambda \eta)||\widehat{\Theta}(0)|$. Esto recupera el módulo de la transformada de Fourier que sabemos que es invariante a traslaciones pero no Lipschitz-continuo (como se vio en $(2.1)$). Por lo tanto no es apropiado para nuestro cometido el operador definido en $(2.12)$. 
+
+\medskip
+
+\noindent La Lipschitz-continuidad bajo la acción de difeomorfismos se preserva si $M[\lambda]$ conmuta con la acción de los difeomorfismos. Para la estabilidad en $L^2(\mathbb{R}^d)$, también necesitamos que $M[\lambda]$ sea no expansiva. Se puede comprobar que entonces $M[\lambda]$ tiene que ser necesariamente un operador punto a punto, lo que significa que $M[\lambda]h(x)$ dependería únicamente del valor de $h$ en el punto $x$. Si además de todo esto imponemos que $||M[\lambda]h||=||h|| \; \; \forall h \in L^2(\mathbb{R}^d)$, que implica entonces que $|M[\lambda]h|=|h|$. Las funciones más regulares se obtienen con $M[\lambda]h=|h|$ que eliminan todas las variaciones de fase. Se obtiene entonces de $(2.11)$ que este módulo transforma $W[\lambda]f$ en una señal de baja frecuencia:
+
+$$M[\lambda]W[\lambda]f=|W[\lambda]f|=|f^\lambda \ast \Theta_\lambda|.$$
+
+
+\noindent Las bajas frecuencias creadas por el módulo resultan de interferencias. Por ejemplo, si $f(x)=\cos(\xi_1 x)+a\cos(\xi_2 x)$ dónde $\xi_1$ y $\xi_2$ están en la banda de frecuencia cubierta por $\widehat{\psi}_\lambda$, entonces $|f \ast \psi_\lambda (x) |=2^{-1} |\widehat{\psi}_\lambda(\xi_1)+a\widehat{\psi}_\lambda(\xi_2)e^{i(\xi_2-\xi_1)x}|$ oscila entre la frecuencia de interferencias $|\xi_2-\xi_1$, que es menor que $|\xi_1|$ y $|\xi_2|$.
+
+\medskip
+
+\noindent Por otro lado, la integración de $\int_{\mathbb{R}^d}U[\lambda]f(x) dx= \int_{\mathbb{R}^d} | f \ast \psi_\lambda(x)|dx$ es invariante por traslaciones pero elimina todas las altas frecuencias de $|f \ast \psi_\lambda(x)|$. Para recuperar dichas altas frecuencias un operador de dispersión también calcula los coeficientes de ondeletas para cada $U[\lambda]f$ que son $\lbrace U[\lambda]f \ast \psi_{\lambda'}\rbrace_{\lambda'}$. De nuevo, los coeficientes invariantes a traslaciones se obtienen con el módulo $U[\lambda']U[\lambda]f=|U[\lambda]f \ast \psi_{\lambda'}|$ y la integración $\int_{\mathbb{R}^d} U[\lambda']U[\lambda]f(x) dx$. Si ahora $f(x)=\cos(\xi_1 x)+a\cos(\xi_2 x)$ con $a<1$ y si $|\xi_2-\xi_1| << |\lambda|$ con $|\xi_2 - \xi_1|$ en el soporte de $\widehat{\psi}_{\lambda'}$, entonces $U[\lambda']U[\lambda]f$ es proporcional a $a\cdot |\psi_\lambda(\xi_1)|\cdot |\psi_{\lambda'}(|\xi_2-\xi_1|)|$. La segunda ondeleta $\widehat{\psi}_{\lambda'}$ captura las interferencias creadas por el módulo, entre la frecuencia de las componentes de f y el soporte de $\widehat{\psi_\lambda}$.
+
+\medskip
+
+\noindent A continuación introducimos el porpagador de dispersión que extiende estas descomposiciones.
+
+\medskip
+
+\begin{definicion}
+Una secuencia ordenada $p=(\lambda_1,\lambda_2, ... , \lambda_m)$ con $\lambda_k \in \Lambda_\infty=2^{\mathbb{Z}} \times G^{+} $ se denomina \textbf{camino}. Al camino vacío se le denota por $p=\emptyset$. 
+\end{definicion}
+
+
+\begin{definicion}
+Si definimos $U[\lambda]f=M[\lambda]W[\lambda]f=|f \ast \psi_\lambda|=\left | \int_{\mathbb{R}^d} f(u)\psi_\lambda(x-u) du \right|$ para $f \in L^2(\mathbb{R}^d)$, un propagador de dispersión sería un producto ordenado según un camino de operadores no conmutativos definido por:
+
+$$(2.13) \;\;\; U[p]f=U[\lambda_m]...U[\lambda_2]U[\lambda_1],$$
+
+con $U[\emptyset]=Id$
+\end{definicion}
+
+\medskip
+
+\noindent El operador $U[p]$ está bien definido en $L^2(\mathbb{R}^d)$ porque $\left|\left| U[\lambda]f \right|\right| \leq ||\psi_\lambda||_1 ||f||$ para todo $\lambda \in \Lambda_\infty$. El propagador de dispersión es por tanto una cascada de convoluciones y módulos: 
+
+$$(2.14) \;\;\; \left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | ... | \ast \psi_{\lambda_m} \right|$$
+
+\medskip
+
+\noindent Cada $U[\lambda]$ filtra la frecuencia del componente en la banda cubierta por $\widehat{\psi}_\lambda$ y lo mapea en un espacio de baja frecuencia con el módulo.
+
+\begin{definicion}
+Escribimos la rotación y reescalo de un camino $p$ mediante $2^lg \in 2^\mathbb{Z}\times G$ como $2^lgp=(2^lg\lambda_1,2^lg\lambda_2,...,2^lg\lambda_m)$.
+\end{definicion}
+
+\begin{definicion}
+Por otro lado la concatenación de dos caminos $p$ y $p'$ se denota por $p+p'=(\lambda_1,\lambda_2,...,\lambda_m,\lambda_1',\lambda_2',...,\lambda_{m'}')$. 
+
+En el caso particular de $p+\lambda=(\lambda_1,\lambda_2,...,\lambda_m,\lambda)$
+\end{definicion}
+
+\begin{proposicion} \label{proposicionSumaCaminos}
+Sean $p, p'$ dos caminos, se tiene que :
+$$U[p+p']=U[p']U[p]$$
+\end{proposicion}
+
+\begin{proof}
+Como $p+p'=(\lambda_1,\lambda_2,...,\lambda_m,\lambda_1',\lambda_2',...,\lambda_{m'}')$ entonces siguiendo la definición de $U[p]$ se tiene que: 
+$$U[p+p']=U[\lambda'_{m'}]...U[\lambda'_2]U[\lambda'_1]U[\lambda_{m}]...U[\lambda_2]U[\lambda_1]=U[p']U[p]$$ \qedhere
+\end{proof}
+
+\medskip
+
+%\noindent En la \autoref{ch:seccion12} veíamos que si $f$ era compleja, entonces su transformada de ondeletas era $ W_\inf=\lbrace W[\lambda]f \rbrace_{\lambda , -\lambda  \in \Lambda_{\infty} }$, mientras que si $f$ era real entonces $W_\inf=\lbrace W[\lambda]f\rbrace_{\lambda\in \Lambda_\infty}$. Sin embargo, en este caso si $f$ es compleja, tras la iteración $U[\lambda_1]f=\left|W[\lambda_1]f\right|$ sería real, luego para las siguientes transfomadas de ondeletas sólo haría falta calcularlas para $\lambda_k \in \Lambda_\infty$. Por lo tanto para los propagadores de dispersión de funciones complejas se definen sobre caminos "positivos" $p=(\lambda_1,\lambda_2, ... , \lambda_m)$ y caminos "negativos" $-p=(-\lambda_1,\lambda_2, ... , \lambda_m)$ .Sin embargo para simplificar cálculos, todos los resultados siguientes se haran sobre propagaores de dispersión aplicados a funciones reales, aunque serán aplicables a funciones complejas incluyendo caminos negativos.
+
+\begin{definicion}
+Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
+
+$$(2.16) \; \; \; \overline{S}f(p)=\frac{1}{\mu_p} \int_{\mathbb{R}^d}U[p]f(x)dx \; \; con \; \; \mu_p=\int_{\mathbb{R}^d} U[p] \delta(x)dx .$$
+\end{definicion}
+
+\medskip
+
+\noindent Un propagador de dispersión es un operador invariante por traslaciones que transforma $f \in L^1(\mathbb{R}^d)$ en una función en el camino de frecuencias variable $p$. Esta defnición no vamos a estudiarla en profundidad, pero podemos apreciar que guarda similitudes con el módulo de la transformada de Fourier dónde $p$ jugaría el papel de la frecuencia variable. Sin embargo, al contrario que el módulo de la transformada de Fourier, la transformada de dispersión $\overline{S}f$ es estable bajo la acción de difeomorfismos porque se calcula iterando en transformadas de ondeletas y módulos, que son estables. 
+
+\medskip
+
+\noindent Por otro lado, tiene las mismas propiedades de rotación y escalado que la transformada de Fourier. Tengo que desarrollar mejor esta parte porque el propagador de dispersión que usaremos de ahora en adelante es una extensión de este.
+
+
+\medskip
+
+\noindent Rotando $f$ el propagador rota idénticamente, sin embargo si $f$ se ve afectado por un factor de escala $2^l$, entonces la frecuencia de los caminos $p$ se escalan por $2^{-l}$.La extensión de estas transformadas de dispersión a $L^2(\mathbb{R}^d)$ se obtienen como el límite de las ventanas de estas transformadas de dispersión que ahora introducimos:
+
+\begin{definicion}
+Sea $J \in \mathbb{Z}$ y $\mathcal{P}_J$ el conjunto de caminos finitos $p=(\lambda_1,\lambda_2,...,\lambda_m)$ con $\lambda_k \in \Lambda_J$ y $|\lambda_k|=2^{jk}>2^{-J}$. Una ventana de transformada de dispersión se define para todo $p \in \mathcal{P}_J$ por
+
+$$(2.20) \;\;\; S_J[p]f(x)=U[p]f \ast \phi_{2^J}(x)=\int_{\mathbb{R}^d}U[p]f(u)\phi_{2^J}(x-u)du.$$
+\end{definicion}
+
+\medskip
+
+\noindent La convolución con $\phi_{2^J}(x)=2^{-dJ}\phi(2^{-J}x)$ centra la transformada de dispersión en el dominio espacial proporcional a $2^J$: 
+
+$$(2.20) \;\;\; S_J[p]f(x)=\left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | ... | \ast \psi_{\lambda_m} \right| \ast \phi_{2^J}(x).$$
+
+\noindent Define una familia infinita de funciones indexadas por $\mathcal{P}_J$, denotada por
+
+$$S_J[\mathcal{P}_J]]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
+
+\noindent Como decíamos antes, para funciones complejas, en $\mathcal{P}_J$ incluimos los caminos negativos, y si $f$ es real $S_J[-p]=S_J[p]f$.
+\noindent En la \autoref{ch:seccion13} se comprueba que para ondeletas apropiadas, $||f||^2=\sum_{p\in\mathcal{P}_J}\left|\left|S_J[p]f\right|\right|^2$. 
+
+\medskip
+
+\noindent Sin embargo, la energía de señal está mayormente concentrada en un conjunto mucho más pequeño de caminos de frecuencias descendentes $p=(\lambda_k)_{k\leq m}$ en el cual $|\lambda_{k+1}| \leq |\lambda_k|$. De hecho, el propagador $U[\lambda]$ progresivamente empuja la energía a través de las frecuencias bajas. El principal teorema de la sección 2.5 demostrará que un propagador de dispersión en ventanas es Lipschitz-continuo por la a acción de difeomorfismos. 
+
+\noindent Del hecho de que $\phi(x)$ es continua en 0, si $f\in L^1 (\mathbb{R}^d)$ se tiene que su transformada de dispersión de ventana converge punto a punto a la transformada de dispersión cuando $2^J$ tiende a $\infty$: 
+
+
+\begin{align*}
+    (2.21) \;\;\; \forall x \in \mathbb{R}^d \;\; \lim_{J \rightarrow \infty} 2^{dJ} S_J[p]f(x) &=\phi(0)\int_{\mathbb{R}^d}U[p]f(u) du \\
+    &= \phi(0)\mu_p\overline{S}(p).\\ 
+\end{align*}
+
+\subsection{Propagador de dispersión y conservación de la Norma} \label{ch:seccion13}
+
+\noindent Hasta ahora hemos probado que el propagador por ventanas $S_J$ es no-expansivo y que preserva la norma de $L^2(\mathbb{R}^d)$. A partir de ahora denotamos por $S_J[\Omega] \coloneqq \lbrace S_J[p] \rbrace_{p\in\Omega}$ y $U[\Omega]\coloneqq \lbrace U[p] \rbrace_{p\in\Omega}$ a la familia de operadores indexados por el conjunto de caminos $\Omega$.
+
+\medskip
+
+\noindent Un dispersor de ventanas puede calcularse iterando en el propagador de un paso definido por: 
+
+$$U_Jf=\lbrace A_Jf, (U[\lambda]f)_{\lambda\in\Lambda_J} \rbrace,$$
+
+Con $A_J=f\ast \phi_{2^J}$ y $U[\lambda]f=\left| f\ast \psi_\lambda \right|$. Tras calcular $U_Jf$, aplicando de nuevo $U_J$ a cada $U[\lambda]f$ se genera una familia infinita aún más grande de funciones. La descomposición se continúa iterando  por recursividad aplicando $U_J$ a cada $U[p]f$. Si recordamos la \autoref{proposicionSumaCaminos}, $U[\lambda]U[p]=U[p+\lambda]$, y $A_JU[p]=S_J[p]$, esto da lugar a : 
+
+$$(2.22) \;\;\; U_JU[p]=\lbrace S_J[p]f,(U[p+\lambda]f)_{\lambda\in\Lambda_J}\rbrace.$$
+
+\medskip
+
+\noindent Sea $\Lambda_J^m$ el conjunto de caminos de longitud $m$ con $\Lambda_J^0={\emptyset}$. Se propaga en: 
+
+$$(2.23) \;\;\; U_J U[\Lambda_J^m]=\lbrace S_J[\Lambda_J^m]f,(U[\Lambda_J^{m+1}]f)_{\lambda\in\Lambda_J}\rbrace.$$
+
+\noindent Del hecho de que $\mathcal{P}_J=\cup_{m\in \mathbb{N}}\Lambda_J^m$, uno puede calcular $S_J[\mathcal{P}_J]f$ a partir de $f=U[\emptyset]f$ iterativamente calculando $U_J U[\Lambda_J^m]f$ para $m$ tendiendo a $\infty$. 
+
+Las operaciones del propagador de dispersión siguen la estructura general de la red neuronal convolucional introducida por LeCun. Las redes convolucionales son una cascada de convoluciones y capas de "pooling" que usan funciones no lineales, las cuales se representan en este modelo como módulos de números complejos. Las redes neuronales convolucionales usan normalmente Kernels que no son predefinidos, sino que se aprenden mediante la técnica de back-propagation al entrenar la red, a diferencia de las ondeletas que usamos en este modelo. Estas redes han sido empleadas con mucho éxito en tareas de reconocimiento de objetos o personas.
+
+\noindent El propagador $U_Jf=\lbrace A_Jf, \left(\left| W[\lambda]f\right|\right)_{\lambda\in\Lambda_J} \rbrace$ es no expansivo, porque la transformada de ondas $W_J$ es unitaria pues cumple las hipótesis de la \autoref{unitario} y el módulo no es expansivo en el sentido de que $||a|-|b||\leq |a-b|$ para cualquier $(a,b)\in \mathbb{C}^2$. Esto es válido tanto si $f$ es real o compleja. Como consecuencia: 
+
+\begin{align*} 
+    ||U_J f-U_J h||^2 &= ||A_J f-A_J h||^2+\sum_{\lambda\in\Lambda_J} \left| \left| |W[\lambda]f|-|W[\lambda]h| \right| \right|^2 \\
+    &\leq \left| \left| W_J f- W_J h \right| \right|^2 \leq ||f-h||^2 \;\;\; (2.24)
+\end{align*}
+
+\noindent Del hecho de que $W_J$ es unitaria, poniendo $h=0$ también se comprueba que $||U_j f||=||f||$ por lo que el operador $U_J$ preserva la norma.
+
+\medskip
+
+\noindent Para todo conjunto de caminos $\Omega$, las normas de $S_J[\Omega]f$ y $U[\Omega]f$ son: 
+
+$$\left|\left| S_J[\Omega]f \right|\right|^2=\sum_{p\in\Omega} \;\; y \;\; \left|\left|U[\Omega]f\right|\right|^2=\sum_{p\in\Omega} \left|\left| U[p]f\right|\right|^2$$
+
+\noindent Como $s_J[\mathcal{P}_J]$ itera en $U_J$, que es no expansivo, la siguiente proposición prueba que $S_J[\Omega]f$ es también no expansivo. 
+
+\begin{proposicion}
+La transformada de dispersión es no expansiva: 
+
+$$(2.25) \;\;\; \forall (f,h)\in L^2(\mathbb{R}^d)^2 \;\; ||S_J[\mathcal{P}_J]f-S_J[\mathcal{P}_J]h|| \leq ||f-h||$$
+\end{proposicion}
+
+\begin{proof}
+Como $U_J$ es no expansiva, partiendo de $(2.23)$ que nos dice: 
+$$U_J U[\Lambda_J^m]=\lbrace S_J[\Lambda_J^m]f,(U[\Lambda_J^{m+1}]f)_{\lambda\in\Lambda_J}\rbrace,$$
+
+se tiene que:
+
+\begin{align*}
+    ||U[\Lambda_J^m]f-U[\Lambda_J^m]h||^2 &\geq ||U_J U[\Lambda_J^m]f-U_J U[\Lambda_J^m]h||^2 \\
+    & = ||S_J[\Lambda_J^m]f - S_J[\Lambda_J^m]h||^2 + ||U[\Lambda_J^{m+1}]f-U[\Lambda_J^{m+1}]h||^2.
+\end{align*}
+
+\medskip
+
+\noindent Si ahora sumamos en $m$ cuando tiende a $\infty$ se obtiene que: 
+
+$$(2.26) ||S_J[\Lambda_J^m]f - S_J[\Lambda_J^m]h||^2=\sum_{m=0}^{\infty} ||S_J[\Lambda_J^m]f - S_J[\Lambda_J^m]h||^2 \leq ||f-h||^2$$ \qedhere
+\end{proof}
+
+En la \autoref{ch:seccion12} se obtuvo que cada $U[\lambda]f=|f \ast \psi_\lambda|$ capturaba la energía de frecuencia de $f$ en una banda de frecuencia cubierta por $\widehat{\psi}_\lambda$ y propagaba dicha energía a través de las bajas frecuencias, este hecho lo demuestra el siguiente teorema, mostrando que toda la energía del propagador de dispersión alncanza la frecuencia mínima $2^J$ y es atrapada por el filtro paso bajo $\phi_ {2^J}$. La energía propagada tiende a $0$ conforme se incrementa la longitud del camino, y el teorema implica que $||S_J[\mathcal{P}_J]f||=||f||$. Esto se aplica también a funciones complejas en caminos negativos.
+
+\begin{teorema} \label{teoremaOndeletasAdmisibles}
+Una ondeleta de dispersión se dice que es admisible si existe $\eta \in \mathbb{R}^d$ y $\rho \geq 0$, con $|\widehat{\rho}(\omega)| \leq |\widehat{\phi}(2\omega)|$ y $\widehat{\rho}(0)=1$, tal que la función: 
+
+$$(2.27) \;\;\; \widehat{\Phi}(\omega)=|\widehat{\rho}(\omega - \eta)|^2 - \sum_{k=1}^{+\infty} k(1-|\widehat{\rho}(2^{-k}(\omega - \eta))|^2)$$
+
+\noindent satisface: 
+$$(2.28) \;\;\; \alpha= \inf_{1\leq|w|\leq2} \sum_{j=-\infty}^{\infty} \sum_{r\in G} \widehat{\Psi} (2^{-j}r^{-1}\omega)|\widehat{\psi}(2^{-j}r^{-1}\omega)|^2>0.$$
+
+\noindent Si la ondeleta es admisible, entonces para toda $f\in L^2(\mathbb{R}^d)$
+$$(2.29) \;\;\; \lim_{m\rightarrow\infty} ||U[\Lambda_J^m]f||^2=\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0$$
+
+y
+
+$$(2.29) \;\;\; ||S_J[\mathcal{P_J}f||=||f||$$
+\end{teorema}
+
+\begin{proof}
+\noindent Primero probamos que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0$ es equivalente a tener $\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0$ y a $||S_J[\mathcal{P_J}f||=||f||$. Como $||U_J h||=||h|| \; \forall h \in L^2(\mathbb{R}^d)$ y $U_J U[\Lambda_J^n]f=\lbrace S_J[\Lambda_J^n]f,U[\Lambda_J^{n+1}]\rbrace$,
+
+$$(2.31) \;\;\; ||U[\Lambda_J^n]f||^2=||U_JU[\Lambda_J^n]f||^2=||S_J[\Lambda_J^n]f||^2+||U[\Lambda_J^{n+1}]f||^2.$$
+
+\noindent Sumando en $m\leq n < \infty$ se prueba que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||=0$ es equivalente a $\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0$. Por otro lado, como $f=U[\Lambda_J^0]f$, sumando en $(2.31)$ para $0\leq n < m$ también se prueba que:
+
+$$(2.32) \;\;\; ||f||^2=\sum_{n=0}^{m-1} ||S_J[\Lambda_J^n]f||^2 + ||U[\Lambda_J^m]f||^2,$$
+
+entonces
+
+$$||S_J[\mathcal{P_J}f||^2=\sum_{n=0}^\infty ||S_J[\Lambda_J^n]f||^2=||f||^2 \iff \lim_{m\rightarrow\infty}||U[\Lambda_J^m]||=0.$$ \qedhere
+
+\end{proof}
+
+\noindent A continuación probaremos que la condición $(2.27)$ implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||^2=0$. La clave de esto reside en el siguiente lema, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva: 
+
+\begin{lema}
+Si $h\geq 0$ entonces $\forall f \in L^2(\mathbb{R}^d)$: 
+
+$$(2.33) \;\;\; |f \ast \psi_\lambda | \ast h \geq \sup_{\eta \in \mathbb{R}^d} |f\ast \psi_\lambda \ast h_\eta | \; \; con \; h_\eta=h(x)e^{i\eta x}$$
+\end{lema}
+
+\begin{proof}
+
+\begin{align*}
+    |f \ast \psi_\lambda | \ast h (x) &= \int \left| \int f(v)\psi_\lambda(u-v)dv \right| h(x-u)du \\
+    &=\int \left | \int f(v) \psi_\lambda(u-v) e^{i\eta(x-u)} h(x-u) dv \right| du \\
+    &\geq \left | \int \int f(v) \psi_\lambda(u-v) e^{i\eta(x-u)} h(x-u) dv du \right| = \\
+    &= \left | \int f(v) \int  \psi_\lambda(x-v-u')h(u') e^{i\eta u'}  du' dv \right| \\
+    &= \left | \int f(v) \psi_\lambda \ast h_\eta(x-v) dv \right| = |f\ast \psi_\lambda \ast h_\eta|
+\end{align*}
+\end{proof}
+
+\noindent En el apéndice A se usa este lema para demostrar que el propagador dispersa la energía progresivamente hacia bajas frecuencias y demuestra el siguiente lema: 
+
+\begin{lema} \label{lemaDeAdmisibilidad}
+Si $(2.28)$ se satisface y 
+
+$$(2.34) \;\;\; ||f||_w^2=\sum_{j=0}^\infty \sum_{r\in G^+} j ||W[2^j r] f||^2 < \infty$$
+
+\noindent Entonces se tiene: 
+
+$$(2.35) \;\;\; \frac{\alpha}{2}||U[\mathcal{P_J}f||^2 \geq \max (J+1,1) ||f||^2 + ||f||_w^2.$$
+\end{lema}
+
+\begin{proof}
+\noindent La clase de funciones para las que $||f||_w < \infty$ es una clase logarítmica de Sobolev correspondiente a funciones que tienen un módulo promedio continuo en $L^2(\mathbb(R)^2$. Como 
+
+$$ || U[\mathcal{P}_J]f ||^2= \sum_{m=0}^{+\infty} ||U[\Lambda_J^m]f||^2,$$
+
+\noindent si $||f||_w < \infty$ entonces $(2.35)$ implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||= 0$. Este resultado se extiende en $L^2(\mathbb{R}^d$ por densidad. Como $\phi \in L^1(\mathbb{R}^d)$ y $\widehat{\phi(0)=1}$, cualquier $f\in L^2(\mathbb{R}^d)$ satisface $\lim_{n\rightarrow - \infty} ||f-f_n||=0$, dónde $f_n=f \ast \phi_{2^n}$ y $\phi_{2^n}=2^{-nd} \phi(2^{-n}x)$. Se demuestra por tanto que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f_n||=0$ viendo que $||f_n||_w < \infty$. De hecho, 
+
+
+\begin{align*}
+    ||W[2^jr]f_n||^2 &= \int |\widehat{f}(\omega)|^2 |\widehat{\phi}(2^n \omega)|^2 |\widehat{\psi}(2^{-j}r^{-1}\omega|^2 d\omega \\
+    &\leq C 2^{-2n-2j} \int |\widehat{f}(\omega)|^2 d\omega,
+\end{align*}
+
+\noindent porque $\psi$ hay un momento en que desaparece entonce $|\widehat{\psi}(\omega)=O(|\omega|)$, y las derivadas de $\phi$ están en $L^1(\mathbb{R}^d$ luego $|\omega||\widehat{\phi}\omega|$ están acotadas. Por lo que se tiene que $||f_n||_w < \infty$.
+
+\medskip
+
+\noindent Como $U[\Lambda^m]$ es no expansiva, $||U[\Lambda_J^m]f-U[\Lambda_J^m]f_m|| \leq ||f - f_n||$, por lo que 
+
+$$||U[\Lambda_J^m]f|| \leq || f-f_n|| + ||U[\Lambda_J^m]f_n||.$$
+
+\noindent Como $\lim_{n\rightarrow -\infty}||f-f_n||=0$ y $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f_n||=0$ tenemos que 
+
+$$\lim_{m\rightarrow\infty} ||U[\Lambda_J^m]f||^2=0$$
+
+\noindent para toda $f \in L^2(\mathbb{R}^d)$. \qedhere
+\end{proof}
+
+
+\medskip 
+
+\noindent La demostración muestra que el propagador dispersa la energía progresivamente a frecuencias menores. La energía de $U[p]f$ se concentra principalmente en los caminos de frecuencia decrecientes $p=(\lambda_k)_{k\leq m}$ para los que $|\lambda_{k+1}|<|\lambda_k|$. Por ejemplo, si $f=\delta$, entonces los caminos de longitud $1$ tienen una energía de $||U[2^jr]\delta||^2=||\psi_{2^jr}||^2=2^{-dj}||\psi||^2$. 
+
+\noindent Esta energía se propaga entonces por todos los caminos $p\in\mathcal{P}_J$. Para ondeleteas de Splines cúbicos de dimensión $d=1$, en torno al $99.5 \%$ de su energía se concentra en los caminos de frecuencias descendentes. Las implementaciones numéricas de las transformadas de dispersión limitan los cálculos a estas rutas de disminución de frecuencia. La transformada de dispersión de una señal de tamaño $N$  se calcula a lo largo de todos los caminos de frecuencias decrecientes, con un orden $O(N logN)$ de operaciones, usando una implementación con banco de filtros.
+
+\medskip
+
+\noindent El decrecimiento de $\sum_{n=m}^\infty || S_J[\Lambda_J^n]f||^2$ implica que podemos abandonar todos los caminos de longitud mayor que un cierto $m>0$. El decrecimiento numérico de $||S_J[\Lambda_J^n]f||^2$ parece ser exponencial en el tratamiento de imágenes y audio. El tamaño de camino se liminta a $m=3$ en problemas de clasificación.
+
+\medskip
+
+\noindent Debe también existir una transformada de ondeleta unitaria y de hecho una ondeleta admisible que satisfaga la condición de Littlewood-Paley $\beta \sum_{(j,r)\in \mathbb{Z}\times G}|\widehat{\psi}(2^jr\omega)|^2=1$. 
+
+\noindent Debe también existir $\rho \geq 0$ y un $\eta \in \mathbb{R}^d$ con $|\widehat{\rho}(\omega)|\leq |\widehat{\phi}(2\omega)|$ tal que: 
+
+$$\sum_{(j,r)\in\mathbb{Z}\times G}|\widehat{\psi}(2^jr\omega)|^2|\widehat{\rho}(2^jr\omega-\eta)|^2$$
+
+\noindent sea suficientemente grande para que $\alpha>0$. Esto se puede obtener como se indica en $(2.3)$, con $\psi(x)=e^{i\eta x}\Theta(x)$ y de hecho $\widehat{\psi}=\widehat{\Theta}(\omega-\eta)$, dónde $\widehat{\Theta}$ y $\widehat{\rho}$ tienen su energía concentrada en los mismos dominos de frecuencia, que son bajos.
+
+\section{Invarianza por Traslaciones} \label{ch:seccion14}
+
+\noindent En esta sección vamos a ver que la distancia entre propagadores de dispersión $||S_J[\overline{\mathcal{P}}_J f- S_J[\overline{\mathcal{P}}_J h ||$ es no creciente cuando se incrementa la $J$, y de hecho converge cuando $J \rightarrow \infty$. Esto define una distancia límite que veremos que es invariante por traslaciones.
+
+\medskip
+
+\begin{proposicion}
+\noindent Para todo $(f,h) \in L^2(\mathbb{R}^d)^2$ y $J\in \mathbb{Z}$, 
+
+$$(2.36) \;\;\; || S_{J+1} [\mathcal{P}_{j+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P_J}f - S_J[\mathcal{P_J}]h ||$$
+\end{proposicion}
+
+\begin{proof}
+\noindent Todo camino $p' \in \mathcal{P}_{J+1}$, puede ser unívocamente escrito como una extensión de un camino $p\in \mathcal{P}_J$ dónde $p$ es el prefijo más grande de $p'$ que pertenece a $\mathcal{P}_J$, y $p'=p+q$ para algún $q\in \mathcal{P}_{J+1}$. El conjunto de todas las extensiones de $p\in \mathcal{P}_J$ en $\mathcal{P}_{J+1}$ es 
+
+$$(2.37) \;\;\; \mathcal{P}_{J+1}^{p}={p} \cup {p+2^{-J}r+p''}_{r\in G^{+},p''\in \mathcal{P}_{J+1}}$$
+
+Esto define una partición disjunta de $\mathcal{P}_{J+1}=\cup_{p\mathcal{P}_J} \mathcal{P}_{J+1}^{p}$. Vamos a probar que estas extensiones son no expansivas, 
+
+$$(2.38) \;\;\; \sum_{p'\mathcal{P}_{J+1}^p} || S_{J+1}[p']f-S{J+1}[p']h||^2 \leq ||S_{J}[p]f-S_J [p]h||^2.$$
+
+\noindent Sumando en $(2.38)$ en todo $p\mathcal{P}_J$ prueba $(2.36)$. Usando lo demostrado en el apéndice A(mirar apéndice A), para todo $g\in L^2(\mathbb{R}^d)$
+
+$$||g \ast \phi_{2^{J+1}} ||^2 + \sum_{r\in G^+} || g\ast \psi_{2^{-J}r} ||^2=||g \ast \phi_{2^J}||^2.$$
+
+\noindent Aplicando este resultado con $g=U[p]f-U[p]h$ junto con que $U[p]f\ast \phi_{2^J}=S_J[p]f$ y $|U[p]f\ast\psi_{2^{-J}r}|=U[p+2^{-J}r]f$ obtenemos
+
+\begin{align*}
+    (2.40) \;\;\; ||S_{J}[p]f-S_J[p]h||^2 \geq & || S_{J+1}[p]f-S_{J+1}[p]h||^2 \\
+    & + \sum_{r\in G^+} ||U[p+2^{-J}r]f-U[p+2^{-J}r]h||^2.
+\end{align*}
+
+\noindent Como $S_{J+1}[\mathcal{P}_{J+1}]U[p+2^{-J}r]f=\lbrace S_{J+1} [p+2^{-J}r+p'']\rbrace_{p''\in\mathcal{P}_{J+1}}$  y $S_{J+1}[\mathcal{P}_{J+1}]f$ es no expansiva, esto implica que
+
+\begin{align*}
+    ||S_{J}[p]f - S_J[p]h||^2 \geq & ||S_{J+1}[p]f-S{J+1}[p]h||^2 \\
+    & + \sum_{p''\in \mathcal{P}_{J+1}} \sum_{r\in G^+} || S_{J+1}[p+2^{-J}r+p'']f- S_{J+1}[p+2^{-J}r+p'']h||^2,
+\end{align*}
+
+\noindent que demuestra (2.38). Como $S_{J}[\mathcal{P}_{J+1}]f$ preserva la norma, si $h=0$ en $(2.40)$ nos da la igualdad
+
+$$||S_J[p]f||^2=||S_{J+1}[p]f||^2 + \sum_{p''\in \mathcal{P}_{J+1}}\sum_{r\in G^+}||S_{J+1}[p+2^{-J}r+p'']f||^2,$$
+\noindent que demuestra (2.39). \qedhere
+\end{proof}
+
+\medskip
+
+\noindent Esta proposición anterior nos demuestra que $||S_J[\mathcal{P}_J]-S_J[\mathcal{P}_J]h||$ es positivo y no creciente cuando $J$ se incrementa, y de hecho converge. Como $S_J[\mathcal{P}_J]$ es no expansiva, el límite tampoco: 
+
+$$\forall (f,h)\in L^2(\mathbb{R}^d)^2 \lim_{J\rightarrow\infty} ||S_J[\mathcal{P}_J]f-S_{J}[\mathcal{P}_J]h|| \leq ||f-h||.$$
+
+\medskip
+
+\noindent Para ondeletas de dispersión admisibles que satisfacen $(2.28)$, El \autoref{teoremaOndeletasAdmisibles} nos demuestra que $||S_J[\mathcal{P}_J]f||=||f||$ entonces $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J]f||=||f||$. El siguiente teorema demuestra que el límite es invariante por traslaciones: 
+
+\begin{teorema} \label{invarianzaTraslaciones}
+Para ondeletas de dispersión admisibles se tiene que 
+
+$$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\rightarrow \infty}||S_J[\mathcal{P}_J f-S_J[\mathcal{P}_J] L_cf||=0$$
+\end{teorema}
+
+\begin{proof}
+
+\noindent Como $S_J[\mathcal{P}_J] L_cf = L_cf S_J[\mathcal{P}_J]$ y $S_J[\mathcal{P}_J]f=A_J U[\mathcal{P}_J]f$,
+
+\begin{align*}
+    (2.41) \;\;\; ||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f || &= ||L_c A_J U[\mathcal{P}_J]f - A_J U[\mathcal{P}_J]f|| \\
+    &\leq ||L_c A_J - A_J|| ||U[\mathcal{P}_J]f||.
+\end{align*}
+
+\medskip
+
+\noindent Para continuar la demostración necesitamos el siguiente lema: 
+
+\begin{lema}
+Existe una constante $C$ tal que para todo $\tau \in \C^2(\mathbb{R}^d)$ con $||\nabla \tau ||_\infty \leq \frac{1}{2}$ se tiene que 
+
+$$(2.42) \;\;\; ||L_\tau A_J f - A_J f|| \leq C ||f||2^{-J}||\tau||_{\infty}.$$
+\end{lema}
+
+\noindent Este lema se prueba en el Apéndice B (mirar). Si lo aplicamos para $\tau=c$ como $||\tau||_\infty=|c|$ se tiene que 
+
+$$(2.43) \;\;\; ||L_c A_J - A_J|| \leq C 2^{-J} |c|.$$
+
+\noindent Y si tenemo en cuenta esto en $(2.41)$ nos da que: 
+
+$$(2.44) \;\;\; ||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f || \leq C 2^{-J} |c| ||U[\mathcal{P}_J]f||.$$
+
+\noindent Como la admisibilidad de la condición $(2.28)$ se satisface, \autoref{lemaDeAdmisibilidad} demuestra en $(2.35)$ que para $J>1$
+
+$$(2.45) \;\;\; \frac{\alpha}{2}||U[\mathcal{P}_J]f||^2 \leq (J+1)||f||^2+||f||^2_w.$$
+
+\noindent Si $||f||_w < \infty$ entonces de $(2.44)$ se tiene
+
+$$||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f ||^2 \leq ((J+1)||f||^2+||f||_w^2)C^2 2 \alpha^{-1} 2^{-2J} |c|^2$$
+
+\noindent luego $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f ||=0$.
+\noindent Vamos a probar ahora que el límite anterior se da $\forall f \in L^2(\mathbb{R}^d)$, con un argumento similar al de la prueba del \autoref{teoremaOndeletasAdmisibles}. Cualquier $f\in L^2(\mathbb{R}^d$ se puede escribir como el límite de una sucesión de funciones $\lbrace f_n \rbrace_{n\in\mathbb{N}}$ con $||f_n||_w < \infty$, y como $S_J[\mathcal{P}_J]$ es no expansivo y $L_c$ es unitario, se puede verificar que 
+
+$$||L_c S_J[\mathcal{P}_J]f-S_J[\mathcal{P}_J]f|| \leq ||L_c S_J [\mathcal{P}_J]f_n -S_J[\mathcal{P}_J]f_n|| + 2||f-f_n||.$$
+
+\noindent Haciendo tender $n \rightarrow \infty$ se prueba que $\lim_{J\rightarrow \infty}||S_J[\mathcal{P}_J f-S_J[\mathcal{P}_J] L_cf||=0$ con lo que acaba la demostración. \qedhere
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{itemize}
+  \item La  memoria  debe  realizarse  con  un  procesador  de  texto  científico,  preferiblemente (La)TeX.
+  \item La portada  debe contener  el  logo  de  la UGR,  incluir  el  título del TFG, el nombre del estudiante y especificar el grado, la facultad y el curso actual.
+  \item La contraportada contendrá además el nombre del tutor o tutores.
+  \item La memoria debe necesariamente incluir:
+    \begin{itemize}
+      \item un índice detallado de capítulos y secciones,
+      \item un resumen amplio en inglés del trabajo realizado (se recomienda entre 800 y 1500 palabras),
+      \item una introducción en la que se describan claramente los objetivos previstos inicialmente en la propuesta de TFG, indicando si han sido o no alcanzados, los antecedentes importantes para el desarrollo, los resultados obtenidos, en su caso y las principales fuentes consultadas,
+      \item una bibliografía final que incluya todas las referencias utilizadas.
+    \end{itemize}
+  \item Se recomienda que la extensión de la memoria sea entre 30 y 60 páginas, sin incluir posibles apéndices.
+\end{itemize}
+
+Para generar el pdf a partir de la plantilla basta compilar el fichero \texttt{libro.tex}. Es conveniente leer los comentarios contenidos en dicho fichero pues ayudarán a entender mejor como funciona la plantilla. 
+
+La estructura de la plantilla es la siguiente\footnote{Los nombres de las carpetas no se han acentuado para evitar problemas en sistemas con Windows}: 
+\begin{itemize}
+  \item Carpeta \textbf{preliminares}: contiene los siguientes archivos
+    \begin{description}
+      \item[\texttt{dedicatoria.tex}] Para la dedicatoria del trabajo (opcional)
+      \item[\texttt{agradecimientos.tex}] Para los agradecimientos del trabajo (opcional)
+      \item[\texttt{introduccion.tex}] Para la introducción (obligatorio)
+      \item[\texttt{summary.tex}] Para el resumen en inglés (obligatorio)
+      \item[\texttt{tablacontenidos.tex}] Genera de forma automática la tabla de contenidos, el índice de figuras y el índice de tablas. Si bien la tabla de contenidos es conveniente incluirla, el índice de figuras y tablas es opcional. Por defecto está desactivado. Para mostrar dichos índices hay que editar este fichero y quitar el comentario a \verb+\listoffigures+ o \verb+\listoftables+ según queramos uno de los índices o los dos. En este archivo también es posible habilitar la inclusión de un índice de listados de código (si estos han sido incluidos con el paquete \texttt{listings})
+  \end{description}
+  El resto de archivos de dicha carpeta no es necesario editarlos pues su contenido se generará automáticamente a partir de los metadatos que agreguemos en \texttt{libro.tex}
+
+  \item Carpeta \textbf{capitulos}: contiene los archivos de los capítulos del TFG. Añadir tantos archivos como sean necesarios. Este capítulo es \texttt{capitulo01.tex}.
+
+  \item Carpeta \textbf{apendices}: Para los apéndices (opcional)
+  \item Carpeta \textbf{img}: Para incluir los ficheros de imagen que se usarán en el documento.
+  \item Carpeta \textbf{paquetes}: Incluye dos ficheros 
+    \begin{description}
+      \item[\texttt{hyperref.tex}] para la configuración de hipervínculos al generar el pdf (no es necesario editarlo) 
+      \item[\texttt{comandos-entornos.tex}] donde se pueden añadir los comandos y entornos personalizados que precisemos para la elaboración del documento. Contiene algunos ejemplos
+    \end{description}
+    
+  \item Fichero \texttt{library.bib}: Para incluir las referencias bibliográficas en formato \texttt{bibtex}. Son útiles las herramientas \href{https://www.doi2bib.org/}{doi2bib} y \href{https://www.ottobib.com/}{OttoBib} para generar de forma automática el código bibtex de una referencia a partir de su \textsc{doi} o su \textsc{isbn}. Para que una referencia aparezca en el pdf no basta con incluirla en el fichero \texttt{library.bib}, es necesario además \emph{citarla} en el documento usando el comando \verb+\cite+. Si queremos mostrar todos las referencias incluidas en el fichero \texttt{library.bib} podemos usar \verb+\cite{*}+ aunque esta opción no es la más adecuada. Se aconseja que los elementos de la bibliografía estén citados al menos una vez en el documento (y de esa forma aparecerán de forma automática en la lista de referencias).
+
+  \item Fichero \texttt{glosario.tex}: Para incluir un glosario en el trabajo (opcional). Si no queremos incluir un glosario deberemos borrar el comando \verb+\input{glosario.tex}+ del fichero \texttt{libro.tex} y posteriormente borrar el fichero \texttt{glosario.tex}
+
+   \item Fichero \texttt{libro.tex}: El documento maestro del TFG que hay que compilar con \LaTeX\ para obtener el pdf. En dicho documento hay que cambiar la \emph{información del título del \textsc{tfg} y el autor así como los tutores}.
+\end{itemize}
+
+Finalmente y de forma también opcional se puede incluir in índice terminológico. Por defecto dicha opción está desabilitada. Para habilitar la inclusión de dicho índice terminológico basta con quitar los comentarios a las líneas finales de \texttt{libro.tex} y cargar el paquete \texttt{makeindex} en el preámbulo del documento (ver comentarios en \texttt{libro.tex})
+
+
+\section{Elementos del texto}
+
+En esta sección presentaremos diferentes ejemplos de los elementos de texto básico. Conviene consultar el contenido de \texttt{capitulos/capitulo01.tex} para ver cómo se han incluido.
+
+\subsection{Listas}
+En \LaTeX\ tenemos disponibles los siguientes tipos de listas:
+
+Listas enumeradas:
+\begin{enumerate}
+  \item item 1
+  \item item 2
+  \item item 3
+\end{enumerate}
+
+Listas no enumeradas
+\begin{itemize}
+  \item item 1
+  \item item 2
+  \item item 3
+  \end{itemize}
+
+Listas descriptivas
+\begin{description}
+  \item[termino1] descripción 1
+  \item[termino2] descripción 2
+\end{description}
+  
+\subsection{Tablas y figuras}
+
+En la \autoref{tb:ejemplo-tabla} o la \autoref{fig:logo-ugr} podemos ver\ldots
+
+\begin{table}[htpb]
+  \centering
+  \begin{tabular}{ccc} \toprule
+    \multicolumn{2}{c}{Agrupados} \\ \cmidrule(r){1-2}
+    cabecera & cabecera & cabecera          \\ \midrule
+    elemento & elemento & elemento          \\ 
+    elemento & elemento & elemento          \\ 
+    elemento & elemento & elemento          \\ \bottomrule
+  \end{tabular}
+  \caption{Ejemplo de tabla}
+  \label{tb:ejemplo-tabla}
+\end{table}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{logo-ugr}
+  \caption{Logotipo de la Universidad de Granada}
+  \label{fig:logo-ugr}
+\end{figure}
+
+\section{Entornos matemáticos}
+
+\begin{teorema}\label{thm:teorema}
+Esto es un ejemplo de teorema.
+\end{teorema}
+
+\begin{proposicion}
+Ejemplo de proposición
+\end{proposicion}
+
+\begin{lema}
+Ejemplo de lema
+\end{lema}
+
+\begin{corolario}
+Ejemplo de corolario
+\end{corolario}
+
+\begin{definicion}
+Ejemplo de definición
+\end{definicion}
+
+\begin{observacion}
+Ejemplo de observación
+\end{observacion}
+
+Y esto es una referencia al \autoref{thm:teorema}. 
+
+Identidad Pitagórica~\eqref{eq:identidad-pitagorica}\index{Identidad pitagórica}
+\begin{equation}\label{eq:identidad-pitagorica}
+  \cos^2 x + \sin^2 x = 1
+\end{equation}
+
+La fórmula de Gauss-Bonnet\index{Gauss-Bonnet!fórmula} para una superficie compacta $S$ viene dada por:
+\begin{equation}
+  \int_S K = 2\pi\chi(S)
+\end{equation}
+
+
+\section{Bibliografía e índice}
+
+Además incluye varias entradas al índice alfabético mediante el comando \verb+\index+ \index{Leonard!Euler|textbf}
+
+
+\endinput
