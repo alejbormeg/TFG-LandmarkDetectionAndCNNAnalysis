@@ -1,5 +1,11 @@
 \begin{thebibliography}{HIWK15}
 
+\bibitem[BM13]{bruna2013invariant}
+Joan Bruna and St{\'e}phane Mallat.
+\newblock Invariant scattering convolution networks.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence},
+  35(8):1872--1886, 2013.
+
 \bibitem[HIWK15]{Huete2015PastPA}
 Mar{\'i}a~Isabel Huete, {\'O}scar Ib{\'a}{\~n}ez, Caroline Wilkinson, and Tzipi
   Kahana.

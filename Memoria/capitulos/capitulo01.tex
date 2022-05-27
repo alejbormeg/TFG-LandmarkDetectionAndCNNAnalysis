@@ -113,7 +113,7 @@ $$(1.2)  \; \; || \Phi(f)-\Phi(L_{\tau}f)||_\mathcal{H} \leq C||f||(\sup_{x \in 
 
 \noindent La \textbf{transformada de Fourier} es una de las herramientas matemáticas más potente en el tratamiento de señales. La intuición detrás de su fórmula es la de representar funciones no periódicas (pero que tienen área bajo la curva finita) como la integral de senos y cosenos multiplicados por una función que determina los pesos en cada instante. Formalmente tiene la siguiente expresión:
 
-$$\widehat{f}(\omega):= \int{f(x)e^{-ix\omega}d\omega}=\int{f(x)\left[\cos{x\omega} -i\sin{x\omega}\right]d\omega}$$.
+$$\widehat{f}(\omega):= \int{f(x)e^{-ix\omega}d\omega}=\int{f(x)\left[\cos{x\omega} -i\sin{x\omega}\right]d\omega}.$$
 
 \noindent Entre las propiedades más destacables de la transformada encontramos el hecho de que una función se puede recuperar sin pérdida de información a partir de su transformada de Fourier, lo cual nos permite poder trabajar en el \entrecomillado{Dominio de Fourier} (también llamado \entrecomillado{Dominio de Frecuencia}) ya que al calcular la integral, la función resultante sólo depende de $t$ que es la frecuencia. También nos permite pasar de nuevo al dominio original de la función, aplicando la inversa de la transformada, e interpretar los resultados obtenidos.
 
@@ -156,23 +156,23 @@ Sea $\Phi(f)=|\widehat{f}|$ el módulo de la transformada de Fourier.
     
 \noindent Sin embargo, la invaianza por traslaciones no es suficiente y necesitamos que sea invariante también a pequeñas deformaciones llamadas difeomorfismos. Este hecho es de vital importancia en el contexto del procesamiento de imágenes, ya que en tareas como clasificación o segmentación resulta de vital importancia el reconocer objetos o clasificarlos incluso en imágenes que están en baja resolución o deformadas (afectadas por un difeomorfismo), por lo tanto definimos en primer lugar el concepto de difeomorfismo: 
 
-\begin{figure}
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.5\textwidth]{img/Diffeomorphism.png}
     \caption{Acción de un difeomorfismo en una rejilla.}
     \label{fig:difeomorfismo}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{img/5_deformado.png}
     \caption{Pequeñas deformaciones del número 5 que deberían ser todas identificadas como similares.}
     \label{fig:deformaciones_5}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!h]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/1_excesivamente_deformado.png}
+    \includegraphics[width=0.5\textwidth]{img/1_excesivamente_deformado.png}
     \caption{Deformación excesiva que permite confundir el 1 con el 2 cuando se le aplica el difeomorfismo.}
     \label{fig:deformaciones_1}
 \end{figure}
@@ -189,15 +189,16 @@ Sea $\Phi(f)=|\widehat{f}|$ el módulo de la transformada de Fourier.
     $$d_\Omega(\mathbb{1},\mathbb{1}-\tau) = \sup_{x \in \Omega} |\tau (x)| + \sup_{x \in \Omega} |\nabla \tau (x)| + \sup_{x \in \Omega}|H \tau (x)|$$
 \end{definicion}
 
-\noindent Dónde $|\tau(x)|$ es la norma euclídea en $\mathbb{R}^d$, $|\nabla \tau (x)|$ el supremo de la matriz $\nabla \tau (x)$ y $|H \tau (x)|$ el supremo de la norma del tensor Hessiano. Además se define $||\tau||_{\infty}\coloneqq \sup_{x\in\mathbb{R}^d} |\tau|$.
+\noindent Dónde $|\tau(x)|$ es la norma euclídea en $\mathbb{R}^d$, $|\nabla \tau (x)|$ el supremo de la matriz $\nabla \tau (x)$ y $|H \tau (x)|$ el supremo de la norma del tensor Hessiano. Además se define $||\tau||_{\infty}\coloneqq \sup_{x\in\mathbb{R}^d} |\tau(x)|$.
 
+\medskip 
 
-De esta forma, un operador $\Phi(f)$ diremos que es estable frente a deformaciones si su norma euclídea $\left|\left| \Phi(f) - \Phi(L_\tau \right| \right|$ (con $L_{\tau} f(x)=f(x-\tau(x))$ definiendo la acción del difeomorfismo $\mathbb{1}-\tau$ en $f$) es \entrecomillado{pequeña} cuando la deformación se mide por $d_\Omega(\mathbb{1},\mathbb{1}-\tau)$. En otras palabras, la estabilidad se da cuando se verifica lo siguiente: 
+\noindent De esta forma, un operador $\Phi(f)$ diremos que es estable frente a deformaciones si su norma euclídea $\left|\left| \Phi(f) - \Phi(L_\tau f) \right| \right|$ (con $L_{\tau} f(x)=f(x-\tau(x))$ definiendo la acción del difeomorfismo $\mathbb{1}-\tau$ en $f$) es \entrecomillado{pequeña} cuando la deformación se mide por $d_\Omega(\mathbb{1},\mathbb{1}-\tau)$. En otras palabras, la estabilidad se da cuando se verifica lo siguiente: 
 
 \begin{definicion}
     Un Operador $\Phi$ invariante por traslaciones  se dice \entrecomillado{Lipschitz-continuo} bajo la acción de difeomorfismos de $C^2$ si para cualquier compacto $\Omega \in \mathbb{R}^d$ existe una constante $c\in \mathbb{R}^d$ tal que para todo $f\in L^2(\mathbb{R}^d)$ con soporte en $\Omega$ y $\tau \in C^2(\mathbb{R}^d)$ se tiene
     
-    $$\left|\left| \Phi(f) - \Phi(L_\tau \right| \right| \leq c ||f|| (||\nabla \tau ||_{\infty} + ||H\tau||_\infty)$$
+    $$\left|\left| \Phi(f) - \Phi(L_\tau f) \right| \right| \leq c ||f|| (||\nabla \tau ||_{\infty} + ||H\tau||_\infty)$$
     
     con  $|| \nabla \tau ||_\infty + ||H \tau ||_\infty < 1$ para asegurarnos de que la deformación sea invertible \cite{doi:10.1137/S0036141002404838}.
 \end{definicion}
@@ -206,7 +207,7 @@ De esta forma, un operador $\Phi(f)$ diremos que es estable frente a deformacion
 
 \noindent Sin embargo, el operador que estábamos empleando hasta ahora (el módulo de la Transformada de Fourier) no es invariante frente a pequeños difeomorfismos, como podemos ver a continuación:
 
-\begin{lema}
+\begin{lema} \label{lemma:TF_inestable_difeomorfismos}
 El módulo de la Transformada de Fourier no es estable frente a pequeñas deformaciones y no es \entrecomillado{Lipschitz-continuo}.
 \end{lema}
 
@@ -217,22 +218,69 @@ $$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c |
 
 \noindent Si suponemos que $f(x)=e^{i\xi x} \Theta(x)$ el escalado por medio de $\tau$ produce que la frecuencia $\xi$ se traslade de $\xi$ a $(1-\epsilon)\xi$, si suponemos que $\Theta$ además es regular con decrecimiento rápido, se tiene que:
 
-$$(2.1) \; \; || |\widehat{L_\tau f}|-|\widehat{f}| || \sim |s| |\xi| ||\Theta|| = ||\nabla \tau||_\infty |\xi| ||f||.$$
+$$\left|\left| |\widehat{L_\tau f}|-|\widehat{f}| \right|\right| \sim |s| |\xi| ||\Theta|| = ||\nabla \tau||_\infty |\xi| ||f||.$$
 
 \noindent Y como $|\xi|$ puede ser arbitrariamente grande, $\Phi(f)=|\widehat{f}|$ no satisface la continuidad de Lipschitz cuando se alcanzan altas frecuencias.
 \end{proof}
     
 \medskip
 
-\noindent No obstante, este desplazamiento de frecuencia de $\xi$ a $(1-s)\xi$ tiene un impacto menor si las ondas sinusoidales de la transformada de Fourier son reemplazadas por funciones localizadas con un soporte mayor en altas frecuencias. Esto se consigue empleando ondeletas. Esto puede consultarse en el libro \cite{MallatWavelets}. A menudo, la discretización de señales tiene un tamaño muy grande ( superior a $10^6$) y sólo pueden procesarse por medio de algoritmos rápidos, idealmente $O(N logN)$ en tiempo y memoria. El análisis de Fourier y las ondeletas ilustran la fuerte conexión entre los algoritmos rápidos y las herramientas matemáticas.
+\noindent Además, el módulo de la transformada de Fourier pierde demasiada información de la señal \cite{bruna2013invariant}. Por ejemplo consideremos las siguientes funciones: 
+
+\begin{definicion}
+  La función Delta de Dirac $\delta: \mathbb{R} \rightarrow \mathbb{R}$ definida como:
+
+  $$ \delta(\omega)= \begin{cases} 
+    \infty & \omega=0 \\
+    0 &  \omega \neq 0
+ \end{cases}$$
+  
+\end{definicion}
+
+\begin{definicion}
+  Sea $h:\mathbb{R} \rightarrow \mathbb{C}$ definida como:
+  $$h(\omega)=e^{i \cdot \omega^2}$$
+\end{definicion}
 
 \medskip
 
-\noindent Las ondeletas están bien localizadas y se necesitan pocos coeficientes para representar estructuras transitorias locales. Al contrario que las bases de Fourier, las bases de ondeletas definen  representaciones dispersas de señales regulares a trozos, que podrían incluir transiciones y singularidades. En las imágenes, los mayores coeficientes de las ondeletas se localizan en el entorno de las esquinas y en las texturas irregulares.
+\noindent Vamos a comprobar que en ambos casos el módulo de la transformada de Fourier coincide:
+
+\noindent En primer lugar calculamos sus transformadas de Fourier: 
+
+\begin{align*}
+  \widehat{\delta}(t)& =\int_{- \infty}^{\infty} \delta(\omega) e^{-i t \omega }  \,d\omega \\
+& = 1
+\end{align*}
+
+\begin{align*}
+  \widehat{h}(t)& =\int_{- \infty}^{\infty} h(\omega) e^{-i t \omega }  \,d\omega \\
+& =\int_{- \infty}^{\infty} e^{i \omega^2} e^{-i t \omega }  \,d\omega \\
+& =(1 + i) \sqrt\frac{\pi}{2} e^{\frac{-(i t^2)}{4}}\\
+\end{align*}
+
+
+\noindent Si ahora calculamos el módulo en ambos casos obtenemos que $|\widehat{\delta}(t)|=1$ y $|\widehat{h}|=\sqrt{\pi}$, que como vemos son iguales salvo una constante multiplicativa. 
 
 \medskip
 
-\noindent Podemos revisar por ejemplo la función que creó Haar en 1910: 
+\noindent Esto nos muestra que dos señales a priori muy diferentes, en cambio pueden ser idénticas cuando les aplicamos el operador del módulo de la transformada.
+
+\medskip
+
+\noindent Por todos estos problemas es mejor que para nuestro propósito reemplacemos las ondas sinusoidales de la transformada de Fourier por funciones localizadas con un soporte mayor en altas frecuencias que nos permitan evitar estas complicaciones. Esto se consigue empleando \textbf{ondeletas}. 
+
+\medskip
+
+\noindent Las ondeletas \cite{MallatWavelets} son pequeñas ondas que son estables a las deformaciones, al contrario que las ondas sinusoidales de Fourier. Definiremos la transformada de ondeletas y veremos que calcula, mediante convoluciones con bases de ondeletas, coeficientes que cumplirán con los requisitos que pedíamos para construir el operador del propagador de dispersión.
+
+\medskip
+
+\noindent Al contrario que las bases de Fourier, las bases de ondeletas definen  representaciones dispersas de señales regulares a trozos, que podrían incluir transiciones y singularidades. En las imágenes, los mayores coeficientes de las ondeletas se localizan en el entorno de las esquinas y en las texturas irregulares.
+
+\medskip
+
+\noindent A modo de ejemplo, vamos a ver la base de Haar que se construye a partir de la siguiente función: 
 
 $$ \psi(t)= \begin{cases} 
       1 & 0\leq t < 1/2 \\
@@ -240,7 +288,7 @@ $$ \psi(t)= \begin{cases}
       0 & \; en \; otro \; caso
    \end{cases}$$
 
-\noindent Que generan la siguiente base ortonormal
+\noindent Con esta, podemos generar la siguiente base ortonormal:
 
 \medskip
 
