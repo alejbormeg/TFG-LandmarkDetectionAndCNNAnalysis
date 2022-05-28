@@ -1,6 +1,6 @@
-\backcite {DigitalImageProcessing}{{5}{1.2.1}{subsection.1.2.1}}
+\backcite {DigitalImageProcessing}{{5}{1.2.1.1}{subsubsection.1.2.1.1}}
 \backcite {doi:10.1137/S0036141002404838}{{8}{1.9}{definicion.1.9}}
-\backcite {bruna2013invariant}{{8}{1.2.1}{lema.1.2}}
-\backcite {MallatWavelets}{{9}{1.2.1}{definicion.1.11}}
-\backcite {MallatWavelets}{{10}{1.2.1}{definicion.1.11}}
-\backcite {Huete2015PastPA}{{29}{2.1.1}{subsection.2.1.1}}
+\backcite {bruna2013invariant}{{9}{1.2.1.1}{lema.1.2}}
+\backcite {MallatWavelets}{{9}{1.2.1.2}{subsubsection.1.2.1.2}}
+\backcite {MallatWavelets}{{11}{1.2.1.2}{definicion.1.12}}
+\backcite {Huete2015PastPA}{{31}{2.1.1}{subsection.2.1.1}}

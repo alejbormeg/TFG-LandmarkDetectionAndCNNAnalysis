@@ -6,6 +6,12 @@ Joan Bruna and St{\'e}phane Mallat.
 \newblock {\em IEEE transactions on pattern analysis and machine intelligence},
   35(8):1872--1886, 2013.
 
+\bibitem[Gon17]{DigitalImageProcessing}
+Rafael~C. González.
+\newblock {\em Digital image processing / Rafael C. Gonzalez, Richard E.
+  Woods}.
+\newblock Pearson Education Limited, Harlow, 4th ed., global ed. edition, 2017.
+
 \bibitem[HIWK15]{Huete2015PastPA}
 Mar{\'i}a~Isabel Huete, {\'O}scar Ib{\'a}{\~n}ez, Caroline Wilkinson, and Tzipi
   Kahana.
@@ -17,11 +23,6 @@ Mar{\'i}a~Isabel Huete, {\'O}scar Ib{\'a}{\~n}ez, Caroline Wilkinson, and Tzipi
 St{\'e}phane Mallat.
 \newblock {\em Une exploration des signaux en ondelettes.}
 \newblock Palaiseau: Les {\'E}ditions de l'{\'E}cole Polytechnique, 2000.
-
-\bibitem[RC18]{DigitalImageProcessing}
-Richard~E.Woods Rafael~C.Gonzalez.
-\newblock {\em Digital Image Processing}.
-\newblock Pearson, 2018.
 
 \bibitem[TY05]{doi:10.1137/S0036141002404838}
 Alain Trouvé and Laurent Younes.

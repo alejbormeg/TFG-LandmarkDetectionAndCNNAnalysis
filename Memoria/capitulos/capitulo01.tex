@@ -107,6 +107,8 @@ $$(1.2)  \; \; || \Phi(f)-\Phi(L_{\tau}f)||_\mathcal{H} \leq C||f||(\sup_{x \in 
 
 \subsection{De Fourier a las ondeletas de Littlewood-Paley}
 
+\subsubsection{La Transformada de Fourier}
+
 \noindent El análisis de Fourier juega un papel fundamental en el procesamiento de señales \cite{DigitalImageProcessing} y puesto que las imágenes se procesan como señales, vamos a poner de manifiesto la importancia del análisis de Fourier y en concreto de su transformada en el tratamiento clásico de imágenes, así como sus inconvenientes y alternativas actuales.
 
 \medskip
@@ -272,7 +274,9 @@ $$\left|\left| |\widehat{L_\tau f}|-|\widehat{f}| \right|\right| \sim |s| |\xi| 
 
 \medskip
 
-\noindent Las ondeletas \cite{MallatWavelets} son pequeñas ondas que son estables a las deformaciones, al contrario que las ondas sinusoidales de Fourier. Definiremos la transformada de ondeletas y veremos que calcula, mediante convoluciones con bases de ondeletas, coeficientes que cumplirán con los requisitos que pedíamos para construir el operador del propagador de dispersión.
+\subsubsection{Alternativa: Las ondeletas}
+
+\noindent Las ondeletas \cite{MallatWavelets} son pequeñas ondas estables bajo la acción de deformaciones, al contrario que las ondas sinusoidales de Fourier. Definiremos la transformada de ondeletas y veremos que calcula, mediante convoluciones con bases de ondeletas, coeficientes que cumplirán con los requisitos que pedíamos para construir el operador del propagador de dispersión.
 
 \medskip
 
@@ -280,7 +284,7 @@ $$\left|\left| |\widehat{L_\tau f}|-|\widehat{f}| \right|\right| \sim |s| |\xi| 
 
 \medskip
 
-\noindent A modo de ejemplo, vamos a ver la base de Haar que se construye a partir de la siguiente función: 
+\noindent A modo de ejemplo, vamos a ver la base de Haar, un ejemplo que aunque no sea el que utilicemos para construir nuestro propagador de dispersión, puede ayudar a entender mejor la filosofía de las ondeletas. Se construye a partir de la siguiente función: 
 
 $$ \psi(t)= \begin{cases} 
       1 & 0\leq t < 1/2 \\
@@ -288,15 +292,24 @@ $$ \psi(t)= \begin{cases}
       0 & \; en \; otro \; caso
    \end{cases}$$
 
-\noindent Con esta, podemos generar la siguiente base ortonormal:
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{img/Haar_wavelet.png}
+  \caption{Representación gráfica de la ondeleta de Haar.}
+  \label{fig:Ondeleta_de_Haar}
+\end{figure}
+
+\noindent A esta ondeleta la denominamos \textbf{ondeleta Madre}, pues a partir de ella, podemos generar la siguiente base ortonormal:
 
 \medskip
 
 $$\left \lbrace \psi_{j,n}(t)= \frac{1}{\sqrt{2^j}} \psi\left(\frac{t-2^jn}{2^j}\right) \right\rbrace_{(j,n) \in \mathbb{Z}^2}$$
 
-\noindent del espacio $L^2(\mathbb{R})$ de señales con energía finita: 
+\noindent del espacio $L^2(\mathbb{R})$ de señales con energía finita, si recordamos, en este espacio la norma se define como: 
 
-$$||f||^2=\int_{-\infty}^{+\infty} |f(t)|^2 dt < +\infty$$
+\begin{definicion}
+  $$||f||^2=\int_{-\infty}^{+\infty} |f(t)|^2 dt < +\infty$$
+\end{definicion}
 
 \noindent Así, cualquier señal $f$ de energía finita puede ser representada por los coeficientes que se obtienen mediante el producto interno en $L^2(\mathbb{R})$ con la base anterior: 
 
@@ -310,14 +323,17 @@ $$f=\sum_{j=-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}  \langle f,\psi_{j,n} \
 
 \medskip
 
-\noindent Para el caso concreto de imágenes (ver por ejemplo sección 1.1 de \cite{MallatWavelets}), las bases de ondeletas ortonormales pueden construirse a partir de bases ortonormales en señales de una dimensión. Así, a partir de tres ondeletas $\psi^1(x)$, $\psi^2(x)$ y$\psi^3(x)$ con $x=(x_1,x_2)\in \mathbb{R}^2$, dilatadas por el factor $2^j$ y trasladadas por $2^jn$ con $n=(n1,n2)\in \mathbb{Z}^2$, se construye una base ortonormal para el espacio $L^2(\mathbb{R}^2)$ de funciones de energía finita: 
-$$\lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{2^j}\right) \rbrace_{(j,n) \in \mathbb{Z}^2}$$
+\noindent Para el caso concreto de imágenes (ver por ejemplo sección 1.1 de \cite{MallatWavelets}), las bases de ondeletas ortonormales pueden construirse a partir de bases ortonormales en señales de una dimensión. Así, a partir de tres ondeletas $\psi^1(x)$, $\psi^2(x)$ y$\psi^3(x)$ con $x=(x_1,x_2)\in \mathbb{R}^2$, dilatadas por el factor $2^j$ y trasladadas por $2^jn$ con $n=(n1,n2)\in \mathbb{Z}^2$, se construye una base ortonormal para el espacio $L^2(\mathbb{R}^2)$: 
+$$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{2^j}\right) \right \rbrace_{(j,n) \in \mathbb{Z}^2}$$
 
 \medskip
 
-\noindent El soporte de la ondeleta $\psi_{j,n}^k(x)$ es un cuadrado proporcional a la escala $2^j$. Las bases de ondeletas en dos dimensiones se discretizan para definir bases ortonormales de imágenes de N píxeles. Los coeficientes se calculan rápidamente, en un tiempo $O(N)$.
+\noindent El soporte de la ondeleta $\psi_{j,n}^k(x)$ es un cuadrado proporcional a la escala $2^j$. Las bases de ondeletas en dos dimensiones se discretizan para definir bases ortonormales de imágenes de N píxeles.
+
 
 \noindent Del mismo modo que en una dimensión, los coeficientes de ondeletas $\langle f,\psi_{j,n}^k \rangle$ serán pequeños si $f(x)$ es regular, y serán grandes cerca de los cambios bruscos de frecuencias como en los bordes o esquinas de las imágenes.
+
+%Insertar ejemplo 
 
 \medskip 
 
@@ -325,7 +341,18 @@ $$\lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{2^j}\r
 
 \medskip 
 
-\noindent Volviendo al caso que nos ocupaba del módulo de la transformada de Fourier. Una transformada de dispersión se calcula con ondeletas del tipo:
+\noindent Volviendo al propósito de definir el propagador de dispersión, la ondeleta madre que elijamos y la base ortogonal que forme se verán afectadas normalmente por escalados y rotaciones, por lo tanto definimos: 
+
+\begin{definicion}
+  Una ondeleta madre escalada por un factor $2^-j$ con $j \in \mathbb{Z}$ y rotada por $r \in G$ siendo $G$ el grupo finito de rotaciones, se escribe: 
+
+  $$\psi_{2^j r}(x)=2^{dj} \psi(2^j r^{-1} x).$$
+\end{definicion}
+
+
+\medskip
+
+\noindent La transformada de dispersión que usaremos tendra una base de ondeletas generada por una ondeleta madre del tipo:
 
 $$\psi(x)=e^{i\cdot \eta \cdot  x} \Theta(x)$$
 
@@ -339,11 +366,20 @@ $$(2.2) \;\;\; \widehat{\psi}(\omega)=\int_{\mathbb{R}^d}e^{i\cdot \eta \cdot  x
 
 \medskip
 
-\noindent Por lo tanto, $\widehat{\psi}(\omega)$ es real y centrada en una bola de mismo radio pero centrada en $\omega=\eta$. Tras la dialtación y rotación, $\widehat{\psi}_\lambda(\omega)= \widehat{\Theta} (\lambda^{-1}\omega-\eta)$, donde $\lambda=2^jr \in 2^{\mathbb{Z}}\times G$, siendo $G$ el grupo finito de rotaciones. Por lo tanto $\widehat{\psi}_\lambda(\omega)$ recubre una bola centrada en $\lambda\eta$ con radio proporcional a $|\lambda|=2^j$. El índice $\lambda$ especifica la localización de la frecuencia y la dispersión de la transformada $\widehat{\psi}_\lambda$.
+\noindent Por lo tanto, $\widehat{\psi}(\omega)$ es real y centrada en una bola de mismo radio pero centrada en $\omega=\eta$ que tras el escalado y rotación: 
+$$\widehat{\psi}_\lambda(\omega)= \widehat{\Theta} (\lambda^{-1}\omega-\eta),$$ 
+
+\noindent donde $\lambda=2^jr \in 2^{\mathbb{Z}}\times G$. 
+
+\noindent Por lo tanto $\widehat{\psi}_\lambda(\omega)$ recubre una bola centrada en $\lambda^{-1}\eta$ con radio proporcional a $|\lambda|=2^j$.
  
 \medskip 
 
-\noindent En contraposición a las bases de ondeletas, la Transformada de ondeleta de Littlewood-Paley es una representacion redundante que calcula convoluciones para todo $x \in \mathbb{R}^d$ sin realizar sub-muestreo: 
+\subsubsection{La Transformada de Littlewood-Paley}
+
+\noindent Una vez conocemos un poco más en profundidad las ondeletas y su foncionamiento, pasamos a presentar la \textbf{Transformada de ondeleta de Littlewood-Paley}, que es la que emplearemos para construir el propagador de dispersión.
+
+\noindent Se trata de una representacion redundante que calcula convoluciones para todo $x \in \mathbb{R}^d$ sin realizar sub-muestreo: 
 
 $$(2.4) \; \; \forall x \in  \mathbb{R}^d \;\; W[\lambda]f(x)= f \ast \psi_\lambda(x)=\int f(u)\psi_\lambda(x-u) du .$$
 
@@ -351,12 +387,11 @@ $$(2.4) \; \; \forall x \in  \mathbb{R}^d \;\; W[\lambda]f(x)= f \ast \psi_\lamb
 
 $$\widehat{W[\lambda]f(\omega)}=\widehat{f}(\omega)\widehat{\psi_\lambda}(\omega)=\widehat{\psi_\lambda}(\lambda^{-1}\omega).$$
 
-\noindent Si la función $f$ es real, entonces $\widehat{f}(-\omega)=\widehat{f}^{\ast}(\omega)$, y si $\widehat{\psi}(\omega)$ es real entonces $W[-\lambda]f=W[\lambda]f^{\ast}$. Si denotamos por $G^{+}$ al cociente de G con $\lbrace-\mathbb{1},\mathbb{1}\rbrace$, conjunto en el cual las dos rotaciones $r$ y $-r$ son equivalentes, sería suficiente calcular $W[2^jr]f$ para las rotaciones "positivas" de $G^{+}$. Si la función $f$ es compleja, entonces $W[2^jr]f$ tendría que calcularse para todo $r \in G$. 
+\noindent Si la función $f$ es real, entonces $\widehat{f}(-\omega)=\widehat{f}^{\ast}(\omega)$, y si $\widehat{\psi}(\omega)$ es real entonces $W[-\lambda]f=W[\lambda]f^{\ast}$.Además, si denotamos por $G^{+}$ al cociente de G con $\lbrace-\mathbb{1},\mathbb{1}\rbrace$, conjunto en el cual las dos rotaciones $r$ y $-r$ son equivalentes, sería suficiente calcular $W[2^jr]f$ para las rotaciones "positivas" de $G^{+}$, en cambio, si $f$ fuese compleja, entonces $W[2^jr]f$ tendría que calcularse para todo $r \in G$. 
 
 \medskip
  
-\noindent Una transformada de ondeleta a escala $2^J$ sólo mantiene las ondeletas de frecuencias $2^j>2^{-J}$.
-\noindent Las bajas frecuencias que no son cubiertas por estas ondeletas vienen dadas por un promedio en el dominio proporcional a $2^J$:
+\noindent La transformada de Littlewood-Paley a una cierta escala $2^J$ sólo mantiene las ondeletas de frecuencias $2^j>2^{-J}$, las bajas frecuencias que no son cubiertas por estas ondeletas vienen dadas por un promedio en el dominio proporcional a $2^J$:
 
 $$(2.5) \; \; A_Jf=f \ast \phi_ {2^J} \; \; con \; \phi_ {2^J}(x)=2^{-dJ} \phi(2^{-J}x). $$
 \medskip
@@ -379,8 +414,8 @@ $$(2.6) \; \; ||W_Jf||^2=||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||
  Para cualquier $J \in \mathbb{Z}$ o $J=\infty$, $W_J$ es unitario en el espacio de funciones reales o complejas de $L^2(\mathbb{R}^d)$ si y sólo si para casi todo $\omega \in \mathbb{R}^d$: 
  
      \begin{align*}
-        (2.7) \; \; \beta \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2=1 & \; \; y
-        \;\;|\widehat{\phi}(\omega)|^2= \beta \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2,
+        (2.7) \; \; \beta \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2=1 & \; \; y
+        \;\;|\widehat{\phi}(\omega)|^2= \beta \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2,
     \end{align*}
  Dónde $\beta=1$ para funciones complejas y $\beta=\frac{1}{2}$ para funciones reales.
 \end{proposicion}
@@ -392,17 +427,17 @@ $$(2.8) \; \; \forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\om
 
 \noindent Para ello partimos de que si $\beta=1$ se tiene sustituyendo en (2.7) que: 
      \begin{align*}
-        \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2=1 & \; \; y
-        \;\;|\widehat{\phi}(\omega)|^2= \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2.
+        \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2=1 & \; \; y
+        \;\;|\widehat{\phi}(\omega)|^2= \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2.
     \end{align*}
 
-\noindent Si ahora sumamos $\sum_{j=0}^{\infty} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2$ en el segundo término obtenemos: 
+\noindent Si ahora sumamos $\sum_{j=0}^{\infty} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2$ en el segundo término obtenemos: 
 
-$$|\widehat{\phi}(\omega)|^2 + \sum_{j=0}^{\infty} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2=1.$$
+$$|\widehat{\phi}(\omega)|^2 + \sum_{j=0}^{\infty} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2=1.$$
 
 \noindent Por otro lado si vamos a la expresión a la que queremos llegar se tiene que: 
 
-$$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=1 \iff \forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2=\sum_{j=-\infty}^{-J} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega|^2.$$
+$$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=1 \iff \forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2=\sum_{j=-\infty}^{-J} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2.$$
 
 \noindent Con lo que si demostramos esto último tendríamos que (2.7) y (2.8) son equivalentes para el caso $\beta=1$. 
 
@@ -413,7 +448,7 @@ $$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\r
         & =\sum_{j=-\infty}^{-J} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2  
     \end{align*}
     
-\noindent con lo que queda demostrado que (2.7) y (2.8) son equivalentes. Si ahora tenemos en cuenta que $\widehat{W\left[2^jr\right]f}(\omega)=\widehat{f}(\omega)\widehat{\psi}_{s^jr}(\omega)$, multiplicando (2.8) por $|\widehat{f}(\omega)|^2$ obtenemos: 
+\noindent con lo que queda demostrado que (2.7) y (2.8) son equivalentes. Teniendo en cuenta que $\widehat{W\left[2^jr\right]f}(\omega)=\widehat{f}(\omega)\widehat{\psi}_{s^jr}(\omega)$, multiplicando (2.8) por $|\widehat{f}(\omega)|^2$ obtenemos: 
 
 $$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 \left|\widehat{f}(\omega)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{f}(\omega)\right|^2\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=\left|\widehat{f}(\omega)\right|^2.$$
 
@@ -449,11 +484,14 @@ $$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,
 
 \medskip
 
-\noindent En todo lo que sigue: 
+
+\subsubsection{Convenios para futuras secciones}
+
+\noindent LLegados a este punto, ya tenemos la transformada de ondeletas que vamos a utilizar para la construcción de nuestro operador de dispersión, ahora vamos a establecer algunas características que impondremos a los distintos elementos que la componen y que usaremos de ahora en adelante: 
 
 \begin{itemize}
     \item $\widehat{\psi}$ es una función real que satisface la condición (2.7). Lo que implica que $\widehat{\psi}(0)=\int \psi(x)dx=0$ y $|\widehat{\phi}(r\omega)|=|\widehat{\phi}(\omega)| \;\; \forall r\in G$.
-    \item $\widehat{\phi}(\omega)$ es real y simétrica y $\phi(rx)=\phi(x) \;\; \forall r \in G$. 
+    \item $\widehat{\phi}(\omega)$ es real y simétrica, por lo que $\phi$ también lo será y $\phi(rx)=\phi(x) \;\; \forall r \in G$. 
     \item Suponemos que $\phi$ y $\psi$ son dos veces diferenciables y su decrecimineto así como el de sus derivadas de primer y segundo orden es $O((1+|x|)^{-d-2})$.
 \end{itemize}
 
@@ -467,7 +505,7 @@ $$(2.9) \;\;\; W[\lambda](2^lg\circ f)=2^lg \circ W[2^{-l}g\lambda]f.$$
 
 \noindent Como $\phi$ es invariante a traslaciones en $G$, podemos comprobar que $A_J$ conmuta con las rotaciones de $G$: $A_J(g\circ f)=g\circ A_J f \;\; \forall g \in G$.
 
-
+%HASTA AQUI
 \subsection{Camino de dispersión Ordenado}
 
 \noindent Las convoluciones con ondeletas definen operadores Lipschitz-conitnuos por la acción de difeomorfismos, porque las ondeletas son funciones regulares y localizadas. Sin embargo, la transformada de ondeletas no es invariante a traslaciones y $W[\lambda]f=f\ast\psi_\lambda$ se traslada cuando lo hace $f$. Por eso el mayor reto es conseguir calcular coeficientes que sean invariantes a traslaciones, que permanezcan estables bajo la acción de difeomorfismos y que retengan la información en altas frecuencias que proporcionan las ondeletas. Un operador de dispersión calcula una representación invariante a traslaciones de este tipo. Primero explicaremos como obtener coeficientes invariantes a traslaciones a partir de la transformada de ondeletas mientras que a su vez se mantiene la estabilidad bajo la acción de difeomorfismos. Tras esto definiremos los operadores de dispersión y sus principales propiedades.
