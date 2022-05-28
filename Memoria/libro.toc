@@ -10,18 +10,18 @@
 \contentsline {subsection}{\numberline {1.1.1}Notación}{4}{subsection.1.1.1}%
 \contentsline {section}{\numberline {1.2}Modelización Matemática de una Red Neuronal Convolucional}{5}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}De Fourier a las ondeletas de Littlewood-Paley}{5}{subsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.1.1}La Transformada de Fourier}{5}{subsubsection.1.2.1.1}%
+\contentsline {subsubsection}{\numberline {1.2.1.1}El módulo de la Transformada de Fourier}{5}{subsubsection.1.2.1.1}%
 \contentsline {subsubsection}{\numberline {1.2.1.2}Alternativa: Las ondeletas}{9}{subsubsection.1.2.1.2}%
 \contentsline {subsubsection}{\numberline {1.2.1.3}La Transformada de Littlewood-Paley}{12}{subsubsection.1.2.1.3}%
-\contentsline {subsubsection}{\numberline {1.2.1.4}Convenios para futuras secciones}{14}{subsubsection.1.2.1.4}%
+\contentsline {subsubsection}{\numberline {1.2.1.4}Convenios para futuras secciones}{15}{subsubsection.1.2.1.4}%
 \contentsline {subsection}{\numberline {1.2.2}Camino de dispersión Ordenado}{15}{subsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.2.3}Propagador de dispersión y conservación de la Norma}{18}{subsection.1.2.3}%
-\contentsline {section}{\numberline {1.3}Invarianza por Traslaciones}{22}{section.1.3}%
+\contentsline {section}{\numberline {1.3}Invarianza por Traslaciones}{23}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Elementos del texto}{26}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Listas}{26}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{26}{subsection.1.4.2}%
-\contentsline {section}{\numberline {1.5}Entornos matemáticos}{27}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Bibliografía e índice}{27}{section.1.6}%
+\contentsline {subsection}{\numberline {1.4.1}Listas}{27}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{27}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Entornos matemáticos}{28}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Bibliografía e índice}{28}{section.1.6}%
 \contentsline {part}{\numberline {II}Segunda parte}{29}{part.2}%
 \contentsline {chapter}{\numberline {2}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{31}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Introducción}{31}{section.2.1}%

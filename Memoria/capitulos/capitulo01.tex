@@ -89,43 +89,41 @@ $$(1.2)  \; \; || \Phi(f)-\Phi(L_{\tau}f)||_\mathcal{H} \leq C||f||(\sup_{x \in 
 
 \section{Modelización Matemática de una Red Neuronal Convolucional} \label{ch:seccion12}
 
-\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{Red Neuronal Convolucional}, para ello vamos a comenzar explicando la problemática de las inestabilidades en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos y de la importancia de elegir un operador que las evite, en concreto usaremos el ejemplo de la transformada de Fourier para comprobar este hecho. 
+\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{Red Neuronal Convolucional} (CNN \footnote{Convolutional Neural Network}) que denominaremos \textbf{propagador de dispersión} (PD), para ello explicaremos la problemática de elegir una operador \textit{lipschitz-continuo} bajo la acción de difeomorfismos e \textit{invariante por traslaciones}, para evitar problemas como las inestabilidades en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos como ocurre si usamos la transformada de Fourier. 
 
 \medskip
 
-\noindent Tras esto  veremos posibles alternativas para evitar que se produzcan estas inestabilidades, mediante el uso de bases de ondeletas o la transformada de ondeletas de \textbf{Littlewood-Paley}. En concreto con esta segunda alternativa obtendremos un operador que es \textbf{Lipschitz-continuo} bajo la acción de difeomorfismos. 
+\noindent Tras esto  veremos posibles alternativas para evitar que se produzcan estas inestabilidades, mediante el uso de bases de la transformada de ondeletas de \textbf{Littlewood-Paley}. En concreto con esta segunda alternativa obtendremos un operador que es \textbf{Lipschitz-continuo} bajo la acción de difeomorfismos. 
 
 \medskip
 
-\noindent Después, nuestra tarea será conseguir calcular coeficientes que sean invariantes por traslaciones, y para ello veremos que la solución será aplicar el operador módulo al que habíamos obtenido anteriormente con la transformada de Littlewood-Paley. 
+\noindent Después, nuestra tarea será conseguir calcular coeficientes que sean invariantes por traslaciones, y para ello necesitaremos utilizar un operador no lineal como es el módulo. 
 
 \medskip
 
-\noindent Una vez tengamos un operador con todas las propiedades anteriores definiremos lo que denominaremos como \textbf{propagador de dispersión}, que será la aplicación en cadena de los operadores anteriores sobre un "camino" de frecuencias y rotaciones y que supondrá la modelización matemática de una  red neuronal convolucional debido a las grandes similitudes que tendrá su comportamiento con el comportamiento clásico de una Red Neuronal Convolucional.
+\noindent Una vez tengamos un operador con todas las propiedades anteriores presentaremos el \textbf{PD}, que será la aplicación en cadena de los operadores anteriores sobre un \entrecomillado{camino} de frecuencias y rotaciones y que supondrá la modelización matemática de una Red Neuronal Convolucional.
 
 
 
 \subsection{De Fourier a las ondeletas de Littlewood-Paley}
 
-\subsubsection{La Transformada de Fourier}
+\subsubsection{El módulo de la Transformada de Fourier}
 
-\noindent El análisis de Fourier juega un papel fundamental en el procesamiento de señales \cite{DigitalImageProcessing} y puesto que las imágenes se procesan como señales, vamos a poner de manifiesto la importancia del análisis de Fourier y en concreto de su transformada en el tratamiento clásico de imágenes, así como sus inconvenientes y alternativas actuales.
-
-\medskip
-
-\noindent La \textbf{transformada de Fourier} es una de las herramientas matemáticas más potente en el tratamiento de señales. La intuición detrás de su fórmula es la de representar funciones no periódicas (pero que tienen área bajo la curva finita) como la integral de senos y cosenos multiplicados por una función que determina los pesos en cada instante. Formalmente tiene la siguiente expresión:
+\noindent El análisis de Fourier tradicionalmente ha jugado un papel fundamental en el procesamiento de señales \cite{DigitalImageProcessing}, por lo que podría parecer un buen punto de partida para la construcción del \textbf{propagador de dispersión} emplear la \textbf{transformada de Fourier}, una de las herramientas matemáticas más potente en este campo. La intuición detrás de su fórmula es la de representar funciones no periódicas (pero que tienen área bajo la curva finita) como la integral de senos y cosenos multiplicados por una función que determina los pesos en cada instante. Formalmente tiene la siguiente expresión:
 
 $$\widehat{f}(\omega):= \int{f(x)e^{-ix\omega}d\omega}=\int{f(x)\left[\cos{x\omega} -i\sin{x\omega}\right]d\omega}.$$
 
-\noindent Entre las propiedades más destacables de la transformada encontramos el hecho de que una función se puede recuperar sin pérdida de información a partir de su transformada de Fourier, lo cual nos permite poder trabajar en el \entrecomillado{Dominio de Fourier} (también llamado \entrecomillado{Dominio de Frecuencia}) ya que al calcular la integral, la función resultante sólo depende de $t$ que es la frecuencia. También nos permite pasar de nuevo al dominio original de la función, aplicando la inversa de la transformada, e interpretar los resultados obtenidos.
+\noindent Entre las propiedades más destacables de la transformada encontramos el hecho de que una función se puede recuperar sin pérdida de información a partir de su transformada de Fourier, lo cual nos permite poder trabajar en el \entrecomillado{Dominio de Fourier} (también llamado \entrecomillado{Dominio de Frecuencia}) ya que al calcular la integral, la función resultante sólo depende de $x$ (la frecuencia), y posteriormente pasar de nuevo al dominio original de la función, aplicando la inversa de la transformada sin pérdida de información.
 
-\noindent Normalmente, en el estudio de señales se suele emplear el módulo de la transformada de Fourirer para evitar fases complejas en el análisis, de esta forma: 
+\medskip
+
+\noindent Esto a priori es algo atractivo, pues nos permitiría trabajar en un dominio más sencillo y extraer conclusiones que podemos traducir al dominio original de la señal sin pérdida de información. Además, en el estudio de señales se suele emplear el módulo de la transformada de Fourirer para evitar fases complejas en el análisis, de esta forma el operador final que empezaremos a valorar es: 
 
 \begin{definicion}
-Sea $\Phi(f)=|\widehat{f}|$ el módulo de la transformada de Fourier. 
+$\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier. 
 \end{definicion}
 
-\noindent Vamos a comprobar si se trata de un operador válido para nuestro propósito de construir un propagador de dispersión. Para ello necesitamos en primer lugar que sea un operador \textbf{Invariante por traslaciones}, algo esencial en el procesamiento de imágenes y concretamente en tareas de clasificación y detección. 
+\noindent Vamos a comprobar si se trata de un operador válido para nuestro propósito. Para ello necesitamos en primer lugar que sea un operador \textbf{Invariante por traslaciones}, algo esencial en el procesamiento de imágenes y concretamente en tareas de clasificación y detección, con ello buscamos que la información que determina a cada elemento de la imagen permanezca invariante frente a desplazamientos.
 
 \begin{figure} [!h]
     \centering
@@ -135,6 +133,8 @@ Sea $\Phi(f)=|\widehat{f}|$ el módulo de la transformada de Fourier.
 \end{figure}
 
 \medskip
+
+\noindent De no darse esta propiedad, podríamos tener problemas a la hora de clasificar las imágenes anteriores, pues podrían ser identificadas como distintas. A continuación veremos que el operador que hemos elegido si cumple esta propiedad.
 
 \begin{lema}
     El operador $\Phi(f)=|\widehat{f}|$ es invariante por traslaciones.
@@ -156,7 +156,9 @@ Sea $\Phi(f)=|\widehat{f}|$ el módulo de la transformada de Fourier.
 
 \medskip
     
-\noindent Sin embargo, la invaianza por traslaciones no es suficiente y necesitamos que sea invariante también a pequeñas deformaciones llamadas difeomorfismos. Este hecho es de vital importancia en el contexto del procesamiento de imágenes, ya que en tareas como clasificación o segmentación resulta de vital importancia el reconocer objetos o clasificarlos incluso en imágenes que están en baja resolución o deformadas (afectadas por un difeomorfismo), por lo tanto definimos en primer lugar el concepto de difeomorfismo: 
+\noindent Sin embargo, la invaianza por traslaciones no es suficiente, necesitamos también que nuestro operador sea invariante frente a pequeñas deformaciones (difeomorfismos). Este hecho es de nuevo vital importancia en el contexto del procesamiento de imágenes, pues nos permite caracterizar objetos presentes en imágen incluso si estos se ven afectados por pequeñas deformaciones o la imagen tiene baja resolución.
+
+Empezamos así definiendo qué es un difeomorfismo: 
 
 \begin{figure}[!h]
     \centering
@@ -168,7 +170,7 @@ Sea $\Phi(f)=|\widehat{f}|$ el módulo de la transformada de Fourier.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{img/5_deformado.png}
-    \caption{Pequeñas deformaciones del número 5 que deberían ser todas identificadas como similares.}
+    \caption{Todas las imágenes deberían clasificarse como 5, pese a las deformaciones.}
     \label{fig:deformaciones_5}
 \end{figure}
 
@@ -207,7 +209,7 @@ Sea $\Phi(f)=|\widehat{f}|$ el módulo de la transformada de Fourier.
 
 \noindent Como podemos comprobar, la cota superior no depende de $||\tau(x)||_\infty$ ya que hemos supuesto que $\Phi$ es invariante por traslaciones. 
 
-\noindent Sin embargo, el operador que estábamos empleando hasta ahora (el módulo de la Transformada de Fourier) no es invariante frente a pequeños difeomorfismos, como podemos ver a continuación:
+\noindent Sin embargo, esta propiedad no la verifica el módulo de la Transformada de Fourier, como podemos ver a continuación:
 
 \begin{lema} \label{lemma:TF_inestable_difeomorfismos}
 El módulo de la Transformada de Fourier no es estable frente a pequeñas deformaciones y no es \entrecomillado{Lipschitz-continuo}.
@@ -262,11 +264,7 @@ $$\left|\left| |\widehat{L_\tau f}|-|\widehat{f}| \right|\right| \sim |s| |\xi| 
 \end{align*}
 
 
-\noindent Si ahora calculamos el módulo en ambos casos obtenemos que $|\widehat{\delta}(t)|=1$ y $|\widehat{h}|=\sqrt{\pi}$, que como vemos son iguales salvo una constante multiplicativa. 
-
-\medskip
-
-\noindent Esto nos muestra que dos señales a priori muy diferentes, en cambio pueden ser idénticas cuando les aplicamos el operador del módulo de la transformada.
+\noindent Si ahora calculamos el módulo en ambos casos obtenemos que $|\widehat{\delta}(t)|=1$ y $|\widehat{h}|=\sqrt{\pi}$, que como vemos son iguales salvo una constante multiplicativa. Esto nos muestra que dos señales a priori muy diferentes, en cambio pueden ser idénticas cuando les aplicamos el operador del módulo de la transformada.
 
 \medskip
 
@@ -319,9 +317,13 @@ $$\langle f,\psi_{j,n} \rangle =\int_{-\infty}^{+\infty} f(t) \psi_{j,n} (t) dt 
 
 $$f=\sum_{j=-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}  \langle f,\psi_{j,n} \rangle \psi_{j,n} $$
 
-\noindent Además, se verifica que cada ondeleta $\psi_{j,n}$ tiene media $0$ en su soporte $[2^jn, 2^j(n+1)]$. Por otro lado, si $f$ es localmente regular y $2^j$ es pequeño, entonces es casi constante en su intervalo y su coeficiente de ondeleta $\langle f,\psi_{j,n} \rangle$ es casi cero. Lo que significa que los coeficientes grandes de ondeletas están únicamente en los cambios bruscos de señal.
+\noindent Esto nos permite (igual que pasaba con el módulo de la Transformada de Fourier) trabajar en un dominio más sencillo que nos permite procesar la información con mayor rapidez y posteriormente reconstruir la señal a partir de los coeficientes sin perder información. Algunas propiedades serían: 
 
-\medskip
+\begin{itemize}
+  \item Cada ondeleta $\psi_{j,n}$ tiene media $0$ en su soporte $[2^jn, 2^j(n+1)]$.
+  \item Si $f$ es localmente regular y $2^j$ es pequeño, entonces es casi constante en su intervalo y su coeficiente de ondeleta $\langle f,\psi_{j,n} \rangle$ es prácticamente cero.
+  \item los mayores coeficientes se localizan en los cambios bruscos de intensidad de señal, como pueden ser los bordes, las esquinas o las texturas en las imágenes.
+\end{itemize}
 
 \noindent Para el caso concreto de imágenes (ver por ejemplo sección 1.1 de \cite{MallatWavelets}), las bases de ondeletas ortonormales pueden construirse a partir de bases ortonormales en señales de una dimensión. Así, a partir de tres ondeletas $\psi^1(x)$, $\psi^2(x)$ y$\psi^3(x)$ con $x=(x_1,x_2)\in \mathbb{R}^2$, dilatadas por el factor $2^j$ y trasladadas por $2^jn$ con $n=(n1,n2)\in \mathbb{Z}^2$, se construye una base ortonormal para el espacio $L^2(\mathbb{R}^2)$: 
 $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{2^j}\right) \right \rbrace_{(j,n) \in \mathbb{Z}^2}$$
@@ -331,13 +333,14 @@ $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{
 \noindent El soporte de la ondeleta $\psi_{j,n}^k(x)$ es un cuadrado proporcional a la escala $2^j$. Las bases de ondeletas en dos dimensiones se discretizan para definir bases ortonormales de imágenes de N píxeles.
 
 
-\noindent Del mismo modo que en una dimensión, los coeficientes de ondeletas $\langle f,\psi_{j,n}^k \rangle$ serán pequeños si $f(x)$ es regular, y serán grandes cerca de los cambios bruscos de frecuencias como en los bordes o esquinas de las imágenes.
+\noindent Del mismo modo que en una dimensión, los coeficientes de ondeletas $\langle f,\psi_{j,n}^k \rangle$ serán pequeños si $f(x)$ es regular, y serán grandes cerca de los cambios bruscos de frecuencias como en los bordes o esquinas de las imágenes, como podemos ver en \autoref{fig:ejemplo_haar} \footnote{Imágenes extraidas de: \url{https://homepage.divms.uiowa.edu/~jorgen/Haar.html}}. Los filtros resaltan los bordes en tres direcciones, horizontal (derecha) vertical (abajo) y en diagonal (abajo derecha).
 
-%Insertar ejemplo 
-
-\medskip 
-
-\noindent La transformada de ondeletas por lo tanto, permite que el deslpacamiento de $\xi$ a $(1-s)\xi$ tenga un menor impacto en las ondas sinusoidales en las altas frecuencias.
+\begin{figure} [!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/ejemplos_haar_basis.png}
+  \caption{Ejemplos de aplicar la base de Haar a dos imágenes.}
+  \label{fig:ejemplo_haar}
+\end{figure}
 
 \medskip 
 
@@ -487,7 +490,7 @@ $$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,
 
 \subsubsection{Convenios para futuras secciones}
 
-\noindent LLegados a este punto, ya tenemos la transformada de ondeletas que vamos a utilizar para la construcción de nuestro operador de dispersión, ahora vamos a establecer algunas características que impondremos a los distintos elementos que la componen y que usaremos de ahora en adelante: 
+\noindent LLegados a este punto, ya tenemos la transformada de ondeletas que vamos a utilizar para la construcción del PD, ahora vamos a establecer algunas características que impondremos a los distintos elementos que la componen y que usaremos de ahora en adelante: 
 
 \begin{itemize}
     \item $\widehat{\psi}$ es una función real que satisface la condición (2.7). Lo que implica que $\widehat{\psi}(0)=\int \psi(x)dx=0$ y $|\widehat{\phi}(r\omega)|=|\widehat{\phi}(\omega)| \;\; \forall r\in G$.
@@ -503,9 +506,8 @@ $$(2.9) \;\;\; W[\lambda](2^lg\circ f)=2^lg \circ W[2^{-l}g\lambda]f.$$
 
 \medskip
 
-\noindent Como $\phi$ es invariante a traslaciones en $G$, podemos comprobar que $A_J$ conmuta con las rotaciones de $G$: $A_J(g\circ f)=g\circ A_J f \;\; \forall g \in G$.
+\noindent Como $\phi$ es invariante a traslaciones en $G$, podemos comprobar que $A_J$ conmuta con las rotaciones de $G$: $A_J(g\circ f)=g\circ A_J f \;\; \forall g \in G$. Esto nos será de utilidad en el futuro.
 
-%HASTA AQUI
 \subsection{Camino de dispersión Ordenado}
 
 \noindent Las convoluciones con ondeletas definen operadores Lipschitz-conitnuos por la acción de difeomorfismos, porque las ondeletas son funciones regulares y localizadas. Sin embargo, la transformada de ondeletas no es invariante a traslaciones y $W[\lambda]f=f\ast\psi_\lambda$ se traslada cuando lo hace $f$. Por eso el mayor reto es conseguir calcular coeficientes que sean invariantes a traslaciones, que permanezcan estables bajo la acción de difeomorfismos y que retengan la información en altas frecuencias que proporcionan las ondeletas. Un operador de dispersión calcula una representación invariante a traslaciones de este tipo. Primero explicaremos como obtener coeficientes invariantes a traslaciones a partir de la transformada de ondeletas mientras que a su vez se mantiene la estabilidad bajo la acción de difeomorfismos. Tras esto definiremos los operadores de dispersión y sus principales propiedades.
