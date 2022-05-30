@@ -333,12 +333,12 @@ $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{
 \noindent El soporte de la ondeleta $\psi_{j,n}^k(x)$ es un cuadrado proporcional a la escala $2^j$. Las bases de ondeletas en dos dimensiones se discretizan para definir bases ortonormales de imágenes de N píxeles.
 
 
-\noindent Del mismo modo que en una dimensión, los coeficientes de ondeletas $\langle f,\psi_{j,n}^k \rangle$ serán pequeños si $f(x)$ es regular, y serán grandes cerca de los cambios bruscos de frecuencias como en los bordes o esquinas de las imágenes, como podemos ver en \autoref{fig:ejemplo_haar} \footnote{Imágenes extraidas de: \url{https://homepage.divms.uiowa.edu/~jorgen/Haar.html}}. Los filtros resaltan los bordes en tres direcciones, horizontal (derecha) vertical (abajo) y en diagonal (abajo derecha).
+\noindent Del mismo modo que en una dimensión, los coeficientes de ondeletas $\langle f,\psi_{j,n}^k \rangle$ serán pequeños si $f(x)$ es regular, y serán grandes cerca de los cambios bruscos de frecuencias como en los bordes o esquinas de las imágenes, como podemos ver en \autoref{fig:ejemplo_haar}. Los filtros resaltan los bordes en tres direcciones, horizontal (derecha) vertical (abajo) y en diagonal (abajo derecha).
 
 \begin{figure} [!h]
   \centering
   \includegraphics[width=0.8\textwidth]{img/ejemplos_haar_basis.png}
-  \caption{Ejemplos de aplicar la base de Haar a dos imágenes.}
+  \caption{Ejemplos de aplicar la base de Haar a dos imágenes \cite{HaarBasis}.}
   \label{fig:ejemplo_haar}
 \end{figure}
 
@@ -508,42 +508,74 @@ $$(2.9) \;\;\; W[\lambda](2^lg\circ f)=2^lg \circ W[2^{-l}g\lambda]f.$$
 
 \noindent Como $\phi$ es invariante a traslaciones en $G$, podemos comprobar que $A_J$ conmuta con las rotaciones de $G$: $A_J(g\circ f)=g\circ A_J f \;\; \forall g \in G$. Esto nos será de utilidad en el futuro.
 
-\subsection{Camino de dispersión Ordenado}
+\subsection{El operador de dispersión sobre un camino ordenado}
 
-\noindent Las convoluciones con ondeletas definen operadores Lipschitz-conitnuos por la acción de difeomorfismos, porque las ondeletas son funciones regulares y localizadas. Sin embargo, la transformada de ondeletas no es invariante a traslaciones y $W[\lambda]f=f\ast\psi_\lambda$ se traslada cuando lo hace $f$. Por eso el mayor reto es conseguir calcular coeficientes que sean invariantes a traslaciones, que permanezcan estables bajo la acción de difeomorfismos y que retengan la información en altas frecuencias que proporcionan las ondeletas. Un operador de dispersión calcula una representación invariante a traslaciones de este tipo. Primero explicaremos como obtener coeficientes invariantes a traslaciones a partir de la transformada de ondeletas mientras que a su vez se mantiene la estabilidad bajo la acción de difeomorfismos. Tras esto definiremos los operadores de dispersión y sus principales propiedades.
+%Esto debería intentar explicarlo mejor?
+\noindent La transformada de Littlewood-Paley definida anteriormente es Lipschitz-conitnua bajo la acción de difeomorfismos, porque las ondeletas son funciones regulares y localizadas. Sin embargo, todavía no es invariante a traslaciones y $W[\lambda]f=f\ast\psi_\lambda$ se traslada cuando lo hace $f$.
+
+\noindent Por eso el mayor reto es conseguir calcular coeficientes que sean invariantes a traslaciones, que permanezcan estables bajo la acción de difeomorfismos y que retengan la información en altas frecuencias que proporcionan las ondeletas, reuniendo todas estas características tendríamos el operador que necesitamos para la construcción del PD. 
+
+\medskip 
+
+\noindent Los coeficientes invariantes por traslaciones los obtendremos gracias a la acción de un operador no lineal aplicando el siguiente lema: 
+
+%No se si perder tiempo en buscar la dem
+\begin{lema}
+  Si $U[\lambda]$ es un operador definido en $L^2(\mathbb{R}^d)$, no necesariamente lineal pero que conmuta con traslaciones, entonces $\int_{\mathbb{R}^d} U[\lambda]f(x)dx$ es invariante a traslaciones si es finito.
+\end{lema}
+
+
+\noindent En nuestro caso $W[\lambda]f=f\ast\psi_\lambda$ es un ejemplo trivial de este lema, pues se trata de un operador que conmuta con traslaciones y $\int_{\mathbb{R}^d} f \ast \psi(x) dx=0$ porque $\int_{\mathbb{R}^d} \psi(x)dx=0$. De hecho, se verifica lo siguiente: 
+
+%Preguntar
+\begin{lema}
+  Cualquier transformación lineal de $W[\lambda]f$ que sea invariante a traslaciones tiene que tener necesariamente integral nula.
+\end{lema}
+
+\noindent Esto nos enseña, que para obtener un operador invariante por traslaciones y no trivial $U[\lambda]f$, es necesario componer $W[\lambda]$ con un operador extra $M[\lambda]$ que sea \entrecomillado{no lineal}, y que se conoce como "demodulación", que transforma $W[\lambda]f$ en una función de baja frecuencia con integral distinta de cero. Además, la elección de $M[\lambda]$ debe preservar la Lipschitz-continuidad bajo la acción de difeomorfismos.    
+En resumen, queremos un operador no lineal que produzca coeficientes invariantes por traslaciones no triviales y que además conserve la Lipschitz-continuidad.
+
 
 \medskip
 
-\noindent De esta forma si $U[\lambda]$ es un operador definido en $L^2(\mathbb{R}^d)$, no necesariamente lineal pero que conmuta con traslaciones, entonces $\int_{\mathbb{R}^d} U[\lambda]f(x)dx$ es invariante a traslaciones si es finito. En nuestro caso $W[\lambda]f=f\ast\psi_\lambda$ conmuta con traslaciones, pero $\int_{\mathbb{R}^d}=0$ porque $\int_{\mathbb{R}^d} \psi(x)dx=0$. De forma más general, uno puede verificar que cualquier transformación lineal de $W[\lambda]f$ que sea invariante a traslaciones tiene que ser necesariamente $0$. Para obtener uno que no sea cero, definimos $U[\lambda]f=M[\lambda]W[\lambda]f$ dónde $M[\lambda]$ es una "demodulación" no lineal que convierte $W[\lambda]f$ en una función de baja frecuencia con integral distinta de cero. La elección de $M[\lambda]$ debe preservar la Lipschitz-continuidad por la acción de difeomorfismos.
+\noindent Vamos a poner un ejemplo para entender mejor lo que se ha comentado anteriormente: 
 
-\medskip
+\subsubsection{Ejemplo para obtener coeficientes invariantes por traslaciones}
 
-\noindent Si $\psi(x)=e^{i\eta x}\Theta(x)$, entonces $\psi_\lambda(x)=e^{i\lambda\eta x}\Theta_\lambda(x)$, y por lo tanto 
+\noindent Si la \textbf{ondeleta madre} fuese $\psi(x)=e^{i\eta x}\Theta(x)$, entonces los elementos de la base tendrían la forma $\psi_\lambda(x)=e^{i\lambda\eta x}\Theta_\lambda(x)$, y por lo tanto 
 
 $$(2.11) \; \; \; W[\lambda]f(x)=e^{i\lambda\eta x}(f^\lambda \ast \Theta_\lambda(x)) \; \; \; con \; f^\lambda(x)=e^{-i\lambda\eta x}f(x).$$
 
-\noindent La convolución $f^\lambda \ast \Theta_\lambda(x)$ es un filtro de bajas frecuencias porque $\widehat{\Theta}_\lambda(\omega)=\widehat{\Theta}(\lambda^{-1} \omega)$ que cubre una bola de frecuencia centrada en $\omega=0$ y de radio proporcional a $|\lambda|$. Por lo tanto se podría obtener un operador invariante por traslaciones si se cancela el término de modilación $e^{-i\lambda\eta x}$ con una función $M[\lambda]$ pertinente. Por ejemplo: 
+\noindent La convolución $f^\lambda \ast \Theta_\lambda(x)$ es un filtro de bajas frecuencias porque $\widehat{\Theta}_\lambda(\omega)=\widehat{\Theta}(\lambda^{-1} \omega)$ que cubre una bola de frecuencia centrada en $\omega=0$ y de radio proporcional a $|\lambda|$. Por lo tanto se podría obtener un operador invariante por traslaciones si se cancela el término de modulación $e^{i\lambda\eta x}$ con una función $M[\lambda]$ pertinente. Por ejemplo: 
 
 $$(2.12) \;\;\; M[\lambda]h(x)=e^{-i\lambda\eta x} e^{-i \Phi(\widehat{h}(\lambda\eta))}h(x).$$
 
-\noindent Dónde $\Phi(\widehat{h}(\lambda\eta))$ es la fase compleja de $\widehat{h}(\lambda\eta)$. Este registro de fase no lineal garantiza que $M[\lambda]$ conmuta con las traslaciones. De $(2.11)$ tenemos que $\int_{\mathbb{R}^d}M[\lambda]W[\lambda]f(x)dx=|\widehat{f}(\lambda \eta)||\widehat{\Theta}(0)|$. Esto recupera el módulo de la transformada de Fourier que sabemos que es invariante a traslaciones pero no Lipschitz-continuo (como se vio en $(2.1)$). Por lo tanto no es apropiado para nuestro cometido el operador definido en $(2.12)$. 
+\noindent Dónde $\Phi(\widehat{h}(\lambda\eta))$ es la fase compleja de $\widehat{h}(\lambda\eta)$. Este registro de fase no lineal garantiza que $M[\lambda]$ conmuta con las traslaciones y es no trivial. No obstante, no utilizaremos este operador, pues además de ser complejo no verifica la invarianza bajo la acción de difeomorfismos.
+
+\subsubsection{El operador módulo}
+
+\noindent En nuestro caso, para preservar la Lipschitz-continuidad bajo la acción de difeomorfismos necesitamos que $M[\lambda]$ conmute con los difeomorfismos y para garantizar la estabilidad en $L^2(\mathbb{R}^d)$, también necesitamos que $M[\lambda]$ sea no expansiva. Se puede comprobar que entonces $M[\lambda]$ tiene que ser necesariamente un operador punto a punto \cite{JBrunaOperatorsCommutingDiff}, lo que significa que el operador $M[\lambda]h(x)$ que buscamos dependería únicamente del valor de $h$ en el punto $x$.Además, para obtener mejores propiedades vamos a imponer que $||M[\lambda]h||=||h|| \; \; \forall h \in L^2(\mathbb{R}^d)$, lo que implica entonces que $|M[\lambda]h|=|h|$. 
 
 \medskip
 
-\noindent La Lipschitz-continuidad bajo la acción de difeomorfismos se preserva si $M[\lambda]$ conmuta con la acción de los difeomorfismos. Para la estabilidad en $L^2(\mathbb{R}^d)$, también necesitamos que $M[\lambda]$ sea no expansiva. Se puede comprobar que entonces $M[\lambda]$ tiene que ser necesariamente un operador punto a punto, lo que significa que $M[\lambda]h(x)$ dependería únicamente del valor de $h$ en el punto $x$. Si además de todo esto imponemos que $||M[\lambda]h||=||h|| \; \; \forall h \in L^2(\mathbb{R}^d)$, que implica entonces que $|M[\lambda]h|=|h|$. Las funciones más regulares se obtienen con $M[\lambda]h=|h|$ que eliminan todas las variaciones de fase. Se obtiene entonces de $(2.11)$ que este módulo transforma $W[\lambda]f$ en una señal de baja frecuencia:
+\noindent El operador por tanto que satisface todas las restricciones anteriores y con el que obtenemos funciones más regulares es por tanto $M[\lambda]h=|h|$, que elimina todas las variaciones de fase \cite{bruna2013invariant}. Se obtiene entonces de $(2.11)$ que este módulo transforma $W[\lambda]f$ en una señal de baja frecuencia:
 
 $$M[\lambda]W[\lambda]f=|W[\lambda]f|=|f^\lambda \ast \Theta_\lambda|.$$
 
-
-\noindent Las bajas frecuencias creadas por el módulo resultan de interferencias. Por ejemplo, si $f(x)=\cos(\xi_1 x)+a\cos(\xi_2 x)$ dónde $\xi_1$ y $\xi_2$ están en la banda de frecuencia cubierta por $\widehat{\psi}_\lambda$, entonces $|f \ast \psi_\lambda (x) |=2^{-1} |\widehat{\psi}_\lambda(\xi_1)+a\widehat{\psi}_\lambda(\xi_2)e^{i(\xi_2-\xi_1)x}|$ oscila entre la frecuencia de interferencias $|\xi_2-\xi_1$, que es menor que $|\xi_1|$ y $|\xi_2|$.
-
-\medskip
-
-\noindent Por otro lado, la integración de $\int_{\mathbb{R}^d}U[\lambda]f(x) dx= \int_{\mathbb{R}^d} | f \ast \psi_\lambda(x)|dx$ es invariante por traslaciones pero elimina todas las altas frecuencias de $|f \ast \psi_\lambda(x)|$. Para recuperar dichas altas frecuencias un operador de dispersión también calcula los coeficientes de ondeletas para cada $U[\lambda]f$ que son $\lbrace U[\lambda]f \ast \psi_{\lambda'}\rbrace_{\lambda'}$. De nuevo, los coeficientes invariantes a traslaciones se obtienen con el módulo $U[\lambda']U[\lambda]f=|U[\lambda]f \ast \psi_{\lambda'}|$ y la integración $\int_{\mathbb{R}^d} U[\lambda']U[\lambda]f(x) dx$. Si ahora $f(x)=\cos(\xi_1 x)+a\cos(\xi_2 x)$ con $a<1$ y si $|\xi_2-\xi_1| << |\lambda|$ con $|\xi_2 - \xi_1|$ en el soporte de $\widehat{\psi}_{\lambda'}$, entonces $U[\lambda']U[\lambda]f$ es proporcional a $a\cdot |\psi_\lambda(\xi_1)|\cdot |\psi_{\lambda'}(|\xi_2-\xi_1|)|$. La segunda ondeleta $\widehat{\psi}_{\lambda'}$ captura las interferencias creadas por el módulo, entre la frecuencia de las componentes de f y el soporte de $\widehat{\psi_\lambda}$.
+%Ejemplo:
+\noindent Gracias al módulo se obtienen frecuecnias más bajas al interferir dos señales. Por ejemplo, si $f(x)=\cos(\xi_1 x)+a\cos(\xi_2 x)$ dónde $\xi_1$ y $\xi_2$ están en la banda de frecuencia cubierta por $\widehat{\psi}_\lambda$, entonces al aplicar el operador módulo $|f \ast \psi_\lambda (x) |=2^{-1} |\widehat{\psi}_\lambda(\xi_1)+a\widehat{\psi}_\lambda(\xi_2)e^{i(\xi_2-\xi_1)x}|$ oscila entre la frecuencia de interferencias $|\xi_2-\xi_1|$, que como vemos es menor que $|\xi_1|$ y $|\xi_2|$.
 
 \medskip
 
-\noindent A continuación introducimos el porpagador de dispersión que extiende estas descomposiciones.
+\noindent De esta manera, por la forma en que hemos construido el operador $U[\lambda] f$ la integración de $\int_{\mathbb{R}^d}U[\lambda]f(x) dx= \int_{\mathbb{R}^d} | f \ast \psi_\lambda(x)|dx$ es invariante por traslaciones pero elimina todas las altas frecuencias de $|f \ast \psi_\lambda(x)|$. Para recuperarlas, el PD calcula los coeficientes de ondeletas para cada $U[\lambda]f$ que son $\lbrace U[\lambda]f \ast \psi_{\lambda'}\rbrace_{\lambda'}$. De nuevo, los coeficientes invariantes a traslaciones se obtienen con el módulo $U[\lambda']U[\lambda]f=|U[\lambda]f \ast \psi_{\lambda'}|$ y la integración $\int_{\mathbb{R}^d} U[\lambda']U[\lambda]f(x) dx$. 
+
+\medskip
+
+\noindent Veamos esto con el mismo ejemplo de antes $f(x)=\cos(\xi_1 x)+a\cos(\xi_2 x)$ pero con $a<1$. Si $|\xi_2-\xi_1| << |\lambda|$ con $|\xi_2 - \xi_1|$ en el soporte de $\widehat{\psi}_{\lambda'}$, entonces $U[\lambda']U[\lambda]f$ es proporcional a $a\cdot |\psi_\lambda(\xi_1)|\cdot |\psi_{\lambda'}(|\xi_2-\xi_1|)|$. La segunda ondeleta $\widehat{\psi}_{\lambda'}$ captura las interferencias creadas por el módulo, entre la frecuencia de las componentes de f y el soporte de $\widehat{\psi_\lambda}$.
+
+\medskip
+
+\noindent A continuación introducimos el PD que extiende estas descomposiciones.
 
 \medskip
 
@@ -553,22 +585,22 @@ Una secuencia ordenada $p=(\lambda_1,\lambda_2, ... , \lambda_m)$ con $\lambda_k
 
 
 \begin{definicion}
-Si definimos $U[\lambda]f=M[\lambda]W[\lambda]f=|f \ast \psi_\lambda|=\left | \int_{\mathbb{R}^d} f(u)\psi_\lambda(x-u) du \right|$ para $f \in L^2(\mathbb{R}^d)$, un propagador de dispersión sería un producto ordenado según un camino de operadores no conmutativos definido por:
+Un PD es un producto de operadores de la forma $U[\lambda]f=M[\lambda]W[\lambda]f=|f \ast \psi_\lambda|=\left | \int_{\mathbb{R}^d} f(u)\psi_\lambda(x-u) du \right|$ para $f \in L^2(\mathbb{R}^d)$ no conmuntativos por un camino ordenado:
 
 $$(2.13) \;\;\; U[p]f=U[\lambda_m]...U[\lambda_2]U[\lambda_1],$$
 
 con $U[\emptyset]=Id$
 \end{definicion}
 
-\medskip
+\noindent El operador $U[p]$ está bien definido en $L^2(\mathbb{R}^d)$ porque $\left|\left| U[\lambda]f \right|\right| = ||f|| \leq ||\psi_\lambda||_1 ||f||$ para todo $\lambda \in \Lambda_\infty$. 
 
-\noindent El operador $U[p]$ está bien definido en $L^2(\mathbb{R}^d)$ porque $\left|\left| U[\lambda]f \right|\right| \leq ||\psi_\lambda||_1 ||f||$ para todo $\lambda \in \Lambda_\infty$. El propagador de dispersión es por tanto una cascada de convoluciones y módulos: 
+El PD es por tanto una cascada de convoluciones y módulos: 
 
 $$(2.14) \;\;\; \left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | ... | \ast \psi_{\lambda_m} \right|$$
 
 \medskip
 
-\noindent Cada $U[\lambda]$ filtra la frecuencia del componente en la banda cubierta por $\widehat{\psi}_\lambda$ y lo mapea en un espacio de baja frecuencia con el módulo.
+\noindent Cada $U[\lambda]$ filtra la frecuencia del componente en la banda cubierta por $\widehat{\psi}_\lambda$ y lo mapea en un espacio de frecuencias menores con la operación módulo.
 
 \begin{definicion}
 Escribimos la rotación y reescalo de un camino $p$ mediante $2^lg \in 2^\mathbb{Z}\times G$ como $2^lgp=(2^lg\lambda_1,2^lg\lambda_2,...,2^lg\lambda_m)$.
@@ -592,7 +624,11 @@ $$U[p+p']=U[\lambda'_{m'}]...U[\lambda'_2]U[\lambda'_1]U[\lambda_{m}]...U[\lambd
 
 \medskip
 
-%\noindent En la \autoref{ch:seccion12} veíamos que si $f$ era compleja, entonces su transformada de ondeletas era $ W_\inf=\lbrace W[\lambda]f \rbrace_{\lambda , -\lambda  \in \Lambda_{\infty} }$, mientras que si $f$ era real entonces $W_\inf=\lbrace W[\lambda]f\rbrace_{\lambda\in \Lambda_\infty}$. Sin embargo, en este caso si $f$ es compleja, tras la iteración $U[\lambda_1]f=\left|W[\lambda_1]f\right|$ sería real, luego para las siguientes transfomadas de ondeletas sólo haría falta calcularlas para $\lambda_k \in \Lambda_\infty$. Por lo tanto para los propagadores de dispersión de funciones complejas se definen sobre caminos "positivos" $p=(\lambda_1,\lambda_2, ... , \lambda_m)$ y caminos "negativos" $-p=(-\lambda_1,\lambda_2, ... , \lambda_m)$ .Sin embargo para simplificar cálculos, todos los resultados siguientes se haran sobre propagaores de dispersión aplicados a funciones reales, aunque serán aplicables a funciones complejas incluyendo caminos negativos.
+\noindent En la \autoref{ch:seccion12} veíamos que si $f$ era compleja, entonces su transformada de ondeletas era $ W_\infty=\lbrace W[\lambda]f \rbrace_{\lambda , -\lambda  \in \Lambda_{\infty} }$. Pero en este caso, gracias al módulo si $f$ es compleja, tras la iteración $U[\lambda_1]f=\left|W[\lambda_1]f\right|$ sería una función real, luego para las siguientes transfomadas de ondeletas sólo haría falta calcularlas para $\lambda_k \in \Lambda_\infty$. Por lo tanto para los propagadores de dispersión de funciones complejas se definen sobre caminos "positivos" $p=(\lambda_1,\lambda_2, ... , \lambda_m)$ y caminos "negativos" $-p=(-\lambda_1,\lambda_2, ... , \lambda_m)$.
+
+\medskip
+
+\noindent Sin embargo para simplificar cálculos, todos los resultados siguientes se haran sobre PD aplicados a funciones reales.
 
 \begin{definicion}
 Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
@@ -627,7 +663,7 @@ $$(2.20) \;\;\; S_J[p]f(x)=\left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_
 
 \noindent Define una familia infinita de funciones indexadas por $\mathcal{P}_J$, denotada por
 
-$$S_J[\mathcal{P}_J]]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
+$$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
 
 \noindent Como decíamos antes, para funciones complejas, en $\mathcal{P}_J$ incluimos los caminos negativos, y si $f$ es real $S_J[-p]=S_J[p]f$.
 \noindent En la \autoref{ch:seccion13} se comprueba que para ondeletas apropiadas, $||f||^2=\sum_{p\in\mathcal{P}_J}\left|\left|S_J[p]f\right|\right|^2$. 

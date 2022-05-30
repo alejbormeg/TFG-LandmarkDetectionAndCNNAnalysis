@@ -14,10 +14,12 @@
 \contentsline {subsubsection}{\numberline {1.2.1.2}Alternativa: Las ondeletas}{9}{subsubsection.1.2.1.2}%
 \contentsline {subsubsection}{\numberline {1.2.1.3}La Transformada de Littlewood-Paley}{12}{subsubsection.1.2.1.3}%
 \contentsline {subsubsection}{\numberline {1.2.1.4}Convenios para futuras secciones}{15}{subsubsection.1.2.1.4}%
-\contentsline {subsection}{\numberline {1.2.2}Camino de dispersión Ordenado}{15}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Propagador de dispersión y conservación de la Norma}{18}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.2}El operador de dispersión sobre un camino ordenado}{15}{subsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.2.1}Ejemplo para obtener coeficientes invariantes por traslaciones}{16}{subsubsection.1.2.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2.2}El operador módulo}{16}{subsubsection.1.2.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Propagador de dispersión y conservación de la Norma}{19}{subsection.1.2.3}%
 \contentsline {section}{\numberline {1.3}Invarianza por Traslaciones}{23}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Elementos del texto}{26}{section.1.4}%
+\contentsline {section}{\numberline {1.4}Elementos del texto}{27}{section.1.4}%
 \contentsline {subsection}{\numberline {1.4.1}Listas}{27}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{27}{subsection.1.4.2}%
 \contentsline {section}{\numberline {1.5}Entornos matemáticos}{28}{section.1.5}%

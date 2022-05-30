@@ -1,4 +1,4 @@
-\begin{thebibliography}{HIWK15}
+\begin{thebibliography}{PJDoM06}
 
 \bibitem[BM13]{bruna2013invariant}
 Joan Bruna and St{\'e}phane Mallat.
@@ -19,10 +19,20 @@ Mar{\'i}a~Isabel Huete, {\'O}scar Ib{\'a}{\~n}ez, Caroline Wilkinson, and Tzipi
   and international surveys.
 \newblock {\em Legal medicine}, 17 4:267--78, 2015.
 
+\bibitem[J.B12]{JBrunaOperatorsCommutingDiff}
+J.Bruna.
+\newblock Operators commuting with diffeomorphisms.
+\newblock {\em CMAP Tech. REport}, 2012.
+
 \bibitem[Mal00]{MallatWavelets}
 St{\'e}phane Mallat.
 \newblock {\em Une exploration des signaux en ondelettes.}
 \newblock Palaiseau: Les {\'E}ditions de l'{\'E}cole Polytechnique, 2000.
+
+\bibitem[PJDoM06]{HaarBasis}
+University of~Iowa Palle Jorgensen Department~of Mathematics.
+\newblock Image decomposition using haar wavelet.
+\newblock \url = {https://homepage.divms.uiowa.edu/~jorgen/Haar.html},, 2006.
 
 \bibitem[TY05]{doi:10.1137/S0036141002404838}
 Alain Trouvé and Laurent Younes.
