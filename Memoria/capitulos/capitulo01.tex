@@ -549,13 +549,36 @@ En resumen, queremos un operador no lineal que produzca coeficientes invariantes
 
 \noindent Si la \textbf{ondeleta madre} fuese $\psi(x)=e^{i\eta x}\Theta(x)$, entonces los elementos de la base tendrían la forma $\psi_\lambda(x)=e^{i\lambda\eta x}\Theta_\lambda(x)$, y por lo tanto 
 
-$$(2.11) \; \; \; W[\lambda]f(x)=e^{i\lambda\eta x}(f^\lambda \ast \Theta_\lambda(x)) \; \; \; con \; f^\lambda(x)=e^{-i\lambda\eta x}f(x).$$
+\begin{align*}
+  W[\lambda]f(x) &= f \ast \phi_\lambda (x) \\
+  &= f \ast e^{i\lambda\eta x}\Theta_\lambda(x) \\
+  &=e^{i\lambda\eta x}(e^{-i\lambda\eta x}f(x) \ast \Theta_\lambda(x)) \\
+  &=e^{i\lambda\eta x}(f^\lambda \ast \Theta_\lambda(x)),\\
+\end{align*}
 
-\noindent La convolución $f^\lambda \ast \Theta_\lambda(x)$ es un filtro de bajas frecuencias porque $\widehat{\Theta}_\lambda(\omega)=\widehat{\Theta}(\lambda^{-1} \omega)$ que cubre una bola de frecuencia centrada en $\omega=0$ y de radio proporcional a $|\lambda|$. Por lo tanto se podría obtener un operador invariante por traslaciones si se cancela el término de modulación $e^{i\lambda\eta x}$ con una función $M[\lambda]$ pertinente. Por ejemplo: 
+\noindent con $f^\lambda(x)=e^{-i\lambda\eta x}f(x)$.
+
+\medskip
+
+\noindent En este caso, se podría obtener un operador invariante por traslaciones si se cancela el término de modulación $e^{i\lambda\eta x}$ con una función $M[\lambda]$ pertinente. Por ejemplo: 
 
 $$(2.12) \;\;\; M[\lambda]h(x)=e^{-i\lambda\eta x} e^{-i \Phi(\widehat{h}(\lambda\eta))}h(x).$$
 
-\noindent Dónde $\Phi(\widehat{h}(\lambda\eta))$ es la fase compleja de $\widehat{h}(\lambda\eta)$. Este registro de fase no lineal garantiza que $M[\lambda]$ conmuta con las traslaciones y es no trivial. No obstante, no utilizaremos este operador, pues además de ser complejo no verifica la invarianza bajo la acción de difeomorfismos.
+\noindent Dónde $\Phi(\widehat{h}(\lambda\eta))$ es la fase compleja de $\widehat{h}(\lambda\eta)$. Este registro de fase no lineal garantiza que $M[\lambda]$ conmuta con las traslaciones, ya que: 
+
+
+\begin{align*}
+  \int_{\mathbb{R}^d} M[\lambda]W[\lambda] f(x) dx &= \int_{\mathbb{R}^d} e^{-i\lambda \eta} e^{-i \Phi (\widehat{W[\lambda\eta]f})} \left( e^{i\lambda\eta x} \left( e^{-i\lambda\eta x} f \ast \Theta_\lambda (x)\right)\right) dx \\
+  &= e^{-i \Phi (\widehat{f}(\lambda\eta)\widehat{\psi_\lambda}(\lambda\eta))} \int_{\mathbb{R}^d} e^{-i\lambda\eta x} f \ast \Theta_\lambda (x) dx \\
+  &=e^{-i \Phi (\widehat{f}(\lambda\eta)\widehat{\psi_\lambda}(\lambda\eta))} \int_{\mathbb{R}^d}e^{-i\lambda\eta x} f(x) dx  \int_{\mathbb{R}^d}\Theta_\lambda (x) dx  \\
+  &=e^{-i \Phi (\widehat{f}(\lambda\eta)\widehat{\psi_\lambda}(\lambda\eta))} \cdot \widehat{f}(\lambda\eta) \cdot  \widehat{\Theta_\lambda}(0)\\
+  &=e^{-i \Phi (\widehat{f}(\lambda\eta)\widehat{\psi_\lambda}(\lambda\eta))} \cdot \widehat{f}(\lambda\eta) \cdot  \widehat{\Theta_\lambda}(0) \\
+  &=\left| \widehat{f}(\lambda\eta) \cdot  \widehat{\Theta_\lambda}(0) \right|^2 \\
+  &=\left| \widehat{f}(\lambda\eta)\right|^2 \left| \widehat{\Theta_\lambda}(0) \right|^2  \\
+  &=\left| \widehat{f}(\lambda\eta)\right|^2 \left| \widehat{\Theta}(0) \right|^2 
+\end{align*}
+
+\noindent que como podemos ver, la integral tiene un valor no trivial y por otra parte obtenemos el módulo de la transformada que como habíamos visto era invariante por traslaciones. No obstante, no utilizaremos este operador para nuestro propósito pues además de ser complejo no verifica la invarianza bajo la acción de difeomorfismos.
 
 \subsubsection{El operador módulo.}
 

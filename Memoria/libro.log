@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  2 JUN 2022 12:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  2 JUN 2022 21:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -949,88 +949,93 @@ LaTeX Info: Redefining \% on input line 486.
 LaTeX Info: Redefining \. on input line 538.
 LaTeX Info: Redefining \% on input line 538.
  [15]
-LaTeX Info: Redefining \. on input line 572.
-LaTeX Info: Redefining \% on input line 572.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 579.
+LaTeX Info: Redefining \% on input line 579.
  [16]
-Overfull \hbox (63.7898pt too wide) in paragraph at lines 619--620
+LaTeX Info: Redefining \. on input line 603.
+LaTeX Info: Redefining \% on input line 603.
+ [17]
+Overfull \hbox (63.7898pt too wide) in paragraph at lines 642--643
 [][]\T1/pplj/b/n/10 Definici�n 1.15. []\T1/pplj/m/n/10 (-10) La con-ca-te-na-ci�n de dos ca-mi-nos $\OML/zplm/m/it/10 p$ \T1/pplj/m/n/10 (-10) y $\OML/zplm/m/it/10 p[]$ \T1/pplj/m/n/10 (-10) se de-no-ta por $\OML/zplm/m/it/10 p \OT1/zplm/m/n/10 + \OML/zplm/m/it/10 p[] \OT1/zplm/m/n/10 = (\OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , ..., \OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , ..., \OML/zplm/m/it/10 ^^U[]\OT1/zplm/m/n/10 )$\T1/pplj/m/n/10 (-10) . 
  []
 
-LaTeX Info: Redefining \. on input line 628.
-LaTeX Info: Redefining \% on input line 628.
-[17]
-LaTeX Info: Redefining \. on input line 669.
-LaTeX Info: Redefining \% on input line 669.
- [18]
-LaTeX Info: Redefining \. on input line 720.
-LaTeX Info: Redefining \% on input line 720.
+LaTeX Info: Redefining \. on input line 662.
+LaTeX Info: Redefining \% on input line 662.
+[18]
+LaTeX Info: Redefining \. on input line 707.
+LaTeX Info: Redefining \% on input line 707.
  [19]
-LaTeX Info: Redefining \. on input line 759.
-LaTeX Info: Redefining \% on input line 759.
+LaTeX Info: Redefining \. on input line 751.
+LaTeX Info: Redefining \% on input line 751.
  [20]
-Overfull \hbox (91.53506pt too wide) in paragraph at lines 801--802
+LaTeX Info: Redefining \. on input line 796.
+LaTeX Info: Redefining \% on input line 796.
+ [21]
+Overfull \hbox (91.53506pt too wide) in paragraph at lines 824--825
 []\T1/pplj/m/n/10 (-10) Primero pro-ba-mos que $[][] \OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 U\OT1/zplm/m/n/10 [^^C[]]\OML/zplm/m/it/10 f\OMS/zplm/m/n/10 jj[] \OT1/zplm/m/n/10 = \OT1/pplx/m/n/10 0$ \T1/pplj/m/n/10 (-10) es equi-va-len-te a te-ner $[][] [][] \OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 S[]\OT1/zplm/m/n/10 [^^C[]]\OML/zplm/m/it/10 f\OMS/zplm/m/n/10 jj[] \OT1/zplm/m/n/10 =
  []
 
 
-Overfull \hbox (1.82939pt too wide) in paragraph at lines 801--802
+Overfull \hbox (1.82939pt too wide) in paragraph at lines 824--825
 \OT1/pplx/m/n/10 0$ \T1/pplj/m/n/10 (-10) y a $\OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 S[]\OT1/zplm/m/n/10 [[]\OML/zplm/m/it/10 f\OMS/zplm/m/n/10 jj \OT1/zplm/m/n/10 = \OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 f\OMS/zplm/m/n/10 jj$\T1/pplj/m/n/10 (-10) . Co-mo $\OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 U[]h\OMS/zplm/m/n/10 jj \OT1/zplm/m/n/10 = \OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 h\OMS/zplm/m/n/10 jj 8\OML/zplm/m/it/10 h \OMS/zplm/m/n/10 2 \OML/zplm/m/it/10 L[]\OT1/zplm/m/n/10 (\U/fplmbb/m/n/10 R[]\OT1/zplm/m/n/10 )$ \T1/pplj/m/n/10 (-10) y $\OML/zplm/m/it/10 U[]U\OT1/zplm/m/n/10 [^^C[]]\OML/zplm/m/it/10 f \OT1/zplm/m/n/10 = \OMS/zplm/m/n/10 f\OML/zplm/m/it/10 S[]\OT1/zplm/m/n/10 [^^C[]]\OML/zplm/m/it/10 f\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 U\OT1/zplm/m/n/10 [^^C[]]\OMS/zplm/m/n/10 g$\T1/pplj/m/n/10 (-10) , 
  []
 
-LaTeX Info: Redefining \. on input line 803.
-LaTeX Info: Redefining \% on input line 803.
-[21]
-Overfull \hbox (68.76627pt too wide) in paragraph at lines 805--806
+
+Overfull \hbox (68.76627pt too wide) in paragraph at lines 828--829
 \T1/pplj/m/n/10 (-10) Sumando en $\OML/zplm/m/it/10 m \OMS/zplm/m/n/10 ^^T \OML/zplm/m/it/10 n < \OMS/zplm/m/n/10 1$ \T1/pplj/m/n/10 (-10) se prue-ba que $[][] \OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 U\OT1/zplm/m/n/10 [^^C[]]\OML/zplm/m/it/10 f\OMS/zplm/m/n/10 jj \OT1/zplm/m/n/10 = \OT1/pplx/m/n/10 0$ \T1/pplj/m/n/10 (-10) es equi-va-len-te a $[][] [][] \OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 S[]\OT1/zplm/m/n/10 [^^C[]]\OML/zplm/m/it/10 f\OMS/zplm/m/n/10 jj[] \OT1/zplm/m/n/10 =
  []
 
-LaTeX Info: Redefining \. on input line 843.
-LaTeX Info: Redefining \% on input line 843.
+LaTeX Info: Redefining \. on input line 834.
+LaTeX Info: Redefining \% on input line 834.
 [22]
-LaTeX Info: Redefining \. on input line 888.
-LaTeX Info: Redefining \% on input line 888.
+LaTeX Info: Redefining \. on input line 875.
+LaTeX Info: Redefining \% on input line 875.
  [23]
-LaTeX Info: Redefining \. on input line 932.
-LaTeX Info: Redefining \% on input line 932.
+LaTeX Info: Redefining \. on input line 921.
+LaTeX Info: Redefining \% on input line 921.
  [24]
-LaTeX Info: Redefining \. on input line 985.
-LaTeX Info: Redefining \% on input line 985.
+LaTeX Info: Redefining \. on input line 966.
+LaTeX Info: Redefining \% on input line 966.
  [25]
-LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 1039.
+LaTeX Info: Redefining \. on input line 1020.
+LaTeX Info: Redefining \% on input line 1020.
+ [26]
+LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 1062.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
 )
 LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
-(Font)              scaled to size 10.0pt on input line 1053.
-LaTeX Info: Redefining \. on input line 1058.
-LaTeX Info: Redefining \% on input line 1058.
- [26]
-
-LaTeX Font Warning: Font shape `T1/pplj/m/scit' undefined
-(Font)              using `T1/pplj/m/sc' instead on input line 1075.
-
+(Font)              scaled to size 10.0pt on input line 1076.
 LaTeX Info: Redefining \. on input line 1088.
 LaTeX Info: Redefining \% on input line 1088.
-[27]
-<img/logo-ugr.pdf, id=370, 682.02821pt x 244.3238pt>
+ [27]
+
+LaTeX Font Warning: Font shape `T1/pplj/m/scit' undefined
+(Font)              using `T1/pplj/m/sc' instead on input line 1098.
+
+LaTeX Info: Redefining \. on input line 1122.
+LaTeX Info: Redefining \% on input line 1122.
+[28]
+<img/logo-ugr.pdf, id=377, 682.02821pt x 244.3238pt>
 File: img/logo-ugr.pdf Graphic file (type pdf)
 <use img/logo-ugr.pdf>
-Package pdftex.def Info: img/logo-ugr.pdf  used on input line 1127.
+Package pdftex.def Info: img/logo-ugr.pdf  used on input line 1150.
 (pdftex.def)             Requested size: 326.63892pt x 117.01312pt.
-LaTeX Info: Redefining \. on input line 1136.
-LaTeX Info: Redefining \% on input line 1136.
- [28 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/logo-ugr.pdf>])
+LaTeX Info: Redefining \. on input line 1186.
+LaTeX Info: Redefining \% on input line 1186.
+ [29 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/logo-ugr.pdf>])
 LaTeX Info: Redefining \. on input line 240.
 LaTeX Info: Redefining \% on input line 240.
- [29] [30
-
-
-]
+ [30]
 part II.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
 (scrkbase)              on input line 240.
 [31
+
+
 
 
 ] [32] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo02.tex
@@ -1094,7 +1099,7 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 286.
 Package rerunfilecheck Info: File `libro.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package rerunfilecheck Info: File `libro.brf' has not changed.
-(rerunfilecheck)             Checksum: 5502017C44979A9B7CCB4F4171D54940;646.
+(rerunfilecheck)             Checksum: D3C693A6D6E4F7E5D6FAC3FECC9E62E4;646.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1109,7 +1114,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  53i,13n,72p,10207b,717s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cabin/cbn_meva6t.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cabin/cbn_i3ioen.enc}</usr/share/texlive/texmf-dist/fonts/type1/impallari/cabin/Cabin-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/impallari/cabin/Cabin-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" (55 pages, 1048408 bytes).
+Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" (55 pages, 1049274 bytes).
 PDF statistics:
  670 PDF objects out of 1000 (max. 8388607)
  568 compressed objects within 6 object streams
