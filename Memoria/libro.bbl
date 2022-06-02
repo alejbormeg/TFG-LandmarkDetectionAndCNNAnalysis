@@ -24,6 +24,11 @@ J.Bruna.
 \newblock Operators commuting with diffeomorphisms.
 \newblock {\em CMAP Tech. REport}, 2012.
 
+\bibitem[Low04]{DistinctiveImageFeatures}
+David~G. Lowe.
+\newblock Distinctive image features from scale-invariant keypoints.
+\newblock {\em International Journal of Computer Vision}, 60, 2004.
+
 \bibitem[Mal00]{MallatWavelets}
 St{\'e}phane Mallat.
 \newblock {\em Une exploration des signaux en ondelettes.}
@@ -33,6 +38,12 @@ St{\'e}phane Mallat.
 University of~Iowa Palle Jorgensen Department~of Mathematics.
 \newblock Image decomposition using haar wavelet.
 \newblock \url = {https://homepage.divms.uiowa.edu/~jorgen/Haar.html},, 2006.
+
+\bibitem[TLF10]{Daisy}
+Engin Tola, Vincent Lepetit, and Pascal Fua.
+\newblock Daisy: An efficient dense descriptor applied to wide baseline stereo.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence},
+  32:815--30, 05 2010.
 
 \bibitem[TY05]{doi:10.1137/S0036141002404838}
 Alain Trouvé and Laurent Younes.

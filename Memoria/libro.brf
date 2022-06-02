@@ -1,9 +1,10 @@
 \backcite {DigitalImageProcessing}{{5}{1.2.1.1}{subsubsection.1.2.1.1}}
 \backcite {doi:10.1137/S0036141002404838}{{8}{1.9}{definicion.1.9}}
-\backcite {bruna2013invariant}{{9}{1.2.1.1}{lema.1.2}}
 \backcite {MallatWavelets}{{9}{1.2.1.2}{subsubsection.1.2.1.2}}
-\backcite {MallatWavelets}{{11}{1.2.1.2}{definicion.1.12}}
+\backcite {MallatWavelets}{{10}{1.2.1.2}{definicion.1.10}}
 \backcite {HaarBasis}{{11}{1.6}{figure.1.6}}
 \backcite {JBrunaOperatorsCommutingDiff}{{16}{1.2.2.2}{subsubsection.1.2.2.2}}
 \backcite {bruna2013invariant}{{16}{1.2.2.2}{subsubsection.1.2.2.2}}
-\backcite {Huete2015PastPA}{{31}{2.1.1}{subsection.2.1.1}}
+\backcite {DistinctiveImageFeatures}{{19}{1.2.2.5}{subsubsection.1.2.2.5}}
+\backcite {Daisy}{{19}{1.2.2.5}{subsubsection.1.2.2.5}}
+\backcite {Huete2015PastPA}{{33}{2.1.1}{subsection.2.1.1}}
