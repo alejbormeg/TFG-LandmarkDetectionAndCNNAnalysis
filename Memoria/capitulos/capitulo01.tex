@@ -582,16 +582,39 @@ $$(2.12) \;\;\; M[\lambda]h(x)=e^{-i\lambda\eta x} e^{-i \Phi(\widehat{h}(\lambd
 
 \subsubsection{El operador módulo.}
 
-\noindent En nuestro caso, para preservar la Lipschitz-continuidad bajo la acción de difeomorfismos necesitamos que $M[\lambda]$ conmute con los difeomorfismos y para garantizar la estabilidad en $L^2(\mathbb{R}^d)$, también necesitamos que $M[\lambda]$ sea no expansiva. Se puede comprobar que entonces $M[\lambda]$ tiene que ser necesariamente un operador punto a punto \cite{JBrunaOperatorsCommutingDiff}, lo que significa que el operador $M[\lambda]h(x)$ que buscamos dependería únicamente del valor de $h$ en el punto $x$.Además, para obtener mejores propiedades vamos a imponer que $||M[\lambda]h||=||h|| \; \; \forall h \in L^2(\mathbb{R}^d)$, lo que implica entonces que $|M[\lambda]h|=|h|$. 
+\noindent En nuestro caso, para preservar la Lipschitz-continuidad bajo la acción de difeomorfismos necesitamos que $M[\lambda]$ conmute con estos y que además sea no expansiva para garantizar la estabilidad en $L^2(\mathbb{R}^d)$. Se puede comprobar que entonces $M[\lambda]$ tiene que ser necesariamente un operador punto a punto \cite{JBrunaOperatorsCommutingDiff}, lo que significa que el operador $M[\lambda]h(x)$ que buscamos dependería únicamente del valor de $h$ en el punto $x$.
 
 \medskip
 
-\noindent El operador por tanto que satisface todas las restricciones anteriores y con el que obtenemos funciones más regulares es por tanto $M[\lambda]h=|h|$, que elimina todas las variaciones de fase \cite{bruna2013invariant}. Se obtiene entonces de $(2.11)$ que este módulo transforma $W[\lambda]f$ en una señal de baja frecuencia:
+\noindent Para obtener mejores propiedades vamos a imponer también que $||M[\lambda]h||=||h|| \; \; \forall h \in L^2(\mathbb{R}^d)$, lo que implica entonces que $|M[\lambda]h|=|h|$. 
+
+\begin{align*}
+  ||M[\lambda]h||=||h|| &\iff \left(\int_{\mathbb{R}^d} |M[\lambda]h (x)|^2 dx \right)^{\frac{1}{2}} =\left(\int_{\mathbb{R}^d} |h(x)|^2 dx \right)^{\frac{1}{2}} \\
+  & \iff \int_{\mathbb{R}^d} |M[\lambda]h (x)|^2 dx=\int_{\mathbb{R}^d} |h(x)|^2 dx \\
+  & \iff |M[\lambda]h (x)|^2=|h(x)|^2 \\
+  & \iff |M[\lambda]h (x)|=|h(x)|
+\end{align*}
+
+\medskip
+
+\noindent Para satisfacer todas las restricciones, utilizaremos el operador $M[\lambda]h=|h|$, que además elimina todas las variaciones de fase \cite{bruna2013invariant}. Se obtiene entonces de $(2.11)$ que este módulo transforma $W[\lambda]f$ en una señal de menor frecuencia que la original:
 
 $$M[\lambda]W[\lambda]f=|W[\lambda]f|=|f^\lambda \ast \Theta_\lambda|.$$
 
 %Ejemplo:
-\noindent Gracias al módulo se obtienen frecuencias más bajas al interferir dos señales. Por ejemplo, si $f(x)=\cos(\xi_1 x)+a\cos(\xi_2 x)$ dónde $\xi_1$ y $\xi_2$ están en la banda de frecuencia cubierta por $\widehat{\psi}_\lambda$, entonces al aplicar el operador módulo $|f \ast \psi_\lambda (x) |=2^{-1} |\widehat{\psi}_\lambda(\xi_1)+a\widehat{\psi}_\lambda(\xi_2)e^{i(\xi_2-\xi_1)x}|$ oscila entre la frecuencia de interferencias $|\xi_2-\xi_1|$, que como vemos es menor que $|\xi_1|$ y $|\xi_2|$.
+\noindent Vamos a visualizar con un ejemplo cómo al interferir dos señales con este operador, la frecuencia resultante es menor que cada una de las originales. 
+
+\medskip
+
+\noindent Por ejemplo, si 
+
+$$f(x)=\cos(\xi_1 x)+a\cos(\xi_2 x)$$
+
+\noindent dónde $\xi_1$ y $\xi_2$ están en la banda de frecuencia cubierta por $\widehat{\psi}_\lambda$, entonces al aplicar el operador módulo: 
+
+$$|f \ast \psi_\lambda (x) |=2^{-1} |\widehat{\psi}_\lambda(\xi_1)+a\widehat{\psi}_\lambda(\xi_2)e^{i(\xi_2-\xi_1)x}|$$
+
+\noindent que oscila entre la frecuencia de interferencias $|\xi_2-\xi_1|$, que como vemos es menor que $|\xi_1|$ y $|\xi_2|$.
 
 \medskip
 
@@ -680,11 +703,11 @@ $$(2.16) \; \; \; \overline{S}f(p)=\frac{1}{\mu_p} \int_{\mathbb{R}^d}U[p]f(x)dx
 
 \medskip
 
-\noindent Esta defnición guarda muchas similitudes con la el módulo de la transformada de Fourier, pero en este caso la transformada es Lipschitz-continua bajo la acción de difeomorfismos, porque se calcula iterando en transformadas de ondeletas y módulos que, como hemos visto anteriormente, son entables. 
+\noindent Esta defnición guarda muchas similitudes con la el módulo de la transformada de Fourier, pero en este caso la transformada es Lipschitz-continua bajo la acción de difeomorfismos, porque se calcula iterando en transformadas de ondeletas y módulos que, como hemos visto anteriormente, son estables. 
 
 \medskip
 
-\noindent No obstante, para problemas de clasificación, es mucho más frecuente calcular pequeños descriptores que sean invariantes por traslaciones frente a una escala predefinida $2^J$, manteniendo las frecuencias superiores a $2^J$, lo que nos permite ver esta variabilidad espacial. Esto se consigue convolucionando la transformada con una ventana escalada a la frecuencia deseada, en nuestro caso $\phi_{2^J}(x)=2^{-dJ}\phi(2^{-J}x)$. De esta manera se define una transformada de dispersión centrada en una ventana en el vecindario de $x$:
+\noindent No obstante, para problemas de clasificación, es mucho más frecuente calcular pequeños descriptores que sean invariantes por traslaciones frente a una escala predefinida $2^J$, manteniendo las frecuencias superiores a $2^J$, lo que nos permite ver esta variabilidad espacial. Esto se consigue convolucionando la transformada con una ventana escalada a la frecuencia deseada, en nuestro caso $\phi_{2^J}(x)=2^{-dJ}\phi(2^{-J}x)$. 
 
 \begin{definicion}
 Sea $J \in \mathbb{Z}$ y $\mathcal{P}_J$ el conjunto de caminos finitos $p=(\lambda_1,\lambda_2,...,\lambda_m)$ con $\lambda_k \in \Lambda_J$ y $|\lambda_k|=2^{jk}>2^{-J}$. Una ventana de transformada de dispersión se define para todo $p \in \mathcal{P}_J$ por
@@ -712,12 +735,11 @@ $$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
 
 \medskip
 
-\noindent Sin embargo, la energía de señal se concentra en un conjunto mucho más pequeño de caminos de frecuencias descendentes $p=(\lambda_k)_{k\leq m}$ en el cual $|\lambda_{k+1}| \leq |\lambda_k|$. Esto ocurre porque como mencionamos antes, el propagador $U[\lambda]$ progresivamente lleva la energía de la señal a frecuencias cada vez menores.
+\noindent Sin embargo, la energía de señal se concentra en un conjunto mucho más pequeño de caminos de frecuencias descendentes $p=(\lambda_k)_{k\leq m}$ en el cual $|\lambda_{k+1}| \leq |\lambda_k|$ como vimos en el ejemplo anterior. Esto ocurre porque como mencionamos antes, el propagador $U[\lambda]$ progresivamente lleva la energía de la señal a frecuencias cada vez menores, hasta que en cierto punto es nula.
 
 \medskip
 
-\noindent Veamos ahora la relación que guarda este propagador de ventana con el que se definió originalmente en \autoref{def:S_barra}. Como $\phi(x)$ es continua en 0, si $f\in L^1 (\mathbb{R}^d)$ se tiene que su transformada de dispersión de ventana converge punto a punto a la transformada de dispersión cuando la escala $2^J$ tiende a $\infty$: 
-
+\noindent Veamos ahora la relación que guarda este propagador de ventana con el que se definió originalmente en \autoref{def:S_barra}. Como $\phi(x)$ es continua en $0$, si $f\in L^1 (\mathbb{R}^d)$ se tiene que su transformada de dispersión de ventana converge punto a punto a la transformada de dispersión cuando la escala $2^J$ tiende a $\infty$: 
 
 \begin{align*}
     (2.21) \;\;\; \forall x \in \mathbb{R}^d \;\; \lim_{J \rightarrow \infty} 2^{dJ} S_J[p]f(x) &=\phi(0)\int_{\mathbb{R}^d}U[p]f(u) du \\
@@ -731,7 +753,7 @@ $$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
 
 \medskip
 
-\noindent También podemos relacionar esto con los algoritmos clásicos de visión por computador como \textbf{SIFT}  \cite{DistinctiveImageFeatures} para calcular puntos de interés en imágenes. De hecho, con la ondeletas apropiadas, los coeficientes de primer orden $S[\lambda_1] f$ serían equivalentes a los coeficientes del algoritmo. De hecho, en el artículo sobre el descriptor DAISY \cite{Daisy} se muestra cómo esos coeficientes son aproximados por $S_J[2^j r] f= | f \ast \psi_{2^j r} | \ast \phi_{2^J}(x)$, dónde $\psi_{2^j r}$ es la derivada parcial de una Gaussiana calculada en imagen de escala $2^j$ de mayor calidad, para 8 rotaciones distintas $r$. El filtro para promediar $\phi_{2^J}$ es un filtro Gaussiano escalado.
+\noindent También podemos relacionar esto con los algoritmos clásicos de visión por computador como \textbf{SIFT}  \cite{DistinctiveImageFeatures} para calcular puntos de interés en imágenes. Así, con la ondeletas apropiadas, los coeficientes de primer orden $S[\lambda_1] f$ serían equivalentes a los coeficientes del algoritmo. De hecho, en el artículo sobre el descriptor DAISY \cite{Daisy} se muestra cómo esos coeficientes son aproximados por $S_J[2^j r] f= | f \ast \psi_{2^j r} | \ast \phi_{2^J}(x)$, dónde $\psi_{2^j r}$ es la derivada parcial de una Gaussiana calculada en imagen de escala $2^j$ de mayor calidad, para 8 rotaciones distintas $r$. El filtro para promediar $\phi_{2^J}$ es un filtro Gaussiano escalado.
 
 \medskip
 
@@ -739,15 +761,30 @@ $$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
 
 \subsection{Propagador de dispersión y conservación de la Norma} \label{ch:seccion13}
 
-\noindent Hasta ahora hemos probado que el propagador por ventanas $S_J$ es no-expansivo y que preserva la norma de $L^2(\mathbb{R}^d)$. A partir de ahora denotamos por $S_J[\Omega] \coloneqq \lbrace S_J[p] \rbrace_{p\in\Omega}$ y $U[\Omega]\coloneqq \lbrace U[p] \rbrace_{p\in\Omega}$ a la familia de operadores indexados por el conjunto de caminos $\Omega$.
+\noindent Hasta ahora hemos probado que el propagador $S_J$ es no-expansivo y que preserva la norma de $L^2(\mathbb{R}^d)$. A partir de ahora denotamos por $S_J[\Omega] \coloneqq \lbrace S_J[p] \rbrace_{p\in\Omega}$ y $U[\Omega]\coloneqq \lbrace U[p] \rbrace_{p\in\Omega}$ a la familia de operadores indexados por el conjunto de caminos $\Omega$.
 
 \medskip
 
-\noindent Un dispersor de ventanas puede calcularse iterando en el propagador de un paso definido por: 
+\noindent Un dispersor de ventanas $S_J$ puede calcularse iterando en el propagador de un paso definido anteriormente como: 
 
 $$U_Jf=\lbrace A_Jf, (U[\lambda]f)_{\lambda\in\Lambda_J} \rbrace,$$
 
-Con $A_J=f\ast \phi_{2^J}$ y $U[\lambda]f=\left| f\ast \psi_\lambda \right|$. Tras calcular $U_Jf$, aplicando de nuevo $U_J$ a cada $U[\lambda]f$ se genera una familia infinita aún más grande de funciones. La descomposición se continúa iterando  por recursividad aplicando $U_J$ a cada $U[p]f$. Si recordamos la \autoref{proposicionSumaCaminos}, $U[\lambda]U[p]=U[p+\lambda]$, y $A_JU[p]=S_J[p]$, esto da lugar a : 
+\noindent con $A_J=f\ast \phi_{2^J}$ y $U[\lambda]f=\left| f\ast \psi_\lambda \right|$. 
+
+\medskip
+
+\noindent Tras calcular $U_Jf$, aplicando de nuevo $U_J$ a cada coeficiente $U[\lambda]f$ se genera una familia infinita aún más grande de funciones. La descomposición se continúa iterando  por recursividad aplicando $U_J$ a cada $U[p]f$. 
+
+\begin{figure} [!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/ScatteringPropagator.png}
+  \caption{Ejemplos de aplicar la base de Haar a dos imágenes \cite{HaarBasis}.}
+  \label{fig:scattering_propagator}
+\end{figure}
+
+\medskip
+
+\noindent Si recordamos la \autoref{proposicionSumaCaminos}, $U[\lambda]U[p]=U[p+\lambda]$, y $A_JU[p]=S_J[p]$, esto da lugar a : 
 
 $$(2.22) \;\;\; U_JU[p]=\lbrace S_J[p]f,(U[p+\lambda]f)_{\lambda\in\Lambda_J}\rbrace.$$
 

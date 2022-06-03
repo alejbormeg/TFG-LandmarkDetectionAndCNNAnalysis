@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  2 JUN 2022 21:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  3 JUN 2022 19:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -954,81 +954,87 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 579.
 LaTeX Info: Redefining \% on input line 579.
  [16]
-LaTeX Info: Redefining \. on input line 603.
-LaTeX Info: Redefining \% on input line 603.
+LaTeX Info: Redefining \. on input line 611.
+LaTeX Info: Redefining \% on input line 611.
  [17]
-Overfull \hbox (63.7898pt too wide) in paragraph at lines 642--643
+Overfull \hbox (63.7898pt too wide) in paragraph at lines 665--666
 [][]\T1/pplj/b/n/10 Definici�n 1.15. []\T1/pplj/m/n/10 (-10) La con-ca-te-na-ci�n de dos ca-mi-nos $\OML/zplm/m/it/10 p$ \T1/pplj/m/n/10 (-10) y $\OML/zplm/m/it/10 p[]$ \T1/pplj/m/n/10 (-10) se de-no-ta por $\OML/zplm/m/it/10 p \OT1/zplm/m/n/10 + \OML/zplm/m/it/10 p[] \OT1/zplm/m/n/10 = (\OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , ..., \OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , ..., \OML/zplm/m/it/10 ^^U[]\OT1/zplm/m/n/10 )$\T1/pplj/m/n/10 (-10) . 
  []
 
-LaTeX Info: Redefining \. on input line 662.
-LaTeX Info: Redefining \% on input line 662.
+LaTeX Info: Redefining \. on input line 667.
+LaTeX Info: Redefining \% on input line 667.
 [18]
-LaTeX Info: Redefining \. on input line 707.
-LaTeX Info: Redefining \% on input line 707.
+LaTeX Info: Redefining \. on input line 711.
+LaTeX Info: Redefining \% on input line 711.
  [19]
-LaTeX Info: Redefining \. on input line 751.
-LaTeX Info: Redefining \% on input line 751.
+LaTeX Info: Redefining \. on input line 757.
+LaTeX Info: Redefining \% on input line 757.
  [20]
-LaTeX Info: Redefining \. on input line 796.
-LaTeX Info: Redefining \% on input line 796.
- [21]
-Overfull \hbox (91.53506pt too wide) in paragraph at lines 824--825
+<img/ScatteringPropagator.png, id=319, 987.69pt x 478.78876pt>
+File: img/ScatteringPropagator.png Graphic file (type png)
+<use img/ScatteringPropagator.png>
+Package pdftex.def Info: img/ScatteringPropagator.png  used on input line 780.
+(pdftex.def)             Requested size: 326.63892pt x 158.33684pt.
+LaTeX Info: Redefining \. on input line 800.
+LaTeX Info: Redefining \% on input line 800.
+ [21 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ScatteringPropagator.png>]
+LaTeX Info: Redefining \. on input line 843.
+LaTeX Info: Redefining \% on input line 843.
+ [22]
+Overfull \hbox (91.53506pt too wide) in paragraph at lines 861--862
 []\T1/pplj/m/n/10 (-10) Primero pro-ba-mos que $[][] \OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 U\OT1/zplm/m/n/10 [^^C[]]\OML/zplm/m/it/10 f\OMS/zplm/m/n/10 jj[] \OT1/zplm/m/n/10 = \OT1/pplx/m/n/10 0$ \T1/pplj/m/n/10 (-10) es equi-va-len-te a te-ner $[][] [][] \OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 S[]\OT1/zplm/m/n/10 [^^C[]]\OML/zplm/m/it/10 f\OMS/zplm/m/n/10 jj[] \OT1/zplm/m/n/10 =
  []
 
 
-Overfull \hbox (1.82939pt too wide) in paragraph at lines 824--825
+Overfull \hbox (1.82939pt too wide) in paragraph at lines 861--862
 \OT1/pplx/m/n/10 0$ \T1/pplj/m/n/10 (-10) y a $\OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 S[]\OT1/zplm/m/n/10 [[]\OML/zplm/m/it/10 f\OMS/zplm/m/n/10 jj \OT1/zplm/m/n/10 = \OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 f\OMS/zplm/m/n/10 jj$\T1/pplj/m/n/10 (-10) . Co-mo $\OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 U[]h\OMS/zplm/m/n/10 jj \OT1/zplm/m/n/10 = \OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 h\OMS/zplm/m/n/10 jj 8\OML/zplm/m/it/10 h \OMS/zplm/m/n/10 2 \OML/zplm/m/it/10 L[]\OT1/zplm/m/n/10 (\U/fplmbb/m/n/10 R[]\OT1/zplm/m/n/10 )$ \T1/pplj/m/n/10 (-10) y $\OML/zplm/m/it/10 U[]U\OT1/zplm/m/n/10 [^^C[]]\OML/zplm/m/it/10 f \OT1/zplm/m/n/10 = \OMS/zplm/m/n/10 f\OML/zplm/m/it/10 S[]\OT1/zplm/m/n/10 [^^C[]]\OML/zplm/m/it/10 f\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 U\OT1/zplm/m/n/10 [^^C[]]\OMS/zplm/m/n/10 g$\T1/pplj/m/n/10 (-10) , 
  []
 
 
-Overfull \hbox (68.76627pt too wide) in paragraph at lines 828--829
+Overfull \hbox (68.76627pt too wide) in paragraph at lines 865--866
 \T1/pplj/m/n/10 (-10) Sumando en $\OML/zplm/m/it/10 m \OMS/zplm/m/n/10 ^^T \OML/zplm/m/it/10 n < \OMS/zplm/m/n/10 1$ \T1/pplj/m/n/10 (-10) se prue-ba que $[][] \OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 U\OT1/zplm/m/n/10 [^^C[]]\OML/zplm/m/it/10 f\OMS/zplm/m/n/10 jj \OT1/zplm/m/n/10 = \OT1/pplx/m/n/10 0$ \T1/pplj/m/n/10 (-10) es equi-va-len-te a $[][] [][] \OMS/zplm/m/n/10 jj\OML/zplm/m/it/10 S[]\OT1/zplm/m/n/10 [^^C[]]\OML/zplm/m/it/10 f\OMS/zplm/m/n/10 jj[] \OT1/zplm/m/n/10 =
  []
 
-LaTeX Info: Redefining \. on input line 834.
-LaTeX Info: Redefining \% on input line 834.
-[22]
-LaTeX Info: Redefining \. on input line 875.
-LaTeX Info: Redefining \% on input line 875.
- [23]
-LaTeX Info: Redefining \. on input line 921.
-LaTeX Info: Redefining \% on input line 921.
+LaTeX Info: Redefining \. on input line 880.
+LaTeX Info: Redefining \% on input line 880.
+[23]
+LaTeX Info: Redefining \. on input line 925.
+LaTeX Info: Redefining \% on input line 925.
  [24]
-LaTeX Info: Redefining \. on input line 966.
-LaTeX Info: Redefining \% on input line 966.
+LaTeX Info: Redefining \. on input line 970.
+LaTeX Info: Redefining \% on input line 970.
  [25]
-LaTeX Info: Redefining \. on input line 1020.
-LaTeX Info: Redefining \% on input line 1020.
+LaTeX Info: Redefining \. on input line 1011.
+LaTeX Info: Redefining \% on input line 1011.
  [26]
-LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 1062.
+LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 1099.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
 )
-LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
-(Font)              scaled to size 10.0pt on input line 1076.
-LaTeX Info: Redefining \. on input line 1088.
-LaTeX Info: Redefining \% on input line 1088.
+LaTeX Info: Redefining \. on input line 1100.
+LaTeX Info: Redefining \% on input line 1100.
  [27]
+LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
+(Font)              scaled to size 10.0pt on input line 1113.
+LaTeX Info: Redefining \. on input line 1132.
+LaTeX Info: Redefining \% on input line 1132.
+ [28]
 
 LaTeX Font Warning: Font shape `T1/pplj/m/scit' undefined
-(Font)              using `T1/pplj/m/sc' instead on input line 1098.
+(Font)              using `T1/pplj/m/sc' instead on input line 1135.
 
-LaTeX Info: Redefining \. on input line 1122.
-LaTeX Info: Redefining \% on input line 1122.
-[28]
-<img/logo-ugr.pdf, id=377, 682.02821pt x 244.3238pt>
+LaTeX Info: Redefining \. on input line 1183.
+LaTeX Info: Redefining \% on input line 1183.
+[29]
+<img/logo-ugr.pdf, id=386, 682.02821pt x 244.3238pt>
 File: img/logo-ugr.pdf Graphic file (type pdf)
 <use img/logo-ugr.pdf>
-Package pdftex.def Info: img/logo-ugr.pdf  used on input line 1150.
+Package pdftex.def Info: img/logo-ugr.pdf  used on input line 1187.
 (pdftex.def)             Requested size: 326.63892pt x 117.01312pt.
-LaTeX Info: Redefining \. on input line 1186.
-LaTeX Info: Redefining \% on input line 1186.
- [29 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/logo-ugr.pdf>])
+)
 LaTeX Info: Redefining \. on input line 240.
 LaTeX Info: Redefining \% on input line 240.
- [30]
+ [30 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/logo-ugr.pdf>]
 part II.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
@@ -1099,25 +1105,25 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 286.
 Package rerunfilecheck Info: File `libro.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package rerunfilecheck Info: File `libro.brf' has not changed.
-(rerunfilecheck)             Checksum: D3C693A6D6E4F7E5D6FAC3FECC9E62E4;646.
+(rerunfilecheck)             Checksum: DD66A96D85D96793334421E4BC3DC4FC;691.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 16351 strings out of 481239
- 285431 string characters out of 5920378
+ 16358 strings out of 481239
+ 285623 string characters out of 5920378
  700561 words of memory out of 5000000
- 30735 multiletter control sequences out of 15000+600000
+ 30740 multiletter control sequences out of 15000+600000
  743594 words of font info for 372 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  53i,13n,72p,10207b,717s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cabin/cbn_meva6t.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cabin/cbn_i3ioen.enc}</usr/share/texlive/texmf-dist/fonts/type1/impallari/cabin/Cabin-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/impallari/cabin/Cabin-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" (55 pages, 1049274 bytes).
+Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" (55 pages, 1110190 bytes).
 PDF statistics:
- 670 PDF objects out of 1000 (max. 8388607)
- 568 compressed objects within 6 object streams
- 167 named destinations out of 1000 (max. 500000)
- 79137 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 676 PDF objects out of 1000 (max. 8388607)
+ 571 compressed objects within 6 object streams
+ 168 named destinations out of 1000 (max. 500000)
+ 79142 words of extra memory for PDF output out of 89155 (max. 10000000)
 

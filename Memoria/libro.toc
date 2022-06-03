@@ -20,12 +20,12 @@
 \contentsline {subsubsection}{\numberline {1.2.2.3}Propiedades de un camino de frecuencias.}{18}{subsubsection.1.2.2.3}%
 \contentsline {subsubsection}{\numberline {1.2.2.4}Construcción del operador de dispersión.}{19}{subsubsection.1.2.2.4}%
 \contentsline {subsubsection}{\numberline {1.2.2.5}Similitudes con una CNN y visión por computador}{20}{subsubsection.1.2.2.5}%
-\contentsline {subsection}{\numberline {1.2.3}Propagador de dispersión y conservación de la Norma}{20}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.3}Propagador de dispersión y conservación de la Norma}{21}{subsection.1.2.3}%
 \contentsline {section}{\numberline {1.3}Invarianza por Traslaciones}{25}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Elementos del texto}{28}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Listas}{28}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{29}{subsection.1.4.2}%
-\contentsline {section}{\numberline {1.5}Entornos matemáticos}{29}{section.1.5}%
+\contentsline {section}{\numberline {1.4}Elementos del texto}{29}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Listas}{29}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{30}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Entornos matemáticos}{30}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Bibliografía e índice}{30}{section.1.6}%
 \contentsline {part}{\numberline {II}Segunda parte}{31}{part.2}%
 \contentsline {chapter}{\numberline {2}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{33}{chapter.2}%
