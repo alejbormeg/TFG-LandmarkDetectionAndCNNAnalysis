@@ -19,20 +19,23 @@
 \contentsline {subsubsection}{\numberline {1.2.2.2}El operador módulo.}{17}{subsubsection.1.2.2.2}%
 \contentsline {subsubsection}{\numberline {1.2.2.3}Propiedades de un camino de frecuencias.}{18}{subsubsection.1.2.2.3}%
 \contentsline {subsubsection}{\numberline {1.2.2.4}Construcción del operador de dispersión.}{19}{subsubsection.1.2.2.4}%
-\contentsline {subsubsection}{\numberline {1.2.2.5}Similitudes con una CNN y visión por computador}{20}{subsubsection.1.2.2.5}%
-\contentsline {subsection}{\numberline {1.2.3}Propagador de dispersión y conservación de la Norma}{21}{subsection.1.2.3}%
-\contentsline {section}{\numberline {1.3}Invarianza por Traslaciones}{25}{section.1.3}%
+\contentsline {subsection}{\numberline {1.2.3}Propagador de dispersión y conservación de la Norma}{20}{subsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.3.1}Proceso de dispersión del propagador.}{20}{subsubsection.1.2.3.1}%
+\contentsline {subsubsection}{\numberline {1.2.3.2}Diferencias y similitudes con una CNN}{22}{subsubsection.1.2.3.2}%
+\contentsline {subsubsection}{\numberline {1.2.3.3}Relación con herramientas clásicas de visión por computador}{22}{subsubsection.1.2.3.3}%
+\contentsline {subsubsection}{\numberline {1.2.3.4}Operador no expansivo.}{22}{subsubsection.1.2.3.4}%
+\contentsline {section}{\numberline {1.3}Invarianza por Traslaciones}{26}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Elementos del texto}{29}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Listas}{29}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.1}Listas}{30}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{30}{subsection.1.4.2}%
-\contentsline {section}{\numberline {1.5}Entornos matemáticos}{30}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Bibliografía e índice}{30}{section.1.6}%
-\contentsline {part}{\numberline {II}Segunda parte}{31}{part.2}%
-\contentsline {chapter}{\numberline {2}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{33}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introducción}{33}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Descripción del problema}{33}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Motivación}{34}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Objetivos}{34}{subsection.2.1.3}%
-\contentsline {chapter}{\numberline {A}Primer apéndice}{35}{appendix.Alph1}%
-\contentsline {chapter}{Glosario}{37}{chapter*.10}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{39}{chapter*.11}%
+\contentsline {section}{\numberline {1.5}Entornos matemáticos}{31}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Bibliografía e índice}{31}{section.1.6}%
+\contentsline {part}{\numberline {II}Segunda parte}{33}{part.2}%
+\contentsline {chapter}{\numberline {2}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{35}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducción}{35}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Descripción del problema}{35}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Motivación}{36}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Objetivos}{36}{subsection.2.1.3}%
+\contentsline {chapter}{\numberline {A}Primer apéndice}{37}{appendix.Alph1}%
+\contentsline {chapter}{Glosario}{39}{chapter*.10}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{41}{chapter*.11}%

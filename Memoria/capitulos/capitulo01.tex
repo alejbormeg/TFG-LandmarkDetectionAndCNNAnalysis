@@ -586,7 +586,7 @@ $$(2.12) \;\;\; M[\lambda]h(x)=e^{-i\lambda\eta x} e^{-i \Phi(\widehat{h}(\lambd
 
 \medskip
 
-\noindent Para obtener mejores propiedades vamos a imponer también que $||M[\lambda]h||=||h|| \; \; \forall h \in L^2(\mathbb{R}^d)$, lo que implica entonces que $|M[\lambda]h|=|h|$. 
+\noindent Para obtener mejores propiedades vamos a imponer también que $||M[\lambda]h||=||h|| \; \; \forall h \in L^2(\mathbb{R}^d)$, lo que implica entonces que $|M[\lambda]h|=|h|$, ya que:  
 
 \begin{align*}
   ||M[\lambda]h||=||h|| &\iff \left(\int_{\mathbb{R}^d} |M[\lambda]h (x)|^2 dx \right)^{\frac{1}{2}} =\left(\int_{\mathbb{R}^d} |h(x)|^2 dx \right)^{\frac{1}{2}} \\
@@ -746,22 +746,12 @@ $$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
     &= \phi(0)\mu_p\overline{S}(p).\\ 
 \end{align*}
 
-\subsubsection{Similitudes con una CNN y visión por computador}
-
-
-\noindent Si $p$ es un camino de longitud $m$, entonces a $S_J[p] f(x)$ se le denomina coeficiente de orden $m$ a escala $2^J$. Viendo la analogía con una CNN, este coeficiente se calcularía en la capa $m$ de una red. 
-
-\medskip
-
-\noindent También podemos relacionar esto con los algoritmos clásicos de visión por computador como \textbf{SIFT}  \cite{DistinctiveImageFeatures} para calcular puntos de interés en imágenes. Así, con la ondeletas apropiadas, los coeficientes de primer orden $S[\lambda_1] f$ serían equivalentes a los coeficientes del algoritmo. De hecho, en el artículo sobre el descriptor DAISY \cite{Daisy} se muestra cómo esos coeficientes son aproximados por $S_J[2^j r] f= | f \ast \psi_{2^j r} | \ast \phi_{2^J}(x)$, dónde $\psi_{2^j r}$ es la derivada parcial de una Gaussiana calculada en imagen de escala $2^j$ de mayor calidad, para 8 rotaciones distintas $r$. El filtro para promediar $\phi_{2^J}$ es un filtro Gaussiano escalado.
-
-\medskip
-
-
-
 \subsection{Propagador de dispersión y conservación de la Norma} \label{ch:seccion13}
 
-\noindent Hasta ahora hemos probado que el propagador $S_J$ es no-expansivo y que preserva la norma de $L^2(\mathbb{R}^d)$. A partir de ahora denotamos por $S_J[\Omega] \coloneqq \lbrace S_J[p] \rbrace_{p\in\Omega}$ y $U[\Omega]\coloneqq \lbrace U[p] \rbrace_{p\in\Omega}$ a la familia de operadores indexados por el conjunto de caminos $\Omega$.
+
+\subsubsection{Proceso de dispersión del propagador.}
+
+\noindent Hasta ahora hemos probado que el propagador $S_J$ es no-expansivo y que preserva la norma de $L^2(\mathbb{R}^d)$. A partir de ahora denotamos por $S_J[\Omega] \coloneqq \lbrace S_J[p] \rbrace_{p\in\Omega}$ y $U[\Omega]\coloneqq \lbrace U[p] \rbrace_{p\in\Omega}$ a la familia de operadores indexados por el conjunto de caminos $\Omega \subset \mathcal{P}_\infty$.
 
 \medskip
 
@@ -775,28 +765,49 @@ $$U_Jf=\lbrace A_Jf, (U[\lambda]f)_{\lambda\in\Lambda_J} \rbrace,$$
 
 \noindent Tras calcular $U_Jf$, aplicando de nuevo $U_J$ a cada coeficiente $U[\lambda]f$ se genera una familia infinita aún más grande de funciones. La descomposición se continúa iterando  por recursividad aplicando $U_J$ a cada $U[p]f$. 
 
-\begin{figure} [!h]
-  \centering
-  \includegraphics[width=0.8\textwidth]{img/ScatteringPropagator.png}
-  \caption{Ejemplos de aplicar la base de Haar a dos imágenes \cite{HaarBasis}.}
-  \label{fig:scattering_propagator}
-\end{figure}
-
 \medskip
 
-\noindent Si recordamos la \autoref{proposicionSumaCaminos}, $U[\lambda]U[p]=U[p+\lambda]$, y $A_JU[p]=S_J[p]$, esto da lugar a : 
+\noindent Teniendo en cuenta \autoref{proposicionSumaCaminos} se tiene que  $U[\lambda]U[p]=U[p+\lambda]$, y $A_JU[p]=S_J[p]$, esto dando lugar a : 
 
 $$(2.22) \;\;\; U_JU[p]=\lbrace S_J[p]f,(U[p+\lambda]f)_{\lambda\in\Lambda_J}\rbrace.$$
 
 \medskip
 
-\noindent Sea $\Lambda_J^m$ el conjunto de caminos de longitud $m$ con $\Lambda_J^0={\emptyset}$. Se propaga en: 
+\noindent Podemos por tanto establecer el comportamiento de al transformada de dispersión según la longitud $m$ del camino que estamos empleando. Sea $\Lambda_J^m$ el conjunto de caminos de longitud $m$ con $\Lambda_J^0={\emptyset}$, entonces:
 
 $$(2.23) \;\;\; U_J U[\Lambda_J^m]=\lbrace S_J[\Lambda_J^m]f,(U[\Lambda_J^{m+1}]f)_{\lambda\in\Lambda_J}\rbrace.$$
 
-\noindent Del hecho de que $\mathcal{P}_J=\cup_{m\in \mathbb{N}}\Lambda_J^m$, uno puede calcular $S_J[\mathcal{P}_J]f$ a partir de $f=U[\emptyset]f$ iterativamente calculando $U_J U[\Lambda_J^m]f$ para $m$ tendiendo a $\infty$. 
+\noindent Del hecho de que $\mathcal{P}_J=\cup_{m\in \mathbb{N}}\Lambda_J^m$, uno puede calcular $S_J[\mathcal{P}_J]f$ a partir de $f=U[\emptyset]f$ iterativamente calculando $U_J U[\Lambda_J^m]f$ para $m$ tendiendo a $\infty$, tal y cómo se puede ver en la imagen \autoref{fig:scattering_propagator}. 
 
-Las operaciones del propagador de dispersión siguen la estructura general de la red neuronal convolucional introducida por LeCun. Las redes convolucionales son una cascada de convoluciones y capas de "pooling" que usan funciones no lineales, las cuales se representan en este modelo como módulos de números complejos. Las redes neuronales convolucionales usan normalmente Kernels que no son predefinidos, sino que se aprenden mediante la técnica de back-propagation al entrenar la red, a diferencia de las ondeletas que usamos en este modelo. Estas redes han sido empleadas con mucho éxito en tareas de reconocimiento de objetos o personas.
+\begin{figure} [!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/ScatteringPropagator.png}
+  \caption{Un PD $U_J$ aplicado a un punto de una señal $f(x)$ calcula $U[\lambda_1]f(x)=|f(x)\ast \psi_{\lambda_1}|$ y como salida a la capa $m=0$ se promedian los coeficientes que han dado $0$ (por tener $2^j<2^-j$) obteniendo como salida $S_J[\emptyset]f(x)=f(x)\ast \phi_{2^J}$ (como se puede ver en la flecha negra). Después se aplica de nuevo $U_J$ a cada coeficiente $U[\lambda_1]f(x)$ del paso anterior ($m=1$) $U[\lambda_1,\lambda2]f(x)$ obteniendo como salida $S_J[\lambda_1]f(x)=U[\lambda_1]f(x) \ast \phi_{2^J}$. Se repite este proceso de manera recursiva para cada coeficiente $U[p]f(x)$ y obteniendo como resultado $S_J[p]f(x)=U[p]f(x) \ast \phi_{2^J}$. }
+  \label{fig:scattering_propagator}
+\end{figure}
+
+
+\subsubsection{Diferencias y similitudes con una CNN}
+
+
+Las operaciones de la transformada de dispersión que hemos descrito siguen la estructura general de la red neuronal convolucional introducida por LeCun \cite{lecun2015deep}, pues se describen las redes convolucionales como una cascada de convoluciones (la transfomada de ondeletas $W[\lambda]$) y capas de "pooling" que usan funciones no lineales (el operador módulo $M[\lambda]$), las cuales se representan en este modelo como módulos de números complejos. También se puede considerar como un operador de \entrecomillado{pooling} la función $\phi_{2^J}$ que se emplea para agregar coeficientes y contruir un operador invariante.
+
+\medskip
+
+\noindent Las redes neuronales convolucionales han sido empleadas con mucho éxito en tareas de reconocimiento de objetos o personas y usan normalmente Kernels que no son predefinidos, sino que se aprenden mediante la técnica de back-propagation al entrenar la red, en cambio, en la modelización que se ha presentado las ondeletas que usamos son prefijadas y no se aprenden.
+
+\medskip
+
+\noindent Siguiendo con las similitudes entre ambos modelos, si $p$ es un camino de longitud $m$, entonces a $S_J[p] f(x)$ se le denomina coeficiente de orden $m$ a escala $2^J$, que en el caso de una CNN,equivaldría al tensor formado por los mapas de activación tras la convolución con el kernel de la capa $m$ de la red. 
+
+\medskip
+
+
+\subsubsection{Relación con herramientas clásicas de visión por computador}
+\noindent Por otro lado, la modelización  con los algoritmos clásicos de visión por computador como \textbf{SIFT}  \cite{DistinctiveImageFeatures} para calcular puntos de interés en imágenes. Así, con la ondeletas apropiadas, los coeficientes de primer orden $S[\lambda_1] f$ serían equivalentes a los coeficientes del algoritmo. De hecho, en el artículo sobre el descriptor DAISY \cite{Daisy} se muestra cómo esos coeficientes son aproximados por $S_J[2^j r] f= | f \ast \psi_{2^j r} | \ast \phi_{2^J}(x)$, dónde $\psi_{2^j r}$ es la derivada parcial de una Gaussiana calculada en imagen de escala $2^j$ de mayor calidad, para 8 rotaciones distintas $r$. El filtro para promediar $\phi_{2^J}$ es un filtro Gaussiano escalado.
+
+
+\subsubsection{Operador no expansivo.}
 
 \noindent El propagador $U_Jf=\lbrace A_Jf, \left(\left| W[\lambda]f\right|\right)_{\lambda\in\Lambda_J} \rbrace$ es no expansivo, porque la transformada de ondas $W_J$ es unitaria pues cumple las hipótesis de la \autoref{unitario} y el módulo no es expansivo en el sentido de que $||a|-|b||\leq |a-b|$ para cualquier $(a,b)\in \mathbb{C}^2$. Esto es válido tanto si $f$ es real o compleja. Como consecuencia: 
 

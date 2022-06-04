@@ -5,7 +5,7 @@
 \backcite {HaarBasis}{{11}{1.6}{figure.1.6}}
 \backcite {JBrunaOperatorsCommutingDiff}{{17}{1.2.2.2}{subsubsection.1.2.2.2}}
 \backcite {bruna2013invariant}{{17}{1.2.2.2}{subsubsection.1.2.2.2}}
-\backcite {DistinctiveImageFeatures}{{20}{1.2.2.5}{subsubsection.1.2.2.5}}
-\backcite {Daisy}{{21}{1.2.2.5}{subsubsection.1.2.2.5}}
-\backcite {HaarBasis}{{21}{1.7}{figure.1.7}}
-\backcite {Huete2015PastPA}{{33}{2.1.1}{subsection.2.1.1}}
+\backcite {lecun2015deep}{{22}{1.2.3.2}{subsubsection.1.2.3.2}}
+\backcite {DistinctiveImageFeatures}{{22}{1.2.3.3}{subsubsection.1.2.3.3}}
+\backcite {Daisy}{{22}{1.2.3.3}{subsubsection.1.2.3.3}}
+\backcite {Huete2015PastPA}{{35}{2.1.1}{subsection.2.1.1}}
