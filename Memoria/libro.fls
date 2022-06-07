@@ -433,8 +433,8 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr9c.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4b-0.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr9c.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4b-0.tfm
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/logo-ugr.pdf
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/logo-ugr.pdf
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/logo-ugr.pdf

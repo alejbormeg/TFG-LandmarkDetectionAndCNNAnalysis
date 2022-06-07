@@ -19,17 +19,18 @@
 \contentsline {subsubsection}{\numberline {1.2.2.2}El operador módulo.}{17}{subsubsection.1.2.2.2}%
 \contentsline {subsubsection}{\numberline {1.2.2.3}Propiedades de un camino de frecuencias.}{18}{subsubsection.1.2.2.3}%
 \contentsline {subsubsection}{\numberline {1.2.2.4}Construcción del operador de dispersión.}{19}{subsubsection.1.2.2.4}%
-\contentsline {subsection}{\numberline {1.2.3}Propagador de dispersión y conservación de la Norma}{20}{subsection.1.2.3}%
-\contentsline {subsubsection}{\numberline {1.2.3.1}Proceso de dispersión del propagador.}{20}{subsubsection.1.2.3.1}%
+\contentsline {subsection}{\numberline {1.2.3}Propagador de dispersión y conservación de la Norma}{21}{subsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.3.1}Proceso de dispersión del propagador.}{21}{subsubsection.1.2.3.1}%
 \contentsline {subsubsection}{\numberline {1.2.3.2}Diferencias y similitudes con una CNN}{22}{subsubsection.1.2.3.2}%
 \contentsline {subsubsection}{\numberline {1.2.3.3}Relación con herramientas clásicas de visión por computador}{22}{subsubsection.1.2.3.3}%
-\contentsline {subsubsection}{\numberline {1.2.3.4}Operador no expansivo.}{22}{subsubsection.1.2.3.4}%
-\contentsline {section}{\numberline {1.3}Invarianza por Traslaciones}{26}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Elementos del texto}{29}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Listas}{30}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{30}{subsection.1.4.2}%
-\contentsline {section}{\numberline {1.5}Entornos matemáticos}{31}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Bibliografía e índice}{31}{section.1.6}%
+\contentsline {subsubsection}{\numberline {1.2.3.4}Operador no expansivo.}{23}{subsubsection.1.2.3.4}%
+\contentsline {subsubsection}{\numberline {1.2.3.5}Conservación de la norma.}{24}{subsubsection.1.2.3.5}%
+\contentsline {section}{\numberline {1.3}Invarianza por Traslaciones}{27}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Elementos del texto}{31}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Listas}{31}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{31}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Entornos matemáticos}{32}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Bibliografía e índice}{32}{section.1.6}%
 \contentsline {part}{\numberline {II}Segunda parte}{33}{part.2}%
 \contentsline {chapter}{\numberline {2}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{35}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Introducción}{35}{section.2.1}%

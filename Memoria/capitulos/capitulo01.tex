@@ -743,7 +743,12 @@ $$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
 
 \begin{align*}
     (2.21) \;\;\; \forall x \in \mathbb{R}^d \;\; \lim_{J \rightarrow \infty} 2^{dJ} S_J[p]f(x) &=\phi(0)\int_{\mathbb{R}^d}U[p]f(u) du \\
-    &= \phi(0)\mu_p\overline{S}(p).\\ 
+    &=\lim_{J \rightarrow \infty} 2^{dJ} U[p]f \ast \phi_{2^J}(x) \\
+    &=\lim_{J \rightarrow \infty} 2^{dJ} \int_{\mathbb{R}^d} U[p]f(u)\phi_{2^J}(x-u) du \\
+    &=\lim_{J \rightarrow \infty} 2^{dJ} \int_{\mathbb{R}^d} U[p]f(u) 2^{-dJ} \phi(2^{-J}(x-u)) du   \\
+    &= \int_{\mathbb{R}^d} U[p]f \phi(0) du  \\
+    &= \phi(0) \int_{\mathbb{R}^d} U[p]f du  \\
+    &= \phi(0)\mu_p\overline{Sf}(p).\\ 
 \end{align*}
 
 \subsection{Propagador de dispersión y conservación de la Norma} \label{ch:seccion13}
@@ -812,22 +817,22 @@ Las operaciones de la transformada de dispersión que hemos descrito siguen la e
 \noindent El propagador $U_Jf=\lbrace A_Jf, \left(\left| W[\lambda]f\right|\right)_{\lambda\in\Lambda_J} \rbrace$ es no expansivo, porque la transformada de ondas $W_J$ es unitaria pues cumple las hipótesis de la \autoref{unitario} y el módulo no es expansivo en el sentido de que $||a|-|b||\leq |a-b|$ para cualquier $(a,b)\in \mathbb{C}^2$. Esto es válido tanto si $f$ es real o compleja. Como consecuencia: 
 
 \begin{align*} 
-    ||U_J f-U_J h||^2 &= ||A_J f-A_J h||^2+\sum_{\lambda\in\Lambda_J} \left| \left| |W[\lambda]f|-|W[\lambda]h| \right| \right|^2 \\
+    ||U_J f-U_J h||^2 &= ||A_J f-A_J h||^2+\sum_{\lambda\in\Lambda_J} \left\| |W[\lambda]f|-|W[\lambda]h| \right\|^2 \\
     &\leq \left| \left| W_J f- W_J h \right| \right|^2 \leq ||f-h||^2 \;\;\; (2.24)
 \end{align*}
 
-\noindent Del hecho de que $W_J$ es unitaria, poniendo $h=0$ también se comprueba que $||U_j f||=||f||$ por lo que el operador $U_J$ preserva la norma.
+\noindent Al ser $W_J$ unitaria, tomando la función nula $h=0$ y siguiendo el mismo razonamiento anterior, también se comprueba que $||U_J f||=||f||$ por lo que el operador $U_J$ preserva la norma.
 
 \medskip
 
 \noindent Para todo conjunto de caminos $\Omega$, las normas de $S_J[\Omega]f$ y $U[\Omega]f$ son: 
 
-$$\left|\left| S_J[\Omega]f \right|\right|^2=\sum_{p\in\Omega} \;\; y \;\; \left|\left|U[\Omega]f\right|\right|^2=\sum_{p\in\Omega} \left|\left| U[p]f\right|\right|^2$$
+$$\left|\left| S_J[\Omega]f \right|\right|^2=\sum_{p\in\Omega} \left|\left| S_J[p]f\right|\right|^2 \;\; y \;\; \left|\left|U[\Omega]f\right|\right|^2=\sum_{p\in\Omega} \left|\left| U[p]f\right|\right|^2$$
 
-\noindent Como $s_J[\mathcal{P}_J]$ itera en $U_J$, que es no expansivo, la siguiente proposición prueba que $S_J[\Omega]f$ es también no expansivo. 
+\noindent Como $S_J[\mathcal{P}_J]$ itera en $U_J$, que es no expansivo, la siguiente proposición prueba que $S_J[\Omega]f$ es también no expansivo. 
 
 \begin{proposicion}
-La transformada de dispersión es no expansiva: 
+La transformada de dispersión de ventana es no expansiva: 
 
 $$(2.25) \;\;\; \forall (f,h)\in L^2(\mathbb{R}^d)^2 \;\; ||S_J[\mathcal{P}_J]f-S_J[\mathcal{P}_J]h|| \leq ||f-h||$$
 \end{proposicion}
@@ -847,10 +852,38 @@ se tiene que:
 
 \noindent Si ahora sumamos en $m$ cuando tiende a $\infty$ se obtiene que: 
 
-$$(2.26) ||S_J[\Lambda_J^m]f - S_J[\Lambda_J^m]h||^2=\sum_{m=0}^{\infty} ||S_J[\Lambda_J^m]f - S_J[\Lambda_J^m]h||^2 \leq ||f-h||^2$$ \qedhere
+\begin{align*}
+  \sum_{m=0}^{\infty}||U[\Lambda_J^m]f-U[\Lambda_J^m]h||^2 &\geq \sum_{m=0}^{\infty} ||S_J[\Lambda_J^m]f - S_J[\Lambda_J^m]h||^2 + \sum_{m=0}^{\infty} ||U[\Lambda_J^{m+1}]f-U[\Lambda_J^{m+1}]h||^2,\\
+\end{align*}
+
+\noindent que equivale a:
+
+\begin{align*}
+  \sum_{m=0}^{\infty}||U[\Lambda_J^m]f-U[\Lambda_J^m]h||^2 - \sum_{m=0}^{\infty} ||U[\Lambda_J^{m+1}]f-U[\Lambda_J^{m+1}]h||^2 &\geq \sum_{m=0}^{\infty} ||S_J[\Lambda_J^m]f - S_J[\Lambda_J^m]h||^2\\
+\end{align*}
+
+\noindent Si ahora nos fijamos en el lado izquierdo de la desigualdad, se cancelan todos los términos salvo $m=0$, y teniendo en cuenta que $\Lambda^0_J=\emptyset$ queda: 
+
+\begin{align*}
+  \sum_{m=0}^{\infty}||U[\Lambda_J^0]f-U[\Lambda_J^0]h||^2 &= \sum_{m=0}^{\infty}||U[\emptyset]f-U[\emptyset]h||^2 = || f - h ||^2 \\
+\end{align*}
+
+\noindent Por otro lado, se tiene que
+
+\begin{align*}
+  \sum_{m=0}^{\infty} ||S_J[\Lambda_J^m]f - S_J[\Lambda_J^m]h||^2 = ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h||^2. \\
+\end{align*}
+
+\noindent Luego hemos probado que 
+
+$$||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h||^2 \leq || f - h ||^2$$
+
+\noindent y por lo tanto que la transfomada de dispersión de ventana es no expansiva. \qedhere
 \end{proof}
 
-En la \autoref{ch:seccion12} se obtuvo que cada $U[\lambda]f=|f \ast \psi_\lambda|$ capturaba la energía de frecuencia de $f$ en una banda de frecuencia cubierta por $\widehat{\psi}_\lambda$ y propagaba dicha energía a través de las bajas frecuencias, este hecho lo demuestra el siguiente teorema, mostrando que toda la energía del propagador de dispersión alncanza la frecuencia mínima $2^J$ y es atrapada por el filtro paso bajo $\phi_ {2^J}$. La energía propagada tiende a $0$ conforme se incrementa la longitud del camino, y el teorema implica que $||S_J[\mathcal{P}_J]f||=||f||$. Esto se aplica también a funciones complejas en caminos negativos.
+\subsubsection{Conservación de la norma.}
+
+En la \autoref{ch:seccion12} se obtuvo que cada coeficiente $U[\lambda]f=|f \ast \psi_\lambda|$ capturaba la energía de frecuencia de $f$ en una banda de frecuencia cubierta por $\widehat{\psi}_\lambda$ y propagaba dicha energía a frecuencias decrecientes, este hecho lo demuestra el siguiente teorema, mostrando que toda la energía del propagador de dispersión alncanza la frecuencia mínima $2^J$ y es atrapada por el filtro paso bajo $\phi_ {2^J}$. La energía propagada tiende a $0$ conforme se incrementa la longitud del camino, y el teorema implica que $||S_J[\mathcal{P}_J]f||=||f||$. Esto se aplica también a funciones complejas en caminos negativos.
 
 \begin{teorema} \label{teoremaOndeletasAdmisibles}
 Una ondeleta de dispersión se dice que es admisible si existe $\eta \in \mathbb{R}^d$ y $\rho \geq 0$, con $|\widehat{\rho}(\omega)| \leq |\widehat{\phi}(2\omega)|$ y $\widehat{\rho}(0)=1$, tal que la función: 
