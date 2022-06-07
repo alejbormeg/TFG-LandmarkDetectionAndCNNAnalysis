@@ -525,17 +525,40 @@ $$(2.9) \;\;\; W[\lambda](2^lg\circ f)=2^lg \circ W[2^{-l}g\lambda]f.$$
 \noindent Los coeficientes invariantes por traslaciones los obtendremos gracias a la acción de un operador no lineal aplicando el siguiente lema: 
 
 %No se si perder tiempo en buscar la dem
-\begin{lema}
+\begin{lema} \label{lema:Invarianza_traslaciones_integral}
   Si $U[\lambda]$ es un operador definido en $L^2(\mathbb{R}^d)$, no necesariamente lineal pero que conmuta con traslaciones, entonces $\int_{\mathbb{R}^d} U[\lambda]f(x)dx$ es invariante a traslaciones si es finito.
 \end{lema}
 
+\begin{proof}
+  Sea $f \in L^2(\mathbb{R}^d)$, $c \in \mathbb{R}^d$ y $L_cf(x)=f(x-c)$ una traslación de $f$, como $U[\lambda]f$ conmuta con traslaciones se tiene que: 
+  \begin{align*}
+    U[\lambda]L_cf(x)&=U(f(x-c)) \\
+    &=U(f)(x-c) \\
+    &=L_cU[\lambda]f(x)\\
+  \end{align*}
 
-\noindent En nuestro caso $W[\lambda]f=f\ast\psi_\lambda$ es un ejemplo trivial de este lema, pues se trata de un operador que conmuta con traslaciones y $\int_{\mathbb{R}^d} f \ast \psi(x) dx=0$ porque $\int_{\mathbb{R}^d} \psi(x)dx=0$. De hecho, se verifica lo siguiente: 
+  \noindent Vamos a comprobar ahora que si $\int_{\mathbb{R}^d} U[\lambda]f(x)dx$ es finito, entonces la integral es invariante a traslaciones. En otras palabras, queremos comprobar que : 
 
-%Preguntar
-\begin{lema}
-  Cualquier transformación lineal de $W[\lambda]f$ que sea invariante a traslaciones tiene que tener necesariamente integral nula.
-\end{lema}
+  $$\int_{\mathbb{R}^d} U[\lambda]L_cf(x)dx=\int_{\mathbb{R}^d} U[\lambda]f(x)dx$$
+
+  Para ello, si tenemos en cuenta la conmutatividad del operador $U[\lambda]$ se tiene que 
+  
+  \begin{align*}
+    \int_{\mathbb{R}^d} U[\lambda]L_cf(x)dx &= \int_{\mathbb{R}^d} U[\lambda](f(x-c))dx \\
+    &= \int_{\mathbb{R}^d} U[\lambda](f)(x-c)dx. \\
+  \end{align*}
+
+  \noindent Y tras esto basta tener en cuenta el cambio de variable $y=x-c$ que tiene Jacobiano $J=1$ y se tendría que en la expresión anterior
+  \begin{align*}
+    \int_{\mathbb{R}^d} U[\lambda](f)(x-c)dx = \int_{\mathbb{R}^d} U[\lambda](f)(y)dy .\\
+  \end{align*}
+  
+  \noindent Por lo que la integral es invariante por traslaciones.
+\end{proof}
+
+\noindent En nuestro caso $W[\lambda]f=f\ast\psi_\lambda$ es un ejemplo trivial de este lema, pues se trata de un operador que conmuta con traslaciones y $\int_{\mathbb{R}^d} f \ast \psi(x) dx=0$ porque $\int_{\mathbb{R}^d} \psi(x)dx=0$.
+
+\medskip
 
 \noindent Esto nos enseña, que para obtener un operador invariante por traslaciones y no trivial $U[\lambda]f$, es necesario componer $W[\lambda]$ con un operador extra $M[\lambda]$ que sea \entrecomillado{no lineal}, y que se conoce como "demodulación", que transforma $W[\lambda]f$ en una función de menor frecuencia con integral distinta de cero. Además, la elección de $M[\lambda]$ debe preservar la Lipschitz-continuidad bajo la acción de difeomorfismos.    
 En resumen, queremos un operador no lineal que produzca coeficientes invariantes por traslaciones no triviales y que además conserve la Lipschitz-continuidad.
@@ -572,7 +595,6 @@ $$(2.12) \;\;\; M[\lambda]h(x)=e^{-i\lambda\eta x} e^{-i \Phi(\widehat{h}(\lambd
   &= e^{-i \Phi (\widehat{f}(\lambda\eta)\widehat{\psi_\lambda}(\lambda\eta))} \int_{\mathbb{R}^d} e^{-i\lambda\eta x} f \ast \Theta_\lambda (x) dx \\
   &=e^{-i \Phi (\widehat{f}(\lambda\eta)\widehat{\psi_\lambda}(\lambda\eta))} \int_{\mathbb{R}^d}e^{-i\lambda\eta x} f(x) dx  \int_{\mathbb{R}^d}\Theta_\lambda (x) dx  \\
   &=e^{-i \Phi (\widehat{f}(\lambda\eta)\widehat{\psi_\lambda}(\lambda\eta))} \cdot \widehat{f}(\lambda\eta) \cdot  \widehat{\Theta_\lambda}(0)\\
-  &=e^{-i \Phi (\widehat{f}(\lambda\eta)\widehat{\psi_\lambda}(\lambda\eta))} \cdot \widehat{f}(\lambda\eta) \cdot  \widehat{\Theta_\lambda}(0) \\
   &=\left| \widehat{f}(\lambda\eta) \cdot  \widehat{\Theta_\lambda}(0) \right|^2 \\
   &=\left| \widehat{f}(\lambda\eta)\right|^2 \left| \widehat{\Theta_\lambda}(0) \right|^2  \\
   &=\left| \widehat{f}(\lambda\eta)\right|^2 \left| \widehat{\Theta}(0) \right|^2 
@@ -692,14 +714,14 @@ $$U[p+p']=U[\lambda'_{m'}]...U[\lambda'_2]U[\lambda'_1]U[\lambda_{m}]...U[\lambd
 \noindent En este momento ya disponemos de un operador $U[\lambda] f$ que cumple todas las condiciones deseables , por lo que en esta sección vamos a ser capaces de llegar finalmente a la modelización matemática de una CNN.
 
 \begin{definicion} \label{def:S_barra}
-Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ normalizado con la respuesta de la distribución de Dirac como:
+Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
 
-$$(2.16) \; \; \; \overline{S}f(p)=\frac{1}{\mu_p} \int_{\mathbb{R}^d}U[p]f(x)dx \; \; con \; \; \mu_p=\int_{\mathbb{R}^d} U[p] \delta(x)dx .$$
+$$(2.16) \; \; \; \overline{S}f(p)=\int_{\mathbb{R}^d}U[p]f(x)dx .$$
 \end{definicion}
 
 \medskip
 
-\noindent Cada coeficiente $\overline{S}f(p)$ es invariante a traslaciones de $f$, pues el operador $U[p]$ hemos visto que cumple las propiedades necesarias para que así sea, y transforma $f \in L^1(\mathbb{R}^d)$ en una función en el camino de frecuencias variable $p$
+\noindent El operador $\overline{S}f(p)$ es invariante a traslaciones de $f$, pues el operador $U[p]$ hemos visto que cumple las propiedades necesarias para que el valor de la integral sea finito y por lo tanto sea invariante por traslaciones, y transforma $f \in L^1(\mathbb{R}^d)$ en una función en el camino de frecuencias variable $p$.
 
 \medskip
 
@@ -748,7 +770,7 @@ $$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
     &=\lim_{J \rightarrow \infty} 2^{dJ} \int_{\mathbb{R}^d} U[p]f(u) 2^{-dJ} \phi(2^{-J}(x-u)) du   \\
     &= \int_{\mathbb{R}^d} U[p]f \phi(0) du  \\
     &= \phi(0) \int_{\mathbb{R}^d} U[p]f du  \\
-    &= \phi(0)\mu_p\overline{Sf}(p).\\ 
+    &= \phi(0)\overline{Sf}(p).\\ 
 \end{align*}
 
 \subsection{Propagador de dispersión y conservación de la Norma} \label{ch:seccion13}
