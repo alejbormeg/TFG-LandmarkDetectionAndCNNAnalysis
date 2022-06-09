@@ -907,55 +907,122 @@ $$||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h||^2 \leq || f - h ||^2$$
 
 En la \autoref{ch:seccion12} se obtuvo que cada coeficiente $U[\lambda]f=|f \ast \psi_\lambda|$ capturaba la energía de frecuencia de $f$ en una banda de frecuencia cubierta por $\widehat{\psi}_\lambda$ y propagaba dicha energía a frecuencias decrecientes, este hecho lo demuestra el siguiente teorema, mostrando que toda la energía del propagador de dispersión alncanza la frecuencia mínima $2^J$ y es atrapada por el filtro paso bajo $\phi_ {2^J}$. La energía propagada tiende a $0$ conforme se incrementa la longitud del camino, y el teorema implica que $||S_J[\mathcal{P}_J]f||=||f||$. Esto se aplica también a funciones complejas en caminos negativos.
 
-\begin{teorema} \label{teoremaOndeletasAdmisibles}
-Una ondeleta de dispersión se dice que es admisible si existe $\eta \in \mathbb{R}^d$ y $\rho \geq 0$, con $|\widehat{\rho}(\omega)| \leq |\widehat{\phi}(2\omega)|$ y $\widehat{\rho}(0)=1$, tal que la función: 
+\medskip
 
-$$(2.27) \;\;\; \widehat{\Phi}(\omega)=|\widehat{\rho}(\omega - \eta)|^2 - \sum_{k=1}^{+\infty} k(1-|\widehat{\rho}(2^{-k}(\omega - \eta))|^2)$$
+\noindent Para la demostración de la conservación de la norma necesitamos unos resultados previos: 
+
+\begin{lema}
+  Si $h$ es una funciones tal que $h\geq 0$ entonces $\forall f \in L^2(\mathbb{R}^d)$: 
+  
+  $$(2.33) \;\;\; |f \ast \psi_\lambda | \ast h \geq \sup_{\eta \in \mathbb{R}^d} |f\ast \psi_\lambda \ast h_\eta | \; \; con \; h_\eta=h(x)e^{i\eta x}$$
+  \end{lema}
+  
+  \begin{proof}
+  
+  \begin{align*}
+      |f \ast \psi_\lambda | \ast h (x) &= \int \left| \int f(v)\psi_\lambda(u-v)dv \right| h(x-u)du \\
+      &=\int \left | \int f(v) \psi_\lambda(u-v) e^{i\eta(x-u)} h(x-u) dv \right| du \\
+      &\geq \left | \int \int f(v) \psi_\lambda(u-v) e^{i\eta(x-u)} h(x-u) dv du \right| = \\
+      &= \left | \int f(v) \int  \psi_\lambda(x-v-u')h(u') e^{i\eta u'}  du' dv \right| \\
+      &= \left | \int f(v) \psi_\lambda \ast h_\eta(x-v) dv \right| = |f\ast \psi_\lambda \ast h_\eta|
+  \end{align*}
+
+  \noindent Dónde se ha usado el cambio de variabel $u'=x-u$ con $J=1$.
+  \end{proof}
+
+\begin{definicion}
+  Una ondeleta de dispersión se dice que es admisible si existe $\eta \in \mathbb{R}^d$ y una función $\rho \geq 0$, con $|\widehat{\rho}(\omega)| \leq |\widehat{\phi}(2\omega)|$ y $\widehat{\rho}(0)=1$, tal que la función: 
+
+$$(2.27) \;\;\; \widehat{\Psi}(\omega)=|\widehat{\rho}(\omega - \eta)|^2 - \sum_{k=1}^{+\infty} k(1-|\widehat{\rho}(2^{-k}(\omega - \eta))|^2)$$
 
 \noindent satisface: 
 $$(2.28) \;\;\; \alpha= \inf_{1\leq|w|\leq2} \sum_{j=-\infty}^{\infty} \sum_{r\in G} \widehat{\Psi} (2^{-j}r^{-1}\omega)|\widehat{\psi}(2^{-j}r^{-1}\omega)|^2>0.$$
+\end{definicion}
 
-\noindent Si la ondeleta es admisible, entonces para toda $f\in L^2(\mathbb{R}^d)$
+\noindent Con esta defnición presentamos el siguiente teorema:
+
+\begin{teorema} \label{teoremaOndeletasAdmisibles}
+\noindent Si las ondeletas son admisibles, entonces para toda $f\in L^2(\mathbb{R}^d)$
 $$(2.29) \;\;\; \lim_{m\rightarrow\infty} ||U[\Lambda_J^m]f||^2=\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0$$
 
 y
 
-$$(2.29) \;\;\; ||S_J[\mathcal{P_J}f||=||f||$$
+$$(2.29) \;\;\; ||S_J[\mathcal{P_J}]f||=||f||$$
 \end{teorema}
 
 \begin{proof}
-\noindent Primero probamos que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0$ es equivalente a tener $\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0$ y a $||S_J[\mathcal{P_J}f||=||f||$. Como $||U_J h||=||h|| \; \forall h \in L^2(\mathbb{R}^d)$ y $U_J U[\Lambda_J^n]f=\lbrace S_J[\Lambda_J^n]f,U[\Lambda_J^{n+1}]\rbrace$,
+  Esta demostración tiene dos partes, la primera consistirá en demostrar que la condición (2.27) implica que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0$. 
 
-$$(2.31) \;\;\; ||U[\Lambda_J^n]f||^2=||U_JU[\Lambda_J^n]f||^2=||S_J[\Lambda_J^n]f||^2+||U[\Lambda_J^{n+1}]f||^2.$$
+  \medskip
 
-\noindent Sumando en $m\leq n < \infty$ se prueba que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||=0$ es equivalente a $\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0$. Por otro lado, como $f=U[\Lambda_J^0]f$, sumando en $(2.31)$ para $0\leq n < m$ también se prueba que:
+  \noindent En segundo lugar vamos a ver que las siguientes expresiones son equivalentes: 
+  \begin{align*}
+    \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0 \iff \lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0 \iff ||S_J[\mathcal{P_J}]f||^2 = ||f||
+  \end{align*}
 
-$$(2.32) \;\;\; ||f||^2=\sum_{n=0}^{m-1} ||S_J[\Lambda_J^n]f||^2 + ||U[\Lambda_J^m]f||^2,$$
+  En primer lugar probamos que 
+  $$\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0 \iff \lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0$$
+  
+  \noindent Como $||U_J h||=||h|| \; \forall h \in L^2(\mathbb{R}^d)$ y $U_J U[\Lambda_J^n]f=\lbrace S_J[\Lambda_J^n]f,U[\Lambda_J^{n+1}]\rbrace$,
 
-entonces
+  $$(2.31) \;\;\; ||U[\Lambda_J^n]f||^2=||U_JU[\Lambda_J^n]f||^2=||S_J[\Lambda_J^n]f||^2+||U[\Lambda_J^{n+1}]f||^2.$$
 
-$$||S_J[\mathcal{P_J}f||^2=\sum_{n=0}^\infty ||S_J[\Lambda_J^n]f||^2=||f||^2 \iff \lim_{m\rightarrow\infty}||U[\Lambda_J^m]||=0.$$ \qedhere
+  \noindent Sumando en $m\leq n < \infty$ se obtiene : 
+  
+  \begin{align*}
+    \sum_{n=m}^\infty ||U[\Lambda_J^n]f||^2=&\sum_{n=m}^\infty ||S_J[\Lambda_J^n]f||^2 + \sum_{n=m}^\infty||U[\Lambda_J^{n+1}]f||^2 \\
+    \Big\Updownarrow \\
+    \sum_{n=m}^\infty ||U[\Lambda_J^n]f||^2 -& \sum_{n=m}^\infty||U[\Lambda_J^{n+1}]f||^2 =\sum_{n=m}^\infty ||S_J[\Lambda_J^n]f||^2  \\
+  \end{align*}
+  
+  \noindent En el término de la izquierda se anulan entre si todos los sumandos salvo $n=m$, luego queda: 
 
+  \begin{align*}
+    ||U[\Lambda_J^m]f||^2 =\sum_{n=m}^\infty ||S_J[\Lambda_J^n]f||^2  \\
+  \end{align*}
+  \noindent Y tomando límites cuando $m\rightarrow \infty$
+  \begin{align*}
+    \lim_{m\rightarrow \infty}||U[\Lambda_J^m]f||^2 =\lim_{m\rightarrow \infty}\sum_{n=m}^\infty ||S_J[\Lambda_J^n]f||^2  \\
+  \end{align*}
+  \noindent Llegados a este punto se puede apreciar claramente que
+  
+  $$Si \; \; \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0 \implies \lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0$$
+
+  \noindent Y el recíproco también es cierto, luego ambas expresiones son equivalentes.
+
+  \medskip
+
+  \noindent Por otro lado, sumando en $(2.31)$ para $0\leq n < m$ se obtine:
+
+  \begin{align*}
+    \sum_{n=0}^{m-1} ||U[\Lambda_J^n]f||^2=&\sum_{n=0}^{m-1} ||S_J[\Lambda_J^n]f||^2 +\sum_{n=0}^{m-1}||U[\Lambda_J^{n+1}]f||^2 \\
+    \Big\Updownarrow \\
+    \sum_{n=0}^{m-1} ||U[\Lambda_J^n]f||^2 -& \sum_{n=0}^{m-1}||U[\Lambda_J^{n+1}]f||^2 = \sum_{n=0}^{m-1} ||S_J[\Lambda_J^n]f||^2.  \\
+  \end{align*}
+  
+  \noindent En el término de la izquierda se anulan entre si todos los sumandos salvo $n=0$, y teniendo en cuenta que $f=U[\Lambda_J^0]f$ queda:
+  $$(2.32) \;\;\; ||f||^2=\sum_{n=0}^{m-1} ||S_J[\Lambda_J^n]f||^2 + ||U[\Lambda_J^m]f||^2.$$
+
+  \noindent Si ahora tomamos límite cuando $m\rightarrow \infty$ obtenemos: 
+  \begin{align*}
+    \lim_{m\rightarrow \infty}||f||^2 =\lim_{m\rightarrow \infty}\sum_{n=0}^{m-1} ||S_J[\Lambda_J^n]f||^2 &+ \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2  \\
+    \Big\Updownarrow \\
+    ||f||^2 =\sum_{n=0}^{\infty} ||S_J[\Lambda_J^n]f||^2 &+ \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2  \\
+    \Big\Updownarrow \\
+    ||f||^2 =||S_J[\mathcal{P_J}]f||^2 &+ \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2.  \\
+  \end{align*}
+
+  \noindent De manera que se puede apreciar claramente que  
+  \begin{align*}
+    ||f||^2 =||S_J[\mathcal{P_J}]f||^2 + \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2  = ||S_J[\mathcal{P_J}]f||^2 \iff \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0. \\
+  \end{align*}
+
+  \noindent Con lo que queda demostrado el teorema \qedhere
 \end{proof}
 
 \noindent A continuación probaremos que la condición $(2.27)$ implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||^2=0$. La clave de esto reside en el siguiente lema, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva: 
 
-\begin{lema}
-Si $h\geq 0$ entonces $\forall f \in L^2(\mathbb{R}^d)$: 
 
-$$(2.33) \;\;\; |f \ast \psi_\lambda | \ast h \geq \sup_{\eta \in \mathbb{R}^d} |f\ast \psi_\lambda \ast h_\eta | \; \; con \; h_\eta=h(x)e^{i\eta x}$$
-\end{lema}
-
-\begin{proof}
-
-\begin{align*}
-    |f \ast \psi_\lambda | \ast h (x) &= \int \left| \int f(v)\psi_\lambda(u-v)dv \right| h(x-u)du \\
-    &=\int \left | \int f(v) \psi_\lambda(u-v) e^{i\eta(x-u)} h(x-u) dv \right| du \\
-    &\geq \left | \int \int f(v) \psi_\lambda(u-v) e^{i\eta(x-u)} h(x-u) dv du \right| = \\
-    &= \left | \int f(v) \int  \psi_\lambda(x-v-u')h(u') e^{i\eta u'}  du' dv \right| \\
-    &= \left | \int f(v) \psi_\lambda \ast h_\eta(x-v) dv \right| = |f\ast \psi_\lambda \ast h_\eta|
-\end{align*}
-\end{proof}
 
 \noindent En el apéndice A se usa este lema para demostrar que el propagador dispersa la energía progresivamente hacia bajas frecuencias y demuestra el siguiente lema: 
 
