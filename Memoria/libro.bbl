@@ -39,6 +39,11 @@ St{\'e}phane Mallat.
 \newblock {\em Une exploration des signaux en ondelettes.}
 \newblock Palaiseau: Les {\'E}ditions de l'{\'E}cole Polytechnique, 2000.
 
+\bibitem[Mal12]{GroupInvariantScattering}
+Stéphane Mallat.
+\newblock Group invariant scattering.
+\newblock {\em Communications on Pure and Applied Mathematics}, 65, 10 2012.
+
 \bibitem[PJDoM06]{HaarBasis}
 University of~Iowa Palle Jorgensen Department~of Mathematics.
 \newblock Image decomposition using haar wavelet.

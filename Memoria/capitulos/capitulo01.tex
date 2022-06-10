@@ -915,9 +915,9 @@ En la \autoref{ch:seccion12} se obtuvo que cada coeficiente $U[\lambda]f=|f \ast
   Si $h$ es una funciones tal que $h\geq 0$ entonces $\forall f \in L^2(\mathbb{R}^d)$: 
   
   $$(2.33) \;\;\; |f \ast \psi_\lambda | \ast h \geq \sup_{\eta \in \mathbb{R}^d} |f\ast \psi_\lambda \ast h_\eta | \; \; con \; h_\eta=h(x)e^{i\eta x}$$
-  \end{lema}
+\end{lema}
   
-  \begin{proof}
+\begin{proof}
   
   \begin{align*}
       |f \ast \psi_\lambda | \ast h (x) &= \int \left| \int f(v)\psi_\lambda(u-v)dv \right| h(x-u)du \\
@@ -928,8 +928,9 @@ En la \autoref{ch:seccion12} se obtuvo que cada coeficiente $U[\lambda]f=|f \ast
   \end{align*}
 
   \noindent Dónde se ha usado el cambio de variabel $u'=x-u$ con $J=1$.
-  \end{proof}
+\end{proof}
 
+\noindent A continuación definimos el concepto de \entrecomillado{ondeleta admisible:}
 \begin{definicion}
   Una ondeleta de dispersión se dice que es admisible si existe $\eta \in \mathbb{R}^d$ y una función $\rho \geq 0$, con $|\widehat{\rho}(\omega)| \leq |\widehat{\phi}(2\omega)|$ y $\widehat{\rho}(0)=1$, tal que la función: 
 
@@ -939,7 +940,26 @@ $$(2.27) \;\;\; \widehat{\Psi}(\omega)=|\widehat{\rho}(\omega - \eta)|^2 - \sum_
 $$(2.28) \;\;\; \alpha= \inf_{1\leq|w|\leq2} \sum_{j=-\infty}^{\infty} \sum_{r\in G} \widehat{\Psi} (2^{-j}r^{-1}\omega)|\widehat{\psi}(2^{-j}r^{-1}\omega)|^2>0.$$
 \end{definicion}
 
-\noindent Con esta defnición presentamos el siguiente teorema:
+\noindent Con esta definición en mente podemos comprobar que se da el siguiente lema que demuestra que el propagador dispersa la energía progresivamente hacia bajas frecuencias.
+
+\begin{lema} \label{lemaDeAdmisibilidad}
+Si $(2.28)$ se satisface y 
+
+$$(2.34) \;\;\; ||f||_w^2=\sum_{j=0}^\infty \sum_{r\in G^+} j ||W[2^j r] f||^2 < \infty$$
+
+\noindent Entonces se tiene: 
+
+$$(2.35) \;\;\; \frac{\alpha}{2}||U[\mathcal{P_J}]f||^2 \geq \max (J+1,1) ||f||^2 + ||f||_w^2.$$
+\end{lema}
+
+\medskip
+
+\noindent La demostración de lema se encuentra en el apéndice A de \cite{GroupInvariantScattering}.
+
+\medskip
+
+\noindent Con todos estos resultados podemos presentar el principal teorema de esta sección, que nos dará como resultado la preservación de la norma del operador de ventana:
+
 
 \begin{teorema} \label{teoremaOndeletasAdmisibles}
 \noindent Si las ondeletas son admisibles, entonces para toda $f\in L^2(\mathbb{R}^d)$
@@ -951,11 +971,39 @@ $$(2.29) \;\;\; ||S_J[\mathcal{P_J}]f||=||f||$$
 \end{teorema}
 
 \begin{proof}
-  Esta demostración tiene dos partes, la primera consistirá en demostrar que la condición (2.27) implica que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0$. 
+  Esta demostración tiene dos partes, la primera consistirá en demostrar que la condición (2.27) implica que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0$. Comenzamos con la \textbf{primera parte}:
+
+  \noindent La clave de esto reside en el siguiente lema, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva. 
+  
+  \noindent La clase de funciones para las que $||f||_w < \infty$ es una clase logarítmica de Sobolev correspondiente a funciones que tienen un módulo promedio continuo en $L^2(\mathbb(R)^d)$. Como 
+
+  $$ || U[\mathcal{P}_J]f ||^2= \sum_{m=0}^{+\infty} ||U[\Lambda_J^m]f||^2,$$
+
+  \noindent si $||f||_w < \infty$ entonces $(2.35)$ implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||= 0$. Este resultado se extiende en $L^2(\mathbb{R}^d)$ por densidad. Como $\phi \in L^1(\mathbb{R}^d)$ y $\widehat{\phi(0)=1}$, cualquier $f\in L^2(\mathbb{R}^d)$ satisface $\lim_{n\rightarrow - \infty} ||f-f_n||=0$, dónde $f_n=f \ast \phi_{2^n}$ y $\phi_{2^n}=2^{-nd} \phi(2^{-n}x)$. Se demuestra por tanto que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f_n||=0$ viendo que $||f_n||_w < \infty$. De hecho, 
+
+
+  \begin{align*}
+      ||W[2^jr]f_n||^2 &= \int |\widehat{f}(\omega)|^2 |\widehat{\phi}(2^n \omega)|^2 |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2 d\omega \\
+      &\leq C 2^{-2n-2j} \int |\widehat{f}(\omega)|^2 d\omega,
+  \end{align*}
+
+  \noindent porque $\psi$ hay un momento en que desaparece entonce $|\widehat{\psi}(\omega)=O(|\omega|)$, y las derivadas de $\phi$ están en $L^1(\mathbb{R}^d)$ luego $|\omega||\widehat{\phi}\omega|$ están acotadas. Por lo que se tiene que $||f_n||_w < \infty$.
 
   \medskip
 
-  \noindent En segundo lugar vamos a ver que las siguientes expresiones son equivalentes: 
+  \noindent Como $U[\Lambda^m]$ es no expansiva, $||U[\Lambda_J^m]f-U[\Lambda_J^m]f_m|| \leq ||f - f_n||$, por lo que 
+
+  $$||U[\Lambda_J^m]f|| \leq || f-f_n|| + ||U[\Lambda_J^m]f_n||.$$
+
+  \noindent Como $\lim_{n\rightarrow -\infty}||f-f_n||=0$ y $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f_n||=0$ tenemos que 
+
+  $$\lim_{m\rightarrow\infty} ||U[\Lambda_J^m]f||^2=0$$
+
+  \noindent para toda $f \in L^2(\mathbb{R}^d)$. 
+
+  \medskip
+
+  \noindent \textbf{En segundo lugar} vamos a ver que las siguientes expresiones son equivalentes: 
   \begin{align*}
     \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0 \iff \lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0 \iff ||S_J[\mathcal{P_J}]f||^2 = ||f||
   \end{align*}
@@ -1020,66 +1068,21 @@ $$(2.29) \;\;\; ||S_J[\mathcal{P_J}]f||=||f||$$
   \noindent Con lo que queda demostrado el teorema \qedhere
 \end{proof}
 
-\noindent A continuación probaremos que la condición $(2.27)$ implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||^2=0$. La clave de esto reside en el siguiente lema, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva: 
+\subsubsection{Conclusiones extraidas del teorema}
+\noindent La demostración muestra que el propagador dispersa la energía progresivamente a frecuencias menores. La energía de $U[p]f$ se concentra principalmente en los caminos de frecuencia decrecientes $p=(\lambda_k)_{k\leq m}$ para los que $|\lambda_{k+1}|<|\lambda_k|$.
 
-
-
-\noindent En el apéndice A se usa este lema para demostrar que el propagador dispersa la energía progresivamente hacia bajas frecuencias y demuestra el siguiente lema: 
-
-\begin{lema} \label{lemaDeAdmisibilidad}
-Si $(2.28)$ se satisface y 
-
-$$(2.34) \;\;\; ||f||_w^2=\sum_{j=0}^\infty \sum_{r\in G^+} j ||W[2^j r] f||^2 < \infty$$
-
-\noindent Entonces se tiene: 
-
-$$(2.35) \;\;\; \frac{\alpha}{2}||U[\mathcal{P_J}f||^2 \geq \max (J+1,1) ||f||^2 + ||f||_w^2.$$
-\end{lema}
-
-\begin{proof}
-\noindent La clase de funciones para las que $||f||_w < \infty$ es una clase logarítmica de Sobolev correspondiente a funciones que tienen un módulo promedio continuo en $L^2(\mathbb(R)^2$. Como 
-
-$$ || U[\mathcal{P}_J]f ||^2= \sum_{m=0}^{+\infty} ||U[\Lambda_J^m]f||^2,$$
-
-\noindent si $||f||_w < \infty$ entonces $(2.35)$ implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||= 0$. Este resultado se extiende en $L^2(\mathbb{R}^d$ por densidad. Como $\phi \in L^1(\mathbb{R}^d)$ y $\widehat{\phi(0)=1}$, cualquier $f\in L^2(\mathbb{R}^d)$ satisface $\lim_{n\rightarrow - \infty} ||f-f_n||=0$, dónde $f_n=f \ast \phi_{2^n}$ y $\phi_{2^n}=2^{-nd} \phi(2^{-n}x)$. Se demuestra por tanto que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f_n||=0$ viendo que $||f_n||_w < \infty$. De hecho, 
-
-
-\begin{align*}
-    ||W[2^jr]f_n||^2 &= \int |\widehat{f}(\omega)|^2 |\widehat{\phi}(2^n \omega)|^2 |\widehat{\psi}(2^{-j}r^{-1}\omega|^2 d\omega \\
-    &\leq C 2^{-2n-2j} \int |\widehat{f}(\omega)|^2 d\omega,
-\end{align*}
-
-\noindent porque $\psi$ hay un momento en que desaparece entonce $|\widehat{\psi}(\omega)=O(|\omega|)$, y las derivadas de $\phi$ están en $L^1(\mathbb{R}^d$ luego $|\omega||\widehat{\phi}\omega|$ están acotadas. Por lo que se tiene que $||f_n||_w < \infty$.
 
 \medskip
 
-\noindent Como $U[\Lambda^m]$ es no expansiva, $||U[\Lambda_J^m]f-U[\Lambda_J^m]f_m|| \leq ||f - f_n||$, por lo que 
-
-$$||U[\Lambda_J^m]f|| \leq || f-f_n|| + ||U[\Lambda_J^m]f_n||.$$
-
-\noindent Como $\lim_{n\rightarrow -\infty}||f-f_n||=0$ y $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f_n||=0$ tenemos que 
-
-$$\lim_{m\rightarrow\infty} ||U[\Lambda_J^m]f||^2=0$$
-
-\noindent para toda $f \in L^2(\mathbb{R}^d)$. \qedhere
-\end{proof}
-
-
-\medskip 
-
-\noindent La demostración muestra que el propagador dispersa la energía progresivamente a frecuencias menores. La energía de $U[p]f$ se concentra principalmente en los caminos de frecuencia decrecientes $p=(\lambda_k)_{k\leq m}$ para los que $|\lambda_{k+1}|<|\lambda_k|$. Por ejemplo, si $f=\delta$, entonces los caminos de longitud $1$ tienen una energía de $||U[2^jr]\delta||^2=||\psi_{2^jr}||^2=2^{-dj}||\psi||^2$. 
-
-\noindent Esta energía se propaga entonces por todos los caminos $p\in\mathcal{P}_J$. Para ondeleteas de Splines cúbicos de dimensión $d=1$, en torno al $99.5 \%$ de su energía se concentra en los caminos de frecuencias descendentes. Las implementaciones numéricas de las transformadas de dispersión limitan los cálculos a estas rutas de disminución de frecuencia. La transformada de dispersión de una señal de tamaño $N$  se calcula a lo largo de todos los caminos de frecuencias decrecientes, con un orden $O(N logN)$ de operaciones, usando una implementación con banco de filtros.
+\noindent El decrecimiento de $\sum_{n=m}^\infty || S_J[\Lambda_J^n]f||^2$ nos sugiere que podemos descartar todos los caminos de longitud mayor que un cierto $m>0$. De hecho, en tareas de tratamiento de imágenes y audio el decrecimiento numérico de $||S_J[\Lambda_J^n]f||^2$ puede llegar a ser exponencial, lo que conlleva a que en problemas de clasificación, por ejemplo, el de camino se liminte a $m=3$.
 
 \medskip
 
-\noindent El decrecimiento de $\sum_{n=m}^\infty || S_J[\Lambda_J^n]f||^2$ implica que podemos abandonar todos los caminos de longitud mayor que un cierto $m>0$. El decrecimiento numérico de $||S_J[\Lambda_J^n]f||^2$ parece ser exponencial en el tratamiento de imágenes y audio. El tamaño de camino se liminta a $m=3$ en problemas de clasificación.
+\noindent El teorema además requiere de una transformada de ondeleta unitaria y admisible que satisfaga la condición de Littlewood-Paley $\beta \sum_{(j,r)\in \mathbb{Z}\times G}|\widehat{\psi}(2^jr\omega)|^2=1$. 
 
 \medskip
 
-\noindent Debe también existir una transformada de ondeleta unitaria y de hecho una ondeleta admisible que satisfaga la condición de Littlewood-Paley $\beta \sum_{(j,r)\in \mathbb{Z}\times G}|\widehat{\psi}(2^jr\omega)|^2=1$. 
-
-\noindent Debe también existir $\rho \geq 0$ y un $\eta \in \mathbb{R}^d$ con $|\widehat{\rho}(\omega)|\leq |\widehat{\phi}(2\omega)|$ tal que: 
+\noindent Debe también existir una función $\rho \geq 0$ y un $\eta \in \mathbb{R}^d$ con $|\widehat{\rho}(\omega)|\leq |\widehat{\phi}(2\omega)|$ tal que: 
 
 $$\sum_{(j,r)\in\mathbb{Z}\times G}|\widehat{\psi}(2^jr\omega)|^2|\widehat{\rho}(2^jr\omega-\eta)|^2$$
 
@@ -1087,7 +1090,7 @@ $$\sum_{(j,r)\in\mathbb{Z}\times G}|\widehat{\psi}(2^jr\omega)|^2|\widehat{\rho}
 
 \section{Invarianza por Traslaciones} \label{ch:seccion14}
 
-\noindent En esta sección vamos a ver que la distancia entre propagadores de dispersión $||S_J[\overline{\mathcal{P}}_J f- S_J[\overline{\mathcal{P}}_J h ||$ es no creciente cuando se incrementa la $J$, y de hecho converge cuando $J \rightarrow \infty$. Esto define una distancia límite que veremos que es invariante por traslaciones.
+\noindent En esta sección vamos a ver que la distancia entre propagadores de dispersión $||S_J[\overline{\mathcal{P}}_J] f- S_J[\overline{\mathcal{P}}_J] h ||$ es no creciente cuando se incrementa la $J$, y de hecho converge cuando $J \rightarrow \infty$. Esto define una distancia límite que veremos que es invariante por traslaciones.
 
 \medskip
 
@@ -1143,7 +1146,7 @@ $$\forall (f,h)\in L^2(\mathbb{R}^d)^2 \lim_{J\rightarrow\infty} ||S_J[\mathcal{
 \begin{teorema} \label{invarianzaTraslaciones}
 Para ondeletas de dispersión admisibles se tiene que 
 
-$$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\rightarrow \infty}||S_J[\mathcal{P}_J f-S_J[\mathcal{P}_J] L_cf||=0$$
+$$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\rightarrow \infty}||S_J[\mathcal{P}_J] f-S_J[\mathcal{P}_J] L_cf||=0$$
 \end{teorema}
 
 \begin{proof}
@@ -1186,7 +1189,7 @@ $$||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f ||^2 \leq ((J+1)||f||^2+||f||_
 
 $$||L_c S_J[\mathcal{P}_J]f-S_J[\mathcal{P}_J]f|| \leq ||L_c S_J [\mathcal{P}_J]f_n -S_J[\mathcal{P}_J]f_n|| + 2||f-f_n||.$$
 
-\noindent Haciendo tender $n \rightarrow \infty$ se prueba que $\lim_{J\rightarrow \infty}||S_J[\mathcal{P}_J f-S_J[\mathcal{P}_J] L_cf||=0$ con lo que acaba la demostración. \qedhere
+\noindent Haciendo tender $n \rightarrow \infty$ se prueba que $\lim_{J\rightarrow \infty}||S_J[\mathcal{P}_J] f-S_J[\mathcal{P}_J] L_cf||=0$ con lo que acaba la demostración. \qedhere
 \end{proof}
 
 
