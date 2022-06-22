@@ -49,6 +49,11 @@ University of~Iowa Palle Jorgensen Department~of Mathematics.
 \newblock Image decomposition using haar wavelet.
 \newblock \url = {https://homepage.divms.uiowa.edu/~jorgen/Haar.html},, 2006.
 
+\bibitem[QV18]{SchurLemma}
+Stephen Quinn and Igor~E Verbitsky.
+\newblock A sublinear version of schur’s lemma and elliptic pde.
+\newblock {\em Analysis \& PDE}, 11(2):439--466, 2018.
+
 \bibitem[TLF10]{Daisy}
 Engin Tola, Vincent Lepetit, and Pascal Fua.
 \newblock Daisy: An efficient dense descriptor applied to wide baseline stereo.

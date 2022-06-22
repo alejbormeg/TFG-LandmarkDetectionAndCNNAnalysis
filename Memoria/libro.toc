@@ -29,17 +29,17 @@
 \contentsline {section}{\numberline {1.3}Invarianza por Traslaciones}{28}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1}No expansividad del operador de ventana en conjuntos de caminos}{29}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.3.2}Invarianza por traslaciones}{31}{subsection.1.3.2}%
-\contentsline {section}{\numberline {1.4}Elementos del texto}{34}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Listas}{34}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{35}{subsection.1.4.2}%
-\contentsline {section}{\numberline {1.5}Entornos matemáticos}{35}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Bibliografía e índice}{36}{section.1.6}%
-\contentsline {part}{\numberline {II}Segunda parte}{37}{part.2}%
-\contentsline {chapter}{\numberline {2}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{39}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introducción}{39}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Descripción del problema}{39}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Motivación}{40}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Objetivos}{40}{subsection.2.1.3}%
-\contentsline {chapter}{\numberline {A}Primer apéndice}{41}{appendix.Alph1}%
-\contentsline {chapter}{Glosario}{43}{chapter*.10}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{45}{chapter*.11}%
+\contentsline {section}{\numberline {1.4}Elementos del texto}{37}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Listas}{37}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{37}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Entornos matemáticos}{37}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Bibliografía e índice}{38}{section.1.6}%
+\contentsline {part}{\numberline {II}Segunda parte}{39}{part.2}%
+\contentsline {chapter}{\numberline {2}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{41}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducción}{41}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Descripción del problema}{41}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Motivación}{42}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Objetivos}{42}{subsection.2.1.3}%
+\contentsline {chapter}{\numberline {A}Primer apéndice}{43}{appendix.Alph1}%
+\contentsline {chapter}{Glosario}{45}{chapter*.10}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{47}{chapter*.11}%
