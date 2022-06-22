@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  22 JUN 2022 14:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  22 JUN 2022 18:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -871,189 +871,187 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 8.33606pt on input line 92.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 5.21004pt on input line 92.
-LaTeX Info: Redefining \. on input line 117.
-LaTeX Info: Redefining \% on input line 117.
+LaTeX Info: Redefining \. on input line 119.
+LaTeX Info: Redefining \% on input line 119.
  [5]
 <img/translation_invariance.png, id=193, 374.39874pt x 107.40125pt>
 File: img/translation_invariance.png Graphic file (type png)
 <use img/translation_invariance.png>
-Package pdftex.def Info: img/translation_invariance.png  used on input line 130.
+Package pdftex.def Info: img/translation_invariance.png  used on input line 132.
 (pdftex.def)             Requested size: 326.63892pt x 93.70544pt.
-LaTeX Info: Redefining \. on input line 155.
-LaTeX Info: Redefining \% on input line 155.
+LaTeX Info: Redefining \. on input line 157.
+LaTeX Info: Redefining \% on input line 157.
  [6 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/translation_invariance.png>]
 <img/Diffeomorphism.png, id=203, 803.0pt x 803.0pt>
 File: img/Diffeomorphism.png Graphic file (type png)
 <use img/Diffeomorphism.png>
-Package pdftex.def Info: img/Diffeomorphism.png  used on input line 167.
+Package pdftex.def Info: img/Diffeomorphism.png  used on input line 169.
 (pdftex.def)             Requested size: 204.14854pt x 204.14352pt.
 <img/5_deformado.png, id=204, 959.585pt x 284.06125pt>
 File: img/5_deformado.png Graphic file (type png)
 <use img/5_deformado.png>
-Package pdftex.def Info: img/5_deformado.png  used on input line 174.
+Package pdftex.def Info: img/5_deformado.png  used on input line 176.
 (pdftex.def)             Requested size: 326.63892pt x 96.69223pt.
 <img/1_excesivamente_deformado.png, id=205, 573.14125pt x 268.00125pt>
 File: img/1_excesivamente_deformado.png Graphic file (type png)
 <use img/1_excesivamente_deformado.png>
-Package pdftex.def Info: img/1_excesivamente_deformado.png  used on input line 181.
+Package pdftex.def Info: img/1_excesivamente_deformado.png  used on input line 183.
 (pdftex.def)             Requested size: 204.14854pt x 95.46211pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 195.
-LaTeX Info: Redefining \% on input line 195.
+LaTeX Info: Redefining \. on input line 197.
+LaTeX Info: Redefining \% on input line 197.
 [7 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Diffeomorphism.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/5_deformado.png>]
-LaTeX Info: Redefining \. on input line 230.
-LaTeX Info: Redefining \% on input line 230.
+LaTeX Info: Redefining \. on input line 234.
+LaTeX Info: Redefining \% on input line 234.
  [8 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/1_excesivamente_deformado.png>]
-<img/Haar_wavelet.png, id=228, 1284.8pt x 963.6pt>
+<img/Haar_wavelet.png, id=229, 1284.8pt x 963.6pt>
 File: img/Haar_wavelet.png Graphic file (type png)
 <use img/Haar_wavelet.png>
-Package pdftex.def Info: img/Haar_wavelet.png  used on input line 258.
+Package pdftex.def Info: img/Haar_wavelet.png  used on input line 262.
 (pdftex.def)             Requested size: 204.14854pt x 153.1058pt.
-LaTeX Info: Redefining \. on input line 267.
-LaTeX Info: Redefining \% on input line 267.
+LaTeX Info: Redefining \. on input line 271.
+LaTeX Info: Redefining \% on input line 271.
  [9 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Haar_wavelet.png>]
-<img/ejemplos_haar_basis.png, id=240, 1057.9525pt x 530.98375pt>
+<img/ejemplos_haar_basis.png, id=241, 1057.9525pt x 530.98375pt>
 File: img/ejemplos_haar_basis.png Graphic file (type png)
 <use img/ejemplos_haar_basis.png>
-Package pdftex.def Info: img/ejemplos_haar_basis.png  used on input line 303.
+Package pdftex.def Info: img/ejemplos_haar_basis.png  used on input line 307.
 (pdftex.def)             Requested size: 326.63892pt x 163.93887pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 311.
-LaTeX Info: Redefining \% on input line 311.
+LaTeX Info: Redefining \. on input line 315.
+LaTeX Info: Redefining \% on input line 315.
 [10]
-LaTeX Info: Redefining \. on input line 351.
-LaTeX Info: Redefining \% on input line 351.
+LaTeX Info: Redefining \. on input line 357.
+LaTeX Info: Redefining \% on input line 357.
  [11 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ejemplos_haar_basis.png>]
-LaTeX Info: Redefining \. on input line 399.
-LaTeX Info: Redefining \% on input line 399.
+LaTeX Info: Redefining \. on input line 413.
+LaTeX Info: Redefining \% on input line 413.
  [12]
-Overfull \hbox (8.82669pt too wide) in paragraph at lines 420--421
+Overfull \hbox (8.82669pt too wide) in paragraph at lines 433--434
 \T1/pplj/m/n/10 (-10) En el ca-so en que $\OML/zplm/m/it/10 f$ \T1/pplj/m/n/10 (-10) sea com-ple-ja, se in-clu-yen to-das las ro-ta-cio-nes $\OML/zplm/m/it/10 W[]f \OT1/zplm/m/n/10 = \OMS/zplm/m/n/10 f\OML/zplm/m/it/10 A[]f\OT1/pplx/m/n/10 , \OT1/zplm/m/n/10 (\OML/zplm/m/it/10 W\OT1/zplm/m/n/10 [\OML/zplm/m/it/10 ^^U\OT1/zplm/m/n/10 ]\OML/zplm/m/it/10 f\OT1/zplm/m/n/10 )[]\OMS/zplm/m/n/10 g$
  []
 
-LaTeX Info: Redefining \. on input line 449.
-LaTeX Info: Redefining \% on input line 449.
+LaTeX Info: Redefining \. on input line 467.
+LaTeX Info: Redefining \% on input line 467.
 [13]
-Overfull \hbox (57.74602pt too wide) detected at line 453
+Overfull \hbox (57.74602pt too wide) detected at line 467
 \OMS/zplm/m/n/10 8\OML/zplm/m/it/10 J \OMS/zplm/m/n/10 2 \U/fplmbb/m/n/10 Z    [][] \OT1/zplm/m/n/10 + [] [][] = \OT1/pplx/m/n/10 1  \OMS/zplm/m/n/10 ([])  8\OML/zplm/m/it/10 J \OMS/zplm/m/n/10 2 \U/fplmbb/m/n/10 Z    [][] \OT1/zplm/m/n/10 = [] [] \OMS/zplm/m/n/10 j[]\OT1/zplm/m/n/10 (\OT1/pplx/m/n/10 2[]\OML/zplm/m/it/10 r[]!\OT1/zplm/m/n/10 )\OMS/zplm/m/n/10 j[]\OT1/pplx/m/n/10 .
  []
 
-LaTeX Info: Redefining \. on input line 489.
-LaTeX Info: Redefining \% on input line 489.
+LaTeX Info: Redefining \. on input line 505.
+LaTeX Info: Redefining \% on input line 505.
 [14]
-LaTeX Info: Redefining \. on input line 539.
-LaTeX Info: Redefining \% on input line 539.
+LaTeX Info: Redefining \. on input line 559.
+LaTeX Info: Redefining \% on input line 559.
  [15]
-LaTeX Info: Redefining \. on input line 585.
-LaTeX Info: Redefining \% on input line 585.
+LaTeX Info: Redefining \. on input line 602.
+LaTeX Info: Redefining \% on input line 602.
  [16]
-LaTeX Info: Redefining \. on input line 623.
-LaTeX Info: Redefining \% on input line 623.
+LaTeX Info: Redefining \. on input line 642.
+LaTeX Info: Redefining \% on input line 642.
  [17]
-LaTeX Info: Redefining \. on input line 671.
-LaTeX Info: Redefining \% on input line 671.
+LaTeX Info: Redefining \. on input line 692.
+LaTeX Info: Redefining \% on input line 692.
  [18]
-Overfull \hbox (63.7898pt too wide) in paragraph at lines 692--693
+Overfull \hbox (63.7898pt too wide) in paragraph at lines 715--716
 [][]\T1/pplj/b/n/10 Definici�n 1.15. []\T1/pplj/m/n/10 (-10) La con-ca-te-na-ci�n de dos ca-mi-nos $\OML/zplm/m/it/10 p$ \T1/pplj/m/n/10 (-10) y $\OML/zplm/m/it/10 p[]$ \T1/pplj/m/n/10 (-10) se de-no-ta por $\OML/zplm/m/it/10 p \OT1/zplm/m/n/10 + \OML/zplm/m/it/10 p[] \OT1/zplm/m/n/10 = (\OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , ..., \OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 ^^U[]\OT1/pplx/m/n/10 , ..., \OML/zplm/m/it/10 ^^U[]\OT1/zplm/m/n/10 )$\T1/pplj/m/n/10 (-10) . 
  []
 
-LaTeX Info: Redefining \. on input line 722.
-LaTeX Info: Redefining \% on input line 722.
+LaTeX Info: Redefining \. on input line 745.
+LaTeX Info: Redefining \% on input line 745.
 [19]
-LaTeX Info: Redefining \. on input line 770.
-LaTeX Info: Redefining \% on input line 770.
+LaTeX Info: Redefining \. on input line 798.
+LaTeX Info: Redefining \% on input line 798.
  [20]
-LaTeX Info: Redefining \. on input line 810.
-LaTeX Info: Redefining \% on input line 810.
+LaTeX Info: Redefining \. on input line 847.
+LaTeX Info: Redefining \% on input line 847.
  [21]
-<img/ScatteringPropagator.png, id=326, 987.69pt x 478.78876pt>
+<img/ScatteringPropagator.png, id=344, 987.69pt x 478.78876pt>
 File: img/ScatteringPropagator.png Graphic file (type png)
 <use img/ScatteringPropagator.png>
-Package pdftex.def Info: img/ScatteringPropagator.png  used on input line 816.
+Package pdftex.def Info: img/ScatteringPropagator.png  used on input line 855.
 (pdftex.def)             Requested size: 326.63892pt x 158.33684pt.
-LaTeX Info: Redefining \. on input line 840.
-LaTeX Info: Redefining \% on input line 840.
+LaTeX Info: Redefining \. on input line 875.
+LaTeX Info: Redefining \% on input line 875.
  [22 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ScatteringPropagator.png>]
-LaTeX Info: Redefining \. on input line 884.
-LaTeX Info: Redefining \% on input line 884.
+LaTeX Info: Redefining \. on input line 923.
+LaTeX Info: Redefining \% on input line 923.
  [23]
-LaTeX Info: Redefining \. on input line 933.
-LaTeX Info: Redefining \% on input line 933.
+LaTeX Info: Redefining \. on input line 965.
+LaTeX Info: Redefining \% on input line 965.
  [24]
-LaTeX Info: Redefining \. on input line 980.
-LaTeX Info: Redefining \% on input line 980.
+LaTeX Info: Redefining \. on input line 1032.
+LaTeX Info: Redefining \% on input line 1032.
  [25]
-LaTeX Info: Redefining \. on input line 1029.
-LaTeX Info: Redefining \% on input line 1029.
+LaTeX Info: Redefining \. on input line 1085.
+LaTeX Info: Redefining \% on input line 1085.
  [26]
-Underfull \vbox (badness 1502) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 1066.
-LaTeX Info: Redefining \% on input line 1066.
+LaTeX Info: Redefining \. on input line 1129.
+LaTeX Info: Redefining \% on input line 1129.
  [27]
-LaTeX Info: Redefining \. on input line 1116.
-LaTeX Info: Redefining \% on input line 1116.
+LaTeX Info: Redefining \. on input line 1179.
+LaTeX Info: Redefining \% on input line 1179.
  [28]
-LaTeX Info: Redefining \. on input line 1171.
-LaTeX Info: Redefining \% on input line 1171.
+LaTeX Info: Redefining \. on input line 1241.
+LaTeX Info: Redefining \% on input line 1241.
  [29]
-Overfull \hbox (25.63461pt too wide) detected at line 1183
+Overfull \hbox (25.63461pt too wide) detected at line 1253
 [] [][] [][] \OML/zplm/m/it/10 d! \OT1/zplm/m/n/10 + [] [] [] [][] [][] \OML/zplm/m/it/10 d! \OT1/zplm/m/n/10 = [] [][] [][] \OML/zplm/m/it/10 d!\OT1/pplx/m/n/10 .
  []
 
 
 Underfull \vbox (badness 2065) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 1209.
-LaTeX Info: Redefining \% on input line 1209.
+LaTeX Info: Redefining \. on input line 1279.
+LaTeX Info: Redefining \% on input line 1279.
  [30]
-LaTeX Info: Redefining \. on input line 1252.
-LaTeX Info: Redefining \% on input line 1252.
+LaTeX Info: Redefining \. on input line 1322.
+LaTeX Info: Redefining \% on input line 1322.
  [31]
-Overfull \hbox (35.31497pt too wide) detected at line 1299
+Overfull \hbox (35.31497pt too wide) detected at line 1369
 []
  []
 
-LaTeX Info: Redefining \. on input line 1302.
-LaTeX Info: Redefining \% on input line 1302.
+LaTeX Info: Redefining \. on input line 1372.
+LaTeX Info: Redefining \% on input line 1372.
 [32]
 Underfull \vbox (badness 7576) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 1351.
-LaTeX Info: Redefining \% on input line 1351.
+LaTeX Info: Redefining \. on input line 1421.
+LaTeX Info: Redefining \% on input line 1421.
  [33]
-LaTeX Info: Redefining \. on input line 1401.
-LaTeX Info: Redefining \% on input line 1401.
+LaTeX Info: Redefining \. on input line 1471.
+LaTeX Info: Redefining \% on input line 1471.
  [34]
-LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 1461.
+LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 1531.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
 )
 LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
-(Font)              scaled to size 10.0pt on input line 1475.
-LaTeX Info: Redefining \. on input line 1478.
-LaTeX Info: Redefining \% on input line 1478.
+(Font)              scaled to size 10.0pt on input line 1545.
+LaTeX Info: Redefining \. on input line 1548.
+LaTeX Info: Redefining \% on input line 1548.
  [35]
 
 LaTeX Font Warning: Font shape `T1/pplj/m/scit' undefined
-(Font)              using `T1/pplj/m/sc' instead on input line 1497.
+(Font)              using `T1/pplj/m/sc' instead on input line 1567.
 
-LaTeX Info: Redefining \. on input line 1507.
-LaTeX Info: Redefining \% on input line 1507.
+LaTeX Info: Redefining \. on input line 1577.
+LaTeX Info: Redefining \% on input line 1577.
 [36]
-<img/logo-ugr.pdf, id=434, 682.02821pt x 244.3238pt>
+<img/logo-ugr.pdf, id=472, 682.02821pt x 244.3238pt>
 File: img/logo-ugr.pdf Graphic file (type pdf)
 <use img/logo-ugr.pdf>
-Package pdftex.def Info: img/logo-ugr.pdf  used on input line 1549.
+Package pdftex.def Info: img/logo-ugr.pdf  used on input line 1619.
 (pdftex.def)             Requested size: 326.63892pt x 117.01312pt.
-LaTeX Info: Redefining \. on input line 1582.
-LaTeX Info: Redefining \% on input line 1582.
+LaTeX Info: Redefining \. on input line 1652.
+LaTeX Info: Redefining \% on input line 1652.
  [37])
 LaTeX Info: Redefining \. on input line 240.
 LaTeX Info: Redefining \% on input line 240.
@@ -1128,25 +1126,25 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 286.
 Package rerunfilecheck Info: File `libro.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package rerunfilecheck Info: File `libro.brf' has not changed.
-(rerunfilecheck)             Checksum: CCAF76C5B3547E2E044780A848CE3251;818.
+(rerunfilecheck)             Checksum: 216F4A3911B5E89BAC3E5F9FD11F2B73;824.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 16427 strings out of 481239
- 286704 string characters out of 5920378
+ 16460 strings out of 481239
+ 287096 string characters out of 5920378
  700561 words of memory out of 5000000
- 30771 multiletter control sequences out of 15000+600000
+ 30793 multiletter control sequences out of 15000+600000
  747237 words of font info for 388 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  53i,13n,72p,10207b,717s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cabin/cbn_meva6t.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cabin/cbn_i3ioen.enc}</usr/share/texlive/texmf-dist/fonts/type1/impallari/cabin/Cabin-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/impallari/cabin/Cabin-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" (63 pages, 1139512 bytes).
+Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" (63 pages, 1139378 bytes).
 PDF statistics:
- 747 PDF objects out of 1000 (max. 8388607)
- 633 compressed objects within 7 object streams
- 187 named destinations out of 1000 (max. 500000)
+ 786 PDF objects out of 1000 (max. 8388607)
+ 672 compressed objects within 7 object streams
+ 198 named destinations out of 1000 (max. 500000)
  79670 words of extra memory for PDF output out of 89155 (max. 10000000)
 

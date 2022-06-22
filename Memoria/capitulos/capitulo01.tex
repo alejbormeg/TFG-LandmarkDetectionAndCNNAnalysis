@@ -111,7 +111,9 @@ $$(1.2)  \; \; || \Phi(f)-\Phi(L_{\tau}f)||_\mathcal{H} \leq C||f||(\sup_{x \in 
 
 \noindent El análisis de Fourier tradicionalmente ha jugado un papel fundamental en el procesamiento de señales \cite{DigitalImageProcessing}, por lo que podría parecer un buen punto de partida para la construcción del \textbf{propagador de dispersión} emplear la \textbf{transformada de Fourier}, una de las herramientas matemáticas más potente en este campo. La intuición detrás de su fórmula es la de representar funciones no periódicas (pero que tienen área bajo la curva finita) como la integral de senos y cosenos multiplicados por una función que determina los pesos en cada instante. Formalmente tiene la siguiente expresión:
 
-$$\widehat{f}(\omega):= \int{f(x)e^{-ix\omega}dx}=\int{f(x)\left[\cos{x\omega} -i\sin{x\omega}\right]dx}.$$
+\begin{equation}
+\widehat{f}(\omega):= \int{f(x)e^{-ix\omega}dx}=\int{f(x)\left[\cos{x\omega} -i\sin{x\omega}\right]dx}.
+\end{equation}
 
 \noindent Entre las propiedades más destacables de la transformada encontramos el hecho de que una función se puede recuperar sin pérdida de información a partir de su transformada de Fourier, lo cual nos permite poder trabajar en el \entrecomillado{Dominio de Fourier} (también llamado \entrecomillado{Dominio de Frecuencia}) ya que al calcular la integral, la función resultante sólo depende de $x$ (la frecuencia), y posteriormente pasar de nuevo al dominio original de la función, aplicando la inversa de la transformada sin pérdida de información.
 
@@ -224,7 +226,9 @@ $$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c |
 
 \noindent Si suponemos que $f(x)=e^{i\xi x} \Theta(x)$ el escalado por medio de $\tau$ produce que la frecuencia $\xi$ se traslade de $\xi$ a $(1-\epsilon)\xi$, si suponemos que $\Theta$ además es regular con decrecimiento rápido, se tiene que:
 
-$$\left|\left| |\widehat{L_\tau f}|-|\widehat{f}| \right|\right| \sim |s| |\xi| ||\Theta|| = ||\nabla \tau||_\infty |\xi| ||f||.$$
+\begin{equation} \label{eq::1.1}
+  \left|\left| |\widehat{L_\tau f}|-|\widehat{f}| \right|\right| \sim |s| |\xi| ||\Theta|| = ||\nabla \tau||_\infty |\xi| ||f||.
+\end{equation}
 
 \noindent Y como $|\xi|$ puede ser arbitrariamente grande, $\Phi(f)=|\widehat{f}|$ no satisface la continuidad de Lipschitz cuando se alcanzan altas frecuencias.
 \end{proof}
@@ -332,7 +336,9 @@ $$\psi(x)=e^{i\cdot \eta \cdot  x} \Theta(x)$$
 
 \noindent Y como podemos ver:
 
-$$(2.2) \;\;\; \widehat{\psi}(\omega)=\int_{\mathbb{R}^d}e^{i\cdot \eta \cdot  x} \Theta(x) e^{-i\omega x} dx=\int_{\mathbb{R}^d}\Theta(x) e^{ix(\omega-\eta)} dx=\widehat{\Theta}(\omega-\eta).$$
+\begin{equation}
+  \widehat{\psi}(\omega)=\int_{\mathbb{R}^d}e^{i\cdot \eta \cdot  x} \Theta(x) e^{-i\omega x} dx=\int_{\mathbb{R}^d}\Theta(x) e^{ix(\omega-\eta)} dx=\widehat{\Theta}(\omega-\eta).
+\end{equation}
 
 \medskip
 
@@ -351,7 +357,9 @@ $$\widehat{\psi}_\lambda(\omega)= \widehat{\Theta} (\lambda^{-1}\omega-\eta),$$
 
 \noindent Se trata de una representacion redundante que calcula convoluciones para todo $x \in \mathbb{R}^d$ sin realizar sub-muestreo: 
 
-$$(2.4) \; \; \forall x \in  \mathbb{R}^d \;\; W[\lambda]f(x)= f \ast \psi_\lambda(x)=\int f(u)\psi_\lambda(x-u) du .$$
+\begin{equation}
+  \forall x \in  \mathbb{R}^d \;\; W[\lambda]f(x)= f \ast \psi_\lambda(x)=\int f(u)\psi_\lambda(x-u) du .
+\end{equation}
 
 \noindent Dónde $\ast$ denota la operación de convolución. 
 
@@ -391,7 +399,10 @@ $$\widehat{W[\lambda]f(\omega)}=\widehat{f}(\omega)\widehat{\psi_\lambda}(\omega
  
 \noindent La transformada de Littlewood-Paley a una cierta escala $2^J$ sólo mantiene las ondeletas de frecuencias $2^j>2^{-J}$ pues el resto de ondeletas de la base no tendrían soporte. De esta forma, las bajas frecuencias que no son cubiertas por estas ondeletas vienen dadas por un promedio en el dominio proporcional a $2^J$:
 
-$$(2.5) \; \; A_Jf=f \ast \phi_ {2^J} \; \; con \; \phi_ {2^J}(x)=2^{-dJ} \phi(2^{-J}x). $$
+\begin{equation}
+  A_Jf=f \ast \phi_ {2^J} \; \; con \; \phi_ {2^J}(x)=2^{-dJ} \phi(2^{-J}x).
+\end{equation}
+
 \medskip
 
 \noindent Así, si $f$ fuese real, entonces la transformada de ondeleta tendría la siguiente expresión: 
@@ -404,7 +415,9 @@ $$W_J f=\lbrace A_Jf,(W[\lambda]f)_{\lambda \in \Lambda_J} \rbrace$$
 
 \noindent Su norma sería: 
 
-$$(2.6) \; \; ||W_Jf||^2=||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2.$$
+\begin{equation}
+  ||W_Jf||^2=||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2.
+\end{equation}
 
 \medskip
  
@@ -425,20 +438,21 @@ $$||W_\infty f||^2=\sum_{\lambda \in \Lambda_\infty} ||W[\lambda]f||^2.$$
 
 \begin{proposicion} \label{unitario}
  Para cualquier $J \in \mathbb{Z}$ o $J=\infty$, $W_J$ es unitario en el espacio de funciones reales o complejas de $L^2(\mathbb{R}^d)$ si y sólo si para casi todo $\omega \in \mathbb{R}^d$: 
- 
-    \begin{align*}
-        (2.7) \; \; \beta \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2=1 & \; \; y
+    \begin{equation}\label{eq::1.2}
+        \beta \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2=1 \; \; y
         \;\;|\widehat{\phi}(\omega)|^2= \beta \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2,
-    \end{align*}
+    \end{equation}
  Dónde $\beta=1$ para funciones complejas y $\beta=\frac{1}{2}$ para funciones reales.
 \end{proposicion}
 
 \begin{proof}
-\noindent Si $f$ es una función compleja, $\beta=1$, y vamos a demostrar que (2.7) es equivalente a : 
+\noindent Si $f$ es una función compleja, $\beta=1$, y vamos a demostrar que \eqref{eq::1.2} es equivalente a : 
 
-$$(2.8) \; \; \forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=1. $$
+\begin{equation} \label{eq::1.3}
+  \forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=1.
+\end{equation}
 
-\noindent Para ello partimos de que si $\beta=1$ se tiene sustituyendo en (2.7) que: 
+\noindent Para ello partimos de que si $\beta=1$ se tiene sustituyendo en \eqref{eq::1.2} que: 
      \begin{align*}
         \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2=1 & \; \; y
         \;\;|\widehat{\phi}(\omega)|^2= \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2.
@@ -452,7 +466,7 @@ $$|\widehat{\phi}(\omega)|^2 + \sum_{j=0}^{\infty} \sum_{r\in G} |\widehat{\psi}
 
 $$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=1 \iff \forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2=\sum_{j=-\infty}^{-J} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2.$$
 
-\noindent Con lo que si demostramos esto último tendríamos que (2.7) y (2.8) son equivalentes para el caso $\beta=1$. 
+\noindent Con lo que si demostramos esto último tendríamos que \eqref{eq::1.2} y \eqref{eq::1.3} son equivalentes para el caso $\beta=1$. 
 
 
      \begin{align*}
@@ -461,7 +475,7 @@ $$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\r
         & =\sum_{j=-\infty}^{-J} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2  
     \end{align*}
     
-\noindent con lo que queda demostrado que (2.7) y (2.8) son equivalentes. Teniendo en cuenta que $\widehat{W\left[2^jr\right]f}(\omega)=\widehat{f}(\omega)\widehat{\psi}_{s^jr}(\omega)$, multiplicando (2.8) por $|\widehat{f}(\omega)|^2$ obtenemos: 
+\noindent con lo que queda demostrado que \eqref{eq::1.2} y \eqref{eq::1.3} son equivalentes. Teniendo en cuenta que $\widehat{W\left[2^jr\right]f}(\omega)=\widehat{f}(\omega)\widehat{\psi}_{s^jr}(\omega)$, multiplicando \eqref{eq::1.3} por $|\widehat{f}(\omega)|^2$ obtenemos: 
 
 $$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 \left|\widehat{f}(\omega)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{f}(\omega)\right|^2\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=\left|\widehat{f}(\omega)\right|^2.$$
 
@@ -487,11 +501,11 @@ $$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,
 
 \medskip
 
-\noindent Recíprocamente, si tenemos que $||W_J f||^2=||f||^2$ entonces (2.8) se verifica para casi todo $\omega$. De no ser así podríamos contruir una función $f$ no nula cuya transformada de fourier $\widehat{f}$ tuviera soporte en el dominio de $\omega$ dónde (2.8) no fuera válido, y en estos casos al aplicar la fórmula de Plancherel se verificaría que $||W_J f||^2 \neq ||f||^2$ contradiciendo la hipótesis. Y como la expresión (2.8) era equivalente a la que nos daba el teorema tenemos demostrado el resultado para el caso en que $f$ sea compleja. 
+\noindent Recíprocamente, si tenemos que $||W_J f||^2=||f||^2$ entonces \eqref{eq::1.3} se verifica para casi todo $\omega$. De no ser así podríamos contruir una función $f$ no nula cuya transformada de fourier $\widehat{f}$ tuviera soporte en el dominio de $\omega$ dónde \eqref{eq::1.3} no fuera válido, y en estos casos al aplicar la fórmula de Plancherel se verificaría que $||W_J f||^2 \neq ||f||^2$ contradiciendo la hipótesis. Y como la expresión \eqref{eq::1.3} era equivalente a la que nos daba el teorema tenemos demostrado el resultado para el caso en que $f$ sea compleja. 
 
 \medskip
 
-\noindent Si ahora $f$ es real entonces $|\widehat{f}(\omega)|=|\widehat{f}(-\omega)|$ lo que implica que $||W[2^jr]f||=||W[-2^jr]f||$. Por lo que $||W_J f||$ permanece constante si restringimos $r$ a $G^+$ y multiplicando $\psi$ por $\sqrt{2}$ se obtiene la condición (2.7) con $\beta=\frac{1}{2}$. \qedhere
+\noindent Si ahora $f$ es real entonces $|\widehat{f}(\omega)|=|\widehat{f}(-\omega)|$ lo que implica que $||W[2^jr]f||=||W[-2^jr]f||$. Por lo que $||W_J f||$ permanece constante si restringimos $r$ a $G^+$ y multiplicando $\psi$ por $\sqrt{2}$ se obtiene la condición \eqref{eq::1.2} con $\beta=\frac{1}{2}$. \qedhere
 
 \end{proof}
 
@@ -503,7 +517,7 @@ $$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,
 \noindent LLegados a este punto, ya tenemos la transformada de ondeletas que vamos a utilizar para la construcción del PD, ahora vamos a establecer algunas características que impondremos a los distintos elementos que la componen y que usaremos de ahora en adelante: 
 
 \begin{itemize}
-    \item $\widehat{\psi}$ es una función real que satisface la condición (2.7). Lo que implica que $\widehat{\psi}(0)=\int \psi(x)dx=0$ y $|\widehat{\phi}(r\omega)|=|\widehat{\phi}(\omega)| \;\; \forall r\in G$.
+    \item $\widehat{\psi}$ es una función real que satisface la condición \eqref{eq::1.2}. Lo que implica que $\widehat{\psi}(0)=\int \psi(x)dx=0$ y $|\widehat{\phi}(r\omega)|=|\widehat{\phi}(\omega)| \;\; \forall r\in G$.
     \item $\widehat{\phi}(\omega)$ es real y simétrica, por lo que $\phi$ también lo será y $\phi(rx)=\phi(x) \;\; \forall r \in G$. 
     \item Suponemos que $\phi$ y $\psi$ son dos veces diferenciables y su decrecimineto así como el de sus derivadas de primer y segundo orden es $O((1+|x|)^{-d-2})$.
 \end{itemize}
@@ -512,7 +526,9 @@ $$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,
 
 \noindent Un cambio de variable en la integral de la transformada de ondeleta nos muestra que si $f$ se escala y rota, $2^lg \circ f=f(2^lgx)$ con $2^lg \in 2^{\mathbb{Z}} \times G$, entonces la transformada de ondeleta se escala y rota de acuerdo a: 
 
-$$(2.9) \;\;\; W[\lambda](2^lg\circ f)=2^lg \circ W[2^{-l}g\lambda]f.$$
+\begin{equation}
+  W[\lambda](2^lg\circ f)=2^lg \circ W[2^{-l}g\lambda]f.
+\end{equation}
 
 \medskip
 
@@ -577,12 +593,13 @@ En resumen, queremos un operador no lineal que produzca coeficientes invariantes
 
 \noindent Si la \textbf{ondeleta madre} fuese $\psi(x)=e^{i\eta x}\Theta(x)$, entonces los elementos de la base tendrían la forma $\psi_\lambda(x)=e^{i\lambda\eta x}\Theta_\lambda(x)$, y por lo tanto 
 
-\begin{align*}
+
+\begin{align} \label{eq::1.4}
   W[\lambda]f(x) &= f \ast \phi_\lambda (x) \\
   &= f \ast e^{i\lambda\eta x}\Theta_\lambda(x) \\
   &=e^{i\lambda\eta x}(e^{-i\lambda\eta x}f(x) \ast \Theta_\lambda(x)) \\
   &=e^{i\lambda\eta x}(f^\lambda \ast \Theta_\lambda(x)),\\
-\end{align*}
+\end{align}
 
 \noindent con $f^\lambda(x)=e^{-i\lambda\eta x}f(x)$.
 
@@ -590,7 +607,9 @@ En resumen, queremos un operador no lineal que produzca coeficientes invariantes
 
 \noindent En este caso, se podría obtener un operador invariante por traslaciones si se cancela el término de modulación $e^{i\lambda\eta x}$ con una función $M[\lambda]$ pertinente. Por ejemplo: 
 
-$$(2.12) \;\;\; M[\lambda]h(x)=e^{-i\lambda\eta x} e^{-i \Phi(\widehat{h}(\lambda\eta))}h(x).$$
+\begin{equation}
+  M[\lambda]h(x)=e^{-i\lambda\eta x} e^{-i \Phi(\widehat{h}(\lambda\eta))}h(x).
+\end{equation}
 
 \noindent Dónde $\Phi(\widehat{h}(\lambda\eta))$ es la fase compleja de $\widehat{h}(\lambda\eta)$. Este registro de fase no lineal garantiza que $M[\lambda]$ conmuta con las traslaciones, ya que: 
 
@@ -605,7 +624,7 @@ $$(2.12) \;\;\; M[\lambda]h(x)=e^{-i\lambda\eta x} e^{-i \Phi(\widehat{h}(\lambd
   &=\left| \widehat{f}(\lambda\eta)\right|^2 \left| \widehat{\Theta}(0) \right|^2 
 \end{align*}
 
-\noindent que como podemos ver, la integral tiene un valor no trivial y por otra parte obtenemos el módulo de la transformada que como habíamos visto era invariante por traslaciones. No obstante, no utilizaremos este operador para nuestro propósito pues además de ser complejo no verifica la invarianza bajo la acción de difeomorfismos.
+\noindent que como podemos ver, la integral tiene un valor no trivial y por otra parte obtenemos el módulo de la transformada que como habíamos visto \eqref{eq::1.1} era invariante por traslaciones. No obstante, no utilizaremos este operador para nuestro propósito pues además de ser complejo no verifica la invarianza bajo la acción de difeomorfismos.
 
 \subsubsection{El operador módulo.}
 
@@ -624,7 +643,7 @@ $$(2.12) \;\;\; M[\lambda]h(x)=e^{-i\lambda\eta x} e^{-i \Phi(\widehat{h}(\lambd
 
 \medskip
 
-\noindent Para satisfacer todas las restricciones, utilizaremos el operador $M[\lambda]h=|h|$, que además elimina todas las variaciones de fase \cite{bruna2013invariant}. Se obtiene entonces de $(2.11)$ que este módulo transforma $W[\lambda]f$ en una señal de menor frecuencia que la original:
+\noindent Para satisfacer todas las restricciones, utilizaremos el operador $M[\lambda]h=|h|$, que además elimina todas las variaciones de fase \cite{bruna2013invariant}. Se obtiene entonces de \eqref{eq::1.4} que este módulo transforma $W[\lambda]f$ en una señal de menor frecuencia que la original:
 
 $$M[\lambda]W[\lambda]f=|W[\lambda]f|=|f^\lambda \ast \Theta_\lambda|.$$
 
@@ -665,7 +684,9 @@ Una secuencia ordenada $p=(\lambda_1,\lambda_2, ... , \lambda_m)$ con $\lambda_k
 \begin{definicion}
 Un PD es un producto de operadores de la forma $U[\lambda]f=M[\lambda]W[\lambda]f=|f \ast \psi_\lambda|=\left | \int_{\mathbb{R}^d} f(u)\psi_\lambda(x-u) du \right|$ para $f \in L^2(\mathbb{R}^d)$ no conmuntativos por un camino ordenado:
 
-$$(2.13) \;\;\; U[p]f=U[\lambda_m]...U[\lambda_2]U[\lambda_1],$$
+\begin{equation}
+  U[p]f=U[\lambda_m]...U[\lambda_2]U[\lambda_1],
+\end{equation}
 
 con $U[\emptyset]=Id$
 \end{definicion}
@@ -674,7 +695,9 @@ con $U[\emptyset]=Id$
 
 \noindent El PD es por tanto una cascada de convoluciones y módulos: 
 
-$$(2.14) \;\;\; \left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | ... | \ast \psi_{\lambda_m} \right|$$
+\begin{equation}
+  \left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | ... | \ast \psi_{\lambda_m} \right|  
+\end{equation}
 
 \medskip
 
@@ -721,7 +744,10 @@ $$U[p+p']=U[\lambda'_{m'}]...U[\lambda'_2]U[\lambda'_1]U[\lambda_{m}]...U[\lambd
 \begin{definicion} \label{def:S_barra}
 Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
 
-$$(2.16) \; \; \; \overline{S}f(p)=\int_{\mathbb{R}^d}U[p]f(x)dx .$$
+\begin{equation}
+  \overline{S}f(p)=\int_{\mathbb{R}^d}U[p]f(x)dx 
+\end{equation}
+
 \end{definicion}
 
 \medskip
@@ -739,9 +765,15 @@ $$(2.16) \; \; \; \overline{S}f(p)=\int_{\mathbb{R}^d}U[p]f(x)dx .$$
 \begin{definicion}
 Sea $J \in \mathbb{Z}$ y $\mathcal{P}_J$ el conjunto de caminos finitos $p=(\lambda_1,\lambda_2,...,\lambda_m)$ con $\lambda_k \in \Lambda_J$ y $|\lambda_k|=2^{jk}>2^{-J}$. Una ventana de transformada de dispersión se define para todo $p \in \mathcal{P}_J$ por
 
-$$(2.20) \;\;\; S_J[p]f(x)=U[p]f \ast \phi_{2^J}(x)=\int_{\mathbb{R}^d}U[p]f(u)\phi_{2^J}(x-u)du.$$
+\begin{equation}
+  S_J[p]f(x)=U[p]f \ast \phi_{2^J}(x)=\int_{\mathbb{R}^d}U[p]f(u)\phi_{2^J}(x-u)du.
+\end{equation}
 
-$$(2.21) \;\;\; S_J[p]f(x)=\left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | ... | \ast \psi_{\lambda_m} \right| \ast \phi_{2^J}(x).$$
+\noindent Dónde la convolución con $\phi_{2^J}$ locliza el propagador de dsipersión en dominios proporcionales a $2^J$.
+
+\begin{equation}
+  S_J[p]f(x)=\left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | ... | \ast \psi_{\lambda_m} \right| \ast \phi_{2^J}(x).
+\end{equation}
 
 Con $S_J[\emptyset] f= f \ast \phi_{2^j}$.
 \end{definicion}
@@ -769,7 +801,7 @@ $$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
 \noindent Veamos ahora la relación que guarda este propagador de ventana con el que se definió originalmente en \autoref{def:S_barra}. Como $\phi(x)$ es continua en $0$, si $f\in L^1 (\mathbb{R}^d)$ se tiene que su transformada de dispersión de ventana converge punto a punto a la transformada de dispersión cuando la escala $2^J$ tiende a $\infty$: 
 
 \begin{align*}
-    (2.21) \;\;\; \forall x \in \mathbb{R}^d \;\; \lim_{J \rightarrow \infty} 2^{dJ} S_J[p]f(x) &=\phi(0)\int_{\mathbb{R}^d}U[p]f(u) du \\
+    \forall x \in \mathbb{R}^d \;\; \lim_{J \rightarrow \infty} 2^{dJ} S_J[p]f(x) &=\phi(0)\int_{\mathbb{R}^d}U[p]f(u) du \\
     &=\lim_{J \rightarrow \infty} 2^{dJ} U[p]f \ast \phi_{2^J}(x) \\
     &=\lim_{J \rightarrow \infty} 2^{dJ} \int_{\mathbb{R}^d} U[p]f(u)\phi_{2^J}(x-u) du \\
     &=\lim_{J \rightarrow \infty} 2^{dJ} \int_{\mathbb{R}^d} U[p]f(u) 2^{-dJ} \phi(2^{-J}(x-u)) du   \\
@@ -801,13 +833,20 @@ $$U_Jf=\lbrace A_Jf, (U[\lambda]f)_{\lambda\in\Lambda_J} \rbrace,$$
 
 \noindent Teniendo en cuenta \autoref{proposicionSumaCaminos} se tiene que  $U[\lambda]U[p]=U[p+\lambda]$, y $A_JU[p]=S_J[p]$, esto dando lugar a : 
 
-$$(2.22) \;\;\; U_JU[p]=\lbrace S_J[p]f,(U[p+\lambda]f)_{\lambda\in\Lambda_J}\rbrace.$$
+\begin{equation}
+  U_JU[p]=\lbrace S_J[p]f,(U[p+\lambda]f)_{\lambda\in\Lambda_J}\rbrace. 
+\end{equation}
+
+
 
 \medskip
 
 \noindent Podemos por tanto establecer el comportamiento de al transformada de dispersión según la longitud $m$ del camino que estamos empleando. Sea $\Lambda_J^m$ el conjunto de caminos de longitud $m$ con $\Lambda_J^0={\emptyset}$, entonces:
 
-$$(2.23) \;\;\; U_J U[\Lambda_J^m]=\lbrace S_J[\Lambda_J^m]f,(U[\Lambda_J^{m+1}]f)_{\lambda\in\Lambda_J}\rbrace.$$
+
+\begin{equation} \label{eq::1.5}
+  U_J U[\Lambda_J^m]=\lbrace S_J[\Lambda_J^m]f,(U[\Lambda_J^{m+1}]f)_{\lambda\in\Lambda_J}\rbrace.
+\end{equation}
 
 \noindent Del hecho de que $\mathcal{P}_J=\cup_{m\in \mathbb{N}}\Lambda_J^m$, uno puede calcular $S_J[\mathcal{P}_J]f$ a partir de $f=U[\emptyset]f$ iterativamente calculando $U_J U[\Lambda_J^m]f$ para $m$ tendiendo a $\infty$, tal y cómo se puede ver en la imagen \autoref{fig:scattering_propagator}. 
 
@@ -845,7 +884,7 @@ Las operaciones de la transformada de dispersión que hemos descrito siguen la e
 
 \begin{align*} 
     ||U_J f-U_J h||^2 &= ||A_J f-A_J h||^2+\sum_{\lambda\in\Lambda_J} \left\| |W[\lambda]f|-|W[\lambda]h| \right\|^2 \\
-    &\leq \left| \left| W_J f- W_J h \right| \right|^2 \leq ||f-h||^2 \;\;\; (2.24)
+    &\leq \left| \left| W_J f- W_J h \right| \right|^2 \leq ||f-h||^2
 \end{align*}
 
 \noindent Al ser $W_J$ unitaria, tomando la función nula $h=0$ y siguiendo el mismo razonamiento anterior, también se comprueba que $||U_J f||=||f||$ por lo que el operador $U_J$ preserva la norma.
@@ -861,11 +900,13 @@ $$\left|\left| S_J[\Omega]f \right|\right|^2=\sum_{p\in\Omega} \left|\left| S_J[
 \begin{proposicion} \label{proposicion::NoExpansiva}
 La transformada de dispersión de ventana es no expansiva: 
 
-$$(2.25) \;\;\; \forall (f,h)\in L^2(\mathbb{R}^d)^2 \;\; ||S_J[\mathcal{P}_J]f-S_J[\mathcal{P}_J]h|| \leq ||f-h||$$
+\begin{equation}
+  \forall (f,h)\in L^2(\mathbb{R}^d)^2 \;\; ||S_J[\mathcal{P}_J]f-S_J[\mathcal{P}_J]h|| \leq ||f-h||
+\end{equation}
 \end{proposicion}
 
 \begin{proof}
-Como $U_J$ es no expansiva, partiendo de $(2.23)$ que nos dice: 
+Como $U_J$ es no expansiva, partiendo de \eqref{eq::1.5} que nos dice: 
 $$U_J U[\Lambda_J^m]=\lbrace S_J[\Lambda_J^m]f,(U[\Lambda_J^{m+1}]f)_{\lambda\in\Lambda_J}\rbrace,$$
 
 se tiene que:
@@ -919,7 +960,9 @@ En la \autoref{ch:seccion12} se obtuvo que cada coeficiente $U[\lambda]f=|f \ast
 \begin{lema}
   Si $h$ es una funciones tal que $h\geq 0$ entonces $\forall f \in L^2(\mathbb{R}^d)$: 
   
-  $$(2.33) \;\;\; |f \ast \psi_\lambda | \ast h \geq \sup_{\eta \in \mathbb{R}^d} |f\ast \psi_\lambda \ast h_\eta | \; \; con \; h_\eta=h(x)e^{i\eta x}$$
+  \begin{equation}
+    |f \ast \psi_\lambda | \ast h \geq \sup_{\eta \in \mathbb{R}^d} |f\ast \psi_\lambda \ast h_\eta | \; \; con \; h_\eta=h(x)e^{i\eta x}
+  \end{equation}
 \end{lema}
   
 \begin{proof}
@@ -939,22 +982,32 @@ En la \autoref{ch:seccion12} se obtuvo que cada coeficiente $U[\lambda]f=|f \ast
 \begin{definicion}
   Una ondeleta de dispersión se dice que es admisible si existe $\eta \in \mathbb{R}^d$ y una función $\rho \geq 0$, con $|\widehat{\rho}(\omega)| \leq |\widehat{\phi}(2\omega)|$ y $\widehat{\rho}(0)=1$, tal que la función: 
 
-$$(2.27) \;\;\; \widehat{\Psi}(\omega)=|\widehat{\rho}(\omega - \eta)|^2 - \sum_{k=1}^{+\infty} k(1-|\widehat{\rho}(2^{-k}(\omega - \eta))|^2)$$
-
+\begin{equation}\label{eq::1.6}
+  \widehat{\Psi}(\omega)=|\widehat{\rho}(\omega - \eta)|^2 - \sum_{k=1}^{+\infty} k(1-|\widehat{\rho}(2^{-k}(\omega - \eta))|^2)
+\end{equation}
+  
 \noindent satisface: 
-$$(2.28) \;\;\; \alpha= \inf_{1\leq|w|\leq2} \sum_{j=-\infty}^{\infty} \sum_{r\in G} \widehat{\Psi} (2^{-j}r^{-1}\omega)|\widehat{\psi}(2^{-j}r^{-1}\omega)|^2>0.$$
+\begin{equation} \label{eq::1.7}
+  \alpha= \inf_{1\leq|w|\leq2} \sum_{j=-\infty}^{\infty} \sum_{r\in G} \widehat{\Psi} (2^{-j}r^{-1}\omega)|\widehat{\psi}(2^{-j}r^{-1}\omega)|^2>0.
+\end{equation}
+
 \end{definicion}
 
 \noindent Con esta definición en mente podemos comprobar que se da el siguiente lema que demuestra que el propagador dispersa la energía progresivamente hacia bajas frecuencias.
 
 \begin{lema} \label{lema::Admisibilidad}
-Si $(2.28)$ se satisface y 
+Si \eqref{eq::1.7} se satisface y 
 
-$$(2.34) \;\;\; ||f||_w^2=\sum_{j=0}^\infty \sum_{r\in G^+} j ||W[2^j r] f||^2 < \infty$$
+\begin{equation}
+  ||f||_w^2=\sum_{j=0}^\infty \sum_{r\in G^+} j ||W[2^j r] f||^2 < \infty
+\end{equation}
 
 \noindent Entonces se tiene: 
 
-$$(2.35) \;\;\; \frac{\alpha}{2}||U[\mathcal{P_J}]f||^2 \geq \max (J+1,1) ||f||^2 + ||f||_w^2.$$
+\begin{equation}\label{eq::1.9}
+  \frac{\alpha}{2}||U[\mathcal{P_J}]f||^2 \geq \max (J+1,1) ||f||^2 + ||f||_w^2.
+\end{equation}
+
 \end{lema}
 
 \medskip
@@ -968,15 +1021,20 @@ $$(2.35) \;\;\; \frac{\alpha}{2}||U[\mathcal{P_J}]f||^2 \geq \max (J+1,1) ||f||^
 
 \begin{teorema} \label{teoremaOndeletasAdmisibles}
 \noindent Si las ondeletas son admisibles, entonces para toda $f\in L^2(\mathbb{R}^d)$
-$$(2.29) \;\;\; \lim_{m\rightarrow\infty} ||U[\Lambda_J^m]f||^2=\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0$$
+\begin{equation}
+  \lim_{m\rightarrow\infty} ||U[\Lambda_J^m]f||^2=\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0
+\end{equation}
 
 y
 
-$$(2.29) \;\;\; ||S_J[\mathcal{P_J}]f||=||f||$$
+\begin{equation}
+  ||S_J[\mathcal{P_J}]f||=||f||
+\end{equation}
+
 \end{teorema}
 
 \begin{proof}
-  Esta demostración tiene dos partes, la primera consistirá en demostrar que la condición (2.27) implica que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0$. Comenzamos con la \textbf{primera parte}:
+  Esta demostración tiene dos partes, la primera consistirá en demostrar que la condición \eqref{eq::1.6} implica que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0$. Comenzamos con la \textbf{primera parte}:
 
   \noindent La clave de esto reside en el siguiente lema, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva. 
   
@@ -984,7 +1042,7 @@ $$(2.29) \;\;\; ||S_J[\mathcal{P_J}]f||=||f||$$
 
   $$ || U[\mathcal{P}_J]f ||^2= \sum_{m=0}^{+\infty} ||U[\Lambda_J^m]f||^2,$$
 
-  \noindent si $||f||_w < \infty$ entonces $(2.35)$ implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||= 0$. Este resultado se extiende en $L^2(\mathbb{R}^d)$ por densidad. Como $\phi \in L^1(\mathbb{R}^d)$ y $\widehat{\phi(0)=1}$, cualquier $f\in L^2(\mathbb{R}^d)$ satisface $\lim_{n\rightarrow - \infty} ||f-f_n||=0$, dónde $f_n=f \ast \phi_{2^n}$ y $\phi_{2^n}=2^{-nd} \phi(2^{-n}x)$. Se demuestra por tanto que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f_n||=0$ viendo que $||f_n||_w < \infty$. De hecho, 
+  \noindent si $||f||_w < \infty$ entonces \eqref{eq::1.9} implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||= 0$. Este resultado se extiende en $L^2(\mathbb{R}^d)$ por densidad. Como $\phi \in L^1(\mathbb{R}^d)$ y $\widehat{\phi(0)=1}$, cualquier $f\in L^2(\mathbb{R}^d)$ satisface $\lim_{n\rightarrow - \infty} ||f-f_n||=0$, dónde $f_n=f \ast \phi_{2^n}$ y $\phi_{2^n}=2^{-nd} \phi(2^{-n}x)$. Se demuestra por tanto que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f_n||=0$ viendo que $||f_n||_w < \infty$. De hecho, 
 
 
   \begin{align*}
@@ -1018,7 +1076,9 @@ $$(2.29) \;\;\; ||S_J[\mathcal{P_J}]f||=||f||$$
   
   \noindent Como $||U_J h||=||h|| \; \forall h \in L^2(\mathbb{R}^d)$ y $U_J U[\Lambda_J^n]f=\lbrace S_J[\Lambda_J^n]f,U[\Lambda_J^{n+1}]\rbrace$,
 
-  $$(2.31) \;\;\; ||U[\Lambda_J^n]f||^2=||U_JU[\Lambda_J^n]f||^2=||S_J[\Lambda_J^n]f||^2+||U[\Lambda_J^{n+1}]f||^2.$$
+ \begin{equation} \label{eq::1.8}
+  ||U[\Lambda_J^n]f||^2=||U_JU[\Lambda_J^n]f||^2=||S_J[\Lambda_J^n]f||^2+||U[\Lambda_J^{n+1}]f||^2. 
+ \end{equation}
 
   \noindent Sumando en $m\leq n < \infty$ se obtiene : 
   
@@ -1045,7 +1105,7 @@ $$(2.29) \;\;\; ||S_J[\mathcal{P_J}]f||=||f||$$
 
   \medskip
 
-  \noindent Por otro lado, sumando en $(2.31)$ para $0\leq n < m$ se obtine:
+  \noindent Por otro lado, sumando en \eqref{eq::1.8} para $0\leq n < m$ se obtine:
 
   \begin{align*}
     \sum_{n=0}^{m-1} ||U[\Lambda_J^n]f||^2=&\sum_{n=0}^{m-1} ||S_J[\Lambda_J^n]f||^2 +\sum_{n=0}^{m-1}||U[\Lambda_J^{n+1}]f||^2 \\
@@ -1054,7 +1114,10 @@ $$(2.29) \;\;\; ||S_J[\mathcal{P_J}]f||=||f||$$
   \end{align*}
   
   \noindent En el término de la izquierda se anulan entre si todos los sumandos salvo $n=0$, y teniendo en cuenta que $f=U[\Lambda_J^0]f$ queda:
-  $$(2.32) \;\;\; ||f||^2=\sum_{n=0}^{m-1} ||S_J[\Lambda_J^n]f||^2 + ||U[\Lambda_J^m]f||^2.$$
+  
+  \begin{equation}
+    ||f||^2=\sum_{n=0}^{m-1} ||S_J[\Lambda_J^n]f||^2 + ||U[\Lambda_J^m]f||^2.
+  \end{equation}
 
   \noindent Si ahora tomamos límite cuando $m\rightarrow \infty$ obtenemos: 
   \begin{align*}
@@ -1121,24 +1184,31 @@ Vamos a demostrar en primer lugar que $||S_J[\overline{\mathcal{P}}_J] f- S_J[\o
 \begin{proposicion}
 \noindent Para todo $(f,h) \in L^2(\mathbb{R}^d)^2$ y $J\in \mathbb{Z}$, 
 
-$$(2.36) \;\;\; || S_{J+1} [\mathcal{P}_{j+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h ||$$
+\begin{equation} \label{eq::1.10}
+  || S_{J+1} [\mathcal{P}_{j+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h || 
+\end{equation}
+
 \end{proposicion}
 
 \begin{proof}
 
-\noindent En primer lugar, vamos a transformar la condición que queremos demostrar en $(2.36)$ en otra equivalente y que será más fácil de probar.
+\noindent En primer lugar, vamos a transformar la condición que queremos demostrar en \eqref{eq::1.10} en otra equivalente y que será más fácil de probar.
 
 \medskip
 
 \noindent Si recordamos la definición de $\mathcal{P}_J$, era un conjunto de caminos finitos $p=(\lambda_1,...,\lambda_m)$ tal que $\lambda_k\in\Lambda_J$ y $|\lambda_k|=2^{jk}>2^{-J}$. Luego todo camino $p' \in \mathcal{P}_{J+1}$, puede ser unívocamente escrito como una extensión de un camino $p\in \mathcal{P}_J$ dónde $p$ es el prefijo más grande de $p'$ que pertenece a $\mathcal{P}_J$, y $p'=p+q$ para algún $q\in \mathcal{P}_{J+1}$. De hecho, podemos definir el conjunto de todas las extensiones de $p\in \mathcal{P}_J$ en $\mathcal{P}_{J+1}$ como: 
 
-$$(2.37) \;\;\; \mathcal{P}_{J+1}^{p}={p} \cup {p+2^{-J}r+p''}_{r\in G^{+},p''\in \mathcal{P}_{J+1}}$$
+\begin{equation}
+  \mathcal{P}_{J+1}^{p}={p} \cup {p+2^{-J}r+p''}_{r\in G^{+},p''\in \mathcal{P}_{J+1}}
+\end{equation}
 
 Esto define una partición disjunta de $\mathcal{P}_{J+1}=\cup_{p \in \mathcal{P}_J} \mathcal{P}_{J+1}^{p}$. Y deberíamos probar que dichas extensiones son no expansivas,
 
-$$(2.38) \;\;\; \sum_{p' \in \mathcal{P}_{J+1}^p} || S_{J+1}[p']f-S_{J+1}[p']h||^2 \leq ||S_{J}[p]f-S_J [p]h||^2.$$
+\begin{equation}\label{eq::1.11}
+  \sum_{p' \in \mathcal{P}_{J+1}^p} || S_{J+1}[p']f-S_{J+1}[p']h||^2 \leq ||S_{J}[p]f-S_J [p]h||^2.
+\end{equation}
 
-\noindent Finalmente, si nos fijamos, la condición $(2.38)$ equivale a $(2.36)$ sumando en todo $p\in \mathcal{P}_J$, luego probando $(2.38)$ tendríamos el resultado que buscamos. 
+\noindent Finalmente, si nos fijamos, la condición \eqref{eq::1.11} equivale a \eqref{eq::1.10} sumando en todo $p\in \mathcal{P}_J$, luego probando \eqref{eq::1.11} tendríamos el resultado que buscamos. 
 
 
 \medskip
@@ -1162,7 +1232,7 @@ $$(2.38) \;\;\; \sum_{p' \in \mathcal{P}_{J+1}^p} || S_{J+1}[p']f-S_{J+1}[p']h||
   \noindent Para ello, de la expresión
 
   \begin{align*}
-    (2.7) \; \; \frac{1}{2} \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2=1 & \; \; y
+    \frac{1}{2} \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2=1 & \; \; y
     \;\;|\widehat{\phi}(\omega)|^2= \frac{1}{2} \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2,
   \end{align*}
 
@@ -1218,7 +1288,7 @@ $$||g \ast \phi_{2^{J+1}} ||^2 + \sum_{r\in G^+} || g\ast \psi_{2^{-J}r} ||^2=||
 \noindent Aplicando ahora la propiedad de la norma de que $\left|\left|a - b \right|\right| \geq \left|\left| |a| - |b| \right|\right|$. Y como $$|U[p]f\ast\psi_{2^{-J}r}|=U[p+2^{-J}r]f$$ se concluye que:
 
 \begin{align*}
-    (2.40) \;\;\; ||S_{J}[p]f-S_J[p]h||^2 \geq & || S_{J+1}[p]f-S_{J+1}[p]h||^2 \\
+    ||S_{J}[p]f-S_J[p]h||^2 \geq & || S_{J+1}[p]f-S_{J+1}[p]h||^2 \\
     & + \sum_{r\in G^+} ||U[p+2^{-J}r]f-U[p+2^{-J}r]h||^2.
 \end{align*}
 
@@ -1236,7 +1306,7 @@ $$||g \ast \phi_{2^{J+1}} ||^2 + \sum_{r\in G^+} || g\ast \psi_{2^{-J}r} ||^2=||
   ||S_{J}[p]f - S_J[p]h||^2 \geq & \sum_{p''\in \mathcal{P}_{J+1}} \sum_{r\in G^+} || S_{J+1}[p+2^{-J}r+p'']f- S_{J+1}[p+2^{-J}r+p'']h||^2,
 \end{align*}
 
-\noindent que demuestra (2.38). \qedhere
+\noindent que demuestra \eqref{eq::1.11}. \qedhere
 \end{proof}
 
 
@@ -1248,12 +1318,12 @@ $$\forall (f,h)\in L^2(\mathbb{R}^d)^2 \lim_{J\rightarrow\infty} ||S_J[\mathcal{
 
 \medskip
 
-\noindent Para ondeletas de dispersión admisibles que satisfacen $(2.28)$, El \autoref{teoremaOndeletasAdmisibles} nos demuestra que $||S_J[\mathcal{P}_J]f||=||f||$ entonces $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J]f||=||f||$. El siguiente teorema demuestra que el límite es invariante por traslaciones, pero para la demostración del teorema necesitaremos de un resultado auxiliar: 
+\noindent Para ondeletas de dispersión admisibles que satisfacen \eqref{eq::1.7}, El \autoref{teoremaOndeletasAdmisibles} nos demuestra que $||S_J[\mathcal{P}_J]f||=||f||$ entonces $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J]f||=||f||$. El siguiente teorema demuestra que el límite es invariante por traslaciones, pero para la demostración del teorema necesitaremos de un resultado auxiliar: 
 
 \begin{lema} \label{lema::constante}
   Existe una constante $C$ tal que para todo $\tau \in \C^2(\mathbb{R}^d)$ con $||\nabla \tau ||_\infty \leq \frac{1}{2}$ se tiene que 
   
-  $$(2.42) \;\;\; ||L_\tau A_J f - A_J f|| \leq C ||f||2^{-J}||\tau||_{\infty}.$$
+  $$||L_\tau A_J f - A_J f|| \leq C ||f||2^{-J}||\tau||_{\infty}.$$
 \end{lema}
 
 \begin{proof}
@@ -1369,7 +1439,7 @@ $$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\r
 \noindent Fijamos $f\in L^2(\mathbb{R}^d)$. Teniendo en cuenta la conmutatividad $S_J[\mathcal{P}_J] L_cf = L_cf S_J[\mathcal{P}_J]$ y la definición $S_J[\mathcal{P}_J]f=A_J U[\mathcal{P}_J]f$,
 
 \begin{align*}
-    (2.41) \;\;\; ||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f || &= ||L_c A_J U[\mathcal{P}_J]f - A_J U[\mathcal{P}_J]f|| \\
+    ||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f || &= ||L_c A_J U[\mathcal{P}_J]f - A_J U[\mathcal{P}_J]f|| \\
     &\leq ||L_c A_J - A_J|| ||U[\mathcal{P}_J]f||.
 \end{align*}
 
@@ -1377,18 +1447,18 @@ $$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\r
 
 \noindent Si ahora aplicamos el \autoref{lema::constante} con $\tau=c$, se tiene que $||\tau||_\infty=|c|$ y además
 
-$$(2.43) \;\;\; ||L_c A_J - A_J|| \leq C 2^{-J} |c|.$$
+$$||L_c A_J - A_J|| \leq C 2^{-J} |c|.$$
 
-\noindent Y si tenemo en cuenta esto en $(2.41)$ nos da que: 
+\noindent Y si tenemos en cuenta esto en la expresión anterior nos da que: 
 
 \begin{align*}
   ||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f || & \leq ||L_c A_J - A_J|| ||U[\mathcal{P}_J]f|| \\
   & \leq C 2^{-J} |c| ||U[\mathcal{P}_J]f||
 \end{align*}
 
-\noindent Como la admisibilidad de la condición $(2.28)$ se satisface, \autoref{lema::Admisibilidad} se demuestra en $(2.35)$ que para $J>1$
+\noindent Como la admisibilidad de la condición \eqref{eq::1.7} se satisface, \autoref{lema::Admisibilidad} se demuestra en \eqref{eq::1.9} que para $J>1$
 
-$$(2.45) \;\;\; \frac{\alpha}{2}||U[\mathcal{P}_J]f||^2 \leq (J+1)||f||^2+||f||^2_w.$$
+$$\frac{\alpha}{2}||U[\mathcal{P}_J]f||^2 \leq (J+1)||f||^2+||f||^2_w.$$
 
 \noindent Y de esta expresión podemos sacar una cota superior para $||U[\mathcal{P}_J]f||$: 
 
@@ -1396,7 +1466,7 @@ $$(2.45) \;\;\; \frac{\alpha}{2}||U[\mathcal{P}_J]f||^2 \leq (J+1)||f||^2+||f||^
   ||U[\mathcal{P}_J]f||^2 \leq ((J+1)||f||^2+||f||^2_w) 2 \alpha^{-1}
 \end{align*}
 
-\noindent Si $||f||_w < \infty$ entonces elevando al cuadrado en la desigualdad $(2.44)$ tenemos
+\noindent Si $||f||_w < \infty$ entonces elevando al cuadrado en la desigualdad de antes tenemos
 
 $$||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f ||^2 \leq ((J+1)||f||^2+||f||_w^2)C^2 2 \alpha^{-1} 2^{-2J} |c|^2,$$
 
