@@ -224,7 +224,128 @@ El módulo de la Transformada de Fourier no es estable frente a pequeñas deform
 
 $$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c ||f|| (||\nabla \tau ||_{\infty} + ||H\tau||_\infty) \leq c ||f|| \epsilon$$
 
-\noindent Si suponemos que $f(x)=e^{i\xi x} \Theta(x)$ el escalado por medio de $\tau$ produce que la frecuencia $\xi$ se traslade de $\xi$ a $(1-\epsilon)\xi$, si suponemos que $\Theta$ además es regular con decrecimiento rápido, se tiene que:
+\noindent Vamos a ver un contraejemplo con una función de $\mathbb{R} \rightarrow \mathbb{R}$.
+
+\medskip
+
+\noindent Supongamos que tenemos $f(x)=e^{i \xi x} \Theta(x)=e^{i \xi x}e^{-|x|}$. Calculamos ahora $|\widehat{f}|$ y $|\widehat{L_\tau f}|$ teniendo en cuenta que :
+
+
+\begin{align*}
+  |\widehat{f}(\omega)|&=\left|  \int{f(x)e^{-ix\omega}dx}  \right | \\
+  &=\left|  \int{f(x)e^{-ix\omega}dx}  \right | \\
+  &=\left|  \int{e^{i \xi x}e^{-|x|}e^{-ix\omega}dx}  \right | \\
+  &=\left|  \int{e^{-ix(\xi-\omega)}dx}  \right | \\
+  &=\left|  \int{e^{-|x|}\left[\cos{x(\xi-\omega)} -i\sin{x(\xi-\omega)}\right]dx} \right| \\
+\end{align*}
+
+\noindent En el último paso podemos descomponer la integral en suma de dos, y para simplificar las operaciones llamamos $\beta=(\xi - \omega)$. Así, aplicando las siguientes fórmulas conocidas para el cálculo de integrales,
+
+
+\begin{equation} \label{eq:res_auxiliar_1}
+  \int_\mathbb{R} \cos(\beta x) e^{-|x|} dx= \frac{1}{1+\beta^2}
+\end{equation}
+
+\noindent y 
+
+\begin{equation}\label{eq:res_auxiliar_2}
+  \int_\mathbb{R} \sin(\beta x) e^{-|x|} dx= 0
+\end{equation}
+
+\noindent a nuestro caso concreto, obtenemos que: 
+
+\begin{align*}
+  |\widehat{f}(\omega)|&=\left|  \int{\cos{x\beta}e^{-|x|} dx} - i \int{\sin{x\beta}e^{-|x|} dx} \right| \\
+  &=\frac{1}{1+\beta^2} \\
+  &=\frac{1}{1+(\xi - \omega)^2}.
+\end{align*} 
+
+\noindent Ahora pasamos a calcular $|\widehat{L_\tau f}|$:
+
+\begin{align*}
+  |\widehat{L_\tau f}(\omega)| &= |\widehat{f}((1-\epsilon)\omega)| \\
+  &=\left|  \int{f((1-\epsilon)x)e^{-ix\omega}dx}  \right | \\
+  &=\left|  \int{e^{i \xi (1-\epsilon) x}e^{-|(1-\epsilon)x|}e^{-ix\omega}dx}  \right |. \\
+\end{align*}
+
+\noindent Ahora realizamos el siguiente cambio de variable
+
+\begin{equation}
+  \tilde{x}=(1-\epsilon) x \implies x=\frac{\tilde{x}}{1-\epsilon} 
+\end{equation}
+
+\begin{equation}
+  J=|M_J|=\frac{1}{(1-\epsilon)}
+\end{equation}
+
+\noindent y aplicando los cambios a lo que teníamos nos queda
+
+\begin{align*}
+  |\widehat{L_\tau f}(\omega)| 
+  &= \frac{1}{(1-\epsilon)}\left|  \int{f((1-\epsilon)x)e^{-ix\omega}dx}  \right | \\
+  &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \xi \tilde{x}}e^{-|\tilde{x}|}e^{-i\frac{\tilde{x}}{(1-\epsilon)}\omega}d\tilde{x}}  \right | \\
+  &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]\tilde{x}}e^{-|\tilde{x}|} d\tilde{x}}  \right | \\
+  &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \tilde{\beta}\tilde{x}}e^{-|\tilde{x}|} d\tilde{x}}  \right |, \\
+\end{align*}
+
+\noindent como podemos ver, llegamos a una integral que se resuelve de la misma manera que en el caso anterior haciendo uso de \eqref{eq:res_auxiliar_1} y \eqref{eq:res_auxiliar_2}:
+
+\begin{align*}
+  |\widehat{L_\tau f}(\omega)| 
+  &= \frac{1}{(1-\epsilon)} \frac{1}{1+\tilde{\beta}^2} \\
+  &= \frac{1}{(1-\epsilon)} \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}. \\
+\end{align*}
+
+
+\noindent De esta forma hemos obtenido que para nuestro caso concreto de $f(x)=e^{i \xi x}e^{-|x|}$ 
+
+
+\begin{align*}
+  \left\| |\widehat{L_\tau f}|-|\widehat{f}| \right\| &= \left\| \frac{1}{(1-\epsilon)} \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right\| \\
+  &\geq  \left\| \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right\| \\
+  &=\left(\int_{\mathbb{R}} \left| \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right|^2 d\omega\right)^{\frac{1}{2} }
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+el escalado por medio de $\tau$ produce que la frecuencia $\xi$ se traslade de $\xi$ a $(1-\epsilon)\xi$, si suponemos que $\Theta$ además es regular con decrecimiento rápido, se tiene que:
 
 \begin{equation} \label{eq::1.1}
   \left|\left| |\widehat{L_\tau f}|-|\widehat{f}| \right|\right| \sim |s| |\xi| ||\Theta|| = ||\nabla \tau||_\infty |\xi| ||f||.

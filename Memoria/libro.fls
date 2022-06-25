@@ -411,12 +411,8 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkD
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/1_excesivamente_deformado.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/1_excesivamente_deformado.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/1_excesivamente_deformado.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Haar_wavelet.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Haar_wavelet.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Haar_wavelet.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ejemplos_haar_basis.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ejemplos_haar_basis.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ejemplos_haar_basis.png
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr9t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
@@ -425,11 +421,15 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Haar_wavelet.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Haar_wavelet.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Haar_wavelet.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ejemplos_haar_basis.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ejemplos_haar_basis.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ejemplos_haar_basis.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ScatteringPropagator.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ScatteringPropagator.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ScatteringPropagator.png
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplbi9d.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplbi9d.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplbi8r.tfm
