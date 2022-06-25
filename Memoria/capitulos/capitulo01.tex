@@ -275,7 +275,7 @@ $$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c |
 \end{equation}
 
 \begin{equation}
-  J=|M_J|=\frac{1}{(1-\epsilon)}
+ d\tilde{x}=(1-\epsilon) dx \implies dx=\frac{1}{(1-\epsilon)}d\tilde{x}
 \end{equation}
 
 \noindent y aplicando los cambios a lo que teníamos nos queda
@@ -297,19 +297,42 @@ $$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c |
 \end{align*}
 
 
-\noindent De esta forma hemos obtenido que para nuestro caso concreto de $f(x)=e^{i \xi x}e^{-|x|}$ 
+\noindent De esta forma hemos obtenido que para nuestro caso concreto de $f(x)=e^{i \xi x}e^{-|x|}$ ,
 
 
 \begin{align*}
   \left\| |\widehat{L_\tau f}|-|\widehat{f}| \right\| &= \left\| \frac{1}{(1-\epsilon)} \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right\| \\
   &\geq  \left\| \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right\| \\
-  &=\left(\int_{\mathbb{R}} \left| \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right|^2 d\omega\right)^{\frac{1}{2} }
+  &=\left(\int_{\mathbb{R}} \left| \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right|^2 d\omega\right)^{1/2}.
 \end{align*}
 
 
+\noindent A continuación vamos a intentar aproximar el valor del módulo de la integral, para ello en primer lugar vamos a realizar el siguiente cambio de variable 
+
+\begin{align*}
+  &t=\omega-\xi \implies \omega-(1-\epsilon)\xi= \omega-\xi + \epsilon\xi = t +\epsilon\xi \\
+  &dt=d\omega.
+\end{align*}
+
+\noindent Así, obtenemos que: 
+
+\begin{align*}
+  \int_{\mathbb{R}} \left| \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2} \right|^2 d\omega &\geq
+  \left|\int_{\mathbb{R}} \left(  \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}  \right)^2 d\omega \right| \\
+  &=\left|\int_{\mathbb{R}} \left(  \frac{1}{1+t^2} - \frac{1}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}  \right)^2 d\omega \right| \\
+  &\geq \int_{-M}^{M} (g_1(t)-g_2(t))^2 dt \\
+  &\approx \int_{-M}^{M} g_1(t)^2 dt \\
+\end{align*}
+
+\noindent Representando la gráfica $g_1(t)= \frac{1}{1+t^2}$, podemos ver cómo el valor de su integral se acumula en torno al origen de coordenadas, y en cambio $g_2(t)=\frac{1}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}$ e una traslación y escalado de la función anterior, por lo que podemos tomar una constante $M>0$ y $\xi$ de manera que 
 
 
-
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{img/geogebra-export_contraejemplo_Fourier.png}
+  \caption{}
+  \label{fig:Grafica_funciones}
+\end{figure}
 
 
 

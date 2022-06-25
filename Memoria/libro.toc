@@ -12,34 +12,34 @@
 \contentsline {subsection}{\numberline {1.2.1}De Fourier a las ondeletas de Littlewood-Paley}{5}{subsection.1.2.1}%
 \contentsline {subsubsection}{\numberline {1.2.1.1}El módulo de la Transformada de Fourier}{5}{subsubsection.1.2.1.1}%
 \contentsline {subsubsection}{\numberline {1.2.1.2}Alternativa: Las ondeletas}{11}{subsubsection.1.2.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1.3}La Transformada de Littlewood-Paley}{13}{subsubsection.1.2.1.3}%
-\contentsline {subsubsection}{\numberline {1.2.1.4}Convenios para futuras secciones}{17}{subsubsection.1.2.1.4}%
-\contentsline {subsection}{\numberline {1.2.2}El operador de dispersión sobre un camino ordenado}{17}{subsection.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.2.1}Ejemplo para obtener coeficientes invariantes por traslaciones}{18}{subsubsection.1.2.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2.2}El operador módulo.}{19}{subsubsection.1.2.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.2.3}Propiedades de un camino de frecuencias.}{21}{subsubsection.1.2.2.3}%
-\contentsline {subsubsection}{\numberline {1.2.2.4}Construcción del operador de dispersión.}{22}{subsubsection.1.2.2.4}%
-\contentsline {subsection}{\numberline {1.2.3}Propagador de dispersión y conservación de la Norma}{23}{subsection.1.2.3}%
-\contentsline {subsubsection}{\numberline {1.2.3.1}Proceso de dispersión del propagador.}{23}{subsubsection.1.2.3.1}%
-\contentsline {subsubsection}{\numberline {1.2.3.2}Diferencias y similitudes con una CNN}{24}{subsubsection.1.2.3.2}%
-\contentsline {subsubsection}{\numberline {1.2.3.3}Relación con herramientas clásicas de visión por computador}{25}{subsubsection.1.2.3.3}%
-\contentsline {subsubsection}{\numberline {1.2.3.4}Operador no expansivo.}{25}{subsubsection.1.2.3.4}%
-\contentsline {subsubsection}{\numberline {1.2.3.5}Conservación de la norma.}{26}{subsubsection.1.2.3.5}%
-\contentsline {subsubsection}{\numberline {1.2.3.6}Conclusiones extraidas del teorema}{30}{subsubsection.1.2.3.6}%
-\contentsline {section}{\numberline {1.3}Invarianza por Traslaciones}{30}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}No expansividad del operador de ventana en conjuntos de caminos}{31}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Invarianza por traslaciones}{33}{subsection.1.3.2}%
-\contentsline {section}{\numberline {1.4}Elementos del texto}{39}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Listas}{39}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{39}{subsection.1.4.2}%
-\contentsline {section}{\numberline {1.5}Entornos matemáticos}{39}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Bibliografía e índice}{40}{section.1.6}%
-\contentsline {part}{\numberline {II}Segunda parte}{41}{part.2}%
-\contentsline {chapter}{\numberline {2}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{43}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introducción}{43}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Descripción del problema}{43}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Motivación}{44}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Objetivos}{44}{subsection.2.1.3}%
-\contentsline {chapter}{\numberline {A}Primer apéndice}{45}{appendix.Alph1}%
-\contentsline {chapter}{Glosario}{47}{chapter*.10}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{49}{chapter*.11}%
+\contentsline {subsubsection}{\numberline {1.2.1.3}La Transformada de Littlewood-Paley}{15}{subsubsection.1.2.1.3}%
+\contentsline {subsubsection}{\numberline {1.2.1.4}Convenios para futuras secciones}{18}{subsubsection.1.2.1.4}%
+\contentsline {subsection}{\numberline {1.2.2}El operador de dispersión sobre un camino ordenado}{18}{subsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.2.1}Ejemplo para obtener coeficientes invariantes por traslaciones}{20}{subsubsection.1.2.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2.2}El operador módulo.}{20}{subsubsection.1.2.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.2.3}Propiedades de un camino de frecuencias.}{22}{subsubsection.1.2.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.2.4}Construcción del operador de dispersión.}{23}{subsubsection.1.2.2.4}%
+\contentsline {subsection}{\numberline {1.2.3}Propagador de dispersión y conservación de la Norma}{24}{subsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.3.1}Proceso de dispersión del propagador.}{24}{subsubsection.1.2.3.1}%
+\contentsline {subsubsection}{\numberline {1.2.3.2}Diferencias y similitudes con una CNN}{25}{subsubsection.1.2.3.2}%
+\contentsline {subsubsection}{\numberline {1.2.3.3}Relación con herramientas clásicas de visión por computador}{26}{subsubsection.1.2.3.3}%
+\contentsline {subsubsection}{\numberline {1.2.3.4}Operador no expansivo.}{26}{subsubsection.1.2.3.4}%
+\contentsline {subsubsection}{\numberline {1.2.3.5}Conservación de la norma.}{27}{subsubsection.1.2.3.5}%
+\contentsline {subsubsection}{\numberline {1.2.3.6}Conclusiones extraidas del teorema}{31}{subsubsection.1.2.3.6}%
+\contentsline {section}{\numberline {1.3}Invarianza por Traslaciones}{31}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}No expansividad del operador de ventana en conjuntos de caminos}{32}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Invarianza por traslaciones}{34}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Elementos del texto}{40}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Listas}{40}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{40}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Entornos matemáticos}{40}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Bibliografía e índice}{41}{section.1.6}%
+\contentsline {part}{\numberline {II}Segunda parte}{43}{part.2}%
+\contentsline {chapter}{\numberline {2}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{45}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducción}{45}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Descripción del problema}{45}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Motivación}{46}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Objetivos}{46}{subsection.2.1.3}%
+\contentsline {chapter}{\numberline {A}Primer apéndice}{47}{appendix.Alph1}%
+\contentsline {chapter}{Glosario}{49}{chapter*.10}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{51}{chapter*.11}%
