@@ -224,7 +224,7 @@ El módulo de la Transformada de Fourier no es estable frente a pequeñas deform
 
 $$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c ||f|| (||\nabla \tau ||_{\infty} + ||H\tau||_\infty) \leq c ||f|| \epsilon$$
 
-\noindent Vamos a ver un contraejemplo con una función de $\mathbb{R} \rightarrow \mathbb{R}$.
+\noindent Vamos a ver un contraejemplo con una función de una dimensión por simplicidad.
 
 \medskip
 
@@ -320,61 +320,39 @@ $$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c |
   \int_{\mathbb{R}} \left| \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2} \right|^2 d\omega &\geq
   \left|\int_{\mathbb{R}} \left(  \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}  \right)^2 d\omega \right| \\
   &=\left|\int_{\mathbb{R}} \left(  \frac{1}{1+t^2} - \frac{1}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}  \right)^2 d\omega \right| \\
-  &\geq \int_{-M}^{M} (g_1(t)-g_2(t))^2 dt \\
-  &\approx \int_{-M}^{M} g_1(t)^2 dt \\
 \end{align*}
 
-\noindent Representando la gráfica $g_1(t)= \frac{1}{1+t^2}$, podemos ver cómo el valor de su integral se acumula en torno al origen de coordenadas, y en cambio $g_2(t)=\frac{1}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}$ e una traslación y escalado de la función anterior, por lo que podemos tomar una constante $M>0$ y $\xi$ de manera que 
+\noindent Representando la gráfica $g_1(t)= \frac{1}{1+t^2}$, podemos ver cómo el valor de su integral se acumula en torno al origen de coordenadas, y en cambio $g_2(t)=\frac{1}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}$ e una traslación y escalado de la función anterior. De esta forma, si $\epsilon\xi$ es muy grande, el área de la función $g_2(t)$ será prácticamente cero en la región del espacio dónde $g_1(t)$ concentra su integral. Dicho de otra forma, las dos funciones tendrían soporte disjunto.
 
+\noindent De esta forma, podemos tomar una constante $M>0$ tal que para un valor de $\xi$ elevado se cumpla que: 
+
+\begin{align*}
+  \int_{\mathbb{R}} \left| \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2} \right|^2 d\omega 
+  &\geq \int_{-M}^{M} (g_1(t)-g_2(t))^2 dt \\
+  &\approx \int_{-M}^{M} g_1(t)^2 dt. \\
+\end{align*}
+
+\noindent Y como $\xi$ puede ser arbitrariamente grande, intuitivamente el intervalo en el que ambas funciones tienen soporte disjunto crece de forma indefinida lo cual nos permite realizar la siguiente aproximación teniendo en cuenta que $g_1(t)=\widehat{f}$:
+
+\begin{align*} \label{eq::1.1}
+  \left\| |\widehat{f}| -|\widehat{L_\tau f}| \; \right\| &\sim \|g_1(t) \|=\|f\|. 
+\end{align*}
+
+\noindent Dónde la última igualdad la hemos realizado gracias a la fórmula de Plancharel que en el caso de $\mathbb{R}^d$ es: 
+
+\begin{equation} \label{eq::Plancharel}
+  \int_{\mathbb{R}^d} \left|f(x)\right|^2 dx= \int_{\mathbb{R}^d}\left|\widehat{f}(\omega)\right|^2 d\omega.
+\end{equation}
+
+\noindent Luego hemos demostrado que en este caso particular el operador $|\widehat{f}|$ no cumple la condición de Lipschitz, pues como hemos mencionado antes, $\xi$ puede ser arbitrariamente grande y de esta forma, que la diferencia anterior pueda ser todo lo grande que se quiera.
 
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1.0\textwidth]{img/geogebra-export_contraejemplo_Fourier.png}
-  \caption{}
+  \caption{Como podemos ver en la imagen, para los valores $\epsilon=0.1$, $\xi=100$ y $M=5$ ambas funciones tienen soporte casi disjunto de manera que la diferencia entre ellas en el intervalo $[-5,5]$ coincide prácticamente con la integral de $g_1(t)$.}
   \label{fig:Grafica_funciones}
 \end{figure}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-el escalado por medio de $\tau$ produce que la frecuencia $\xi$ se traslade de $\xi$ a $(1-\epsilon)\xi$, si suponemos que $\Theta$ además es regular con decrecimiento rápido, se tiene que:
-
-\begin{equation} \label{eq::1.1}
-  \left|\left| |\widehat{L_\tau f}|-|\widehat{f}| \right|\right| \sim |s| |\xi| ||\Theta|| = ||\nabla \tau||_\infty |\xi| ||f||.
-\end{equation}
-
-\noindent Y como $|\xi|$ puede ser arbitrariamente grande, $\Phi(f)=|\widehat{f}|$ no satisface la continuidad de Lipschitz cuando se alcanzan altas frecuencias.
 \end{proof}
     
 \medskip
@@ -628,12 +606,8 @@ $$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\r
      \begin{align*}
         \int_{\mathbb{R}^d}\left(\left|\widehat{\phi}\left(2^J\omega\right)\right|^2 \left|\widehat{f}(\omega)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{f}(\omega)\right|^2\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2 \right) d\omega=\int_{\mathbb{R}^d}\left|\widehat{f}(\omega)\right|^2 d\omega.
     \end{align*}
-    
-\noindent Recordamos la fórmula de Plancharel en el caso de $\mathbb{R}^d$: 
 
-$$\int_{\mathbb{R}^d} \left|f(x)\right|^2 dx= \int_{\mathbb{R}^d}\left|\widehat{f}(\omega)\right|^2 d\omega.$$
-
-\noindent Si la aplicamos a la expresión anterior se obtiene:
+\noindent Si la aplicamos \eqref{eq::Plancharel} se obtiene:
 
 $$\int_{\mathbb{R}^d}\left(\left|\phi\left(2^J\omega\right)\right|^2 \left|f(\omega)\right|^2 + \sum_{j>-J,r\in G}\left|f(\omega)\right|^2\left|\psi\left(2^{-j}r^{-1}\omega\right)\right|^2 \right) d\omega=\int_{\mathbb{R}^d}\left|f(\omega)\right|^2 d\omega.$$
 
