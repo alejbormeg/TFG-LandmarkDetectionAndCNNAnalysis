@@ -6,8 +6,27 @@
 
 \section{Introducción}
 
+\noindent Actualmente, las \textbf{Redes Neuronales Convolucionales} (CNN \footnote{Convolutional Neural Network}) están consideradas como unas de las mejores herramientas de la Inteligencia Artificial para tareas de Aprendizaje Automático (AA), de hecho son el principal objeto de estudio del conocido \textbf{Deep Learning}, una subrrama del AA en la que hoy en día se están invirtiendo mucho esfuerzo en invesitgar y de la que anualmente se publican muchos artículos que nos enseñan la gran potencia de las CNN.
 
-\noindent En el contexto del procesamiento de imágenes, se define el término \textbf{invarianza} como la capacidad de reconocer un objeto en la imagen incluso si su apariencia ha variado en algún sentido (rotando, deformando ligeramente o trasladando el objeto por ejemplo). Esto es algo muy importante y positivo, pues esto indica que se preserva la identidad del objeto incluso a pesar de haberse sometido a ciertos cambios.
+
+\medskip
+
+\noindent Destaca especialmente el increible desempeño que tienen las CNN en el procesamiento de imágenes en tareas de clasificación, segmentación o incluso generación de nuevas imágenes. Es por ello que en el presente trabajo nos proponemos realizar una modelización matemática de estas CNN, para conocerlas mejor desde este punto de vista más técnico y ser capaces de demostrar una de sus principales propiedades: La invarianza por traslaciones.
+
+\medskip
+
+\noindent En primer lugar vamos a definir el concepto de \textbf{Invarianza} como la capacidad de reconocer un objeto en una imagen incluso si su apariencia ha variado en algún sentido (mediante una rotación, una  ligera deformación o una traslación). Esto es algo muy importante, pues esto indica que se preserva la identidad del objeto incluso a pesar de haberse sometido a ciertos cambios.
+
+\medskip
+
+\noindent De esta forma definimos la \textbf{Invarianza por traslaciones} como la capacidad de reconocer la identidad de un objeto en una imagen incluso si este se ha desplazado. Esta propiedad es fundamental y sabemos que las CNN la verifican.
+
+\begin{figure} [!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/translation_invariance.png}
+    \caption{Las tres estatuas deben identificarse como iguales, aunque se ecuentren desplazadas.}
+    \label{fig:invarianza_traslaciones}
+\end{figure}
 
 \medskip
 
@@ -89,7 +108,7 @@ $$(1.2)  \; \; || \Phi(f)-\Phi(L_{\tau}f)||_\mathcal{H} \leq C||f||(\sup_{x \in 
 
 \section{Modelización Matemática de una Red Neuronal Convolucional} \label{ch:seccion12}
 
-\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{Red Neuronal Convolucional} (CNN \footnote{Convolutional Neural Network}) que denominaremos \textbf{propagador de dispersión} (PD), para ello explicaremos la problemática de elegir una operador \textit{lipschitz-continuo} bajo la acción de difeomorfismos e \textit{invariante por traslaciones}, para evitar problemas como las inestabilidades en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos como ocurre si usamos la transformada de Fourier. 
+\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{CNN}, que denominaremos \textbf{propagador de dispersión} (PD), para ello explicaremos la problemática de elegir una operador \textit{lipschitz-continuo} bajo la acción de difeomorfismos e \textit{invariante por traslaciones}, para evitar problemas como las inestabilidades en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos como ocurre si usamos la transformada de Fourier. 
 
 \medskip
 
@@ -125,18 +144,7 @@ $$(1.2)  \; \; || \Phi(f)-\Phi(L_{\tau}f)||_\mathcal{H} \leq C||f||(\sup_{x \in 
 $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier. 
 \end{definicion}
 
-\noindent Vamos a comprobar si se trata de un operador válido para nuestro propósito. Para ello necesitamos en primer lugar que sea un operador \textbf{Invariante por traslaciones}, algo esencial en el procesamiento de imágenes y concretamente en tareas de clasificación y detección, con ello buscamos que la información que determina a cada elemento de la imagen permanezca invariante frente a desplazamientos.
-
-\begin{figure} [!h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/translation_invariance.png}
-    \caption{Las tres estatuas deben identificarse como iguales, aunque se ecuentren desplazadas.}
-    \label{fig:invarianza_traslaciones}
-\end{figure}
-
-\medskip
-
-\noindent A continuación veremos que el operador que hemos elegido sí cumple esta propiedad.
+\noindent Vamos a comprobar si se trata de un operador válido para nuestro propósito. Para ello necesitamos en primer lugar que sea un operador \textbf{Invariante por traslaciones}. Veamos  que sí cumple esta propiedad.
 
 \begin{lema}
     El operador $\Phi(f)=|\widehat{f}|$ es invariante por traslaciones.
@@ -1273,22 +1281,6 @@ y
 $$\sum_{(j,r)\in\mathbb{Z}\times G}|\widehat{\psi}(2^jr\omega)|^2|\widehat{\rho}(2^jr\omega-\eta)|^2$$
 
 \noindent sea suficientemente grande para que $\alpha>0$. Esto se puede obtener como se indica en $(2.3)$, con $\psi(x)=e^{i\eta x}\Theta(x)$ y de hecho $\widehat{\psi}=\widehat{\Theta}(\omega-\eta)$, dónde $\widehat{\Theta}$ y $\widehat{\rho}$ tienen su energía concentrada en los mismos dominos de frecuencia, que son bajos.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \section{Invarianza por Traslaciones} \label{ch:seccion14}
 
