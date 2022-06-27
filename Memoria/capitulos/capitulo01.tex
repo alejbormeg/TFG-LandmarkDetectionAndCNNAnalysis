@@ -122,12 +122,13 @@ Así, se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquie
 
 \medskip
 
-\begin{definicion}
+\begin{definicion} \label{def::Lipschitz_cont}
 \noindent Un operador invariante por traslaciones $\Phi$ se dice \entrecomillado{Lipchitz-continuo} por la acción de los difeomorfismos $C^2$  si para cualquier compacto $\Omega \subset \mathbb{R}^d$ existe una constante $C$ tal que para todo $f \in L^2(\mathbb{R}^d)$ con Soporte en $\Omega$ y para todo $\tau \in C^2(\mathbb{R}^d)$ se cumple:
 
 \begin{equation} \label{eq::Lipschitz_condition}
   || \Phi(f)-\Phi(L_{\tau}f)||_\mathcal{H} \leq C||f||(\sup_{x \in \mathbb{R}^d} |\nabla \tau (x)| + \sup_{x \in \mathbb{R}^d}|H \tau (x)|)
 \end{equation}
+con  $|| \nabla \tau ||_\infty + ||H \tau ||_\infty < 1$ para asegurarnos de que la deformación sea invertible \cite{doi:10.1137/S0036141002404838}.
 \end{definicion}
 
 \medskip
@@ -153,7 +154,7 @@ Así, se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquie
 
 \section{Modelización Matemática de una Red Neuronal Convolucional} \label{ch:seccion12}
 
-\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{CNN}, que denominaremos \textbf{propagador de dispersión} (PD), para ello explicaremos la problemática de elegir una operador \textit{lipschitz-continuo} bajo la acción de difeomorfismos e \textit{invariante por traslaciones}, para evitar problemas como las inestabilidades en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos como ocurre si usamos la transformada de Fourier. 
+\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{CNN}, para ello necesitamos en primer lugar definir un operador que denominaremos \textbf{propagador de dispersión} (PD) que será el que aplicaremos de forma recursiva en la cascada de convoluciones que modeliza una CNN, para ello explicaremos la problemática de elegir una operador \textit{lipschitz-continuo} bajo la acción de difeomorfismos e \textit{invariante por traslaciones}, para evitar problemas como las inestabilidades en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos como ocurre si usamos la transformada de Fourier. 
 
 \medskip
 
@@ -165,8 +166,7 @@ Así, se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquie
 
 \medskip
 
-\noindent Una vez tengamos un operador con todas las propiedades anteriores presentaremos el \textbf{PD}, que será la aplicación en cadena de los operadores anteriores sobre un \entrecomillado{camino} de frecuencias y rotaciones y que supondrá la modelización matemática de una Red Neuronal Convolucional.
-
+\noindent Una vez tengamos un operador con todas las propiedades anteriores presentaremos el \textbf{PD}, y será la aplicación en cadena de este operador anterior sobre un \entrecomillado{camino} de frecuencias y rotaciones el que definirá la modelización matemática de una Red Neuronal Convolucional.
 
 
 \subsection{De Fourier a las ondeletas de Littlewood-Paley}
@@ -179,7 +179,7 @@ Así, se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquie
 \widehat{f}(\omega):= \int{f(x)e^{-ix\omega}dx}=\int{f(x)\left[\cos{x\omega} -i\sin{x\omega}\right]dx}.
 \end{equation}
 
-\noindent Entre las propiedades más destacables de la transformada encontramos el hecho de que una función se puede recuperar sin pérdida de información a partir de su transformada de Fourier, lo cual nos permite poder trabajar en el \entrecomillado{Dominio de Fourier} (también llamado \entrecomillado{Dominio de Frecuencia}) ya que al calcular la integral, la función resultante sólo depende de $x$ (la frecuencia), y posteriormente pasar de nuevo al dominio original de la función, aplicando la inversa de la transformada sin pérdida de información.
+\noindent Entre las propiedades más destacables de la transformada encontramos el hecho de que una función se puede recuperar sin pérdida de información a partir de su transformada de Fourier, lo cual nos permite poder trabajar en el \entrecomillado{Dominio de Fourier}\footnote{También llamado \entrecomillado{Dominio de Frecuencia}} ya que al calcular la integral, la función resultante sólo depende de $\omega$ (la frecuencia), y posteriormente pasar de nuevo al dominio original de la función, aplicando la inversa de la transformada sin pérdida de información.
 
 \medskip
 
@@ -211,34 +211,7 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
 
 \medskip
     
-\noindent Sin embargo, la invaianza por traslaciones no es suficiente, necesitamos también que nuestro operador sea invariante frente a pequeñas deformaciones (difeomorfismos).
-\medskip
-
-\noindent Por otro lado, vamos a necesitar definir una distancia entre $\mathbb{1}$ y $\mathbb{1}-\tau$ para la condición de Lipschitz y garantizar la estabilidad bajo la acción de difeomorfismos:
-
-\begin{definicion}
-    La topología débil de los difeomorfismos de $C^2$ define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subconjunto compacto $\Omega \in  \mathbb{R}^d$ mediante: 
-    
-    $$d_\Omega(\mathbb{1},\mathbb{1}-\tau) = \sup_{x \in \Omega} |\tau (x)| + \sup_{x \in \Omega} |\nabla \tau (x)| + \sup_{x \in \Omega}|H \tau (x)|$$
-\end{definicion}
-
-\noindent Dónde $|\tau(x)|$ es la norma euclídea en $\mathbb{R}^d$, $|\nabla \tau (x)|$ el supremo de la matriz $\nabla \tau (x)$ y $|H \tau (x)|$ el supremo de la norma del tensor Hessiano. Además se define $||\tau||_{\infty}\coloneqq \sup_{x\in\mathbb{R}^d} |\tau(x)|$.
-
-\medskip 
-
-\noindent De esta forma, un operador $\Phi(f)$ diremos que es estable frente a deformaciones si su norma euclídea $\left|\left| \Phi(f) - \Phi(L_\tau f) \right| \right|$ (con $L_{\tau} f(x)=f(x-\tau(x))$ definiendo la acción del difeomorfismo $\mathbb{1}-\tau$ en $f$) es \entrecomillado{pequeña} cuando la deformación se mide por $d_\Omega(\mathbb{1},\mathbb{1}-\tau)$. En otras palabras: 
-
-\begin{definicion}
-    Un Operador $\Phi$ invariante por traslaciones  se dice \entrecomillado{Lipschitz-continuo} bajo la acción de difeomorfismos de $C^2$ si para cualquier compacto $\Omega \in \mathbb{R}^d$ existe una constante $c\in \mathbb{R}^d$ tal que para todo $f\in L^2(\mathbb{R}^d)$ con soporte en $\Omega$ y $\tau \in C^2(\mathbb{R}^d)$ se tiene
-    
-    $$\left|\left| \Phi(f) - \Phi(L_\tau f) \right| \right| \leq c ||f|| (||\nabla \tau ||_{\infty} + ||H\tau||_\infty)$$
-    
-    con  $|| \nabla \tau ||_\infty + ||H \tau ||_\infty < 1$ para asegurarnos de que la deformación sea invertible \cite{doi:10.1137/S0036141002404838}.
-\end{definicion}
-
-\noindent Como podemos comprobar, la cota superior no depende de $||\tau(x)||_\infty$ ya que hemos supuesto que $\Phi$ es invariante por traslaciones. 
-
-\noindent Sin embargo, esta propiedad no la verifica el módulo de la Transformada de Fourier, como podemos ver a continuación:
+\noindent Sin embargo, la invaianza por traslaciones no es suficiente, necesitamos también que nuestro operador sea invariante frente a pequeñas deformaciones (difeomorfismos). De esta forma, un operador $\Phi(f)$ diremos que es estable frente a deformaciones si verifica \autoref{def::Lipschitz_cont}. Sin embargo, esta propiedad no la verifica el módulo de la Transformada de Fourier, como podemos ver a continuación:
 
 \begin{lema} \label{lemma:TF_inestable_difeomorfismos}
 El módulo de la Transformada de Fourier no es estable frente a pequeñas deformaciones y no es \entrecomillado{Lipschitz-continuo}.
@@ -388,7 +361,7 @@ $$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c |
 
 \subsubsection{Alternativa: Las ondeletas}
 
-\noindent Las ondeletas \cite{MallatWavelets} son pequeñas ondas estables bajo la acción de deformaciones, al contrario que las ondas sinusoidales de Fourier. Definiremos la transformada de ondeletas y veremos que calcula, mediante convoluciones con bases de ondeletas, coeficientes que cumplirán con los requisitos que pedíamos para construir el operador del propagador de dispersión.
+\noindent Las ondeletas \cite{MallatWavelets} son pequeñas ondas estables bajo la acción de deformaciones, al contrario que las ondas sinusoidales de Fourier. Definiremos la transformada de ondeletas y veremos que calcula, mediante convoluciones con bases de ondeletas, coeficientes estables bajo la acción de difeomorfismos.
 
 \medskip
 
@@ -419,9 +392,7 @@ $$\left \lbrace \psi_{j,n}(t)= \frac{1}{\sqrt{2^j}} \psi\left(\frac{t-2^jn}{2^j}
 
 \noindent del espacio $L^2(\mathbb{R})$ de señales con energía finita, si recordamos, en este espacio la norma se define como: 
 
-\begin{definicion}
   $$||f||^2=\int_{-\infty}^{+\infty} |f(t)|^2 dt < +\infty$$
-\end{definicion}
 
 \noindent Así, cualquier señal $f$ de energía finita puede ser representada por los coeficientes que se obtienen mediante el producto interno en $L^2(\mathbb{R})$ con la base anterior: 
 
@@ -439,7 +410,7 @@ $$f=\sum_{j=-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}  \langle f,\psi_{j,n} \
   \item los mayores coeficientes se localizan en los cambios bruscos de intensidad de señal, como pueden ser los bordes, las esquinas o las texturas en las imágenes.
 \end{itemize}
 
-\noindent Para el caso concreto de imágenes (ver por ejemplo sección 1.1 de \cite{MallatWavelets}), las bases de ondeletas ortonormales pueden construirse a partir de bases ortonormales en señales de una dimensión. Así, a partir de tres ondeletas $\psi^1(x)$, $\psi^2(x)$ y$\psi^3(x)$ con $x=(x_1,x_2)\in \mathbb{R}^2$, dilatadas por el factor $2^j$ y trasladadas por $2^jn$ con $n=(n1,n2)\in \mathbb{Z}^2$, se construye una base ortonormal para el espacio $L^2(\mathbb{R}^2)$: 
+\noindent Para el caso concreto de imágenes \footnote{ver por ejemplo sección 1.1 de \cite{MallatWavelets}}, las bases de ondeletas ortonormales pueden construirse a partir de bases ortonormales en señales de una dimensión. Así, a partir de tres ondeletas $\psi^1(x)$, $\psi^2(x)$ y$\psi^3(x)$ con $x=(x_1,x_2)\in \mathbb{R}^2$, dilatadas por el factor $2^j$ y trasladadas por $2^jn$ con $n=(n1,n2)\in \mathbb{Z}^2$, se construye una base ortonormal para el espacio $L^2(\mathbb{R}^2)$: 
 $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{2^j}\right) \right \rbrace_{(j,n) \in \mathbb{Z}^2}$$
 
 \medskip
@@ -461,7 +432,7 @@ $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{
 \noindent Volviendo al propósito de definir el propagador de dispersión, la ondeleta madre que elijamos y la base ortogonal que forme se verán afectadas normalmente por escalados y rotaciones, por lo tanto definimos: 
 
 \begin{definicion}
-  Una ondeleta madre escalada por un factor $2^-j$ con $j \in \mathbb{Z}$ y rotada por $r \in G$ siendo $G$ el grupo finito de rotaciones, se escribe: 
+  Una ondeleta madre escalada por un factor $2^{-j}$ con $j \in \mathbb{Z}$ y rotada por $r \in G$ siendo $G$ el grupo finito de rotaciones, se escribe: 
 
   $$\psi_{2^j r}(x)=2^{dj} \psi(2^j r^{-1} x).$$
 \end{definicion}
@@ -475,7 +446,7 @@ $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{
 
 \noindent La transformada de dispersión que usaremos tendra una base de ondeletas generada por una ondeleta madre del tipo:
 
-$$\psi(x)=e^{i\cdot \eta \cdot  x} \Theta(x)$$
+$$\psi(x)=e^{i\eta x} \Theta(x)$$
 
 \noindent Donde $\widehat{\Theta}(x)$ es una función real centrada en una bola de baja frecuencia en $x=0$, cuyo radio es del orden de $\pi$.
 

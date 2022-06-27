@@ -414,6 +414,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7v.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplri9d.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplri9d.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplri8r.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmri.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplrij8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr9t.vf
@@ -441,8 +446,8 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplbi9d.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplbi8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmbi.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplbij8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4b-0.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr9c.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4b-0.tfm
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/logo-ugr.pdf
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/logo-ugr.pdf
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/logo-ugr.pdf
