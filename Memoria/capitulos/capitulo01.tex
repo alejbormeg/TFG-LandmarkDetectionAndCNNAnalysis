@@ -655,11 +655,7 @@ $$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,
 \subsection{El operador de dispersión sobre un camino ordenado}
 
 %Esto debería intentar explicarlo mejor?
-\noindent La transformada de Littlewood-Paley definida anteriormente es Lipschitz-conitnua bajo la acción de difeomorfismos, porque las ondeletas son funciones regulares y localizadas. Sin embargo, todavía no es invariante a traslaciones y $W[\lambda]f=f\ast\psi_\lambda$ se traslada cuando lo hace $f$.
-
-\medskip
-
-\noindent Por eso el mayor reto es conseguir calcular coeficientes que sean invariantes a traslaciones, que permanezcan estables bajo la acción de difeomorfismos y que retengan la información en altas frecuencias que proporcionan las ondeletas, reuniendo todas estas características tendríamos el operador que necesitamos para la construcción del PD. 
+\noindent La transformada de Littlewood-Paley definida anteriormente es Lipschitz-conitnua bajo la acción de difeomorfismos, porque las ondeletas son funciones regulares y localizadas. Sin embargo, todavía no es invariante a traslaciones y $W[\lambda]f=f\ast\psi_\lambda$ se traslada cuando lo hace $f$. Así, nuestro próximo objetivo será conseguir calcular coeficientes que sean invariantes a traslaciones, que permanezcan estables bajo la acción de difeomorfismos y que retengan la información en altas frecuencias que proporcionan las ondeletas, reuniendo todas estas características tendríamos el operador que necesitamos para la construcción del PD. 
 
 \medskip 
 
@@ -914,19 +910,19 @@ $$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
 
 \medskip
 
-\noindent Sin embargo, la energía de señal se concentra en un conjunto mucho más pequeño de caminos de frecuencias descendentes $p=(\lambda_k)_{k\leq m}$ en el cual $|\lambda_{k+1}| \leq |\lambda_k|$ como vimos en el ejemplo anterior. Esto ocurre porque como mencionamos antes, el propagador $U[\lambda]$ progresivamente lleva la energía de la señal a frecuencias cada vez menores, hasta que en cierto punto es nula.
+\noindent Sin embargo, la energía de señal se concentra en un conjunto mucho más pequeño de caminos de frecuencias descendentes $p=(\lambda_k)_{k\leq m}$ en el cual $|\lambda_{k+1}| \leq |\lambda_k|$. Esto ocurre porque como mencionamos antes, el propagador $U[\lambda]$ progresivamente lleva la energía de la señal a frecuencias cada vez menores, hasta que en cierto punto es nula.
 
 \medskip
 
 \noindent Veamos ahora la relación que guarda este propagador de ventana con el que se definió originalmente en \autoref{def:S_barra}. Como $\phi(x)$ es continua en $0$, si $f\in L^1 (\mathbb{R}^d)$ se tiene que su transformada de dispersión de ventana converge punto a punto a la transformada de dispersión cuando la escala $2^J$ tiende a $\infty$: 
 
 \begin{align*}
-    \forall x \in \mathbb{R}^d \;\; \lim_{J \rightarrow \infty} 2^{dJ} S_J[p]f(x) &=\phi(0)\int_{\mathbb{R}^d}U[p]f(u) du \\
+    \forall x \in \mathbb{R}^d \;\; \lim_{J \rightarrow \infty} 2^{dJ} S_J[p]f(x) 
     &=\lim_{J \rightarrow \infty} 2^{dJ} U[p]f \ast \phi_{2^J}(x) \\
     &=\lim_{J \rightarrow \infty} 2^{dJ} \int_{\mathbb{R}^d} U[p]f(u)\phi_{2^J}(x-u) du \\
     &=\lim_{J \rightarrow \infty} 2^{dJ} \int_{\mathbb{R}^d} U[p]f(u) 2^{-dJ} \phi(2^{-J}(x-u)) du   \\
     &= \int_{\mathbb{R}^d} U[p]f \phi(0) du  \\
-    &= \phi(0) \int_{\mathbb{R}^d} U[p]f du  \\
+    &=\phi(0)\int_{\mathbb{R}^d}U[p]f(u) du \\
     &= \phi(0)\overline{Sf}(p).\\ 
 \end{align*}
 
@@ -1077,7 +1073,7 @@ En la \autoref{ch:seccion12} se obtuvo que cada coeficiente $U[\lambda]f=|f \ast
 
 \noindent Para la demostración de la conservación de la norma necesitamos unos resultados previos: 
 
-\begin{lema}
+\begin{lema} \label{lema::Cota_inferior}
   Si $h$ es una funciones tal que $h\geq 0$ entonces $\forall f \in L^2(\mathbb{R}^d)$: 
   
   \begin{equation}
@@ -1154,15 +1150,15 @@ y
 \end{teorema}
 
 \begin{proof}
-  Esta demostración tiene dos partes, la primera consistirá en demostrar que la condición \eqref{eq::1.6} implica que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0$. Comenzamos con la \textbf{primera parte}:
-
-  \noindent La clave de esto reside en el siguiente lema, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva. 
+  Esta demostración tiene dos partes, la primera consistirá en demostrar que la condición \eqref{eq::1.6} implica que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0$. 
   
-  \noindent La clase de funciones para las que $||f||_w < \infty$ es una clase logarítmica de Sobolev correspondiente a funciones que tienen un módulo promedio continuo en $L^2(\mathbb(R)^d)$. Como 
+  \medskip
+
+  \noindent La clave de esto reside en el \autoref{lema::Cota_inferior}, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva. La clase de funciones para las que $||f||_w < \infty$ es una clase logarítmica de Sobolev correspondiente a funciones que tienen un módulo promedio continuo en $L^2(\mathbb(R)^d)$. Como 
 
   $$ || U[\mathcal{P}_J]f ||^2= \sum_{m=0}^{+\infty} ||U[\Lambda_J^m]f||^2,$$
 
-  \noindent si $||f||_w < \infty$ entonces \eqref{eq::1.9} implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||= 0$. Este resultado se extiende en $L^2(\mathbb{R}^d)$ por densidad. Como $\phi \in L^1(\mathbb{R}^d)$ y $\widehat{\phi(0)=1}$, cualquier $f\in L^2(\mathbb{R}^d)$ satisface $\lim_{n\rightarrow - \infty} ||f-f_n||=0$, dónde $f_n=f \ast \phi_{2^n}$ y $\phi_{2^n}=2^{-nd} \phi(2^{-n}x)$. Se demuestra por tanto que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f_n||=0$ viendo que $||f_n||_w < \infty$. De hecho, 
+  \noindent si $||f||_w < \infty$ entonces \eqref{eq::1.9} implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||= 0$. Este resultado se extiende en $L^2(\mathbb{R}^d)$ por densidad. Como $\phi \in L^1(\mathbb{R}^d)$ y $\widehat{\phi}(0)=1$, cualquier $f\in L^2(\mathbb{R}^d)$ satisface $\lim_{n\rightarrow - \infty} ||f-f_n||=0$, dónde $f_n=f \ast \phi_{2^n}$ y $\phi_{2^n}=2^{-nd} \phi(2^{-n}x)$. Se demuestra por tanto que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f_n||=0$ viendo que $||f_n||_w < \infty$. De hecho, 
 
 
   \begin{align*}
