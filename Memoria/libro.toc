@@ -7,30 +7,30 @@
 \contentsline {part}{\numberline {I}Primera parte}{1}{part.1}%
 \contentsline {chapter}{\numberline {1}Análisis de Redes Convolucionales}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Introducción}{3}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Notación}{5}{subsection.1.1.1}%
-\contentsline {section}{\numberline {1.2}Modelización Matemática de una Red Neuronal Convolucional}{5}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}De Fourier a las ondeletas de Littlewood-Paley}{6}{subsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.1.1}El módulo de la Transformada de Fourier}{6}{subsubsection.1.2.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Notación}{6}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Modelización Matemática de una Red Neuronal Convolucional}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}De Fourier a las ondeletas de Littlewood-Paley}{7}{subsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.1.1}El módulo de la Transformada de Fourier}{7}{subsubsection.1.2.1.1}%
 \contentsline {subsubsection}{\numberline {1.2.1.2}Alternativa: Las ondeletas}{12}{subsubsection.1.2.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1.3}La Transformada de Littlewood-Paley}{15}{subsubsection.1.2.1.3}%
-\contentsline {subsubsection}{\numberline {1.2.1.4}Convenios para futuras secciones}{18}{subsubsection.1.2.1.4}%
+\contentsline {subsubsection}{\numberline {1.2.1.3}La Transformada de Littlewood-Paley}{16}{subsubsection.1.2.1.3}%
+\contentsline {subsubsection}{\numberline {1.2.1.4}Convenios para futuras secciones}{19}{subsubsection.1.2.1.4}%
 \contentsline {subsection}{\numberline {1.2.2}El operador de dispersión sobre un camino ordenado}{19}{subsection.1.2.2}%
 \contentsline {subsubsection}{\numberline {1.2.2.1}Ejemplo para obtener coeficientes invariantes por traslaciones}{20}{subsubsection.1.2.2.1}%
 \contentsline {subsubsection}{\numberline {1.2.2.2}El operador módulo.}{21}{subsubsection.1.2.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.2.3}Propiedades de un camino de frecuencias.}{22}{subsubsection.1.2.2.3}%
-\contentsline {subsubsection}{\numberline {1.2.2.4}Construcción del operador de dispersión.}{23}{subsubsection.1.2.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.2.3}Propiedades de un camino de frecuencias.}{23}{subsubsection.1.2.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.2.4}Construcción del operador de dispersión.}{24}{subsubsection.1.2.2.4}%
 \contentsline {subsection}{\numberline {1.2.3}Propagador de dispersión y conservación de la Norma}{25}{subsection.1.2.3}%
 \contentsline {subsubsection}{\numberline {1.2.3.1}Proceso de dispersión del propagador.}{25}{subsubsection.1.2.3.1}%
-\contentsline {subsubsection}{\numberline {1.2.3.2}Diferencias y similitudes con una CNN}{25}{subsubsection.1.2.3.2}%
-\contentsline {subsubsection}{\numberline {1.2.3.3}Relación con herramientas clásicas de visión por computador}{26}{subsubsection.1.2.3.3}%
-\contentsline {subsubsection}{\numberline {1.2.3.4}Operador no expansivo.}{26}{subsubsection.1.2.3.4}%
+\contentsline {subsubsection}{\numberline {1.2.3.2}Diferencias y similitudes con una CNN}{26}{subsubsection.1.2.3.2}%
+\contentsline {subsubsection}{\numberline {1.2.3.3}Relación con herramientas clásicas de visión por computador}{27}{subsubsection.1.2.3.3}%
+\contentsline {subsubsection}{\numberline {1.2.3.4}Operador no expansivo.}{27}{subsubsection.1.2.3.4}%
 \contentsline {subsubsection}{\numberline {1.2.3.5}Conservación de la norma.}{28}{subsubsection.1.2.3.5}%
 \contentsline {subsubsection}{\numberline {1.2.3.6}Conclusiones extraidas del teorema}{32}{subsubsection.1.2.3.6}%
 \contentsline {section}{\numberline {1.3}Invarianza por Traslaciones}{32}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}No expansividad del operador de ventana en conjuntos de caminos}{32}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.1}No expansividad del operador de ventana en conjuntos de caminos}{33}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.3.2}Invarianza por traslaciones}{35}{subsection.1.3.2}%
-\contentsline {section}{\numberline {1.4}Elementos del texto}{40}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Listas}{40}{subsection.1.4.1}%
+\contentsline {section}{\numberline {1.4}Elementos del texto}{41}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Listas}{41}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}Tablas y figuras}{41}{subsection.1.4.2}%
 \contentsline {section}{\numberline {1.5}Entornos matemáticos}{41}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Bibliografía e índice}{42}{section.1.6}%

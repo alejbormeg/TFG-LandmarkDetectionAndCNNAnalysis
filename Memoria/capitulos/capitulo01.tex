@@ -6,12 +6,12 @@
 
 \section{Introducción}
 
-\noindent Actualmente, las \textbf{Redes Neuronales Convolucionales} (CNN \footnote{Convolutional Neural Network}) están consideradas como unas de las mejores herramientas de la Inteligencia Artificial para tareas de Aprendizaje Automático (AA), de hecho son el principal objeto de estudio del conocido \textbf{Deep Learning}, una subrrama del AA en la que hoy en día se están invirtiendo mucho esfuerzo en invesitgar y de la que anualmente se publican muchos artículos que nos enseñan la gran potencia de las CNN.
+\noindent Actualmente, las \textbf{Redes Neuronales Convolucionales} (CNN \footnote{Convolutional Neural Network}) son una de las herramientas más usadas de la Inteligencia Artificial para tareas de Aprendizaje Automático (AA), de hecho son el principal objeto de estudio del \textbf{Deep Learning}, una subrrama del AA en la que hoy en día se está invirtiendo mucho esfuerzo en invesitgar y de la que anualmente se publican muchos artículos que nos enseñan la gran potencia de las CNN para diveras tareas.
 
 
 \medskip
 
-\noindent Destaca especialmente el increible desempeño que tienen las CNN en el procesamiento de imágenes en tareas de clasificación, segmentación o incluso generación de nuevas imágenes. Es por ello que en el presente trabajo nos proponemos realizar una modelización matemática de estas CNN, para conocerlas mejor desde este punto de vista más técnico y ser capaces de demostrar una de sus principales propiedades: La invarianza por traslaciones.
+\noindent Destaca especialmente el excelente desempeño que tienen las CNN en el procesamiento de imágenes para tareas de clasificación, segmentación o incluso generación de nuevas imágenes. Es por ello que en el presente trabajo nos proponemos realizar una \textbf{modelización matemática} de estas CNN, para conocerlas mejor desde un punto de vista más teórico y \textbf{conocer algunas de sus principales propiedades} como la invarianza por traslaciones o frente a \entrecomillado{pequeñas} deformaciones. Finalmente, trataremos de \textbf{demostrar} la invarianza por traslaciones.
 
 \medskip
 
@@ -30,20 +30,44 @@
 
 \medskip
 
-\noindent Las simetrías e invarianzas, aunque juegan un papel más importante en el campo de la Física, van abriéndose paso en el procesamiento de información de señales. La información contenida en las señales referente a imágenes o sonidos no suele verse afectada bajo la acción de grupos finitos como las traslaciones o las rotaciones, y es estable a la acción de pequeños difeomorfismos que deforman las señales. Esto motiva el estudio de las representaciones de traslaciones e invarianzas de las funciones de $L^2(\mathbb{R}^d)$, que son Lipschitz-continuas por la acción de difeomorfismos y que mantienen información de alta frecuencia para diferenciar entre distintos tipos de señales. 
+\noindent Por otro lado, se conoce la \textbf{Invarianza frente a pequeñas deformaciones} (difeomorfismos) a la capacidad de reconocer la identidad de un objeto en una imagen a pesar de que este pueda haber sido alterado con pequeñas deformaciones.
+
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{img/Diffeomorphism.png}
+  \caption{Acción de un difeomorfismo en una rejilla.}
+  \label{fig:difeomorfismo}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/5_deformado.png}
+  \caption{Todas las imágenes deberían clasificarse como 5, pese a las deformaciones.}
+  \label{fig:deformaciones_5}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{img/1_excesivamente_deformado.png}
+  \caption{Deformación excesiva que permite confundir el 1 con el 2 cuando se le aplica el difeomorfismo. Por eso nos centramos en \entrecomillado{pequeñas} deformaciones, para no alterar la identidad del objeto en la imagen.}
+  \label{fig:deformaciones_1}
+\end{figure}
 
 \medskip
 
-\noindent En primer lugar nos centraremos en la invarianza por traslaciones, entendida en el contexto de las imágenes como trasladar cada pixel de la imagen en una misma dirección la misma distancia. En este sentido: 
+
+\noindent Esto motiva el estudio de las representaciones de traslaciones e invarianzas en las funciones de $L^2(\mathbb{R}^d)$, que son Lipschitz-continuas por la acción de difeomorfismos y que mantienen información de alta frecuencia para diferenciar entre distintos tipos de señales, con el objetivo de encontrar un operador que verifique todas estas propiedades y que presentaremos como la modelización matemática de una CNN.
+
+\medskip
+
+\noindent De esta manera, la invarianza por traslaciones, entendida en el contexto de las imágenes puede verse como trasladar cada pixel de la imagen en una misma dirección la misma distancia. En este sentido : 
+
 \begin{definicion}
 $L_cf(x)=f(x-c)$ es la traslación de $f \in L^2(\mathbb{R}^d)$ por $c \in \mathbb{R}^d$ .
 \end{definicion}
 
-\noindent Así, decimos que un operador $\Phi$ de  $L^2(\mathbb{R}^d)$ en un espacio de Hilbert $\mathcal{H}$ es invariante por traslaciones si $\Phi(L_cf(x))=\Phi(f)$ para todo $f \in L^2(\mathbb{R}^d)$ y para todo $c \in \mathbb{R}^d$. El módulo de la transformada de Fourier de $f$ es un ejemplo de un operador invariante por traslaciones no canónico que estudiaremos en la sección siguiente. 
-
-\medskip
-
-\noindent Sin embargo, estos operadores invariantes a traslaciones no son Lipshcitz-continuos por la acción de difeomorfismos. Es conocido el hecho de que aparecen inestabilidades frente a deformaciones en las altas frecuencias, y el mayor reto es preservar la Lipschitz-continuidad en esta situación.
+\noindent Así, decimos que un operador $\Phi$ de  $L^2(\mathbb{R}^d)$ en un espacio de Hilbert $\mathcal{H}$ es invariante por traslaciones si $\Phi(L_cf(x))=\Phi(f)$ para todo $f \in L^2(\mathbb{R}^d)$ y para todo $c \in \mathbb{R}^d$. En el siguiente apartado trataremos el caso del módulo de la transformada de Fourier de $f$ como un ejemplo de un operador invariante por traslaciones. Sin embargo, es conocido el hecho de que aparecen inestabilidades frente a deformaciones en las altas frecuencias, y el mayor reto es preservar la Lipschitz-continuidad en esta situación.
 
 \medskip
 
@@ -54,7 +78,15 @@ Decimos que $\Phi$ es no-expansiva si:
 $$\forall (f,h) \in L^2(\mathbb{R}^d)^2 \; || \Phi(f)-\Phi(h)||_\mathcal{H} \leq ||f-h||$$
 \end{definicion}
 
-\noindent Es entonces suficiente verificar su Lipschitz-continuidad relativa a la acción de pequeños difeomorfismos cercanos a las traslaciones. Dichos difeomorfismos transforman $x \in \mathbb{R}^d$ en $x-\tau (x)$ dónde $\tau$ es el campo de desplazamiento. 
+\noindent Por otro lado: 
+
+
+\begin{definicion}
+  Una función diferenciable $f: X \rightarrow \Omega$ dónde $X$ y $\Omega$ son variedades, es un \entrecomillado{Difeomorfismo} si $f$ es una biyección y su inversa $f^{-1}:\Omega \rightarrow X$ es también diferenciable. 
+\end{definicion}
+
+
+\noindent En nuestro caso, vamos a encargarnos de verificar la Lipschitz-continuidad relativa a la acción de pequeños difeomorfismos cercanos a las traslaciones. Dichos difeomorfismos transforman $x \in \mathbb{R}^d$ en $x-\tau (x)$ dónde $\tau$ es el campo de desplazamiento. 
 
 \begin{definicion}
 Denotemos $L_{\tau} f(x)=f(x-\tau(x))$ como la acción del difeomorfismo $\mathbb{1}-\tau$ en $f$.
@@ -62,34 +94,50 @@ Denotemos $L_{\tau} f(x)=f(x-\tau(x))$ como la acción del difeomorfismo $\mathb
 
 \medskip
 
-\noindent La condición de Lipschitz nos dice que $||\Phi(f)-\Phi(L_\tau f)||$ está acotada por el "tamaño" del difeomorfismo, y por tanto por la distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$, hasta $||f||$ por una constante multiplicativa. 
+\noindent Por otro lado, la condición de Lipschitz es la siguiente: 
 
-\medskip
+\begin{definicion}
+  Sea $f: M \rightarrow N$ una función entre dos espacios métricos $M$ y $N$ con sus respectivas distancias $d_M$ y $d_N$. Se dice que $f$ satisface la condición de Lipschitz si $\exists C>0$ tal que: 
 
-\noindent Sea $|\tau (x)|$ la norma euclídea en $\mathbb{R}^d$, $\nabla |\tau (x)|$ la norma del supremo de la matriz $\nabla \tau (x)$, y $|H \tau (x)|$ la norma del supremo del tensor Hessiano.  
+  $$d_N(f(x),f(y))\leq C d_M(x,y), \; \; \forall x,y \in M$$
+\end{definicion}
 
-La topología débil (recordemos que es la topología menos fina de un espacio normado que hace continuas todas las aplicaciones de su dual) en los difeomorfismos $C^2$  permite definir la siguiente aplicación: 
+\noindent En nuestro caso, la $d_N$ que utilizaremos será la norma del espacio de Hilbert $\mathcal{H}$ de llegada, pero necesitamos definir de alguna manera una distancia $d_M$ entre los difeomorfismo $\mathbb{1}$ y $\mathbb{1}-\tau$ para escribir correctamente la condición de Lipschitz. Además, dado que el espacio de partida es $L^2(\mathbb{R}^d)$ y los puntos que vamos a comparar son las funciones $f$ y $L_\tau f=f(x-\tau(x))$ sabemos que $\|\Phi(f) - \Phi(L_cf) \|$ estará acotada por $\|f\| · d(\mathbb{1}, \mathbb{1}-\tau)$, de manera que necesitamos definir una distancia entre el difeomorfismo $\mathbb{1}$ y $\mathbb{1}-\tau$. Para ello, la topología débil \footnote{ recordemos que es la topología menos fina de un espacio normado que hace continuas todas las aplicaciones de su dual} en los difeomorfismos $C^2$  permite definir la siguiente aplicación, que utilizaremos como distancia:
+
 \begin{definicion}
 Así, se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subconjunto compacto $\Omega$ de $\mathbb{R}^d$ como 
 
-$$(1.1) \; \; d_\Omega(\mathbb{1},\mathbb{1}-\tau) = \sup_{x \in \Omega} |\tau (x)| + \sup_{x \in \Omega} |\nabla \tau (x)| + \sup_{x \in \Omega}|H \tau (x)|  $$
+\begin{equation} \label{eq::distancia}
+  d_\Omega(\mathbb{1},\mathbb{1}-\tau) = \sup_{x \in \Omega} |\tau (x)| + \sup_{x \in \Omega} |\nabla \tau (x)| + \sup_{x \in \Omega}|H \tau (x)|
+\end{equation}
+
 \end{definicion}
+\medskip
+
+\noindent Dónde $|\tau (x)|$ es la norma euclídea en $\mathbb{R}^d$, $\nabla |\tau (x)|$ la norma del supremo de la matriz $\nabla \tau (x)$, y $|H \tau (x)|$ la norma del supremo del Hessiano.
+
+\medskip
+
+\noindent Así, podemos finalmente expresar la condición de Lipschitz que un operador debería satisfacer en nuestro caso:  
+
 \medskip
 
 \begin{definicion}
 \noindent Un operador invariante por traslaciones $\Phi$ se dice \entrecomillado{Lipchitz-continuo} por la acción de los difeomorfismos $C^2$  si para cualquier compacto $\Omega \subset \mathbb{R}^d$ existe una constante $C$ tal que para todo $f \in L^2(\mathbb{R}^d)$ con Soporte en $\Omega$ y para todo $\tau \in C^2(\mathbb{R}^d)$ se cumple:
 
-$$(1.2)  \; \; || \Phi(f)-\Phi(L_{\tau}f)||_\mathcal{H} \leq C||f||(\sup_{x \in \mathbb{R}^d} |\nabla \tau (x)| + \sup_{x \in \mathbb{R}^d}|H \tau (x)|)$$
-
+\begin{equation} \label{eq::Lipschitz_condition}
+  || \Phi(f)-\Phi(L_{\tau}f)||_\mathcal{H} \leq C||f||(\sup_{x \in \mathbb{R}^d} |\nabla \tau (x)| + \sup_{x \in \mathbb{R}^d}|H \tau (x)|)
+\end{equation}
 \end{definicion}
 
 \medskip
 
-\noindent Debido a que $\Phi$ es invariante a traslaciones, la cota superior de Lipschitz no depende de la amplitud máxima de traslación $\sup_x|\tau (x)|$ de la métrica del difeomorfismo (1.1). Por otro lado la continuidad Lipschitz de (1.2) implica que $\Phi$ es invariante por traslaciones globales, pero es mucho más fuerte. $\Phi$ se ve poco afectada por los términos de primer y segundo grado de difeomorfismos que son traslaciones locales.
+\noindent Debido a que $\Phi$ es invariante a traslaciones, la cota superior de Lipschitz no depende de la amplitud máxima de traslación $\sup_{x \in \mathbb{R}^d}|\tau (x)|$ de la métrica del difeomorfismo \eqref{eq::distancia}. Por otro lado la continuidad Lipschitz de \eqref{eq::Lipschitz_condition} implica que $\Phi$ es invariante por traslaciones globales, pero es mucho más fuerte. $\Phi$ se ve poco afectada por los términos de primer y segundo grado de difeomorfismos que son traslaciones locales.
 
 \medskip
 
-\noindent Las inestabilidades por altas frecuencias de las deformaciones se pueden evitar agrupando las frecuencias en paquetes diádicos en $\mathbb{R}^d$ con transformadas de ondeletas. Sin embargo, una transformada de ondeletas no es invariante por traslaciones. Es posible construir un operador invariante por traslaciones mediante un procedimiento de dispersión a lo largo de múltiples caminos, que preservan la condición de lipschitz de las ondeletas por la acción de difeomorfismos. Un propagador de dispersión se define en primer lugar como una composición organizada de convoluciones de operadores no lineales y no conmutativos, cada uno de los cuales calcula el módulo de la transformada de ondeletas. Esta cascada de convoluciones y módulos también pueden interpretarse como una red neuronal convolucional. Para ondeletas apropiadas, en la sección 2 veremos el principal teorema que demuestra que una ventana de dispersión mantiene la norma: $||\Phi(f)||_{\mathcal{H}}=||f|| \; \forall f \in L^2(\mathbb{R}^d)$ y es Lipschitz-continua por difeomorfismos de clase $C^2$.
+
+\noindent Una vez presentadas las principales herramientas con las que trabajaremos, en las futuras secciones veremos como para la elección de ciertos operadores como el módulo de la transformada de Fourier existen problemas para satisfacer la condición de Lipschitz en altas frecuencias. Para solucionar el problema se optará por utilizar transformadas de ondeletas, pero esto abre nuevos problemas como serán el hecho de que no son invariantes por traslaciones. Por ello será necesario componer la transformada con un operador no lineal que será el módulo para obtener coeficientes invariantes por traslaciones. Este nuevo operador que consistirá en una cascada de convoluciones de operadores no lineales y no conmuntativos de manera que cada uno de ellos calcula el módulo de la transfomada de odeletas, y será este nuevo operador el que podremos interpretar como la modelización matemática de una CNN.
 
 \subsection{Notación}
 
@@ -97,13 +145,10 @@ $$(1.2)  \; \; || \Phi(f)-\Phi(L_{\tau}f)||_\mathcal{H} \leq C||f||(\sup_{x \in 
     \item $|| \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\tau(x)|$
     \item $||\nabla \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\nabla \tau(x)|$
     \item $||\mathcal{H} \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\mathcal{H} \tau(x)|$ dónde $|\mathcal{H} \tau(x)|$ es la norma del tensor Hessiano. 
-    \item El producto interno de $(x,y) \in \mathbb{R}^{2d}$ es $x\cdot y$.
-    \item La norma de $f$ en un espacio de Hilbert se denota por $||f||$.
-    \item La norma de $f$ en $L^2(\mathbb{R}^d)$ se denota por $||f||^2=\int{|f(x)|^2 dx}$.
-    \item La norma de $f$ en $L^1(\mathbb{R}^d)$ es $||f||_1=\int{|f(x)| dx}$.
-    \item La transformada de Fourier se denota por $\widehat{f}(\omega):= \int{f(x)e^{-ix\omega}d\omega}$.
+    \item La norma en $L^2(\mathbb{R}^d)$ de $f$ lo denotamos $||f||$.
+    \item La norma de $f$ en $L^1(\mathbb{R}^d)$ lo denotamos $||f||_1=\int{|f(x)| dx}$.
+    \item Se denota $g \circ f(x)=f(gx)$ a la acción de un elemento del grupo $g\in G$.
     \item Un operador  $\mathcal{R}$ parametrizado por $p$ es denotado por $\mathcal{R}[p]$ y $\mathcal{R}[\Omega]=\lbrace \mathcal{R}[p] \rbrace_{p \in \Omega}$. 
-    \item La norma del supremo de un operador lineal $A$ en $L^2(\mathbb{R}^d)$ lo denotamos por $||A||$ y el conmutador entre dos operadores $[A,B]=AB-BA$.
 \end{itemize}
 
 \section{Modelización Matemática de una Red Neuronal Convolucional} \label{ch:seccion12}
@@ -166,36 +211,8 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
 
 \medskip
     
-\noindent Sin embargo, la invaianza por traslaciones no es suficiente, necesitamos también que nuestro operador sea invariante frente a pequeñas deformaciones (difeomorfismos). Este hecho es de vital importancia en el contexto del procesamiento de imágenes y la visión por computador, pues nos permite caracterizar objetos presentes en imágen incluso si estos se ven afectados por pequeñas deformaciones.
-
+\noindent Sin embargo, la invaianza por traslaciones no es suficiente, necesitamos también que nuestro operador sea invariante frente a pequeñas deformaciones (difeomorfismos).
 \medskip
-
-\noindent Empezamos así definiendo qué es un difeomorfismo: 
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{img/Diffeomorphism.png}
-    \caption{Acción de un difeomorfismo en una rejilla.}
-    \label{fig:difeomorfismo}
-\end{figure}
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/5_deformado.png}
-    \caption{Todas las imágenes deberían clasificarse como 5, pese a las deformaciones.}
-    \label{fig:deformaciones_5}
-\end{figure}
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{img/1_excesivamente_deformado.png}
-    \caption{Deformación excesiva que permite confundir el 1 con el 2 cuando se le aplica el difeomorfismo.}
-    \label{fig:deformaciones_1}
-\end{figure}
-
-\begin{definicion}
-    Una función diferenciable $f: X \rightarrow \Omega$ dónde $X$ y $\Omega$ son variedades, es un \entrecomillado{Difeomorfismo} si $f$ es una biyección y su inversa $f^{-1}:\Omega \rightarrow X$ es también diferenciable. 
-\end{definicion}
 
 \noindent Por otro lado, vamos a necesitar definir una distancia entre $\mathbb{1}$ y $\mathbb{1}-\tau$ para la condición de Lipschitz y garantizar la estabilidad bajo la acción de difeomorfismos:
 
