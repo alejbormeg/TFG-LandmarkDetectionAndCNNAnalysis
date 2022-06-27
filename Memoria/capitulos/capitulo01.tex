@@ -191,7 +191,7 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
 
 \noindent Vamos a comprobar si se trata de un operador válido para nuestro propósito. Para ello necesitamos en primer lugar que sea un operador \textbf{Invariante por traslaciones}. Veamos  que sí cumple esta propiedad.
 
-\begin{lema}
+\begin{lema} \label{lema::invarianza_traslaciones}
     El operador $\Phi(f)=|\widehat{f}|$ es invariante por traslaciones.
 \end{lema}
 
@@ -332,9 +332,9 @@ $$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c |
 
 \noindent Y como $\xi$ puede ser arbitrariamente grande, intuitivamente el intervalo en el que ambas funciones tienen soporte disjunto crece de forma indefinida lo cual nos permite realizar la siguiente aproximación teniendo en cuenta que $g_1(t)=\widehat{f}$:
 
-\begin{align*} \label{eq::1.1}
-  \left\| |\widehat{f}| -|\widehat{L_\tau f}| \; \right\| &\sim \|g_1(t) \|=\|f\|. 
-\end{align*}
+\begin{equation} \label{eq::1.1}
+  \left\| |\widehat{f}| -|\widehat{L_\tau f}| \; \right\| \sim \|g_1(t) \|=\|f\|. 
+\end{equation}
 
 \noindent Dónde la última igualdad la hemos realizado gracias a la fórmula de Plancharel que en el caso de $\mathbb{R}^d$ es: 
 
@@ -369,7 +369,7 @@ $$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c |
 
 \medskip
 
-\noindent A modo de ejemplo, vamos a ver la base de Haar, un ejemplo que aunque no sea el que utilicemos para construir nuestro propagador de dispersión, puede ayudar a entender mejor la filosofía de las ondeletas. Se construye a partir de la siguiente función: 
+\noindent A modo de ejemplo vamos a ver la base de Haar que, aunque no sea la que utilicemos para construir nuestro propagador de dispersión, puede ayudar a entender mejor la filosofía de las ondeletas. Se construye a partir de la siguiente función: 
 
 $$ \psi(t)= \begin{cases} 
       1 & 0\leq t < 1/2 \\
@@ -384,15 +384,15 @@ $$ \psi(t)= \begin{cases}
   \label{fig:Ondeleta_de_Haar}
 \end{figure}
 
-\noindent A esta ondeleta la denominamos \textbf{ondeleta Madre}, pues a partir de ella, podemos generar la siguiente base ortonormal:
+\noindent A esta ondeleta la denominamos \textbf{ondeleta Madre}, pues a partir de ella, podemos generar la siguiente base ortonormal
 
 \medskip
 
 $$\left \lbrace \psi_{j,n}(t)= \frac{1}{\sqrt{2^j}} \psi\left(\frac{t-2^jn}{2^j}\right) \right\rbrace_{(j,n) \in \mathbb{Z}^2}$$
 
-\noindent del espacio $L^2(\mathbb{R})$ de señales con energía finita, si recordamos, en este espacio la norma se define como: 
+\noindent del espacio $L^2(\mathbb{R})$ de señales con energía finita. Si recordamos, en este espacio la norma se define como 
 
-  $$||f||^2=\int_{-\infty}^{+\infty} |f(t)|^2 dt < +\infty$$
+  $$||f||^2=\int_{-\infty}^{+\infty} |f(t)|^2 dt < +\infty.$$
 
 \noindent Así, cualquier señal $f$ de energía finita puede ser representada por los coeficientes que se obtienen mediante el producto interno en $L^2(\mathbb{R})$ con la base anterior: 
 
@@ -403,6 +403,8 @@ $$\langle f,\psi_{j,n} \rangle =\int_{-\infty}^{+\infty} f(t) \psi_{j,n} (t) dt 
 $$f=\sum_{j=-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}  \langle f,\psi_{j,n} \rangle \psi_{j,n} $$
 
 \noindent Esto nos permite (igual que pasaba con el módulo de la Transformada de Fourier) trabajar en un dominio más sencillo que nos permite procesar la información con mayor rapidez y posteriormente reconstruir la señal a partir de los coeficientes sin perder información. Algunas propiedades serían: 
+
+\newpage
 
 \begin{itemize}
   \item Cada ondeleta $\psi_{j,n}$ tiene media $0$ en su soporte $[2^jn, 2^j(n+1)]$.
@@ -455,7 +457,7 @@ $$\psi(x)=e^{i\eta x} \Theta(x)$$
 \noindent Y como podemos ver:
 
 \begin{equation}
-  \widehat{\psi}(\omega)=\int_{\mathbb{R}^d}e^{i\cdot \eta \cdot  x} \Theta(x) e^{-i\omega x} dx=\int_{\mathbb{R}^d}\Theta(x) e^{ix(\omega-\eta)} dx=\widehat{\Theta}(\omega-\eta).
+  \widehat{\psi}(\omega)=\int_{\mathbb{R}^d}e^{i \eta x} \Theta(x) e^{-i\omega x} dx=\int_{\mathbb{R}^d}\Theta(x) e^{ix(\omega-\eta)} dx=\widehat{\Theta}(\omega-\eta).
 \end{equation}
 
 \medskip
@@ -471,7 +473,9 @@ $$\widehat{\psi}_\lambda(\omega)= \widehat{\Theta} (\lambda^{-1}\omega-\eta),$$
 
 \subsubsection{La Transformada de Littlewood-Paley}
 
-\noindent Una vez conocemos un poco más en profundidad las ondeletas y su foncionamiento, pasamos a presentar la \textbf{Transformada de ondeleta de Littlewood-Paley}, que es la que emplearemos para construir el propagador de dispersión.
+\noindent Una vez conocemos un poco más en profundidad las ondeletas y su funcionamiento, pasamos a presentar la \textbf{Transformada de ondeleta de Littlewood-Paley}, que es la que emplearemos para construir el propagador de dispersión.
+
+\medskip
 
 \noindent Se trata de una representacion redundante que calcula convoluciones para todo $x \in \mathbb{R}^d$ sin realizar sub-muestreo: 
 
@@ -509,8 +513,8 @@ $$\widehat{W[\lambda]f(\omega)}=\widehat{f}(\omega)\widehat{\psi_\lambda}(\omega
 \noindent Además, teniendo en cuenta la propiedad que nos dice que si la función $f$ es real, entonces su transformada coincide con el conjugado complejo $\widehat{f}(-\omega)=\overline{\widehat{f}(\omega)}$ podemos ver que: 
 
 \begin{itemize}
-  \item si $\widehat{\psi}(\omega)$ y $f$ son reales entonces $W[-\lambda]f= \overline{W[\lambda]f}$, utilizando la misma propiedad de antes.Además, si denotamos por $G^{+}$ al cociente de G con $\lbrace-\mathbb{1},\mathbb{1}\rbrace$, conjunto en el cual las dos rotaciones $r$ y $-r$ son equivalentes, sería suficiente calcular $W[2^jr]f$ para las rotaciones "positivas" de $G^{+}$
-  \item En cambio, si $f$ fuese compleja, entonces $W[2^jr]f$ tendría que calcularse para todo $r \in G$
+  \item si $\widehat{\psi}(\omega)$ y $f$ son reales entonces $W[-\lambda]f= \overline{W[\lambda]f}$, utilizando la misma propiedad de antes. Además, si denotamos por $G^{+}$ al cociente de G con $\lbrace-\mathbb{1},\mathbb{1}\rbrace$, conjunto en el cual las dos rotaciones $r$ y $-r$ son equivalentes, sería suficiente calcular $W[2^jr]f$ para las rotaciones "positivas" de $G^{+}$.
+  \item En cambio, si $f$ fuese compleja, entonces $W[2^jr]f$ tendría que calcularse para todo $r \in G$.
 \end{itemize}
 
 \medskip
@@ -628,7 +632,7 @@ $$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,
 
 \subsubsection{Convenios para futuras secciones}
 
-\noindent LLegados a este punto, ya tenemos la transformada de ondeletas que vamos a utilizar para la construcción del PD, ahora vamos a establecer algunas características que impondremos a los distintos elementos que la componen y que usaremos de ahora en adelante: 
+\noindent Llegados a este punto, ya tenemos la transformada de ondeletas que vamos a utilizar para la construcción del PD, ahora vamos a establecer algunas características que impondremos a los distintos elementos que la componen y que usaremos de ahora en adelante: 
 
 \begin{itemize}
     \item $\widehat{\psi}$ es una función real que satisface la condición \eqref{eq::1.2}. Lo que implica que $\widehat{\psi}(0)=\int \psi(x)dx=0$ y $|\widehat{\phi}(r\omega)|=|\widehat{\phi}(\omega)| \;\; \forall r\in G$.
@@ -652,6 +656,8 @@ $$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,
 
 %Esto debería intentar explicarlo mejor?
 \noindent La transformada de Littlewood-Paley definida anteriormente es Lipschitz-conitnua bajo la acción de difeomorfismos, porque las ondeletas son funciones regulares y localizadas. Sin embargo, todavía no es invariante a traslaciones y $W[\lambda]f=f\ast\psi_\lambda$ se traslada cuando lo hace $f$.
+
+\medskip
 
 \noindent Por eso el mayor reto es conseguir calcular coeficientes que sean invariantes a traslaciones, que permanezcan estables bajo la acción de difeomorfismos y que retengan la información en altas frecuencias que proporcionan las ondeletas, reuniendo todas estas características tendríamos el operador que necesitamos para la construcción del PD. 
 
@@ -738,7 +744,7 @@ En resumen, queremos un operador no lineal que produzca coeficientes invariantes
   &=\left| \widehat{f}(\lambda\eta)\right|^2 \left| \widehat{\Theta}(0) \right|^2 
 \end{align*}
 
-\noindent que como podemos ver, la integral tiene un valor no trivial y por otra parte obtenemos el módulo de la transformada que como habíamos visto \eqref{eq::1.1} era invariante por traslaciones. No obstante, no utilizaremos este operador para nuestro propósito pues además de ser complejo no verifica la invarianza bajo la acción de difeomorfismos.
+\noindent que como podemos ver, la integral tiene un valor no trivial y por otra parte obtenemos el módulo de la transformada que como habíamos visto \autoref{lema::invarianza_traslaciones} era invariante por traslaciones. No obstante, no utilizaremos este operador para nuestro propósito pues además de ser complejo no verifica la invarianza bajo la acción de difeomorfismos.
 
 \subsubsection{El operador módulo.}
 
