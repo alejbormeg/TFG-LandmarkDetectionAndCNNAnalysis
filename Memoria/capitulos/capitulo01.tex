@@ -1154,7 +1154,7 @@ y
   
   \medskip
 
-  \noindent La clave de esto reside en el \autoref{lema::Cota_inferior}, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva. La clase de funciones para las que $||f||_w < \infty$ es una clase logarítmica de Sobolev correspondiente a funciones que tienen un módulo promedio continuo en $L^2(\mathbb(R)^d)$. Como 
+  \noindent La clave de esto reside en el \autoref{lema::Cota_inferior}, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva. La clase de funciones para las que $||f||_w < \infty$ es una clase logarítmica de Sobolev correspondiente a funciones que tienen un módulo promedio continuo en $L^2(\mathbb{R}^d)$. Como 
 
   $$ || U[\mathcal{P}_J]f ||^2= \sum_{m=0}^{+\infty} ||U[\Lambda_J^m]f||^2,$$
 
@@ -1277,7 +1277,7 @@ $$\sum_{(j,r)\in\mathbb{Z}\times G}|\widehat{\psi}(2^jr\omega)|^2|\widehat{\rho}
 \noindent Hasta ahora hemos definido el propagador de dispersión y hemos visto algunas propiedades como la conservación de la norma de la señal $f$. No obstante, aún quedan por demostrar propiedades que son esenciales como son la invaianza por traslaciones o la estabilidad bajo la acción de difeomorfismos. En esta sección nos centraremos en el estudio de la invarianza por traslaciones.
 
 \subsection{No expansividad del operador de ventana en conjuntos de caminos}
-Vamos a demostrar en primer lugar que $||S_J[\overline{\mathcal{P}}_J] f- S_J[\overline{\mathcal{P}}_J] h ||$ es no expansiva cuando se incrementa $J$, y que de hecho converge cuando $J \rightarrow \infty$. Esto define una distancia límite que como veremos a continuación es invariante por traslaciones.
+Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J] h ||$ es no expansiva cuando se incrementa $J$, y que de hecho converge cuando $J \rightarrow \infty$. Esto define una distancia límite que como veremos a continuación es invariante por traslaciones.
 
 \medskip
 
@@ -1285,7 +1285,7 @@ Vamos a demostrar en primer lugar que $||S_J[\overline{\mathcal{P}}_J] f- S_J[\o
 \noindent Para todo $(f,h) \in L^2(\mathbb{R}^d)^2$ y $J\in \mathbb{Z}$, 
 
 \begin{equation} \label{eq::1.10}
-  || S_{J+1} [\mathcal{P}_{j+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h || 
+  || S_{J+1} [\mathcal{P}_{J+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h || 
 \end{equation}
 
 \end{proposicion}
@@ -1418,7 +1418,7 @@ $$\forall (f,h)\in L^2(\mathbb{R}^d)^2 \lim_{J\rightarrow\infty} ||S_J[\mathcal{
 
 \medskip
 
-\noindent Para ondeletas de dispersión admisibles que satisfacen \eqref{eq::1.7}, El \autoref{teoremaOndeletasAdmisibles} nos demuestra que $||S_J[\mathcal{P}_J]f||=||f||$ entonces $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J]f||=||f||$. El siguiente teorema demuestra que el límite es invariante por traslaciones, pero para la demostración del teorema necesitaremos de un resultado auxiliar: 
+\noindent Para ondeletas de dispersión admisibles que satisfacen \eqref{eq::1.7}, El \autoref{teoremaOndeletasAdmisibles} nos demuestra que si $||S_J[\mathcal{P}_J]f||=||f||$ entonces $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J]f||=||f||$. El siguiente teorema demuestra que el límite es invariante por traslaciones, pero para la demostración del teorema necesitaremos de un resultado auxiliar: 
 
 \begin{lema} \label{lema::constante}
   Existe una constante $C$ tal que para todo $\tau \in \C^2(\mathbb{R}^d)$ con $||\nabla \tau ||_\infty \leq \frac{1}{2}$ se tiene que 
