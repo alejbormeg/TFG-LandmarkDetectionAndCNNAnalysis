@@ -1,0 +1,119 @@
+
+\chapter{Fundamentos Teóricos}
+
+En esta sección vamos a introducir cuales serían los conceptos teóricos más importantes que conviene tener presentes para la correcta comprensión del trabajo y sus resultados.
+
+\section{Aprendizaje Automático}
+    \noindent Actualmente la \textbf{Inteligencia Artificial} (IA) es una rama de la informática muy popular y de gran importancia que pretende dotar a los ordenadores de una manera de razonar o solucionar problemas inteligente. En este contexto, la IA ha explorado diversos métodos para conseguir este propósito como son el estudio de Metaheurísticas, la Ingeniería del Conocimiento y más recientemente el conocido \textbf{Aprendizaje Automático} (AA). 
+    
+    \medskip
+
+    \noindent Los métodos que empleamos en este trabajo pretenecen a la rama del AA, y por lo tanto es importante comenzar definiendo qué es este concepto. Para ello, disponemos de diversas definiciones proporcionadas por distintos autores: 
+
+    \medskip
+
+    \noindent La primera y más clásica nos la proporciona Arthur Samuel en 1959, en la cual define el AA como \textbf{el campo de estudio que da a los ordenadores la capacidad de aprender sin ser programados explícitamente}. Esta definición es muy general, pero nos permite hacernos una idea de lo que pretende conseguir este campo de estudio, que es dotar a los ordenadores de la capacidad de \entrecomillado{aprender}, generalmente a partir de una base de datos, con la idea de poder usar este conocimiento adquirido durante el aprendizaje para resolver casos nuevos del problema que la máquina no conozca previamente.
+    
+    \medskip
+
+    \noindent Una definición un poco más reciente de Tom Mitchell (1998) nos dice que: \textbf{Un programa de ordenador se dice que aprende de la experiencia E respecto de alguna tarea T y alguna medida de rendimiento P, si su rendimiento en T, medido por P, mejora con la experiencia E}. Esta segunda definición nos permite identificar los elementos necesarios para poder resolver un problema mediante técnicas de AA. Así, en primer lugar necesitamos una tarea (T) que queremos resolver con ayuda de un ordenador, una experiencia (E) en esa tarea, que generalmente es una base de datos asociada al problema, y una medida de rendimiento (P) que generalmente se asocia con una función objetivo que se pretende minimizar/maximizar.
+
+    \medskip
+
+    \noindent Tradicionalmente, los algoritmos de AA se dividen en dos conjuntos:
+
+    \begin{itemize}
+        \item Aprendizaje Supervisado.
+        \item Aprendizaje no Supervisado.
+    \end{itemize}
+
+    \medskip 
+    
+    \noindent No obstante, han aparecido otras técnicas más recientes como el Aprendizaje por Refuezo que son muy interesantes y usadas actualmente, pero no vamos a profindizar en ellas pues no son necesarias para el trabajo que nos ocupa.
+
+    \subsection{Aprendizaje Supervisado}
+        \noindent Los algoritmos de AA que se emplean en este conjunto se caracterizan porque disponen de una base de datos \textbf{etiquetados} de manera que para cada dato $x$ conocemos su etiqueta asociada $y$, y nuestro objetivo sería tratar de conocer la función $f$ que los relaciona, de manera que $f(x)=y$.
+
+        \medskip
+
+        \noindent Dentro de este grupo podemos encontrar problemas de \textbf{regresión} y de \textbf{clasificación}.
+
+        \subsubsection{Regresión}
+            \noindent En los problemas de regresión se pretende obtener la función $f$ que asocia correctamente a cada dato su etiqueta: 
+            \begin{equation}
+                f(x)=y \; \; con \; \; x\in \mathbb{R}^m \; \; y \in \mathbb{R}^n
+            \end{equation}
+            
+            \noindent Generalmente, obtener la función $f$ exacta es complicado, por lo que se pretende aproximar mediante una función $f'$ que elegimos y que entrenaremos a partir de los datos etiquetados que se nos proporcionan. Volviendo a la definición de Tom Mitchell, en este tipo de problemas tendríamos que 
+            
+            \begin{itemize}
+                \item T= regresión (aproximar $f$)
+                \item E= El conjunto de datos $X$ etiquetados que se proporcionan para entrenar el modelo $f'$.
+                \item P= función de coste asociada (generalmente se emplea el error cuadrático medio) que nos mide lo \entrecomillado{bien} que nuestra función $f'$ aproxima a $f$.
+            \end{itemize}
+            
+            \medskip 
+
+            \noindent Por ejemplo el si intentamos predecir $f$ mediante un modelo lineal: 
+
+            \begin{equation}
+                f'(x)= \alpha^T x \; \; x,\alpha \in \mathbb{R}^m
+            \end{equation}
+
+            \noindent Disponemos de un conjunto de $N$ datos 
+            
+            \begin{equation}
+                X= \lbrace x_1, x_2 , \ldots , x_N \rbrace \; \; x_i \in \mathbb{R}^m
+            \end{equation}
+
+            \noindent Además de un conjunto de etiquetas
+
+            \begin{equation}
+                Y= \lbrace y_1, y_2 , \ldots , y_N \rbrace \; \; y_i \in \mathbb{R}^n
+            \end{equation}
+
+            \noindent Y usamos como medida de error el error cuadrático medio: 
+
+            \begin{equation}
+               J(\alpha)= \frac{1}{N} \sum_{i=1}^{N}(f'(x_i) - f(x_i))^2 = \frac{1}{N} \sum_{i=1}^{N}(y_i' - y_i)^2
+            \end{equation}
+
+            \noindent Dónde $y_i'$ es la etiqueta predicha por $f'$ para $x_i$.
+
+            \medskip
+
+            \noindent Nuestro objetivo sería encontrar el vector de pesos $\alpha$ que minimice la función de coste $J$ y para ello utilizamos los datos de entrenamiento $X$.
+            
+        \subsubsection{clasificación}
+            \noindent Por otro lado tenemos los problemas de clasificación, en los datos se encuentran agrupados en clases y se pretende clasificar cada dato de entrada en la clase correcta. Los casos más sencillos de este problema son los de \textbf{clasificación binaria}, y en ellos se pretende agrupar los datos en dos posibles clases que suelen codificarse como $0$ y $1$.
+
+    \subsection{Aprendizaje no Supervisado}
+            \noindent El aprendizaje no supervisado se caracteriza porque los datos que se proporcionan no están etiquetados, y no se busca una salida concreta, sino que se pretende analizar las características de nuestro conjunto de datos. 
+
+            Así, por ejemplo, tareas que pueden resolverse con esta técnica pueden ser la agrupación de clientes de cierta compañía en distintas clases según sus características.
+            
+    \subsection{Nuestro Problema}
+        \noindent En nuestro problema, los frameworks de los que disponemos resuelven problemas de aprendizaje supervisado y no supervisado. 
+        
+        \medskip
+        
+        \noindent Por ejemplo vamos a intentar predecir los landmarks cefalométricos para una cierta imagen de entrada, lo que nos llevaría a un problema típico de aprendizaje supervisado en el que pretendemos a partir de la imagen de entrada conocer la función que nos proporciona la salida correcta (la imagen con los landmarks marcados correctametne).
+
+        \medskip
+
+        \noindent Por otro lado, uno de nuestros frameworks tiene una etapa de entrenamiento previa al problema de los landmarks en la cual mediante conjuntos de datos de imágenes sin etiquetar de rostros humanos, se pretende reconstruir imágenes preservando al máximo posible la estructura de la cara. Esto, como podemos ver, es un problema típico de aprendizaje no supervisado, porque no se busca obtener una etiqueta para cada imagen, sino analizar la estructura de los distintos elementos de los datos de entrada para ser capaces de reconstruirlos preservando su estructura.
+
+\section{Visión por Computador}
+
+
+\section{Deep Learning}
+
+\section{Redes Neuronales Convolucionales Profundas}
+
+\section{Tratamiento de imágenes 2D y técnicas de few-shot learning}
+
+\endinput
+%------------------------------------------------------------------------------------
+% FIN DEL CAPÍTULO. 
+%------------------------------------------------------------------------------------
+

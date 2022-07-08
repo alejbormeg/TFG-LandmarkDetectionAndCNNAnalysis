@@ -1,0 +1,320 @@
+
+
+\chapter{Invarianza por Traslaciones} \label{ch:seccion14}
+
+\noindent Hasta ahora hemos definido el propagador de dispersión y hemos visto algunas propiedades como la conservación de la norma de la señal $f$. No obstante, aún quedan por demostrar propiedades que son esenciales como son la invaianza por traslaciones o la estabilidad bajo la acción de difeomorfismos. En esta sección nos centraremos en el estudio de la invarianza por traslaciones.
+
+\section{No expansividad del operador de ventana en conjuntos de caminos}
+Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J] h ||$ es no expansiva cuando se incrementa $J$, y que de hecho converge cuando $J \rightarrow \infty$. Esto define una distancia límite que como veremos a continuación es invariante por traslaciones.
+
+\medskip
+
+\begin{proposicion}
+\noindent Para todo $(f,h) \in L^2(\mathbb{R}^d)^2$ y $J\in \mathbb{Z}$, 
+
+\begin{equation} \label{eq::1.10}
+  || S_{J+1} [\mathcal{P}_{J+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h || 
+\end{equation}
+
+\end{proposicion}
+
+\begin{proof}
+
+\noindent En primer lugar, vamos a transformar la condición que queremos demostrar en \eqref{eq::1.10} en otra equivalente y que será más fácil de probar.
+
+\medskip
+
+\noindent Si recordamos la definición de $\mathcal{P}_J$, era un conjunto de caminos finitos $p=(\lambda_1,...,\lambda_m)$ tal que $\lambda_k\in\Lambda_J$ y $|\lambda_k|=2^{jk}>2^{-J}$. Luego todo camino $p' \in \mathcal{P}_{J+1}$, puede ser unívocamente escrito como una extensión de un camino $p\in \mathcal{P}_J$ dónde $p$ es el prefijo más grande de $p'$ que pertenece a $\mathcal{P}_J$, y $p'=p+q$ para algún $q\in \mathcal{P}_{J+1}$. De hecho, podemos definir el conjunto de todas las extensiones de $p\in \mathcal{P}_J$ en $\mathcal{P}_{J+1}$ como: 
+
+\begin{equation}
+  \mathcal{P}_{J+1}^{p}={p} \cup {p+2^{-J}r+p''}_{r\in G^{+},p''\in \mathcal{P}_{J+1}}
+\end{equation}
+
+Esto define una partición disjunta de $\mathcal{P}_{J+1}=\cup_{p \in \mathcal{P}_J} \mathcal{P}_{J+1}^{p}$. Y deberíamos probar que dichas extensiones son no expansivas,
+
+\begin{equation}\label{eq::1.11}
+  \sum_{p' \in \mathcal{P}_{J+1}^p} || S_{J+1}[p']f-S_{J+1}[p']h||^2 \leq ||S_{J}[p]f-S_J [p]h||^2.
+\end{equation}
+
+\noindent Finalmente, si nos fijamos, la condición \eqref{eq::1.11} equivale a \eqref{eq::1.10} sumando en todo $p\in \mathcal{P}_J$, luego probando \eqref{eq::1.11} tendríamos el resultado que buscamos. 
+
+
+\medskip
+
+
+\noindent Para ello vamos a necesitar el siguiente lema:
+
+\begin{lema}
+  Para Ondeletas que satisfacen la propiedad \autoref{unitario}, para toda función \textbf{real} $f\in L^2(\mathbb{R}^d)$ y todo $q \in \mathbb{Z}$ se verifica: 
+
+  $$\sum_{-q\geq l > -J} \sum_{r \in G^+} || f \ast \psi_{2^lr}||^2 + || f \ast \phi_{2^J}||^2 = || f \ast \phi_{2^q} ||^2$$
+
+\end{lema}
+
+\begin{proof}
+
+  \noindent En primer lugar vamos a ver que de \autoref{unitario} se deduce la siguiente expresión: 
+
+  $$|\widehat{\phi}(2^J \omega)|^2 + \sum_{-q\geq l > -J} \sum_{r \in G^+}|\widehat{\psi}(2^{-l}r^{-1} \omega)|^2=|\widehat{\phi}(2^q \omega) |^2$$
+
+  \noindent Para ello, de la expresión
+
+  \begin{align*}
+    \frac{1}{2} \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2=1 & \; \; y
+    \;\;|\widehat{\phi}(\omega)|^2= \frac{1}{2} \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2,
+  \end{align*}
+
+  \noindent se tiene de la misma forma que vimos en la demostración del teorema que:
+
+  $$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \frac{1}{2} \sum_{j>-J,r\in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=1. $$
+
+  \noindent Y partiendo el sumatorio obtenemos que: 
+
+  $$\left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \frac{1}{2}  \sum_{-q \geq j >-J,r \in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2= \frac{1}{2} \sum_{j>-q,r \in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=|\widehat{\phi}(2^q \omega)|^2$$
+  
+  \noindent Ahora multiplicamos en la expresión anterior por $|\widehat{f}(\omega)|^2$, 
+  
+  $$\left|\widehat{f}(\omega)\right|^2 \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \frac{1}{2} \sum_{-q \geq j >-J,r \in G} \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=\left|\widehat{f}(\omega)\right|^2 \left|\widehat{\phi}(2^q \omega)\right|^2.$$
+
+  \noindent Integramos en $\omega$, 
+
+  $$\int \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 d\omega + \frac{1}{2} \sum_{-q \geq j >-J,r \in G} \int \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2 d\omega=\int \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\phi}(2^q \omega)\right|^2 d\omega.$$
+
+  \noindent Ahora estamos en condiciones de aplicar el \autoref{Teorema::Convolucion}, y nos quedaría que la expresión anterior equivale a: 
+
+  \begin{align*}
+    \int \left|(f \ast \phi_{2^J}) (x)\right|^2 dx + \sum_{-q \geq j >-J,r \in G} \int \left|(f \ast \psi_{2^{j}r})(x)\right|^2 dx=\int \left|(f \ast \phi_{2^q}) (x)\right|^2 dx,
+  \end{align*}
+
+  \noindent Y teniendo en cuenta que $f$ es real y por lo tanto que $||f \ast \psi_{2^j r}||= ||f \ast \psi_{2^j -r}||$ junto con la defnición de la norma de $L^2(\mathbb{R}^d)$, se tiene  
+
+  \begin{align*}
+    \sum_{-q\geq l > -J} \sum_{r \in G^+} || f \ast \psi_{2^lr}||^2 + || f \ast \phi_{2^J}||^2 = || f \ast \phi_{2^q} ||^2
+  \end{align*}
+
+\end{proof}
+
+
+Vamos ahora a usar el lema anterior con la función $g=U[p]f-U[p]h$ junto con que $U[p]f\ast \phi_{2^J}=S_J[p]f$. De esta forma se tiene:
+
+$$||g \ast \phi_{2^{J+1}} ||^2 + \sum_{r\in G^+} || g\ast \psi_{2^{-J}r} ||^2=||g \ast \phi_{2^J}||^2.$$
+
+\noindent Así, sustituyendo el valor de $g$ por el que hemos definido antes y aplicando la propiedad distributiva de la convolución:
+
+\begin{align*}
+  ||U[p]f \ast \phi_{2^J} -U[p]h \ast \phi_{2^J}||^2 = &||U[p]f \ast \phi_{2^{J+1}} - U[p]h \ast \phi_{2^{J+1}} ||^2 \\
+  & + \sum_{r\in G^+} || U[p]f\ast \psi_{2^{-J}r} -U[p]h \ast \psi_{2^{-J}r}||^2.
+\end{align*}
+
+\noindent Y esto equivale a
+
+\begin{align*}
+  ||S_{J}[p]f-S_J[p]h||^2 = &|| S_{J+1}[p]f-S_{J+1}[p]h||^2 \\
+  & + \sum_{r\in G^+} || U[p]f\ast \psi_{2^{-J}r} -U[p]h \ast \psi_{2^{-J}r}||^2.
+\end{align*}
+
+\noindent Aplicando ahora la propiedad de la norma de que $\left|\left|a - b \right|\right| \geq \left|\left| |a| - |b| \right|\right|$. Y como $$|U[p]f\ast\psi_{2^{-J}r}|=U[p+2^{-J}r]f$$ se concluye que:
+
+\begin{align*}
+    ||S_{J}[p]f-S_J[p]h||^2 \geq & || S_{J+1}[p]f-S_{J+1}[p]h||^2 \\
+    & + \sum_{r\in G^+} ||U[p+2^{-J}r]f-U[p+2^{-J}r]h||^2.
+\end{align*}
+
+
+\noindent Como $S_{J+1}[\mathcal{P}_{J+1}]U[p+2^{-J}r]f=\lbrace S_{J+1} [p+2^{-J}r+p'']\rbrace_{p''\in\mathcal{P}_{J+1}}$  y $S_{J+1}[\mathcal{P}_{J+1}]f$ es no expansiva por \autoref{proposicion::NoExpansiva}, esto implica que
+
+\begin{align*}
+    ||S_{J}[p]f - S_J[p]h||^2 \geq & ||S_{J+1}[p]f-S_{J+1}[p]h||^2 \\
+    & + \sum_{p''\in \mathcal{P}_{J+1}} \sum_{r\in G^+} || S_{J+1}[p+2^{-J}r+p'']f- S_{J+1}[p+2^{-J}r+p'']h||^2,
+\end{align*}
+
+\noindent y en particular
+
+\begin{align*}
+  ||S_{J}[p]f - S_J[p]h||^2 \geq & \sum_{p''\in \mathcal{P}_{J+1}} \sum_{r\in G^+} || S_{J+1}[p+2^{-J}r+p'']f- S_{J+1}[p+2^{-J}r+p'']h||^2,
+\end{align*}
+
+\noindent que demuestra \eqref{eq::1.11}. \qedhere
+\end{proof}
+
+
+\section{Invarianza por traslaciones}
+
+\noindent Esta proposición anterior nos demuestra que $||S_J[\mathcal{P}_J]-S_J[\mathcal{P}_J]h||$ es positivo y no creciente cuando $J$ se incrementa, y de hecho converge. Como $S_J[\mathcal{P}_J]$ es no expansiva, el límite tampoco: 
+
+$$\forall (f,h)\in L^2(\mathbb{R}^d)^2 \lim_{J\rightarrow\infty} ||S_J[\mathcal{P}_J]f-S_{J}[\mathcal{P}_J]h|| \leq ||f-h||.$$
+
+\medskip
+
+\noindent Para ondeletas de dispersión admisibles que satisfacen \eqref{eq::1.7}, El \autoref{teoremaOndeletasAdmisibles} nos demuestra que si $||S_J[\mathcal{P}_J]f||=||f||$ entonces $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J]f||=||f||$. El siguiente teorema demuestra que el límite es invariante por traslaciones, pero para la demostración del teorema necesitaremos de un resultado auxiliar: 
+
+\begin{lema} \label{lema::constante}
+  Existe una constante $C$ tal que para todo $\tau \in \C^2(\mathbb{R}^d)$ con $||\nabla \tau ||_\infty \leq \frac{1}{2}$ se tiene que 
+  
+  $$||L_\tau A_J f - A_J f|| \leq C ||f||2^{-J}||\tau||_{\infty}.$$
+\end{lema}
+
+\begin{proof}
+
+  \noindent En esta prueba, al igual que en otras cotas superiores para normas, vamos a necesitar el Lema de Schur \cite{SchurLemma}. De esta manera, el Lema de Schur nos recuerda que para cualquier operador $Kf(x)=\int f(u)k(x,u)du$ se tiene 
+
+  $$\int |k(x,u)| dx \leq C,$$
+
+  \noindent y además 
+
+  $$\int |k(x,u)|du \leq C \implies ||K||\leq C.$$
+
+  \noindent Dónde $||K||$ es la norma en $L^2(\mathbb{R}^d)$ de $K$.
+
+  \medskip
+
+  El operador norma de $k_J=L_\tau A_J - A_J$ se calcula aplicando el lema de Schur a su kernel,
+
+  $$k_J(x,u)=\phi_{s^J}(x-\tau(x)-u)-\phi_{2^J}(x-u).$$
+
+  \noindent Si nos fijamos en la expresión anterior, cuando $x=0=u$ se tiene que: 
+
+  $$k_J(0,0)=\phi_{2^J}(0)-\phi_{2^J}(0)=0.$$
+
+  \noindent Si ahora calculamos su serie de primer orden de Taylor centrado en el $(0,0)$ se obtiene: 
+
+  $$k_J=k_J(0,0)+\int_0^1 \nabla \phi_{2^J} (x-t\tau(x)-u)\tau(x). dt$$
+
+  \noindent Si ahora calculamos el módulo obtenemos que:
+
+  \begin{align*}
+    |k_J|&=|k_J(0,0)+\int_0^1 \nabla \phi_{2^J} (x-t\tau(x)-u)\tau(x) dt| \\
+    &\leq |k_J(0,0)|+\left|\int_0^1 \nabla \phi_{2^J} (x-t\tau(x)-u)\tau(x) dt \right| \\
+    & \leq \left|\int_0^1 \nabla \phi_{2^J} (x-t\tau(x)-u)\tau(x) dt \right| \\ 
+    & \leq \int_0^1 \left| \nabla \phi_{2^J} (x-t\tau(x)-u)\tau(x)  \right|dt= |\tau(x)|\int_0^1 \left| \nabla \phi_{2^J} (x-t\tau(x)-u)\right|dt  \\ 
+    & \leq ||\tau(x)||_\infty \int_0^1 \left| \nabla \phi_{2^J} (x-t\tau(x)-u)\right|dt.
+  \end{align*}
+
+  \noindent Si ahora integramos en $u$ y aplicamos el teorema de Fubini para itercambiar las integrales del lado derecho de la desigualdad obtenemos:
+
+  \begin{align*}
+    \int |k_J| du &\leq ||\tau(x)||_\infty \int \int_0^1 \left| \nabla \phi_{2^J} (x-t\tau(x)-u)\right|dt \; du = ||\tau(x)||_\infty \int_0^1 \int  \left| \nabla \phi_{2^J} (x-t\tau(x)-u)\right| du \; dt. 
+  \end{align*}
+
+  \noindent por otro lado, vamos a comprobar que 
+  $$\nabla\phi_{2^J}(x)=2^{-dJ-J} \nabla \phi(2^{-J}x).$$
+
+  \noindent Para ello debemos recordar que $\phi_{2^J}(x)=2^{-dJ}\phi(2^{-J}x)$ luego
+
+  \begin{align*}
+    \nabla \phi_{2^J}(x) &= \nabla(2^{-dJ}\phi(2^{-J}x)) \\
+    &= 2^{-dJ} \nabla(\phi(2^{-J}x)).
+  \end{align*}
+
+  \noindent Si nos fijamos, debido a que x está multiplicado por $2^{-J}$ en cada componente del vector, siempre que derivemos con respecto a alguna componente, vamos a poder sacar como factor común $2^{-J}$ por lo tanto:
+
+  \begin{align*}
+    \nabla \phi_{2^J}(x) = 2^{-dJ-J} \nabla(\phi(2^{-J}x)).
+  \end{align*}
+
+  \noindent De esta forma, realizando un cambio de variable tendríamos: 
+
+  \begin{align*}
+    \int |k_J| du &\leq ||\tau(x)||_\infty  2^{-dJ-J} \int \left| \nabla \phi (2^J u')\right|du' \\
+    & = 2^{-J} ||\tau(x)||_\infty ||\nabla\phi||_1. 
+  \end{align*}
+
+  \noindent Si ahora realizamos el mismo procedimiento integrando en $x$ en vez de en $u$ tenemos que 
+
+  \begin{align*}
+    \int |k_J(x,u)| dx &\leq ||\tau(x)||_\infty \int_0^1 \int \left| \nabla \phi_{2^J} (x-t\tau(x)-u)\right| dx \; dt
+  \end{align*}
+
+  \noindent Si ahora aplicamos el cambio de variable $v=x - t\tau(x)$ y calculamos su Jacobiano
+
+  \begin{align*}
+    Jv& =J(x-t\tau(x))=J(x)-J(t\tau(x)) \\
+    & = Id - tJ(\tau(x)) \\
+    & = Id - t\nabla \tau(x).
+  \end{align*}
+
+  \noindent Vamos a buscar una cota para el determinante del Jacobiano
+
+  \begin{align*}
+    |J| & =(1-t\tau(x))^d \\
+    & \geq (1-||\tau||_\infty)^d \\
+    & \geq 2^{-d}.
+  \end{align*}
+
+  \noindent Aplicando ahora el cambio de variable a la integral
+
+  \begin{align*}
+    \int |k_J(x,u)| dx &\leq ||\tau(x)||_\infty 2^d \int_0^1 \int \left| \nabla \phi_{2^J} (v-u)\right| dv \; dt \\
+    &= 2^{-J} ||\tau||_\infty ||\nabla \phi ||_1 2^{d}.
+  \end{align*}
+
+  \noindent De las dos cotas superiores obtenidas esta es la mayor, por lo que aplicamos el lema de Schur a esta y terminamos la demostración del lema
+
+  $$ ||L_{\tau} A_J - A_J || \leq 2^{-J+d} ||\nabla \phi ||_1 ||\tau||_\infty. $$
+\end{proof}
+
+
+\noindent Con esto ya tenemos todas las herramientas necesarias para enunciar y demostrar el teorema central de esta sección, aquel que nos garantiza que el operador que estamos construyendo que modeliza una red neuronal convolucional es invariante a traslaciones.
+
+\begin{teorema} \label{invarianzaTraslaciones}
+Para ondeletas de dispersión admisibles se tiene que 
+
+$$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\rightarrow \infty}||S_J[\mathcal{P}_J] f-S_J[\mathcal{P}_J] L_cf||=0$$
+\end{teorema}
+
+\begin{proof}
+
+\noindent Fijamos $f\in L^2(\mathbb{R}^d)$. Teniendo en cuenta la conmutatividad $S_J[\mathcal{P}_J] L_cf = L_cf S_J[\mathcal{P}_J]$ y la definición $S_J[\mathcal{P}_J]f=A_J U[\mathcal{P}_J]f$,
+
+\begin{align*}
+    ||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f || &= ||L_c A_J U[\mathcal{P}_J]f - A_J U[\mathcal{P}_J]f|| \\
+    &\leq ||L_c A_J - A_J|| ||U[\mathcal{P}_J]f||.
+\end{align*}
+
+\medskip
+
+\noindent Si ahora aplicamos el \autoref{lema::constante} con $\tau=c$, se tiene que $||\tau||_\infty=|c|$ y además
+
+$$||L_c A_J - A_J|| \leq C 2^{-J} |c|.$$
+
+\noindent Y si tenemos en cuenta esto en la expresión anterior nos da que: 
+
+\begin{align*}
+  ||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f || & \leq ||L_c A_J - A_J|| ||U[\mathcal{P}_J]f|| \\
+  & \leq C 2^{-J} |c| ||U[\mathcal{P}_J]f||
+\end{align*}
+
+\noindent Como la admisibilidad de la condición \eqref{eq::1.7} se satisface, \autoref{lema::Admisibilidad} se demuestra en \eqref{eq::1.9} que para $J>1$
+
+$$\frac{\alpha}{2}||U[\mathcal{P}_J]f||^2 \leq (J+1)||f||^2+||f||^2_w.$$
+
+\noindent Y de esta expresión podemos sacar una cota superior para $||U[\mathcal{P}_J]f||$: 
+
+\begin{align*}
+  ||U[\mathcal{P}_J]f||^2 \leq ((J+1)||f||^2+||f||^2_w) 2 \alpha^{-1}
+\end{align*}
+
+\noindent Si $||f||_w < \infty$ entonces elevando al cuadrado en la desigualdad de antes tenemos
+
+$$||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f ||^2 \leq ((J+1)||f||^2+||f||_w^2)C^2 2 \alpha^{-1} 2^{-2J} |c|^2,$$
+
+\noindent y tomando límite en ambo lados cuando $J\rightarrow \infty$ tenemos que 
+
+\begin{align*}
+  \lim_{J\rightarrow \infty} ||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f ||^2 &\leq \lim_{J\rightarrow \infty} ((J+1)||f||^2+||f||_w^2)C^2 2 \alpha^{-1} 2^{-2J} |c|^2 \\
+  &= 0.
+\end{align*}
+
+\noindent Luego $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f ||=0$.
+
+\medskip
+
+\noindent Finalmente vamos a probar ahora que el límite anterior se da $\forall f \in L^2(\mathbb{R}^d)$, con un argumento similar al de la prueba del \autoref{teoremaOndeletasAdmisibles}. Cualquier $f\in L^2(\mathbb{R}^d)$ se puede escribir como el límite de una sucesión de funciones $\lbrace f_n \rbrace_{n\in\mathbb{N}}$ con $||f_n||_w < \infty$, y como $S_J[\mathcal{P}_J]$ es no expansivo y $L_c$ es unitario, se puede verificar que 
+
+$$||L_c S_J[\mathcal{P}_J]f-S_J[\mathcal{P}_J]f|| \leq ||L_c S_J [\mathcal{P}_J]f_n -S_J[\mathcal{P}_J]f_n|| + 2||f-f_n||.$$
+
+\noindent Haciendo tender $n \rightarrow \infty$ se prueba que $\lim_{J\rightarrow \infty}||S_J[\mathcal{P}_J] f-S_J[\mathcal{P}_J] L_cf||=0$ con lo que acaba la demostración. \qedhere
+\end{proof}
+
+
+\endinput
