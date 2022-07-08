@@ -1,7 +1,7 @@
 
 \chapter{Fundamentos Teóricos}
 
-En esta sección vamos a introducir cuales serían los conceptos teóricos más importantes que conviene tener presentes para la correcta comprensión del trabajo y sus resultados.
+En esta sección vamos a introducir cuales serían los conceptos teóricos más importantes que conviene tener presentes para la correcta comprensión del trabajo y sus resultados. Para ello se ha recurrido al conocimiento adquirido en asignaturas como \textbf{Visión por Computador}, \textbf{Aprendizaje Automático} así como diversos artículos que se citarán dónde sea conveniente.
 
 \section{Aprendizaje Automático}
     \noindent Actualmente la \textbf{Inteligencia Artificial} (IA) es una rama de la informática muy popular y de gran importancia que pretende dotar a los ordenadores de una manera de razonar o solucionar problemas inteligente. En este contexto, la IA ha explorado diversos métodos para conseguir este propósito como son el estudio de Metaheurísticas, la Ingeniería del Conocimiento y más recientemente el conocido \textbf{Aprendizaje Automático} (AA). 
@@ -104,13 +104,26 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
         \noindent Por otro lado, uno de nuestros frameworks tiene una etapa de entrenamiento previa al problema de los landmarks en la cual mediante conjuntos de datos de imágenes sin etiquetar de rostros humanos, se pretende reconstruir imágenes preservando al máximo posible la estructura de la cara. Esto, como podemos ver, es un problema típico de aprendizaje no supervisado, porque no se busca obtener una etiqueta para cada imagen, sino analizar la estructura de los distintos elementos de los datos de entrada para ser capaces de reconstruirlos preservando su estructura.
 
 \section{Visión por Computador}
+    \noindent La \textbf{Visión por computador} es un área de conocimiento en el que se unen diversas disciplinas como la IA o el AA para un propósito común, que es el procesado de imágenes por medio de un ordenador con la finalidad de que la máquina pueda llegar a extraer información relativa a estas del mismo modo en que lo haría un ser humano \cite{rosenfeld1988computer}. 
 
+    \medskip
+    
+    \noindent Problemas clásicos de la visión por computador son el reconocimiento de objetos o personas en imágenes, la segmentación o la clasificación. Así pues, podemos ver la relación directa que hay entre nuestro objetivo y esta disciplina, pues los frameworks que usaremos tendrán por objetivo extraer información de imágenes de rostros de personas para posteriormente tratar de identificar en ellos con el mayor grado de decisión posible una serie de landmarks cefalométricos que el sistema ha aprendido a base de unos ejemplos etiquetados (AA).
+
+    \medskip
+
+    \noindent Finalmente, en los últimos años esta rama ha experimentado un fuerte crecimiento e importancia en la comunidad científica debido al actual desarrollo del \textbf{Deep Learning} y las \textbf{redes convolucionales profundas} que explicaremos en detalle en la siguiente sección. Estas nuevas herramientas han permitido crear programas que obtienen un gran rendimiento en el tratamiento de imágenes. Ejemplo de ello son los dos frameworks que vamos a comparar en este trabajo.
 
 \section{Deep Learning}
 
 \section{Redes Neuronales Convolucionales Profundas}
 
-\section{Tratamiento de imágenes 2D y técnicas de few-shot learning}
+\section{Tratamiento de imágenes 2D y técnicas empleadas}
+    \subsection{Tratamiento de imágenes 2D}
+
+    \subsection{Data Augmentation}
+
+    \subsection{few-shot Learning}
 
 \endinput
 %------------------------------------------------------------------------------------

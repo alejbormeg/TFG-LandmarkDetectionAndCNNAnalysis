@@ -54,6 +54,11 @@ Stephen Quinn and Igor~E Verbitsky.
 \newblock A sublinear version of schur’s lemma and elliptic pde.
 \newblock {\em Analysis \& PDE}, 11(2):439--466, 2018.
 
+\bibitem[Ros88]{rosenfeld1988computer}
+Azriel Rosenfeld.
+\newblock Computer vision: basic principles.
+\newblock {\em Proceedings of the IEEE}, 76(8):863--868, 1988.
+
 \bibitem[TLF10]{Daisy}
 Engin Tola, Vincent Lepetit, and Pascal Fua.
 \newblock Daisy: An efficient dense descriptor applied to wide baseline stereo.
