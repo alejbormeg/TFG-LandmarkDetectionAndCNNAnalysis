@@ -48,18 +48,20 @@
 \contentsline {subsubsection}{\numberline {6.1.1.2}clasificación}{51}{subsubsection.6.1.1.2}%
 \contentsline {subsection}{\numberline {6.1.2}Aprendizaje no Supervisado}{51}{subsection.6.1.2}%
 \contentsline {subsection}{\numberline {6.1.3}Nuestro Problema}{51}{subsection.6.1.3}%
-\contentsline {section}{\numberline {6.2}Visión por Computador}{51}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Deep Learning}{52}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Redes Neuronales Convolucionales Profundas}{52}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Tratamiento de imágenes 2D y técnicas empleadas}{52}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Tratamiento de imágenes 2D}{52}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Data Augmentation}{52}{subsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.5.3}few-shot Learning}{52}{subsection.6.5.3}%
-\contentsline {chapter}{\numberline {7}Estado del Arte}{53}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Materiales y Métodos}{55}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Planificación e implementación}{57}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Experimentación}{59}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{61}{chapter.11}%
-\contentsline {chapter}{\numberline {A}Primer apéndice}{63}{appendix.Alph1}%
-\contentsline {chapter}{Glosario}{65}{chapter*.10}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{67}{chapter*.11}%
+\contentsline {subsection}{\numberline {6.1.4}Gradiente Descendente}{51}{subsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.4.1}Gradiente Descendente Estocástico}{52}{subsubsection.6.1.4.1}%
+\contentsline {section}{\numberline {6.2}Visión por Computador}{53}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Deep Learning}{53}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Redes Neuronales}{53}{subsection.6.3.1}%
+\contentsline {section}{\numberline {6.4}Tratamiento de imágenes 2D y técnicas empleadas}{54}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Tratamiento de imágenes 2D}{54}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Data Augmentation}{54}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}few-shot Learning}{54}{subsection.6.4.3}%
+\contentsline {chapter}{\numberline {7}Estado del Arte}{55}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Materiales y Métodos}{57}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Planificación e implementación}{59}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Experimentación}{61}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{63}{chapter.11}%
+\contentsline {chapter}{\numberline {A}Primer apéndice}{65}{appendix.Alph1}%
+\contentsline {chapter}{Glosario}{67}{chapter*.10}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{69}{chapter*.11}%

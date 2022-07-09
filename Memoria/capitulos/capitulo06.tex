@@ -38,7 +38,7 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
 
         \noindent Dentro de este grupo podemos encontrar problemas de \textbf{regresión} y de \textbf{clasificación}.
 
-        \subsubsection{Regresión}
+        \subsubsection{Regresión} \label{section::Regresion}
             \noindent En los problemas de regresión se pretende obtener la función $f$ que asocia correctamente a cada dato su etiqueta: 
             \begin{equation}
                 f(x)=y \; \; con \; \; x\in \mathbb{R}^m \; \; y \in \mathbb{R}^n
@@ -57,7 +57,7 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
             \noindent Por ejemplo el si intentamos predecir $f$ mediante un modelo lineal: 
 
             \begin{equation}
-                f'(x)= \alpha^T x \; \; x,\alpha \in \mathbb{R}^m
+                f'(x)= w^T x \; \; x,w \in \mathbb{R}^m
             \end{equation}
 
             \noindent Disponemos de un conjunto de $N$ datos 
@@ -82,7 +82,7 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
 
             \medskip
 
-            \noindent Nuestro objetivo sería encontrar el vector de pesos $\alpha$ que minimice la función de coste $J$ y para ello utilizamos los datos de entrenamiento $X$.
+            \noindent Nuestro objetivo sería encontrar el vector de pesos $w$ que minimice la función de coste $J$ y para ello utilizamos los datos de entrenamiento $X$.
             
         \subsubsection{clasificación}
             \noindent Por otro lado tenemos los problemas de clasificación, en los datos se encuentran agrupados en clases y se pretende clasificar cada dato de entrada en la clase correcta. Los casos más sencillos de este problema son los de \textbf{clasificación binaria}, y en ellos se pretende agrupar los datos en dos posibles clases que suelen codificarse como $0$ y $1$.
@@ -103,6 +103,62 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
 
         \noindent Por otro lado, uno de nuestros frameworks tiene una etapa de entrenamiento previa al problema de los landmarks en la cual mediante conjuntos de datos de imágenes sin etiquetar de rostros humanos, se pretende reconstruir imágenes preservando al máximo posible la estructura de la cara. Esto, como podemos ver, es un problema típico de aprendizaje no supervisado, porque no se busca obtener una etiqueta para cada imagen, sino analizar la estructura de los distintos elementos de los datos de entrada para ser capaces de reconstruirlos preservando su estructura.
 
+    \subsection{Gradiente Descendente}
+        \noindent En esta sección hemos hablado de qué es el AA y cómo se formalizan sus problemas para poder resolverlos. Y en concreto hemos formalizado cómo se resuelven los problemas de regresión en los que queríamos aproximar una función desconocida $f$ a partir de una aproximación $f'$ y en base a una función de coste. Sin embargo, no hemos hablado de ningún algoritmo que se use en la minimización de dicha función de coste. Es por ello que vamos a explicar el principal algoritmo que se utiliza para esta tarea, el \textbf{Gradiente Descendente}. 
+
+        \medskip
+
+        \noindent El Gradiente descendente es un algoritmo clásico que persigue la idea intuitiva de que el gradiente de una función siempre \entrecomillado{apunta} hacia el máximo de esta, por lo que seguir la dirección contraria a este nos llevará al mínimo de la función. Más formalmente, si recuperamos la notación del apartado \autoref{section::Regresion} tendríamos: 
+
+        \medskip
+        
+        \noindent La función objetivo es: 
+        \begin{equation}
+            f(x)=y \; \; x \in \mathbb{R}^m \; \; y \in \mathbb{R}^n
+        \end{equation}
+
+        \noindent La función con la que vamos a intentar aproximar la función objetivo es:
+        \begin{equation}
+            f'(x,w)=y \; \; x \in \mathbb{R}^m \; \; y \in \mathbb{R}^n \; \; w \in \mathbb{R}^d 
+        \end{equation}
+
+        \noindent La función de coste sería $J(w)$ que de alguna manera mide la distancia entre $f$ y $f'$ y que para poder aplicar el método debe ser derivable. Algunas funciones de coste usuales son: 
+
+        \begin{itemize}
+            \item La función \textbf{L2} (también conocida como error cuadrático medio): 
+            \begin{equation}
+                J(w)=\frac{1}{N} \sum_{i=1}^N(f(x_i,w)-f'(x_i))^2
+            \end{equation}
+            \item La función \textbf{L1} (también conocida como error absoluto medio): 
+            \begin{equation}
+                J(w)=\frac{1}{N} \sum_{i=1}^N \left|f(x_i,w)-f'(x_i)\right|
+            \end{equation}
+        \end{itemize}
+
+        \noindent Una vez hemos formalizado el problema, el algoritmo \textbf{Gradiente Descendente} consiste en: 
+
+        \begin{itemize}
+            \item Se inicializa el vector de pesos $w$.
+            \item En cada paso $i$ del entrenamiento, el vector de pesos del siguiente paso $i+1$ se calcula de acuerdo a la siguiente relación: 
+            \begin{equation}
+                w_{i+1}=w_i-\eta \nabla J(w)
+            \end{equation}
+            \noindent Dónde $\eta$ es un factor conocido como \textbf{learning rate}(lr) que mide el \entrecomillado{tamaño} del paso que en cada iteración damos en búsqueda del mínimo. 
+        \end{itemize}
+
+        \noindent Idealmente, con este método se encuentra un mínimo global de la función de coste en el caso en que esta sea convexa. En caso de no serlo podría caer en un mínimo local en su lugar. 
+
+        \medskip
+
+        \noindent Por otro lado, cabe destacar la importancia de una buena elección del \textbf{learning rate}, pues si este es demasiado pequeño puede ocasionar una lenta convergencia al mínimo, y por lo tanto que se realice un gran número de iteraciones, y en cambio un valor excesivamente grande de este puede impedir la convergencia,pues los saltos serían tan grandes en la dirección del mínimo local o global que podría llegar a \entrecomillado{saltar} por encima de este siempre. Por lo tanto una técnica habitual aunque costosa de este algoritmo consiste en usar un learning rate adaptativo, que sea mayor en las primeras iteraciones y que vaya disminuyendo conforme se incremente el número de iteraciones (pues se entiende que se estará cerca del mínimo).
+
+        \subsubsection{Gradiente Descendente Estocástico}
+
+            \noindent El algoritmo descrito anteriormente tiene el problema de ser costoso computacionalmete, debido a que en cada iteración se debe calcular la función de coste para todos los ejemplos del conjunto de entrenamiento $X$. Es por ello que suele emplearse en su lugar una versión modificada y que sigue dando buenos resultados que consiste en actualizar los pesos en base a unos pocos ejemplos del conjunto de entrenamiento $X$ que se conoce como \entrecomillado{minibatch}.
+
+
+
+
 \section{Visión por Computador}
     \noindent La \textbf{Visión por computador} es un área de conocimiento en el que se unen diversas disciplinas como la IA o el AA para un propósito común, que es el procesado de imágenes por medio de un ordenador con la finalidad de que la máquina pueda llegar a extraer información relativa a estas del mismo modo en que lo haría un ser humano \cite{rosenfeld1988computer}. 
 
@@ -115,8 +171,12 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
     \noindent Finalmente, en los últimos años esta rama ha experimentado un fuerte crecimiento e importancia en la comunidad científica debido al actual desarrollo del \textbf{Deep Learning} y las \textbf{redes convolucionales profundas} que explicaremos en detalle en la siguiente sección. Estas nuevas herramientas han permitido crear programas que obtienen un gran rendimiento en el tratamiento de imágenes. Ejemplo de ello son los dos frameworks que vamos a comparar en este trabajo.
 
 \section{Deep Learning}
+    Como ya se ha mencionado anteriormente, la IA se encuentra muy desarrollada actualmente y es capaz de resolver problemas que tradicionalmente eran muy complicados para ser resueltos por un humano, pero que se ha demostrado que no son tan complicados para una máquina. Sin embargo, e irónicamente, algunas de las tareas más fáciles para los seres humanos como son el reconocimiento del habla o la identificación de objetos en imágenes han suponen un verdadero reto para un odernador, y o ha sido hasta los últimos años con el nacimiento del \textbf{Deep Learning} que se han empezado a obtener resultados satisfactorios en este campo.
+    
+    Por lo tanto, los algoritmos del Deep Learning se caracterizan por resolver estos problemas a partir de representaciones del mismo que se expresan en terminos de otras más simples. De esta manera se pueden construir conceptos difíciles a partir de otros más sencillos. Este grafo puede ser tan profundo como se necesite, por ello se le conoce como Deep Learning.
 
-\section{Redes Neuronales Convolucionales Profundas}
+    \subsection{Redes Neuronales}
+        La arquitectura básica de los modelos de Deep Learning viene descrita por la arquitectura de una \textbf{red neuronal}. Es por ello que vamos a profundizar un poco en esta estructura y para ello vamos a partir de un ejemplo clásico como es el \textbf{Perceptrón multicapa}(MLP). Para esta sección vamos a seguir el capítulo 6 de \cite{Goodfellow-et-al-2016}
 
 \section{Tratamiento de imágenes 2D y técnicas empleadas}
     \subsection{Tratamiento de imágenes 2D}
