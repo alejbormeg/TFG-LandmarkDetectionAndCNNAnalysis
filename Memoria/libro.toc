@@ -53,15 +53,24 @@
 \contentsline {section}{\numberline {6.2}Visión por Computador}{53}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Deep Learning}{53}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Redes Neuronales}{53}{subsection.6.3.1}%
-\contentsline {section}{\numberline {6.4}Tratamiento de imágenes 2D y técnicas empleadas}{54}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Tratamiento de imágenes 2D}{54}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Data Augmentation}{54}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}few-shot Learning}{54}{subsection.6.4.3}%
-\contentsline {chapter}{\numberline {7}Estado del Arte}{55}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Materiales y Métodos}{57}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Planificación e implementación}{59}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Experimentación}{61}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{63}{chapter.11}%
-\contentsline {chapter}{\numberline {A}Primer apéndice}{65}{appendix.Alph1}%
-\contentsline {chapter}{Glosario}{67}{chapter*.10}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{69}{chapter*.11}%
+\contentsline {subsection}{\numberline {6.3.2}Back Propagation}{55}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Redes Neuronales Convolucionales Profundas}{57}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Capa Convolucional}{57}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Capa de Pooling}{57}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Capa Totalmente Conectada}{57}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}Evolución Histórica de las CNN}{57}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}Optimizadores empleados}{57}{subsection.6.4.5}%
+\contentsline {section}{\numberline {6.5}Adversarial Autoencoder}{57}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Evolución Histórica}{57}{subsection.6.5.1}%
+\contentsline {section}{\numberline {6.6}Tratamiento de imágenes 2D y técnicas empleadas}{57}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Tratamiento de imágenes 2D}{57}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Data Augmentation}{57}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}few-shot Learning}{57}{subsection.6.6.3}%
+\contentsline {chapter}{\numberline {7}Estado del Arte}{59}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Materiales y Métodos}{61}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Planificación e implementación}{63}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Experimentación}{65}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{67}{chapter.11}%
+\contentsline {chapter}{\numberline {A}Primer apéndice}{69}{appendix.Alph1}%
+\contentsline {chapter}{Glosario}{71}{chapter*.10}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{73}{chapter*.11}%

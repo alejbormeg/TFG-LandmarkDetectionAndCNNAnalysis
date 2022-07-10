@@ -6,6 +6,11 @@ Joan Bruna and St{\'e}phane Mallat.
 \newblock {\em IEEE transactions on pattern analysis and machine intelligence},
   35(8):1872--1886, 2013.
 
+\bibitem[{Fei}17]{StanfordCourse}
+{Fei-Fei Li, Justin Johnson, Serena Young , Stanford University}.
+\newblock cs231n.
+\newblock \url = {http://cs231n.stanford.edu/2017/syllabus.html},, 2017.
+
 \bibitem[GBC16]{Goodfellow-et-al-2016}
 Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
 \newblock {\em Deep Learning}.
@@ -64,6 +69,11 @@ Stephen Quinn and Igor~E Verbitsky.
 Azriel Rosenfeld.
 \newblock Computer vision: basic principles.
 \newblock {\em Proceedings of the IEEE}, 76(8):863--868, 1988.
+
+\bibitem[SSA17]{sharma2017activation}
+Sagar Sharma, Simone Sharma, and Anidhya Athaiya.
+\newblock Activation functions in neural networks.
+\newblock {\em towards data science}, 6(12):310--316, 2017.
 
 \bibitem[TLF10]{Daisy}
 Engin Tola, Vincent Lepetit, and Pascal Fua.

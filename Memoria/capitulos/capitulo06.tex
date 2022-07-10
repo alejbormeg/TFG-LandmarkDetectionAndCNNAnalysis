@@ -176,7 +176,125 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
     Por lo tanto, los algoritmos del Deep Learning se caracterizan por resolver estos problemas a partir de representaciones del mismo que se expresan en terminos de otras más simples. De esta manera se pueden construir conceptos difíciles a partir de otros más sencillos. Este grafo puede ser tan profundo como se necesite, por ello se le conoce como Deep Learning.
 
     \subsection{Redes Neuronales}
-        La arquitectura básica de los modelos de Deep Learning viene descrita por la arquitectura de una \textbf{red neuronal}. Es por ello que vamos a profundizar un poco en esta estructura y para ello vamos a partir de un ejemplo clásico como es el \textbf{Perceptrón multicapa}(MLP). Para esta sección vamos a seguir el capítulo 6 de \cite{Goodfellow-et-al-2016}
+        La arquitectura básica de los modelos de Deep Learning viene descrita por la arquitectura de una \textbf{red neuronal}. Es por ello que vamos a profundizar un poco en esta estructura y para ello vamos a partir de un ejemplo clásico como es el \textbf{Perceptrón multicapa}(MLP). Para esta sección vamos a seguir el capítulo 6 de \cite{Goodfellow-et-al-2016}.
+
+        \medskip
+
+        \noindent Las redes neuronales tienen por objetivo aproximar una función desconocida $f(x)=y$ que asocia a cada entrada $x$ una salida $y$ a partir de una función $f'(x;W)= \widehat{y}$ (dónde $\widehat{y}$ es la etiqueta predicha para la entrada $x$) que depende de unos parámetros $W$, de manera que el objetivo es aprender los valores de $W$ que mejor aproximan la función objetivo $f$.
+
+        \medskip
+
+        \noindent Se denominan algoritmos \textbf{feedforward} porque la información fluye desde la entrada $x$ a través de los cálculos intermedios que definen $f'$ hasta finalmente dar una salida $y$.
+
+        \medskip
+
+        \noindent Finalmente a estos algoritmos se les denomina \textbf{redes} porque generalmente se representan como una composición de distintas funciones en cadena de manera que se van aplicando sucesivamente sobre la entrada $x$ hasta la salida $\widehat{y}$. 
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.5\textwidth]{img/single_hidden_layer.jpg}
+            \caption{Red neuronal con una capa oculta. Formalmente podría describirse como $f'(x)=(f_3(f_2(f_1(x))))$, dónde $f_1$ hace referencia a la capa de entrada a la red, $f_2$ a la capa oculta y $f_3$ a la capa de salida.}
+            \label{fig:red_neuronal_capa_oculta}
+          \end{figure}
+
+        \noindent La \textbf{profundidad} de la red vendría dada por la cantidad de \textbf{capas ocultas} que esta tiene. En los algoritmos de Deep Learning veremos un gran número de capas ocultas, de ahí el nombre. 
+
+        \medskip
+
+        \noindent Por otro lado, cada capa contiene un número determinado de \textbf{neuronas}, que se relacionan con las de la capa siguiente y las de la capa anterior mediante combinaciones lineales generalmente. Sin embargo, estas combinaciones lineales no son suficientes para que la red pueda aproximar funciones objetivo $f$ que sean no-lineales, para ello se emplean las llamadas \textbf{funciones de activación}. Se tratan de un conjunto de funciones no-lineales entre las que destacan las siguientes \cite{sharma2017activation}: 
+
+        \begin{itemize}
+            \item \textbf{Función Sigmoide}. Transforma los valores de entrada a un valor entre $0$ y $1$.
+            \begin{equation}
+                Sigmoide(x)=\frac{1}{e^{-x}}
+            \end{equation}
+            \item \textbf{Función Tangente Hiperbólica}. Es similar a la función sigmoide, pero es simétrica respecto al origen. 
+            \begin{equation}
+                tanh(x)=\frac{e^x - e^{-x}}{e^x + e^{-x}} 
+            \end{equation}
+            \item \textbf{Función ReLU}. Es una de las más usadas en redes neuronales por ser de las más eficientes, ya que permite que no se activen todas las neuronas a la vez, ya que en aquellas cuya salida tras la combinación lineal con los pesos de la capa correspondiente sea 0 no serán activadas.
+            \begin{equation}
+                ReLU(x)=\max(0,x)
+            \end{equation}
+
+            \noindent Existe el problema de que en algunos casos, el gradiente de la función sea $0$ debido a que los pesos no se actualicen durante el proceso que explicaremos más adelante de \textbf{back-propagation}.
+
+            \item \textbf{Función Leaky ReLU}. Es una versión mejorada de la función anterior, ya que para los casos en los que la función anterior valía $0$, ahora se expresan como una componente lineal de la entrada $x$ muy pequeña, de esta manera se resuelve el problema de que el gradiente de la función sea $0$. 
+            \begin{equation}
+                LeakyReLU(x)=\left\{ \begin{array}{lcc}
+                    x &   si  & x \leq 0 \\
+                    \\ ax &  si & 0 < x \\
+                    \end{array}
+                \right.
+            \end{equation}
+
+            \noindent Dónde $a$ es un valor muy próximo a $0$.
+            \item \textbf{Función SoftMax}. Es una combinación de múltiples funciones sigmoide. Mientras que la función Sigmoide se usa en problemas de clasificación binaria, la función SoftMax permite que se pueda realizar clasificación multiclase, ya que transforma un vector de entrada K-dimensional de valores reales en un vector K-dimensional de elementos entre $0$ y $1$, de manera que la componente más próxima a $1$ podría entenderse como la clase a la que pertenecería el elemento en un problema de clasificación multiclase.
+            
+            \begin{equation}
+                \sigma(x)_j= \frac{e^{z_j}}{\sum_{k=1}^{K}e^{z_k}} \; \; j=1, \ldots, K
+            \end{equation}
+        \end{itemize}
+
+        \noindent No existe una manera de elegir la mejor función para cada caso, pero de forma experimental se ha podido comprobar que la función ReLU en general da buenos resultados y si hubiera demasiadas neuronas muertas en la red podría cambiarse por la Leaky ReLU.
+
+        \medskip
+
+        \noindent De esta manera, en la capa $i$ de la red, la función $f_i$ suele tener la siguiente expresión: 
+
+        \begin{equation}
+            f_i(x)=\gamma(w_i^T x)
+        \end{equation}
+
+        \noindent Dónde $\gamma$ representa una función cualquiera del conjunto de funciones de activación que hemos descrito antes y $w_i$ el vector de pesos correspondiente a la capa $i$ de la red.
+    
+    \subsection{Back Propagation}
+        Todas las funciones de las capas intermedias de la red son derivables, por lo que se podría calcular de forma explícita su expresión en cada caso, lo que ocurre es que este proceso es costoso computacionalmete. En lugar de esto se aplica la técnica de \textbf{Back-propagation}.
+
+        \medskip
+
+        \noindent Para entender este proceso correctamente se debe introducir primero el concepto de \textbf{Grafo Computacional}, que no es otra cosa que representar una función mediante un grafo. Como por ejemplo \autoref{fig:GrafoComputacional}.
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/GrafoComputacional.png}
+            \caption{Ejemplo de Grafo computacional junto con la salida para una entrada concreta $x=-2$,$y=5$, $z=-4$. La imagen ha sido extraida del curso \cite{StanfordCourse}.}
+            \label{fig:GrafoComputacional}
+        \end{figure}
+
+        \medskip
+
+        \noindent La idea del algoritmo de Back-propagation es ir calculando la derivada en cada nodo del grafo computacional mediante la aplicación de la regla de la cadena, de manera que si $f(x,y,z)=g(x,y)h(z)$ si quisiéramos calcular $\frac{\partial f}{\partial x}$ aplicando la regla de la cadena tendríamos que: 
+
+        \begin{equation}
+            \frac{\partial f}{\partial x}= \frac{\partial f}{\partial g} \frac{\partial g}{\partial x}
+        \end{equation}
+
+        
+        Podemos entender mejor el proceso resolviendo el ejemplo \autoref{fig:GrafoComputacional}: 
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/BP_ejemplo.png}
+            \caption{Como podemos ver en la imagen superior, en primer lugar se renombra la salida de la operación $x+y$ por $q$, de manera que $f=qz$. Tras esto se empiezan a calcular las derivadas parciales correspondientes desde el final hacia la entrada, aplicando cuando sea necesario la regla de la cadena hasta obtener la derivada de cada nodo en la imagen de abajo. Las imágenes han sido extraidas de \cite{StanfordCourse}}
+            \label{fig:Ejemplo BP}
+        \end{figure}
+
+        \noindent Como vemos en \autoref{fig:Ejemplo BP}, se produce un flujo desde la salida hacia la entrada en la que se van calculando los gradientes para cada parámetro. Una vez calculado el gradiente se procede a actualizar los pesos usando por ejemplo el algoritmo de \textbf{gradiente descendente}.
+    
+\section{Redes Neuronales Convolucionales Profundas}
+    \subsection{Capa Convolucional}
+
+    \subsection{Capa de Pooling}
+
+    \subsection{Capa Totalmente Conectada}
+
+    \subsection{Evolución Histórica de las CNN}
+
+    \subsection{Optimizadores empleados}
+
+\section{Adversarial Autoencoder}
+    \subsection{Evolución Histórica}
 
 \section{Tratamiento de imágenes 2D y técnicas empleadas}
     \subsection{Tratamiento de imágenes 2D}
