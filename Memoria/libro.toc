@@ -54,23 +54,30 @@
 \contentsline {section}{\numberline {6.3}Deep Learning}{53}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Redes Neuronales}{53}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}Back Propagation}{55}{subsection.6.3.2}%
-\contentsline {section}{\numberline {6.4}Redes Neuronales Convolucionales Profundas}{57}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Capa Convolucional}{57}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Capa de Pooling}{57}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Capa Totalmente Conectada}{57}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}Evolución Histórica de las CNN}{57}{subsection.6.4.4}%
-\contentsline {subsection}{\numberline {6.4.5}Optimizadores empleados}{57}{subsection.6.4.5}%
-\contentsline {section}{\numberline {6.5}Adversarial Autoencoder}{57}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Evolución Histórica}{57}{subsection.6.5.1}%
-\contentsline {section}{\numberline {6.6}Tratamiento de imágenes 2D y técnicas empleadas}{57}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Tratamiento de imágenes 2D}{57}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Data Augmentation}{57}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}few-shot Learning}{57}{subsection.6.6.3}%
-\contentsline {chapter}{\numberline {7}Estado del Arte}{59}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Materiales y Métodos}{61}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Planificación e implementación}{63}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Experimentación}{65}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{67}{chapter.11}%
-\contentsline {chapter}{\numberline {A}Primer apéndice}{69}{appendix.Alph1}%
-\contentsline {chapter}{Glosario}{71}{chapter*.10}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{73}{chapter*.11}%
+\contentsline {section}{\numberline {6.4}Redes Neuronales Convolucionales}{57}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Capa Convolucional}{58}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Capa de Pooling}{58}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Capa Totalmente Conectada (Fully Conected)}{59}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}Batch Normalization}{60}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}Optimizador Adam}{60}{subsection.6.4.5}%
+\contentsline {subsection}{\numberline {6.4.6}Proceso de entrenamiento de una CNN}{60}{subsection.6.4.6}%
+\contentsline {subsection}{\numberline {6.4.7}Evolución de las CNN}{61}{subsection.6.4.7}%
+\contentsline {subsubsection}{\numberline {6.4.7.1}LeNet-5}{61}{subsubsection.6.4.7.1}%
+\contentsline {subsubsection}{\numberline {6.4.7.2}AlexNet}{61}{subsubsection.6.4.7.2}%
+\contentsline {subsubsection}{\numberline {6.4.7.3}GoogLeNet}{62}{subsubsection.6.4.7.3}%
+\contentsline {subsubsection}{\numberline {6.4.7.4}VGG-16}{63}{subsubsection.6.4.7.4}%
+\contentsline {subsubsection}{\numberline {6.4.7.5}ResNet}{63}{subsubsection.6.4.7.5}%
+\contentsline {section}{\numberline {6.5}Adversarial Autoencoder}{65}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Evolución Histórica}{65}{subsection.6.5.1}%
+\contentsline {section}{\numberline {6.6}Tratamiento de imágenes 2D y técnicas empleadas}{65}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Tratamiento de imágenes 2D}{65}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Data Augmentation}{65}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}few-shot Learning}{65}{subsection.6.6.3}%
+\contentsline {chapter}{\numberline {7}Estado del Arte}{67}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Materiales y Métodos}{69}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Planificación e implementación}{71}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Experimentación}{73}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{75}{chapter.11}%
+\contentsline {chapter}{\numberline {A}Primer apéndice}{77}{appendix.Alph1}%
+\contentsline {chapter}{Glosario}{79}{chapter*.10}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{81}{chapter*.11}%

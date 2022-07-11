@@ -175,7 +175,7 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
     
     Por lo tanto, los algoritmos del Deep Learning se caracterizan por resolver estos problemas a partir de representaciones del mismo que se expresan en terminos de otras más simples. De esta manera se pueden construir conceptos difíciles a partir de otros más sencillos. Este grafo puede ser tan profundo como se necesite, por ello se le conoce como Deep Learning.
 
-    \subsection{Redes Neuronales}
+    \subsection{Redes Neuronales} \label{sub:redes_neuronales}
         La arquitectura básica de los modelos de Deep Learning viene descrita por la arquitectura de una \textbf{red neuronal}. Es por ello que vamos a profundizar un poco en esta estructura y para ello vamos a partir de un ejemplo clásico como es el \textbf{Perceptrón multicapa}(MLP). Para esta sección vamos a seguir el capítulo 6 de \cite{Goodfellow-et-al-2016}.
 
         \medskip
@@ -282,16 +282,252 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
 
         \noindent Como vemos en \autoref{fig:Ejemplo BP}, se produce un flujo desde la salida hacia la entrada en la que se van calculando los gradientes para cada parámetro. Una vez calculado el gradiente se procede a actualizar los pesos usando por ejemplo el algoritmo de \textbf{gradiente descendente}.
     
-\section{Redes Neuronales Convolucionales Profundas}
+\section{Redes Neuronales Convolucionales}
+    \noindent Las \textbf{Redes Neuronales Convolucionales} (CNN) son la principal herramienta del Deep Learning y están inspiradas en las redes neuronales que hemos explicado anteriormente, con la salvedad de que ahora en vez de tener como entrada un vector de $\mathbb{R}^d$ ahora pueden entrar a la red volúmenes de datos en varias dimensiones, como por ejemplo imágenes que se representan como una matriz $2$D.
+    
+    \medskip
+
+    \noindent La principal motivación para la creación de estas redes es el concepto de \textbf{conectividad local}, pues cuando se trabaja con entradas de grandes dimensiones como son las imágenes, resulta impráctico conectar cada neurona con todas las de la capa anterior (como suele ocurrir en las redes neuronales clásicas que hemos visto anteriormente). Es por ello que se decide conectar cada neurona con una región local del volumen de entrada. Por lo que vamos a emplear filtros que siempre van a tener la misma profundidad que el volumen de entrada y que vamos a ir desplazando a lo largo del volumen de entrada. A continuación vamos a ver qué operación realizaremos con este filtro sobre el volumen de la imagen que ocupa para alimentar cada neurona de la siguiente capa.
+
+    \medskip
+
+    \noindent Se denominan \textbf{Convolucionales} debido a que la principal operación matemática que realiza en cada filtro es la convolución. La operación de convolución se realiza generalmente entre dos funciones de variable real y viene descrita por la siguiente expresión:
+
+    \begin{equation}
+        f(t)=\int g(a) h(t-a) da = (g \ast h)(t)
+    \end{equation}
+
+    \noindent Dónde $t$ generalmente representa el paso del tiempo y $x,w$ son dos funciones de variable real.
+
+    \medskip
+
+    \noindent Sin embargo, la expresión anterior es la definición en el caso continuo, por lo que al trabajar en un ordenador, el tiempo y las funciones que empleamos deben ser discretizado, por ello consideraremos que $t$ toma solo valores enteros.De esta forma, definimos la \textbf{convolución discreta} en una dimensión como: 
+
+    \begin{equation}
+        f(t)= (g \ast h)(t) = \sum_{a=-\infty}^\infty g(a) h(t-a)
+    \end{equation}
+
+    \medskip
+
+    \noindent Sin embargo, en nuestro caso aplicaremos las CNN a imágenes, que se discretizan como matrices $2$D, por lo que necesitamos extender la definición anterior al caso de dos dimensiones: 
+
+    \begin{equation}
+        f(n,m)= (g \ast h)(n,m) = \sum_{j=-\infty}^\infty \sum_{i=-\infty}^\infty g(i,j) h(n-i,m-j)
+    \end{equation}
+
+    \noindent La convolución tiene las siguientes propiedades: 
+
+    \begin{itemize}
+        \item \textbf{Conmutatividad}: 
+        \begin{equation}
+            f \ast g = g \ast f
+        \end{equation}
+        \item \textbf{Asociatividad}: 
+        \begin{equation}
+            f \ast (g \ast h) = (f \ast g) \ast h
+        \end{equation}
+        \item \textbf{Distributividad}: 
+        \begin{equation}
+            f \ast (g + h)= (f\ast g) + (f \ast h)
+        \end{equation}
+    \end{itemize}
+
+    \noindent Con esto tenemos todos los ingredientes para empezar a describir la estructura de una CNN, que generalmente se compone de tres tipos de capas: \textbf{capas convolucionales}, \textbf{capas de Pooling} y \textbf{capas totalmente conectadas}.
+
     \subsection{Capa Convolucional}
+        \noindent Se trata de la capa esencial de una CNN y consiste en desplazar un filtro por todo el volumen de entrada realizando la operación de convolución discreta en $2$D. Como dijimos antes, la profundidad del filtro que empleamos para esto coincide con la del volumen de entrada siempre. Vamos a discutir ahora qué volumen de salida genera cada capa convolucional que viene definido por tres parámetros: \textbf{depth}, \textbf{stride} y \textbf{padding}
+
+        \begin{itemize}
+            \item El parámetro \textbf{depth} se corresponde con el número de filtros que queremos aplicar al volumen de entrada, pues se pretende que cada uno de ellos aprenda algo distinto sobre este. Como cada filtro produce un volumen $m \times n$ de profundidad $1$ conocido como \textbf{mapa de activación}, este parámetro nos genera tantos mapas de activación como indique.
+            \item El parámetro \textbf{stride} indica el paso con el que vamos desplazando cada filtro sobre el volumen de entrada, así un stride de $1$ indica que el filtro se desplaza de uno en uno por los píxeles, y un stride de $2$ indicaría que se desplaza de dos en dos. Cuanto mayor sea de menores dimensiones será el mapa de activación.
+            \item El parámetro \textbf{padding} indica en cuantas filas y columnas se amplía el volumen de entrada antes de aplicar los filtros. Este parámetro se utiliza para controlar la dimensión de salida de los mapas de activación pues la convolución es una operación que reduce la dimensionalidad siempre.
+        \end{itemize}
+
+        \noindent Con todo esto en mente, la relación que determina el volumen de salida de una capa convolucional para un volumen de entrada de dimensión $W \times W \times d$ y empleando filtros de dimensión $F \times F \times d$ con un padding $P$, un stride $S$ sería: 
+
+        \begin{equation}
+            Output=(W-F + 2P)/S + 1
+        \end{equation}
+
+        \medskip
+        
+        \noindent Generalmente la salida de cada capa convolucional supone la entrada a una función de activación como las que se describieron en \autoref{sub:redes_neuronales}. Normalmente se utiliza la función ReLU, aunque también es común el uso de Leaky ReLU.
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/mapa_activacion.png}
+            \caption{Ejemplo de cálculo de mapa de activación en una capa convolucional para un determinado volumen de entrada. El parámetro depth nos dice la cantidad de mapas de activación generamos para el volumen de entrada, o dicho de otro modo, el número de filtros que aplicamos. La imagen ha sido extraida de \cite{StanfordCourse}}
+            \label{fig:mapa_activacion}
+        \end{figure}
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/sucesion_conv_layer.png}
+            \caption{Sucesión de varias capas convolucionales + ReLU que describen la estructura básica de una CNN. Cabe destacar como la produndidad de los filtros es siemore la misma que la del volumen de entrada, de acuerdo a lo que hemos dicho anteriormente. La imagen han sido extraida de \cite{StanfordCourse}}
+            \label{fig:estructura_convnet}
+        \end{figure}
 
     \subsection{Capa de Pooling}
+        \noindent En las CNN es normal instertar de vez en cuando capas de Pooling. Esta capa reduce la dimensión del volumen de entrada y actúa independientemente del volumen de la profundidad que tenga el volumen de entrada. Generalmente se emplean filtros de dimensión $2 \times 2$ con un stride de $2$ que reduce a la mitad la dimensión del volumen de entrada y mantiene la profundad.
 
-    \subsection{Capa Totalmente Conectada}
+        \medskip
 
-    \subsection{Evolución Histórica de las CNN}
+        \noindent El tipo de operación que se realiza con el filtro $2 \times 2$ ha sido objeto de estudio en los últimos años, y se han probado las siguientes funciones: 
 
-    \subsection{Optimizadores empleados}
+        \begin{itemize}
+            \item \textbf{Max Pooling}. Consiste en tomar el máximo de los cuatro elementos que ve el filtro del volumen de entrada. 
+            \item \textbf{Average Pooling}. Consiste en realzar un promedio de los elementos que ve el filtro.
+        \end{itemize}
+
+        \noindent Generalmente, el \textbf{max pooling} parece tener un mayor rendimiento en la práctica, pero esto aún es objeto de estudio.
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/pooling.png}
+            \caption{Ejemplo de capa de pooling usando la operación del máximo. La imagen han sido extraida de \cite{StanfordCourse}}
+            \label{fig:pooling}
+        \end{figure}
+    
+    \subsection{Capa Totalmente Conectada (Fully Conected)}
+        \noindent Generalmente al final de las CNN suele encontrarse una capa totalmente conectada (FC) que tiene la misma estructura que una red neuronal clásica con una o dos capas ocultas generalmente, y por lo tanto está creada para un vector de entrada de una dimensión concreta.
+
+        \medskip
+
+        \noindent Como hemos visto en las capas anteriores, una CNN actua de manera independiente de las dimensiones del volumen de entrada a la red salvo en las capas totalmente conectadas, es por ello que estas capas son las que normalmente determinan el volumen de entrada a la red para que esta funcione correctamente.
+
+    \subsection{Batch Normalization}
+        \noindent Actualmente, es muy común en las CNN usar \textbf{Batch Normalization} que consiste en normalizar los datos de entrada a cada capa convolucional con la intención de hacer que las operaciones convolucionales sean independientes unas de otras, es decir, que la distribución de los datos de entrada a una capa no dependa de los parámetros aprendidos por la capa anterior. Además este procedimiento ayuda a prevenir el overfitting de la red, ayudando a la regularización.
+
+    \subsection{Optimizador Adam}
+        El proceso de aprendizaje en las CNN se realiza de manera similar al caso de las redes neuronales clásicas, mediante la técnica de Back-propagation. Sin embargo el optimizador Gradiente Descendente que hemos presentado en secciones anteriores tiene un único learning rate para todos los pesos de la red y se mantiene fijo durante todo el entrenamiento. Es por ello que en su lugar generalmente se usa el optimizador Adam que permite establecer un learning rate distinto para cada parámetro y que además es adaptativo.
+
+    \subsection{Proceso de entrenamiento de una CNN}
+
+        \noindent Una vez aclarados todos los conceptos previos estamos en condiciones de comprender el proceso clásico de entrenamiento de una CNN en el que nos basaremos para entrenar nuestro modelo en secciones posteriores: 
+
+        \medskip
+
+        \noindent Generalmente se entrenan las imágenes por conjuntos denominados \textit{mini-batches}, los cuales: 
+
+        \begin{itemize}
+            \item En una primera instancia se propagan hacia adelante por toda la red calculando las activaciones y errores de salida en lo que se conoce como \textbf{forward pass}.
+            \item Vamos de la salida a la entrada calculado los gradientes de cada unidad con lo que se conoce como \textbf{backward pass} aplicando el algoritmo de back-propagation.
+            \item Se actualizan los pesos en base al gradiente calculado en el paso anterior y según el optimizador que se esté empleando (Adam, gradiente descendente, etc...)
+        \end{itemize}
+
+    \subsection{Evolución de las CNN}
+    Una vez hemos presentado las CNN y sus principales componentes vamos a dar un breve repaso por la historia y evolución de su arquitectura \cite{EvolutionCNN}.
+
+    \subsubsection{LeNet-5}
+        \noindent La primera arquitectura conocida que forma parte de las CNN fue desarrollada por LeCun \cite{lecun1998gradient} para el reconocimiento de dígitos manuscritos, a dicha red la llamaron \textbf{LeNet-5} y fue la que sirvió de inspiración para el desarrollo de las posteriores redes.
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/LeNet.png}
+            \caption{Arquitectura de la red LeNet. Como podemos observar tiene capas convolucionales, capas de average pooling y capas totalmente conectadas al final. Imagen extraida de \cite{lecun1998gradient}.}
+            \label{fig:LeNet}
+        \end{figure}
+
+        \noindent Algunas de sus características eran: 
+
+        \begin{itemize}
+            \item Su arquitectura consiste en: 
+            $$INPUT \rightarrow CONV \rightarrow AVG\;POOL \rightarrow CONV \rightarrow AVG \; POOL \rightarrow FC \rightarrow FC \rightarrow OUTPUT.$$
+            \item Las imágenes de entrada eran de dimensión $32 \times 32$ y pertenecían a una base de datos MNIST de dígitos manuscritos.
+            \item Tiene alrededor de unos $60000$ parámetros para entrenar.
+            \item Las dimensiones de la imagen de entrada descienden en cada paso mientras que la profundidad del tensor aumenta hasta llegar a las capas FC.
+        \end{itemize}
+
+    \subsubsection{AlexNet}
+        \noindent Tras el éxito de LeNet comenzaron a desarrollarse nuevas arquitecturas basadas en CNN para problemas de reconocimiento de objetos en imágenes, aunque a pesar del buen rendimiento que tenían, resultaban muy costosas de entrenar para grandes volúmenes de datos o en imágenes de alta resolución. De esta manera surgión la red AlexNet \cite{krizhevsky2012imagenet}.
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/AlexNet.png}
+            \caption{Arquitectura de la red AlexNet. Destaca que parece estar \entrecomillado{partida} en dos mitades, esto es porque por primera vez se usaron las GPUs para entrenar la red de manera que una GPU realizaba la parte superior de la arquitectura y otra la parte inferior. Imagen extraida de \cite{krizhevsky2012imagenet}.}
+            \label{fig:AlexNet}
+        \end{figure}
+
+        \noindent Destacan las siguientes propiedades:
+
+        \begin{itemize}
+            \item Tiene un total de ocho capas sin contar las de pooling, cinco convolucionales y tres FC.
+            \item Emplea ReLU como función de activación en lugar de tanh pues se demuestra que acelera el proceso de entrenamiento $\times 6$ y obtiene un error del $25\%$ en el dataset CIFAR-10.
+            \item Se emplearon múltiples GPUs para el entrenamiento dividiendo las neuronas en dos conjuntos. Esto aceleró aún más el entrenamiento.
+            \item Emplean la técnica de Max Pooling en lugar de la de Average Pooling de LeNet. 
+            \item Tienen 60 millones de parámetros que aprender, de manera que para evitar el Overfitting se usó la técnica de \textbf{dropout}, que consistía en \entrecomillado{apagar} neuronas en cada iteración del entrenamiento de acuerdo a una probabilida del $50\%$. También se usó \textbf{data augmentation} que explicaremos en \autoref{sub:data_augmentation}.
+            \item El modelo ganó la competición ImageNet en $2012$ con una diferencia en precisión del $11\%$ con respecto al algoritmo que quedó en segundo lugar.
+        \end{itemize}
+    
+    \subsubsection{GoogLeNet}
+        \noindent La arquitectura de GoogLeNet está basada en un módulo que se denomina \textbf{Inception} creado con la intención de reducir el coste computacional de las CNNs. Para ello se propone que en vez de construir una red muy profundas se realicen simultáneamente múltiples convoluciones en una sola capa. Con este modelo aparecen los primeros filtros de convolución $1\times 1$ encargados de reducir la profundidad del volumen de entrada manteniendo las dimensiones.
+
+        \medskip
+
+        \noindent Con este modelo, se permitía realizar simultáneamente diversas operaciones sobre un volumen de entrada y finalmente se concatenaban los mapas de activación.
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/inception_module.png}
+            \caption{Ejemplos de módulos Inception.}
+            \label{fig:inception}
+        \end{figure}
+
+        \noindent Con este nuevo módulo se desarrolló en 2015 la red GoogLeNet \cite{szegedy2015going}, que consiguió ganar el concurso ImageNet con empate técnico con la red \textbf{VGG-19}. En vez de usar capas FC usaron la técnica de \textbf{golbal average pooling} mediante la cual reducían la dimensión de los tensores con convoluciones $1 \times 1$.
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/GoogLeNet.png}
+            \caption{Arquitectura de GoogLeNet usando módulos Inception.}
+            \label{fig:GoogLeNet}
+        \end{figure}
+
+        \noindent Destacan las siguientes propiedades:
+
+        \begin{itemize}
+            \item Tiene un total de 27 capas de profundidad, por lo que aumenta notablemente la profundidad con respecto a sus antecesores.
+            \item El uso de convoluciones $1\times 1$ con 128 filtros ayudan a reducir la dimensionalidad en lugar de usar capas FC.
+            \item Contiene una capa FC con 1024 unidades y que alimenta una ReLU. 
+            \item Tiene una capa lineal con Softmax para clasificación multiclase.
+        \end{itemize}
+
+    \subsubsection{VGG-16}
+        \noindent Supuso un gran salto en rendimiento con respecto a los modelos anteriores. Los principales cambios con modelos anteriores como AlexNet es que dejaron de usar filtros de grandes dimensiones en las primeras etapas de la red para pasar a usar solo filtros $3 \times 3$. Esto ahorraba costes y permitía hacer una red más profunda \cite{simonyan2014very}.
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{img/VGG-16.jpeg}
+            \caption{Arquitectura de VGG-16.}
+            \label{fig:VGG}
+        \end{figure}
+
+        \noindent Destacan las siguientes propiedades:
+
+        \begin{itemize}
+            \item Consigue en Imagenet una precisión del $92.7 \%$.
+            \item Tiene unos 138 millones de parámetros entrenables que es más del doble de cualquiera de los modelos anteriores, lo que hace que VGG-16 sea muy lenta de entrenar.
+        \end{itemize}
+
+    \subsubsection{ResNet}
+
+        \noindent Tras los modelos anteriores, todavía quedaba un problema que tenían las CNN sin resolver, y es que cuanto más profundas eran, más problema había con el cálculo de los gradientes, pues tendían a cantidades infinitesimalmente pequeñas. Es por ello que surge la arquitectura \textbf{ResNet} \cite{he2016deep}, que introduce cortes en la red conectando un tensor con el que había unas cuantas etapas atrás, a esto se le denomina \textbf{bloque residual}. 
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.5\textwidth]{img/resnet_module.jpeg}
+            \caption{Bloque residual de una ResNet. Como vemos, se suma el tensor $x$ con el tensor $\mathcal{F}(x)$ que surge unas etapas después. Imagen extraida de \cite{he2016deep}.}
+            \label{fig:Resnet}
+        \end{figure}
+        
+        \noindent Con estos bloques residuales impedimos que los gradientes tiendan a cero rápidamente, con lo que podemos crear redes mucho más profundas. De hecho la versión de ResNet con 152 capas ganó el concurso ILSVRC 2015 siendo la red más profunda en aquel entonces. 
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.5\textwidth]{img/resnet_module.jpeg}
+            \caption{Resumen de los ganadores del concurso ILSVRC hasta 2015 con la aparición de Resnet. Imagen extraida de \cite{StanfordCourse}.}
+            \label{fig:ImageNet}
+        \end{figure}
+
 
 \section{Adversarial Autoencoder}
     \subsection{Evolución Histórica}
@@ -299,7 +535,7 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
 \section{Tratamiento de imágenes 2D y técnicas empleadas}
     \subsection{Tratamiento de imágenes 2D}
 
-    \subsection{Data Augmentation}
+    \subsection{Data Augmentation} \label{sub:data_augmentation}
 
     \subsection{few-shot Learning}
 
