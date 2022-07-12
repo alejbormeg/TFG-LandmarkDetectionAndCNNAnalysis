@@ -96,11 +96,25 @@ Stephen Quinn and Igor~E Verbitsky.
 \newblock A sublinear version of schur’s lemma and elliptic pde.
 \newblock {\em Analysis \& PDE}, 11(2):439--466, 2018.
 
-\bibitem[Roc19]{GAN}
+\bibitem[Ras20]{AAE}
+Fathy Rashad.
+\newblock Adversarial auto encoder (aae).
+\newblock
+  \url={https://medium.com/vitrox-publication/adversarial-auto-encoder-aae-a3fc86f71758},,
+  2020.
+
+\bibitem[Roc19a]{GAN}
 Joseph Rocca.
 \newblock Understanding generative adversarial networks (gans).
 \newblock \url =
   {https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-cd6e4651a29},,
+  2019.
+
+\bibitem[Roc19b]{VAE}
+Joseph Rocca.
+\newblock Understanding variational autoencoders (vaes).
+\newblock \url =
+  {https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73},,
   2019.
 
 \bibitem[Ros88]{rosenfeld1988computer}

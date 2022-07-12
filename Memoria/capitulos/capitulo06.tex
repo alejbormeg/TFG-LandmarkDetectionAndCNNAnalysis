@@ -533,7 +533,7 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
     \noindent Hasta ahora hemos visto qué son las CNN y su gran importancia en Deep learning en tareas de reconocimiento de objetos en imágenes. A continuación vamos a presentar un tipo de red que se emplea en tareas de \textit{Aprendizaje no supervisado} y que será de gran importancia en nuestro trabajo. Se tratan de las redes conocidas como \textbf{Autoencoders}.
 
     \subsection{Introducción}
-        \noindent Los \textbf{Autoencoders} \cite{GAN2} son un tipo específico de red cuya entrada \entrecomillado{coincide} con su salida. Se encargan de reducir las imágenes de entrada a un vector perteneciente a un espacio vectorial latente y que idealmente codifica los elementos más relevantes en la imagen para posteriormente reconstruir la imagen a partir de este vector con la intención de que sea lo más parecida posible a la de entrada.
+        \noindent Los \textbf{Autoencoders} \cite{autoencoders2017} son un tipo específico de red cuya entrada \entrecomillado{coincide} con su salida. Se encargan de reducir las imágenes de entrada a un vector perteneciente a un espacio vectorial latente y que idealmente codifica los elementos más relevantes en la imagen para posteriormente reconstruir la imagen a partir de este vector con la intención de que sea lo más parecida posible a la de entrada.
 
         \medskip
 
@@ -550,7 +550,7 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.5\textwidth]{img/Autoencoder.png}
-            \caption{Esquema de un Autoencoder básico. Imagen extraida de \cite{GAN2}.}
+            \caption{Esquema de un Autoencoder básico. Imagen extraida de \cite{autoencoders2017}.}
             \label{fig:Autoencoder}
         \end{figure}
 
@@ -564,7 +564,7 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
 
             \medskip
 
-            \noindent Para esta tarea suele emplearse una CNN denominada \textit{Generative Network} que tiene como objetivo recibir una imagen o un vector aleatorio y producir como salida una imagen de las mismas dimensiones que la de entrada que siga la distribución de probabilidad de las imágenes del dataset. Esta red tiene la estructura de un \textbf{Autoencoder}.
+            \noindent Para esta tarea suele emplearse una CNN denominada \textit{Generative Network} que tiene como objetivo recibir una imagen o un vector aleatorio y producir como salida una imagen de las mismas dimensiones que la de entrada que siga la distribución de probabilidad de las imágenes del dataset a nivel de \textbf{pixel}. Esta red tiene la estructura de un \textbf{Autoencoder}.
 
             \begin{figure}[!h]
                 \centering
@@ -579,7 +579,7 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.8\textwidth]{img/proceso_entrenamiento_GAN.png}
+                \includegraphics[width=0.6\textwidth]{img/proceso_entrenamiento_GAN.png}
                 \caption{Resumen del proceso de entrenamiento de una GAN. Imagen extraida de \cite{autoencoders2017}.}
                 \label{fig:Generative Network}
             \end{figure}
@@ -587,19 +587,76 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.5\textwidth]{img/GAN.png}
-                \caption{Ejemplo de la arquitectura de una GAN para generar imágenes de dígitos manuscritos.}
+                \caption{Ejemplo de la arquitectura de una GAN para generar imágenes de dígitos manuscritos. Imagen extraida de \cite{AAE}}
                 \label{fig:GAN}
             \end{figure}
  
-        \subsubsection{Variational Autoencoder}
+        \subsubsection{Variational Autoencoder (VAE)}
+            \noindent Un VAE puede definirse como un autoencoder cuyo entrenamiento es regularizado para evitar el overfitting y asegurarse que el espacio vectorial latente tiene propiedades adecuadas para la generación de nuevos datos.
 
-\section{Tratamiento de imágenes 2D y técnicas empleadas}
-    \subsection{Tratamiento de imágenes 2D}
+            \medskip
 
-    \subsection{Data Augmentation} \label{sub:data_augmentation}
+            \noindent La principal diferencia entre el Autoencoder y el Variational Autoencoder es que en vez de codificar cada punto de entrada como un único punto, va a codificarlo como una distribución sobre el espacio latente buscando la distribución de los datos, no de los píxeles. El modelo de entrenamiento sería:
+            
+            \begin{itemize}
+                \item La entrada se codifica como una distribución sobre el espacio vectorial latente.
+                \item Un punto del espacio latente es muestreado por la distribución. 
+                \item Se decodifica el punto y se calcula el error de reconstrucción.
+                \item Se usa backpropagation con el error anterior.
+            \end{itemize}
 
-    \subsection{few-shot Learning}
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.8\textwidth]{img/vae_1.png}
+                \caption{Diferencia en el tratamiento de los datos por parte del encoder en una VAE y un Autoencoder clásico. Imagen extraida de \cite{VAE}.}
+                \label{fig:VAE_1}
+            \end{figure}
 
+            \noindent El modo de proceder habitual es tomar las distribuciones de los datos codificados como normales, así puede devolverse la media y matriz de covarianzas que describen la Gaussiana. La razón por la que la entrada se codifica como una distribución es porque esto permite expresar de forma natural la regularización del espacio vectorial latente ya que las distribuciones que salen del codificador se forzarán a que sean lo más similar posible a una distribución normal estandar, este término regulariazante se incluye en la función de coste como podemos ver en \autoref{fig:VAE_2}. Para ello utiliza la divergencia de \textit{Kulback-Leibler} (KL) como medida entre la diferencia entre dos distribuciones.
+
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.5\textwidth]{img/vae_2.png}
+                \caption{Diferencia en la función de pérdida de un Autoencoder clásico (imagen superior) y una VAE (imagen inferior). Destacamos el término KL regularizante que pretende que las distribuciones de los datos sigan una normal estándar. Imagen extraida de \cite{VAE}.}
+                \label{fig:VAE_2}
+            \end{figure}
+        
+        \subsubsection{Adversarial Autoencoder(AAE)}
+            \noindent Un Adversarial Autoencoder no es más que la unión de la arquitectura de un Autoencoder con el concepto de Adversarial Loss y el Discrimnante introducido por la GAN. Por otro lado utiliza la idea del VAE para regularizar el espacio vectorial latente pero en lugar de la divergencia de KL emplea el adversarial loss.
+
+            \medskip
+
+            \noindent Para ello se añade un nuevo componente que actúa como Discriminador y el Encoder actuará como Generador(a diferencia de las GANs, dónde la salida del Generador era la imagen, no el vector del espacio vectorial latente). Se selecciona una distribución a seguir por los vectores del espacio vectorial latente (generalmente una distribución normal estándar). Así, los vectores generados por el Encoder tratarán de engañar al Discriminador, que tendrá que discernir entre si proceden de la distribución elegida o no. En otras palabras, si el vector latente es una muestra aleatoria de la distribución deseada o bien es un vector generado por el ecoder.
+
+            \medskip
+
+            \noindent Por lo tanto la arquitectura de un AAE presenta los siguientes componentes: 
+
+            \begin{itemize}
+                \item \textbf{Encoder}. Tomará la entrada y la transformará en un vector latente de baja dimensión.
+                \item \textbf{Decoder}. Tratará de reconstruir la imagen a partir del vector latente generado por el Encoder. 
+                \item \textbf{Discriminador}. Toma vectores de la distribución del espacio vectorial latente deseada (reales) y también vectores generados por el Encoder (fakes) y tratará de discernir entre si proceden de la distribución o no.
+            \end{itemize}
+
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.5\textwidth]{img/AAE.png}
+                \caption{Esquema de la arquitectura de un AAE. El Encoder sería la red a la que entra la imagen $x$, el vector $z$ sería el vector latente, que sirve de entrada al Discriminador $D_{gauss}$ y finalmente el vector $z$ es la entrada del Decoder que reconstruye la imagen. Imagen extraida de \cite{AAE}.}
+                \label{fig:AAE}
+            \end{figure}
+
+            \noindent Esta arquitectura será la que emplearemos en nuestro proyecto, aunque presenta algunas variaciones que introduciremos cuando sea el momento.
+
+\section{Técnicas empleadas}
+    \noindent En esta sección vamos a presentar las distintas técnicas que se emplearán en el trabajo durante el entrenamiento de la red que utilizaremos y que se presentará más adelante. 
+
+    \subsection{Few-shot Learning y Data Augmentation} \label{sub:data_augmentation}
+        \noindent Entendemos por \textbf{Few-shot learning} los problemas de AA en los que en la etapa de aprendizaje supervisado se dispone de muy pocos datos etiquetados. En nuestro caso disponemos de un dataset Forense con pocas imágenes etiquetadas, por ello lo consideramos un problema de few-shot learning.
+
+        \medskip
+
+        \noindent Por otro lado, cuando se presentan este tipo de problemas se aplican técnicas de \textbf{data augmentation} que consisten en aumentar las imágenes de entrenamiento a base de \textit{deformar} ligeramente, \textit{rotar} o \textit{trasladar} las imágenes existentes.
+        
 \endinput
 %------------------------------------------------------------------------------------
 % FIN DEL CAPÍTULO. 

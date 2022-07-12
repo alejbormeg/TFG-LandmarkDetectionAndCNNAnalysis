@@ -29,8 +29,12 @@
 \backcite {he2016deep}{{63}{6.4.7.5}{subsubsection.6.4.7.5}}
 \backcite {he2016deep}{{64}{6.12}{figure.6.12}}
 \backcite {StanfordCourse}{{64}{6.13}{figure.6.13}}
-\backcite {GAN2}{{65}{6.5.1}{subsection.6.5.1}}
-\backcite {GAN2}{{65}{6.14}{figure.6.14}}
+\backcite {autoencoders2017}{{65}{6.5.1}{subsection.6.5.1}}
+\backcite {autoencoders2017}{{65}{6.14}{figure.6.14}}
 \backcite {GAN}{{65}{6.5.2.1}{subsubsection.6.5.2.1}}
 \backcite {autoencoders2017}{{66}{6.15}{figure.6.15}}
 \backcite {autoencoders2017}{{66}{6.16}{figure.6.16}}
+\backcite {AAE}{{66}{6.17}{figure.6.17}}
+\backcite {VAE}{{67}{6.18}{figure.6.18}}
+\backcite {VAE}{{68}{6.19}{figure.6.19}}
+\backcite {AAE}{{69}{6.20}{figure.6.20}}
