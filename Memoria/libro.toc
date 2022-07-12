@@ -1,9 +1,9 @@
 \babel@toc {spanish}{}
-\contentsline {chapter}{\nonumberline Agradecimientos}{\es@scroman {xi}}{chapter*.7}%
+\contentsline {chapter}{\nonumberline Agradecimientos}{\es@scroman {xiii}}{chapter*.7}%
 \babel@toc {english}{}
-\contentsline {chapter}{\nonumberline Summary}{\es@scroman {xiii}}{chapter*.8}%
+\contentsline {chapter}{\nonumberline Summary}{\es@scroman {xv}}{chapter*.8}%
 \babel@toc {spanish}{}
-\contentsline {chapter}{\nonumberline Introducción}{\es@scroman {xv}}{chapter*.9}%
+\contentsline {chapter}{\nonumberline Introducción}{\es@scroman {xvii}}{chapter*.9}%
 \contentsline {part}{\numberline {I}Análisis de Redes Convolucionales}{1}{part.1}%
 \contentsline {chapter}{\numberline {1}Introducción}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Introducción}{3}{section.1.1}%
@@ -67,17 +67,20 @@
 \contentsline {subsubsection}{\numberline {6.4.7.3}GoogLeNet}{62}{subsubsection.6.4.7.3}%
 \contentsline {subsubsection}{\numberline {6.4.7.4}VGG-16}{63}{subsubsection.6.4.7.4}%
 \contentsline {subsubsection}{\numberline {6.4.7.5}ResNet}{63}{subsubsection.6.4.7.5}%
-\contentsline {section}{\numberline {6.5}Adversarial Autoencoder}{65}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Evolución Histórica}{65}{subsection.6.5.1}%
-\contentsline {section}{\numberline {6.6}Tratamiento de imágenes 2D y técnicas empleadas}{65}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Tratamiento de imágenes 2D}{65}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Data Augmentation}{65}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}few-shot Learning}{65}{subsection.6.6.3}%
-\contentsline {chapter}{\numberline {7}Estado del Arte}{67}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Materiales y Métodos}{69}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Planificación e implementación}{71}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Experimentación}{73}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{75}{chapter.11}%
-\contentsline {chapter}{\numberline {A}Primer apéndice}{77}{appendix.Alph1}%
-\contentsline {chapter}{Glosario}{79}{chapter*.10}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{81}{chapter*.11}%
+\contentsline {section}{\numberline {6.5}Autoencoders}{65}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Introducción}{65}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Evolución de los Autoencoders}{65}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}Generative Adversarial Networks (GANs)}{65}{subsubsection.6.5.2.1}%
+\contentsline {subsubsection}{\numberline {6.5.2.2}Variational Autoencoder}{66}{subsubsection.6.5.2.2}%
+\contentsline {section}{\numberline {6.6}Tratamiento de imágenes 2D y técnicas empleadas}{66}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Tratamiento de imágenes 2D}{66}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Data Augmentation}{66}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}few-shot Learning}{66}{subsection.6.6.3}%
+\contentsline {chapter}{\numberline {7}Estado del Arte}{69}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Materiales y Métodos}{71}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Planificación e implementación}{73}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Experimentación}{75}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{77}{chapter.11}%
+\contentsline {chapter}{\numberline {A}Primer apéndice}{79}{appendix.Alph1}%
+\contentsline {chapter}{Glosario}{81}{chapter*.10}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{83}{chapter*.11}%

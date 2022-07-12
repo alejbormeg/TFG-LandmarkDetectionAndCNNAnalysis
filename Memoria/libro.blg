@@ -3,44 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: libro.aux
 The style file: alpha.bst
 Database file #1: library.bib
-You've used 22 entries,
+Warning--I didn't find a database entry for "GAN2"
+You've used 24 entries,
             2543 wiz_defined-function locations,
-            707 strings with 8113 characters,
-and the built_in function-call counts, 8444 in all, are:
-= -- 833
-> -- 421
-< -- 11
-+ -- 145
-- -- 144
-* -- 601
-:= -- 1424
-add.period$ -- 67
-call.type$ -- 22
-change.case$ -- 139
-chr.to.int$ -- 22
-cite$ -- 22
-duplicate$ -- 323
-empty$ -- 601
-format.name$ -- 173
-if$ -- 1696
+            719 strings with 8443 characters,
+and the built_in function-call counts, 8978 in all, are:
+= -- 885
+> -- 437
+< -- 13
++ -- 149
+- -- 148
+* -- 623
+:= -- 1508
+add.period$ -- 73
+call.type$ -- 24
+change.case$ -- 149
+chr.to.int$ -- 24
+cite$ -- 24
+duplicate$ -- 345
+empty$ -- 651
+format.name$ -- 181
+if$ -- 1810
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 22
-newline$ -- 115
-num.names$ -- 66
-pop$ -- 130
+newline$ -- 125
+num.names$ -- 72
+pop$ -- 148
 preamble$ -- 1
-purify$ -- 163
+purify$ -- 175
 quote$ -- 0
-skip$ -- 276
+skip$ -- 298
 stack$ -- 0
-substring$ -- 416
-swap$ -- 38
-text.length$ -- 11
-text.prefix$ -- 8
+substring$ -- 430
+swap$ -- 40
+text.length$ -- 13
+text.prefix$ -- 10
 top$ -- 0
-type$ -- 164
+type$ -- 180
 warning$ -- 0
-while$ -- 78
-width$ -- 26
-write$ -- 285
+while$ -- 82
+width$ -- 28
+write$ -- 309
+(There was 1 warning)

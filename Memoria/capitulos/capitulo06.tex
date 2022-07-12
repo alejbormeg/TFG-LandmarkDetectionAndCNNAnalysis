@@ -529,8 +529,69 @@ En esta sección vamos a introducir cuales serían los conceptos teóricos más 
         \end{figure}
 
 
-\section{Adversarial Autoencoder}
-    \subsection{Evolución Histórica}
+\section{Autoencoders}
+    \noindent Hasta ahora hemos visto qué son las CNN y su gran importancia en Deep learning en tareas de reconocimiento de objetos en imágenes. A continuación vamos a presentar un tipo de red que se emplea en tareas de \textit{Aprendizaje no supervisado} y que será de gran importancia en nuestro trabajo. Se tratan de las redes conocidas como \textbf{Autoencoders}.
+
+    \subsection{Introducción}
+        \noindent Los \textbf{Autoencoders} \cite{GAN2} son un tipo específico de red cuya entrada \entrecomillado{coincide} con su salida. Se encargan de reducir las imágenes de entrada a un vector perteneciente a un espacio vectorial latente y que idealmente codifica los elementos más relevantes en la imagen para posteriormente reconstruir la imagen a partir de este vector con la intención de que sea lo más parecida posible a la de entrada.
+
+        \medskip
+
+        \noindent Los autoencoders tienen tres componentes principales: 
+
+        \begin{itemize}
+            \item \textbf{Encoder}: Suele ser una subred que se encarga de codificar la entrada a un vector de un espacio vectorial latente. 
+            \item \textbf{Code}: es el vector que codifica la imagen de entrada. 
+            \item \textbf{Decoder}: se trata de una subred que reconstruye la imagen a partir del vector.
+        \end{itemize}
+
+        \noindent Como podemos ver, no se necesita ningún tipo de etiqueta para reconstruir las imágenes de entrada, por lo que este tipo de redes se emplean en tareas de \textit{Aprendizaje no supervisado}.
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.5\textwidth]{img/Autoencoder.png}
+            \caption{Esquema de un Autoencoder básico. Imagen extraida de \cite{GAN2}.}
+            \label{fig:Autoencoder}
+        \end{figure}
+
+        \medskip 
+
+        \noindent Esta estructura ha ido evolucionando durante los últimos años, por lo que vamos a ver a continuación esta evolución hasta llegar a la red que emplearemos en nuestro trabajo, el \textbf{Adversarial Autoencoder}.
+
+    \subsection{Evolución de los Autoencoders}
+        \subsubsection{Generative Adversarial Networks (GANs)}
+            \noindent Es una red cuyo fin es \entrecomillado{crear nuevo contenido} y que sea lo más similar posible al contenido de la base de datos que usamos para entrenar la red. Para ello se pretende aprender la distribución de probabilidad que siguen los píxeles de las imágenes del dataset, por lo que el objetivo realmente sería el re generar nuevos valores aleatorios de la distribución de probabilidad que siguen las imágenes \cite{GAN}. 
+
+            \medskip
+
+            \noindent Para esta tarea suele emplearse una CNN denominada \textit{Generative Network} que tiene como objetivo recibir una imagen o un vector aleatorio y producir como salida una imagen de las mismas dimensiones que la de entrada que siga la distribución de probabilidad de las imágenes del dataset. Esta red tiene la estructura de un \textbf{Autoencoder}.
+
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.5\textwidth]{img/Generative_network.png}
+                \caption{Ejemplo de una Generative Network que pretende aprender la distribución de probabilidad de un conjunto de imágenes de perros. Imagen extraida de \cite{autoencoders2017}.}
+                \label{fig:Generative Network}
+            \end{figure}
+            
+            \medskip
+
+            \noindent Por otro lado, se hace uso de una segunda CNN denominada \textit{Discriminador}, que recibe un conjunto de imágenes del dataset e imágenes generadas por el \textit{Genenerative Network} imagen de entrada y trata de clasificarlas en imágenes procedentes del dataset o imágenes generadas por la red. Por lo que el objetivo de la GAN en general podría resumirse en generar imágenes con la \textit{Genenerative Network} que sean capaces de engañar al \textit{Discriminador}, y para esto se pretende aprender lo mejor posible la distribución de probabilidad de las imágenes del dataset.
+
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.8\textwidth]{img/proceso_entrenamiento_GAN.png}
+                \caption{Resumen del proceso de entrenamiento de una GAN. Imagen extraida de \cite{autoencoders2017}.}
+                \label{fig:Generative Network}
+            \end{figure}
+
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.5\textwidth]{img/GAN.png}
+                \caption{Ejemplo de la arquitectura de una GAN para generar imágenes de dígitos manuscritos.}
+                \label{fig:GAN}
+            \end{figure}
+ 
+        \subsubsection{Variational Autoencoder}
 
 \section{Tratamiento de imágenes 2D y técnicas empleadas}
     \subsection{Tratamiento de imágenes 2D}

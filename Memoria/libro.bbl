@@ -7,6 +7,13 @@ Joan Bruna and St{\'e}phane Mallat.
 \newblock {\em IEEE transactions on pattern analysis and machine intelligence},
   35(8):1872--1886, 2013.
 
+\bibitem[Der17]{autoencoders2017}
+Arden Dertat.
+\newblock Applied deep learning.
+\newblock \url =
+  {https://towardsdatascience.com/applied-deep-learning-part-3-autoencoders-1c083af4d798},,
+  2017.
+
 \bibitem[{Fei}17]{StanfordCourse}
 {Fei-Fei Li, Justin Johnson, Serena Young , Stanford University}.
 \newblock cs231n.
@@ -28,7 +35,7 @@ Rafael~C. González.
 Aaryan Gupta.
 \newblock Evolution of convolutional neural networ architectures.
 \newblock \url =
-  {https://medium.com/the-pen-point/evolution-of-convolutional-neural-network-architectures-6b90d067e403},
+  {https://medium.com/the-pen-point/evolution-of-convolutional-neural-network-architectures-6b90d067e403},,
   2020.
 
 \bibitem[HIWK15]{Huete2015PastPA}
@@ -88,6 +95,13 @@ University of~Iowa Palle Jorgensen Department~of Mathematics.
 Stephen Quinn and Igor~E Verbitsky.
 \newblock A sublinear version of schur’s lemma and elliptic pde.
 \newblock {\em Analysis \& PDE}, 11(2):439--466, 2018.
+
+\bibitem[Roc19]{GAN}
+Joseph Rocca.
+\newblock Understanding generative adversarial networks (gans).
+\newblock \url =
+  {https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-cd6e4651a29},,
+  2019.
 
 \bibitem[Ros88]{rosenfeld1988computer}
 Azriel Rosenfeld.
