@@ -1,9 +1,9 @@
 \babel@toc {spanish}{}
-\contentsline {chapter}{\nonumberline Agradecimientos}{\es@scroman {xi}}{chapter*.7}%
+\contentsline {chapter}{\nonumberline Agradecimientos}{\es@scroman {xiii}}{chapter*.7}%
 \babel@toc {english}{}
-\contentsline {chapter}{\nonumberline Summary}{\es@scroman {xiii}}{chapter*.8}%
+\contentsline {chapter}{\nonumberline Summary}{\es@scroman {xv}}{chapter*.8}%
 \babel@toc {spanish}{}
-\contentsline {chapter}{\nonumberline Introducción}{\es@scroman {xv}}{chapter*.9}%
+\contentsline {chapter}{\nonumberline Introducción}{\es@scroman {xvii}}{chapter*.9}%
 \contentsline {part}{\numberline {I}Análisis de Redes Convolucionales}{1}{part.1}%
 \contentsline {chapter}{\numberline {1}Introducción}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Introducción}{3}{section.1.1}%
@@ -76,10 +76,15 @@
 \contentsline {section}{\numberline {6.6}Técnicas empleadas}{68}{section.6.6}%
 \contentsline {subsection}{\numberline {6.6.1}Few-shot Learning y Data Augmentation}{69}{subsection.6.6.1}%
 \contentsline {chapter}{\numberline {7}Estado del Arte}{71}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Materiales y Métodos}{73}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Planificación e implementación}{75}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Experimentación}{77}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{79}{chapter.11}%
-\contentsline {chapter}{\numberline {A}Primer apéndice}{81}{appendix.Alph1}%
-\contentsline {chapter}{Glosario}{83}{chapter*.10}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{85}{chapter*.11}%
+\contentsline {section}{\numberline {7.1}Localización de landmarks cefalométricos en imágenes}{71}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Soluciones clásicas}{71}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Métodos actuales}{71}{subsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.2.1}Two diﬀerent approaches to handle landmark location uncertainty in skull-face overlay: coevolution vs fuzzy landmarks}{73}{subsubsection.7.1.2.1}%
+\contentsline {subsubsection}{\numberline {7.1.2.2}Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}{74}{subsubsection.7.1.2.2}%
+\contentsline {chapter}{\numberline {8}Materiales y Métodos}{75}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Planificación e implementación}{77}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Experimentación}{79}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{81}{chapter.11}%
+\contentsline {chapter}{\numberline {A}Primer apéndice}{83}{appendix.Alph1}%
+\contentsline {chapter}{Glosario}{85}{chapter*.10}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{87}{chapter*.11}%

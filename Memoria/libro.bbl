@@ -1,6 +1,13 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
 \begin{thebibliography}{PJDoM06}
 
+\bibitem[AIA{\etalchar{+}}14]{asi2014automatic}
+Salina~Mohd Asi, Nor~Hidayah Ismail, Roshahida Ahmad, Effirul~Ikhwan Ramlan,
+  and Zainal Arif~Abdul Rahman.
+\newblock Automatic craniofacial anthropometry landmarks detection and
+  measurements for the orbital region.
+\newblock {\em Procedia Computer Science}, 42:372--377, 2014.
+
 \bibitem[BM13]{bruna2013invariant}
 Joan Bruna and St{\'e}phane Mallat.
 \newblock Invariant scattering convolution networks.
@@ -50,6 +57,13 @@ Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
 \newblock Deep residual learning for image recognition.
 \newblock In {\em Proceedings of the IEEE conference on computer vision and
   pattern recognition}, pages 770--778, 2016.
+
+\bibitem[ICD11]{ibanez2011two}
+{\'O}scar Ib{\'a}{\~n}ez, {\'O}scar Cord{\'o}n, and Sergio Damas.
+\newblock Two different approaches to handle landmark location uncertainty in
+  skull-face overlay: coevolution vs fuzzy landmarks.
+\newblock In {\em Proceedings of the 7th conference of the European Society for
+  Fuzzy Logic and Technology}, pages 334--341. Atlantis Press, 2011.
 
 \bibitem[J.B12]{JBrunaOperatorsCommutingDiff}
 J.Bruna.
