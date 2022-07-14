@@ -81,7 +81,7 @@
             \noindent De los catorce artículos vamos a destacar los siguientes por la relación directa con nuestro problema ordenados de mayor a menor antigüedad: 
 
             \subsubsection{Two diﬀerent approaches to handle landmark location uncertainty in skull-face overlay: coevolution vs fuzzy landmarks}
-                \noindent Se trata de un artículo pulicado en $2011$ por Óscar Ibáñez, Óscar Cordón y Sergio Damas \cite{ibanez2011two} en el cual abordan el problema de la superposición craneofacial diseñando un nuevo algoritmo basado en coevolución capaz de reducir el proceso de \textit{Skull-face overlay} (SFO) que tradicionalmente podía llegar a tardar unas 24 horas y comparándolo con un algoritmo ya existente basado en landmarks imprecisos en el cual el antropólogo forense marca regiones de la imagen en las que se encuentra cada landmark (esta tarea no está automatizada en este algoritmo).
+                \noindent Se trata de un artículo pulicado en $2011$ por Óscar Ibáñez et al \cite{ibanez2011two} en el cual abordan el problema de la superposición craneofacial diseñando un nuevo algoritmo basado en coevolución capaz de reducir el proceso de \textit{Skull-face overlay} (SFO) que tradicionalmente podía llegar a tardar unas 24 horas y comparándolo con un algoritmo ya existente basado en landmarks imprecisos en el cual el antropólogo forense marca regiones de la imagen en las que se encuentra cada landmark (esta tarea no está automatizada en este algoritmo).
 
                 \medskip
 
@@ -106,10 +106,38 @@
                 
                 \medskip
 
-                \noindent Por lo tanto podemos considerar este primer algorimto coevolutivo como la primera aproximación a nuestro problema de detección automática de landmarks.
+                \noindent Por lo tanto podemos considerar este primer algoritmo coevolutivo como la primera aproximación a nuestro problema de detección automática de landmarks. A pesar de lo pobre que es el conjunto de datos de entrenamiento, se emplean imágenes que se encuentran en nuestro dataset y con diversas posturas y resolución de imagen. No obstante, la parte de detección de landmarks no es la principal de este artículo, pues aunque es una consecuencia del algoritmo que se desarrolla, se pretende realizar con el mayor éxito posible la fase SFO.
 
             \subsubsection{Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}
-                \noindent Se trata de un artículo publicado en $2014$ por Salina Mohd, Nor Hidayah, Roshahida Ahmad, Effirul Ikhwan y Zainal Arif \cite{asi2014automatic}
+                \noindent Se trata de un artículo publicado en $2014$ por Salina Mohd et al \cite{asi2014automatic}. Se trata de un estudio en el que se pretende diseñar un método para calcular en una imagen de los ojos de un sujeto el \textit{endocathion} y el \textit{exocanthion} basado en el uso de un clasificador entrenado sobre filtros de Haar.
+
+                \medskip
+
+                \noindent Lo primero que llama la atención del artículo es que tan solo pretende ser capaz de identificar dos landmarks, mientras que en nuestro problema por ejemplo tratamos de predecir la posición de unos treinta (incluyendo en \textit{endocathion} y el \textit{exocanthion}).
+
+                \medskip
+
+                \noindent En segundo lugar, cabe destacar la manera en que se resuelve el problema, pues se hace uso de un clasificador en cascada basado en filtros de tipo Haar como se pueden ver en la imagen. Este es un método tradicional de la visión por computador en el que mediante el paso y convolución de este tipo de filtros por la imagen se obtiene información de esta. No obstante se trata de un método que ya se ha visto superado por otras técnicas más recientes como son las CNN.
+
+                \begin{figure}[!h]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{img/caracteristicas_haar.png}
+                    \caption{Ejemplo de filtros empleados en el artículo \cite{asi2014automatic} de donde procede esta imagen.}
+                    \label{fig:asi2014}
+                \end{figure}
+
+                \medskip
+
+                \noindent Por otro lado, el conjunto de datos que se emplea se ha obtenido en entornos controlados con buena iluminación, algo que no guarda relación con nuestro problema pues se trata de imágenes en diversas posturas, iluminación, y resolución.
+
+            \subsubsection{Automated facial landmark detection, comparison and visualization}
+                \noindent Se trata de un trabajo realizado en $2015$ por Marek Galvánek et al. 
+
+            
+
+            
+
+
 
 
 
