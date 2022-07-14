@@ -1,5 +1,5 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{PJDoM06}
+\begin{thebibliography}{HNATT22}
 
 \bibitem[AIA{\etalchar{+}}14]{asi2014automatic}
 Salina~Mohd Asi, Nor~Hidayah Ismail, Roshahida Ahmad, Effirul~Ikhwan Ramlan,
@@ -32,6 +32,13 @@ Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
 \newblock MIT Press, 2016.
 \newblock \url{http://www.deeplearningbook.org}.
 
+\bibitem[GFCS15]{galvanek2015automated}
+Marek Galv{\'a}nek, Katar{\'\i}na Furmanov{\'a}, Igor Chal{\'a}s, and
+  Ji{\v{r}}{\'\i} Sochor.
+\newblock Automated facial landmark detection, comparison and visualization.
+\newblock In {\em Proceedings of the 31st spring conference on computer
+  graphics}, pages 7--14, 2015.
+
 \bibitem[Gon17]{DigitalImageProcessing}
 Rafael~C. González.
 \newblock {\em Digital image processing / Rafael C. Gonzalez, Richard E.
@@ -51,6 +58,12 @@ Mar{\'i}a~Isabel Huete, {\'O}scar Ib{\'a}{\~n}ez, Caroline Wilkinson, and Tzipi
 \newblock Past, present, and future of craniofacial superimposition: Literature
   and international surveys.
 \newblock {\em Legal medicine}, 17 4:267--78, 2015.
+
+\bibitem[HNATT22]{ImprovedfasterRCNN}
+Nguyen Dao Xuan~Hai Ho~Nguyen Anh~Tuan and Nguyen~Truong Thinh.
+\newblock The improved faster r-cnn for detecting small facial landmarks on
+  vietnamese human face based on clinical diagnosis.
+\newblock {\em Journal of Image and Graphics(United Kingdom)}, 12:76--81, 2022.
 
 \bibitem[HZRS16]{he2016deep}
 Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
@@ -104,6 +117,14 @@ Stéphane Mallat.
 University of~Iowa Palle Jorgensen Department~of Mathematics.
 \newblock Image decomposition using haar wavelet.
 \newblock \url = {https://homepage.divms.uiowa.edu/~jorgen/Haar.html},, 2006.
+
+\bibitem[PLF{\etalchar{+}}19]{porto2019automatic}
+Lucas~Faria Porto, Laise Nascimento~Correia Lima, Marta Regina~Pinheiro Flores,
+  Andrea Valsecchi, Oscar Ibanez, Carlos Eduardo~Machado Palhares, and Flavio
+  de~Barros~Vidal.
+\newblock Automatic cephalometric landmarks detection on frontal faces: An
+  approach based on supervised learning techniques.
+\newblock {\em Digital Investigation}, 30:108--116, 2019.
 
 \bibitem[QV18]{SchurLemma}
 Stephen Quinn and Igor~E Verbitsky.

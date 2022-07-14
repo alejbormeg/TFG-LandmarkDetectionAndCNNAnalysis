@@ -1,13 +1,13 @@
 
 \chapter{Estado del Arte}
-    Organización: 
-        - Presentar el problema que estamos resolviendo.
-        - Consultar artículos en los últimos años realcionados con el problema
-        - Como no hay muchos artículos recurir a técnicas de Deep Learning de reconocimiento de Landmarks 
-        - Explicar qué se hace en este campo y por qué elegimos 3FabRec
 
     \noindent En esta sección nuestro objetivo será realizar una investigación por la literatura y los artículos publicados relacionados con el campo de invesitgación del reconocimiento automático de landmarks cefalométricos en tareas de antropología forense. Para ello utilizaremos la base de datos \textit{Scopus} para realizar la búsqueda y consulta de artículos científico publicados.
 
+    %TODO QUEDA DARLE UN POCO DE ESTRUCTURA A ESTO
+        % Justificar por qué elijo estos artículos
+        % Explicar que Se hacía antes
+        % Explicar lo último que se ha hecho
+        % Justificar el uso de 3FabRec
     \section{Localización de landmarks cefalométricos en imágenes}
         \subsection{Soluciones clásicas}
 
@@ -109,7 +109,7 @@
                 \noindent Por lo tanto podemos considerar este primer algoritmo coevolutivo como la primera aproximación a nuestro problema de detección automática de landmarks. A pesar de lo pobre que es el conjunto de datos de entrenamiento, se emplean imágenes que se encuentran en nuestro dataset y con diversas posturas y resolución de imagen. No obstante, la parte de detección de landmarks no es la principal de este artículo, pues aunque es una consecuencia del algoritmo que se desarrolla, se pretende realizar con el mayor éxito posible la fase SFO.
 
             \subsubsection{Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}
-                \noindent Se trata de un artículo publicado en $2014$ por Salina Mohd et al \cite{asi2014automatic}. Se trata de un estudio en el que se pretende diseñar un método para calcular en una imagen de los ojos de un sujeto el \textit{endocathion} y el \textit{exocanthion} basado en el uso de un clasificador entrenado sobre filtros de Haar.
+                \noindent Se trata de un artículo publicado en $2014$ por Salina Mohd et al \cite{asi2014automatic}. Se trata de un estudio en el que se pretende diseñar un método para calcular en una imagen de los ojos de un sujeto el \textit{endocathion} y el \textit{exocanthion} basado en el uso de un clasificador entrenado sobre filtros de Haar usados para la identificación de caras por Viola-Jones.
 
                 \medskip
 
@@ -131,10 +131,79 @@
                 \noindent Por otro lado, el conjunto de datos que se emplea se ha obtenido en entornos controlados con buena iluminación, algo que no guarda relación con nuestro problema pues se trata de imágenes en diversas posturas, iluminación, y resolución.
 
             \subsubsection{Automated facial landmark detection, comparison and visualization}
-                \noindent Se trata de un trabajo realizado en $2015$ por Marek Galvánek et al. 
+                \noindent Se trata de un trabajo realizado en $2015$ por Marek Galvánek et al. \cite{galvanek2015automated} para la detección automática de landmarks en modelos $3D$ de imágenes de personas. 
 
+                \medskip
+
+                \noindent Los landmarks detectados por el modelo son en total 14 y todos ellos pertenecen también al conjunto de landmarks que se detectan en este trabajo fin de grado.
+
+                \medskip
+
+                \noindent El algoritmo propuesto se basa en la curvatura de la superficie del modelo $3$D y en la simetría del perfil. En primer lugar se alinea el modelo $3$D con el plano horizontal de Frankfort \autoref{Frankfort}, un plano utilizado por los antropólogos forenses para marcar landmarks. En segundo lugar se realiza un estudio de la curvatura del modelo $3$D en la zona de la nariz, boca y ojos. Finalmente con el perfil del modelo y la simetría se rectifican y perfeccionan los landmarks marcados en etapas previas.
+
+                \begin{figure}[!h]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{img/frankfort.png}
+                    \caption{Cara alineada con el plano horizontal de Frankfort. Imagen extraida de \url{https://www.slideshare.net/NiharikaSupriya/cephalometrics-landmarkslines-and-planes-93890774
+                    }}
+                    \label{fig:Frankfort}
+                \end{figure}
+
+                \medskip
+
+                \noindent El algoritmo propuesto resulta interesante, aunque no detecta un elevado número de landmarks y se hace de una forma parecida a como un antropólogo forense actuaría. Podemos ver también que es muy preciso en la detección si comparamos los landmarks marcados por el algoritmo con los marcados por un experto manualmente en \autoref{fig:landmarks_comparativa}.
+
+
+                \begin{figure}[!h]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{img/comparativa_landmarks.png}
+                    \caption{Comparativa entre los landmarks marcados por el algoritmo (izquierda) y los marcados por un experto (derecha). Imagen extraida de \cite{galvanek2015automated}.}
+                    \label{fig:landmarks_comparativa}
+                \end{figure}
+
+                \medskip
+
+                \noindent En este trabajo, comenzamos a ver ya un problema similar al nuestro, la detección automática de landmarks cefalométricos con un mayor número de landmarks ($14$ frente a los $2$ del estudio anterior). Aunque se realiza sobte modelos $3$D de caras que evitan problemas de oclusión, mala iluminación o resolución.
+
+            \subsubsection{Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}
+
+                \noindent El siguiente artículo es de $2019$ y fue realizado por Lucas Faria et al. Pretende desarrollar un algoritmo para el reconocimiento automático de landmarks cefalométricos en imágenes frontales a partir de técnicas de visión por computador y de métodos de aprendizaje supervisado \cite{porto2019automatic}.
+
+                \medskip
+
+                \noindent El algoritmo tiene tres componentes, primero hay una fase de pre-procesamiento de las imágenes, posteriormente una detección de las regiones de la nariz, boca y ojos de las imágenes y finalmente el proceso de entrenamiento supervisado.
+
+                \begin{itemize}
+                    \item En la primera fase se realiza un pre-procesamiento de las imágenes para resaltar sus caracteristicas faciales. 
+                    \item En la segunda fase se aplica la cascada de filtros de Haar de Viola-Jones para identificar las regiones de interés de la imagen: ojos, nariz, boca.
+                    \item Finalmente se aplica el algoritmo de machine learning supervisado a cada una de las regiones anteriores. Creando un detector automático de landmarks para cada región.
+                \end{itemize}
+
+                \medskip
+
+                \noindent Por otro lado el conjunto de entrenamiento es de $1000$ individuos de los cuales se tomaron fotografías frontales en las mismas condiciones de iluminación y de distancia a la cámara, por lo que no presenta las mismas complicaciones que el dataset del que disponemos. 
+
+                \medskip
+
+                \noindent Destaca este artículo por ser el primero en el cual comienzan a usarse técnicas de aprendizaje automático para la resolución del problema. Además en las imágenes de entrenamiento fueron marcados 28 landmarks que se emplearon para el entrenamiento, que coinciden con los mismos que tenemos en nuestro problema.
+
+            \subsubsection{The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}
             
+                \noindent Este artículo es el más reciente pues fue publicado en Junio de $2022$ por Ho Nguyen Anh Tuan et al \cite{ImprovedfasterRCNN}. En este artículo se utiliza una versión mejorada de la red faster R-CNN aplicada a la tarea del reconocimiento de landmarks cefalométricos. 
 
+                \medskip
+
+                \noindent Los resultados obtenidos son muy buenos pero como ocurre en la mayoría de trabajos de este tipo, la base de datos usada ha sido de imágenes tomadas de voluntarios en unas mismas condiciones de iluminación frontales y de perfil. 
+
+                \medskip
+
+                \noindent No obstante el trabajo restalta la gran importancia que está teniendo el Deep Learning y las CNN en tareas de reconocimiento de landmarks faciales (usualmente landmarks no biológicos como los que se emplean en tareas de antropología forense), y partiendo de esta base podemos justificar el trabajo que vamos a desarrollar, pues nos proponemos adaptar una red que ya ha sido entrenada para la identificación de landmarks faciales en grandes volúmenes de datos de imágenes en diversas posturas y resolución para la tarea del reconocimiento de landmarks forense.
+
+                \medskip
+
+                \noindent Todos los métodos que se han presentado en esta sección trataban de cumplir con el mismo objetivo, y han ido evolucionando con el paso de los años a la par que la informática, empezando por tratar de aplicar algoritmos coevolutivos, después filtros de Haar y técnicas de visión por computador y finalmente usar CNN de Deep Learning. De esta manera y viendo con perspectiva el estado del arte en el campo, consideramos que la propuesta que presentamos puede traer buenos resultados, pues pretendemos enseñar a un sistema experto en el reconocimiento de landmarks no biológicos a identificar estos otros puntos, lo cual puede suponer un nexo de unión entre las dos líneas de investigación.
+
+        \subsection{Por qué 3FabRec?}
             
 
 

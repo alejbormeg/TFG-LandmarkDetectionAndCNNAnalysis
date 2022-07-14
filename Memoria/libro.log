@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  14 JUL 2022 14:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  14 JUL 2022 20:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -852,22 +852,23 @@ Package tocbasic Info: Using my definition of `\numberline' on input line 78.
 Package tocbasic Info: Using my definition of `\numberline' on input line 79.
 Package tocbasic Info: Using my definition of `\numberline' on input line 80.
 Package tocbasic Info: Using my definition of `\numberline' on input line 81.
-Package tocbasic Info: Using my definition of `\numberline' on input line 85.
-Package tocbasic Info: Using my definition of `\numberline' on input line 86.
 Package tocbasic Info: Using my definition of `\numberline' on input line 87.
 Package tocbasic Info: Using my definition of `\numberline' on input line 88.
 Package tocbasic Info: Using my definition of `\numberline' on input line 89.
 Package tocbasic Info: Using my definition of `\numberline' on input line 90.
 Package tocbasic Info: Using my definition of `\numberline' on input line 91.
+Package tocbasic Info: Using my definition of `\numberline' on input line 92.
+Package tocbasic Info: Using my definition of `\numberline' on input line 93.
+LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10> not available
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 94.
+LaTeX Info: Redefining \. on input line 94.
+LaTeX Info: Redefining \% on input line 94.
+ [10]
+Package tocbasic Info: Using my definition of `\numberline' on input line 94.
 )
 \tf@toc=\write4
 \openout4 = `libro.toc'.
 
-LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10> not available
-(Font)              Font shape `T1/pplj/m/it' tried instead on input line 41.
-LaTeX Info: Redefining \. on input line 41.
-LaTeX Info: Redefining \% on input line 41.
- [10]
 LaTeX Info: Redefining \. on input line 41.
 LaTeX Info: Redefining \% on input line 41.
  [11] [12
@@ -922,12 +923,12 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 8.33606pt on input line 9.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 5.21004pt on input line 9.
-<img/translation_invariance.png, id=265, 374.39874pt x 107.40125pt>
+<img/translation_invariance.png, id=267, 374.39874pt x 107.40125pt>
 File: img/translation_invariance.png Graphic file (type png)
 <use img/translation_invariance.png>
 Package pdftex.def Info: img/translation_invariance.png  used on input line 26.
 (pdftex.def)             Requested size: 326.63892pt x 93.70544pt.
-<img/Diffeomorphism.png, id=267, 803.0pt x 803.0pt>
+<img/Diffeomorphism.png, id=269, 803.0pt x 803.0pt>
 File: img/Diffeomorphism.png Graphic file (type png)
 <use img/Diffeomorphism.png>
 Package pdftex.def Info: img/Diffeomorphism.png  used on input line 38.
@@ -935,7 +936,7 @@ Package pdftex.def Info: img/Diffeomorphism.png  used on input line 38.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/5_deformado.png, id=268, 959.585pt x 284.06125pt>
+<img/5_deformado.png, id=270, 959.585pt x 284.06125pt>
 File: img/5_deformado.png Graphic file (type png)
 <use img/5_deformado.png>
 Package pdftex.def Info: img/5_deformado.png  used on input line 45.
@@ -943,7 +944,7 @@ Package pdftex.def Info: img/5_deformado.png  used on input line 45.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/1_excesivamente_deformado.png, id=269, 573.14125pt x 268.00125pt>
+<img/1_excesivamente_deformado.png, id=271, 573.14125pt x 268.00125pt>
 File: img/1_excesivamente_deformado.png Graphic file (type png)
 <use img/1_excesivamente_deformado.png>
 Package pdftex.def Info: img/1_excesivamente_deformado.png  used on input line 52.
@@ -994,7 +995,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 162.
 LaTeX Info: Redefining \% on input line 162.
  [10]
-<img/geogebra-export_contraejemplo_Fourier.png, id=349, 768.82979pt x 462.83553pt>
+<img/geogebra-export_contraejemplo_Fourier.png, id=351, 768.82979pt x 462.83553pt>
 File: img/geogebra-export_contraejemplo_Fourier.png Graphic file (type png)
 <use img/geogebra-export_contraejemplo_Fourier.png>
 Package pdftex.def Info: img/geogebra-export_contraejemplo_Fourier.png  used on input line 198.
@@ -1005,7 +1006,7 @@ LaTeX Info: Redefining \% on input line 201.
 LaTeX Info: Redefining \. on input line 227.
 LaTeX Info: Redefining \% on input line 227.
  [12 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/geogebra-export_contraejemplo_Fourier.png>]
-<img/Haar_wavelet.png, id=363, 1284.8pt x 963.6pt>
+<img/Haar_wavelet.png, id=365, 1284.8pt x 963.6pt>
 File: img/Haar_wavelet.png Graphic file (type png)
 <use img/Haar_wavelet.png>
 Package pdftex.def Info: img/Haar_wavelet.png  used on input line 231.
@@ -1013,7 +1014,7 @@ Package pdftex.def Info: img/Haar_wavelet.png  used on input line 231.
 LaTeX Info: Redefining \. on input line 256.
 LaTeX Info: Redefining \% on input line 256.
  [13 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Haar_wavelet.png>]
-<img/ejemplos_haar_basis.png, id=374, 1057.9525pt x 530.98375pt>
+<img/ejemplos_haar_basis.png, id=376, 1057.9525pt x 530.98375pt>
 File: img/ejemplos_haar_basis.png Graphic file (type png)
 <use img/ejemplos_haar_basis.png>
 Package pdftex.def Info: img/ejemplos_haar_basis.png  used on input line 276.
@@ -1063,7 +1064,7 @@ LaTeX Info: Redefining \% on input line 749.
 LaTeX Info: Redefining \. on input line 796.
 LaTeX Info: Redefining \% on input line 796.
  [24]
-<img/ScatteringPropagator.png, id=466, 987.69pt x 478.78876pt>
+<img/ScatteringPropagator.png, id=468, 987.69pt x 478.78876pt>
 File: img/ScatteringPropagator.png Graphic file (type png)
 <use img/ScatteringPropagator.png>
 Package pdftex.def Info: img/ScatteringPropagator.png  used on input line 820.
@@ -1145,7 +1146,7 @@ LaTeX Font Warning: Font shape `T1/pplj/m/scit' undefined
 LaTeX Info: Redefining \. on input line 63.
 LaTeX Info: Redefining \% on input line 63.
 [42]
-<img/logo-ugr.pdf, id=603, 682.02821pt x 244.3238pt>
+<img/logo-ugr.pdf, id=605, 682.02821pt x 244.3238pt>
 File: img/logo-ugr.pdf Graphic file (type pdf)
 <use img/logo-ugr.pdf>
 Package pdftex.def Info: img/logo-ugr.pdf  used on input line 98.
@@ -1191,7 +1192,7 @@ LaTeX Info: Redefining \% on input line 164.
 LaTeX Info: Redefining \. on input line 192.
 LaTeX Info: Redefining \% on input line 192.
  [53]
-<img/single_hidden_layer.jpg, id=699, 501.875pt x 406.51875pt>
+<img/single_hidden_layer.jpg, id=701, 501.875pt x 406.51875pt>
 File: img/single_hidden_layer.jpg Graphic file (type jpg)
 <use img/single_hidden_layer.jpg>
 Package pdftex.def Info: img/single_hidden_layer.jpg  used on input line 195.
@@ -1199,7 +1200,7 @@ Package pdftex.def Info: img/single_hidden_layer.jpg  used on input line 195.
 LaTeX Info: Redefining \. on input line 222.
 LaTeX Info: Redefining \% on input line 222.
  [54 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/single_hidden_layer.jpg>]
-<img/GrafoComputacional.png, id=708, 1044.90375pt x 278.03876pt>
+<img/GrafoComputacional.png, id=710, 1044.90375pt x 278.03876pt>
 File: img/GrafoComputacional.png Graphic file (type png)
 <use img/GrafoComputacional.png>
 Package pdftex.def Info: img/GrafoComputacional.png  used on input line 260.
@@ -1208,7 +1209,7 @@ Package pdftex.def Info: img/GrafoComputacional.png  used on input line 260.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/BP_ejemplo.png, id=712, 973.6375pt x 950.55125pt>
+<img/BP_ejemplo.png, id=714, 973.6375pt x 950.55125pt>
 File: img/BP_ejemplo.png Graphic file (type png)
 <use img/BP_ejemplo.png>
 Package pdftex.def Info: img/BP_ejemplo.png  used on input line 278.
@@ -1222,7 +1223,7 @@ LaTeX Info: Redefining \% on input line 287.
 LaTeX Info: Redefining \. on input line 336.
 LaTeX Info: Redefining \% on input line 336.
  [57]
-<img/mapa_activacion.png, id=735, 863.225pt x 392.46625pt>
+<img/mapa_activacion.png, id=737, 863.225pt x 392.46625pt>
 File: img/mapa_activacion.png Graphic file (type png)
 <use img/mapa_activacion.png>
 Package pdftex.def Info: img/mapa_activacion.png  used on input line 358.
@@ -1231,7 +1232,7 @@ Package pdftex.def Info: img/mapa_activacion.png  used on input line 358.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/sucesion_conv_layer.png, id=738, 665.48625pt x 322.20375pt>
+<img/sucesion_conv_layer.png, id=740, 665.48625pt x 322.20375pt>
 File: img/sucesion_conv_layer.png Graphic file (type png)
 <use img/sucesion_conv_layer.png>
 Package pdftex.def Info: img/sucesion_conv_layer.png  used on input line 365.
@@ -1242,7 +1243,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 380.
 LaTeX Info: Redefining \% on input line 380.
 [58]
-<img/pooling.png, id=745, 823.075pt x 261.97874pt>
+<img/pooling.png, id=747, 823.075pt x 261.97874pt>
 File: img/pooling.png Graphic file (type png)
 <use img/pooling.png>
 Package pdftex.def Info: img/pooling.png  used on input line 386.
@@ -1257,7 +1258,7 @@ LaTeX Info: Redefining \% on input line 397.
 LaTeX Info: Redefining \. on input line 421.
 LaTeX Info: Redefining \% on input line 421.
  [60 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/pooling.png>]
-<img/LeNet.png, id=764, 728.7225pt x 215.80624pt>
+<img/LeNet.png, id=766, 728.7225pt x 215.80624pt>
 File: img/LeNet.png Graphic file (type png)
 <use img/LeNet.png>
 Package pdftex.def Info: img/LeNet.png  used on input line 426.
@@ -1267,7 +1268,7 @@ Overfull \hbox (10.0905pt too wide) detected at line 435
 \OML/zplm/m/it/10 INPUT \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 CONV \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 AVG POOL \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 CONV \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 AVG POOL \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 FC \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 FC \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 OUTPUT\OT1/pplx/m/n/10 .
  []
 
-<img/AlexNet.png, id=768, 839.135pt x 304.13625pt>
+<img/AlexNet.png, id=770, 839.135pt x 304.13625pt>
 File: img/AlexNet.png Graphic file (type png)
 <use img/AlexNet.png>
 Package pdftex.def Info: img/AlexNet.png  used on input line 446.
@@ -1278,7 +1279,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 457.
 LaTeX Info: Redefining \% on input line 457.
 [61 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/LeNet.png>]
-<img/inception_module.png, id=784, 702.625pt x 197.73875pt>
+<img/inception_module.png, id=786, 702.625pt x 197.73875pt>
 File: img/inception_module.png Graphic file (type png)
 <use img/inception_module.png>
 Package pdftex.def Info: img/inception_module.png  used on input line 471.
@@ -1286,12 +1287,12 @@ Package pdftex.def Info: img/inception_module.png  used on input line 471.
 LaTeX Info: Redefining \. on input line 477.
 LaTeX Info: Redefining \% on input line 477.
  [62 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/AlexNet.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/inception_module.png (PNG copy)>]
-<img/GoogLeNet.png, id=794, 702.625pt x 156.585pt>
+<img/GoogLeNet.png, id=796, 702.625pt x 156.585pt>
 File: img/GoogLeNet.png Graphic file (type png)
 <use img/GoogLeNet.png>
 Package pdftex.def Info: img/GoogLeNet.png  used on input line 480.
 (pdftex.def)             Requested size: 326.63892pt x 72.79454pt.
-<img/VGG-16.jpeg, id=796, 702.625pt x 413.545pt>
+<img/VGG-16.jpeg, id=798, 702.625pt x 413.545pt>
 File: img/VGG-16.jpeg Graphic file (type jpg)
 <use img/VGG-16.jpeg>
 Package pdftex.def Info: img/VGG-16.jpeg  used on input line 499.
@@ -1300,7 +1301,7 @@ Package pdftex.def Info: img/VGG-16.jpeg  used on input line 499.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/resnet_module.jpeg, id=798, 465.74pt x 260.975pt>
+<img/resnet_module.jpeg, id=800, 465.74pt x 260.975pt>
 File: img/resnet_module.jpeg Graphic file (type jpg)
 <use img/resnet_module.jpeg>
 Package pdftex.def Info: img/resnet_module.jpeg  used on input line 517.
@@ -1323,12 +1324,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 534.
 LaTeX Info: Redefining \% on input line 534.
  [64 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/VGG-16.jpeg> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/resnet_module.jpeg>]
-<img/Autoencoder.png, id=822, 1405.25pt x 332.24126pt>
+<img/Autoencoder.png, id=824, 1405.25pt x 332.24126pt>
 File: img/Autoencoder.png Graphic file (type png)
 <use img/Autoencoder.png>
 Package pdftex.def Info: img/Autoencoder.png  used on input line 552.
 (pdftex.def)             Requested size: 204.14854pt x 48.26245pt.
-<img/Generative_network.png, id=826, 1405.25pt x 669.50125pt>
+<img/Generative_network.png, id=828, 1405.25pt x 669.50125pt>
 File: img/Generative_network.png Graphic file (type png)
 <use img/Generative_network.png>
 Package pdftex.def Info: img/Generative_network.png  used on input line 571.
@@ -1340,12 +1341,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 579.
 LaTeX Info: Redefining \% on input line 579.
 [65 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Autoencoder.png (PNG copy)>]
-<img/proceso_entrenamiento_GAN.png, id=837, 1405.25pt x 552.0625pt>
+<img/proceso_entrenamiento_GAN.png, id=839, 1405.25pt x 552.0625pt>
 File: img/proceso_entrenamiento_GAN.png Graphic file (type png)
 <use img/proceso_entrenamiento_GAN.png>
 Package pdftex.def Info: img/proceso_entrenamiento_GAN.png  used on input line 582.
 (pdftex.def)             Requested size: 244.98074pt x 96.24173pt.
-<img/GAN.png, id=840, 702.625pt x 320.19624pt>
+<img/GAN.png, id=842, 702.625pt x 320.19624pt>
 File: img/GAN.png Graphic file (type png)
 <use img/GAN.png>
 Package pdftex.def Info: img/GAN.png  used on input line 589.
@@ -1353,12 +1354,12 @@ Package pdftex.def Info: img/GAN.png  used on input line 589.
 LaTeX Info: Redefining \. on input line 596.
 LaTeX Info: Redefining \% on input line 596.
  [66 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Generative_network.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/proceso_entrenamiento_GAN.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/GAN.png (PNG copy)>]
-<img/vae_1.png, id=853, 1405.25pt x 463.7325pt>
+<img/vae_1.png, id=855, 1405.25pt x 463.7325pt>
 File: img/vae_1.png Graphic file (type png)
 <use img/vae_1.png>
 Package pdftex.def Info: img/vae_1.png  used on input line 610.
 (pdftex.def)             Requested size: 326.63892pt x 107.78838pt.
-<img/vae_2.png, id=857, 1266.7325pt x 1306.8825pt>
+<img/vae_2.png, id=859, 1266.7325pt x 1306.8825pt>
 File: img/vae_2.png Graphic file (type png)
 <use img/vae_2.png>
 Package pdftex.def Info: img/vae_2.png  used on input line 619.
@@ -1370,7 +1371,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 630.
 LaTeX Info: Redefining \% on input line 630.
 [67 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/vae_1.png>]
-<img/AAE.png, id=871, 702.625pt x 514.92375pt>
+<img/AAE.png, id=873, 702.625pt x 514.92375pt>
 File: img/AAE.png Graphic file (type png)
 <use img/AAE.png>
 Package pdftex.def Info: img/AAE.png  used on input line 643.
@@ -1389,7 +1390,7 @@ LaTeX Info: Redefining \% on input line 2.
 
 ]
 chapter 7.
-<img/Scopus_1.jpg, id=889, 880.28876pt x 552.0625pt>
+<img/Scopus_1.jpg, id=891, 880.28876pt x 552.0625pt>
 File: img/Scopus_1.jpg Graphic file (type jpg)
 <use img/Scopus_1.jpg>
 Package pdftex.def Info: img/Scopus_1.jpg  used on input line 39.
@@ -1398,7 +1399,7 @@ Package pdftex.def Info: img/Scopus_1.jpg  used on input line 39.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [71]
-<img/Scopus_2.png, id=897, 524.71031pt x 414.04688pt>
+<img/Scopus_2.png, id=899, 524.71031pt x 414.04688pt>
 File: img/Scopus_2.png Graphic file (type png)
 <use img/Scopus_2.png>
 Package pdftex.def Info: img/Scopus_2.png  used on input line 74.
@@ -1410,10 +1411,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 85.
 LaTeX Info: Redefining \% on input line 85.
 [72 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Scopus_1.jpg>]
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
+LaTeX Info: Redefining \. on input line 101.
+LaTeX Info: Redefining \% on input line 101.
  [73 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Scopus_2.png>]
-<img/caracteristicas_haar.png, id=913, 363.3575pt x 263.98625pt>
+<img/caracteristicas_haar.png, id=915, 363.3575pt x 263.98625pt>
 File: img/caracteristicas_haar.png Graphic file (type png)
 <use img/caracteristicas_haar.png>
 Package pdftex.def Info: img/caracteristicas_haar.png  used on input line 124.
@@ -1422,41 +1423,69 @@ Package pdftex.def Info: img/caracteristicas_haar.png  used on input line 124.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo08.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [74]
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [75 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/caracteristicas_haar.png>] [76
+
+LaTeX Warning: Reference `Frankfort' on page 74 undefined on input line 142.
+
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
+[74]
+<img/frankfort.png, id=927, 493.845pt x 521.95pt>
+File: img/frankfort.png Graphic file (type png)
+<use img/frankfort.png>
+Package pdftex.def Info: img/frankfort.png  used on input line 146.
+(pdftex.def)             Requested size: 326.63892pt x 345.22078pt.
 
 
-]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/comparativa_landmarks.png, id=931, 643.40375pt x 355.3275pt>
+File: img/comparativa_landmarks.png Graphic file (type png)
+<use img/comparativa_landmarks.png>
+Package pdftex.def Info: img/comparativa_landmarks.png  used on input line 159.
+(pdftex.def)             Requested size: 326.63892pt x 180.39592pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 177.
+LaTeX Info: Redefining \% on input line 177.
+[75 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/caracteristicas_haar.png>]
+LaTeX Info: Redefining \. on input line 189.
+LaTeX Info: Redefining \% on input line 189.
+ [76 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/frankfort.png>]
+LaTeX Info: Redefining \. on input line 206.
+LaTeX Info: Redefining \% on input line 206.
+ [77 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/comparativa_landmarks.png>]) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo08.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [78]
 chapter 8.
-) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo09.tex [77] [78
+) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo09.tex [79
+
+
+] [80
 
 
 ]
 chapter 9.
-) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo10.tex [79] [80
+) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo10.tex [81] [82
 
 
 ]
 chapter 10.
-) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo11.tex [81] [82
+) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo11.tex [83] [84
 
 
 ]
 chapter 11.
-) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/apendices/apendice01.tex [83] [84
+) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/apendices/apendice01.tex [85] [86
 
 
 ]
 chapter A.
-) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/glosario.tex [85] [86
+) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/glosario.tex [87] [88
 
 
-]) [87] [88
+]) [89] [90
 
 
 ] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.bbl (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.brf)
@@ -1484,45 +1513,45 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 9.0pt on input line 23.
 
-Underfull \hbox (badness 3930) in paragraph at lines 28--28
+Underfull \hbox (badness 3354) in paragraph at lines 28--28
 []\T1/pplj/m/n/9 (+10) Fei-Fei Li, Jus-tin John-son, Se-re-na Young , Stan-ford Uni-ver-sity.  cs231n.  [][]$\T1/zi4/m/n/9 =$[][]
  []
 
 
-Underfull \hbox (badness 4279) in paragraph at lines 47--47
+Underfull \hbox (badness 3601) in paragraph at lines 54--54
 []\T1/pplj/m/n/9 (+10) Aaryan Gup-ta.  Evo-lu-tion of con-vo-lu-tio-nal neu-ral net-wor ar-chi-tec-tu-res.  [][]$\T1/zi4/m/n/9 =$[][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
 \T1/pplj/m/n/9 (+10) https://medium.com/the-pen-point/evolution-of-convolutional-neural-network-
  []
 
-[89
+[91
 
 
 ]
-Underfull \hbox (badness 2521) in paragraph at lines 119--119
+Underfull \hbox (badness 1975) in paragraph at lines 140--140
 []\T1/pplj/m/n/9 (+10) Fathy Ras-had.  Ad-ver-sa-rial au-to en-co-der (aae).  [][]$\T1/zi4/m/n/9 =$[][]\T1/pplj/m/n/9 (+10) https://medium.com/vitrox-
  []
 
 
-Underfull \hbox (badness 6625) in paragraph at lines 126--126
+Underfull \hbox (badness 5667) in paragraph at lines 147--147
 []\T1/pplj/m/n/9 (+10) Joseph Roc-ca.  Un-ders-tan-ding ge-ne-ra-ti-ve ad-ver-sa-rial net-works (gans).  [][]$\T1/zi4/m/n/9 =$[][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-\T1/pplj/m/n/9 (+10) https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-
+Underfull \hbox (badness 10000) in paragraph at lines 147--147
+\T1/pplj/m/n/9 (+10) https://towardsdatascience.com/understanding-generative-adversarial-networks-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--133
+Underfull \hbox (badness 10000) in paragraph at lines 154--154
 []\T1/pplj/m/n/9 (+10) Joseph Roc-ca.  Un-ders-tan-ding va-ria-tio-nal au-to-en-co-ders (vaes).  [][]$\T1/zi4/m/n/9 =$[][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--133
+Underfull \hbox (badness 10000) in paragraph at lines 154--154
 \T1/pplj/m/n/9 (+10) https://towardsdatascience.com/understanding-variational-autoencoders-vaes-
  []
 
@@ -1530,7 +1559,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--133
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 294.
 LaTeX Info: Redefining \. on input line 294.
 LaTeX Info: Redefining \% on input line 294.
- [90]
+ [92]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 294.
  (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.aux
 LaTeX Info: Redefining \. on input line 27.
@@ -1543,28 +1572,31 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 294.
 Package rerunfilecheck Info: File `libro.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package rerunfilecheck Info: File `libro.brf' has not changed.
-(rerunfilecheck)             Checksum: 2EA941AC77B5EB20B52AB61A313CF343;2409.
+(rerunfilecheck)             Checksum: 7F054065A4F3A8D3CB4587F6BA89DB70;2676.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17028 strings out of 481239
- 298203 string characters out of 5920378
+ 17122 strings out of 481239
+ 299645 string characters out of 5920378
  700561 words of memory out of 5000000
- 31121 multiletter control sequences out of 15000+600000
- 753451 words of font info for 427 fonts, out of 8000000 for 9000
+ 31161 multiletter control sequences out of 15000+600000
+ 755829 words of font info for 460 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  53i,13n,72p,10207b,829s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cabin/cbn_meva6t.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cabin/cbn_i3ioen.enc}</usr/share/texlive/texmf-dist/fonts/type1/impallari/cabin/Cabin-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/impallari/cabin/Cabin-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" (108 pages, 3099752 bytes).
+Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" (110 pages, 3320935 bytes).
 PDF statistics:
- 1421 PDF objects out of 1440 (max. 8388607)
- 1202 compressed objects within 13 object streams
- 334 named destinations out of 1000 (max. 500000)
- 88345 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1463 PDF objects out of 1728 (max. 8388607)
+ 1236 compressed objects within 13 object streams
+ 344 named destinations out of 1000 (max. 500000)
+ 88363 words of extra memory for PDF output out of 89155 (max. 10000000)
 
