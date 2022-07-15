@@ -4,9 +4,7 @@
 
 \chapter{Introducción}
 
-\section{Introducción}
-
-\noindent Actualmente, las \textbf{Redes Neuronales Convolucionales} (CNN\footnote{Convolutional Neural Network}) son una de las herramientas más usadas de la Inteligencia Artificial para tareas de Aprendizaje Automático (AA), de hecho son el principal objeto de estudio del \textbf{Deep Learning}, una subrrama del AA en la que hoy en día se está invirtiendo mucho esfuerzo en invesitgar y de la que anualmente se publican muchos artículos que nos enseñan la gran potencia de las CNN para diveras tareas.
+\noindent Actualmente, las \textbf{Redes Neuronales Convolucionales} (CNN\footnote{Convolutional Neural Network}) son una de las herramientas más usadas de la Inteligencia Artificial para tareas de Aprendizaje Automático (AA), de hecho son el principal objeto de estudio del \textbf{Deep Learning}, una rama del AA en la que hoy en día se está invirtiendo mucho esfuerzo en invesitgar y de la que anualmente se publican muchos artículos que nos enseñan la gran potencia de las CNN para diveras tareas.
 
 
 \medskip
@@ -30,7 +28,7 @@
 
 \medskip
 
-\noindent Por otro lado, se conoce la \textbf{Invarianza frente a pequeñas deformaciones} (difeomorfismos) a la capacidad de reconocer la identidad de un objeto en una imagen a pesar de que este pueda haber sido alterado con pequeñas deformaciones.
+\noindent Por otro lado, se conoce la \textbf{Invarianza frente a pequeñas deformaciones} (difeomorfismos) como la capacidad de reconocer la identidad de un objeto en una imagen a pesar de que este pueda haber sido alterado con pequeñas deformaciones.
 
 
 \begin{figure}[!h]
@@ -57,7 +55,7 @@
 \medskip
 
 
-\noindent Esto motiva el estudio de las representaciones de traslaciones e invarianzas en las funciones de $L^2(\mathbb{R}^d)$, que son Lipschitz-continuas por la acción de difeomorfismos y que mantienen información de alta frecuencia para diferenciar entre distintos tipos de señales, con el objetivo de encontrar un operador que verifique todas estas propiedades y que presentaremos como la modelización matemática de una CNN.
+\noindent Esto motiva el estudio de las representaciones de traslaciones e invarianzas en las funciones de $L^2(\mathbb{R}^d)$, que son Lipschitz-continuas por la acción de difeomorfismos y que mantienen información de alta frecuencia para diferenciar entre distintos tipos de señales, con el objetivo de encontrar un operador que verifique todas estas propiedades y que presentaremos como una posible modelización matemática de una CNN.
 
 \medskip
 
@@ -71,7 +69,12 @@ $L_cf(x)=f(x-c)$ es la traslación de $f \in L^2(\mathbb{R}^d)$ por $c \in \math
 
 \medskip
 
-\noindent Para preservar la estabilidad en $L^2(\mathbb{R}^d)$ queremos que $\Phi$ sea no-expansiva. 
+\noindent Para preservar la estabilidad en $L^2(\mathbb{R}^d)$ queremos que $\Phi$ sea no-expansiva. Antes de dar la definición vamos a incluir algo de notación: 
+
+\begin{itemize}
+  \item Denotamos por $\|f\|$ a la norma de $f$ en $L^2(\mathbb{R}^d)$.
+  \item Denotamos por $\|f\|_\mathcal{H}$ a la norma de $f$ en el espacio de Hilbert $\mathcal{H}$.
+\end{itemize}
 
 \begin{definicion}
 Decimos que $\Phi$ es no-expansiva si: 
@@ -102,10 +105,10 @@ Denotemos $L_{\tau} f(x)=f(x-\tau(x))$ como la acción del difeomorfismo $\mathb
   $$d_N(f(x),f(y))\leq C d_M(x,y), \; \; \forall x,y \in M$$
 \end{definicion}
 
-\noindent En nuestro caso, la $d_N$ que utilizaremos será la norma del espacio de Hilbert $\mathcal{H}$ de llegada, pero necesitamos definir de alguna manera una distancia $d_M$ entre los difeomorfismo $\mathbb{1}$ y $\mathbb{1}-\tau$ para escribir correctamente la condición de Lipschitz. Además, dado que el espacio de partida es $L^2(\mathbb{R}^d)$ y los puntos que vamos a comparar son las funciones $f$ y $L_\tau f=f(x-\tau(x))$ sabemos que $\|\Phi(f) - \Phi(L_cf) \|$ estará acotada por $\|f\| · d(\mathbb{1}, \mathbb{1}-\tau)$, de manera que necesitamos definir una distancia entre el difeomorfismo $\mathbb{1}$ y $\mathbb{1}-\tau$. Para ello, la topología débil \footnote{ recordemos que es la topología menos fina de un espacio normado que hace continuas todas las aplicaciones de su dual} en los difeomorfismos $C^2$  permite definir la siguiente aplicación, que utilizaremos como distancia:
+\noindent En nuestro caso, la distancia que utilizaremos será la inducida por la norma del espacio de Hilbert $\mathcal{H}$ de llegada, pero necesitamos definir de alguna manera una distancia $d_M$ entre los difeomorfismo $\mathbb{1}$ y $\mathbb{1}-\tau$ para escribir correctamente la condición de Lipschitz. Además, dado que el espacio de partida es $L^2(\mathbb{R}^d)$ y los puntos que vamos a comparar son las funciones $f$ y $L_\tau f=f(x-\tau(x))$ sabemos que $\|\Phi(f) - \Phi(L_cf) \|$ estará acotada por $\|f\| · d(\mathbb{1}, \mathbb{1}-\tau)$, de manera que necesitamos definir una distancia entre el difeomorfismo $\mathbb{1}$ y $\mathbb{1}-\tau$.
 
 \begin{definicion}
-Así, se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subconjunto compacto $\Omega$ de $\mathbb{R}^d$ como 
+Se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subconjunto compacto $\Omega$ de $\mathbb{R}^d$ como 
 
 \begin{equation} \label{eq::distancia}
   d_\Omega(\mathbb{1},\mathbb{1}-\tau) = \sup_{x \in \Omega} |\tau (x)| + \sup_{x \in \Omega} |\nabla \tau (x)| + \sup_{x \in \Omega}|H \tau (x)|
@@ -118,16 +121,24 @@ Así, se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquie
 
 \medskip
 
-\noindent Así, podemos finalmente expresar la condición de Lipschitz que un operador debería satisfacer en nuestro caso:  
+\noindent Así, podemos finalmente expresar la condición de Lipschitz que un operador debería satisfacer en nuestro caso, pero antes vamos a aclarar algunos detalles de notación: 
+
+\begin{itemize}
+  \item $|| \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\tau(x)|$
+  \item $||\nabla \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\nabla \tau(x)|$
+  \item $||H \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |H \tau(x)|$ dónde $|H \tau(x)|$ es la norma del tensor Hessiano. 
+\end{itemize}
 
 \medskip
 
 \begin{definicion} \label{def::Lipschitz_cont}
-\noindent Un operador invariante por traslaciones $\Phi$ se dice \entrecomillado{Lipchitz-continuo} por la acción de los difeomorfismos $C^2$  si para cualquier compacto $\Omega \subset \mathbb{R}^d$ existe una constante $C$ tal que para todo $f \in L^2(\mathbb{R}^d)$ con Soporte en $\Omega$ y para todo $\tau \in C^2(\mathbb{R}^d)$ se cumple:
+\noindent Un operador invariante por traslaciones $\Phi$ se dice \entrecomillado{Lipchitz-continuo} por la acción de los difeomorfismos $C^2$  si para cualquier compacto $\Omega \subset \mathbb{R}^d$ existe una constante $C$ tal que para todo $f \in L^2(\mathbb{R}^d)$ con soporte en $\Omega$ y para todo $\tau \in C^2(\mathbb{R}^d)$ se cumple:
 
 \begin{equation} \label{eq::Lipschitz_condition}
   || \Phi(f)-\Phi(L_{\tau}f)||_\mathcal{H} \leq C||f||(\sup_{x \in \mathbb{R}^d} |\nabla \tau (x)| + \sup_{x \in \mathbb{R}^d}|H \tau (x)|)
 \end{equation}
+
+%Cuidado con la cita esta, tratar de descubrir el por qué, me he descargado el artículo.
 con  $|| \nabla \tau ||_\infty + ||H \tau ||_\infty < 1$ para asegurarnos de que la deformación sea invertible \cite{doi:10.1137/S0036141002404838}.
 \end{definicion}
 
@@ -143,11 +154,7 @@ con  $|| \nabla \tau ||_\infty + ||H \tau ||_\infty < 1$ para asegurarnos de que
 \subsection{Notación}
 
 \begin{itemize}
-    \item $|| \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\tau(x)|$
-    \item $||\nabla \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\nabla \tau(x)|$
-    \item $||\mathcal{H} \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\mathcal{H} \tau(x)|$ dónde $|\mathcal{H} \tau(x)|$ es la norma del tensor Hessiano. 
-    \item La norma en $L^2(\mathbb{R}^d)$ de $f$ lo denotamos $||f||$.
-    \item La norma de $f$ en $L^1(\mathbb{R}^d)$ lo denotamos $||f||_1=\int{|f(x)| dx}$.
+
     \item Se denota $g \circ f(x)=f(gx)$ a la acción de un elemento del grupo $g\in G$.
     \item Un operador  $\mathcal{R}$ parametrizado por $p$ es denotado por $\mathcal{R}[p]$ y $\mathcal{R}[\Omega]=\lbrace \mathcal{R}[p] \rbrace_{p \in \Omega}$. 
 \end{itemize}

@@ -3,7 +3,7 @@
 
 \chapter{Modelización Matemática de una Red Neuronal Convolucional} \label{ch:seccion12}
 
-\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{CNN}, para ello necesitamos en primer lugar definir un operador que denominaremos \textbf{propagador de dispersión} (PD) que será el que aplicaremos de forma recursiva en la cascada de convoluciones que modeliza una CNN, para ello explicaremos la problemática de elegir una operador \textit{lipschitz-continuo} bajo la acción de difeomorfismos e \textit{invariante por traslaciones}, para evitar problemas como las inestabilidades en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos como ocurre si usamos la transformada de Fourier. 
+\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{CNN}, para ello necesitamos en primer lugar definir un operador que denominaremos \textbf{propagador de dispersión} (PD) que será el que aplicaremos de forma recursiva en la cascada de convoluciones que modeliza una CNN, para ello explicaremos la problemática de elegir una operador \textit{lipschitz-continuo} bajo la acción de difeomorfismos e \textit{invariante por traslaciones}, para evitar problemas como las inestabilidades en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos como ocurre si usamos el módulo de la transformada de Fourier. 
 
 \medskip
 
@@ -22,7 +22,7 @@
 
 \subsection{El módulo de la Transformada de Fourier}
 
-\noindent El análisis de Fourier tradicionalmente ha jugado un papel fundamental en el procesamiento de señales \cite{DigitalImageProcessing}, por lo que podría parecer un buen punto de partida para la construcción del \textbf{propagador de dispersión} emplear la \textbf{transformada de Fourier}, una de las herramientas matemáticas más potente en este campo. La intuición detrás de su fórmula es la de representar funciones no periódicas (pero que tienen área bajo la curva finita) como la integral de senos y cosenos multiplicados por una función que determina los pesos en cada instante. Formalmente tiene la siguiente expresión:
+\noindent El análisis de Fourier tradicionalmente ha jugado un papel fundamental en el procesamiento de señales \cite{DigitalImageProcessing}, por lo que podría parecer un buen punto de partida para la construcción del \textbf{propagador de dispersión} emplear la \textbf{transformada de Fourier}, una de las herramientas matemáticas más potentes en este campo. La intuición detrás de su fórmula es la de representar funciones no periódicas (pero que tienen área bajo la curva finita) como la integral de senos y cosenos multiplicados por una función que determina los pesos en cada instante. Formalmente tiene la siguiente expresión:
 
 \begin{equation}
 \widehat{f}(\omega):= \int{f(x)e^{-ix\omega}dx}=\int{f(x)\left[\cos{x\omega} -i\sin{x\omega}\right]dx}.
@@ -60,148 +60,148 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
 
 \medskip
     
-\noindent Sin embargo, la invaianza por traslaciones no es suficiente, necesitamos también que nuestro operador sea invariante frente a pequeñas deformaciones (difeomorfismos). De esta forma, un operador $\Phi(f)$ diremos que es estable frente a deformaciones si verifica \autoref{def::Lipschitz_cont}. Sin embargo, esta propiedad no la verifica el módulo de la Transformada de Fourier, como podemos ver a continuación:
+\noindent Sin embargo, la invaianza por traslaciones no es suficiente, necesitamos también que nuestro operador sea invariante frente a pequeñas deformaciones (difeomorfismos). De esta forma, un operador $\Phi(f)$ diremos que es estable frente a deformaciones si verifica \autoref{def::Lipschitz_cont}. Sin embargo, esta propiedad no la verifica el módulo de la transformada de Fourier, como podemos ver a continuación:
 
-\begin{lema} \label{lemma:TF_inestable_difeomorfismos}
-El módulo de la Transformada de Fourier no es estable frente a pequeñas deformaciones y no es \entrecomillado{Lipschitz-continuo}.
-\end{lema}
+\begin{observacion}\label{lemma:TF_inestable_difeomorfismos}
+  El módulo de la Transformada de Fourier no es estable frente a pequeñas deformaciones y no es \entrecomillado{Lipschitz-continuo} en el sentido de la \autoref{def::Lipschitz_cont}.
 
-\begin{proof}
-\noindent Vamos a considerar la función $\tau(x)\coloneqq \epsilon x$ con $0 < \epsilon << 1$. De esta forma $||\nabla \tau (x) ||_\infty = \epsilon$ y $||H\tau(x)||_\infty=0$ con esto, la condición de Lipschitz debería ser
+  \medskip
 
-$$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c ||f|| (||\nabla \tau ||_{\infty} + ||H\tau||_\infty) \leq c ||f|| \epsilon$$
+  \noindent Si consideramos la función $\tau(x)\coloneqq \epsilon x$ con $0 < \epsilon << 1$. De esta forma $||\nabla \tau (x) ||_\infty = \epsilon$ y $||H\tau(x)||_\infty=0$ con esto, la condición de Lipschitz para el módulo de la transfomada de Fourier nos daría la existencia de una constante $c>0$ de modo que la desigualdad que se tendría que cumplir para cada $f \in L^2(\mathbb{R}^d)$ y cada $0 < \epsilon << 1$ sería:
 
-\noindent Vamos a ver un contraejemplo con una función de una dimensión por simplicidad.
+  $$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c ||f|| (||\nabla \tau ||_{\infty} + ||H\tau||_\infty) \leq c ||f|| \epsilon$$
 
-\medskip
+  \noindent Vamos a ver un contraejemplo con una función de una dimensión por simplicidad.
 
-\noindent Supongamos que tenemos $f(x)=e^{i \xi x} \Theta(x)=e^{i \xi x}e^{-|x|}$. Calculamos ahora $|\widehat{f}|$ y $|\widehat{L_\tau f}|$ teniendo en cuenta que :
+  \medskip
 
-
-\begin{align*}
-  |\widehat{f}(\omega)|&=\left|  \int{f(x)e^{-ix\omega}dx}  \right | \\
-  &=\left|  \int{f(x)e^{-ix\omega}dx}  \right | \\
-  &=\left|  \int{e^{i \xi x}e^{-|x|}e^{-ix\omega}dx}  \right | \\
-  &=\left|  \int{e^{-ix(\xi-\omega)}dx}  \right | \\
-  &=\left|  \int{e^{-|x|}\left[\cos{x(\xi-\omega)} -i\sin{x(\xi-\omega)}\right]dx} \right| \\
-\end{align*}
-
-\noindent En el último paso podemos descomponer la integral en suma de dos, y para simplificar las operaciones llamamos $\beta=(\xi - \omega)$. Así, aplicando las siguientes fórmulas conocidas para el cálculo de integrales,
+  \noindent Supongamos que tenemos $f(x)=e^{i \xi x}e^{-|x|}$ donde $\xi$ está por determinar. Calculamos ahora $|\widehat{f}|$ y $|\widehat{L_\tau f}|$ teniendo en cuenta que :
 
 
-\begin{equation} \label{eq:res_auxiliar_1}
-  \int_\mathbb{R} \cos(\beta x) e^{-|x|} dx= \frac{1}{1+\beta^2}
-\end{equation}
+  \begin{align*}
+    |\widehat{f}(\omega)|&=\left|  \int{f(x)e^{-ix\omega}dx}  \right | \\
+    &=\left|  \int{f(x)e^{-ix\omega}dx}  \right | \\
+    &=\left|  \int{e^{i \xi x}e^{-|x|}e^{-ix\omega}dx}  \right | \\
+    &=\left|  \int{e^{-ix(\xi-\omega)}dx}  \right | \\
+    &=\left|  \int{e^{-|x|}\left[\cos{x(\xi-\omega)} -i\sin{x(\xi-\omega)}\right]dx} \right| \\
+  \end{align*}
 
-\noindent y 
-
-\begin{equation}\label{eq:res_auxiliar_2}
-  \int_\mathbb{R} \sin(\beta x) e^{-|x|} dx= 0
-\end{equation}
-
-\noindent a nuestro caso concreto, obtenemos que: 
-
-\begin{align*}
-  |\widehat{f}(\omega)|&=\left|  \int{\cos{x\beta}e^{-|x|} dx} - i \int{\sin{x\beta}e^{-|x|} dx} \right| \\
-  &=\frac{1}{1+\beta^2} \\
-  &=\frac{1}{1+(\xi - \omega)^2}.
-\end{align*} 
-
-\noindent Ahora pasamos a calcular $|\widehat{L_\tau f}|$:
-
-\begin{align*}
-  |\widehat{L_\tau f}(\omega)| &= |\widehat{f}((1-\epsilon)\omega)| \\
-  &=\left|  \int{f((1-\epsilon)x)e^{-ix\omega}dx}  \right | \\
-  &=\left|  \int{e^{i \xi (1-\epsilon) x}e^{-|(1-\epsilon)x|}e^{-ix\omega}dx}  \right |. \\
-\end{align*}
-
-\noindent Ahora realizamos el siguiente cambio de variable
-
-\begin{equation}
-  \tilde{x}=(1-\epsilon) x \implies x=\frac{\tilde{x}}{1-\epsilon} 
-\end{equation}
-
-\begin{equation}
- d\tilde{x}=(1-\epsilon) dx \implies dx=\frac{1}{(1-\epsilon)}d\tilde{x}
-\end{equation}
-
-\noindent y aplicando los cambios a lo que teníamos nos queda
-
-\begin{align*}
-  |\widehat{L_\tau f}(\omega)| 
-  &= \frac{1}{(1-\epsilon)}\left|  \int{f((1-\epsilon)x)e^{-ix\omega}dx}  \right | \\
-  &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \xi \tilde{x}}e^{-|\tilde{x}|}e^{-i\frac{\tilde{x}}{(1-\epsilon)}\omega}d\tilde{x}}  \right | \\
-  &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]\tilde{x}}e^{-|\tilde{x}|} d\tilde{x}}  \right | \\
-  &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \tilde{\beta}\tilde{x}}e^{-|\tilde{x}|} d\tilde{x}}  \right |, \\
-\end{align*}
-
-\noindent como podemos ver, llegamos a una integral que se resuelve de la misma manera que en el caso anterior haciendo uso de \eqref{eq:res_auxiliar_1} y \eqref{eq:res_auxiliar_2}:
-
-\begin{align*}
-  |\widehat{L_\tau f}(\omega)| 
-  &= \frac{1}{(1-\epsilon)} \frac{1}{1+\tilde{\beta}^2} \\
-  &= \frac{1}{(1-\epsilon)} \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}. \\
-\end{align*}
+  \noindent En el último paso podemos descomponer la integral en suma de dos, y para simplificar las operaciones llamamos $\beta=(\xi - \omega)$. Así, aplicando las siguientes fórmulas conocidas para el cálculo de integrales,
 
 
-\noindent De esta forma hemos obtenido que para nuestro caso concreto de $f(x)=e^{i \xi x}e^{-|x|}$ ,
+  \begin{equation} \label{eq:res_auxiliar_1}
+    \int_\mathbb{R} \cos(\beta x) e^{-|x|} dx= \frac{1}{1+\beta^2}
+  \end{equation}
+
+  \noindent y 
+
+  \begin{equation}\label{eq:res_auxiliar_2}
+    \int_\mathbb{R} \sin(\beta x) e^{-|x|} dx= 0
+  \end{equation}
+
+  \noindent a nuestro caso concreto, obtenemos que: 
+
+  \begin{align*}
+    |\widehat{f}(\omega)|&=\left|  \int{\cos{x\beta}e^{-|x|} dx} - i \int{\sin{x\beta}e^{-|x|} dx} \right| \\
+    &=\frac{1}{1+\beta^2} \\
+    &=\frac{1}{1+(\xi - \omega)^2}.
+  \end{align*} 
+
+  \noindent Ahora pasamos a calcular $|\widehat{L_\tau f}|$:
+
+  \begin{align*}
+    |\widehat{L_\tau f}(\omega)| &= |\widehat{f}((1-\epsilon)\omega)| \\
+    &=\left|  \int{f((1-\epsilon)x)e^{-ix\omega}dx}  \right | \\
+    &=\left|  \int{e^{i \xi (1-\epsilon) x}e^{-|(1-\epsilon)x|}e^{-ix\omega}dx}  \right |. \\
+  \end{align*}
+
+  \noindent Ahora realizamos el siguiente cambio de variable
+
+  \begin{equation}
+    \tilde{x}=(1-\epsilon) x \implies x=\frac{\tilde{x}}{1-\epsilon} 
+  \end{equation}
+
+  \begin{equation}
+  d\tilde{x}=(1-\epsilon) dx \implies dx=\frac{1}{(1-\epsilon)}d\tilde{x}
+  \end{equation}
+
+  \noindent y aplicando los cambios a lo que teníamos nos queda
+
+  \begin{align*}
+    |\widehat{L_\tau f}(\omega)| 
+    &= \frac{1}{(1-\epsilon)}\left|  \int{f((1-\epsilon)x)e^{-ix\omega}dx}  \right | \\
+    &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \xi \tilde{x}}e^{-|\tilde{x}|}e^{-i\frac{\tilde{x}}{(1-\epsilon)}\omega}d\tilde{x}}  \right | \\
+    &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]\tilde{x}}e^{-|\tilde{x}|} d\tilde{x}}  \right | \\
+    &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \tilde{\beta}\tilde{x}}e^{-|\tilde{x}|} d\tilde{x}}  \right |, \\
+  \end{align*}
+
+  \noindent como podemos ver, llegamos a una integral que se resuelve de la misma manera que en el caso anterior haciendo uso de \eqref{eq:res_auxiliar_1} y \eqref{eq:res_auxiliar_2}:
+
+  \begin{align*}
+    |\widehat{L_\tau f}(\omega)| 
+    &= \frac{1}{(1-\epsilon)} \frac{1}{1+\tilde{\beta}^2} \\
+    &= \frac{1}{(1-\epsilon)} \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}. \\
+  \end{align*}
 
 
-\begin{align*}
-  \left\| |\widehat{L_\tau f}|-|\widehat{f}| \right\| &= \left\| \frac{1}{(1-\epsilon)} \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right\| \\
-  &\geq  \left\| \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right\| \\
-  &=\left(\int_{\mathbb{R}} \left| \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right|^2 d\omega\right)^{1/2}.
-\end{align*}
+  \noindent De esta forma hemos obtenido que para nuestro caso concreto de $f(x)=e^{i \xi x}e^{-|x|}$ ,
 
 
-\noindent A continuación vamos a intentar aproximar el valor del módulo de la integral, para ello en primer lugar vamos a realizar el siguiente cambio de variable 
+  \begin{align*}
+    \left\| |\widehat{L_\tau f}|-|\widehat{f}| \right\| &= \left\| \frac{1}{(1-\epsilon)} \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right\| \\
+    &\geq  \left\| \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right\| \\
+    &=\left(\int_{\mathbb{R}} \left| \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right|^2 d\omega\right)^{1/2}.
+  \end{align*}
 
-\begin{align*}
-  &t=\omega-\xi \implies \omega-(1-\epsilon)\xi= \omega-\xi + \epsilon\xi = t +\epsilon\xi \\
-  &dt=d\omega.
-\end{align*}
 
-\noindent Así, obtenemos que: 
+  \noindent A continuación vamos a intentar aproximar el valor del módulo de la integral, para ello en primer lugar vamos a realizar el siguiente cambio de variable 
 
-\begin{align*}
-  \int_{\mathbb{R}} \left| \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2} \right|^2 d\omega &\geq
-  \left|\int_{\mathbb{R}} \left(  \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}  \right)^2 d\omega \right| \\
-  &=\left|\int_{\mathbb{R}} \left(  \frac{1}{1+t^2} - \frac{1}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}  \right)^2 d\omega \right| \\
-\end{align*}
+  \begin{align*}
+    &t=\omega-\xi \implies \omega-(1-\epsilon)\xi= \omega-\xi + \epsilon\xi = t +\epsilon\xi \\
+    &dt=d\omega.
+  \end{align*}
 
-\noindent Representando la gráfica $g_1(t)= \frac{1}{1+t^2}$, podemos ver cómo el valor de su integral se acumula en torno al origen de coordenadas, y en cambio $g_2(t)=\frac{1}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}$ e una traslación y escalado de la función anterior. De esta forma, si $\epsilon\xi$ es muy grande, el área de la función $g_2(t)$ será prácticamente cero en la región del espacio dónde $g_1(t)$ concentra su integral. Dicho de otra forma, las dos funciones tendrían soporte disjunto.
+  \noindent Así, obtenemos que: 
 
-\noindent De esta forma, podemos tomar una constante $M>0$ tal que para un valor de $\xi$ elevado se cumpla que: 
+  \begin{align*}
+    \int_{\mathbb{R}} \left| \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2} \right|^2 d\omega &\geq
+    \left|\int_{\mathbb{R}} \left(  \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}  \right)^2 d\omega \right| \\
+    &=\left|\int_{\mathbb{R}} \left(  \frac{1}{1+t^2} - \frac{1}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}  \right)^2 d\omega \right| \\
+  \end{align*}
 
-\begin{align*}
-  \int_{\mathbb{R}} \left| \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2} \right|^2 d\omega 
-  &\geq \int_{-M}^{M} (g_1(t)-g_2(t))^2 dt \\
-  &\approx \int_{-M}^{M} g_1(t)^2 dt. \\
-\end{align*}
+  \noindent Representando la gráfica $g_1(t)= \frac{1}{1+t^2}$, podemos ver cómo el valor de su integral se acumula en torno al origen de coordenadas, y en cambio $g_2(t)=\frac{1}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}$ e una traslación y escalado de la función anterior. De esta forma, si $\epsilon\xi$ es muy grande, el área de la función $g_2(t)$ será prácticamente cero en la región del espacio dónde $g_1(t)$ concentra su integral. Dicho de otra forma, las dos funciones tendrían soporte disjunto.
 
-\noindent Y como $\xi$ puede ser arbitrariamente grande, intuitivamente el intervalo en el que ambas funciones tienen soporte disjunto crece de forma indefinida lo cual nos permite realizar la siguiente aproximación teniendo en cuenta que $g_1(t)=\widehat{f}$:
+  \noindent De esta forma, podemos tomar una constante $M>0$ tal que para un valor de $\xi$ elevado se cumpla que: 
 
-\begin{equation} \label{eq::1.1}
-  \left\| |\widehat{f}| -|\widehat{L_\tau f}| \; \right\| \sim \|g_1(t) \|=\|f\|. 
-\end{equation}
+  \begin{align*}
+    \int_{\mathbb{R}} \left| \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2} \right|^2 d\omega 
+    &\geq \int_{-M}^{M} (g_1(t)-g_2(t))^2 dt \\
+    &\approx \int_{-M}^{M} g_1(t)^2 dt. \\
+  \end{align*}
 
-\noindent Dónde la última igualdad la hemos realizado gracias a la fórmula de Plancharel que en el caso de $\mathbb{R}^d$ es: 
+  \noindent Y como $\xi$ puede ser arbitrariamente grande, intuitivamente el intervalo en el que ambas funciones tienen soporte disjunto crece de forma indefinida lo cual nos permite realizar la siguiente aproximación teniendo en cuenta que $g_1(t)=\widehat{f}$:
 
-\begin{equation} \label{eq::Plancharel}
-  \int_{\mathbb{R}^d} \left|f(x)\right|^2 dx= \int_{\mathbb{R}^d}\left|\widehat{f}(\omega)\right|^2 d\omega.
-\end{equation}
+  \begin{equation} \label{eq::1.1}
+    \left\| |\widehat{f}| -|\widehat{L_\tau f}| \; \right\| \sim \|g_1(t) \|=\|f\|. 
+  \end{equation}
 
-\noindent Luego hemos demostrado que en este caso particular el operador $|\widehat{f}|$ no cumple la condición de Lipschitz, pues como hemos mencionado antes, $\xi$ puede ser arbitrariamente grande y de esta forma, que la diferencia anterior pueda ser todo lo grande que se quiera.
+  \noindent Dónde la última igualdad la hemos realizado gracias a la fórmula de Plancharel que en el caso de $\mathbb{R}^d$ es: 
 
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=1.0\textwidth]{img/geogebra-export_contraejemplo_Fourier.png}
-  \caption{Como podemos ver en la imagen, para los valores $\epsilon=0.1$, $\xi=100$ y $M=5$ ambas funciones tienen soporte casi disjunto de manera que la diferencia entre ellas en el intervalo $[-5,5]$ coincide prácticamente con la integral de $g_1(t)$.}
-  \label{fig:Grafica_funciones}
-\end{figure}
+  \begin{equation} \label{eq::Plancharel}
+    \int_{\mathbb{R}^d} \left|f(x)\right|^2 dx= \int_{\mathbb{R}^d}\left|\widehat{f}(\omega)\right|^2 d\omega.
+  \end{equation}
 
-\end{proof}
-    
+  \noindent Luego hemos demostrado que en este caso particular el operador $|\widehat{f}|$ no cumple la condición de Lipschitz, pues como hemos mencionado antes, $\xi$ puede ser arbitrariamente grande y de esta forma, que la diferencia anterior pueda ser todo lo grande que se quiera.
+
+  \begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{img/geogebra-export_contraejemplo_Fourier.png}
+    \caption{Como podemos ver en la imagen, para los valores $\epsilon=0.1$, $\xi=100$ y $M=5$ ambas funciones tienen soporte casi disjunto de manera que la diferencia entre ellas en el intervalo $[-5,5]$ coincide prácticamente con la integral de $g_1(t)$.}
+    \label{fig:Grafica_funciones}
+  \end{figure}
+
+\end{observacion}
+ 
 \medskip
 
 \noindent Por esto, lo que haremos será reemplazar las ondas sinusoidales de la transformada de Fourier por funciones localizadas con un soporte mayor en altas frecuencias que nos permitan evitar estas complicaciones, que tendrán un mejor rendimiento en nuestro propósito. Estas funciones se denominan \textbf{ondeletas}. 

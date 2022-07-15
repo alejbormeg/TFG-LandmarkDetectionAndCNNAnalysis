@@ -6,8 +6,7 @@
 \contentsline {chapter}{\nonumberline Introducción}{\es@scroman {xvii}}{chapter*.9}%
 \contentsline {part}{\numberline {I}Análisis de Redes Convolucionales}{1}{part.1}%
 \contentsline {chapter}{\numberline {1}Introducción}{3}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Introducción}{3}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Notación}{6}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.0.1}Notación}{6}{subsection.1.0.1}%
 \contentsline {chapter}{\numberline {2}Modelización Matemática de una Red Neuronal Convolucional}{7}{chapter.2}%
 \contentsline {section}{\numberline {2.1}De Fourier a las ondeletas de Littlewood-Paley}{7}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}El módulo de la Transformada de Fourier}{7}{subsection.2.1.1}%
