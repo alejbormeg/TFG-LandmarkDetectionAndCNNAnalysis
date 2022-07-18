@@ -14,6 +14,12 @@ Joan Bruna and St{\'e}phane Mallat.
 \newblock {\em IEEE transactions on pattern analysis and machine intelligence},
   35(8):1872--1886, 2013.
 
+\bibitem[BW20]{browatzki20203fabrec}
+Bjorn Browatzki and Christian Wallraven.
+\newblock 3fabrec: Fast few-shot face alignment by reconstruction.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
+  Pattern Recognition}, pages 6110--6120, 2020.
+
 \bibitem[Der17]{autoencoders2017}
 Arden Dertat.
 \newblock Applied deep learning.
