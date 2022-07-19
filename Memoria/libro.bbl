@@ -205,4 +205,10 @@ Alain Trouvé and Laurent Younes.
 \newblock Local geometry of deformable templates.
 \newblock {\em SIAM Journal on Mathematical Analysis}, 37(1):17--59, 2005.
 
+\bibitem[WBSS04]{wang2004image}
+Zhou Wang, Alan~C Bovik, Hamid~R Sheikh, and Eero~P Simoncelli.
+\newblock Image quality assessment: from error visibility to structural
+  similarity.
+\newblock {\em IEEE transactions on image processing}, 13(4):600--612, 2004.
+
 \end{thebibliography}

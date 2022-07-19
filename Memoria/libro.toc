@@ -1,0 +1,101 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\nonumberline Agradecimientos}{\es@scroman {xiii}}{chapter*.7}%
+\babel@toc {english}{}
+\contentsline {chapter}{\nonumberline Summary}{\es@scroman {xv}}{chapter*.8}%
+\babel@toc {spanish}{}
+\contentsline {chapter}{\nonumberline Introducción}{\es@scroman {xvii}}{chapter*.9}%
+\contentsline {part}{\numberline {I}Análisis de Redes Convolucionales}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Introducción}{3}{chapter.1}%
+\contentsline {subsection}{\numberline {1.0.1}Notación}{6}{subsection.1.0.1}%
+\contentsline {chapter}{\numberline {2}Modelización Matemática de una Red Neuronal Convolucional}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}De Fourier a las ondeletas de Littlewood-Paley}{7}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}El módulo de la Transformada de Fourier}{7}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Alternativa: Las ondeletas}{12}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}La Transformada de Littlewood-Paley}{15}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Convenios para futuras secciones}{18}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}El operador de dispersión sobre un camino ordenado}{19}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Ejemplo para obtener coeficientes invariantes por traslaciones}{20}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}El operador módulo.}{21}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Propiedades de un camino de frecuencias.}{22}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Construcción del operador de dispersión.}{23}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Propagador de dispersión y conservación de la Norma}{24}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Proceso de dispersión del propagador.}{24}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Diferencias y similitudes con una CNN}{25}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Relación con herramientas clásicas de visión por computador}{26}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Operador no expansivo.}{26}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Conservación de la norma.}{28}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Conclusiones extraidas del teorema}{31}{subsection.2.3.6}%
+\contentsline {chapter}{\numberline {3}Invarianza por Traslaciones}{33}{chapter.3}%
+\contentsline {section}{\numberline {3.1}No expansividad del operador de ventana en conjuntos de caminos}{33}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Invarianza por traslaciones}{36}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Conclusiones}{41}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Elementos del texto}{42}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Listas}{42}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Tablas y figuras}{43}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Entornos matemáticos}{43}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Bibliografía e índice}{44}{section.4.3}%
+\contentsline {part}{\numberline {II}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{45}{part.2}%
+\contentsline {chapter}{\numberline {5}Introducción}{47}{chapter.5}%
+\contentsline {subsection}{\numberline {5.0.1}Descripción del problema}{47}{subsection.5.0.1}%
+\contentsline {subsection}{\numberline {5.0.2}Motivación}{47}{subsection.5.0.2}%
+\contentsline {subsection}{\numberline {5.0.3}Objetivos}{47}{subsection.5.0.3}%
+\contentsline {chapter}{\numberline {6}Fundamentos Teóricos}{49}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Aprendizaje Automático}{49}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Aprendizaje Supervisado}{50}{subsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.1.1}Regresión}{50}{subsubsection.6.1.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.1.2}clasificación}{51}{subsubsection.6.1.1.2}%
+\contentsline {subsection}{\numberline {6.1.2}Aprendizaje no Supervisado}{51}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Nuestro Problema}{51}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Gradiente Descendente}{51}{subsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.4.1}Gradiente Descendente Estocástico}{52}{subsubsection.6.1.4.1}%
+\contentsline {section}{\numberline {6.2}Visión por Computador}{53}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Deep Learning}{53}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Redes Neuronales}{53}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Back Propagation}{55}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Redes Neuronales Convolucionales}{57}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Capa Convolucional}{58}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Capa de Pooling}{58}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Capa Totalmente Conectada (Fully Conected)}{59}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}Batch Normalization}{60}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}Optimizador Adam}{60}{subsection.6.4.5}%
+\contentsline {subsection}{\numberline {6.4.6}Proceso de entrenamiento de una CNN}{60}{subsection.6.4.6}%
+\contentsline {subsection}{\numberline {6.4.7}Evolución de las CNN}{61}{subsection.6.4.7}%
+\contentsline {subsubsection}{\numberline {6.4.7.1}LeNet-5}{61}{subsubsection.6.4.7.1}%
+\contentsline {subsubsection}{\numberline {6.4.7.2}AlexNet}{61}{subsubsection.6.4.7.2}%
+\contentsline {subsubsection}{\numberline {6.4.7.3}GoogLeNet}{62}{subsubsection.6.4.7.3}%
+\contentsline {subsubsection}{\numberline {6.4.7.4}VGG-16}{63}{subsubsection.6.4.7.4}%
+\contentsline {subsubsection}{\numberline {6.4.7.5}ResNet}{63}{subsubsection.6.4.7.5}%
+\contentsline {section}{\numberline {6.5}Autoencoders}{65}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Introducción}{65}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Evolución de los Autoencoders}{65}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}Generative Adversarial Networks (GANs)}{65}{subsubsection.6.5.2.1}%
+\contentsline {subsubsection}{\numberline {6.5.2.2}Variational Autoencoder (VAE)}{67}{subsubsection.6.5.2.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.3}Adversarial Autoencoder(AAE)}{67}{subsubsection.6.5.2.3}%
+\contentsline {section}{\numberline {6.6}Técnicas empleadas}{68}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Few-shot Learning y Data Augmentation}{69}{subsection.6.6.1}%
+\contentsline {chapter}{\numberline {7}Estado del Arte}{71}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Localización de landmarks cefalométricos en imágenes}{71}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Evolución en la identificación forense de landmarks cefalométricos}{72}{subsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.1.1}Two diﬀerent approaches to handle landmark location uncertainty in skull-face overlay: coevolution vs fuzzy landmarks}{72}{subsubsection.7.1.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.1.2}Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}{74}{subsubsection.7.1.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.1.3}Automated facial landmark detection, comparison and visualization}{74}{subsubsection.7.1.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.1.4}Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}{75}{subsubsection.7.1.1.4}%
+\contentsline {subsubsection}{\numberline {7.1.1.5}The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}{77}{subsubsection.7.1.1.5}%
+\contentsline {subsection}{\numberline {7.1.2}Nuestra propuesta}{77}{subsection.7.1.2}%
+\contentsline {chapter}{\numberline {8}Materiales y Métodos}{81}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Datos del problema}{81}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Red empleada: 3FabRec}{81}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Arquitectura Adversarial Autoencoder}{83}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Interleaved Transfer Layer (ITL)}{84}{subsection.8.2.2}%
+\contentsline {section}{\numberline {8.3}Metricas}{84}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}SSIM}{84}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Average pixel error}{85}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}MSE}{85}{subsection.8.3.3}%
+\contentsline {section}{\numberline {8.4}Función de pérdida}{85}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Proceso de entrenamiento de la red}{85}{section.8.5}%
+\contentsline {chapter}{\numberline {9}Planificación e implementación}{91}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Experimentación}{93}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{95}{chapter.11}%
+\contentsline {chapter}{\numberline {A}Primer apéndice}{97}{appendix.Alph1}%
+\contentsline {chapter}{Glosario}{99}{chapter*.10}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{101}{chapter*.11}%

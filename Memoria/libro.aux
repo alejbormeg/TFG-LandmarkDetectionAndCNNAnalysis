@@ -458,4 +458,117 @@
 \@writefile{brf}{\backcite{300W}{{78}{7.1.2}{subsection.7.1.2}}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7.6}{\ignorespaces Conjunto de landmarks anotados en el dataset 300W, en la imagen \textit  {a} contando el contorno del rostro son un total de 68 landmarks, en la imagen \textit  {b} son 51 en total. Imagen extraida de \cite  {300W}.}}{78}{figure.7.6}\protected@file@percent }
 \@writefile{brf}{\backcite{300W}{{78}{7.6}{figure.7.6}}}
-\newlabel{fig:300W}{{7.6}{78}{Conjunto de landmarks anotados en el dataset 300W, en la imagen \textit {a} contando el contorno del rostro son un total de 68 landmarks, en la imagen \textit {b} son 51 en total. Imagen extraida de \cite {300W}
+\newlabel{fig:300W}{{7.6}{78}{Conjunto de landmarks anotados en el dataset 300W, en la imagen \textit {a} contando el contorno del rostro son un total de 68 landmarks, en la imagen \textit {b} son 51 en total. Imagen extraida de \cite {300W}}{figure.7.6}{}}
+\@writefile{brf}{\backcite{AFLW}{{79}{7.1.2}{figure.7.6}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.7}{\ignorespaces Conjunto de landmarks anotados sobre un modelo $3$D que emplea el dataset AFLW. Imagen extraida de \cite  {AFLW}.}}{79}{figure.7.7}\protected@file@percent }
+\@writefile{brf}{\backcite{AFLW}{{79}{7.7}{figure.7.7}}}
+\newlabel{fig:AFLW}{{7.7}{79}{Conjunto de landmarks anotados sobre un modelo $3$D que emplea el dataset AFLW. Imagen extraida de \cite {AFLW}}{figure.7.7}{}}
+\BKM@entry{id=69,dest={636861707465722E38},srcline={1}}{4D6174657269616C65732079204D5C333531746F646F73}
+\BKM@entry{id=70,dest={73656374696F6E2E382E31},srcline={3}}{4461746F732064656C2070726F626C656D61}
+\BKM@entry{id=71,dest={73656374696F6E2E382E32},srcline={30}}{52656420656D706C656164613A2033466162526563}
+\citation{browatzki20203fabrec}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Materiales y Métodos}{81}{chapter.8}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {8.1}Datos del problema}{81}{section.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Red empleada: 3FabRec}{81}{section.8.2}\protected@file@percent }
+\@writefile{brf}{\backcite{browatzki20203fabrec}{{81}{8.2}{section.8.2}}}
+\BKM@entry{id=72,dest={73756273656374696F6E2E382E322E31},srcline={51}}{41727175697465637475726120416476657273617269616C204175746F656E636F646572}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.1}{\ignorespaces Histograma con la aparición de cada tipo de landmark en las imágenes del dataset.}}{82}{figure.8.1}\protected@file@percent }
+\newlabel{fig:Histograma}{{8.1}{82}{Histograma con la aparición de cada tipo de landmark en las imágenes del dataset}{figure.8.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.2}{\ignorespaces Imagen resumen del framework 3FabRec. En ella podemos ver la estructura del \textit  {Adversarial Autoencoder}, dividido en un Encoder (región bajo la \textit  {E}) y un Generator (región bajo la \textit  {G}) }}{83}{figure.8.2}\protected@file@percent }
+\newlabel{fig:3FabRec Resumen}{{8.2}{83}{Imagen resumen del framework 3FabRec. En ella podemos ver la estructura del \textit {Adversarial Autoencoder}, dividido en un Encoder (región bajo la \textit {E}) y un Generator (región bajo la \textit {G})}{figure.8.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.1}Arquitectura Adversarial Autoencoder}{83}{subsection.8.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8.3}{\ignorespaces Bloques básicos que utilza la red ResNet-$50$ en sus capas. Se trata de una sucesión clásica de Convolución 3x3 + Batch Normalization + ReLU que se repite dos veces. En el primer caso los filtros de convolución no reducen las dimensiones del tensor añadiendo un padding de 1. En el segundo caso se reduce la dimensión del tensor a la mitad tras la primera convolución y se manteiene la dimensionalidad en la segunda. En el primer caso, la suma residual puede realizarse con el tensor x sin problema, en el segundo caso el tensor debe reducirse para que casen las dimensiones.}}{83}{figure.8.3}\protected@file@percent }
+\newlabel{fig:bloque_encoder}{{8.3}{83}{Bloques básicos que utilza la red ResNet-$50$ en sus capas. Se trata de una sucesión clásica de Convolución 3x3 + Batch Normalization + ReLU que se repite dos veces. En el primer caso los filtros de convolución no reducen las dimensiones del tensor añadiendo un padding de 1. En el segundo caso se reduce la dimensión del tensor a la mitad tras la primera convolución y se manteiene la dimensionalidad en la segunda. En el primer caso, la suma residual puede realizarse con el tensor x sin problema, en el segundo caso el tensor debe reducirse para que casen las dimensiones}{figure.8.3}{}}
+\BKM@entry{id=73,dest={73756273656374696F6E2E382E322E32},srcline={106}}{496E7465726C6561766564205472616E73666572204C61796572205C2849544C5C29}
+\BKM@entry{id=74,dest={73656374696F6E2E382E33},srcline={110}}{4D65747269636173}
+\BKM@entry{id=75,dest={73756273656374696F6E2E382E332E31},srcline={114}}{5353494D}
+\citation{wang2004image}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.2}Interleaved Transfer Layer (ITL)}{84}{subsection.8.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8.3}Metricas}{84}{section.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3.1}SSIM}{84}{subsection.8.3.1}\protected@file@percent }
+\@writefile{brf}{\backcite{wang2004image}{{84}{8.3.1}{subsection.8.3.1}}}
+\BKM@entry{id=76,dest={73756273656374696F6E2E382E332E32},srcline={159}}{4176657261676520706978656C206572726F72}
+\BKM@entry{id=77,dest={73756273656374696F6E2E382E332E33},srcline={162}}{4D5345}
+\BKM@entry{id=78,dest={73656374696F6E2E382E34},srcline={165}}{46756E63695C3336336E20646520705C3335317264696461}
+\BKM@entry{id=79,dest={73656374696F6E2E382E35},srcline={179}}{50726F6365736F20646520656E7472656E616D69656E746F206465206C6120726564}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3.2}Average pixel error}{85}{subsection.8.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3.3}MSE}{85}{subsection.8.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8.4}Función de pérdida}{85}{section.8.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8.5}Proceso de entrenamiento de la red}{85}{section.8.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8.4}{\ignorespaces Ejemplo de paso de una imagen a través del Encoder. Cabe destacar que a partir de la Layer 1, todos los bloques tienen downsample.}}{86}{figure.8.4}\protected@file@percent }
+\newlabel{fig:Paso_encoder}{{8.4}{86}{Ejemplo de paso de una imagen a través del Encoder. Cabe destacar que a partir de la Layer 1, todos los bloques tienen downsample}{figure.8.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.5}{\ignorespaces En primer lugar se aplica una convolución transpuesta que duplica las dimensiones del tensor de entrada y tras esto se sigue la misma estructura que en el bloque básico de la ResNet-$50$, la segunda convolución $3\times 3$ mantiene las dimensiones. Como consecuencia, para sumar el tensor de entrada con la salida del bloque se aumentan las dimensiones de este.}}{87}{figure.8.5}\protected@file@percent }
+\newlabel{fig:Bloque_Decoder}{{8.5}{87}{En primer lugar se aplica una convolución transpuesta que duplica las dimensiones del tensor de entrada y tras esto se sigue la misma estructura que en el bloque básico de la ResNet-$50$, la segunda convolución $3\times 3$ mantiene las dimensiones. Como consecuencia, para sumar el tensor de entrada con la salida del bloque se aumentan las dimensiones de este}{figure.8.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.6}{\ignorespaces Ejemplo del paso de un vector de $99$ dimensiones por el generador hasta reconstruirse la imagen de dimensiones $256 \times 256 \times 3$. La parte correspondiente al aprendizaje supervisado es la de los cuadrados azules, los cuadrados rojos corresponden a las \textit  {ITLS} de la parte supervisada que se intercalan entre cada dos capas y dan como resultado los mapas de calor de los landmarks predichos.}}{88}{figure.8.6}\protected@file@percent }
+\newlabel{fig:Paso_Generator}{{8.6}{88}{Ejemplo del paso de un vector de $99$ dimensiones por el generador hasta reconstruirse la imagen de dimensiones $256 \times 256 \times 3$. La parte correspondiente al aprendizaje supervisado es la de los cuadrados azules, los cuadrados rojos corresponden a las \textit {ITLS} de la parte supervisada que se intercalan entre cada dos capas y dan como resultado los mapas de calor de los landmarks predichos}{figure.8.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.7}{\ignorespaces En la imagen superior vemos el discriminante que se emplea para los vectores producidos por el Encoder y en la imagen inferior vemos el discriminante que se emplea para las imágenes generadas por el Generador. En ambos casos se da como salida un valor entre $0$ y $1$ que hace referencia a la probabilidad de pertenecer a la distribución deseada en el primer caso o a seguir la distribución de los píxeles de las imágenes en el segundo caso.}}{89}{figure.8.7}\protected@file@percent }
+\newlabel{fig:DGaussian}{{8.7}{89}{En la imagen superior vemos el discriminante que se emplea para los vectores producidos por el Encoder y en la imagen inferior vemos el discriminante que se emplea para las imágenes generadas por el Generador. En ambos casos se da como salida un valor entre $0$ y $1$ que hace referencia a la probabilidad de pertenecer a la distribución deseada en el primer caso o a seguir la distribución de los píxeles de las imágenes en el segundo caso}{figure.8.7}{}}
+\BKM@entry{id=80,dest={636861707465722E39},srcline={1}}{506C616E696669636163695C3336336E206520696D706C656D656E746163695C3336336E}
+\@writefile{toc}{\contentsline {chapter}{\numberline {9}Planificación e implementación}{91}{chapter.9}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\BKM@entry{id=81,dest={636861707465722E3130},srcline={1}}{4578706572696D656E746163695C3336336E}
+\@writefile{toc}{\contentsline {chapter}{\numberline {10}Experimentación}{93}{chapter.10}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\BKM@entry{id=82,dest={636861707465722E3131},srcline={1}}{436F6E636C7573696F6E657320792054726162616A6F732046757475726F73}
+\BKM@entry{id=83,dest={617070656E6469782E2D31},srcline={256}}{41705C3335316E6469636573}
+\@writefile{toc}{\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{95}{chapter.11}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\BKM@entry{id=84,dest={617070656E6469782E416C706831},srcline={4}}{5072696D65722061705C3335316E64696365}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Primer apéndice}{97}{appendix.Alph1}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{ap:apendice1}{{A}{97}{Primer apéndice}{appendix.Alph1}{}}
+\BKM@entry{id=85,dest={636861707465722A2E3130},srcline={5}}{476C6F736172696F}
+\@writefile{toc}{\contentsline {chapter}{Glosario}{99}{chapter*.10}\protected@file@percent }
+\BKM@entry{id=86,dest={424D2D5265666572656E636961732E2D31},srcline={272}}{5265666572656E636961732065205C3331356E6469636573}
+\bibstyle{alpha}
+\bibdata{library.bib}
+\BKM@entry{id=87,dest={636861707465722A2E3131},srcline={2}}{4269626C696F677261665C33353561}
+\bibcite{asi2014automatic}{AIA{$^{+}$}14}
+\bibcite{bruna2013invariant}{BM13}
+\bibcite{browatzki20203fabrec}{BW20}
+\bibcite{autoencoders2017}{Der17}
+\bibcite{StanfordCourse}{{Fei}17}
+\bibcite{Goodfellow-et-al-2016}{GBC16}
+\bibcite{galvanek2015automated}{GFCS15}
+\bibcite{DigitalImageProcessing}{Gon17}
+\bibcite{EvolutionCNN}{Gup20}
+\bibcite{Huete2015PastPA}{HIWK15}
+\bibcite{ImprovedfasterRCNN}{HNATT22}
+\bibcite{he2016deep}{HZRS16}
+\bibcite{ibanez2011two}{ICD11}
+\bibcite{JBrunaOperatorsCommutingDiff}{J.B12}
+\bibcite{krizhevsky2012imagenet}{KSH12}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{101}{chapter*.11}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\bibcite{AFLW}{KWRB11}
+\bibcite{lecun1998gradient}{LBBH98}
+\bibcite{lecun2015deep}{LBH15}
+\bibcite{DistinctiveImageFeatures}{Low04}
+\bibcite{MallatWavelets}{Mal00}
+\bibcite{GroupInvariantScattering}{Mal12}
+\bibcite{HaarBasis}{PJDoM06}
+\bibcite{porto2019automatic}{PLF{$^{+}$}19}
+\bibcite{SchurLemma}{QV18}
+\bibcite{AAE}{Ras20}
+\bibcite{GAN}{Roc19a}
+\bibcite{VAE}{Roc19b}
+\bibcite{rosenfeld1988computer}{Ros88}
+\bibcite{szegedy2015going}{SLJ{$^{+}$}15}
+\bibcite{sharma2017activation}{SSA17}
+\bibcite{300W}{STZP13}
+\bibcite{simonyan2014very}{SZ14}
+\bibcite{Daisy}{TLF10}
+\bibcite{doi:10.1137/S0036141002404838}{TY05}
+\bibcite{wang2004image}{WBSS04}
+\global\csname @altsecnumformattrue\endcsname
+\global\@namedef{scr@dte@chapter@lastmaxnumwidth}{16.01686pt}
+\global\@namedef{scr@dte@section@lastmaxnumwidth}{18.99994pt}
+\global\@namedef{scr@dte@part@lastmaxnumwidth}{13.52026pt}
+\global\@namedef{scr@dte@subsection@lastmaxnumwidth}{26.49994pt}

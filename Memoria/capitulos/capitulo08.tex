@@ -38,6 +38,7 @@
         \begin{itemize}
             \item Hay una primera fase de \textbf{aprendizaje no supervisado} dónde se pretende adquirir conocimiento implícito sobre la estructura facial contenida en grandes conjuntos de imágenes de rostros de personas en diversas posiciones, iluminación y etnia. Para ello se codifica todo este conocimiento implícito en un vector de un espacio latente de baja dimensionalidad para posteriormente reconstruir la imagen. Este proceso se hace íntegramente en el \textit{Adversarial Autoencoder}.
             \item Posteriormente, en una segunda fase de \textbf{aprendizaje supervisado}, se entrena la red con un conjunto de imágenes etiquetadas con landmarks faciales que la red tratará de predecir. Para ello se intercalan entre las capas del generador capas de convolución encargadas de reconstruir los mapas de calor de cada landmark junto con la reconstrucción del rostro del paso previo.
+            \item Finalmente, se puede incluir una tercera fase de \textit{finetuning} en la cual se entrena el Encoder para mejorar el rendimiento en la predicción de landmarks.
         \end{itemize} 
 
         \begin{figure}[!h]
@@ -107,13 +108,73 @@
             \noindent Se tratan de simples capas convolucionales que se intercalan entre las capas del Generador. La última de estas capas proporciona como salida un conjunto de mapas de calor, uno por cada landmark predicho. Estos mapas de calor luego se emplean para representar en la imagen reconstruida los landmarks. La arquitectura de esta etapa podemos verla en la \autoref{fig:Paso_Generator}.
 
     \section{Metricas}
+        
+        \noindent A conitnuación mostraremos las métricas empleadas para estudiar la bondad de los resultados. Estas métricas también computan en la función de coste que explicaremos en la siguiente sección. 
+
         \subsection{SSIM}
+            \noindent Se trata del \textit{structural similarity index} (SSIM) y da una medida de \textit{similaridad} entre dos imágenes \cite{wang2004image}, su expresión es la siguiente: 
+
+            \begin{equation}
+                SSIM(x,y)=[l(x,y)]^\alpha[c(x,y)]^{\beta}[s(x,y)]^{\gamma}
+            \end{equation}
+
+            \medskip
+
+            \noindent Dónde $x,y$ son las dos imágenes que van a ser comparadas.
+
+            \medskip
+
+            \noindent La componente $c(x,y)$ hace referencia a la función de comparación del contraste de las dos imágenes y viene dada por la siguiente expresión: 
+
+            \begin{equation}
+                c(x,y)=\frac{2\sigma_x \sigma_y + C}{\sigma_x^2+ \sigma_y^2+C}
+            \end{equation}
+
+            \noindent Dónde $\sigma_x, \sigma_y$ hacen referencia a la desviación estándar de cada imagen.
+
+            \medskip
+
+            \noindent La componente $s(x,y)$ es la función de comparación estructural entre las dos imágenes y viene dada por la siguiente expresión:
+
+            \begin{equation}
+                s(x,y)=\frac{\sigma_{xy}+C/2}{\sigma_x \sigma_y +C/2}
+            \end{equation}
+
+            \noindent Dónde $\sigma_{xy}$ denota la covarianza.
+
+            \medskip
+
+            \noindent La componente $l(x,y)$ hace referencia a la \textit{luminosidad}, pero en el caso de 3FabRec se prescinde de esta componente, además los exponentes $\alpha, \beta , \gamma$ se igualan a $1$.
+
+            \medskip
+
+            \noindent Por otra parte siguen las indicaciones del paper original de SSIM que recomiendan usar estas comparaciones en regiones de la imagen y promediarlas en vez de aplicarlas sobre todo el conjunto de píxeles de la imagen, es por ello que la expresión final queda:
+
+            \begin{equation}
+                cs(x,y)=\frac{1}{|w|} \sum{c(x_w,y_w)s(x_w,y_w)}_w
+            \end{equation}
+
+            \noindent Dónde $w$ representa la ventana sobre la que se aplica la función y $|w|$ el total de ventanas. En nuestro caso se emplean ventanas de tamaño $31\times 31$.
 
         \subsection{Average pixel error}
+            \noindent Se trata de la función de coste \textbf{L1} que se aplica a la imagen original y la reconstruida  y nos porporciona una medida del error de reconstrucción a nivel de pixel. Este error se obtiene para cada imagen y luego se devuelve el error promedio, por eso se denomina \textit{Average pixel error}.
 
         \subsection{MSE}
+            \noindent Se trata de la función de coste \textbf{L2} usada para medir la diferencia entre los mapas de calor pertenecientes a los landmarks reales y los mapas de calor de los landmarks predichos.
 
     \section{Función de pérdida}
+
+        \noindent Para el entrenamiento de la red se emplean dos funciones de pérdida, la primera que presentaremos se emplea en el entrenamiento del \textit{Adversarial Autoencoder}, en la parte no supervisada, y la segunda función de pérdida se empleará tanto en la parte de aprendizaje supervisado como en la de \textit{finetuning} del Encoder.
+
+        \medskip
+
+        \noindent La función de pérdida empleada para el entrenamiento del \textit{Adversarial Autoencoder} en la parte de aprendizaje no supervisado es la siguiente: 
+        
+        \begin{align*}
+            \min_{E,G} \max_{D_z,D_x} & \mathcal{L}_{AE}(E,G,D_z,D_x) \\
+            & \lambda_{rec} \mathcal{L}_{rec}(E,G) + \lambda_{cs}\mathcal{L}_{cs}(E,G) \\
+            & + \lambda_{enc}\mathcal{L}_{enc}(E,D_z)+ \lambda_{adv} \mathcal{L}_{adv}(E,G,D_x)
+        \end{align*}
 
     \section{Proceso de entrenamiento de la red}
 \endinput
