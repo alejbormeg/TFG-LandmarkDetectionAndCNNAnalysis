@@ -122,14 +122,78 @@
                     & \lambda_{rec} \mathcal{L}_{rec}(E,G) + \lambda_{cs}\mathcal{L}_{cs}(E,G) \\
                     & + \lambda_{enc}\mathcal{L}_{enc}(E,D_z)+ \lambda_{adv} \mathcal{L}_{adv}(E,G,D_x)
                 \end{align*}
+
+                \noindent En la cual $\lambda_{enc}$ y $\lambda_{adv}$ toman el valor $1.0$ mientras que $\lambda_{rec}$ y $\lambda{cs}$ se establecen en $1.0$ y $60.0$ respectivamente. El valor de la función de coste se propagará por los pesos de $E$,$G$,$D_z$ y $D_x$ actualizándolos mediante \textit{back-propagation}.
+
+                \medskip
+
+                \noindent Por otro lado, la función de pérdida que se empleará en el entrenmiento de las \textit{ITLs} será la siguiente: 
+
+                \begin{equation*}
+                    \mathcal{L}_H(ITL) = \mathbb{E}_{x ~ p(x)} \left[ \| H-ITL(a_1)\|_2 \right]
+                \end{equation*}
+
+                \noindent Dónde $a_1$ serían los mapas de activación que genera el primer bloque de la ResNet invertida para la imagen codificada $z=E(x)$ (siendo $x$ la imagen de entrada a la red). En este caso se computa la distancia \textbf{$L_2$}entre los \textit{Heathmaps} de los lanmarks originales de la imagen $x$ de entrada, y los predichos por las \textit{ITLs}. Propagando el error por los pesos de las \textit{ITLS} solamente.
+
+                \medskip
+
+                \noindent A modo de aclaración, las imágenes etiquetadas con landmarks a la red suelen proporcionarse con el siguiente formato: 
+
+                \begin{itemize}
+                    \item Un archivo con la imagen sin etiquetar. 
+                    \item Un archivo de texto plano con las coordenadas de cada landmark en la imagen.
+                \end{itemize}
+
+                \noindent Dados estos archivos, el framework, calcula para cada landmark proporcionado un mapa de calor en una imagen de tamaño $128 \times 128$ en el caso de que las imágenes de entrada sean de $256 \times 256$. Y es a ese conjunto de imágenes (una por cada landmark) a las que denominamos $H$ en la función anterior.
+
+                \medskip
+
+                \noindent Finalmente, en la etapa de \textit{fine-tuning} se computa la misma función de pérdida de antes, con la salvedad de que el error se propaga tanto por las \textit{ITLs} como por los pesos del \textit{Encoder}. Esto permite que el \textit{Encoder} se codifiquen con mayor precisión las imágenes y que se eliminen factores irrelevantes para la predicción de landmarks como son el género, el color de piel o la iluminación. Por otro lado se evita el overfitting ya que durante esta última etapa los pesos del \textit{Decoder} no se actualizan.
         
             \subsection{Proceso de entrenamiento de la red}
-            
-            \subsection{Bases de datos usadas en el entrenamiento}
+
+                \subsubsection*{Entrenamiento no-supervisado}
+                    \noindent El framework que empleamos ha sido entrenado durante $50$ épocas con imágenes de tamaño $256x256$ y con un tamaño de batch de $50$. En todas las etapas del entrenamiento se ha empleado un optimizador tipo Adam, el cual durante el entrenamiento del \textit{Adversarial Autoencoder} usó $\beta_1=0.0$ y $\beta_2=0.999$ con un \textit{learning rate} de $2\times 10^{-5}$.
+
+                    \medskip
+
+                    \noindent Por otra parte, se aplicaron técnicas de \textit{data-augmentation} a las imágenes de entrada como giros horizontales, traslaciones, \textit{resizing} o rotaciones.
+
+                \subsubsection*{Entrenamiento supervisado}
+                    \noindent Para el entrenamiento de la parte supervisada, las imágenes de entrada se recortan de acuerdo a un \textit{bounding-box} creado por el framework a partir de unas coordenadas de entrada o bien de acuerdo a los landmarks que se proporcionan. Tras el recorte, se reescala la imagen hasta tener un tamaño de $256\times256$. 
+                    
+                    \medskip
+
+                    \noindent Por otro lado se crean los \textit{Heathmaps} para cada landmark. Para esto se crea una imagen de tamaño $128 \times 128$ por cada landmark marcando el punto con ayuda de una distribución normalde dos dimensiones centrada en las coordenadas del landmark y usando un valor $\sigma=7$.
+
+                    \medskip
+
+                    \noindent Tras esto se entrenan las cuatro \textit{ITLs}. A los datos de entrada se les aplican técnicas de \textit{data-augmentation} como rotaciones, traslaciones, reescalados y oclusiones. Para esta etapa se usa también un optimizador Adam con un \textit{learning rate} de $0.001$ y los mismos valores para $\beta_1$ y $\beta_2$.
+
+                    \medskip
+
+                    \noindent Finalmente, durante la etapa de \textit{fine-tuning} se establece un \textit{learning-rate} de $0.0001$ en las \textit{ITLs} mientras que el del \textit{Encoder} se mantiene en su valor por defecto de $2 \times 10^{-5}$ y cambiando el valor de $\beta_1 = 0.9$.
+
+            \subsection{Bases de datos usadas por el framework}
+                
+                \noindent Para el entrenamiento no supervisado se emplearon los siguientes datasets: 
+
+                \begin{itemize}
+                    \item VGGFace2 :
+                    \item AffectNet :
+                \end{itemize}
+
+                \noindent Para el entrenamiento no supervisado se emplearon los siguientes datasets: 
+                
+                \begin{itemize}
+                    \item 300-W
+                    \item AFLW
+                    \item WFLW
+                \end{itemize}
 
     \section{Metricas}
         
-        \noindent A conitnuación mostraremos las métricas empleadas para estudiar la bondad de los resultados. Estas métricas también computan en la función de coste que explicaremos en la siguiente sección. 
+        \noindent A conitnuación mostraremos las métricas empleadas para estudiar la bondad de los resultados. Algunas de estas métricas ya se emplearon en la funciones de coste del apartado anterior. 
 
         \subsection{SSIM}
             \noindent Se trata del \textit{structural similarity index} (SSIM) y da una medida de \textit{similaridad} entre dos imágenes \cite{wang2004image}, su expresión es la siguiente: 

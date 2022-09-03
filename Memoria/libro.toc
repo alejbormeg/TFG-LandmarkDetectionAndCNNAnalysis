@@ -90,14 +90,14 @@
 \contentsline {subsubsection}{\numberline {8.1.2.2}Interleaved Transfer Layer (ITL)}{84}{subsubsection.8.1.2.2}%
 \contentsline {subsection}{\numberline {8.1.3}Función de pérdida}{84}{subsection.8.1.3}%
 \contentsline {subsection}{\numberline {8.1.4}Proceso de entrenamiento de la red}{85}{subsection.8.1.4}%
-\contentsline {subsection}{\numberline {8.1.5}Bases de datos usadas en el entrenamiento}{85}{subsection.8.1.5}%
-\contentsline {section}{\numberline {8.2}Metricas}{85}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}SSIM}{85}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}Average pixel error}{85}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}MSE}{86}{subsection.8.2.3}%
-\contentsline {chapter}{\numberline {9}Planificación e implementación}{91}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Experimentación}{93}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{95}{chapter.11}%
-\contentsline {chapter}{\numberline {A}Primer apéndice}{97}{appendix.Alph1}%
-\contentsline {chapter}{Glosario}{99}{chapter*.10}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{101}{chapter*.11}%
+\contentsline {subsection}{\numberline {8.1.5}Bases de datos usadas por el framework}{86}{subsection.8.1.5}%
+\contentsline {section}{\numberline {8.2}Metricas}{86}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}SSIM}{86}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Average pixel error}{87}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}MSE}{87}{subsection.8.2.3}%
+\contentsline {chapter}{\numberline {9}Planificación e implementación}{93}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Experimentación}{95}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{97}{chapter.11}%
+\contentsline {chapter}{\numberline {A}Primer apéndice}{99}{appendix.Alph1}%
+\contentsline {chapter}{Glosario}{101}{chapter*.12}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{103}{chapter*.13}%

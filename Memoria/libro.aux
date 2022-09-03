@@ -481,56 +481,56 @@
 \newlabel{fig:3FabRec Resumen}{{8.2}{83}{Imagen resumen del framework 3FabRec. En ella podemos ver la estructura del \textit {Adversarial Autoencoder}, dividido en un Encoder (región bajo la \textit {E}) y un Generator (región bajo la \textit {G})}{figure.8.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.2.1}Arquitectura Adversarial Autoencoder}{83}{subsubsection.8.1.2.1}\protected@file@percent }
 \BKM@entry{id=73,dest={73756273656374696F6E2E382E312E33},srcline={112}}{46756E63695C3336336E20646520705C3335317264696461}
-\BKM@entry{id=74,dest={73756273656374696F6E2E382E312E34},srcline={126}}{50726F6365736F20646520656E7472656E616D69656E746F206465206C6120726564}
-\BKM@entry{id=75,dest={73756273656374696F6E2E382E312E35},srcline={128}}{4261736573206465206461746F732075736164617320656E20656C20656E7472656E616D69656E746F}
-\BKM@entry{id=76,dest={73656374696F6E2E382E32},srcline={130}}{4D65747269636173}
 \@writefile{lof}{\contentsline {figure}{\numberline {8.3}{\ignorespaces Bloques básicos que utilza la red ResNet-$18$ en sus capas. Se trata de una sucesión clásica de Convolución 3x3 + Batch Normalization + ReLU que se repite dos veces. En el primer caso los filtros de convolución no reducen las dimensiones del tensor añadiendo un padding de 1. En el segundo caso se reduce la dimensión del tensor a la mitad tras la primera convolución y se manteiene la dimensionalidad en la segunda. En el primer caso, la suma residual puede realizarse con el tensor x sin problema, en el segundo caso el tensor debe reducirse para que casen las dimensiones.}}{84}{figure.8.3}\protected@file@percent }
 \newlabel{fig:bloque_encoder}{{8.3}{84}{Bloques básicos que utilza la red ResNet-$18$ en sus capas. Se trata de una sucesión clásica de Convolución 3x3 + Batch Normalization + ReLU que se repite dos veces. En el primer caso los filtros de convolución no reducen las dimensiones del tensor añadiendo un padding de 1. En el segundo caso se reduce la dimensión del tensor a la mitad tras la primera convolución y se manteiene la dimensionalidad en la segunda. En el primer caso, la suma residual puede realizarse con el tensor x sin problema, en el segundo caso el tensor debe reducirse para que casen las dimensiones}{figure.8.3}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.2.2}Interleaved Transfer Layer (ITL)}{84}{subsubsection.8.1.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.1.3}Función de pérdida}{84}{subsection.8.1.3}\protected@file@percent }
-\BKM@entry{id=77,dest={73756273656374696F6E2E382E322E31},srcline={134}}{5353494D}
-\citation{wang2004image}
-\BKM@entry{id=78,dest={73756273656374696F6E2E382E322E32},srcline={179}}{4176657261676520706978656C206572726F72}
+\BKM@entry{id=74,dest={73756273656374696F6E2E382E312E34},srcline={153}}{50726F6365736F20646520656E7472656E616D69656E746F206465206C6120726564}
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.1.4}Proceso de entrenamiento de la red}{85}{subsection.8.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1.5}Bases de datos usadas en el entrenamiento}{85}{subsection.8.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8.2}Metricas}{85}{section.8.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.1}SSIM}{85}{subsection.8.2.1}\protected@file@percent }
-\@writefile{brf}{\backcite{wang2004image}{{85}{8.2.1}{subsection.8.2.1}}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.2}Average pixel error}{85}{subsection.8.2.2}\protected@file@percent }
-\BKM@entry{id=79,dest={73756273656374696F6E2E382E322E33},srcline={182}}{4D5345}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.3}MSE}{86}{subsection.8.2.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8.4}{\ignorespaces Ejemplo de paso de una imagen a través del Encoder. Cabe destacar que a partir de la Layer 1, todos los bloques tienen downsample.}}{87}{figure.8.4}\protected@file@percent }
-\newlabel{fig:Paso_encoder}{{8.4}{87}{Ejemplo de paso de una imagen a través del Encoder. Cabe destacar que a partir de la Layer 1, todos los bloques tienen downsample}{figure.8.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.5}{\ignorespaces En primer lugar se aplica una convolución transpuesta que duplica las dimensiones del tensor de entrada y tras esto se sigue la misma estructura que en el bloque básico de la ResNet-$50$, la segunda convolución $3\times 3$ mantiene las dimensiones. Como consecuencia, para sumar el tensor de entrada con la salida del bloque se aumentan las dimensiones de este.}}{88}{figure.8.5}\protected@file@percent }
-\newlabel{fig:Bloque_Decoder}{{8.5}{88}{En primer lugar se aplica una convolución transpuesta que duplica las dimensiones del tensor de entrada y tras esto se sigue la misma estructura que en el bloque básico de la ResNet-$50$, la segunda convolución $3\times 3$ mantiene las dimensiones. Como consecuencia, para sumar el tensor de entrada con la salida del bloque se aumentan las dimensiones de este}{figure.8.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.6}{\ignorespaces Ejemplo del paso de un vector de $99$ dimensiones por el generador hasta reconstruirse la imagen de dimensiones $256 \times 256 \times 3$. La parte correspondiente al aprendizaje supervisado es la de los cuadrados azules, los cuadrados rojos corresponden a las \textit  {ITLS} de la parte supervisada que se intercalan entre cada dos capas y dan como resultado los mapas de calor de los landmarks predichos.}}{89}{figure.8.6}\protected@file@percent }
-\newlabel{fig:Paso_Generator}{{8.6}{89}{Ejemplo del paso de un vector de $99$ dimensiones por el generador hasta reconstruirse la imagen de dimensiones $256 \times 256 \times 3$. La parte correspondiente al aprendizaje supervisado es la de los cuadrados azules, los cuadrados rojos corresponden a las \textit {ITLS} de la parte supervisada que se intercalan entre cada dos capas y dan como resultado los mapas de calor de los landmarks predichos}{figure.8.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.7}{\ignorespaces En la imagen superior vemos el discriminante que se emplea para los vectores producidos por el Encoder y en la imagen inferior vemos el discriminante que se emplea para las imágenes generadas por el Generador. En ambos casos se da como salida un valor entre $0$ y $1$ que hace referencia a la probabilidad de pertenecer a la distribución deseada en el primer caso o a seguir la distribución de los píxeles de las imágenes en el segundo caso.}}{90}{figure.8.7}\protected@file@percent }
-\newlabel{fig:DGaussian}{{8.7}{90}{En la imagen superior vemos el discriminante que se emplea para los vectores producidos por el Encoder y en la imagen inferior vemos el discriminante que se emplea para las imágenes generadas por el Generador. En ambos casos se da como salida un valor entre $0$ y $1$ que hace referencia a la probabilidad de pertenecer a la distribución deseada en el primer caso o a seguir la distribución de los píxeles de las imágenes en el segundo caso}{figure.8.7}{}}
+\BKM@entry{id=75,dest={73756273656374696F6E2E382E312E35},srcline={177}}{4261736573206465206461746F732075736164617320706F7220656C206672616D65776F726B}
+\BKM@entry{id=76,dest={73656374696F6E2E382E32},srcline={194}}{4D65747269636173}
+\BKM@entry{id=77,dest={73756273656374696F6E2E382E322E31},srcline={198}}{5353494D}
+\citation{wang2004image}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1.5}Bases de datos usadas por el framework}{86}{subsection.8.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Metricas}{86}{section.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.1}SSIM}{86}{subsection.8.2.1}\protected@file@percent }
+\@writefile{brf}{\backcite{wang2004image}{{86}{8.2.1}{subsection.8.2.1}}}
+\BKM@entry{id=78,dest={73756273656374696F6E2E382E322E32},srcline={243}}{4176657261676520706978656C206572726F72}
+\BKM@entry{id=79,dest={73756273656374696F6E2E382E322E33},srcline={246}}{4D5345}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.2}Average pixel error}{87}{subsection.8.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.3}MSE}{87}{subsection.8.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8.4}{\ignorespaces Ejemplo de paso de una imagen a través del Encoder. Cabe destacar que a partir de la Layer 1, todos los bloques tienen downsample.}}{88}{figure.8.4}\protected@file@percent }
+\newlabel{fig:Paso_encoder}{{8.4}{88}{Ejemplo de paso de una imagen a través del Encoder. Cabe destacar que a partir de la Layer 1, todos los bloques tienen downsample}{figure.8.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.5}{\ignorespaces En primer lugar se aplica una convolución transpuesta que duplica las dimensiones del tensor de entrada y tras esto se sigue la misma estructura que en el bloque básico de la ResNet-$50$, la segunda convolución $3\times 3$ mantiene las dimensiones. Como consecuencia, para sumar el tensor de entrada con la salida del bloque se aumentan las dimensiones de este.}}{89}{figure.8.5}\protected@file@percent }
+\newlabel{fig:Bloque_Decoder}{{8.5}{89}{En primer lugar se aplica una convolución transpuesta que duplica las dimensiones del tensor de entrada y tras esto se sigue la misma estructura que en el bloque básico de la ResNet-$50$, la segunda convolución $3\times 3$ mantiene las dimensiones. Como consecuencia, para sumar el tensor de entrada con la salida del bloque se aumentan las dimensiones de este}{figure.8.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.6}{\ignorespaces Ejemplo del paso de un vector de $99$ dimensiones por el generador hasta reconstruirse la imagen de dimensiones $256 \times 256 \times 3$. La parte correspondiente al aprendizaje supervisado es la de los cuadrados azules, los cuadrados rojos corresponden a las \textit  {ITLS} de la parte supervisada que se intercalan entre cada dos capas y dan como resultado los mapas de calor de los landmarks predichos.}}{90}{figure.8.6}\protected@file@percent }
+\newlabel{fig:Paso_Generator}{{8.6}{90}{Ejemplo del paso de un vector de $99$ dimensiones por el generador hasta reconstruirse la imagen de dimensiones $256 \times 256 \times 3$. La parte correspondiente al aprendizaje supervisado es la de los cuadrados azules, los cuadrados rojos corresponden a las \textit {ITLS} de la parte supervisada que se intercalan entre cada dos capas y dan como resultado los mapas de calor de los landmarks predichos}{figure.8.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.7}{\ignorespaces En la imagen superior vemos el discriminante que se emplea para los vectores producidos por el Encoder y en la imagen inferior vemos el discriminante que se emplea para las imágenes generadas por el Generador. En ambos casos se da como salida un valor entre $0$ y $1$ que hace referencia a la probabilidad de pertenecer a la distribución deseada en el primer caso o a seguir la distribución de los píxeles de las imágenes en el segundo caso.}}{91}{figure.8.7}\protected@file@percent }
+\newlabel{fig:DGaussian}{{8.7}{91}{En la imagen superior vemos el discriminante que se emplea para los vectores producidos por el Encoder y en la imagen inferior vemos el discriminante que se emplea para las imágenes generadas por el Generador. En ambos casos se da como salida un valor entre $0$ y $1$ que hace referencia a la probabilidad de pertenecer a la distribución deseada en el primer caso o a seguir la distribución de los píxeles de las imágenes en el segundo caso}{figure.8.7}{}}
 \BKM@entry{id=80,dest={636861707465722E39},srcline={1}}{506C616E696669636163695C3336336E206520696D706C656D656E746163695C3336336E}
-\@writefile{toc}{\contentsline {chapter}{\numberline {9}Planificación e implementación}{91}{chapter.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {9}Planificación e implementación}{93}{chapter.9}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \BKM@entry{id=81,dest={636861707465722E3130},srcline={1}}{4578706572696D656E746163695C3336336E}
-\@writefile{toc}{\contentsline {chapter}{\numberline {10}Experimentación}{93}{chapter.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {10}Experimentación}{95}{chapter.10}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \BKM@entry{id=82,dest={636861707465722E3131},srcline={1}}{436F6E636C7573696F6E657320792054726162616A6F732046757475726F73}
 \BKM@entry{id=83,dest={617070656E6469782E2D31},srcline={256}}{41705C3335316E6469636573}
-\@writefile{toc}{\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{95}{chapter.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{97}{chapter.11}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \BKM@entry{id=84,dest={617070656E6469782E416C706831},srcline={4}}{5072696D65722061705C3335316E64696365}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Primer apéndice}{97}{appendix.Alph1}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Primer apéndice}{99}{appendix.Alph1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ap:apendice1}{{A}{97}{Primer apéndice}{appendix.Alph1}{}}
-\BKM@entry{id=85,dest={636861707465722A2E3130},srcline={5}}{476C6F736172696F}
-\@writefile{toc}{\contentsline {chapter}{Glosario}{99}{chapter*.10}\protected@file@percent }
+\newlabel{ap:apendice1}{{A}{99}{Primer apéndice}{appendix.Alph1}{}}
+\BKM@entry{id=85,dest={636861707465722A2E3132},srcline={5}}{476C6F736172696F}
+\@writefile{toc}{\contentsline {chapter}{Glosario}{101}{chapter*.12}\protected@file@percent }
 \BKM@entry{id=86,dest={424D2D5265666572656E636961732E2D31},srcline={272}}{5265666572656E636961732065205C3331356E6469636573}
 \bibstyle{alpha}
 \bibdata{library.bib}
-\BKM@entry{id=87,dest={636861707465722A2E3131},srcline={2}}{4269626C696F677261665C33353561}
+\BKM@entry{id=87,dest={636861707465722A2E3133},srcline={2}}{4269626C696F677261665C33353561}
 \bibcite{asi2014automatic}{AIA{$^{+}$}14}
 \bibcite{bruna2013invariant}{BM13}
 \bibcite{browatzki20203fabrec}{BW20}
@@ -546,7 +546,7 @@
 \bibcite{ibanez2011two}{ICD11}
 \bibcite{JBrunaOperatorsCommutingDiff}{J.B12}
 \bibcite{krizhevsky2012imagenet}{KSH12}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{101}{chapter*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{103}{chapter*.13}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibcite{AFLW}{KWRB11}
