@@ -118,7 +118,7 @@
                 \noindent La función de pérdida empleada para el entrenamiento del \textit{Adversarial Autoencoder} en la parte de aprendizaje no supervisado es la siguiente: 
                 
                 \begin{align*}
-                    \min_{E,G} \max_{D_z,D_x} & \mathcal{L}_{AE}(E,G,D_z,D_x) \\
+                    \min_{E,G} \max_{D_z,D_x} & \mathcal{L}_{AE}(E,G,D_z,D_x) = \\
                     & \lambda_{rec} \mathcal{L}_{rec}(E,G) + \lambda_{cs}\mathcal{L}_{cs}(E,G) \\
                     & + \lambda_{enc}\mathcal{L}_{enc}(E,D_z)+ \lambda_{adv} \mathcal{L}_{adv}(E,G,D_x)
                 \end{align*}
@@ -129,9 +129,9 @@
 
                 \noindent Por otro lado, la función de pérdida que se empleará en el entrenmiento de las \textit{ITLs} será la siguiente: 
 
-                \begin{equation*}
+                \begin{equation} \label{eq::L2}
                     \mathcal{L}_H(ITL) = \mathbb{E}_{x ~ p(x)} \left[ \| H-ITL(a_1)\|_2 \right]
-                \end{equation*}
+                \end{equation}
 
                 \noindent Dónde $a_1$ serían los mapas de activación que genera el primer bloque de la ResNet invertida para la imagen codificada $z=E(x)$ (siendo $x$ la imagen de entrada a la red). En este caso se computa la distancia \textbf{$L_2$}entre los \textit{Heathmaps} de los lanmarks originales de la imagen $x$ de entrada, y los predichos por las \textit{ITLs}. Propagando el error por los pesos de las \textit{ITLS} solamente.
 
@@ -176,19 +176,21 @@
 
             \subsection{Bases de datos usadas por el framework}
                 
-                \noindent Para el entrenamiento no supervisado se emplearon los siguientes datasets: 
+                \noindent Para el entrenamiento no supervisado se emplearon los siguientes datasets unidos: 
 
                 \begin{itemize}
-                    \item VGGFace2 :
-                    \item AffectNet :
+                    \item \textbf{VGGFace2} : Contiene un total de $3.3$ millones de imágenes de rostros en distintas poses, edad, iluminación, etnia, etc... Del dataset eliminaron las imágenes de rostros que tuviera una altura mayor a $100$ píxeles, quedando un total de $1.8$ millones de caras.
+                    \item \textbf{AffectNet} : Se trata de un dataset de $228$ mil imágenes en una gran variedad de poses, iluminación, etc..
                 \end{itemize}
 
+                \noindent En total usaron unas $2.1$ millones de imágenes.
+
                 \noindent Para el entrenamiento no supervisado se emplearon los siguientes datasets: 
-                
+
                 \begin{itemize}
-                    \item 300-W
-                    \item AFLW
-                    \item WFLW
+                    \item \textbf{300-W} : une diversos datasets de rostros etiquetados con \textbf{$68$}landmarks de manera semi-automática como son \textbf{LFPW},\textbf{AFW}, \textbf{HELEN} y \textbf{XM2VTS}. Además de añadir datos propios. En total emplearon $3,148$ (aproximadamente el $80 \%$ )imágenes para el entrenamiento y $689$ para test, las cuales se dividieron en dos grupos, uno de $554$ imágenes considerado el grupo test estándar, y otro de $135$ imágenes difíciles.
+                    \item \textbf{AFLW} : contiene un total de $24,386$ imágenes \textit{in-the-wild} con un amplio rango de poses distintas. Se emplearon $20,000$ (aproximadamente el $80 \%$) imágenes para test y $4,386$ para entrenamiento. Las imágenes vienen etiquetadas con $21$ landmarks, pero en el framework se entrena la red para predecir \textbf{$19$}.
+                    \item \textbf{WFLW}: Es la más reciente de las empleadas y tiene un total de $10,000$ imágenes. Se usan $7,500$ para entrenamiento y $2,500$ para test. Las imágenes tienen un total de \textbf{$98$} landmarks anotados.
                 \end{itemize}
 
     \section{Metricas}
@@ -244,7 +246,7 @@
             \noindent Se trata de la función de coste \textbf{L1} que se aplica a la imagen original y la reconstruida  y nos porporciona una medida del error de reconstrucción a nivel de pixel. Este error se obtiene para cada imagen y luego se devuelve el error promedio, por eso se denomina \textit{Average pixel error}.
 
         \subsection{MSE}
-            \noindent Se trata de la función de coste \textbf{L2} usada para medir la diferencia entre los mapas de calor pertenecientes a los landmarks reales y los mapas de calor de los landmarks predichos.
+            \noindent Se trata de la función de coste \textbf{L2} usada para medir la diferencia entre los mapas de calor pertenecientes a los landmarks reales y los mapas de calor de los landmarks predichos.Su expresión es \eqref{eq::L2}
 
 
 \endinput
