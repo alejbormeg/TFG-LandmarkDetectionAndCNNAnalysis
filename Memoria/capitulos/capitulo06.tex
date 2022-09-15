@@ -601,7 +601,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
             \medskip
 
-            \noindent La principal diferencia entre el Autoencoder y el Variational Autoencoder es que en vez de codificar cada punto de entrada como un único punto, va a codificarlo como una distribución sobre el espacio latente buscando la distribución de los datos, no de los píxeles. El modelo de entrenamiento sería:
+            \noindent La principal diferencia entre el Autoencoder y el Variational Autoencoder es que en vez de codificar cada elemento de entrada como un punto del espacio vectorial latente, va a codificarlo como una distribución sobre el espacio latente buscando la distribución de los datos, no de los píxeles. El modelo de entrenamiento sería:
             
             \begin{itemize}
                 \item La entrada se codifica como una distribución sobre el espacio vectorial latente.
@@ -627,7 +627,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \end{figure}
         
         \subsubsection{Adversarial Autoencoder(AAE)}
-            \noindent Un Adversarial Autoencoder no es más que la unión de la arquitectura de un Autoencoder con el concepto de Adversarial Loss y el Discrimnante introducido por la GAN. Por otro lado utiliza la idea del VAE para regularizar el espacio vectorial latente pero en lugar de la divergencia de KL emplea el adversarial loss.
+            \noindent Un Adversarial Autoencoder no es más que la unión de la arquitectura de un Autoencoder con el concepto de Adversarial Loss y el Discrimnante introducido por la GAN. Por otro lado utiliza la idea del VAE para regularizar el espacio vectorial latente pero en lugar de la divergencia de KL emplea el adversarial loss, y en lugar de muestrear una distribución con diferentes parámetros para cada imagen de entrada, lo que pretende es que todas las imágenes de entrada, al ser codificadas, sigan la misma distribución prefijada.
 
             \medskip
 
@@ -650,7 +650,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
                 \label{fig:AAE}
             \end{figure}
 
-            \noindent Esta arquitectura será la que emplearemos en nuestro proyecto, aunque presenta algunas variaciones que introduciremos cuando sea el momento.
+            \noindent Esta arquitectura será la que emplearemos en nuestro proyecto, aunque presenta algunas variaciones que introduciremos más adelante.
 
 \section{Técnicas empleadas}
     \noindent En esta sección vamos a presentar las distintas técnicas que se emplearán en el trabajo durante el entrenamiento de la red que utilizaremos y que se presentará más adelante. 
@@ -660,7 +660,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
         \medskip
 
-        \noindent Por otro lado, cuando se presentan este tipo de problemas se aplican técnicas de \textbf{data augmentation} que consisten en aumentar las imágenes de entrenamiento a base de \textit{deformar} ligeramente, \textit{rotar} o \textit{trasladar} las imágenes existentes.
+        \noindent Por otro lado, cuando se presentan este tipo de problemas se aplican técnicas de \textbf{data augmentation}. Esta técnica consiste en \textit{crear} nuevos datos de entrenamiento a partir de las imágenes originales. Para ello se aplican \textit{deformaciones} a las imágenes del dataset, como \textit{rotaciones}, \textit{traslaciones} u \textit{oclusiones}. Este tipo de transformaciones pueden ser de gran utilidad para entrenar el modelo en datos más complicados que los originales y para añadir variabilidad al dataset.
         
 \endinput
 %------------------------------------------------------------------------------------
