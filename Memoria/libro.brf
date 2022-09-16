@@ -1,11 +1,11 @@
 \backcite {doi:10.1137/S0036141002404838}{{6}{1.7}{equation.1.0.2}}
 \backcite {DigitalImageProcessing}{{7}{2.1.1}{subsection.2.1.1}}
 \backcite {MallatWavelets}{{12}{2.1.2}{subsection.2.1.2}}
-\backcite {HaarBasis}{{14}{2.3}{figure.2.3}}
 \backcite {MallatWavelets}{{14}{2}{Hfootnote.3}}
+\backcite {HaarBasis}{{15}{2.4}{figure.2.4}}
 \backcite {JBrunaOperatorsCommutingDiff}{{21}{2.2.2}{subsection.2.2.2}}
-\backcite {bruna2013invariant}{{21}{2.2.2}{subsection.2.2.2}}
-\backcite {lecun2015deep}{{25}{2.3.2}{subsection.2.3.2}}
+\backcite {bruna2013invariant}{{22}{2.2.2}{subsection.2.2.2}}
+\backcite {lecun2015deep}{{26}{2.3.2}{subsection.2.3.2}}
 \backcite {DistinctiveImageFeatures}{{26}{2.3.3}{subsection.2.3.3}}
 \backcite {Daisy}{{26}{2.3.3}{subsection.2.3.3}}
 \backcite {GroupInvariantScattering}{{29}{2.3.5}{equation.2.3.10}}

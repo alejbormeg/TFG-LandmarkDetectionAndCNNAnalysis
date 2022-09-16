@@ -249,23 +249,30 @@ $$\langle f,\psi_{j,n} \rangle =\int_{-\infty}^{+\infty} f(t) \psi_{j,n} (t) dt 
 
 $$f=\sum_{j=-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}  \langle f,\psi_{j,n} \rangle \psi_{j,n} $$
 
-\noindent Esto nos permite (igual que pasaba con el módulo de la Transformada de Fourier) trabajar en un dominio más sencillo que nos permite procesar la información con mayor rapidez y posteriormente reconstruir la señal a partir de los coeficientes sin perder información. Algunas propiedades serían: 
+\noindent Esto nos permite (igual que pasaba con el módulo de la Transformada de Fourier) trabajar en un dominio más sencillo que nos permite procesar la información con mayor rapidez y posteriormente reconstruir la señal a partir de los coeficientes sin perder información. Algunas propiedades de la base de Haar serían: 
 
 \newpage
 
 \begin{itemize}
   \item Cada ondeleta $\psi_{j,n}$ tiene media $0$ en su soporte $[2^jn, 2^j(n+1)]$.
-  \item Si $f$ es localmente regular y $2^j$ es pequeño, entonces es casi constante en su intervalo y su coeficiente de ondeleta $\langle f,\psi_{j,n} \rangle$ es prácticamente cero.
-  \item los mayores coeficientes se localizan en los cambios bruscos de intensidad de señal, como pueden ser los bordes, las esquinas o las texturas en las imágenes.
+  \item Si $f$ es localmente regular y $2^j$ es próximo a $0$, entonces su intervalo con soporte es muy pequeño, debido a las propiedades de $f$, la función en el intervalo  $[2^jn, 2^j(n+1)]$ será prácticamente constante, lo que se traduce en que  y su coeficiente de ondeleta $\langle f,\psi_{j,n} \rangle$ es prácticamente cero.
+  \item Los mayores coeficientes se localizan en los cambios bruscos de intensidad de señal, como pueden ser los bordes, las esquinas o las texturas en las imágenes, pues en estos casos somos capaces de encontrar un elemento de la base de Haar con cuyo soporte esté en el intervalo dónde se produzca el cambio de intensidad, y por lo tanto que tenga un coeficiente de ondeletas distinto de cero.
 \end{itemize}
 
-\noindent Para el caso concreto de imágenes \footnote{ver por ejemplo sección 1.1 de \cite{MallatWavelets}}, las bases de ondeletas ortonormales pueden construirse a partir de bases ortonormales en señales de una dimensión. Así, a partir de tres ondeletas $\psi^1(x)$, $\psi^2(x)$ y$\psi^3(x)$ con $x=(x_1,x_2)\in \mathbb{R}^2$, dilatadas por el factor $2^j$ y trasladadas por $2^jn$ con $n=(n1,n2)\in \mathbb{Z}^2$, se construye una base ortonormal para el espacio $L^2(\mathbb{R}^2)$: 
+\noindent Para el caso concreto de imágenes \footnote{ver por ejemplo sección 1.1 de \cite{MallatWavelets}}, las bases de ondeletas ortonormales pueden construirse a partir de bases ortonormales en señales de una dimensión.Lo haremos a partir de tres ondeletas para capturar las variaciones horizontales, verticales y diagonales presentes en la imagen. Así, denominamos a las ondeletas usadas como $\psi^1(x)$, $\psi^2(x)$ y$\psi^3(x)$ con $x=(x_1,x_2)\in \mathbb{R}^2$, dilatadas por el factor $2^j$ y trasladadas por $2^jn$ con $n=(n_1,n_2) \in \mathbb{Z}^2$, se construye una base ortonormal para el espacio $L^2(\mathbb{R}^2)$: 
 $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{2^j}\right) \right \rbrace_{(j,n) \in \mathbb{Z}^2}$$
 
 \medskip
 
-\noindent El soporte de la ondeleta $\psi_{j,n}^k(x)$ es un cuadrado proporcional a la escala $2^j$. Las bases de ondeletas en dos dimensiones se discretizan para definir bases ortonormales de imágenes de N píxeles.
+\noindent El soporte de la ondeleta $\psi_{j,n}^k(x)$ es un cuadrado proporcional a la escala $2^j$ como podemos ver en la \autoref{fig:base_haar}. Las bases de ondeletas en dos dimensiones se discretizan para definir bases ortonormales de imágenes de N píxeles.
 
+
+\begin{figure} [!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/base_haar_2d.png}
+  \caption{En el ejemplo $1$ y $3$ podemos ver ejemplos de soportes para ondeletas especializadas en la detección de líneas verticales, en la imagen $2$ podemos ver un ejemplo de soporte de una ondeleta en el caso de la detección de líneas horizontales, y en el ejemplo $4$ para las diagonales. Todas tienen soporte cuadrado.}
+  \label{fig:base_haar}
+\end{figure}
 
 \noindent Del mismo modo que en una dimensión, los coeficientes de ondeletas $\langle f,\psi_{j,n}^k \rangle$ serán pequeños si $f(x)$ es regular, y serán grandes cerca de los cambios bruscos de frecuencias como en los bordes o esquinas de las imágenes, como podemos ver en \autoref{fig:ejemplo_haar}. Los filtros resaltan los bordes en tres direcciones, horizontal (derecha) vertical (abajo) y en diagonal (abajo derecha).
 
