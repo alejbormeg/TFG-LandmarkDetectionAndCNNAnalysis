@@ -644,7 +644,7 @@ $$M[\lambda]W[\lambda]f=|W[\lambda]f|=|f^\lambda \ast \Theta_\lambda|.$$
 
 $$f(x)=\cos(\xi_1 x)+a\cos(\xi_2 x)$$
 
-\noindent dónde $\xi_1$ y $\xi_2$ están en la banda de frecuencia cubierta por $\widehat{\psi}_\lambda$, entonces al aplicar el operador módulo: 
+\noindent dónde $\xi_1 > 0$ y $\xi_2 > 0$ están en la banda de frecuencia cubierta por $\widehat{\psi}_\lambda$, entonces al aplicar el operador módulo obtenemos: 
 
 $$|f \ast \psi_\lambda (x) |=2^{-1} |\widehat{\psi}_\lambda(\xi_1)+a\widehat{\psi}_\lambda(\xi_2)e^{i(\xi_2-\xi_1)x}|$$
 
@@ -696,13 +696,13 @@ con $U[\emptyset]=Id$
 \noindent A continuación vamos a probar ciertas propiedades que tienen los caminos de frecuencias tal y como los hemos descrito anteriormente. Para ello empezamos con algunas definiciones que serán de utilidad:
 
 \begin{definicion}
-Escribimos la rotación y reescalo de un camino $p$ mediante $2^lg \in 2^\mathbb{Z}\times G$ como $2^lgp=(2^lg\lambda_1,2^lg\lambda_2,...,2^lg\lambda_m)$.
+Escribimos la rotación y reescalado de un camino $p$ mediante $2^lg \in 2^\mathbb{Z}\times G$ como $2^lgp=(2^lg\lambda_1,2^lg\lambda_2,\ldots,2^lg\lambda_m)$.
 \end{definicion}
 
 \begin{definicion}
-La concatenación de dos caminos $p$ y $p'$ se denota por $p+p'=(\lambda_1,\lambda_2,...,\lambda_m,\lambda_1',\lambda_2',...,\lambda_{m'}')$. 
+La concatenación de dos caminos $p$ y $p'$ se denota por $p+p'=(\lambda_1,\lambda_2,\ldots,\lambda_m,\lambda_1',\lambda_2',\ldots,\lambda_{m'}')$. 
 
-En el caso particular de $p+\lambda=(\lambda_1,\lambda_2,...,\lambda_m,\lambda)$
+En el caso particular de $p+\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_m,\lambda)$
 \end{definicion}
 
 \noindent Con todo lo que sabemos sobre caminos, podemos probar la siguiente propiedad: 
@@ -719,7 +719,7 @@ $$U[p+p']=U[\lambda'_{m'}]...U[\lambda'_2]U[\lambda'_1]U[\lambda_{m}]...U[\lambd
 
 \medskip
 
-\noindent En la \autoref{ch:seccion12} veíamos que si $f$ era compleja, entonces su transformada de ondeletas era $ W_\infty=\lbrace W[\lambda]f \rbrace_{\lambda , -\lambda  \in \Lambda_{\infty} }$. Pero en este caso, gracias al módulo si $f$ es compleja, tras la iteración $U[\lambda_1]f=\left|W[\lambda_1]f\right|$ sería una función real, luego para las siguientes transfomadas de ondeletas sólo haría falta calcularlas para $\lambda_k \in \Lambda_\infty$. Por lo tanto para los propagadores de dispersión de funciones complejas se definen sobre caminos "positivos" $p=(\lambda_1,\lambda_2, ... , \lambda_m)$ y caminos "negativos" $-p=(-\lambda_1,\lambda_2, ... , \lambda_m)$.
+\noindent En la \autoref{ch:seccion12} veíamos que si $f$ era compleja, entonces su transformada de ondeletas era $ W_\infty=\lbrace W[\lambda]f \rbrace_{\lambda , -\lambda  \in \Lambda_{\infty} }$. Pero en este caso, gracias al módulo si $f$ es compleja, tras la iteración $U[\lambda_1]f=\left|W[\lambda_1]f\right|$ sería una función real, luego para las siguientes transfomadas de ondeletas solo haría falta calcularlas para $\lambda_k \in \Lambda_\infty$. Por lo tanto para los propagadores de dispersión de funciones complejas se definen sobre caminos "positivos" $p=(\lambda_1,\lambda_2, \ldots , \lambda_m)$ y caminos "negativos" $-p=(-\lambda_1,\lambda_2, \ldots , \lambda_m)$.
 
 \medskip
 
@@ -727,7 +727,7 @@ $$U[p+p']=U[\lambda'_{m'}]...U[\lambda'_2]U[\lambda'_1]U[\lambda_{m}]...U[\lambd
 
 \subsection{Construcción del operador de dispersión.}
 
-\noindent En este momento ya disponemos de un operador $U[\lambda] f$ que cumple todas las condiciones deseables , por lo que en esta sección vamos a ser capaces de llegar finalmente a la modelización matemática de una CNN.
+\noindent En este momento ya disponemos de un operador $U[\lambda] f$ que cumple todas las condiciones deseables, por lo que en esta sección vamos a ser capaces de llegar finalmente a la modelización matemática de una CNN.
 
 \begin{definicion} \label{def:S_barra}
 Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
@@ -757,13 +757,13 @@ Sea $J \in \mathbb{Z}$ y $\mathcal{P}_J$ el conjunto de caminos finitos $p=(\lam
   S_J[p]f(x)=U[p]f \ast \phi_{2^J}(x)=\int_{\mathbb{R}^d}U[p]f(u)\phi_{2^J}(x-u)du.
 \end{equation}
 
-\noindent Dónde la convolución con $\phi_{2^J}$ locliza el propagador de dsipersión en dominios proporcionales a $2^J$.
+\noindent Donde la convolución con $\phi_{2^J}$ localiza el propagador de dispersión en dominios proporcionales a $2^J$.
 
 \begin{equation}
-  S_J[p]f(x)=\left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | ... | \ast \psi_{\lambda_m} \right| \ast \phi_{2^J}(x).
+  S_J[p]f(x)=\left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | \ldots | \ast \psi_{\lambda_m} \right| \ast \phi_{2^J}(x).
 \end{equation}
 
-Con $S_J[\emptyset] f= f \ast \phi_{2^j}$.
+Con $S_J[\emptyset] f= f \ast \phi_{2^J}$.
 \end{definicion}
 
 
@@ -786,7 +786,7 @@ $$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
 
 \medskip
 
-\noindent Veamos ahora la relación que guarda este propagador de ventana con el que se definió originalmente en \autoref{def:S_barra}. Como $\phi(x)$ es continua en $0$, si $f\in L^1 (\mathbb{R}^d)$ se tiene que su transformada de dispersión de ventana converge punto a punto a la transformada de dispersión cuando la escala $2^J$ tiende a $\infty$: 
+\noindent Veamos ahora la relación que guarda este propagador de ventana con el que se definió originalmente en la Definición $1.14$(\autoref{def:S_barra}). Como $\phi(x)$ es continua en $0$, si $f\in L^1 (\mathbb{R}^d)$ se tiene que su transformada de dispersión de ventana converge punto a punto a la transformada de dispersión cuando la escala $2^J$ tiende a $\infty$: 
 
 \begin{align*}
     \forall x \in \mathbb{R}^d \;\; \lim_{J \rightarrow \infty} 2^{dJ} S_J[p]f(x) 
@@ -819,17 +819,17 @@ $$U_Jf=\lbrace A_Jf, (U[\lambda]f)_{\lambda\in\Lambda_J} \rbrace,$$
 
 \medskip
 
-\noindent Teniendo en cuenta \autoref{proposicionSumaCaminos} se tiene que  $U[\lambda]U[p]=U[p+\lambda]$, y $A_JU[p]=S_J[p]$, esto dando lugar a : 
+\noindent Teniendo en cuenta la \autoref{proposicionSumaCaminos} se tiene que  $U[\lambda]U[p]=U[p+\lambda]$, y $A_JU[p]=S_J[p]$, dando lugar a: 
 
 \begin{equation}
-  U_JU[p]=\lbrace S_J[p]f,(U[p+\lambda]f)_{\lambda\in\Lambda_J}\rbrace. 
+  U_J U[p]=\lbrace S_J[p]f,(U[p+\lambda]f)_{\lambda\in\Lambda_J}\rbrace. 
 \end{equation}
 
 
 
 \medskip
 
-\noindent Podemos por tanto establecer el comportamiento de al transformada de dispersión según la longitud $m$ del camino que estamos empleando. Sea $\Lambda_J^m$ el conjunto de caminos de longitud $m$ con $\Lambda_J^0={\emptyset}$, entonces:
+\noindent Podemos por tanto establecer el comportamiento de la transformada de dispersión según la longitud $m$ del camino que estamos empleando. Sea $\Lambda_J^m$ el conjunto de caminos de longitud $m$ con $\Lambda_J^0={\emptyset}$, entonces:
 
 
 \begin{equation} \label{eq::1.5}
@@ -841,7 +841,7 @@ $$U_Jf=\lbrace A_Jf, (U[\lambda]f)_{\lambda\in\Lambda_J} \rbrace,$$
 \begin{figure} [!h]
   \centering
   \includegraphics[width=0.8\textwidth]{img/ScatteringPropagator.png}
-  \caption{Un PD $U_J$ aplicado a un punto de una señal $f(x)$ calcula $U[\lambda_1]f(x)=|f(x)\ast \psi_{\lambda_1}|$ y como salida a la capa $m=0$ se promedian los coeficientes que han dado $0$ (por tener $2^j<2^-j$) obteniendo como salida $S_J[\emptyset]f(x)=f(x)\ast \phi_{2^J}$ (como se puede ver en la flecha negra). Después se aplica de nuevo $U_J$ a cada coeficiente $U[\lambda_1]f(x)$ del paso anterior ($m=1$) $U[\lambda_1,\lambda2]f(x)$ obteniendo como salida $S_J[\lambda_1]f(x)=U[\lambda_1]f(x) \ast \phi_{2^J}$. Se repite este proceso de manera recursiva para cada coeficiente $U[p]f(x)$ y obteniendo como resultado $S_J[p]f(x)=U[p]f(x) \ast \phi_{2^J}$. }
+  \caption{Un PD $U_J$ aplicado a un punto de una señal $f(x)$ calcula $U[\lambda_1]f(x)=|f(x)\ast \psi_{\lambda_1}|$ y como salida a la capa $m=0$ se promedian los coeficientes que han dado $0$ (por tener $2^j<2^-j$) obteniendo como salida $S_J[\emptyset]f(x)=f(x)\ast \phi_{2^J}$ (como se puede ver en la flecha negra). Después se aplica de nuevo $U_J$ a cada coeficiente $U[\lambda_1]f(x)$ del paso anterior ($m=1$) $U[\lambda_1,\lambda2]f(x)$ obteniendo como salida $S_J[\lambda_1]f(x)=U[\lambda_1]f(x) \ast \phi_{2^J}$. Se repite este proceso de manera recursiva para cada coeficiente $U[p]f(x)$ y obteniendo como resultado $S_J[p]f(x)=U[p]f(x) \ast \phi_{2^J}$. Imagen extraida de \cite{bruna2013invariant}.}
   \label{fig:scattering_propagator}
 \end{figure}
 
@@ -849,15 +849,15 @@ $$U_Jf=\lbrace A_Jf, (U[\lambda]f)_{\lambda\in\Lambda_J} \rbrace,$$
 \subsection{Diferencias y similitudes con una CNN}
 
 
-Las operaciones de la transformada de dispersión que hemos descrito siguen la estructura general de la red neuronal convolucional introducida por LeCun \cite{lecun2015deep}, pues se describen las redes convolucionales como una cascada de convoluciones (la transfomada de ondeletas $W[\lambda]$) y capas de "pooling" que usan funciones no lineales (el operador módulo $M[\lambda]$), las cuales se representan en este modelo como módulos de números complejos. También se puede considerar como un operador de \entrecomillado{pooling} la función $\phi_{2^J}$ que se emplea para agregar coeficientes y contruir un operador invariante.
+Las operaciones de la transformada de dispersión que hemos descrito siguen la estructura general de la red neuronal convolucional introducida por LeCun \cite{lecun2015deep}, pues se describen las redes convolucionales como una cascada de convoluciones (la transfomada de ondeletas $W[\lambda]$) y capas de "pooling" que usan funciones no lineales (el operador módulo $M[\lambda]$), las cuales se representan en este modelo como módulos de números complejos. También se puede considerar como un operador de \entrecomillado{pooling} la función $\phi_{2^J}$ que se emplea para agregar coeficientes y construir un operador invariante.
 
 \medskip
 
-\noindent Las redes neuronales convolucionales han sido empleadas con mucho éxito en tareas de reconocimiento de objetos o personas y usan normalmente Kernels que no son predefinidos, sino que se aprenden mediante la técnica de back-propagation al entrenar la red, en cambio, en la modelización que se ha presentado las ondeletas que usamos son prefijadas y no se aprenden.
+\noindent Las redes neuronales convolucionales han sido empleadas con mucho éxito en tareas de reconocimiento de objetos o personas y usan normalmente Kernels que no son predefinidos, sino que se aprenden mediante la técnica de back-propagation al entrenar la red. En cambio, en la modelización que se ha presentado las ondeletas que usamos son prefijadas y no se aprenden.
 
 \medskip
 
-\noindent Siguiendo con las similitudes entre ambos modelos, si $p$ es un camino de longitud $m$, entonces a $S_J[p] f(x)$ se le denomina coeficiente de orden $m$ a escala $2^J$, que en el caso de una CNN,equivaldría al tensor formado por los mapas de activación tras la convolución con el kernel de la capa $m$ de la red. 
+\noindent Siguiendo con las similitudes entre ambos modelos, si $p$ es un camino de longitud $m$, entonces a $S_J[p] f(x)$ se le denomina coeficiente de orden $m$ a escala $2^J$, que en el caso de una CNN, equivaldría al tensor formado por los mapas de activación tras la convolución con el kernel de la capa $m$ de la red. 
 
 \medskip
 
@@ -939,14 +939,14 @@ $$||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h||^2 \leq || f - h ||^2$$
 
 \subsection{Conservación de la norma.}
 
-En la \autoref{ch:seccion12} se obtuvo que cada coeficiente $U[\lambda]f=|f \ast \psi_\lambda|$ capturaba la energía de frecuencia de $f$ en una banda de frecuencia cubierta por $\widehat{\psi}_\lambda$ y propagaba dicha energía a frecuencias decrecientes, este hecho lo demuestra el siguiente teorema, mostrando que toda la energía del propagador de dispersión alncanza la frecuencia mínima $2^J$ y es atrapada por el filtro paso bajo $\phi_ {2^J}$. La energía propagada tiende a $0$ conforme se incrementa la longitud del camino, y el teorema implica que $||S_J[\mathcal{P}_J]f||=||f||$. Esto se aplica también a funciones complejas en caminos negativos.
+En la \autoref{ch:seccion12} se obtuvo que cada coeficiente $U[\lambda]f=|f \ast \psi_\lambda|$ capturaba la energía de frecuencia de $f$ en una banda de frecuencia cubierta por $\widehat{\psi}_\lambda$ y propagaba dicha energía a frecuencias decrecientes, este hecho lo demuestra el siguiente resultado, mostrando que toda la energía del propagador de dispersión alncanza la frecuencia mínima $2^J$ y es atrapada por el filtro paso bajo $\phi_ {2^J}$. La energía propagada tiende a $0$ conforme se incrementa la longitud del camino, y el teorema implica que $||S_J[\mathcal{P}_J]f||=||f||$. Esto se aplica también a funciones complejas en caminos negativos.
 
 \medskip
 
 \noindent Para la demostración de la conservación de la norma necesitamos unos resultados previos: 
 
 \begin{lema} \label{lema::Cota_inferior}
-  Si $h$ es una funciones tal que $h\geq 0$ entonces $\forall f \in L^2(\mathbb{R}^d)$: 
+  Si $h$ es una función tal que $h\geq 0$ entonces $\forall f \in L^2(\mathbb{R}^d)$: 
   
   \begin{equation}
     |f \ast \psi_\lambda | \ast h \geq \sup_{\eta \in \mathbb{R}^d} |f\ast \psi_\lambda \ast h_\eta | \; \; con \; h_\eta=h(x)e^{i\eta x}
@@ -963,7 +963,7 @@ En la \autoref{ch:seccion12} se obtuvo que cada coeficiente $U[\lambda]f=|f \ast
       &= \left | \int f(v) \psi_\lambda \ast h_\eta(x-v) dv \right| = |f\ast \psi_\lambda \ast h_\eta|
   \end{align*}
 
-  \noindent Dónde se ha usado el cambio de variabel $u'=x-u$ con $J=1$.
+  \noindent Dónde se ha usado el cambio de variabel $u'=x-u$ con $Jacobiano=1$.
 \end{proof}
 
 \noindent A continuación definimos el concepto de \entrecomillado{ondeleta admisible:}
@@ -1009,7 +1009,7 @@ Si \eqref{eq::1.7} se satisface y
 
 \begin{teorema} \label{teoremaOndeletasAdmisibles}
 \noindent Si las ondeletas son admisibles, entonces para toda $f\in L^2(\mathbb{R}^d)$
-\begin{equation}
+\begin{equation} se tiene que 
   \lim_{m\rightarrow\infty} ||U[\Lambda_J^m]f||^2=\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0
 \end{equation}
 
@@ -1026,11 +1026,11 @@ y
   
   \medskip
 
-  \noindent La clave de esto reside en el \autoref{lema::Cota_inferior}, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva. La clase de funciones para las que $||f||_w < \infty$ es una clase logarítmica de Sobolev correspondiente a funciones que tienen un módulo promedio continuo en $L^2(\mathbb{R}^d)$. Como 
+  \noindent La clave de esto reside en el \autoref{lema::Cota_inferior}, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva.Como 
 
   $$ || U[\mathcal{P}_J]f ||^2= \sum_{m=0}^{+\infty} ||U[\Lambda_J^m]f||^2,$$
 
-  \noindent si $||f||_w < \infty$ entonces \eqref{eq::1.9} implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||= 0$. Este resultado se extiende en $L^2(\mathbb{R}^d)$ por densidad. Como $\phi \in L^1(\mathbb{R}^d)$ y $\widehat{\phi}(0)=1$, cualquier $f\in L^2(\mathbb{R}^d)$ satisface $\lim_{n\rightarrow - \infty} ||f-f_n||=0$, dónde $f_n=f \ast \phi_{2^n}$ y $\phi_{2^n}=2^{-nd} \phi(2^{-n}x)$. Se demuestra por tanto que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f_n||=0$ viendo que $||f_n||_w < \infty$. De hecho, 
+  \noindent si $||f||_w < \infty$ entonces \eqref{eq::1.9} implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||= 0$. Este resultado se extiende a $L^2(\mathbb{R}^d)$ por densidad. Como $\phi \in L^1(\mathbb{R}^d)$ y $\widehat{\phi}(0)=1$, cualquier $f\in L^2(\mathbb{R}^d)$ satisface $\lim_{n\rightarrow - \infty} ||f-f_n||=0$, dónde $f_n=f \ast \phi_{2^n}$ y $\phi_{2^n}=2^{-nd} \phi(2^{-n}x)$. Se demuestra por tanto que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f_n||=0$ viendo que $||f_n||_w < \infty$. De hecho, 
 
 
   \begin{align*}
@@ -1038,11 +1038,11 @@ y
       &\leq C 2^{-2n-2j} \int |\widehat{f}(\omega)|^2 d\omega,
   \end{align*}
 
-  \noindent porque $\psi$ hay un momento en que desaparece entonce $|\widehat{\psi}(\omega)=O(|\omega|)$, y las derivadas de $\phi$ están en $L^1(\mathbb{R}^d)$ luego $|\omega||\widehat{\phi}\omega|$ están acotadas. Por lo que se tiene que $||f_n||_w < \infty$.
+  \noindent porque $\psi$ hay un momento en que desaparece entonces $|\widehat{\psi}(\omega)=O(|\omega|)$, y las derivadas de $\phi$ están en $L^1(\mathbb{R}^d)$ luego $|\omega||\widehat{\phi}\omega|$ están acotadas. Por lo que se tiene que $||f_n||_w < \infty$.
 
   \medskip
 
-  \noindent Como $U[\Lambda^m]$ es no expansiva, $||U[\Lambda_J^m]f-U[\Lambda_J^m]f_m|| \leq ||f - f_n||$, por lo que 
+  \noindent Como $U[\Lambda^m]$ es no expansiva, $||U[\Lambda_J^m]f-U[\Lambda_J^m]f_n|| \leq ||f - f_n||$, por lo que 
 
   $$||U[\Lambda_J^m]f|| \leq || f-f_n|| + ||U[\Lambda_J^m]f_n||.$$
 
@@ -1056,7 +1056,7 @@ y
 
   \noindent \textbf{En segundo lugar} vamos a ver que las siguientes expresiones son equivalentes: 
   \begin{align*}
-    \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0 \iff \lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0 \iff ||S_J[\mathcal{P_J}]f||^2 = ||f||
+    \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0 \iff \lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0 \iff ||S_J[\mathcal{P}_J]f||^2 = ||f||
   \end{align*}
 
   En primer lugar probamos que 
@@ -1093,7 +1093,7 @@ y
 
   \medskip
 
-  \noindent Por otro lado, sumando en \eqref{eq::1.8} para $0\leq n < m$ se obtine:
+  \noindent Por otro lado, sumando en \eqref{eq::1.8} para $0\leq n < m$ se obtiene:
 
   \begin{align*}
     \sum_{n=0}^{m-1} ||U[\Lambda_J^n]f||^2=&\sum_{n=0}^{m-1} ||S_J[\Lambda_J^n]f||^2 +\sum_{n=0}^{m-1}||U[\Lambda_J^{n+1}]f||^2 \\
@@ -1113,12 +1113,12 @@ y
     \Big\Updownarrow \\
     ||f||^2 =\sum_{n=0}^{\infty} ||S_J[\Lambda_J^n]f||^2 &+ \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2  \\
     \Big\Updownarrow \\
-    ||f||^2 =||S_J[\mathcal{P_J}]f||^2 &+ \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2.  \\
+    ||f||^2 =||S_J[\mathcal{P}_J]f||^2 &+ \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2.  \\
   \end{align*}
 
   \noindent De manera que se puede apreciar claramente que  
   \begin{align*}
-    ||f||^2 =||S_J[\mathcal{P_J}]f||^2 + \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2  = ||S_J[\mathcal{P_J}]f||^2 \iff \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0. \\
+    ||f||^2 =||S_J[\mathcal{P}_J]f||^2 + \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2  = ||S_J[\mathcal{P}_J]f||^2 \iff \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0. \\
   \end{align*}
 
   \noindent Con lo que queda demostrado el teorema \qedhere
@@ -1130,7 +1130,7 @@ y
 
 \medskip
 
-\noindent El decrecimiento de $\sum_{n=m}^\infty || S_J[\Lambda_J^n]f||^2$ nos sugiere que podemos descartar todos los caminos de longitud mayor que un cierto $m>0$. De hecho, en tareas de tratamiento de imágenes y audio el decrecimiento numérico de $||S_J[\Lambda_J^n]f||^2$ puede llegar a ser exponencial, lo que conlleva a que en problemas de clasificación, por ejemplo, el de camino se liminte a $m=3$.
+\noindent El decrecimiento de $\sum_{n=m}^\infty || S_J[\Lambda_J^n]f||^2$ nos sugiere que podemos descartar todos los caminos de longitud mayor que un cierto $m>0$. De hecho, en tareas de tratamiento de imágenes y audio el decrecimiento numérico de $||S_J[\Lambda_J^n]f||^2$ puede llegar a ser exponencial, lo que conlleva a que en problemas de clasificación, por ejemplo, el de camino se limite a $m=3$.
 
 \medskip
 
@@ -1142,6 +1142,6 @@ y
 
 $$\sum_{(j,r)\in\mathbb{Z}\times G}|\widehat{\psi}(2^jr\omega)|^2|\widehat{\rho}(2^jr\omega-\eta)|^2$$
 
-\noindent sea suficientemente grande para que $\alpha>0$. Esto se puede obtener como se indica en $(2.3)$, con $\psi(x)=e^{i\eta x}\Theta(x)$ y de hecho $\widehat{\psi}=\widehat{\Theta}(\omega-\eta)$, dónde $\widehat{\Theta}$ y $\widehat{\rho}$ tienen su energía concentrada en los mismos dominos de frecuencia, que son bajos.
+\noindent sea suficientemente grande para que $\alpha>0$. Esto se puede obtener como se indica en $(2.3)$, con $\psi(x)=e^{i\eta x}\Theta(x)$ y de hecho $\widehat{\psi}=\widehat{\Theta}(\omega-\eta)$, donde $\widehat{\Theta}$ y $\widehat{\rho}$ tienen su energía concentrada en los mismos dominos de frecuencia, que son bajos.
 
 \endinput
