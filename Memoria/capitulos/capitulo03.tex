@@ -24,7 +24,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 
 \medskip
 
-\noindent Si recordamos la definición de $\mathcal{P}_J$, era un conjunto de caminos finitos $p=(\lambda_1,...,\lambda_m)$ tal que $\lambda_k\in\Lambda_J$ y $|\lambda_k|=2^{jk}>2^{-J}$. Luego todo camino $p' \in \mathcal{P}_{J+1}$, puede ser unívocamente escrito como una extensión de un camino $p\in \mathcal{P}_J$ dónde $p$ es el prefijo más grande de $p'$ que pertenece a $\mathcal{P}_J$, y $p'=p+q$ para algún $q\in \mathcal{P}_{J+1}$. De hecho, podemos definir el conjunto de todas las extensiones de $p\in \mathcal{P}_J$ en $\mathcal{P}_{J+1}$ como: 
+\noindent Si recordamos la definición de $\mathcal{P}_J$, era un conjunto de caminos finitos $p=(\lambda_1,...,\lambda_m)$ tal que $\lambda_k\in\Lambda_J$ y $|\lambda_k|=2^{jk}>2^{-J}$. Luego todo camino $p' \in \mathcal{P}_{J+1}$, puede ser unívocamente escrito como una extensión de un camino $p\in \mathcal{P}_J$ donde $p$ es el prefijo más grande de $p'$ que pertenece a $\mathcal{P}_J$, y $p'=p+q$ para algún $q\in \mathcal{P}_{J+1}$. De hecho, podemos definir el conjunto de todas las extensiones de $p\in \mathcal{P}_J$ en $\mathcal{P}_{J+1}$ como: 
 
 \begin{equation}
   \mathcal{P}_{J+1}^{p}={p} \cup {p+2^{-J}r+p''}_{r\in G^{+},p''\in \mathcal{P}_{J+1}}
@@ -45,7 +45,7 @@ Esto define una partición disjunta de $\mathcal{P}_{J+1}=\cup_{p \in \mathcal{P
 \noindent Para ello vamos a necesitar el siguiente lema:
 
 \begin{lema}
-  Para Ondeletas que satisfacen la propiedad \autoref{unitario}, para toda función \textbf{real} $f\in L^2(\mathbb{R}^d)$ y todo $q \in \mathbb{Z}$ se verifica: 
+  Para ondeletas que satisfacen la propiedad presentada en la \autoref{unitario}, para toda función \textbf{real} $f\in L^2(\mathbb{R}^d)$ y todo $q \in \mathbb{Z}$ se verifica: 
 
   $$\sum_{-q\geq l > -J} \sum_{r \in G^+} || f \ast \psi_{2^lr}||^2 + || f \ast \phi_{2^J}||^2 = || f \ast \phi_{2^q} ||^2$$
 
@@ -64,7 +64,7 @@ Esto define una partición disjunta de $\mathcal{P}_{J+1}=\cup_{p \in \mathcal{P
     \;\;|\widehat{\phi}(\omega)|^2= \frac{1}{2} \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2,
   \end{align*}
 
-  \noindent se tiene de la misma forma que vimos en la demostración del teorema que:
+  \noindent se tiene de la misma forma que vimos en la demostración de la \autoref{unitario} que:
 
   $$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \frac{1}{2} \sum_{j>-J,r\in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=1. $$
 
@@ -89,8 +89,9 @@ Esto define una partición disjunta de $\mathcal{P}_{J+1}=\cup_{p \in \mathcal{P
   \noindent Y teniendo en cuenta que $f$ es real y por lo tanto que $||f \ast \psi_{2^j r}||= ||f \ast \psi_{2^j -r}||$ junto con la defnición de la norma de $L^2(\mathbb{R}^d)$, se tiene  
 
   \begin{align*}
-    \sum_{-q\geq l > -J} \sum_{r \in G^+} || f \ast \psi_{2^lr}||^2 + || f \ast \phi_{2^J}||^2 = || f \ast \phi_{2^q} ||^2
-  \end{align*}
+    \sum_{-q\geq l > -J} \sum_{r \in G^+} || f \ast \psi_{2^lr}||^2 + || f \ast \phi_{2^J}||^2 = || f \ast \phi_{2^q} ||^2& \\ 
+    &\qedhere
+  \end{align*} 
 
 \end{proof}
 
@@ -113,7 +114,7 @@ $$||g \ast \phi_{2^{J+1}} ||^2 + \sum_{r\in G^+} || g\ast \psi_{2^{-J}r} ||^2=||
   & + \sum_{r\in G^+} || U[p]f\ast \psi_{2^{-J}r} -U[p]h \ast \psi_{2^{-J}r}||^2.
 \end{align*}
 
-\noindent Aplicando ahora la propiedad de la norma de que $\left|\left|a - b \right|\right| \geq \left|\left| |a| - |b| \right|\right|$. Y como $$|U[p]f\ast\psi_{2^{-J}r}|=U[p+2^{-J}r]f$$ se concluye que:
+\noindent Aplicando ahora la propiedad de la norma de que $\|g - h \| \geq \| |g| - |h| \|$ y como $$|U[p]f\ast\psi_{2^{-J}r}|=U[p+2^{-J}r]f,$$ se concluye que
 
 \begin{align*}
     ||S_{J}[p]f-S_J[p]h||^2 \geq & || S_{J+1}[p]f-S_{J+1}[p]h||^2 \\
@@ -121,7 +122,7 @@ $$||g \ast \phi_{2^{J+1}} ||^2 + \sum_{r\in G^+} || g\ast \psi_{2^{-J}r} ||^2=||
 \end{align*}
 
 
-\noindent Como $S_{J+1}[\mathcal{P}_{J+1}]U[p+2^{-J}r]f=\lbrace S_{J+1} [p+2^{-J}r+p'']\rbrace_{p''\in\mathcal{P}_{J+1}}$  y $S_{J+1}[\mathcal{P}_{J+1}]f$ es no expansiva por \autoref{proposicion::NoExpansiva}, esto implica que
+\noindent Como $S_{J+1}[\mathcal{P}_{J+1}]U[p+2^{-J}r]f=\lbrace S_{J+1} [p+2^{-J}r+p'']\rbrace_{p''\in\mathcal{P}_{J+1}}$  y $S_{J+1}[\mathcal{P}_{J+1}]f$ es no expansiva por la \autoref{proposicion::NoExpansiva}, usando la desigualdad anterior podemos escribir
 
 \begin{align*}
     ||S_{J}[p]f - S_J[p]h||^2 \geq & ||S_{J+1}[p]f-S_{J+1}[p]h||^2 \\
@@ -140,13 +141,13 @@ $$||g \ast \phi_{2^{J+1}} ||^2 + \sum_{r\in G^+} || g\ast \psi_{2^{-J}r} ||^2=||
 
 \section{Invarianza por traslaciones}
 
-\noindent Esta proposición anterior nos demuestra que $||S_J[\mathcal{P}_J]-S_J[\mathcal{P}_J]h||$ es positivo y no creciente cuando $J$ se incrementa, y de hecho converge. Como $S_J[\mathcal{P}_J]$ es no expansiva, el límite tampoco: 
+\noindent La proposición anterior nos demuestra que $||S_J[\mathcal{P}_J]-S_J[\mathcal{P}_J]h||$ es positivo y no creciente cuando $J$ se incrementa, y de hecho converge. Como $S_J[\mathcal{P}_J]$ es no expansiva, el límite tampoco: 
 
 $$\forall (f,h)\in L^2(\mathbb{R}^d)^2 \lim_{J\rightarrow\infty} ||S_J[\mathcal{P}_J]f-S_{J}[\mathcal{P}_J]h|| \leq ||f-h||.$$
 
 \medskip
 
-\noindent Para ondeletas de dispersión admisibles que satisfacen \eqref{eq::1.7}, El \autoref{teoremaOndeletasAdmisibles} nos demuestra que si $||S_J[\mathcal{P}_J]f||=||f||$ entonces $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J]f||=||f||$. El siguiente teorema demuestra que el límite es invariante por traslaciones, pero para la demostración del teorema necesitaremos de un resultado auxiliar: 
+\noindent Para ondeletas de dispersión admisibles que satisfacen \eqref{eq::1.7}, el \autoref{teoremaOndeletasAdmisibles} nos demuestra que si $||S_J[\mathcal{P}_J]f||=||f||$ entonces $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J]f||=||f||$. El siguiente teorema demuestra que el límite es invariante por traslaciones, pero para la demostración del teorema necesitaremos un resultado auxiliar: 
 
 \begin{lema} \label{lema::constante}
   Existe una constante $C$ tal que para todo $\tau \in \C^2(\mathbb{R}^d)$ con $||\nabla \tau ||_\infty \leq \frac{1}{2}$ se tiene que 
@@ -250,11 +251,11 @@ $$\forall (f,h)\in L^2(\mathbb{R}^d)^2 \lim_{J\rightarrow\infty} ||S_J[\mathcal{
 
   \noindent De las dos cotas superiores obtenidas esta es la mayor, por lo que aplicamos el lema de Schur a esta y terminamos la demostración del lema
 
-  $$ ||L_{\tau} A_J - A_J || \leq 2^{-J+d} ||\nabla \phi ||_1 ||\tau||_\infty. $$
+  $$ ||L_{\tau} A_J - A_J || \leq 2^{-J+d} ||\nabla \phi ||_1 ||\tau||_\infty. \;\;\; \qedhere$$
 \end{proof}
 
 
-\noindent Con esto ya tenemos todas las herramientas necesarias para enunciar y demostrar el teorema central de esta sección, aquel que nos garantiza que el operador que estamos construyendo que modeliza una red neuronal convolucional es invariante a traslaciones.
+\noindent Con esto ya tenemos todas las herramientas necesarias para enunciar y demostrar el teorema central de esta sección, que nos garantiza que el operador que estamos construyendo y que modeliza una red neuronal convolucional, es invariante a traslaciones.
 
 \begin{teorema} \label{invarianzaTraslaciones}
 Para ondeletas de dispersión admisibles se tiene que 
