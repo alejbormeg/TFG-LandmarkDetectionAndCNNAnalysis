@@ -6,7 +6,6 @@
 \contentsline {chapter}{\nonumberline Introducción}{\es@scroman {xvii}}{chapter*.9}%
 \contentsline {part}{\numberline {I}Análisis de Redes Convolucionales}{1}{part.1}%
 \contentsline {chapter}{\numberline {1}Introducción}{3}{chapter.1}%
-\contentsline {subsection}{\numberline {1.0.1}Notación}{6}{subsection.1.0.1}%
 \contentsline {chapter}{\numberline {2}Modelización Matemática de una Red Neuronal Convolucional}{7}{chapter.2}%
 \contentsline {section}{\numberline {2.1}De Fourier a las ondeletas de Littlewood-Paley}{7}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}El módulo de la Transformada de Fourier}{7}{subsection.2.1.1}%
@@ -16,15 +15,15 @@
 \contentsline {section}{\numberline {2.2}El operador de dispersión sobre un camino ordenado}{20}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Ejemplo para obtener coeficientes invariantes por traslaciones}{21}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}El operador módulo.}{22}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Propiedades de un camino de frecuencias.}{23}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}Propiedades de un camino de frecuencias.}{24}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Construcción del operador de dispersión.}{24}{subsection.2.2.4}%
 \contentsline {section}{\numberline {2.3}Propagador de dispersión y conservación de la Norma}{26}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Proceso de dispersión del propagador.}{26}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Diferencias y similitudes con una CNN}{26}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.2}Diferencias y similitudes con una CNN}{27}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Relación con herramientas clásicas de visión por computador}{27}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Operador no expansivo.}{27}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.4}Operador no expansivo.}{28}{subsection.2.3.4}%
 \contentsline {subsection}{\numberline {2.3.5}Conservación de la norma.}{29}{subsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.3.6}Conclusiones extraidas del teorema}{32}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.6}Conclusiones extraidas del teorema}{33}{subsection.2.3.6}%
 \contentsline {chapter}{\numberline {3}Invarianza por Traslaciones}{35}{chapter.3}%
 \contentsline {section}{\numberline {3.1}No expansividad del operador de ventana en conjuntos de caminos}{35}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Invarianza por traslaciones}{38}{section.3.2}%

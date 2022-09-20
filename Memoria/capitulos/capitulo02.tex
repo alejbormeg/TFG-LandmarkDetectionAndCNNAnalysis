@@ -255,7 +255,7 @@ $$f=\sum_{j=-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}  \langle f,\psi_{j,n} \
 
 \begin{itemize}
   \item Cada ondeleta $\psi_{j,n}$ tiene media $0$ en su soporte $[2^jn, 2^j(n+1)]$.
-  \item Si $f$ es localmente regular y $2^j$ es próximo a $0$, entonces su intervalo con soporte es muy pequeño, debido a las propiedades de $f$, la función en el intervalo  $[2^jn, 2^j(n+1)]$ será prácticamente constante, lo que se traduce en que  y su coeficiente de ondeleta $\langle f,\psi_{j,n} \rangle$ es prácticamente cero.
+  \item Si $f$ es localmente regular y $2^j$ es próximo a $0$, entonces su intervalo con soporte es muy pequeño, debido a las propiedades de $f$, la función en el intervalo  $[2^jn, 2^j(n+1)]$ será prácticamente constante, lo que se traduce en que su coeficiente de ondeleta $\langle f,\psi_{j,n} \rangle$ es prácticamente cero.
   \item Los mayores coeficientes se localizan en los cambios bruscos de intensidad de señal, como pueden ser los bordes, las esquinas o las texturas en las imágenes, pues en estos casos somos capaces de encontrar un elemento de la base de Haar con cuyo soporte esté en el intervalo dónde se produzca el cambio de intensidad, y por lo tanto que tenga un coeficiente de ondeletas distinto de cero.
 \end{itemize}
 
@@ -527,6 +527,14 @@ $$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,
 
 \section{El operador de dispersión sobre un camino ordenado}
 
+\noindent Antes de comenzar la sección vamos a aclarar la notación que usaremos de ahora en adelante: 
+
+\begin{itemize}
+
+  \item Se denota $g \circ f(x)=f(gx)$ a la acción de un elemento del grupo $g\in G$.
+  \item Un operador  $\mathcal{R}$ parametrizado por $p$ es denotado por $\mathcal{R}[p]$ y $\mathcal{R}[\Omega]=\lbrace \mathcal{R}[p] \rbrace_{p \in \Omega}$. 
+\end{itemize}
+
 %Esto debería intentar explicarlo mejor?
 \noindent La transformada de Littlewood-Paley definida anteriormente es Lipschitz-conitnua bajo la acción de difeomorfismos, porque las ondeletas son funciones regulares y localizadas. Sin embargo, todavía no es invariante a traslaciones y $W[\lambda]f=f\ast\psi_\lambda$ se traslada cuando lo hace $f$. Así, nuestro próximo objetivo será conseguir calcular coeficientes que sean invariantes a traslaciones, que permanezcan estables bajo la acción de difeomorfismos y que retengan la información en altas frecuencias que proporcionan las ondeletas, reuniendo todas estas características tendríamos el operador que necesitamos para la construcción del PD. 
 
@@ -626,9 +634,14 @@ En resumen, queremos un operador no lineal que produzca coeficientes invariantes
 \begin{align*}
   \|M[\lambda]h\|=\|h\| &\iff \left(\int_{\mathbb{R}^d} |M[\lambda]h (x)|^2 dx \right)^{\frac{1}{2}} =\left(\int_{\mathbb{R}^d} |h(x)|^2 dx \right)^{\frac{1}{2}} \\
   & \iff \int_{\mathbb{R}^d} |M[\lambda]h (x)|^2 dx=\int_{\mathbb{R}^d} |h(x)|^2 dx \\
-  & \iff |M[\lambda]h (x)|^2=|h(x)|^2 \\
-  & \iff |M[\lambda]h (x)|=|h(x)|
+  & \iff \int_{\mathbb{R}^d} |M[\lambda]h (x)|^2-|h(x)|^2 dx = 0 \\
+  & \iff |M[\lambda]h (x)|^2 - |h(x)|^2 = 0 \\
+  & \iff |M[\lambda]h (x)| = |h(x)|
 \end{align*}
+
+\medskip
+
+\noindent Dado que se tratan de dos funciones positivas las que se restan en el integrnado, la única forma de que el resultado de esta integral de cero es que ambas funciones coincidan punto a punto.
 
 \medskip
 
@@ -1038,7 +1051,7 @@ y
       &\leq C 2^{-2n-2j} \int |\widehat{f}(\omega)|^2 d\omega,
   \end{align*}
 
-  \noindent porque $\psi$ hay un momento en que desaparece entonces $|\widehat{\psi}(\omega)=O(|\omega|)$, y las derivadas de $\phi$ están en $L^1(\mathbb{R}^d)$ luego $|\omega||\widehat{\phi}\omega|$ están acotadas. Por lo que se tiene que $||f_n||_w < \infty$.
+  \noindent porque $\psi$ hay un momento en que desaparece entonces $|\widehat{\psi}(\omega)|=O(|\omega|)$, y las derivadas de $\phi$ están en $L^1(\mathbb{R}^d)$ luego $|\omega||\widehat{\phi}\omega|$ están acotadas. Por lo que se tiene que $||f_n||_w < \infty$.
 
   \medskip
 
