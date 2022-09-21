@@ -1,145 +1,38 @@
 
 
-\chapter{Conclusiones}
+\chapter{Conclusiones y Trabajos futuros}
+
+\noindent En el primer capítulo dimos una introducción a las \textbf{CNN} y establecimos dos objetivos principales:
 
 \begin{itemize}
-    \item La  memoria  debe  realizarse  con  un  procesador  de  texto  científico,  preferiblemente (La)TeX.
-    \item La portada  debe contener  el  logo  de  la UGR,  incluir  el  título del TFG, el nombre del estudiante y especificar el grado, la facultad y el curso actual.
-    \item La contraportada contendrá además el nombre del tutor o tutores.
-    \item La memoria debe necesariamente incluir:
-      \begin{itemize}
-        \item un índice detallado de capítulos y secciones,
-        \item un resumen amplio en inglés del trabajo realizado (se recomienda entre 800 y 1500 palabras),
-        \item una introducción en la que se describan claramente los objetivos previstos inicialmente en la propuesta de TFG, indicando si han sido o no alcanzados, los antecedentes importantes para el desarrollo, los resultados obtenidos, en su caso y las principales fuentes consultadas,
-        \item una bibliografía final que incluya todas las referencias utilizadas.
-      \end{itemize}
-    \item Se recomienda que la extensión de la memoria sea entre 30 y 60 páginas, sin incluir posibles apéndices.
-  \end{itemize}
-  
-  Para generar el pdf a partir de la plantilla basta compilar el fichero \texttt{libro.tex}. Es conveniente leer los comentarios contenidos en dicho fichero pues ayudarán a entender mejor como funciona la plantilla. 
-  
-  La estructura de la plantilla es la siguiente\footnote{Los nombres de las carpetas no se han acentuado para evitar problemas en sistemas con Windows}: 
-  \begin{itemize}
-    \item Carpeta \textbf{preliminares}: contiene los siguientes archivos
-      \begin{description}
-        \item[\texttt{dedicatoria.tex}] Para la dedicatoria del trabajo (opcional)
-        \item[\texttt{agradecimientos.tex}] Para los agradecimientos del trabajo (opcional)
-        \item[\texttt{introduccion.tex}] Para la introducción (obligatorio)
-        \item[\texttt{summary.tex}] Para el resumen en inglés (obligatorio)
-        \item[\texttt{tablacontenidos.tex}] Genera de forma automática la tabla de contenidos, el índice de figuras y el índice de tablas. Si bien la tabla de contenidos es conveniente incluirla, el índice de figuras y tablas es opcional. Por defecto está desactivado. Para mostrar dichos índices hay que editar este fichero y quitar el comentario a \verb+\listoffigures+ o \verb+\listoftables+ según queramos uno de los índices o los dos. En este archivo también es posible habilitar la inclusión de un índice de listados de código (si estos han sido incluidos con el paquete \texttt{listings})
-    \end{description}
-    El resto de archivos de dicha carpeta no es necesario editarlos pues su contenido se generará automáticamente a partir de los metadatos que agreguemos en \texttt{libro.tex}
-  
-    \item Carpeta \textbf{capitulos}: contiene los archivos de los capítulos del TFG. Añadir tantos archivos como sean necesarios. Este capítulo es \texttt{capitulo01.tex}.
-  
-    \item Carpeta \textbf{apendices}: Para los apéndices (opcional)
-    \item Carpeta \textbf{img}: Para incluir los ficheros de imagen que se usarán en el documento.
-    \item Carpeta \textbf{paquetes}: Incluye dos ficheros 
-      \begin{description}
-        \item[\texttt{hyperref.tex}] para la configuración de hipervínculos al generar el pdf (no es necesario editarlo) 
-        \item[\texttt{comandos-entornos.tex}] donde se pueden añadir los comandos y entornos personalizados que precisemos para la elaboración del documento. Contiene algunos ejemplos
-      \end{description}
-      
-    \item Fichero \texttt{library.bib}: Para incluir las referencias bibliográficas en formato \texttt{bibtex}. Son útiles las herramientas \href{https://www.doi2bib.org/}{doi2bib} y \href{https://www.ottobib.com/}{OttoBib} para generar de forma automática el código bibtex de una referencia a partir de su \textsc{doi} o su \textsc{isbn}. Para que una referencia aparezca en el pdf no basta con incluirla en el fichero \texttt{library.bib}, es necesario además \emph{citarla} en el documento usando el comando \verb+\cite+. Si queremos mostrar todos las referencias incluidas en el fichero \texttt{library.bib} podemos usar \verb+\cite{*}+ aunque esta opción no es la más adecuada. Se aconseja que los elementos de la bibliografía estén citados al menos una vez en el documento (y de esa forma aparecerán de forma automática en la lista de referencias).
-  
-    \item Fichero \texttt{glosario.tex}: Para incluir un glosario en el trabajo (opcional). Si no queremos incluir un glosario deberemos borrar el comando \verb+\input{glosario.tex}+ del fichero \texttt{libro.tex} y posteriormente borrar el fichero \texttt{glosario.tex}
-  
-     \item Fichero \texttt{libro.tex}: El documento maestro del TFG que hay que compilar con \LaTeX\ para obtener el pdf. En dicho documento hay que cambiar la \emph{información del título del \textsc{tfg} y el autor así como los tutores}.
-  \end{itemize}
-  
-  Finalmente y de forma también opcional se puede incluir in índice terminológico. Por defecto dicha opción está desabilitada. Para habilitar la inclusión de dicho índice terminológico basta con quitar los comentarios a las líneas finales de \texttt{libro.tex} y cargar el paquete \texttt{makeindex} en el preámbulo del documento (ver comentarios en \texttt{libro.tex})
+  \item Tratar de dar una posible modelización matemática para una CNN.
+  \item Demostrar la propiedad básica de la invarianza por traslaciones. 
+\end{itemize}
 
-  \section{Elementos del texto}
+\noindent Llegados a este punto podemos afirmar haber conseguido todos los objetivos que nos habíamos marcado, sin embargo el camino para lograrlos ha sido complicado y ha estado marcado por la consecución de retos menores que me han hecho aprender mucho sobre conceptos que se explicaron durante el grado y que a continuación detallaré. 
 
-En esta sección presentaremos diferentes ejemplos de los elementos de texto básico. Conviene consultar el contenido de \texttt{capitulos/capitulo01.tex} para ver cómo se han incluido.
+\medskip
 
-\subsection{Listas}
-En \LaTeX\ tenemos disponibles los siguientes tipos de listas:
+\noindent En primer lugar tuve que recordar conceptos básicos del análisis de Fourier como son el cálculo de series de Fourirer y transformada de Fourier así como sus interpretaciones, por otro lado tuve que recordar conceptos de análisis como son la Lipschitz-continuidad y con esto pude entender y explicar mejor la demostración de que el módulo de la transformada de Fourier no es lipschitz-continuo bajo la acción de difeomorfismos.
 
-Listas enumeradas:
-\begin{enumerate}
-  \item item 1
-  \item item 2
-  \item item 3
-\end{enumerate}
+\medskip
 
-Listas no enumeradas
-\begin{itemize}
-  \item item 1
-  \item item 2
-  \item item 3
-  \end{itemize}
+\noindent En segundo lugar, tuve que aprender un concepto nuevo para mi como es el de ondeleta y transformada de ondeletas, y tuve que realizar una investigación sobre el tratamiento de señales (especialmente de imágenes) por medio de estas heramientas. Estos conceptos sientan las bases de la \textbf{Visión por Computador}, rama en la que las CNN han adquirido una importancia muy notable.
 
-Listas descriptivas
-\begin{description}
-  \item[termino1] descripción 1
-  \item[termino2] descripción 2
-\end{description}
-  
-\subsection{Tablas y figuras}
+\medskip
 
-En la \autoref{tb:ejemplo-tabla} o la \autoref{fig:logo-ugr} podemos ver\ldots
+\noindent En tercer lugar tuve que habituarme a consultar y leer publicaciones matemática que trataran sobre estos temas, una destreza que considero de vital importancia y que ha provocado que en las búsquedas que realizo en internet prefiera consultar artículos científicos antes que otro tipo de entradas.
 
-\begin{table}[htpb]
-  \centering
-  \begin{tabular}{ccc} \toprule
-    \multicolumn{2}{c}{Agrupados} \\ \cmidrule(r){1-2}
-    cabecera & cabecera & cabecera          \\ \midrule
-    elemento & elemento & elemento          \\ 
-    elemento & elemento & elemento          \\ 
-    elemento & elemento & elemento          \\ \bottomrule
-  \end{tabular}
-  \caption{Ejemplo de tabla}
-  \label{tb:ejemplo-tabla}
-\end{table}
+\medskip
 
-\begin{figure}[htpb]
-  \centering
-  \includegraphics[width=0.8\textwidth]{logo-ugr}
-  \caption{Logotipo de la Universidad de Granada}
-  \label{fig:logo-ugr}
-\end{figure}
+\noindent En cuarto lugar, es la prmiera vez que me enfrento a un trabajo de iniciación a la investigación, y por lo tanto en muchas situaciones me he visto envuelto de conceptos que no comprendía del todo y de los cuales no había mucha información. También he tenido que clasificar la información siempre pensando en el trabajo final y en los objetivos marcados. 
 
-\section{Entornos matemáticos}
+\medskip
 
-\begin{teorema}\label{thm:teorema}
-Esto es un ejemplo de teorema.
-\end{teorema}
+\noindent Todos estos objetivos, como he mencionado antes, han sido necesarios para poder terminar el trabajo con éxito por lo que quería hacer mención a ellos.
 
-\begin{proposicion}
-Ejemplo de proposición
-\end{proposicion}
+\subsection*{Trabajos Futuros}
 
-\begin{lema}
-Ejemplo de lema
-\end{lema}
-
-\begin{corolario}
-Ejemplo de corolario
-\end{corolario}
-
-\begin{definicion}
-Ejemplo de definición
-\end{definicion}
-
-\begin{observacion}
-Ejemplo de observación
-\end{observacion}
-
-Y esto es una referencia al \autoref{thm:teorema}. 
-
-Identidad Pitagórica~\eqref{eq:identidad-pitagorica}\index{Identidad pitagórica}
-\begin{equation}\label{eq:identidad-pitagorica}
-  \cos^2 x + \sin^2 x = 1
-\end{equation}
-
-La fórmula de Gauss-Bonnet\index{Gauss-Bonnet!fórmula} para una superficie compacta $S$ viene dada por:
-\begin{equation}
-  \int_S K = 2\pi\chi(S)
-\end{equation} 
-
-\section{Bibliografía e índice}
-
-Además incluye varias entradas al índice alfabético mediante el comando \verb+\index+ \index{Leonard!Euler|textbf}
+\noindent Si bien hemos conseguido proporcionar una posible modelización para las CNN y demostrar la invarianza por traslaciones, quedan aún propiedades importantes por comprobar como son la \textbf{invarianza frente a pequeños difeomorfismos}, propiedad que presentan las CNN tal y como las conocemos. Por otro lado se podría tratar de investigar sobre el teorema de aproximación universal, etc...
 
 \endinput
