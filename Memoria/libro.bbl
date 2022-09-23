@@ -211,4 +211,10 @@ Zhou Wang, Alan~C Bovik, Hamid~R Sheikh, and Eero~P Simoncelli.
   similarity.
 \newblock {\em IEEE transactions on image processing}, 13(4):600--612, 2004.
 
+\bibitem[Wor]{WAVELETS}
+Math Works.
+\newblock Continuous wavelet transform and scale-based analysis.
+\newblock
+  \url={https://www.mathworks.com/help/wavelet/gs/continuous-wavelet-transform-and-scale-based-analysis.html},.
+
 \end{thebibliography}

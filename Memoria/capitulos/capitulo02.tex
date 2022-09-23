@@ -1,7 +1,7 @@
 
 
 
-\chapter{Modelización Matemática de una Red Neuronal Convolucional} \label{ch:seccion12}
+\chapter{Modelización Matemática de una Red Neuronal Convolucional} 
 
 \noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{CNN}, para ello necesitamos en primer lugar definir un operador que denominaremos \textbf{propagador de dispersión} (PD) que será el que aplicaremos de forma recursiva en la cascada de convoluciones que modeliza una CNN, para ello explicaremos la problemática de elegir un operador \textit{lipschitz-continuo} bajo la acción de difeomorfismos e \textit{invariante por traslaciones}, para evitar problemas como la inestabilidad en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos. 
 
@@ -45,7 +45,7 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
 \end{lema}
 
 \begin{proof}
-    \noindent Para ello tenemos que ver que si definimos para cada $c \in \mathbb{R}^d$, la traslación $L_cf(x)=f(x-c)$ se tiene que :  
+    \noindent Para ello tenemos que ver que si definimos para cada $c \in \mathbb{R}^d$, la traslación $L_cf(x)=f(x-c)$ se tiene que:  
     
     $$\widehat{L_cf}(w)=\int_{\mathbb{R}^d}{L_cf(x) e^{-ixw} dx}=\int_{\mathbb{R}^d}{f(x-c)e^{-ixw}dx}$$
     
@@ -69,9 +69,12 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
 
   \noindent Si consideramos la función $\tau(x)\coloneqq \epsilon x$ con $0 < \epsilon << 1$. De esta forma $||\nabla \tau (x) ||_\infty = \epsilon$ y $||H\tau(x)||_\infty=0$ con esto, la condición de Lipschitz para el módulo de la transfomada de Fourier nos daría la existencia de una constante $c>0$ de modo que la desigualdad que se tendría que cumplir para cada $f \in L^2(\mathbb{R}^d)$ y cada $0 < \epsilon << 1$ sería:
 
-  $$\left|\left| \; |\widehat{f}| -|\widehat{L_\tau f}| \; \right|\right| \leq c ||f|| (||\nabla \tau ||_{\infty} + ||H\tau||_\infty) \leq c ||f|| \epsilon$$
 
-  \noindent Vamos a ver un contraejemplo con una función de una dimensión por simplicidad.
+  \begin{equation} \label{eq::lipschitz_condition}
+    \|\;|\widehat{f}| -|\widehat{L_\tau f}| \; \| \leq c \|f\| (\|\nabla \tau \|_{\infty} + \|H\tau\|_\infty) \leq c \|f\| \epsilon
+  \end{equation}
+
+  \noindent Lo que implica encontrar una constante $c\in \mathbb{R}$ que cumpla la desigualdad para cualquier valor de $\epsilon$.Vamos a ver un contraejemplo con una función de una dimensión por simplicidad.
 
   \medskip
 
@@ -82,7 +85,7 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
     |\widehat{f}(\omega)|&=\left|  \int{f(x)e^{-ix\omega}dx}  \right | \\
     &=\left|  \int{f(x)e^{-ix\omega}dx}  \right | \\
     &=\left|  \int{e^{i \xi x}e^{-|x|}e^{-ix\omega}dx}  \right | \\
-    &=\left|  \int{e^{-ix(\xi-\omega)}dx}  \right | \\
+    &=\left|  \int{e^{-ix(\xi-\omega)}dx} \right |e^{-|x|} \\
     &=\left|  \int{e^{-|x|}\left[\cos{x(\xi-\omega)} -i\sin{x(\xi-\omega)}\right]dx} \right| \\
   \end{align*}
 
@@ -90,7 +93,7 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
 
 
   \begin{equation} \label{eq:res_auxiliar_1}
-    \int_\mathbb{R} \cos(\beta x) e^{-|x|} dx= \frac{1}{1+\beta^2}
+    \int_\mathbb{R} \cos(\beta x) e^{-|x|} dx= \frac{2}{1+\beta^2}
   \end{equation}
 
   \noindent y 
@@ -102,9 +105,9 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
   \noindent a nuestro caso concreto, obtenemos que: 
 
   \begin{align*}
-    |\widehat{f}(\omega)|&=\left|  \int{\cos{x\beta}e^{-|x|} dx} - i \int{\sin{x\beta}e^{-|x|} dx} \right| \\
-    &=\frac{1}{1+\beta^2} \\
-    &=\frac{1}{1+(\xi - \omega)^2}.
+    |\widehat{f}(\omega)|&=\left|  \int{\cos(x\beta)e^{-|x|} dx} - i \int{\sin(x\beta)e^{-|x|} dx} \right| \\
+    &=\frac{2}{1+\beta^2} \\
+    &=\frac{2}{1+(\xi - \omega)^2}.
   \end{align*} 
 
   \noindent Ahora pasamos a calcular $|\widehat{L_\tau f}|$:
@@ -139,18 +142,17 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
 
   \begin{align*}
     |\widehat{L_\tau f}(\omega)| 
-    &= \frac{1}{(1-\epsilon)} \frac{1}{1+\tilde{\beta}^2} \\
-    &= \frac{1}{(1-\epsilon)} \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}. \\
+    &= \frac{1}{(1-\epsilon)} \frac{2}{1+\tilde{\beta}^2} \\
+    &= \frac{1}{(1-\epsilon)} \frac{2}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}. \\
   \end{align*}
 
 
-  \noindent De esta forma hemos obtenido que para nuestro caso concreto de $f(x)=e^{i \xi x}e^{-|x|}$ ,
+  \noindent De esta forma hemos obtenido que para nuestro caso concreto de $f(x)=e^{i \xi x}e^{-|x|}$,
 
 
   \begin{align*}
-    \left\| |\widehat{L_\tau f}|-|\widehat{f}| \right\| &= \left\| \frac{1}{(1-\epsilon)} \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right\| \\
-    &\geq  \left\| \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right\| \\
-    &=\left(\int_{\mathbb{R}} \left| \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right|^2 d\omega\right)^{1/2}.
+    \left\| |\widehat{L_\tau f}|-|\widehat{f}| \right\| &= \left\| \frac{1}{(1-\epsilon)} \frac{2}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{2}{1+(\xi - \omega)^2} \right\| \\
+    &= 2 \left(\int_{\mathbb{R}} \left| \frac{\frac{1}{(1-\epsilon)}}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}-\frac{1}{1+(\xi - \omega)^2} \right|^2 d\omega\right)^{1/2}.
   \end{align*}
 
 
@@ -164,39 +166,39 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
   \noindent Así, obtenemos que: 
 
   \begin{align*}
-    \int_{\mathbb{R}} \left| \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2} \right|^2 d\omega &\geq
-    \left|\int_{\mathbb{R}} \left(  \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}  \right)^2 d\omega \right| \\
-    &=\left|\int_{\mathbb{R}} \left(  \frac{1}{1+t^2} - \frac{1}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}  \right)^2 d\omega \right| \\
+    \int_{\mathbb{R}} \left| \frac{1}{1+(\xi - \omega)^2} - \frac{\frac{1}{(1-\epsilon)}}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2} \right|^2 d\omega &=
+    \left|\int_{\mathbb{R}} \left(  \frac{1}{1+(\xi - \omega)^2} - \frac{\frac{1}{(1-\epsilon)}}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2}  \right)^2 d\omega \right| \\
+    &=\left|\int_{\mathbb{R}} \left(  \frac{1}{1+t^2} - \frac{\frac{1}{(1-\epsilon)}}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}  \right)^2 dt \right| \\
   \end{align*}
 
-  \noindent Representando la gráfica $g_1(t)= \frac{1}{1+t^2}$, podemos ver cómo el valor de su integral se acumula en torno al origen de coordenadas, y en cambio $g_2(t)=\frac{1}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}$ e una traslación y escalado de la función anterior. De esta forma, si $\epsilon\xi$ es muy grande, el área de la función $g_2(t)$ será prácticamente cero en la región del espacio dónde $g_1(t)$ concentra su integral. Dicho de otra forma, las dos funciones tendrían soporte disjunto.
+  \noindent Representando la gráfica de $g_1(t)= \frac{1}{1+t^2}$, podemos ver cómo el valor de su integral se acumula en torno al origen de coordenadas, y en cambio $g_2(t)=\frac{\frac{1}{(1-\epsilon)}}{1+\left[ \frac{t+\epsilon\xi}{(1-\epsilon)}\right]^2}$ es una traslación y escalado de la función anterior. De esta forma, si $\epsilon\xi$ es muy grande, el área encerrada por la función $g_2(t)$ será prácticamente cero en la región del espacio donde $g_1(t)$ concentra su integral. Dicho de otra forma, las dos funciones tendrían soporte \entrecomillado{casi disjunto}. Véase la \autoref{fig:Grafica_funciones}.
 
   \noindent De esta forma, podemos tomar una constante $M>0$ tal que para un valor de $\xi$ elevado se cumpla que: 
 
   \begin{align*}
-    \int_{\mathbb{R}} \left| \frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2} \right|^2 d\omega 
+    \left| \int_{\mathbb{R}}\frac{1}{1+(\xi - \omega)^2} - \frac{1}{1+\left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]^2} \right|^2 d\omega 
     &\geq \int_{-M}^{M} (g_1(t)-g_2(t))^2 dt \\
     &\approx \int_{-M}^{M} g_1(t)^2 dt. \\
   \end{align*}
 
-  \noindent Y como $\xi$ puede ser arbitrariamente grande, intuitivamente el intervalo en el que ambas funciones tienen soporte disjunto crece de forma indefinida lo cual nos permite realizar la siguiente aproximación teniendo en cuenta que $g_1(t)=\widehat{f}$:
+  \noindent Y como $\xi$ puede ser arbitrariamente grande, intuitivamente el intervalo en el que ambas funciones tienen soporte \entrecomillado{casi disjunto} crece de forma indefinida lo cual nos permite realizar la siguiente aproximación teniendo en cuenta que $g_1(t)=\widehat{f}$:
 
   \begin{equation} \label{eq::1.1}
     \left\| |\widehat{f}| -|\widehat{L_\tau f}| \; \right\| \sim \|g_1(t) \|=\|f\|. 
   \end{equation}
 
-  \noindent Dónde la última igualdad la hemos realizado gracias a la fórmula de Plancharel que en el caso de $\mathbb{R}^d$ es: 
+  \noindent Donde la última igualdad la hemos realizado gracias a la fórmula de Plancharel que en el caso de $\mathbb{R}^d$ es: 
 
   \begin{equation} \label{eq::Plancharel}
     \int_{\mathbb{R}^d} \left|f(x)\right|^2 dx= \int_{\mathbb{R}^d}\left|\widehat{f}(\omega)\right|^2 d\omega.
   \end{equation}
 
-  \noindent Luego hemos demostrado que en este caso particular el operador $|\widehat{f}|$ no cumple la condición de Lipschitz, pues como hemos mencionado antes, $\xi$ puede ser arbitrariamente grande y de esta forma, que la diferencia anterior pueda ser todo lo grande que se quiera.
+  \noindent Así, en vista de lo obtenido anteriormente, no es posible encontrar una constante $c \in \mathbb{R}$ tal que la desigualdad \eqref{eq::lipschitz_condition} se cumpla para cualquier valor de $\epsilon$.
 
   \begin{figure}[!h]
     \centering
     \includegraphics[width=1.0\textwidth]{img/geogebra-export_contraejemplo_Fourier.png}
-    \caption{Como podemos ver en la imagen, para los valores $\epsilon=0.1$, $\xi=100$ y $M=5$ ambas funciones tienen soporte casi disjunto de manera que la diferencia entre ellas en el intervalo $[-5,5]$ coincide prácticamente con la integral de $g_1(t)$.}
+    \caption{Como podemos ver en la imagen, para los valores $\epsilon=0.1$, $\xi=100$ y $M=5$ ambas funciones tienen soporte casi disjunto de manera que la diferencia entre ellas en el intervalo $[-5,5]$ coincide prácticamente con $g_1(t)$.}
     \label{fig:Grafica_funciones}
   \end{figure}
 
@@ -204,7 +206,11 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
  
 \medskip
 
-\noindent Por esto, lo que haremos será reemplazar las ondas sinusoidales de la transformada de Fourier por funciones localizadas con un soporte mayor en altas frecuencias que nos permitan evitar estas complicaciones, que tendrán un mejor rendimiento en nuestro propósito. Estas funciones se denominan \textbf{ondeletas}. 
+\noindent La demostración anterior no ha tenido en cuenta la hipótesis de que la función $f$ debe tener soporte compacto, pero se ha realizado de esta manera por simplicidad en las cuentas, aunque puede adaptarse al caso de una función de soporte compacto.
+
+\medskip
+
+\noindent Para conseguir esto, reemplazaremos las ondas sinusoidales de la transformada de Fourier por funciones localizadas con un soporte mayor en altas frecuencias que nos permitan evitar estas complicaciones, que tendrán un mejor rendimiento en nuestro propósito. Estas funciones se denominan \textbf{ondeletas}. 
 
 \medskip
 
@@ -255,7 +261,7 @@ $$f=\sum_{j=-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}  \langle f,\psi_{j,n} \
 
 \begin{itemize}
   \item Cada ondeleta $\psi_{j,n}$ tiene media $0$ en su soporte $[2^jn, 2^j(n+1)]$.
-  \item Si $f$ es localmente regular y $2^j$ es próximo a $0$, entonces su intervalo con soporte es muy pequeño, debido a las propiedades de $f$, la función en el intervalo  $[2^jn, 2^j(n+1)]$ será prácticamente constante, lo que se traduce en que su coeficiente de ondeleta $\langle f,\psi_{j,n} \rangle$ es prácticamente cero.
+  \item Si $f$ es localmente regular y el intervalo dónde tiene soporte la ondeleta correspondiente soporte es muy pequeño, debido a las propiedades de $f$, la función en el intervalo  $[2^jn, 2^j(n+1)]$ será prácticamente constante, lo que se traduce en que su coeficiente de ondeleta $\langle f,\psi_{j,n} \rangle$ es prácticamente cero.
   \item Los mayores coeficientes se localizan en los cambios bruscos de intensidad de señal, como pueden ser los bordes, las esquinas o las texturas en las imágenes, pues en estos casos somos capaces de encontrar un elemento de la base de Haar con cuyo soporte esté en el intervalo dónde se produzca el cambio de intensidad, y por lo tanto que tenga un coeficiente de ondeletas distinto de cero.
 \end{itemize}
 
@@ -270,16 +276,16 @@ $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{
 \begin{figure} [!h]
   \centering
   \includegraphics[width=0.8\textwidth]{img/base_haar_2d.png}
-  \caption{En el ejemplo $1$ y $3$ podemos ver ejemplos de soportes para ondeletas especializadas en la detección de líneas verticales, en la imagen $2$ podemos ver un ejemplo de soporte de una ondeleta en el caso de la detección de líneas horizontales, y en el ejemplo $4$ para las diagonales. Todas tienen soporte cuadrado.}
+  \caption{En el ejemplo $1$ podemos ver un ejemplo de filtro generado por el soporte de una ondeleta para la detección de líneas bordes verticales, en la imagen $2$ podemos ver un ejemplo de filtro generado por el soporte de una ondeleta para la detección de bordes horizontales, y en el ejemplo $3$ para las diagonales. Todas tienen soporte cuadrado.}
   \label{fig:base_haar}
 \end{figure}
 
-\noindent Del mismo modo que en una dimensión, los coeficientes de ondeletas $\langle f,\psi_{j,n}^k \rangle$ serán pequeños si $f(x)$ es regular, y serán grandes cerca de los cambios bruscos de frecuencias como en los bordes o esquinas de las imágenes, como podemos ver en \autoref{fig:ejemplo_haar}. Los filtros resaltan los bordes en tres direcciones, horizontal (derecha) vertical (abajo) y en diagonal (abajo derecha).
+\noindent Del mismo modo que en una dimensión, los coeficientes de ondeletas $\langle f,\psi_{j,n}^k \rangle$ serán pequeños si $f(x)$ es regular, y serán grandes cerca de los cambios bruscos de frecuencias como en los bordes o esquinas de las imágenes, como podemos ver en \autoref{fig:ejemplo_haar}.
 
 \begin{figure} [!h]
   \centering
   \includegraphics[width=0.8\textwidth]{img/ejemplos_haar_basis.png}
-  \caption{Ejemplos de aplicar la base de Haar a dos imágenes \cite{HaarBasis}.}
+  \caption{Ejemplos de aplicar la base de Haar a dos imágenes.Los filtros resaltan los bordes en tres direcciones, horizontal (derecha) vertical (abajo) y en diagonal (abajo derecha). Imagen extraida de \cite{HaarBasis}.}
   \label{fig:ejemplo_haar}
 \end{figure}
 
@@ -325,7 +331,7 @@ $$\widehat{\psi}_\lambda(\omega)= \widehat{\Theta} (\lambda^{-1}\omega-\eta),$$
  
 \medskip 
 
-\subsection{La Transformada de Littlewood-Paley}
+\subsection{La Transformada de Littlewood-Paley} \label{ch:seccion12}
 
 \noindent Una vez conocemos un poco más en profundidad las ondeletas y su funcionamiento, pasamos a presentar la \textbf{Transformada de ondeleta de Littlewood-Paley}, que es la que emplearemos para construir el propagador de dispersión.
 
@@ -383,7 +389,7 @@ $$\widehat{W[\lambda]f(\omega)}=\widehat{f}(\omega)\widehat{\psi_\lambda}(\omega
 \begin{figure} [!h]
   \centering
   \includegraphics[width=0.8\textwidth]{img/Relacion_escala_frecuencia.png}
-  \caption{Como podemos ver, en el caso de la izquierda la ondleta (en color azul) se ve afectada por una menor escala, lo que le permitirá detectar con mayores frecuencias los cambios que se producen en la señal al convolucionar con esta a lo largo del tiempo. En cambio, en el segundo caso, se ve afectada por una escala mayo, lo que le impedirá detectar con tanta precusion los cambios que se produzcan en la señal.}
+  \caption{Como podemos ver, en el caso de la izquierda la ondleta (en color azul) se ve afectada por una menor escala, lo que le permitirá detectar con mayores frecuencias los cambios que se producen en la señal al convolucionar con esta a lo largo del tiempo. En cambio, en el segundo caso, se ve afectada por una escala mayo, lo que le impedirá detectar con tanta precusion los cambios que se produzcan en la señal. Imagen extraida de \cite{WAVELETS}.}
   \label{fig:scattering_propagator}
 \end{figure}
 
