@@ -1,10 +1,12 @@
 \backcite {doi:10.1137/S0036141002404838}{{6}{1.0.7}{equation.1.0.2}}
+\backcite {GroupInvariantScattering}{{7}{2}{chapter.2}}
 \backcite {DigitalImageProcessing}{{7}{2.1.1}{subsection.2.1.1}}
 \backcite {MallatWavelets}{{12}{2.1.2}{subsection.2.1.2}}
 \backcite {MallatWavelets}{{14}{2}{Hfootnote.3}}
 \backcite {HaarBasis}{{15}{2.4}{figure.2.4}}
 \backcite {WAVELETS}{{17}{2.5}{figure.2.5}}
 \backcite {JBrunaOperatorsCommutingDiff}{{22}{2.2.2}{subsection.2.2.2}}
+\backcite {GroupInvariantScattering}{{22}{2.2.2}{subsection.2.2.2}}
 \backcite {bruna2013invariant}{{22}{2.2.2}{subsection.2.2.2}}
 \backcite {bruna2013invariant}{{27}{2.6}{figure.2.6}}
 \backcite {lecun2015deep}{{27}{2.3.2}{subsection.2.3.2}}

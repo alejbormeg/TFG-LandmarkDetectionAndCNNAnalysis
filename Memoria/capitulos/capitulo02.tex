@@ -15,7 +15,7 @@
 
 \medskip
 
-\noindent Una vez tengamos un operador con todas las propiedades anteriores presentaremos el \textbf{PD}, y será la aplicación en cadena de este operador anterior sobre un \entrecomillado{camino} de frecuencias y rotaciones el que definirá la modelización matemática de una Red Neuronal Convolucional.
+\noindent Una vez tengamos un operador con todas las propiedades anteriores presentaremos el \textbf{PD}, y será la aplicación en cadena de este operador anterior sobre un \entrecomillado{camino} de frecuencias y rotaciones el que definirá la modelización matemática de una Red Neuronal Convolucional. Todo este capítulo está basado en la investigación de Stéphane Mallat y sigue como hilo conductor su publicación \cite{GroupInvariantScattering} junto con otros autores que serán citados debidamente.
 
 
 \section{De Fourier a las ondeletas de Littlewood-Paley}
@@ -395,7 +395,7 @@ $$\widehat{W[\lambda]f(\omega)}=\widehat{f}(\omega)\widehat{\psi_\lambda}(\omega
 
 \medskip
 
-\noindent Con la transformada de Littlewood-Paley ocurre lo mismo, a una cierta escala $2^J$ sólo retiene las ondeletas de frecuencias $2^j \leq 2^{J}$. De esta forma, las bajas frecuencias que no son cubiertas por estas ondeletas vienen dadas por un promedio en el dominio proporcional a $2^J$:
+\noindent Con la transformada de Littlewood-Paley ocurre lo mismo, a una cierta escala $2^J$ (con $j \in \mathbb{Z}$ fijo), sólo retiene las ondeletas de frecuencias $2^j > 2^{-J}$. Así, podemos obtener una estimación de lo dilatadas que deben estar las ondeletas como mínimo para no generar coeficientes no nulos. De esta forma, las bajas frecuencias que no son cubiertas por estas ondeletas vienen dadas por un promedio en el dominio proporcional a $2^J$:
 
 \begin{equation}
   A_Jf=f \ast \phi_ {2^J} \; \; con \; \phi_ {2^J}(x)=2^{-dJ} \phi(2^{-J}x).
@@ -463,8 +463,8 @@ $$|\widehat{\phi}(\omega)|^2 + \sum_{j=0}^{\infty} \sum_{r\in G} |\widehat{\psi}
 \noindent Por otro lado si vamos a la expresión a la que queremos llegar se tiene que: 
 
 \begin{align*}
-  \forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=1 \iff \\
-  \forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2=\sum_{j=-\infty}^{-J} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2.
+  &\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \sum_{j>-J,r\in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=1 \iff \\
+  &\iff \forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2=\sum_{j=-\infty}^{-J} \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2.
 \end{align*}
 
 \noindent Con lo que si demostramos esto último tendríamos que \eqref{eq::1.2} y \eqref{eq::1.3} son equivalentes para el caso $\beta=1$. 
@@ -584,7 +584,7 @@ $$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,
 
 \medskip
 
-\noindent Esto nos enseña, que para obtener un operador invariante por traslaciones y no trivial $U[\lambda]f$, es necesario componer $W[\lambda]$ con un operador extra $M[\lambda]$ que sea \entrecomillado{no lineal}, y que se conoce como "demodulación", que transforma $W[\lambda]f$ en una función de menor frecuencia con integral distinta de cero. Además, la elección de $M[\lambda]$ debe preservar la Lipschitz-continuidad bajo la acción de difeomorfismos.    
+\noindent Esto nos enseña, que para obtener un operador invariante por traslaciones y no trivial $U[\lambda]f$, es necesario componer $W[\lambda]$ con un operador extra $M[\lambda]$ que sea no lineal, y que se conoce como \entrecomillado{demodulación}, que transforma $W[\lambda]f$ en una función de menor frecuencia con integral distinta de cero. Además, la elección de $M[\lambda]$ debe preservar la Lipschitz-continuidad bajo la acción de difeomorfismos.    
 En resumen, queremos un operador no lineal que produzca coeficientes invariantes por traslaciones no triviales y que además conserve la Lipschitz-continuidad.
 
 
@@ -647,7 +647,7 @@ En resumen, queremos un operador no lineal que produzca coeficientes invariantes
 
 \medskip
 
-\noindent Dado que se tratan de dos funciones positivas las que se restan en el integrnado, la única forma de que el resultado de esta integral de cero es que ambas funciones coincidan punto a punto.
+\noindent Dado que se tratan de dos funciones positivas las que se restan en el integrnado, y para llegar a la conclusión que sugiere el autor \cite{GroupInvariantScattering} se ha supuesto que $\left|M[\lambda]h(x) \right| \geq \left| h(x)\right| \;\; \forall x \in \mathbb{R}^d$.
 
 \medskip
 
@@ -719,9 +719,9 @@ Escribimos la rotación y reescalado de un camino $p$ mediante $2^lg \in 2^\math
 \end{definicion}
 
 \begin{definicion}
-La concatenación de dos caminos $p$ y $p'$ se denota por $p+p'=(\lambda_1,\lambda_2,\ldots,\lambda_m,\lambda_1',\lambda_2',\ldots,\lambda_{m'}')$. 
+La concatenación de dos caminos $p$ y $p'$ se denota por $$p+p'=(\lambda_1,\lambda_2,\ldots,\lambda_m,\lambda_1',\lambda_2',\ldots,\lambda_{m'}').$$
 
-En el caso particular de $p+\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_m,\lambda)$
+\noindent En el caso particular de $p+\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_m,\lambda)$
 \end{definicion}
 
 \noindent Con todo lo que sabemos sobre caminos, podemos probar la siguiente propiedad: 
@@ -767,10 +767,10 @@ Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transforma
 
 \medskip
 
-\noindent No obstante, para problemas de clasificación, es mucho más frecuente calcular pequeños descriptores que sean invariantes por traslaciones frente a una escala predefinida $2^J$, manteniendo las frecuencias superiores a $2^J$, lo que nos permite ver esta variabilidad espacial. Esto se consigue convolucionando la transformada con una ventana escalada a la frecuencia deseada, en nuestro caso $\phi_{2^J}(x)=2^{-dJ}\phi(2^{-J}x)$. 
+\noindent No obstante, para problemas de clasificación, es mucho más frecuente calcular pequeños descriptores que sean invariantes por traslaciones frente a una escala predefinida $2^J$, manteniendo las frecuencias superiores a $2^{-J}$, lo que nos permite ver esta variabilidad espacial. Esto se consigue convolucionando la transformada con una ventana escalada a la frecuencia deseada, en nuestro caso $\phi_{2^J}(x)=2^{-dJ}\phi(2^{-J}x)$. 
 
 \begin{definicion}
-Sea $J \in \mathbb{Z}$ y $\mathcal{P}_J$ el conjunto de caminos finitos $p=(\lambda_1,\lambda_2,...,\lambda_m)$ con $\lambda_k \in \Lambda_J$ y $|\lambda_k|=2^{jk}>2^{-J}$. Una ventana de transformada de dispersión se define para todo $p \in \mathcal{P}_J$ por
+Sea $J \in \mathbb{Z}$ y $\mathcal{P}_J$ el conjunto de caminos finitos $p=(\lambda_1,\lambda_2,...,\lambda_m)$ con $\lambda_k \in \Lambda_J$ y $|\lambda_k|=2^{k}>2^{-J}$. Una ventana de transformada de dispersión se define para todo $p \in \mathcal{P}_J$ por
 
 \begin{equation}
   S_J[p]f(x)=U[p]f \ast \phi_{2^J}(x)=\int_{\mathbb{R}^d}U[p]f(u)\phi_{2^J}(x-u)du.
@@ -860,7 +860,7 @@ $$U_Jf=\lbrace A_Jf, (U[\lambda]f)_{\lambda\in\Lambda_J} \rbrace,$$
 \begin{figure} [!h]
   \centering
   \includegraphics[width=0.8\textwidth]{img/ScatteringPropagator.png}
-  \caption{Un PD $U_J$ aplicado a un punto de una señal $f(x)$ calcula $U[\lambda_1]f(x)=|f(x)\ast \psi_{\lambda_1}|$ y como salida a la capa $m=0$ se promedian los coeficientes que han dado $0$ (por tener $2^j<2^-j$) obteniendo como salida $S_J[\emptyset]f(x)=f(x)\ast \phi_{2^J}$ (como se puede ver en la flecha negra). Después se aplica de nuevo $U_J$ a cada coeficiente $U[\lambda_1]f(x)$ del paso anterior ($m=1$) $U[\lambda_1,\lambda2]f(x)$ obteniendo como salida $S_J[\lambda_1]f(x)=U[\lambda_1]f(x) \ast \phi_{2^J}$. Se repite este proceso de manera recursiva para cada coeficiente $U[p]f(x)$ y obteniendo como resultado $S_J[p]f(x)=U[p]f(x) \ast \phi_{2^J}$. Imagen extraida de \cite{bruna2013invariant}.}
+  \caption{Un PD $U_J$ aplicado a un punto de una señal $f(x)$ calcula $U[\lambda_1]f(x)=|f(x)\ast \psi_{\lambda_1}|$ y como salida a la capa $m=0$ se promedian los coeficientes que han dado $0$ (por tener $2^j<2^{-J}$) obteniendo como salida $S_J[\emptyset]f(x)=f(x)\ast \phi_{2^J}$ (como se puede ver en la flecha negra). Después se aplica de nuevo $U_J$ a cada coeficiente $U[\lambda_1]f(x)$ del paso anterior ($m=1$) $U[\lambda_1,\lambda2]f(x)$ obteniendo como salida $S_J[\lambda_1]f(x)=U[\lambda_1]f(x) \ast \phi_{2^J}$. Se repite este proceso de manera recursiva para cada coeficiente $U[p]f(x)$ y obteniendo como resultado $S_J[p]f(x)=U[p]f(x) \ast \phi_{2^J}$. Imagen extraida de \cite{bruna2013invariant}.}
   \label{fig:scattering_propagator}
 \end{figure}
 
@@ -872,7 +872,7 @@ Las operaciones de la transformada de dispersión que hemos descrito siguen la e
 
 \medskip
 
-\noindent Las redes neuronales convolucionales han sido empleadas con mucho éxito en tareas de reconocimiento de objetos o personas y usan normalmente Kernels que no son predefinidos, sino que se aprenden mediante la técnica de back-propagation al entrenar la red. En cambio, en la modelización que se ha presentado las ondeletas que usamos son prefijadas y no se aprenden.
+\noindent Las redes neuronales convolucionales han sido empleadas con mucho éxito en tareas de reconocimiento de objetos o personas y usan normalmente kernels que no son predefinidos, sino que se aprenden mediante la técnica de back-propagation al entrenar la red. En cambio, en la modelización que se ha presentado las ondeletas que usamos son prefijadas y no se aprenden.
 
 \medskip
 
@@ -890,11 +890,11 @@ Las operaciones de la transformada de dispersión que hemos descrito siguen la e
 \noindent El propagador $U_Jf=\lbrace A_Jf, \left(\left| W[\lambda]f\right|\right)_{\lambda\in\Lambda_J} \rbrace$ es no expansivo, porque la transformada de ondas $W_J$ es unitaria pues cumple las hipótesis de la \autoref{unitario} y el módulo no es expansivo en el sentido de que $||a|-|b||\leq |a-b|$ para cualquier $(a,b)\in \mathbb{C}^2$. Esto es válido tanto si $f$ es real o compleja. Como consecuencia: 
 
 \begin{align*} 
-    ||U_J f-U_J h||^2 &= ||A_J f-A_J h||^2+\sum_{\lambda\in\Lambda_J} \left\| |W[\lambda]f|-|W[\lambda]h| \right\|^2 \\
-    &\leq \left| \left| W_J f- W_J h \right| \right|^2 \leq ||f-h||^2
+    \|U_J f-U_J h\|^2 &= \|A_J f-A_J h\|^2+\sum_{\lambda\in\Lambda_J} \left\| \; |W[\lambda]f|-|W[\lambda]h| \; \right\|^2 \\
+    &\leq \left\| W_J f- W_J h \right\|^2 \leq \|f-h\|^2
 \end{align*}
 
-\noindent Al ser $W_J$ unitaria, tomando la función nula $h=0$ y siguiendo el mismo razonamiento anterior, también se comprueba que $||U_J f||=||f||$ por lo que el operador $U_J$ preserva la norma.
+\noindent Al ser $W_J$ unitaria, tomando la función nula $h=0$ y siguiendo el mismo razonamiento anterior, también se comprueba que $\|U_J f||=\|f||$ por lo que el operador $U_J$ preserva la norma.
 
 \medskip
 
@@ -1027,29 +1027,29 @@ Si \eqref{eq::1.7} se satisface y
 
 
 \begin{teorema} \label{teoremaOndeletasAdmisibles}
-\noindent Si las ondeletas son admisibles, entonces para toda $f\in L^2(\mathbb{R}^d)$
-\begin{equation} se tiene que 
-  \lim_{m\rightarrow\infty} ||U[\Lambda_J^m]f||^2=\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0
+\noindent Si las ondeletas son admisibles, entonces para toda $f\in L^2(\mathbb{R}^d)$ se tiene que
+\begin{equation}  
+  \lim_{m\rightarrow\infty} \|U[\Lambda_J^m]f \|^2=\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} \|S_J[\Lambda_J^n]f\|^2=0
 \end{equation}
 
 y
 
 \begin{equation}
-  ||S_J[\mathcal{P_J}]f||=||f||
+  \|S_J[\mathcal{P}_J]f\|=\|f\|
 \end{equation}
 
 \end{teorema}
 
 \begin{proof}
-  Esta demostración tiene dos partes, la primera consistirá en demostrar que la condición \eqref{eq::1.6} implica que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0$. 
+  Esta demostración tiene dos partes, la primera consistirá en demostrar que la condición \eqref{eq::1.6} implica que $\lim_{m\rightarrow \infty} \| U[\Lambda_J^m]f \|^2=0$. 
   
   \medskip
 
   \noindent La clave de esto reside en el \autoref{lema::Cota_inferior}, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva.Como 
 
-  $$ || U[\mathcal{P}_J]f ||^2= \sum_{m=0}^{+\infty} ||U[\Lambda_J^m]f||^2,$$
+  $$ \| U[\mathcal{P}_J]f ||^2= \sum_{m=0}^{+\infty} ||U[\Lambda_J^m]f\|^2,$$
 
-  \noindent si $||f||_w < \infty$ entonces \eqref{eq::1.9} implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||= 0$. Este resultado se extiende a $L^2(\mathbb{R}^d)$ por densidad. Como $\phi \in L^1(\mathbb{R}^d)$ y $\widehat{\phi}(0)=1$, cualquier $f\in L^2(\mathbb{R}^d)$ satisface $\lim_{n\rightarrow - \infty} ||f-f_n||=0$, dónde $f_n=f \ast \phi_{2^n}$ y $\phi_{2^n}=2^{-nd} \phi(2^{-n}x)$. Se demuestra por tanto que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f_n||=0$ viendo que $||f_n||_w < \infty$. De hecho, 
+  \noindent si $\|f\|_w < \infty$ entonces \eqref{eq::1.9} implica que $\lim_{m\rightarrow\infty}||U[\Lambda_J^m]f||= 0$. Este resultado se extiende a $L^2(\mathbb{R}^d)$ por densidad. Como $\phi \in L^1(\mathbb{R}^d)$ y $\widehat{\phi}(0)=1$, cualquier $f\in L^2(\mathbb{R}^d)$ satisface $\lim_{n\rightarrow - \infty} ||f-f_n||=0$, dónde $f_n=f \ast \phi_{2^n}$ y $\phi_{2^n}=2^{-nd} \phi(2^{-n}x)$. Se demuestra por tanto que $\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f_n||=0$ viendo que $||f_n||_w < \infty$. De hecho, 
 
 
   \begin{align*}
@@ -1078,8 +1078,8 @@ y
     \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0 \iff \lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0 \iff ||S_J[\mathcal{P}_J]f||^2 = ||f||
   \end{align*}
 
-  En primer lugar probamos que 
-  $$\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0 \iff \lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0$$
+  \noindent Primero probamos que 
+  $$\lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0 \iff \lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0.$$
   
   \noindent Como $||U_J h||=||h|| \; \forall h \in L^2(\mathbb{R}^d)$ y $U_J U[\Lambda_J^n]f=\lbrace S_J[\Lambda_J^n]f,U[\Lambda_J^{n+1}]\rbrace$,
 
