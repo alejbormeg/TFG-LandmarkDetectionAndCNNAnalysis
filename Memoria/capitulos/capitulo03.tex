@@ -2,7 +2,7 @@
 
 \chapter{Invarianza por Traslaciones} \label{ch:seccion14}
 
-\noindent Hasta ahora hemos definido el propagador de dispersión y hemos visto algunas propiedades como la conservación de la norma de la señal $f$. No obstante, aún quedan por demostrar propiedades que son esenciales como son la invaianza por traslaciones o la estabilidad bajo la acción de difeomorfismos. En esta sección nos centraremos en el estudio de la invarianza por traslaciones.
+\noindent Hasta ahora hemos definido el propagador de dispersión y hemos visto algunas propiedades como la conservación de la norma de la señal $f$. No obstante, aún queda por demostrar la invaianza por traslaciones.
 
 \section{No expansividad del operador de ventana en conjuntos de caminos}
 Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J] h ||$ es no expansiva cuando se incrementa $J$, y que de hecho converge cuando $J \rightarrow \infty$. Esto define una distancia límite que como veremos a continuación es invariante por traslaciones.
@@ -24,13 +24,13 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 
 \medskip
 
-\noindent Si recordamos la definición de $\mathcal{P}_J$, era un conjunto de caminos finitos $p=(\lambda_1,...,\lambda_m)$ tal que $\lambda_k\in\Lambda_J$ y $|\lambda_k|=2^{jk}>2^{-J}$. Luego todo camino $p' \in \mathcal{P}_{J+1}$, puede ser unívocamente escrito como una extensión de un camino $p\in \mathcal{P}_J$ donde $p$ es el prefijo más grande de $p'$ que pertenece a $\mathcal{P}_J$, y $p'=p+q$ para algún $q\in \mathcal{P}_{J+1}$. De hecho, podemos definir el conjunto de todas las extensiones de $p\in \mathcal{P}_J$ en $\mathcal{P}_{J+1}$ como: 
+\noindent Si recordamos la definición de $\mathcal{P}_J$, era un conjunto de caminos finitos $p=(\lambda_1,\ldots,\lambda_m)$ tal que $\lambda_k\in\Lambda_J$ y $|\lambda_k|=2^{k}>2^{-J}$. Luego todo camino $p' \in \mathcal{P}_{J+1}$, puede ser unívocamente escrito como una extensión de un camino $p\in \mathcal{P}_J$ donde $p$ es el prefijo más grande de $p'$ que pertenece a $\mathcal{P}_J$, y $p'=p+q$ para algún $q\in \mathcal{P}_{J+1}$. De hecho, podemos definir el conjunto de todas las extensiones de $p\in \mathcal{P}_J$ en $\mathcal{P}_{J+1}$ como: 
 
 \begin{equation}
   \mathcal{P}_{J+1}^{p}={p} \cup {p+2^{-J}r+p''}_{r\in G^{+},p''\in \mathcal{P}_{J+1}}
 \end{equation}
 
-Esto define una partición disjunta de $\mathcal{P}_{J+1}=\cup_{p \in \mathcal{P}_J} \mathcal{P}_{J+1}^{p}$. Y deberíamos probar que dichas extensiones son no expansivas,
+\noindent Esto define una partición disjunta de $\mathcal{P}_{J+1}=\cup_{p \in \mathcal{P}_J} \mathcal{P}_{J+1}^{p}$. Y deberíamos probar que dichas extensiones son no expansivas,
 
 \begin{equation}\label{eq::1.11}
   \sum_{p' \in \mathcal{P}_{J+1}^p} || S_{J+1}[p']f-S_{J+1}[p']h||^2 \leq ||S_{J}[p]f-S_J [p]h||^2.
@@ -96,7 +96,7 @@ Esto define una partición disjunta de $\mathcal{P}_{J+1}=\cup_{p \in \mathcal{P
 \end{proof}
 
 
-Vamos ahora a usar el lema anterior con la función $g=U[p]f-U[p]h$ junto con que $U[p]f\ast \phi_{2^J}=S_J[p]f$. De esta forma se tiene:
+\noindent Vamos ahora a usar el lema anterior con la función $g=U[p]f-U[p]h$ junto con que $U[p]f\ast \phi_{2^J}=S_J[p]f$. De esta forma se tiene:
 
 $$||g \ast \phi_{2^{J+1}} ||^2 + \sum_{r\in G^+} || g\ast \psi_{2^{-J}r} ||^2=||g \ast \phi_{2^J}||^2.$$
 
