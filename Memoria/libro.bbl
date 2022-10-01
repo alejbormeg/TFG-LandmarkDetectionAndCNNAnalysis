@@ -14,11 +14,23 @@ Joan Bruna and St{\'e}phane Mallat.
 \newblock {\em IEEE transactions on pattern analysis and machine intelligence},
   35(8):1872--1886, 2013.
 
+\bibitem[BTO{\etalchar{+}}21]{bermejo2021automatic}
+Enrique Bermejo, Kei Taniguchi, Yoshinori Ogawa, Rub{\'e}n Martos, Andrea
+  Valsecchi, Pablo Mesejo, Oscar Ib{\'a}{\~n}ez, and Kazuhiko Imaizumi.
+\newblock Automatic landmark annotation in 3d surface scans of skulls:
+  Methodological proposal and reliability study.
+\newblock {\em Computer Methods and Programs in Biomedicine}, 210:106380, 2021.
+
 \bibitem[BW20]{browatzki20203fabrec}
 Bjorn Browatzki and Christian Wallraven.
 \newblock 3fabrec: Fast few-shot face alignment by reconstruction.
 \newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
   Pattern Recognition}, pages 6110--6120, 2020.
+
+\bibitem[DCI20]{damas2020handbook}
+Sergio Damas, Oscar Cord{\'o}n, and Oscar Ib{\'a}{\~n}ez.
+\newblock {\em Handbook on craniofacial superimposition: The MEPROCS project}.
+\newblock Springer Nature, 2020.
 
 \bibitem[Der17]{autoencoders2017}
 Arden Dertat.
