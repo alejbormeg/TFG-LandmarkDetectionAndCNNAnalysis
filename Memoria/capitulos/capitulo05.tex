@@ -21,17 +21,28 @@
 
 \section{Descripción del problema}
 
-\noindent Los antropólogos forenses emplean diversas técnicas para la identificación de personas a partir de restos óseos como son la reconstrucción de huesos, el cotejo fotográfico con el cráneo o el análisis de imágenes. De entre estas técnicas, destaca la \textbf{Superposición Craneofacial} por ser la que se encuentra más relacionada con el fin de este trabajo. Se trata de una técnica de identificación forense mediante la cual se comparan imágenes de la persona difunta (imágenes se le denominan imágenes ante-mortem) con una representación 3D de un cráneo candidato, con el fin de determinar si el cráneo pertenece a la persona de las imágenes o no. En esta técnica se superpone el modelo 3D y la imagen del sujeto y se estima si son o no la misma persona. Para determinar esto se realiza un marcando puntos de referencia \textbf{de acuerdo a correspondencias morfológicas} tanto en la cara del sujeto en las imágenes como en el cráneo candidato, de manera que cada punto marcado sobre el rosto tiene un homólogo marcado sobre el cráneo. Estos puntos de referencia reciben el nombre de \textit{landmarks} y se denominan puntos craneométricos cuando se marcan sobre el cráneo y puntos cefalométricos cuando se marcan sobre el rostro. En caso de que el cráneo y la imagen pertenezcan a la misma persona existirá una correlación entre los dos tipos de \textit{landmarks} anteriores, o dicho de otra forma, en caso de que pertenezcan a la misma persona se podrá superponer el modelo del cráneo con los puntos marcados sobre la imagen marcada haciendo coincidir estos puntos.
+\noindent Los antropólogos forenses emplean diversas técnicas para la identificación de personas a partir de restos óseos como son la reconstrucción de huesos, el cotejo fotográfico con el cráneo o el análisis de imágenes. De entre estas técnicas, destaca la \textbf{Superposición Craneofacial} por ser la que se encuentra más relacionada con el fin de este trabajo. Se trata de una técnica de identificación forense mediante la cual se comparan imágenes de la persona difunta (imágenes se le denominan imágenes ante-mortem) con una representación 3D de un cráneo candidato, con el fin de determinar si el cráneo pertenece a la persona de las imágenes o no. Se distinguen cuatro etapas en el proceso: 
+
+\begin{enumerate}
+    \item Se recogen todos los datos necesarios para el proceso. Se recogen todas las imágenes disponibles de los sujetos ante-mortem, se realiza un escaneo $3D$ de los cráneos candidatos y se realiza el marcado de \textit{landmarks} o puntos de referencia. 
+    
+    \medskip
+    
+    \noindent El marcado de landmarks se realiza \textbf{de acuerdo a correspondencias morfológicas} tanto en la cara del sujeto en las imágenes como en el modelo $3D$ del cráneo candidato, de manera que cada punto marcado sobre el rosto tiene un homólogo marcado sobre el cráneo. Estos puntos de referencia reciben el nombre de \textbf{puntos craneométricos} cuando se marcan sobre el cráneo y \textbf{puntos cefalométricos} cuando se marcan sobre el rostro.
+    \item Análisis morfológico y morfométrico. En esta etapa se realiza la selección de parejas imagen modelo $3D$ sobre las que realizar la superposición craneofacial.
+    \item Se realiza la superposición cráneo-cara por parte del experto con ayuda de alguna herramienta como puede ser photoshop tratando de hacer corresponder cada landmark cefalométrico con su homólogo craneométrico.
+    \item Se realiza la toma de decisiones en función de la bondad de los ajustes realizados.
+\end{enumerate}
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{img/ejemplo_SCF_intro.png}
-    \caption{Ejemplo del proceso a seguir por el antropólogo forense en la superposición cráneo facial. Se parte de una imagen o varias de un sujeto, de un cráneo al que se le hace un modelado 3D y finalmente con ayuda de una herramienta como puede ser Photoshop se realizan las transformaciones necesarias sobre el modelo 3D hasta que coincida con la imagen. Imagen extraida de \cite{damas2020handbook}.}
+    \caption{Ejemplo del proceso a seguir por el antropólogo forense en la superposición cráneo facial. Imagen extraida de \cite{damas2020handbook}.}
 \end{figure}
 
 \medskip
 
-\noindent Sin embargo, esta tarea no es sencilla por factores diversos a tener en cuenta como son la grasa, la calidad de la imagen y el tejido blando facial que separa el punto craneométrico de su homólogo cefalométrico y que se traduce en una ligera traslación del punto. El desplazamiento ocasionado por el tejido blando facial no es constante ni se produce siempre en la misma dirección, lo cual complica esta tarea. 
+\noindent Sin embargo, esta tarea no es sencilla por factores diversos a tener en cuenta como son la grasa, la calidad de la imagen y el tejido blando facial que separa el punto craneométrico de su homólogo cefalométrico y que se traduce en una ligera traslación del punto. El desplazamiento ocasionado por el tejido blando facial no es constante ni se produce siempre en la misma dirección. 
 
 \begin{figure}[!h]
     \centering
@@ -39,7 +50,52 @@
     \caption{En este ejemplo podemos ver landmarks cefalométricos (imagen de la izquierda) y algunos de sus homólogos en los landmarks craneométricos de la imagen de la derecha. También podemos ver el efecto del tejido blando facial en la imagen de la izquierda en el desplazamiento de los puntos. Imagen extraida de \cite{damas2020handbook}.}
 \end{figure}
 
-\medskip Una vez determinados los landmarks, un algoritmo automático puede encargarse de realziar el solapamiento del cráneo 3D y la imagen 2D.
+\medskip 
+
+\noindent En este trabajo se usarán un total de $30$ landmarks, que son los siguientes: 
+
+\begin{center}
+    \begin{tabular}{ |c|c|c|c| } 
+        \hline
+         & \textbf{Landmarks} & \textbf{notación} \\
+        \hline
+        1 & cell2 & cell3 \\ 
+        2 & cell5 & cell6 \\ 
+        3 & cell8 & cell9 \\ 
+        4 & cell8 & cell9 \\ 
+        5 & cell8 & cell9 \\ 
+        6 & cell8 & cell9 \\ 
+        7 & cell8 & cell9 \\ 
+        8 & cell8 & cell9 \\ 
+        9 & cell8 & cell9 \\ 
+        10 & cell8 & cell9 \\ 
+        11 & cell8 & cell9 \\ 
+        12 & cell8 & cell9 \\ 
+        13 & cell8 & cell9 \\ 
+        14 & cell8 & cell9 \\ 
+        15 & cell8 & cell9 \\ 
+        16 & cell8 & cell9 \\ 
+        17 & cell8 & cell9 \\ 
+        18 & cell8 & cell9 \\ 
+        19 & cell8 & cell9 \\ 
+        20 & cell8 & cell9 \\ 
+        21 & cell8 & cell9 \\ 
+        22 & cell8 & cell9 \\ 
+        23 & cell8 & cell9 \\ 
+        24 & cell8 & cell9 \\ 
+        25 & cell8 & cell9 \\ 
+        26 & cell8 & cell9 \\ 
+        27 & cell8 & cell9 \\ 
+        28 & cell8 & cell9 \\ 
+        29 & cell8 & cell9 \\ 
+        30 & cell8 & cell9 \\ 
+        \hline
+    \end{tabular}
+\end{center}
+
+\medskip 
+
+\noindent Una vez determinados los landmarks, un algoritmo automático puede encargarse de realziar el solapamiento del cráneo 3D y la imagen 2D.
 
 \section{Motivación}
 
@@ -68,10 +124,22 @@ Tradicionalmente, este proceso del marcado de landmarks es esencialmente manual 
 
 \noindent Debido a que el algoritmo va a operar con imágenes, buscamos una solución dentro del área de la \textbf{visión por computador}. Actualmente existen  multitud de trabajos relacionados con el marcado de landmarks en imágenes dentro de este área, la mayoría usando algoritmos de \textbf{deep learning} y enfocadas al reconocimiento de individuos en imágenes. Los landmarks que marcan en estas propuestas no siguen correspondencias morfológicas, y dependen únicamente de la estructura facial del individuo. Dichos algoritmos son entrenados con grandes bases de datos de imágenes etiquetadas y actualmente se obtienen excelentes resultados en este tipo de problemas.
 
+\medskip
+
+\noindent En particular nos hemos fijado en el framework \textbf{3FabRec}\cite{browatzki20203fabrec}.Dicho framework cuenta con excelentes resultados en la tarea de detección de landmarks en imágenes y sobre todo nos interesa porque obtiene buenos resultados entrenando con pocas imágenes. Es por esto por lo que nos parece una buena alternativa tratar de adaptar este framework a la detección de landmarks cefalométricos en imágenes usando un dataset forense que contiene pocas imágenes etiquetadas.
 
 \section{Objetivos}
 
-\noindent Con todo lo mencionado anteriormente nuestro objetivo principal será adaptar el framework \textbf{3FabRec} \cite{browatzki20203fabrec} para la detección de landmarks cefalométricos empleando una base de datos forense con pocas imágenes. Para lograr este objetivo se pretenden realizar también los siguientes objetivos menores: 
+\noindent Los objetivos a resolver en el trabajo son los siguientes: 
+
+\begin{enumerate}
+    \item Realizar una investigación sobre el estado del arte en la localización de landmarks cefalométricos en fotografías en el ámbito de la antropología forense.
+    \item Afianzar conocimientos adquiridos sobre Aprendizaje Automático y Visión por computador.
+    \item Realizar una investigación sobre los modelos de Auteoncoders y redes Adversarias existentes.
+    \item Realizar un estudio en el dataset proporcionado para identificar errores o anomalías.
+    \item Generar un nuevo dataset a partir del proporcionado realizando un cropping de las imágenes originales para quedarnos únicamente con la cara del sujeto y poder entrenar la red.
+    \item Realizar un estudio experimental realizando diversas pruebas sobre el framework con el conjunto de datos proporcionado.
+\end{enumerate}
 
 
 \endinput

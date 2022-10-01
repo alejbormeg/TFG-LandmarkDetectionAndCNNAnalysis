@@ -31,67 +31,67 @@
 \contentsline {part}{\numberline {II}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{45}{part.2}%
 \contentsline {chapter}{\numberline {5}Introducción}{47}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Descripción del problema}{47}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Motivación}{48}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Objetivos}{50}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Fundamentos Teóricos y Métodos}{51}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Aprendizaje Automático}{51}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Aprendizaje Supervisado}{52}{subsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.1.1}Regresión}{52}{subsubsection.6.1.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.1.2}Gradiente Descendente}{53}{subsubsection.6.1.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.1.3}Gradiente Descendente Estocástico}{54}{subsubsection.6.1.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.1.4}Clasificación}{54}{subsubsection.6.1.1.4}%
-\contentsline {subsection}{\numberline {6.1.2}Aprendizaje no Supervisado}{54}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Aprendizaje Automático en este Trabajo}{54}{subsection.6.1.3}%
-\contentsline {section}{\numberline {6.2}Visión por Computador}{55}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Deep Learning}{55}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Redes Neuronales}{55}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Back Propagation}{57}{subsection.6.3.2}%
-\contentsline {section}{\numberline {6.4}Redes Neuronales Convolucionales}{58}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Capa Convolucional}{60}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Capa de Pooling}{61}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Capa Totalmente Conectada (Fully Conected)}{62}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}Batch Normalization}{62}{subsection.6.4.4}%
-\contentsline {subsection}{\numberline {6.4.5}Optimizador Adam}{62}{subsection.6.4.5}%
-\contentsline {subsection}{\numberline {6.4.6}Proceso de entrenamiento de una CNN}{63}{subsection.6.4.6}%
-\contentsline {subsection}{\numberline {6.4.7}Evolución de las CNN}{63}{subsection.6.4.7}%
-\contentsline {subsubsection}{\numberline {6.4.7.1}LeNet-5}{63}{subsubsection.6.4.7.1}%
-\contentsline {subsubsection}{\numberline {6.4.7.2}AlexNet}{64}{subsubsection.6.4.7.2}%
-\contentsline {subsubsection}{\numberline {6.4.7.3}GoogLeNet}{65}{subsubsection.6.4.7.3}%
-\contentsline {subsubsection}{\numberline {6.4.7.4}VGG-16}{65}{subsubsection.6.4.7.4}%
-\contentsline {subsubsection}{\numberline {6.4.7.5}ResNet}{66}{subsubsection.6.4.7.5}%
-\contentsline {section}{\numberline {6.5}Autoencoders}{67}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Introducción}{67}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Evolución de los Autoencoders}{68}{subsection.6.5.2}%
-\contentsline {subsubsection}{\numberline {6.5.2.1}Generative Adversarial Networks (GANs)}{68}{subsubsection.6.5.2.1}%
-\contentsline {subsubsection}{\numberline {6.5.2.2}Variational Autoencoder (VAE)}{68}{subsubsection.6.5.2.2}%
-\contentsline {subsubsection}{\numberline {6.5.2.3}Adversarial Autoencoder(AAE)}{70}{subsubsection.6.5.2.3}%
-\contentsline {section}{\numberline {6.6}Técnicas empleadas}{71}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Few-shot Learning y Data Augmentation}{71}{subsection.6.6.1}%
-\contentsline {chapter}{\numberline {7}Estado del Arte}{73}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Localización de landmarks cefalométricos en imágenes}{73}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Evolución en la identificación forense de landmarks cefalométricos}{74}{subsection.7.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.1.1}Two diﬀerent approaches to handle landmark location uncertainty in skull-face overlay: coevolution vs fuzzy landmarks}{74}{subsubsection.7.1.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.1.2}Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}{76}{subsubsection.7.1.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.1.3}Automated facial landmark detection, comparison and visualization}{76}{subsubsection.7.1.1.3}%
-\contentsline {subsubsection}{\numberline {7.1.1.4}Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}{77}{subsubsection.7.1.1.4}%
-\contentsline {subsubsection}{\numberline {7.1.1.5}The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}{79}{subsubsection.7.1.1.5}%
-\contentsline {subsection}{\numberline {7.1.2}Nuestra propuesta}{79}{subsection.7.1.2}%
-\contentsline {chapter}{\numberline {8}Datos y Métricas}{83}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Datos del problema y framework empleado}{83}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Base de datos proporcionada}{83}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Red empleada: 3FabRec}{84}{subsection.8.1.2}%
-\contentsline {subsubsection}{\numberline {8.1.2.1}Arquitectura Adversarial Autoencoder}{85}{subsubsection.8.1.2.1}%
-\contentsline {subsubsection}{\numberline {8.1.2.2}Interleaved Transfer Layer (ITL)}{86}{subsubsection.8.1.2.2}%
-\contentsline {subsection}{\numberline {8.1.3}Función de pérdida}{86}{subsection.8.1.3}%
-\contentsline {subsection}{\numberline {8.1.4}Proceso de entrenamiento de la red}{87}{subsection.8.1.4}%
-\contentsline {subsection}{\numberline {8.1.5}Bases de datos usadas por el framework}{88}{subsection.8.1.5}%
-\contentsline {section}{\numberline {8.2}Metricas}{88}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}SSIM}{88}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}Average pixel error}{89}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}MSE}{89}{subsection.8.2.3}%
-\contentsline {chapter}{\numberline {9}Planificación e implementación}{95}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Experimentación}{97}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{99}{chapter.11}%
-\contentsline {chapter}{\numberline {A}Primer apéndice}{101}{appendix.Alph1}%
-\contentsline {chapter}{Glosario}{103}{chapter*.13}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{105}{chapter*.14}%
+\contentsline {section}{\numberline {5.2}Motivación}{50}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Objetivos}{51}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Fundamentos Teóricos y Métodos}{53}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Aprendizaje Automático}{53}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Aprendizaje Supervisado}{54}{subsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.1.1}Regresión}{54}{subsubsection.6.1.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.1.2}Gradiente Descendente}{55}{subsubsection.6.1.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.1.3}Gradiente Descendente Estocástico}{56}{subsubsection.6.1.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.1.4}Clasificación}{56}{subsubsection.6.1.1.4}%
+\contentsline {subsection}{\numberline {6.1.2}Aprendizaje no Supervisado}{56}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Aprendizaje Automático en este Trabajo}{56}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Visión por Computador}{57}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Deep Learning}{57}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Redes Neuronales}{57}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Back Propagation}{59}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Redes Neuronales Convolucionales}{60}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Capa Convolucional}{62}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Capa de Pooling}{63}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Capa Totalmente Conectada (Fully Conected)}{64}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}Batch Normalization}{64}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}Optimizador Adam}{64}{subsection.6.4.5}%
+\contentsline {subsection}{\numberline {6.4.6}Proceso de entrenamiento de una CNN}{65}{subsection.6.4.6}%
+\contentsline {subsection}{\numberline {6.4.7}Evolución de las CNN}{65}{subsection.6.4.7}%
+\contentsline {subsubsection}{\numberline {6.4.7.1}LeNet-5}{65}{subsubsection.6.4.7.1}%
+\contentsline {subsubsection}{\numberline {6.4.7.2}AlexNet}{66}{subsubsection.6.4.7.2}%
+\contentsline {subsubsection}{\numberline {6.4.7.3}GoogLeNet}{67}{subsubsection.6.4.7.3}%
+\contentsline {subsubsection}{\numberline {6.4.7.4}VGG-16}{67}{subsubsection.6.4.7.4}%
+\contentsline {subsubsection}{\numberline {6.4.7.5}ResNet}{68}{subsubsection.6.4.7.5}%
+\contentsline {section}{\numberline {6.5}Autoencoders}{69}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Introducción}{69}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Evolución de los Autoencoders}{70}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}Generative Adversarial Networks (GANs)}{70}{subsubsection.6.5.2.1}%
+\contentsline {subsubsection}{\numberline {6.5.2.2}Variational Autoencoder (VAE)}{70}{subsubsection.6.5.2.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.3}Adversarial Autoencoder(AAE)}{72}{subsubsection.6.5.2.3}%
+\contentsline {section}{\numberline {6.6}Técnicas empleadas}{73}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Few-shot Learning y Data Augmentation}{73}{subsection.6.6.1}%
+\contentsline {chapter}{\numberline {7}Estado del Arte}{75}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Localización de landmarks cefalométricos en imágenes}{75}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Evolución en la identificación forense de landmarks cefalométricos}{76}{subsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.1.1}Two diﬀerent approaches to handle landmark location uncertainty in skull-face overlay: coevolution vs fuzzy landmarks}{76}{subsubsection.7.1.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.1.2}Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}{78}{subsubsection.7.1.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.1.3}Automated facial landmark detection, comparison and visualization}{78}{subsubsection.7.1.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.1.4}Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}{79}{subsubsection.7.1.1.4}%
+\contentsline {subsubsection}{\numberline {7.1.1.5}The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}{81}{subsubsection.7.1.1.5}%
+\contentsline {subsection}{\numberline {7.1.2}Nuestra propuesta}{81}{subsection.7.1.2}%
+\contentsline {chapter}{\numberline {8}Datos y Métricas}{85}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Datos del problema y framework empleado}{85}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Base de datos proporcionada}{85}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Red empleada: 3FabRec}{86}{subsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.2.1}Arquitectura Adversarial Autoencoder}{87}{subsubsection.8.1.2.1}%
+\contentsline {subsubsection}{\numberline {8.1.2.2}Interleaved Transfer Layer (ITL)}{88}{subsubsection.8.1.2.2}%
+\contentsline {subsection}{\numberline {8.1.3}Función de pérdida}{88}{subsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.1.4}Proceso de entrenamiento de la red}{89}{subsection.8.1.4}%
+\contentsline {subsection}{\numberline {8.1.5}Bases de datos usadas por el framework}{90}{subsection.8.1.5}%
+\contentsline {section}{\numberline {8.2}Metricas}{90}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}SSIM}{90}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Average pixel error}{91}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}MSE}{91}{subsection.8.2.3}%
+\contentsline {chapter}{\numberline {9}Planificación e implementación}{97}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Experimentación}{99}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{101}{chapter.11}%
+\contentsline {chapter}{\numberline {A}Primer apéndice}{103}{appendix.Alph1}%
+\contentsline {chapter}{Glosario}{105}{chapter*.13}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{107}{chapter*.14}%
