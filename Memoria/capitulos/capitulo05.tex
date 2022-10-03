@@ -42,60 +42,60 @@
 
 \medskip
 
-\noindent Sin embargo, esta tarea no es sencilla por factores diversos a tener en cuenta como son la grasa, la calidad de la imagen y el tejido blando facial que separa el punto craneométrico de su homólogo cefalométrico y que se traduce en una ligera traslación del punto. El desplazamiento ocasionado por el tejido blando facial no es constante ni se produce siempre en la misma dirección. 
+\noindent Sin embargo, esta tarea no es sencilla por factores diversos a tener en cuenta como son la grasa, la calidad de la imagen y el tejido blando facial que separa el punto craneométrico de su homólogo cefalométrico y que se traduce en una ligera traslación del punto. El desplazamiento ocasionado por el tejido blando facial no es constante ni se produce siempre en la misma dirección. Estos problemas, ocasionan que el experto forense tarde mucho en la tarea del marcado de landmarks. Una vez determinados los landmarks, un algoritmo automático puede encargarse de realziar el solapamiento del cráneo 3D y la imagen 2D acelerando el proceso y ahorrando tiempo en esta tarea al experto.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.97\textwidth]{img/marcado_landmarks.png}
-    \caption{En este ejemplo podemos ver landmarks cefalométricos (imagen de la izquierda) y algunos de sus homólogos en los landmarks craneométricos de la imagen de la derecha. También podemos ver el efecto del tejido blando facial en la imagen de la izquierda en el desplazamiento de los puntos. Imagen extraida de \cite{damas2020handbook}.}
+    \includegraphics[width=0.9\textwidth]{img/marcado_landmarks.png}
+    \caption{En esta imagen podemos ver algunos de los landmarks que se van a estudiar marcados tanto en rostro (cefalométricos) como en cráneo (craneométricos). Imagen extraida de \cite{damas2020handbook}.}
 \end{figure}
 
-\medskip 
 
-\noindent En este trabajo se usarán un total de $30$ landmarks, que son los siguientes: 
+\newpage
+
+\noindent En este trabajo se estudiarán un total de $30$ landmarks, que son los siguientes: 
 
 \begin{center}
-    \begin{tabular}{ |c|c|c|c| } 
+    \begin{tabular}{ |c|l|l|c| } 
         \hline
          & \textbf{Landmarks} & \textbf{notación} \\
         \hline
-        1 & cell2 & cell3 \\ 
-        2 & cell5 & cell6 \\ 
-        3 & cell8 & cell9 \\ 
-        4 & cell8 & cell9 \\ 
-        5 & cell8 & cell9 \\ 
-        6 & cell8 & cell9 \\ 
-        7 & cell8 & cell9 \\ 
-        8 & cell8 & cell9 \\ 
-        9 & cell8 & cell9 \\ 
-        10 & cell8 & cell9 \\ 
-        11 & cell8 & cell9 \\ 
-        12 & cell8 & cell9 \\ 
-        13 & cell8 & cell9 \\ 
-        14 & cell8 & cell9 \\ 
-        15 & cell8 & cell9 \\ 
-        16 & cell8 & cell9 \\ 
-        17 & cell8 & cell9 \\ 
-        18 & cell8 & cell9 \\ 
-        19 & cell8 & cell9 \\ 
-        20 & cell8 & cell9 \\ 
-        21 & cell8 & cell9 \\ 
-        22 & cell8 & cell9 \\ 
-        23 & cell8 & cell9 \\ 
-        24 & cell8 & cell9 \\ 
-        25 & cell8 & cell9 \\ 
-        26 & cell8 & cell9 \\ 
-        27 & cell8 & cell9 \\ 
-        28 & cell8 & cell9 \\ 
-        29 & cell8 & cell9 \\ 
-        30 & cell8 & cell9 \\ 
+        1 & Menton & Me \\ 
+        2 & Gnathion & Gn \\ 
+        3 & Pogonion & Pg \\ 
+        4 & Prosthion & Pr \\ 
+        5 & Labiale Superius & Ls \\ 
+        6 & Subnasale & Sn \\ 
+        7 & Nasion & N \\ 
+        8 & Glabella & G’ \\ 
+        9 & Vertex & v \\ 
+        10 & Left Gonion & GoL \\ 
+        11 & Right Gonion & GoR\\ 
+        12 & Left Zygion & zyL \\ 
+        13 & Right Zygion & zyR\\ 
+        14 & Left Alare & alL \\ 
+        15 & Right Alare & alR \\ 
+        16 & Left Endocanthion & EnL \\ 
+        17 & Right Endocanthion & EnR \\ 
+        18 & Left Exocanthion & ExL \\ 
+        19 & Right Exocanthion & ExR \\ 
+        20 & Left Tragion & T’L \\ 
+        21 & Right Tragion & T’R \\ 
+        22 & Infradentale & Id \\ 
+        23 & Trichion & Tr \\ 
+        24 & Supramentale & sm\\ 
+        25 & Left Frontotemporale & FtL \\ 
+        26 & Right Frontotemporale & FtR \\ 
+        27 & Left Frontozygomaticus & fzL \\ 
+        28 & Right Frontozygomaticus & fxR \\ 
+        29 & Left Midsurpaorbital & msoL \\ 
+        30 & Right Midsupraorbital & msoR \\ 
         \hline
     \end{tabular}
 \end{center}
 
 \medskip 
 
-\noindent Una vez determinados los landmarks, un algoritmo automático puede encargarse de realziar el solapamiento del cráneo 3D y la imagen 2D.
 
 \section{Motivación}
 
@@ -103,7 +103,7 @@ Tradicionalmente, este proceso del marcado de landmarks es esencialmente manual 
 
 \medskip
 
-\noindent El algoritmoque buscamos, debido a la importancia de la tarea que debe cumplir, tiene que cumplir con unos requisitos mínimos deseables: 
+\noindent El algoritmo que buscamos, debido a la importancia de la tarea que debe cumplir, tiene que cumplir con unos requisitos mínimos deseables: 
 
 \begin{itemize}
     \item Debe ser un método \textbf{robusto}, en el sentido de que debe abarcar todos los posibles casos y variaciones del problema. En nuestro caso se traduce en saber lidiar con imágenes frontales, de perfil o $3/4$ junto con otros factores como la calidad de la imagen, iluminación y oclusiones parciales. En todos los casos anteriores, el algoritmo debería tener un buen comportamiento.
@@ -141,7 +141,76 @@ Tradicionalmente, este proceso del marcado de landmarks es esencialmente manual 
     \item Realizar un estudio experimental realizando diversas pruebas sobre el framework con el conjunto de datos proporcionado.
 \end{enumerate}
 
+\section{Planificación}
+    \noindent La planificación del proyecto desde un comienzo fue pensada para llevar a cabo el desarrollo del software siguiendo un modelo en cascada, un modelo que evita la vuelta atrás entre etapas. Sin embargo, debido a que el desarrollo consistirá principalmente en una adaptación de un software ya existente a un problema concreto, se estimó desde un principio que en esta etapa no se desarrollaría un programa de gran complejidad, sabíamos que el software podría sufrir ligeras modificaciones en función de los resultados obtenidos durante la experimentación, es por ello que se optó por un modelo de ciclo de vida en cascada retroalimentado como se puede ver en \autoref{Fig::Ciclo de vida}:
 
+
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/disenio_cascada.png}
+        \caption{Diseño en cascada retroalimentado empleado.}
+        \label{Fig::Ciclo de vida}
+    \end{figure}
+
+    \medskip
+
+    \noindent Las etapas que se seguirán serán las siguientes:
+
+    \begin{enumerate}
+        \item \textbf{Análisis del problema y requisitos}: En esta tapa se profundizará sobre el contexto y la importancia del problema a resolver y se llevarán a cabo reuniones con los tutores del trabajo para aclarar los requisitos y objetivos concreto del software a desarrollar. 
+        \item \textbf{Diseño}: En nuestro caso, en esta etapa se realizarán dos tareas: 
+        
+        En primer lugar se diseñará el estudio de la base de datos que emplearemos así como las transformaciones que deban sufrir los datos para poder ser empleados por el software que emplearemos en la fase de experimentación. 
+
+        En segundo lugar se diseñarán los experimentos a realizar así como las técnicas que se aplicarán, las métricas y los protocolos de validación que se usarán.
+
+        \item \textbf{Implementación}: Se implementan todas las técnicas diseñadas en la etapa anterior.
+        \item \textbf{Experimentación}: Se ponen en práctica todos los experimentos diseñados de forma teórica y se obtienen resultados. En función de estos se valora una vuelta atrás en el ciclo de vida del software para realizar modificaciones en el software.
+    \end{enumerate}
+    
+    \medskip
+
+    \noindent Debido a la alta carga de trabajo durante el curso, desde un comienzo, el desarrollo del trabajo se planificó pensando en su defensa para la convocatoria extraordinaria de Septiembre o para la convocatoria especial de Noviembre. Por ello, la planificación original por meses se puede observar en la \autoref{Fig::Planificacion original}.
+
+
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/plan_provisional.png}
+        \caption{Planificación original.}
+        \label{Fig::Planificacion original}
+    \end{figure}
+
+    \medskip
+
+    \noindent Dentro de la semana computan únicamente los días de Lunes a Viernes. Resalta a la vista la gran cantidad de semanas invertidas en las primeras dos etapas con respecto a las invertidas en las dos últimas. El principal motivo para repartir el tiempo de esta manera es que durante el curso se calculó que sería imposible dedicar al trabajo más de \textbf{cuatro horas por semana}. En cambio, una vez terminado el curso se previó dedicar una media de \textbf{seis horas diarias al trabajo}. Es por ello que a pesar de la gran diferencia de semanas, si miramos las horas obtenemos:
+    
+    \begin{itemize}
+        \item Para la primera fase se invirtieron un total de \textbf{68 horas}.
+        \item Para la segunda fase un total de \textbf{36 horas}.
+        \item Para la tercera y cuarta fase se invirtieron un total de \textbf{120 horas} para cada una.
+        \item En total el tiempo estimado de desarrollo del proyecto fue de \textbf{344 horas}.
+    \end{itemize}
+        
+    \noindent No obstante, esta estimación resultó ser muy ajustada para completar el trabajo, lo que ocasionó que se retrasara la entrega del mismo a Noviembre, es por ello que el plan definitivo del proyecto se puede ver en la \autoref{Fig::Planificacion final}. Aquí se puede ver cómo desde Septiembre, a causa de los resultados obtenidos en la experimentación se vuelve atrás en el ciclo de vida del software a la parte de análisis del problema y requisitos para consultar a los tutores con los resultados obtenidos y modeificar el resto de etapas sucesivas. El tiempo invertido por día en esta segunda fase fue de \textbf{4 horas} diarias. Lo que incrementa el tiempo total invertido a:
+
+    \begin{itemize}
+        \item \textbf{148 horas} para la primera fase.
+        \item Para la segunda fase un total de \textbf{76 horas}.
+        \item Para la tercera y cuarta fase se invirtieron un total de \textbf{160 horas} para cada una.
+        \item En total el tiempo estimado de desarrollo del proyecto fue de \textbf{544 horas}.
+    \end{itemize}
+
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/plan_definitivo.png}
+        \caption{Planificación original.}
+        \label{Fig::Planificacion final}
+    \end{figure}
+
+    \medskip
+
+    \noindent Como consecuencia, en un principio se preveía usar un total de \textbf{344} horas para finalizar el trabajo, pero finalmente hicieron falta \textbf{544} horas, de esta forma, si se supone que un Investigador en una empresa de base tecnológica es de 35€/hora, a partir de los resultados obtenidos, el trabajo tenía un presupuesto inicial de \textbf{12.040 €} que finalmente fue ampliado a \textbf{19.040 €}.
+    
 \endinput
 %------------------------------------------------------------------------------------
 % FIN DEL CAPÍTULO. 
