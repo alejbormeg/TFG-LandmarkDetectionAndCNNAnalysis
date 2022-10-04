@@ -3,7 +3,7 @@
 
 \chapter{Introducción}  \label{ch:Introduccion_informatica}
 
-\noindent Hoy en día vivimos en una sociedad en la que la tecnología se encuentra presente en prácticamente todas las tareas y disciplinas. Particularmente, en los últimos años hemos podido ver cómo el desarrollo \textbf{Inteligencia Artificial} ha permitido que tareas que antes se consideraban lentas o complicadas puedan realizarse rápidamente y con precisión con ayuda de un ordenador. En cambio, hay otras tareas que todavía resultan complicadas de resolver de forma rápida tanto para expertos en la materia como para ordenadores. Es dentro de este conjunto dónde se va a desarrollar el presente trabajo, pues como veremos a continuación y en posteriores secciones apenas hay publicaciones relacionadas con el tema. En particular se desarrollará en el ámbito de las ciencias forenses, que explicaremos a continuación.
+\noindent La tecnología se encuentra presente en prácticamente todas las tareas y disciplinas. Particularmente, en los últimos años hemos podido ver cómo el desarrollo de la \textbf{Inteligencia Artificial} ha permitido que tareas que antes se consideraban lentas o complicadas puedan realizarse rápidamente y con precisión con ayuda de un ordenador. En cambio, hay otras tareas que todavía resultan complicadas de resolver de forma rápida tanto para expertos en la materia como para ordenadores. Es dentro de este conjunto dónde se va a desarrollar el presente trabajo, pues como veremos a continuación y en posteriores secciones apenas hay publicaciones relacionadas con el tema. En particular se desarrollará en el ámbito de las ciencias forenses, que explicaremos a continuación.
 
 \medskip
 
@@ -99,26 +99,26 @@
 
 \section{Motivación}
 
-Tradicionalmente, este proceso del marcado de landmarks es esencialmente manual y complicado de replicar, y pese a los avances actuales que se están llevando a cabo para automatizar esta tarea \cite{Huete2015PastPA}, la identificación de \textit{landmarks} sigue realizándose a mano normalmente. Sin embargo en la identificación de landmarks \textbf{craneométricos} podemos encontrar algunos trabajos publicados como \cite{bermejo2021automatic} que permiten una atomatización de esta parte del proceso. En este contexto, el presente trabajo se centrará en esta etapa del marcado de \textbf{landmarks cefalométricos} (en las imágenes ante-mortem), de manera que se intentará automatizar este proceso.
+Actualmente, este proceso del marcado de landmarks es esencialmente costoso y complicado de replicar, y pese a los avances actuales que se están llevando a cabo para automatizar esta tarea \cite{Huete2015PastPA}, la identificación de \textit{landmarks} sigue realizándose a mano normalmente. Sin embargo en la identificación de landmarks \textbf{craneométricos} podemos encontrar algunos trabajos publicados como \cite{bermejo2021automatic} que permiten una atomatización de esta parte del proceso. En este contexto, el presente trabajo tratará de proporcionar una solución automática al proceso del marcado de \textbf{landmarks cefalométricos} (en imágenes ante-mortem).
 
 \medskip
 
-\noindent El algoritmo que buscamos, debido a la importancia de la tarea que debe cumplir, tiene que cumplir con unos requisitos mínimos deseables: 
+\noindent El algoritmo que buscamos debería tener unos requisitos mínimos: 
 
 \begin{itemize}
     \item Debe ser un método \textbf{robusto}, en el sentido de que debe abarcar todos los posibles casos y variaciones del problema. En nuestro caso se traduce en saber lidiar con imágenes frontales, de perfil o $3/4$ junto con otros factores como la calidad de la imagen, iluminación y oclusiones parciales. En todos los casos anteriores, el algoritmo debería tener un buen comportamiento.
+    \item Capaz de operar con un \textbf{pequeño conjunto de datos}, ya que como hemos comentado anteriormente, se dispone generalmente de pocas imágenes para realizar el marcado de landmarks.
     
     \medskip
 
     \noindent Esta propiedad es deseable porque generalmente, en los problemas forenses reales, no se dispone de una amplia variedad de imágenes de la persona desaparecida, en algunos casos sólo se dispone de unas pocas imágenes y no todas van a ser frontales y con buena calidad e iluminación.
 
-    \item Capaz de operar con un \textbf{pequeño conjunto de datos}, ya que como hemos comentado anteriormente, se dispone generalmente de pocas imágenes para realizar el marcado de landmarks.
-    \item Debe proporcionar una solución \textbf{correcta} o al menos lo más correcta posible.  
-    \item Debe ser \textbf{completo}, contando con todos los recursos necesarios para poder operar.
+    \item Debe proporcionar siempre una solución lo más \textbf{correcta} posible.  
+    
     \item Debe ser \textbf{eficaz} y \textbf{eficiente}. Buscamos acelerar el proceso del marcado de landmarks considerablemente a la par que conseguir resolver el objetivo principal.
 \end{itemize}
 
-\noindent Remarcamos que la intención no es reemplazar al experto en su labor del marcado de landmarks sino proporcionar una ayuda para acelerar el proceso, que hoy en día se sigue considerando un proceso lento.
+\noindent Remarcamos que la intención no es reemplazar al experto en su labor del marcado de landmarks sino proporcionar una ayuda para acelerar el proceso.
 
 \medskip 
 
@@ -126,7 +126,7 @@ Tradicionalmente, este proceso del marcado de landmarks es esencialmente manual 
 
 \medskip
 
-\noindent En particular nos hemos fijado en el framework \textbf{3FabRec}\cite{browatzki20203fabrec}.Dicho framework cuenta con excelentes resultados en la tarea de detección de landmarks en imágenes y sobre todo nos interesa porque obtiene buenos resultados entrenando con pocas imágenes. Es por esto por lo que nos parece una buena alternativa tratar de adaptar este framework a la detección de landmarks cefalométricos en imágenes usando un dataset forense que contiene pocas imágenes etiquetadas.
+\noindent En particular nos hemos fijado en el framework \textbf{3FabRec}\cite{browatzki20203fabrec}.Dicho framework cuenta con excelentes resultados en la tarea de detección de landmarks en imágenes y sobre todo nos interesa porque obtiene buenos resultados entrenando con pocas imágenes. Es este artículo el que supone el punto de partida para este trabajo, debido a que nos parece una buena alternativa tratar de adaptar este framework a la detección de landmarks cefalométricos en imágenes usando un dataset forense que contiene pocas imágenes etiquetadas por un experto.
 
 \section{Objetivos}
 
@@ -210,7 +210,7 @@ Tradicionalmente, este proceso del marcado de landmarks es esencialmente manual 
     \medskip
 
     \noindent Como consecuencia, en un principio se preveía usar un total de \textbf{344} horas para finalizar el trabajo, pero finalmente hicieron falta \textbf{544} horas, de esta forma, si se supone que un Investigador en una empresa de base tecnológica es de 35€/hora, a partir de los resultados obtenidos, el trabajo tenía un presupuesto inicial de \textbf{12.040 €} que finalmente fue ampliado a \textbf{19.040 €}.
-    
+
 \endinput
 %------------------------------------------------------------------------------------
 % FIN DEL CAPÍTULO. 
