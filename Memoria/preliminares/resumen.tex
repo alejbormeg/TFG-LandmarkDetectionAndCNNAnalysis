@@ -10,8 +10,46 @@
 
 \chapter{Resumen}
 
-De acuerdo con la comisión de grado, el TFG debe incluir una introducción en la que se describan claramente los objetivos previstos inicialmente en la propuesta de TFG, indicando si han sido o no alcanzados, los antecedentes importantes para el desarrollo, los resultados obtenidos, en su caso y las principales fuentes consultadas.
+%Introducción a ambos trabajos
+\noindent En el presente trabajo tiene como objetivo presentar una posible modelización desde el punto de vista matemático de lo que es una Red Neuronal Convolucional junto con la demostración de su invarianza frente a traslaciones, una de las principales propiedades, y abordar un problema real en el que se empleen este tipo de redes, que se abordará desde el punto de vista informático.
 
-Ver archivo \texttt{preliminares/introduccion.tex}
+\medskip
+
+%Se detalla la tarea de la primera parte así como sus problemas
+\noindent En lo que respecta a la primera parte del trabajo, las redes neuronales convolucionales son herramientas que pese a haber surgido recientemente han sido muy empleadas en los últimos años y son conocidas por su buen rendimiento, comprobable empíricamente, en tareas como el procesamiento de señales, generalmente en imágenes. Sin embargo, siguen siendo una vía de estudio abierta en lo que se refiere a la modelización matemática que siguen. Es por ello que en el presente trabajo nos proponemos tratar de explicar al lector de la forma más clara posible la modelización matemática propuesta por Stephane Mallat en su trabajo \cite{GroupInvariantScattering}, que será la principal fuente consultada. Así mismo, una vez propuesta la modelización, se pretende demostrar una de las principales propiedades conocidas de las redes neuronales convolucionales, que es la invarianza por traslaciones. La principal dificulad reside en el hecho de que no existe mucha bibliografía al respecto con la que contrastar la información y en ocasiones, los resultados y conclusiones escritas por el autor pueden ser difíciles de entender, es ahí dónde entra este trabajo, que se propone arrojar luz en todos esos procedimientos que pueden resultar confusos.
+
+\medskip
+%Se detallan el enfoque elegido a seguir y por qué 
+\noindent En este trabajo se trataron principalmente conceptos propios del análisis funcional, análisis de Fourier y procesamiento de señales por medio de Ondeletas. Una parte importante del trabajo consistió en un gran periodo de investigación y consulta de diversos libros y artículos, especialmente para comprender el concepto de ondículas \cite{MallatWavelets} y el estudio del procesamiento de imágenes por medio de transformadas de ondeletas en libros como \cite{DigitalImageProcessing}. Los conocimientos adquiridos en esta etapa fueron fundamentales para el posterior desarrollo trabajo.
+
+
+\medskip
+
+\noindent En lo que respecta a la modelización de las redes neuronales convolucionales comenzamos con la búsqueda de un operador llamado \textit{propagador de dispersión} que al aplicarlo en cascada usando la operación de convolución nos de como resultado el denominado \textit{operador de ventana}, que será la modelización propuesta y que actuará sobre caminos de frecuencias finitos (pues como demostraremos, con un camino de frecuencias finito conseguimos retener tanta información como se quiera). En primer lugar se definen un conjunto de características deseables que tendría que cumplir este operador como la \textit{Lipschitz-continuidad}, que sea no expansivo o que produzca coeficientes invariantes a traslaciones. Con todo esto, se demuestra que no podemos usar herramientas clásicas como son la transformada de Fourier, y debemos recurrir a la transformada de ondeletas de \textit{Littlewood-Paley} para encontrar el operador que cumple con todos los requisitos. Una vez encontrado, describiremos las similitudes que se aprecian entre el modelo propuesto y la arquitectura de una red neuronal convolucional clásica. 
+
+\medskip
+
+\noindent En lo que respecta a la invarianza por traslaciones, haciendo uso de las propiedades que le hemos exigido al \textit{operador de ventana} en el apartado anterior se consigue demostrar en primer lugar que dicho operador es no expansivo al aplicarse en conjuntos de caminos de frecuencias, y con dicha propiedad se demuestra la invarianza por traslaciones del mismo.
+
+\medskip
+%Se resumen las conclusiones extraidas
+\noindent Como resultado del proceso, se concluye que finalmente se cumplen todos los objetivos propuestos aunque el desarrollo del trabajo ha sido complicado debido al alto grado de detalle presente en la mayoría de los desarrollos. No obstante, los resultados obtenidos suponen una aproximación fiel a las propiedades que poseen las redes neuronales convolucionales y se proporcionan justificaciones para las mismas.
+
+\medskip
+
+%Se detalla la tarea de la segunda parte así como sus problemas.
+\noindent En la segunda parte del trabajo, se realizará una adaptación de un framework existente especializado en el reconocimiento de landmarks faciales denominado \textbf{3FabREc}, para que sea capaz de marcar landmarks cefalométricos (puntos antropométricos situados en la cabeza) empleando un conjunto de datos reducido y con imágenes en diversas posiciones y condiciones de calidad e iluminación. La resolución de este problema se encuentra dentro del ámbito de la Antropología forense.
+
+\medskip
+
+%Se explican el conjunto de datos del que se parte y los métodos usados.
+\noindent Para llevar a cabo esta tarea se parte de un conjunto inicial de 167 imágenes de distintos sujetos en una gran variedad de ámbitos, posturas, condiciones de iluminación y de calidad de imagen con los landmarks etiquetados por un experto. Nuestra tarea será la de entrenar la red neuronal mencionada anteriormente para lograr predecir un total de \textbf{30 landmarks} distribuidos por toda la cara. No obstante, no todas las imágenes tiene los 30 landmarks marcados, debido a que algunos pueden estar ocultos por culpa del cabello o la posición de la cara.
+
+\medskip
+
+%Se explica el estado del arte y por qué es una apuesta novedosa y ver si constituye el estado del arte en este campo.
+\noindent Para esta tarea, además, se ha revisado con detenimiento el estado del arte en este campo, descubriendo que se trata de una aproximación novedosa pues los trabajos encontrados que guarden relación sobre el tema han sido en total 3, dos de ellos trabajan con un número pequeño de landmarks y aplicando técnicas que no pertenecen al ámbito del \textit{deep learning}, y el tercero, aunque utiliza una red neuronal convolucional, entrena el modelo con imágenes tomadas con buena calidad, iluminación y sin variaciones de posición.
+
+%Se describen los experimentos y los resultados
 
 \endinput
