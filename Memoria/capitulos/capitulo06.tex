@@ -197,7 +197,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
         \begin{figure}[!h]
             \centering
-            \includegraphics[width=0.5\textwidth]{img/single_hidden_layer.jpg}
+            \includegraphics[width=0.7\textwidth]{img/single_hidden_layer.png}
             \caption{Red neuronal con una capa oculta. Formalmente podría describirse como $f'(x)=(f_3(f_2(f_1(x))))$, dónde $f_1$ hace referencia a la capa de entrada a la red, $f_2$ a la capa oculta y $f_3$ a la capa de salida.}
             \label{fig:red_neuronal_capa_oculta}
           \end{figure}
@@ -263,7 +263,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.8\textwidth]{img/GrafoComputacional.png}
-            \caption{Ejemplo de Grafo computacional junto con la salida para una entrada concreta $x=-2$,$y=5$, $z=-4$. La imagen ha sido extraida del curso \cite{StanfordCourse}.}
+            \caption{Ejemplo de Grafo computacional junto con la salida para una entrada concreta $x=-2$,$y=5$, $z=-4$. La imagen ha sido extraída del curso \cite{StanfordCourse}.}
             \label{fig:GrafoComputacional}
         \end{figure}
 
@@ -281,7 +281,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.8\textwidth]{img/BP_ejemplo.png}
-            \caption{Como podemos ver en la imagen superior, en primer lugar se renombra la salida de la operación $x+y$ por $q$, de manera que $f=qz$. Tras esto se empiezan a calcular las derivadas parciales correspondientes desde el final hacia la entrada, aplicando cuando sea necesario la regla de la cadena hasta obtener la derivada de cada nodo en la imagen de abajo. Las imágenes han sido extraidas de \cite{StanfordCourse}}
+            \caption{Como podemos ver en la imagen superior, en primer lugar se renombra la salida de la operación $x+y$ por $q$, de manera que $f=qz$. Tras esto se empiezan a calcular las derivadas parciales correspondientes desde el final hacia la entrada, aplicando cuando sea necesario la regla de la cadena hasta obtener la derivada de cada nodo en la imagen de abajo. Las imágenes han sido extraídas de \cite{StanfordCourse}}
             \label{fig:Ejemplo BP}
         \end{figure}
 
@@ -361,14 +361,14 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.8\textwidth]{img/mapa_activacion.png}
-            \caption{Ejemplo de cálculo de mapa de activación en una capa convolucional para un determinado volumen de entrada. El parámetro depth nos dice la cantidad de mapas de activación generamos para el volumen de entrada, o dicho de otro modo, el número de filtros que aplicamos. La imagen ha sido extraida de \cite{StanfordCourse}}
+            \caption{Ejemplo de cálculo de mapa de activación en una capa convolucional para un determinado volumen de entrada. El parámetro depth nos dice la cantidad de mapas de activación generamos para el volumen de entrada, o dicho de otro modo, el número de filtros que aplicamos. La imagen ha sido extraída de \cite{StanfordCourse}}
             \label{fig:mapa_activacion}
         \end{figure}
 
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.8\textwidth]{img/sucesion_conv_layer.png}
-            \caption{Sucesión de varias capas convolucionales + ReLU que describen la estructura básica de una CNN. Cabe destacar como la produndidad de los filtros es siemore la misma que la del volumen de entrada, de acuerdo a lo que hemos dicho anteriormente. La imagen han sido extraida de \cite{StanfordCourse}}
+            \caption{Sucesión de varias capas convolucionales + ReLU que describen la estructura básica de una CNN. Cabe destacar como la produndidad de los filtros es siemore la misma que la del volumen de entrada, de acuerdo a lo que hemos dicho anteriormente. La imagen han sido extraída de \cite{StanfordCourse}}
             \label{fig:estructura_convnet}
         \end{figure}
 
@@ -389,7 +389,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.8\textwidth]{img/pooling.png}
-            \caption{Ejemplo de capa de pooling usando la operación del máximo. La imagen han sido extraida de \cite{StanfordCourse}}
+            \caption{Ejemplo de capa de pooling usando la operación del máximo. La imagen han sido extraída de \cite{StanfordCourse}}
             \label{fig:pooling}
         \end{figure}
     
@@ -429,7 +429,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.8\textwidth]{img/LeNet.png}
-            \caption{Arquitectura de la red LeNet. Como podemos observar tiene capas convolucionales, capas de average pooling y capas totalmente conectadas al final. Imagen extraida de \cite{lecun1998gradient}.}
+            \caption{Arquitectura de la red LeNet. Como podemos observar tiene capas convolucionales, capas de average pooling y capas totalmente conectadas al final. Imagen extraída de \cite{lecun1998gradient}.}
             \label{fig:LeNet}
         \end{figure}
 
@@ -449,7 +449,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.8\textwidth]{img/AlexNet.png}
-            \caption{Arquitectura de la red AlexNet. Destaca que parece estar \entrecomillado{partida} en dos mitades, esto es porque por primera vez se usaron las GPUs para entrenar la red de manera que una GPU realizaba la parte superior de la arquitectura y otra la parte inferior. Imagen extraida de \cite{krizhevsky2012imagenet}.}
+            \caption{Arquitectura de la red AlexNet. Destaca que parece estar \entrecomillado{partida} en dos mitades, esto es porque por primera vez se usaron las GPUs para entrenar la red de manera que una GPU realizaba la parte superior de la arquitectura y otra la parte inferior. Imagen extraída de \cite{krizhevsky2012imagenet}.}
             \label{fig:AlexNet}
         \end{figure}
 
@@ -520,7 +520,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.5\textwidth]{img/resnet_module.jpeg}
-            \caption{Bloque residual de una ResNet. Como vemos, se suma el tensor $x$ con el tensor $\mathcal{F}(x)$ que surge unas etapas después. Imagen extraida de \cite{he2016deep}.}
+            \caption{Bloque residual de una ResNet. Como vemos, se suma el tensor $x$ con el tensor $\mathcal{F}(x)$ que surge unas etapas después. Imagen extraída de \cite{he2016deep}.}
             \label{fig:Resnet}
         \end{figure}
         
@@ -529,7 +529,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.5\textwidth]{img/resnet_module.jpeg}
-            \caption{Resumen de los ganadores del concurso ILSVRC hasta 2015 con la aparición de Resnet. Imagen extraida de \cite{StanfordCourse}.}
+            \caption{Resumen de los ganadores del concurso ILSVRC hasta 2015 con la aparición de Resnet. Imagen extraída de \cite{StanfordCourse}.}
             \label{fig:ImageNet}
         \end{figure}
 
@@ -555,7 +555,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.5\textwidth]{img/Autoencoder.png}
-            \caption{Esquema de un Autoencoder básico. Imagen extraida de \cite{autoencoders2017}.}
+            \caption{Esquema de un Autoencoder básico. Imagen extraída de \cite{autoencoders2017}.}
             \label{fig:Autoencoder}
         \end{figure}
 
@@ -574,7 +574,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.5\textwidth]{img/Generative_network.png}
-                \caption{Ejemplo de una Generative Network que pretende aprender la distribución de probabilidad de un conjunto de imágenes de perros. Imagen extraida de \cite{autoencoders2017}.}
+                \caption{Ejemplo de una Generative Network que pretende aprender la distribución de probabilidad de un conjunto de imágenes de perros. Imagen extraída de \cite{autoencoders2017}.}
                 \label{fig:Generative Network}
             \end{figure}
             
@@ -585,14 +585,14 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.6\textwidth]{img/proceso_entrenamiento_GAN.png}
-                \caption{Resumen del proceso de entrenamiento de una GAN. Imagen extraida de \cite{autoencoders2017}.}
+                \caption{Resumen del proceso de entrenamiento de una GAN. Imagen extraída de \cite{autoencoders2017}.}
                 \label{fig:Generative Network}
             \end{figure}
 
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.5\textwidth]{img/GAN.png}
-                \caption{Ejemplo de la arquitectura de una GAN para generar imágenes de dígitos manuscritos. Imagen extraida de \cite{AAE}}
+                \caption{Ejemplo de la arquitectura de una GAN para generar imágenes de dígitos manuscritos. Imagen extraída de \cite{AAE}}
                 \label{fig:GAN}
             \end{figure}
  
@@ -613,7 +613,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.8\textwidth]{img/vae_1.png}
-                \caption{Diferencia en el tratamiento de los datos por parte del encoder en una VAE y un Autoencoder clásico. Imagen extraida de \cite{VAE}.}
+                \caption{Diferencia en el tratamiento de los datos por parte del encoder en una VAE y un Autoencoder clásico. Imagen extraída de \cite{VAE}.}
                 \label{fig:VAE_1}
             \end{figure}
 
@@ -622,7 +622,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.5\textwidth]{img/vae_2.png}
-                \caption{Diferencia en la función de pérdida de un Autoencoder clásico (imagen superior) y una VAE (imagen inferior). Destacamos el término KL regularizante que pretende que las distribuciones de los datos sigan una normal estándar. Imagen extraida de \cite{VAE}.}
+                \caption{Diferencia en la función de pérdida de un Autoencoder clásico (imagen superior) y una VAE (imagen inferior). Destacamos el término KL regularizante que pretende que las distribuciones de los datos sigan una normal estándar. Imagen extraída de \cite{VAE}.}
                 \label{fig:VAE_2}
             \end{figure}
         
@@ -646,7 +646,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.5\textwidth]{img/AAE.png}
-                \caption{Esquema de la arquitectura de un AAE. El Encoder sería la red a la que entra la imagen $x$, el vector $z$ sería el vector latente, que sirve de entrada al Discriminador $D_{gauss}$ y finalmente el vector $z$ es la entrada del Decoder que reconstruye la imagen. Imagen extraida de \cite{AAE}.}
+                \caption{Esquema de la arquitectura de un AAE. El Encoder sería la red a la que entra la imagen $x$, el vector $z$ sería el vector latente, que sirve de entrada al Discriminador $D_{gauss}$ y finalmente el vector $z$ es la entrada del Decoder que reconstruye la imagen. Imagen extraída de \cite{AAE}.}
                 \label{fig:AAE}
             \end{figure}
 

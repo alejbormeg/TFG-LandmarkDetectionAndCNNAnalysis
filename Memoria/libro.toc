@@ -57,7 +57,7 @@
 \contentsline {subsection}{\numberline {6.4.7}Evolución de las CNN}{67}{subsection.6.4.7}%
 \contentsline {subsubsection}{\numberline {6.4.7.1}LeNet-5}{67}{subsubsection.6.4.7.1}%
 \contentsline {subsubsection}{\numberline {6.4.7.2}AlexNet}{68}{subsubsection.6.4.7.2}%
-\contentsline {subsubsection}{\numberline {6.4.7.3}GoogLeNet}{69}{subsubsection.6.4.7.3}%
+\contentsline {subsubsection}{\numberline {6.4.7.3}GoogLeNet}{68}{subsubsection.6.4.7.3}%
 \contentsline {subsubsection}{\numberline {6.4.7.4}VGG-16}{69}{subsubsection.6.4.7.4}%
 \contentsline {subsubsection}{\numberline {6.4.7.5}ResNet}{70}{subsubsection.6.4.7.5}%
 \contentsline {section}{\numberline {6.5}Autoencoders}{71}{section.6.5}%
