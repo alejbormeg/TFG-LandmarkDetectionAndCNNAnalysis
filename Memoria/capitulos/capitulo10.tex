@@ -17,10 +17,43 @@
 
     \noindent De esta manera, con cada propuesta de modelo que realicemos, se medirá su rendimiento usando \textbf{5-fold cross-validation}, obteniendo 5 salidas de validación para cada modelo. La elección del mejor será mediante el cómputo de la mediana de estos para ccada mdelo.
 
-\section{Hipótesis iniciales y determinación de hiperparámetros.}
-    \noindent Debido a que partimos de \textbf{3fabRec}, un framework diseñado y probado de forma exahustiva por Björn Browatzki y Christian Wallraven, en Experimentación se va a respetar la arquitectura de la red en su totalidad, sin añadir ni eliminar capas. Del mismo modo debido a que la elección del optimizador \textbf{Adam} empleado por los autores ha sido fruto de un proceso de experimentación exahustiva por parte de los mismos no se va a probar a cambiar de optimizador, además el optimizador Adam es un optimizador adaptativo que tiene muy buen rendimiento en general, por lo que no tenemos ninguna razón que nos lleve a pensar que lograríamos grandes mejoras cambiando de optimizador. 
+\section{Preprocesamiento}
+    \noindent Como usamos Pytorch ...
+        - Tenemos que construir una clase Dataset para leer bien los datos de la base de datos Forense. 
+    \noindent Usamos la red mtcnn y ...
+        - Al realiza la detección de caras con la red Facenet se detectan problemas en la identificación de perfiles en tres imágenes: 72_2.jpg 75_2.jpg y 157_3.jpg . Además las imgágenes en blanco y nego dan problemas porque no tienen 3 canales.
+    \noindent La manera en que procesamos las imágenes ... 
+        - En primer lugar, las imágenes en Blanco y negro las pasamos a 3 canales triplicando la matriz 2d original.
+        
+    - Ante esto procedemos a realizar un estudio de lo bien que detecta caras en todas las imágenes clasificando por caras de perfil, 3/4 o frontales.
+    - Identificamos una imagen repetida (21.jpg y 163.jpg) pero decidimos mantener ambas porque tienen distintos landmarks marcados. 
+    - Las imagenes que usemos van a utilizar un id asociado a la posición que ocupan dentro del Dataset (los ids van de 0 a 163).
+    - La imagen con id 122 tiene los landmarks puestos únicamente en la imagen frontal, por lo que la contamos como frontal y tomamos el bb de esta que nos da facenet.
+    - La imagen con id 55 identifica una cara errónea, por lo que debemos seleccionar el segundo BB, que es el que se corresponde con la cara del sujeto.
+    - La imagen con id 57 identifica cara errónea, por lo que seleccionamos tercer BB que es el que se corresponde con la cara del sujeto.
+    - El porcentaje de acierto en las imágenes frontales es del 100% al igual que las de 3/4. La precisión baja al 87% en las de perfil, y tenemos que descartar las tres imágenes anteriores.
+    - En conclusión, las BB se detectan muy bien en general, por lo que únicamente vamos a descartar las 3 imágenes.
+
+\section{Experimentación}
+    \subsection{Hipótesis iniciales}
+    \noindent Debido a que partimos de \textbf{3fabRec}, un framework diseñado y probado de forma exahustiva por Björn Browatzki y Christian Wallraven, en Experimentación se va a respetar la arquitectura de la red en su totalidad, sin añadir ni eliminar capas. Del mismo modo debido a que la elección del optimizador \textbf{Adam} empleado por los autores ha sido fruto de un proceso de experimentación exahustiva por parte de los mismos no se va a probar a cambiarlo, además el optimizador Adam es adaptativo y tiene muy buen rendimiento en general, por lo que no tenemos ninguna razón que nos lleve a pensar que lograríamos grandes mejoras cambiando de optimizador.
+    
+    \subsection{Experimentación}
+        \subsubsection{Modelo Base: M1}
+            \noindent En primer lugar se va a buscar un \textbf{modelo base} con el que obtener los primeros resultados y que iremos refinando hasta obtener el modelo solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos, todos ellos han sido entrenados en la fase de aprendizaje no supervisado, pero uno viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento en los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}. Así pues, la primera decisión a tomar es si emplear un modelo preentrenado en alguno de los datasets anteriores o utilizar uno sin entrenar. 
+
+            \medskip
+
+            \noindent Para tomar la anterior decisión se han repasado los diferentes datasets sobre los que se entrenó la red y se ha decidido que se usará como modelo base el que ha sido entrenado en \textit{AFLW}, debido a que el número de landmarks que predice este modelo es similar al de nuestro problema, ya que predice 21 landmarks, mientras que los demás modelos han sido entrenados para predecir 68 en el caso de \textit{300w} y 98 en el caso de \textit{WFLW}. Por otro lado, los landmarks que predice AFLW, pese a no tener una justificación biológica, son parecidos a los anotados en el dataset que se proporciona. Es por esto que consideramos una buena primera decisión emplear la red \textbf{preentrenada en AFLW}.
+
+            %TODO INSERTAR IMAGEN DE LOS LANDMARKS DE AFLW vs LOS NUESTROS.
+        \subsubsection{Modelo:M2}
+        \subsubsection{Modelo:M3}
+    \subsection{Comparación de resultados}
 \endinput
 %------------------------------------------------------------------------------------
 % FIN DEL CAPÍTULO. 
 %------------------------------------------------------------------------------------
+
+
 
