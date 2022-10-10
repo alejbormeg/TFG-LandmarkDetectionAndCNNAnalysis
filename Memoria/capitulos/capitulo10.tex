@@ -1,5 +1,24 @@
 \chapter{Experimentación}
 
+\section{Separación en conjuntos de entrenamiento y validación}
+    \noindent En primer lugar separaremos el conjunto de datos que se proporciona para la realización de los experimentos en conjuntos de entrenamiento, validación y test. Debido a que trabajaremos con un conjunto de datos reducido será necesario emplear \textbf{validación cruzada} para la elección entre los modelos que se prueben. Así pues, de las \textbf{164 imágenes} que usaremos en total, establecemos una semilla para que los procesos aleatorios sean replicables en cualquier máquina y con ayuda de la función \textit{random-shuffle} de python separamos los datos en: 
+    \begin{itemize}
+        \item \textbf{Conjunto de test}: 33 imágenes ($20\%$ del total de imágenes).
+        \item \textbf{Conjunto de entrenamiento:} 131 imágenes ($80\%$ del total de imágenes).
+    \end{itemize}
+
+    \noindent Por otro lado, el conjunto de entrenamiento se subdivide a su vez en cinco subconjuntos, con la idea de realizar \textbf{5-fold cross-validation}. Cada subconjunto estará compuesto por \textbf{26 imágenes} exceptuando el último que tendrá \textbf{27}.
+    
+    \medskip
+
+    \noindent Para esta técnica se realizan cinco ejecuciones independientes en la cual se toman cuatro de los cinco subconjuntos de entrenamiento para entrenar el modelo y se deja el último subconjunto para validar el modelo. Con esta técnica, en cada iteración se cambia el conjunto que se empleará para validación, con la finalidad de mejorar la calidad de las decisiones que se tomen sobre el rendimiento, pues la decisión estará mejor informada. 
+
+    \medskip
+
+    \noindent De esta manera, con cada propuesta de modelo que realicemos, se medirá su rendimiento usando \textbf{5-fold cross-validation}, obteniendo 5 salidas de validación para cada modelo. La elección del mejor será mediante el cómputo de la mediana de estos para ccada mdelo.
+
+\section{Hipótesis iniciales y determinación de hiperparámetros.}
+    \noindent Debido a que partimos de \textbf{3fabRec}, un framework diseñado y probado de forma exahustiva por Björn Browatzki y Christian Wallraven, en Experimentación se va a respetar la arquitectura de la red en su totalidad, sin añadir ni eliminar capas. Del mismo modo debido a que la elección del optimizador \textbf{Adam} empleado por los autores ha sido fruto de un proceso de experimentación exahustiva por parte de los mismos no se va a probar a cambiar de optimizador, además el optimizador Adam es un optimizador adaptativo que tiene muy buen rendimiento en general, por lo que no tenemos ninguna razón que nos lleve a pensar que lograríamos grandes mejoras cambiando de optimizador. 
 \endinput
 %------------------------------------------------------------------------------------
 % FIN DEL CAPÍTULO. 

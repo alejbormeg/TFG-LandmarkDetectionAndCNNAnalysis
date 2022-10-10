@@ -64,7 +64,7 @@
 \contentsline {subsection}{\numberline {6.5.1}Introducción}{71}{subsection.6.5.1}%
 \contentsline {subsection}{\numberline {6.5.2}Evolución de los Autoencoders}{72}{subsection.6.5.2}%
 \contentsline {subsubsection}{\numberline {6.5.2.1}Generative Adversarial Networks (GANs)}{72}{subsubsection.6.5.2.1}%
-\contentsline {subsubsection}{\numberline {6.5.2.2}Variational Autoencoder (VAE)}{72}{subsubsection.6.5.2.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.2}Variational Autoencoder (VAE)}{73}{subsubsection.6.5.2.2}%
 \contentsline {subsubsection}{\numberline {6.5.2.3}Adversarial Autoencoder(AAE)}{74}{subsubsection.6.5.2.3}%
 \contentsline {section}{\numberline {6.6}Técnicas empleadas}{75}{section.6.6}%
 \contentsline {subsection}{\numberline {6.6.1}Few-shot Learning y Data Augmentation}{75}{subsection.6.6.1}%
@@ -92,7 +92,8 @@
 \contentsline {subsection}{\numberline {8.2.3}MSE}{93}{subsection.8.2.3}%
 \contentsline {chapter}{\numberline {9}Planificación e implementación}{99}{chapter.9}%
 \contentsline {chapter}{\numberline {10}Experimentación}{101}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Separación en conjuntos de entrenamiento y validación}{101}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Hipótesis iniciales y determinación de hiperparámetros.}{101}{section.10.2}%
 \contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{103}{chapter.11}%
-\contentsline {chapter}{\numberline {A}Primer apéndice}{105}{appendix.Alph1}%
-\contentsline {chapter}{Glosario}{107}{chapter*.13}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{109}{chapter*.14}%
+\contentsline {chapter}{Glosario}{105}{chapter*.13}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{107}{chapter*.14}%
