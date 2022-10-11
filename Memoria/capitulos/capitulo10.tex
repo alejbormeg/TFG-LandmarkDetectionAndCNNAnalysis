@@ -15,13 +15,46 @@
 
     \medskip
 
-    \noindent De esta manera, con cada propuesta de modelo que realicemos, se medirá su rendimiento usando \textbf{5-fold cross-validation}, obteniendo 5 salidas de validación para cada modelo. La elección del mejor será mediante el cómputo de la mediana de estos para ccada mdelo.
+    \noindent De esta manera, con cada propuesta de modelo que realicemos, se medirá su rendimiento usando \textbf{5-fold cross-validation}, obteniendo 5 salidas de validación para cada modelo. La elección del mejor será mediante el cómputo de la mediana de estos para cada mdelo.
 
 \section{Preprocesamiento}
-    \noindent Como usamos Pytorch ...
-        - Tenemos que construir una clase Dataset para leer bien los datos de la base de datos Forense. 
-    \noindent Usamos la red mtcnn y ...
-        - Al realiza la detección de caras con la red Facenet se detectan problemas en la identificación de perfiles en tres imágenes: 72_2.jpg 75_2.jpg y 157_3.jpg . Además las imgágenes en blanco y nego dan problemas porque no tienen 3 canales.
+
+    \noindent Antes de poder entrenar el modelo, es necesario adecuar el dataset para que pueda servir de entrenamiento. El framework está pensado para recibir como entrada una imagen a la cual se le hace un recorte a la región que ocupa el rostro con ayuda de un bounding box predefinido o bien siguiendo los landmarks descritos por el fichero auxiliar asociado a cada imagen. En nuestro caso, debido a que la mayoría de landmarks son internos y no se suelen situar en los bordes de la cara, hemos pensado que la mejor manera de entrenar la red es que serealice el recorte de la imagen de entrada de acuerdo a un \textit{bounding box}. Para ello fue necesario emplear una red especializada en la detección de caras en imágenes y que nos proporcionaba como salida una lista con los \textit{bounding boxes} de todas las caras detectadas, la red se denomina \textbf{Facenet} y que se puede importar de la librería \textit{facenet pytorch} como \textit{mtcnn}.
+
+
+    \medskip
+
+    \noindent Así pues, se realizó un primer estudio para determinar los mejores parámetros para \textit{facenet}. Existen muchos parámetros editables, pero la mayoría se dejaron con sus valores por defecto, únicamente se consideró modificar: 
+
+    \begin{enumerate}
+        \item \textbf{image size}: Determina el tamaño de la imagen de salida.
+        \item \textbf{select largest}: Si su valor es \textit{true}, se devuelve la cara más grande detectada, y si su valor es \textit{false}, se devuelve la de mayor confianza detectada.
+    \end{enumerate}
+
+
+    \noindent En nuestro caso, primero se probó con un \textit{image size} de $256 \times 256$, pero esto tenía problemas pues en ocasiones no podían construirse bounding boxes de este tamaño y producían error, por lo que se redujo a $128 \times 128$ generando buenos resultados, por esto finalmente se dejó este valor. Por otro lado, observando las imágenes del dataset de entrenamiento, nos dimos cuenta que en algunas imágenes aparecían varios sujetos, y en ocasiones la cara más \entrecomillado{grande} mo pertenecía al sujeto principal. Es por ello que se decidió establecer el parámetro \textit{select largest} a \textit{False}, y así obtener como salida una lista de \textit{bounding boxes} ordenados de mayor a menor según el nivel de confianza.
+
+    \medskip
+
+    \noindent Una vez establecidos los parámetros, se detectaron problemas en la identificación de caras en algunas imágenes. Debido a que todas las imágenes erróneas estaban en escalas de grises nos dimos cuenta de que la red sólo acepta como entrada imágenes en tres canales, por lo que cada imagen en escala de grises de un solo canal tuvimos que replicar tres veces su canal. 
+    
+    \medskip
+    
+    \noindent Tras esto, volvimos a ver que en algunas imágenes no se detectaban \textit{bounding boxes}. Esto nos llevó a realizar un breve estudio sobre si era buena idea continuar usando esta red o buscar otra. En este estudio clasificamos las imágenes en tres grupos y aplicamos la red a cada uno de ellos por separado: 
+
+    \begin{enumerate}
+        \item Imágenes de sujetos en posición \textbf{ frontal}: en total hay $87$ imágenes frontales de las cuales se extraen correctamente el \textbf{$100\%$} de los \textit{bounding boxes}.
+        \item Imágenes de sujetos en posición de \textbf{$3/4$}: En este caso hay $57$ imágenes de las cuales el \textbf{$100\%$} de los \textit{bounding boxes} extraidos por la red son correctos.
+        \item Imágenes de sujetos en posición de \textbf{perfil}: En este caso hay un total de $23$ imágenes y se clasifican correctamente $20$, lo que supone una precisión del \textbf{$87\%$}. Además, las imágenes que fallaban estaban en escala de grises y con malas condiciones de calidad e iluminación.
+    \end{enumerate}
+
+    \noindent Por lo tanto, debido al bajo número de ejemplos en los que la red falla, se decidió mantener la red \textbf{Facenet} para determinar los \textit{bounding boxes} y además se excluyeron los tres ejemplos dónde fallaba del dataset, lo que hizo que en total se usaran $164$ de las $167$ imágenes originales.
+
+    \medskip 
+
+    \noindent Además, durante el estudio anterior se observaron otros hechos dignos de mención. En primer lugar se identificaron dos imágenes repetidas, pero se decidió mantenerlas pues los landmarks presentes en una y otra eran diferentes, lo que podía ayudar al entrenamiento. Por otro lado, durante el entrenamiento se vió cómo había una imagen de un determinado sujeto en la que aprecían simultáneamente dos fotos, una  de frente y otra de perfil, sin embargo, al estar los landmarks anotados únicamente en la imagen de frente se tomó el bounding box de la imagen frontal desechando el otro para el perfil. En otras dos imágenes se pueden ver un conjunto de varias personas, y la red mostraba erróneamente los \textit{bounding boxes} de personas que no eran el sujeto de estudio, por lo que estudiar cuál de todos los \textit{bounding boxes} devueltos pertenecía al sujeto correcto.
+    
+    Además las imgágenes en blanco y nego dan problemas porque no tienen 3 canales.
     \noindent La manera en que procesamos las imágenes ... 
         - En primer lugar, las imágenes en Blanco y negro las pasamos a 3 canales triplicando la matriz 2d original.
         
