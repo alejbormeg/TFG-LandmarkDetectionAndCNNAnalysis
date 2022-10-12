@@ -78,29 +78,33 @@
 \contentsline {subsubsection}{\numberline {7.1.1.5}The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}{83}{subsubsection.7.1.1.5}%
 \contentsline {subsection}{\numberline {7.1.2}Nuestra propuesta}{83}{subsection.7.1.2}%
 \contentsline {chapter}{\numberline {8}Datos y Métricas}{87}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Datos del problema y framework empleado}{87}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Base de datos proporcionada}{87}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Red empleada: 3FabRec}{88}{subsection.8.1.2}%
-\contentsline {subsubsection}{\numberline {8.1.2.1}Arquitectura Adversarial Autoencoder}{89}{subsubsection.8.1.2.1}%
-\contentsline {subsubsection}{\numberline {8.1.2.2}Interleaved Transfer Layer (ITL)}{90}{subsubsection.8.1.2.2}%
-\contentsline {subsection}{\numberline {8.1.3}Función de pérdida}{90}{subsection.8.1.3}%
-\contentsline {subsection}{\numberline {8.1.4}Proceso de entrenamiento de la red}{91}{subsection.8.1.4}%
-\contentsline {subsection}{\numberline {8.1.5}Bases de datos usadas por el framework}{92}{subsection.8.1.5}%
-\contentsline {section}{\numberline {8.2}Metricas}{92}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}SSIM}{92}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}Average pixel error}{93}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}MSE}{93}{subsection.8.2.3}%
-\contentsline {chapter}{\numberline {9}Planificación e implementación}{99}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Experimentación}{101}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Separación en conjuntos de entrenamiento y validación}{101}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Preprocesamiento}{101}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Experimentación}{103}{section.10.3}%
-\contentsline {subsection}{\numberline {10.3.1}Hipótesis iniciales}{103}{subsection.10.3.1}%
-\contentsline {subsection}{\numberline {10.3.2}Experimentación}{103}{subsection.10.3.2}%
-\contentsline {subsubsection}{\numberline {10.3.2.1}Modelo Base: M1}{103}{subsubsection.10.3.2.1}%
-\contentsline {subsubsection}{\numberline {10.3.2.2}Modelo:M2}{104}{subsubsection.10.3.2.2}%
-\contentsline {subsubsection}{\numberline {10.3.2.3}Modelo:M3}{104}{subsubsection.10.3.2.3}%
-\contentsline {subsection}{\numberline {10.3.3}Comparación de resultados}{104}{subsection.10.3.3}%
+\contentsline {section}{\numberline {8.1}Metricas}{87}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}SSIM}{87}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Average pixel error}{88}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}MSE}{88}{subsection.8.1.3}%
+\contentsline {chapter}{\numberline {9}Planificación e implementación}{89}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Experimentación}{91}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Análisis de la base de Datos}{91}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Base de datos proporcionada}{91}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}Preprocesamiento}{92}{subsection.10.1.2}%
+\contentsline {subsubsection}{\numberline {10.1.2.1}Identificación de caras en las imágenes}{92}{subsubsection.10.1.2.1}%
+\contentsline {subsubsection}{\numberline {10.1.2.2}Creación del fichero annotations en el dataset}{94}{subsubsection.10.1.2.2}%
+\contentsline {subsubsection}{\numberline {10.1.2.3}Reajuste de los bounding boxes}{94}{subsubsection.10.1.2.3}%
+\contentsline {subsection}{\numberline {10.1.3}Separación en conjuntos de entrenamiento y validación}{95}{subsection.10.1.3}%
+\contentsline {section}{\numberline {10.2}Framework empleado}{95}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Red empleada: 3FabRec}{95}{subsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.1.1}Arquitectura Adversarial Autoencoder}{96}{subsubsection.10.2.1.1}%
+\contentsline {subsubsection}{\numberline {10.2.1.2}Interleaved Transfer Layer (ITL)}{96}{subsubsection.10.2.1.2}%
+\contentsline {subsection}{\numberline {10.2.2}Función de pérdida}{97}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Proceso de entrenamiento de la red}{98}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Bases de datos usadas por el framework}{99}{subsection.10.2.4}%
+\contentsline {section}{\numberline {10.3}Experimentación}{99}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Hipótesis iniciales}{99}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Experimentación}{100}{subsection.10.3.2}%
+\contentsline {subsubsection}{\numberline {10.3.2.1}Modelo Base: M1}{100}{subsubsection.10.3.2.1}%
+\contentsline {subsubsection}{\numberline {10.3.2.2}Modelo:M2}{100}{subsubsection.10.3.2.2}%
+\contentsline {subsubsection}{\numberline {10.3.2.3}Modelo:M3}{100}{subsubsection.10.3.2.3}%
+\contentsline {subsection}{\numberline {10.3.3}Comparación de resultados}{100}{subsection.10.3.3}%
 \contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{105}{chapter.11}%
 \contentsline {chapter}{Glosario}{107}{chapter*.13}%
 \contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{109}{chapter*.14}%
