@@ -1,11 +1,193 @@
 % !TeX root = ../libro.tex
 % !TeX encoding = utf8
 
-\chapter{Primer apéndice}\label{ap:apendice1}
+\chapter{Apéndice A}\label{ap:apendiceA}
 
-Los apéndices son opcionales.
+\section{Resultados por imagen durante el entrenamiento del modelo base}
 
-Archivo: \texttt{apendices/apendice01.tex}
+\begin{table}[!ht]
+    \centering
+    \caption{Tabla con los resultados por imagen obtenidos en validación para la primera partición de cross validation en la última validación.}
+    \begin{tabular}{|l|l|l|}
+    \hline
+        ID imagen & Media NME & Error de Reconstrucción \\ \hline 
+        0.0 & 1.705 & 59.029 \\ \hline
+        1.0 & 1.553 & 49.309 \\ \hline
+        2.0 & 4.359 & 48.867 \\ \hline
+        3.0 & 3.093 & 48.995 \\ \hline
+        4.0 & 2.611 & 37.154 \\ \hline
+        5.0 & 2.153 & 36.851 \\ \hline
+        6.0 & 1.386 & 43.12 \\ \hline
+        7.0 & 2.05 & 57.298 \\ \hline
+        8.0 & 2.441 & 30.655 \\ \hline
+        9.0 & 1.435 & 53.025 \\ \hline
+        10.0 & 2.55 & 45.171 \\ \hline
+        11.0 & 2.579 & 31.648 \\ \hline
+        12.0 & 4.861 & 39.924 \\ \hline
+        13.0 & 2.127 & 38.365 \\ \hline
+        14.0 & 1.911 & 29.392 \\ \hline
+        15.0 & 2.088 & 32.506 \\ \hline
+        16.0 & 1.544 & 33.544 \\ \hline
+        17.0 & 1.969 & 28.871 \\ \hline
+        18.0 & 3.044 & 34.425 \\ \hline
+        19.0 & 2.774 & 28.18 \\ \hline
+        20.0 & 1.386 & 54.29 \\ \hline
+        21.0 & 2.296 & 22.775 \\ \hline
+        22.0 & 3.398 & 27.938 \\ \hline
+        23.0 & 1.738 & 31.185 \\ \hline
+        24.0 & 4.794 & 24.655 \\ \hline
+        25.0 & 2.57 & 25.516 \\ \hline
+    \end{tabular}
+    \label{table:ModelBase_Partition1}
+\end{table}
+
+\begin{table}[!ht]
+    \centering
+    \caption{Tabla con los resultados por imagen obtenidos en validación para la segunda partición de cross validation en la última validación.}
+    \begin{tabular}{|l|l|l|}
+    \hline
+        ID imagen & Media NME & Error de Reconstrucción \\ \hline
+        0.0 & 1.718 & 38.902 \\ \hline
+        1.0 & 4.087 & 54.938 \\ \hline
+        2.0 & 2.156 & 24.286 \\ \hline
+        3.0 & 2.284 & 32.746 \\ \hline
+        4.0 & 2.027 & 36.961 \\ \hline
+        5.0 & 4.113 & 38.756 \\ \hline
+        6.0 & 3.043 & 32.132 \\ \hline
+        7.0 & 4.412 & 47.616 \\ \hline
+        8.0 & 1.856 & 27.53 \\ \hline
+        9.0 & 4.283 & 41.67 \\ \hline
+        10.0 & 4.985 & 39.631 \\ \hline
+        11.0 & 2.778 & 19.852 \\ \hline
+        12.0 & 1.662 & 43.37 \\ \hline
+        13.0 & 3.797 & 36.613 \\ \hline
+        14.0 & 12.491 & 38.841 \\ \hline
+        15.0 & 2.323 & 25.26 \\ \hline
+        16.0 & 2.488 & 39.435 \\ \hline
+        17.0 & 1.834 & 35.23 \\ \hline
+        18.0 & 3.473 & 37.037 \\ \hline
+        19.0 & 2.487 & 20.661 \\ \hline
+        20.0 & 2.089 & 28.849 \\ \hline
+        21.0 & 2.156 & 21.42 \\ \hline
+        22.0 & 2.485 & 30.455 \\ \hline
+        23.0 & 2.217 & 45.255 \\ \hline
+        24.0 & 3.22 & 37.816 \\ \hline
+        25.0 & 1.879 & 43.994º \\ \hline
+    \end{tabular}
+    \label{table::ModelBase_Partition2}
+\end{table}
+
+
+
+\begin{table}[!ht]
+    \centering
+    \caption{Tabla con los resultados por imagen obtenidos en validación para la tercera partición de cross validation en la última validación.}
+    \begin{tabular}{|l|l|l|}
+    \hline
+        ID imagen & Media NME & Error de Reconstrucción \\ \hline
+        0.0 & 6.731 & 43.496 \\ \hline
+        1.0 & 2.709 & 28.569 \\ \hline
+        2.0 & 12.978 & 41.94 \\ \hline
+        3.0 & 1.72 & 31.216 \\ \hline
+        4.0 & 1.668 & 40.274 \\ \hline
+        5.0 & 4.08 & 42.132 \\ \hline
+        6.0 & 2.559 & 37.619 \\ \hline
+        7.0 & 2.093 & 47.622 \\ \hline
+        8.0 & 1.634 & 41.383 \\ \hline
+        9.0 & 1.931 & 44.416 \\ \hline
+        10.0 & 1.729 & 42.827 \\ \hline
+        11.0 & 1.547 & 52.38 \\ \hline
+        12.0 & 4.372 & 51.004 \\ \hline
+        13.0 & 1.234 & 42.414 \\ \hline
+        14.0 & 2.036 & 37.104 \\ \hline
+        15.0 & 1.863 & 48.9 \\ \hline
+        16.0 & 2.022 & 72.624 \\ \hline
+        17.0 & 2.518 & 69.777 \\ \hline
+        18.0 & 1.879 & 34.079 \\ \hline
+        19.0 & 2.101 & 38.541 \\ \hline
+        20.0 & 1.677 & 24.832 \\ \hline
+        21.0 & 2.641 & 46.039 \\ \hline
+        22.0 & 2.669 & 46.884 \\ \hline
+        23.0 & 1.629 & 30.904 \\ \hline
+        24.0 & 2.055 & 30.559 \\ \hline
+        25.0 & 2.358 & 31.542 \\ \hline
+    \end{tabular}
+    \label{table::ModelBase_Partition3}
+\end{table}
+
+
+\begin{table}[!ht]
+    \centering
+    \caption{Tabla con los resultados por imagen obtenidos en validación para la segunda partición de cross validation en la última validación.}
+    \begin{tabular}{|l|l|l|}
+    \hline
+        ID imagen & Media NME & Error de Reconstrucción \\ \hline
+        0.0 & 2.595 & 55.734 \\ \hline
+        1.0 & 4.156 & 27.689 \\ \hline
+        2.0 & 2.143 & 30.204 \\ \hline
+        3.0 & 1.955 & 41.558 \\ \hline
+        4.0 & 5.248 & 45.978 \\ \hline
+        5.0 & 2.384 & 21.946 \\ \hline
+        6.0 & 4.172 & 41.306 \\ \hline
+        7.0 & 2.843 & 39.967 \\ \hline
+        8.0 & 3.898 & 40.419 \\ \hline
+        9.0 & 6.777 & 54.48 \\ \hline
+        10.0 & 2.781 & 43.632 \\ \hline
+        11.0 & 4.289 & 27.707 \\ \hline
+        12.0 & 3.935 & 28.605 \\ \hline
+        13.0 & 1.714 & 44.906 \\ \hline
+        14.0 & 2.246 & 35.898 \\ \hline
+        15.0 & 8.718 & 50.387 \\ \hline
+        16.0 & 1.448 & 35.117 \\ \hline
+        17.0 & 4.431 & 29.609 \\ \hline
+        18.0 & 3.513 & 42.435 \\ \hline
+        19.0 & 1.947 & 73.033 \\ \hline
+        20.0 & 1.643 & 38.801 \\ \hline
+        21.0 & 3.991 & 30.82 \\ \hline
+        22.0 & 3.253 & 45.025 \\ \hline
+        23.0 & 4.059 & 34.025 \\ \hline
+        24.0 & 3.756 & 23.429 \\ \hline
+        25.0 & 1.522 & 26.619 \\ \hline
+    \end{tabular}
+    \label{table::ModelBase_Partition4}
+\end{table}
+
+\begin{table}[!ht]
+    \centering
+    \caption{Tabla con los resultados por imagen obtenidos en validación para la quinta partición de cross validation en la última validación.}
+    \begin{tabular}{|l|l|l|}
+    \hline
+        ID imagen & Media NME & Error de Reconstrucción \\ \hline
+        0.0 & 4.742 & 31.75 \\ \hline
+        1.0 & 1.65 & 44.35 \\ \hline
+        2.0 & 2.754 & 32.826 \\ \hline
+        3.0 & 8.385 & 38.213 \\ \hline
+        4.0 & 2.36 & 32.732 \\ \hline
+        5.0 & 1.709 & 50.615 \\ \hline
+        6.0 & 1.501 & 24.202 \\ \hline
+        7.0 & 2.257 & 39.788 \\ \hline
+        8.0 & 1.356 & 48.653 \\ \hline
+        9.0 & 1.552 & 34.597 \\ \hline
+        10.0 & 2.63 & 29.845 \\ \hline
+        11.0 & 2.114 & 25.377 \\ \hline
+        12.0 & 13.244 & 27.322 \\ \hline
+        13.0 & 3.623 & 28.844 \\ \hline
+        14.0 & 24.198 & 26.396 \\ \hline
+        15.0 & 2.901 & 34.194 \\ \hline
+        16.0 & 2.151 & 25.476 \\ \hline
+        17.0 & 3.326 & 29.49 \\ \hline
+        18.0 & 2.334 & 35.292 \\ \hline
+        19.0 & 1.846 & 44.414 \\ \hline
+        20.0 & 2.204 & 49.988 \\ \hline
+        21.0 & 4.038 & 32.894 \\ \hline
+        22.0 & 2.591 & 62.936 \\ \hline
+        23.0 & 2.115 & 36.35 \\ \hline
+        24.0 & 1.793 & 48.889 \\ \hline
+        25.0 & 2.584 & 22.253 \\ \hline
+        26.0 & 1.89 & 25.704 \\ \hline
+    \end{tabular}
+    \label{table::ModelBase_Partition5}
+\end{table}
 
 \endinput
 %------------------------------------------------------------------------------------
