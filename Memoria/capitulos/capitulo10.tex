@@ -359,7 +359,7 @@
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.9\textwidth]{img/curvas_aprendizaje_modelbase.png}
-                \caption{Curvas de entrenamiento en cada partición del modelo base.}
+                \caption{Curvas de aprendizaje en cada partición del modelo base.}
                 \label{fig:Curvas_modelbase}
             \end{figure}
 
@@ -425,7 +425,7 @@
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.9\textwidth]{img/curvas_encoder.png}
-            \caption{Curvas de entrenamiento en cada partición del modelo de finetuning del encoder.}
+            \caption{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}
             \label{fig:curvas_encoder}
         \end{figure}
 
@@ -480,16 +480,32 @@
 
             \noindent De nuevo los errores por landmark que se muestran en la tabla \autoref{table:Decoder_landmarksresume} es muy similar a la de los dos modelos anteriores, por lo que no hemos logrado una gran mejora con este modelo tampoco. Lo único digno de mención es que de nuevo los landmarks que son más visibles en imágenes de perfil han reducido su error debido a la leve mejora de la reconstrucción de las imágenes. 
 
+            \medskip
+
+            \noindent Por otro lado, en lo que respecta a los errores promedio de todos los landmarks por imagen, las tablas por partición se pueden consultar en \autoref{ap:apendiceC}, aunque los resultados son muy similares a los de los modelos anteriores. El error de reconstrucción de nuevo no mejora apenas y los errores NMEs promedio son muy parecidos a los de los otros modelos. 
+
+            \medskip
+
+            \noindent Las curvas de aprendizaje se pueden ver en la \autoref{fig:curvas_decoder}, y vuelven a mostrar un ligero overfitting a partir de la época $30$-$40$, en la mayoría de casos. 
             
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.9\textwidth]{img/curvas_decoder.png}
+                \caption{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}
+                \label{fig:curvas_decoder}
+            \end{figure}
 
+            \medskip
 
+            \noindent Tras los resultados obtenidos se ha optado por abandonar también esta línea de investigación pues se obtienen resultados muy similares al modelo base y se debe entrenar por mucho más tiempo ($100$ épocas frente a $40$ del modelo base). 
 
         \subsubsection{Modelo con Data Augmentation}
-            \noindent Como pudimos ver en el modelo anterior se consiguieron buenos resultados del \textit{NME} pese a haber entrenado sin realizar técnicas de \textit{data augmentation}. Es por ello que en este segundo experimento vamos a realizar los siguientes cambios en el entrenamiento: 
+            \noindent Comparando los tres resultados anteriores, el modelo base sigue siendo el más prometedor, por lo que en lugar de mejorar el error de reconstrucción vamos a centrarnos en mejorar el marcado de landmarks. Como pudimos ver en el modelo base, se consiguieron buenos resultados del \textit{NME} pese a haber entrenado sin realizar técnicas de \textit{data augmentation}. Es por ello que en este segundo experimento vamos a realizar los siguientes cambios en el entrenamiento: 
             
             \begin{itemize}
                 \item En primer lugar se realizará un entrenamiento del modelo similar al del modelo base durante $40$ épocas.
-                \item Tras esto, se entrenará el modelo con el dataset al cual se le aplicarán técnicas de data augmentation, de manera que cada imagen del dataset sufrirá de manera aleatoria una traslación ($\pm 4\%$), un reescalado ($\pm 5\%$) y una rotación ($\pm 30$ grados). El entrenamiento en este nuevo dataset será durante \textbf{40 épocas} tras acabar las de la etapa anterior. 
+                \item Tras esto, se entrenará el modelo con el dataset al cual se le aplicarán técnicas de data augmentation, para aumentar el número de datos de entrenamiento e incrementar aún más la variabilidad de los mismos, de manera que cada imagen del dataset sufrirá de manera aleatoria una traslación ($\pm 4\%$), un reescalado ($\pm 5\%$) y una rotación ($\pm 30$ grados). El entrenamiento en este nuevo dataset será durante \textbf{40 épocas} tras acabar las de la etapa anterior. 
+                \item En total serán \textbf{80 épocas} de entrenamiento sumando las dos etapas anteriores.
             \end{itemize}
 
             \medskip
