@@ -559,9 +559,19 @@
 
             \medskip
 
-            \noindent 
-        \subsubsection{Modelo \textit{fine-tuning}}
-    \subsection{Comparación de resultados}
+            \noindent En lo que se refiere al error por imagen, como podemos ver en el \autoref{ap:apendiceD}, el error desciende mucho en comparación con los modelos anteriores pese a que el de reconstrucción continua elevado.
+
+            \medskip
+
+            \noindent Finalmente las curvas de aprendizaje obtenidas se pueden observar en \autoref{fig:curvas_daugmentation}. Como vemos presentan una gran capacidad de generalización, pues el error de entrenamiento y validación decrecen de forma continua y muy próxima.
+
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.9\textwidth]{img/curvas_daugmentation.png}
+                \caption{Curvas de aprendizaje en cada partición del modelo de data augmentation.}
+                \label{fig:curvas_daugmentation}
+            \end{figure}
+    \subsection{Elección de modelo y obtención de resultados}
 \endinput
 %------------------------------------------------------------------------------------
 % FIN DEL CAPÍTULO. 
