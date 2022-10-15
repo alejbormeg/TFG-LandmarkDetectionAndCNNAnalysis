@@ -504,13 +504,55 @@
             
             \begin{itemize}
                 \item En primer lugar se realizará un entrenamiento del modelo similar al del modelo base durante $40$ épocas.
-                \item Tras esto, se entrenará el modelo con el dataset al cual se le aplicarán técnicas de data augmentation, para aumentar el número de datos de entrenamiento e incrementar aún más la variabilidad de los mismos, de manera que cada imagen del dataset sufrirá de manera aleatoria una traslación ($\pm 4\%$), un reescalado ($\pm 5\%$) y una rotación ($\pm 30$ grados). El entrenamiento en este nuevo dataset será durante \textbf{40 épocas} tras acabar las de la etapa anterior. 
-                \item En total serán \textbf{80 épocas} de entrenamiento sumando las dos etapas anteriores.
+                \item Tras esto, se entrenará el modelo con el dataset al cual se le aplicarán técnicas de data augmentation, para aumentar el número de datos de entrenamiento e incrementar aún más la variabilidad de los mismos, de manera que cada imagen del dataset sufrirá de manera aleatoria una traslación ($\pm 4\%$), un reescalado ($\pm 5\%$), una rotación ($\pm 30$ grados) y oclusiones parciales. El entrenamiento en este nuevo dataset será durante $40$ épocas tras acabar las de la etapa anterior. 
+                %TODO PONER IMÁGENES DE EJEMPLO DE LAS TRANSFORMACIONES
+                \item En total serán \textbf{$80$ épocas} de entrenamiento sumando las dos etapas anteriores.
             \end{itemize}
 
             \medskip
 
-            \noindent De nuevo, el resto de parámetros continuarán con los valores por defecto de la etapa anterior, pues los resultados obtenidos han sido buenos y nada sugiere que cambiarlos vaya a mejorar dichos resultados.
+            \noindent De nuevo, el resto de parámetros continuarán con los valores por defecto de la etapa anterior, pues los resultados obtenidos han sido buenos hasta el momento y nada sugiere tener que cambiarlos.
+
+            \begin{table}[!ht]
+                \centering
+                \caption{Media del error NME obtenido por landmark en validación empleando todas las particiones de cross-validation con el modelo de data augmentation.}
+                \begin{tabular}{|l|l|l|}
+                \hline
+                    ~ & Landmark & Media NME por landmark \\ \hline
+                    0 & Menton & 3.006 \\ \hline
+                    1 & Gnathion & 1.497 \\ \hline
+                    2 & Pogonion & 1.359 \\ \hline
+                    3 & Prosthion & 0.815 \\ \hline
+                    4 & Labiale Superius & 1.531 \\ \hline
+                    5 & Subnasale & 1.272 \\ \hline
+                    6 & Nasion & 1.241 \\ \hline
+                    7 & Glabella & 1.545 \\ \hline
+                    8 & Vertex & 3.99 \\ \hline
+                    9 & Left Gonion & 1.846 \\ \hline
+                    10 & Right Gonion & 1.673 \\ \hline
+                    11 & Left Zygion & 3.322 \\ \hline
+                    12 & Right Zygion & 4.441 \\ \hline
+                    13 & Left Alare & 1.585 \\ \hline
+                    14 & Right Alare & 1.362 \\ \hline
+                    15 & Left Endocanthion & 1.227 \\ \hline
+                    16 & Right Endocanthion & 1.129 \\ \hline
+                    17 & Left Exocanthion & 1.186 \\ \hline
+                    18 & Right Exocanthion & 1.12 \\ \hline
+                    19 & Left Tragion & 2.066 \\ \hline
+                    20 & Right Tragion & 2.234 \\ \hline
+                    21 & Labiale inferius & 1.032 \\ \hline
+                    22 & Trichion & 3.37 \\ \hline
+                    23 & Supramentale & 1.109 \\ \hline
+                    24 & Left Frontotemporale & 1.386 \\ \hline
+                    25 & Right Frontotemporale & 1.826 \\ \hline
+                    26 & Left Frontozygomaticus & 1.036 \\ \hline
+                    27 & Right Frontozygomaticus & 1.057 \\ \hline
+                    28 & Left Midsurpaorbital & 0.854 \\ \hline
+                    29 & Right Midsupraorbital & 0.945 \\ \hline
+                \end{tabular}
+                \label{table:Daugmentation_landmarksresume}
+            \end{table}
+
 
         \subsubsection{Modelo \textit{fine-tuning}}
     \subsection{Comparación de resultados}
