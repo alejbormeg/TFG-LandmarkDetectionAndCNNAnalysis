@@ -104,11 +104,15 @@
 \contentsline {subsubsection}{\numberline {10.3.2.1}Modelo Base}{100}{subsubsection.10.3.2.1}%
 \contentsline {subsubsection}{\numberline {10.3.2.2}Modelo con reentrenamiento del encoder}{102}{subsubsection.10.3.2.2}%
 \contentsline {subsubsection}{\numberline {10.3.2.3}Modelo con reentrenamiento del decoder}{102}{subsubsection.10.3.2.3}%
-\contentsline {subsubsection}{\numberline {10.3.2.4}Modelo con Data Augmentation}{102}{subsubsection.10.3.2.4}%
-\contentsline {subsubsection}{\numberline {10.3.2.5}Modelo \textit {fine-tuning}}{102}{subsubsection.10.3.2.5}%
-\contentsline {subsection}{\numberline {10.3.3}Comparación de resultados}{102}{subsection.10.3.3}%
-\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{107}{chapter.11}%
-\contentsline {chapter}{\numberline {A}Apéndice A}{109}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{109}{section.Alph1.1}%
-\contentsline {chapter}{Glosario}{115}{chapter*.13}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{117}{chapter*.14}%
+\contentsline {subsubsection}{\numberline {10.3.2.4}Modelo con Data Augmentation}{103}{subsubsection.10.3.2.4}%
+\contentsline {subsubsection}{\numberline {10.3.2.5}Modelo \textit {fine-tuning}}{104}{subsubsection.10.3.2.5}%
+\contentsline {subsection}{\numberline {10.3.3}Comparación de resultados}{104}{subsection.10.3.3}%
+\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{111}{chapter.11}%
+\contentsline {chapter}{\numberline {A}Apéndice A}{113}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{113}{section.Alph1.1}%
+\contentsline {chapter}{\numberline {B}Apéndice B}{119}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{119}{section.Alph2.1}%
+\contentsline {chapter}{\numberline {C}Apéndice C}{125}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{125}{section.Alph3.1}%
+\contentsline {chapter}{Glosario}{131}{chapter*.13}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{133}{chapter*.14}%

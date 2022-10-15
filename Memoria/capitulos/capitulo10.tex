@@ -359,7 +359,7 @@
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.9\textwidth]{img/curvas_aprendizaje_modelbase.png}
-                \caption{Curvas de entrenamiento en cada partición.}
+                \caption{Curvas de entrenamiento en cada partición del modelo base.}
                 \label{fig:Curvas_modelbase}
             \end{figure}
 
@@ -370,11 +370,120 @@
 
             \medskip
 
-            \noindent Este proceso no produce overfitting pues durante las etapas de entrenamiento los pesos del \textit{decoder} permanecerán congelados, y serán únicamente los pesos del \textit{encoder} los que se actualicen con backpropagation. El optimizador empleado para el entrenamiento del \textit{encoder} es Adam, el mismo que ellos emplean y los parámetros se mantienen por defecto ($\beta_1=0.9$ y $\beta_2=0.999$) a excepción del \textit{learning rate}, que se establece a $2^{-6}$, en vez de $2^{-5}$. El motivo por el cual se realiza este cambio es porque experimentando en esta fase se vio que con el antiguo \textit{Learning rate} no se conseguía mejorar apenas la reconstrucción en validación, pues durante el entrenamiento el error de reconstrucción pronto quedaba estancado en un valor. Para evitar esto se optó por reducir el learning rate consiguiendo mejorar un poco más el error de reconstrucción.
+            \noindent Este proceso no produce overfitting pues durante las etapas de entrenamiento los pesos del \textit{decoder} permanecerán congelados, y serán únicamente los pesos del \textit{encoder} los que se actualicen con backpropagation. El optimizador empleado para el entrenamiento del \textit{encoder} es Adam, el mismo que ellos emplean y los parámetros se mantienen por defecto ($\beta_1=0.9$ y $\beta_2=0.999$) a excepción del \textit{learning rate}, que se establece a $2^{-6}$, en vez de $2^{-5}$. El motivo por el cual se realiza este cambio es porque experimentando en esta fase se vio que con el antiguo \textit{Learning rate} no se conseguía mejorar apenas la reconstrucción en validación, pues durante el entrenamiento el error de reconstrucción pronto quedaba estancado en un valor. Para evitar esto se optó por reducir el learning rate consiguiendo mejorar un poco más el error de reconstrucción. El entrenamiento duró en total \textbf{100 épocas}, pues el modelos mejora más lentamente en el reconocimiento de landmarks.
+
+            \begin{table}[!ht]
+                \centering
+                \caption{Media del error NME obtenido por landmark entre todas las particiones de cross-validation.}
+                \begin{tabular}{|l|l|l|}
+                \hline
+                    ~ & Landmark & Media NME por landmark \\ \hline
+                    0 & Menton & 3.997 \\ \hline
+                    1 & Gnathion & 2.606 \\ \hline
+                    2 & Pogonion & 2.546 \\ \hline
+                    3 & Prosthion & 1.048 \\ \hline
+                    4 & Labiale Superius & 2.04 \\ \hline
+                    5 & Subnasale & 1.992 \\ \hline
+                    6 & Nasion & 2.099 \\ \hline
+                    7 & Glabella & 2.736 \\ \hline
+                    8 & Vertex & 5.89 \\ \hline
+                    9 & Left Gonion & 5.789 \\ \hline
+                    10 & Right Gonion & 5.301 \\ \hline
+                    11 & Left Zygion & 5.288 \\ \hline
+                    12 & Right Zygion & 6.291 \\ \hline
+                    13 & Left Alare & 1.959 \\ \hline
+                    14 & Right Alare & 2.232 \\ \hline
+                    15 & Left Endocanthion & 1.71 \\ \hline
+                    16 & Right Endocanthion & 1.647 \\ \hline
+                    17 & Left Exocanthion & 1.733 \\ \hline
+                    18 & Right Exocanthion & 1.746 \\ \hline
+                    19 & Left Tragion & 3.633 \\ \hline
+                    20 & Right Tragion & 5.252 \\ \hline
+                    21 & Labiale inferius & 1.688 \\ \hline
+                    22 & Trichion & 4.762 \\ \hline
+                    23 & Supramentale & 1.991 \\ \hline
+                    24 & Left Frontotemporale & 2.452 \\ \hline
+                    25 & Right Frontotemporale & 3.282 \\ \hline
+                    26 & Left Frontozygomaticus & 1.499 \\ \hline
+                    27 & Right Frontozygomaticus & 2.516 \\ \hline
+                    28 & Left Midsurpaorbital & 1.178 \\ \hline
+                    29 & Right Midsupraorbital & 1.348 \\ \hline
+                \end{tabular}
+                \label{table:Encode_landmarkresume}
+            \end{table}
+        
+        \noindent Como podemos observar en la \autoref{table:Encode_landmarkresume}, los valores son muy similares a los del modelo base, pese a que este ha entrenado durante más épocas. El \textit{Prosthion} sigue siendo el landmark mejor marcado con un valor del error NME ligeramente superior al del modelo base, sin embargo la verdadera mejora se aprecia en el marcado de landmarks de los perfiles, al mejorar la reconstrucción de los mismos, el \textit{Right Gonion} ha bajado su error considerablemente con respecto al modelbase.
+        
+        \medskip
+        
+        \noindent Por otro lado, como podemos ver en las tablas de validación por imágenes en el \autoref{ap:apendiceB}, el error de reconstrucción ha mejorado muy ligeramente en las imágenes de validación, y no supone una mejora considerable con respecto al modelo base. 
+
+        \medskip
+
+        \noindent Finalmente podemos observar en las curvas de aprendizaje para este modelo en la \autoref{fig:curvas_encoder} que comienza a bajar la capacidad de generalización del modelo a partir de la época 20 aproximadamente. El error de entrenamiento comienza a descender muy lentamente mientras que el de validación se mantiene constante.
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/curvas_encoder.png}
+            \caption{Curvas de entrenamiento en cada partición del modelo de finetuning del encoder.}
+            \label{fig:curvas_encoder}
+        \end{figure}
+
+        \medskip
+
+        \noindent Viendo estos resultados no parece muy prometedora esta línea de investigación, por lo que vamos a cambiar el enfoque sobre el finetuning en el siguiente modelo.
 
         \subsubsection{Modelo con reentrenamiento del decoder}
             \noindent Del mismo modo en que se experimentó con el \textit{encoder} se hizo con el \textit{decoder}. En este enfoque asumimos que el framework sabe codificar correctamente las imágenes pero que no realiza lo suficientemente bien la reconstrucción de las mismas debido a la alta variabilidad del dataset. Esta etapa es completamente análoga a la del modelo anterior (incluyendo el mismo tipo de optimizadores, parámetros y regiones que permanecen congeladas de la red), pero actualizando los pesos del \textit{decoder}.
+
+            \begin{table}[!ht]
+                \centering
+                \caption{Media del error NME obtenido por landmark en validación empleando todas las particiones de cross-validation.}
+                \begin{tabular}{|l|l|l|}
+                \hline
+                    ~ & Landmark & Media NME por landmark \\ \hline
+                    0 & Menton & 3.991 \\ \hline
+                    1 & Gnathion & 2.634 \\ \hline
+                    2 & Pogonion & 2.585 \\ \hline
+                    3 & Prosthion & 0.97 \\ \hline
+                    4 & Labiale Superius & 2.059 \\ \hline
+                    5 & Subnasale & 2.089 \\ \hline
+                    6 & Nasion & 2.275 \\ \hline
+                    7 & Glabella & 2.912 \\ \hline
+                    8 & Vertex & 6.137 \\ \hline
+                    9 & Left Gonion & 5.665 \\ \hline
+                    10 & Right Gonion & 5.468 \\ \hline
+                    11 & Left Zygion & 5.29 \\ \hline
+                    12 & Right Zygion & 6.14 \\ \hline
+                    13 & Left Alare & 2.051 \\ \hline
+                    14 & Right Alare & 2.295 \\ \hline
+                    15 & Left Endocanthion & 1.827 \\ \hline
+                    16 & Right Endocanthion & 1.61 \\ \hline
+                    17 & Left Exocanthion & 1.809 \\ \hline
+                    18 & Right Exocanthion & 1.734 \\ \hline
+                    19 & Left Tragion & 4.163 \\ \hline
+                    20 & Right Tragion & 4.791 \\ \hline
+                    21 & Labiale inferius & 1.627 \\ \hline
+                    22 & Trichion & 5.196 \\ \hline
+                    23 & Supramentale & 1.839 \\ \hline
+                    24 & Left Frontotemporale & 2.474 \\ \hline
+                    25 & Right Frontotemporale & 3.009 \\ \hline
+                    26 & Left Frontozygomaticus & 1.525 \\ \hline
+                    27 & Right Frontozygomaticus & 2.395 \\ \hline
+                    28 & Left Midsurpaorbital & 1.191 \\ \hline
+                    29 & Right Midsupraorbital & 1.48 \\ \hline
+                \end{tabular}
+                \label{table:Decoder_landmarksresume}
+            \end{table}          
             
+            \medskip 
+
+            \noindent De nuevo los errores por landmark que se muestran en la tabla \autoref{table:Decoder_landmarksresume} es muy similar a la de los dos modelos anteriores, por lo que no hemos logrado una gran mejora con este modelo tampoco. Lo único digno de mención es que de nuevo los landmarks que son más visibles en imágenes de perfil han reducido su error debido a la leve mejora de la reconstrucción de las imágenes. 
+
+            
+
+
+
         \subsubsection{Modelo con Data Augmentation}
             \noindent Como pudimos ver en el modelo anterior se consiguieron buenos resultados del \textit{NME} pese a haber entrenado sin realizar técnicas de \textit{data augmentation}. Es por ello que en este segundo experimento vamos a realizar los siguientes cambios en el entrenamiento: 
             
