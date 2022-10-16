@@ -572,6 +572,50 @@
                 \label{fig:curvas_daugmentation}
             \end{figure}
     \subsection{Elección de modelo y obtención de resultados}
+
+        \noindent Una vez analizados los distintos modelos que se proponen para resolver el problema, vemos que la alternativa más prometedora resulta ser la última, la de aplicar técnicas de \textit{data augmentation} al dataset. Es por ello que ahora tomaremos el conjunto de entrenamiento en su totalidad (sin realizar particiones como hicimos para \textit{cross validation}) y vamos a usarlo para entrenar el modelo durante las mismas épocas que en la sección anterior y con los mismos parámetros y transformaciones. Posteriormente usaremos el conjunto de test de $33$ imágenes que separamos al principio de esta sección, y que hasta ahora no hemos visto para evitar \textit{data snooping}, para validar el modelo.
+
+        \begin{table}[!ht]
+            \centering
+            \caption{Tabla con la media del error NME por landmark en el conjunto de test}
+            \begin{tabular}{|l|l|l|}
+            \hline
+                ~ & Landmark & Media NME por landmark \\ \hline
+                0 & Menton & 0.946 \\ \hline
+                1 & Gnathion & 3.323 \\ \hline
+                2 & Pogonion & 3.149 \\ \hline
+                3 & Prosthion & 0.89 \\ \hline
+                4 & Labiale Superius & 1.134 \\ \hline
+                5 & Subnasale & 2.982 \\ \hline
+                6 & Nasion & 3.1 \\ \hline
+                7 & Glabella & 3.089 \\ \hline
+                8 & Vertex & 6.568 \\ \hline
+                9 & Left Gonion & 4.334 \\ \hline
+                10 & Right Gonion & 1.297 \\ \hline
+                11 & Left Zygion & 4.813 \\ \hline
+                12 & Right Zygion & 4.465 \\ \hline
+                13 & Left Alare & 3.531 \\ \hline
+                14 & Right Alare & 3.641 \\ \hline
+                15 & Left Endocanthion & 3.917 \\ \hline
+                16 & Right Endocanthion & 4.685 \\ \hline
+                17 & Left Exocanthion & 3.936 \\ \hline
+                18 & Right Exocanthion & 4.526 \\ \hline
+                19 & Left Tragion & 2.365 \\ \hline
+                20 & Right Tragion & 1.678 \\ \hline
+                21 & Labiale inferius & 1.083 \\ \hline
+                22 & Trichion & 1.731 \\ \hline
+                23 & Supramentale & 1.064 \\ \hline
+                24 & Left Frontotemporale & 1.208 \\ \hline
+                25 & Right Frontotemporale & 1.282 \\ \hline
+                26 & Left Frontozygomaticus & 1.024 \\ \hline
+                27 & Right Frontozygomaticus & 0.943 \\ \hline
+                28 & Left Midsurpaorbital & 0.846 \\ \hline
+                29 & Right Midsupraorbital & 2.027 \\ \hline
+            \end{tabular}
+            \label{table:FinalModel_landmarks}
+        \end{table}
+        
+        
 \endinput
 %------------------------------------------------------------------------------------
 % FIN DEL CAPÍTULO. 
