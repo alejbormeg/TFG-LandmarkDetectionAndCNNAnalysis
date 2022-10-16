@@ -286,291 +286,291 @@
 
         \noindent También, en la creación de los \textit{Heat maps} se ha optado por mantener el valor de $\sigma =7$ que se recomienda en el paper \cite{browatzki20203fabrec}, ya que de nuevo ha sido probado minuciosamente por los autores del framework.
     
-    \subsection{Experimentación}
-        \subsubsection{Modelo Base}
-            \noindent En primer lugar se va a buscar un \textbf{modelo base} con el que obtener los primeros resultados y que iremos refinando hasta obtener el modelo solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos, todos ellos han sido entrenados en la fase de aprendizaje no supervisado, pero uno viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento en los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}. Así pues, la primera decisión a tomar es si emplear un modelo preentrenado en alguno de los datasets anteriores o utilizar uno sin entrenar. 
-
-            \medskip
-
-            \noindent Para tomar la anterior decisión se han repasado los diferentes datasets sobre los que se entrenó la red y se ha decidido que se usará como modelo base el que ha sido entrenado en \textit{AFLW}, debido a que el número de landmarks que predice este modelo es similar al de nuestro problema, ya que predice 21 landmarks, mientras que los demás modelos han sido entrenados para predecir 68 en el caso de \textit{300w} y 98 en el caso de \textit{WFLW}. Por otro lado, los landmarks que predice AFLW, pese a no tener una justificación biológica, son parecidos a los anotados en el dataset que se proporciona. Es por esto que consideramos una buena primera decisión emplear la red \textbf{preentrenada en AFLW}.
-
-            %TODO INSERTAR IMAGEN DE LOS LANDMARKS DE AFLW vs LOS NUESTROS.
-
-            \medskip
-
-            \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{fine-tuning} sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{40 épocas} hasta la convergencia del \textit{mse}, que es la medida de error entre los \textit{Heat maps} predichos por el modelo y los reales, y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
-
-            \begin{itemize}
-                \item El \textit{learning rate} para el optimizador Adam usado en el entrenamiento de las ITLs se establece en $0.001$. 
-                \item El valor del parámetro $\beta_1$ se establece en $0.0$.
-                \item El valor del parámetro $\beta_2$ se establece en $0.9$.
-            \end{itemize}
-
-            \noindent Los resultados obtenidos por imagen en cada partición de \textbf{cross validation 5-fold } se pueden encontrar en \autoref{ap:apendiceA}. En estas tablas podemos observar la media del NME obtenido entre todos los landmarks presentes en la imagen, es decir, los no marcados no computan en esta media. Los resultados obtenidos son en general buenos, el NME no es muy elevado. Por otro lado vemos también el error de reconstrucción, que como podemos observar generalmente es elevado, lo que nos indica que no se están reconstruyendo fielmente las imágenes, algo que podría afectar al marcado de landmarks, puesto que estos se marcan en primer lugar sobre la imagen reconstruida, y luego se trasladan a la original.
-
-            \begin{table}[!ht]
-                \centering
-                \caption{Media del error NME obtenido por landmark entre todas las particiones de cross-validation.}
-                \begin{tabular}{|l|l|l|}
-                \hline
-                    ~ & Landmark & Media NME por landmark \\ \hline
-                    0 & Menton & 3.944 \\ \hline
-                    1 & Gnathion & 2.637 \\ \hline
-                    2 & Pogonion & 2.549 \\ \hline
-                    3 & Prosthion & 0.932 \\ \hline
-                    4 & Labiale Superius & 2.099 \\ \hline
-                    5 & Subnasale & 2.059 \\ \hline
-                    6 & Nasion & 2.254 \\ \hline
-                    7 & Glabella & 2.547 \\ \hline
-                    8 & Vertex & 6.244 \\ \hline
-                    9 & Left Gonion & 7.684 \\ \hline
-                    10 & Right Gonion & 11.283 \\ \hline
-                    11 & Left Zygion & 5.098 \\ \hline
-                    12 & Right Zygion & 6.309 \\ \hline
-                    13 & Left Alare & 1.939 \\ \hline
-                    14 & Right Alare & 2.282 \\ \hline
-                    15 & Left Endocanthion & 1.668 \\ \hline
-                    16 & Right Endocanthion & 1.671 \\ \hline
-                    17 & Left Exocanthion & 1.706 \\ \hline
-                    18 & Right Exocanthion & 1.670 \\ \hline
-                    19 & Left Tragion & 4.824 \\ \hline
-                    20 & Right Tragion & 5.376 \\ \hline
-                    21 & Labiale inferius & 1.705 \\ \hline
-                    22 & Trichion & 4.478 \\ \hline
-                    23 & Supramentale & 1.913 \\ \hline
-                    24 & Left Frontotemporale & 2.319 \\ \hline
-                    25 & Right Frontotemporale & 2.721 \\ \hline
-                    26 & Left Frontozygomaticus & 1.513 \\ \hline
-                    27 & Right Frontozygomaticus & 2.313 \\ \hline
-                    28 & Left Midsurpaorbital & 1.205 \\ \hline
-                    29 & Right Midsupraorbital & 1.43 \\ \hline
-                \end{tabular}
-                \label{table:ModelBase_landmarkresume}
-            \end{table}
-
-            \medskip
-
-            \noindent Los resultados por landmark se puden ver en la \autoref{table:ModelBase_landmarkresume}. Como podemos observar, los resultados son buenos en general, siendo el landmark mejor marcado en media el \textit{Prosthion}, y el peor el \textit{Right Gonion}. Si recordamos la \autoref{fig:Histograma}, sorprende el hecho de que el \textit{Prosthion} es de los landmarks que menos presencia tiene en las imágenes (aparece en menos de $40$ imágenes) y sin embargo es de los que mejor aprende a marcar la red. Por otro lado, el \textit{Right Gonion}, pese a aparecer en unas $100$ imágenes, resulta más dificil para la red predecir este, esto puede deberse a que las imágenes con mayor error de reconstrucción son las de perfil, y es en este tipo de imágenes en las que mejor se aprecia dicho landmark.
-
-            \medskip
-
-            \noindent Por otro lado, podemos ver en la \autoref{fig:Curvas_modelbase} las curvas de aprendizaje de cada partición. Todas tiene una gran capacidad de generalización, pues como vemos el error de validación desciende a la par que el de entrenamiento y está poco por encima de este último.
-
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.9\textwidth]{img/curvas_aprendizaje_modelbase.png}
-                \caption{Curvas de aprendizaje en cada partición del modelo base.}
-                \label{fig:Curvas_modelbase}
-            \end{figure}
-
-            \noindent En resumen, los resultados parecen buenos para tratarse de una primera aproximación. Sin embargo, consideramos que debido a la gran variabilidad del dataset tanto en posturas, como en calidad e iluminación de imagen, la reconstrucción de las imágenes se ha resentido, especialmente en las imágenes de perfil. Esto provoca que el modelo también marque peor los landmarks, por lo que vamos a intentar mejorar esto en los próximos modelos.
-
-        \subsubsection{Modelo con reentrenamiento del encoder}
-            \noindent A la luz de los resultados anteriores, vamos a cambiar el modelo de manera que ahora junto con las ITLs (que seguirán usando el mismo optimizador con los mismos parámetros por defecto), vamos a entrenar los pesos del \textit{encoder}. Con este enfoque queremos enseñar a la red a codificar mejor la información presente en las imágenes del dataset (que son más difíciles que las de los datasets empleados anteriormente), a la par que la enseñamos a marcar landmarks en las mismas. 
-
-            \medskip
-
-            \noindent Este proceso no produce overfitting pues durante las etapas de entrenamiento los pesos del \textit{decoder} permanecerán congelados, y serán únicamente los pesos del \textit{encoder} los que se actualicen con backpropagation. El optimizador empleado para el entrenamiento del \textit{encoder} es Adam, el mismo que ellos emplean y los parámetros se mantienen por defecto ($\beta_1=0.9$ y $\beta_2=0.999$) a excepción del \textit{learning rate}, que se establece a $2^{-6}$, en vez de $2^{-5}$. El motivo por el cual se realiza este cambio es porque experimentando en esta fase se vio que con el antiguo \textit{Learning rate} no se conseguía mejorar apenas la reconstrucción en validación, pues durante el entrenamiento el error de reconstrucción pronto quedaba estancado en un valor. Para evitar esto se optó por reducir el learning rate consiguiendo mejorar un poco más el error de reconstrucción. El entrenamiento duró en total \textbf{100 épocas}, pues el modelos mejora más lentamente en el reconocimiento de landmarks.
-
-            \begin{table}[!ht]
-                \centering
-                \caption{Media del error NME obtenido por landmark entre todas las particiones de cross-validation.}
-                \begin{tabular}{|l|l|l|}
-                \hline
-                    ~ & Landmark & Media NME por landmark \\ \hline
-                    0 & Menton & 3.997 \\ \hline
-                    1 & Gnathion & 2.606 \\ \hline
-                    2 & Pogonion & 2.546 \\ \hline
-                    3 & Prosthion & 1.048 \\ \hline
-                    4 & Labiale Superius & 2.04 \\ \hline
-                    5 & Subnasale & 1.992 \\ \hline
-                    6 & Nasion & 2.099 \\ \hline
-                    7 & Glabella & 2.736 \\ \hline
-                    8 & Vertex & 5.89 \\ \hline
-                    9 & Left Gonion & 5.789 \\ \hline
-                    10 & Right Gonion & 5.301 \\ \hline
-                    11 & Left Zygion & 5.288 \\ \hline
-                    12 & Right Zygion & 6.291 \\ \hline
-                    13 & Left Alare & 1.959 \\ \hline
-                    14 & Right Alare & 2.232 \\ \hline
-                    15 & Left Endocanthion & 1.71 \\ \hline
-                    16 & Right Endocanthion & 1.647 \\ \hline
-                    17 & Left Exocanthion & 1.733 \\ \hline
-                    18 & Right Exocanthion & 1.746 \\ \hline
-                    19 & Left Tragion & 3.633 \\ \hline
-                    20 & Right Tragion & 5.252 \\ \hline
-                    21 & Labiale inferius & 1.688 \\ \hline
-                    22 & Trichion & 4.762 \\ \hline
-                    23 & Supramentale & 1.991 \\ \hline
-                    24 & Left Frontotemporale & 2.452 \\ \hline
-                    25 & Right Frontotemporale & 3.282 \\ \hline
-                    26 & Left Frontozygomaticus & 1.499 \\ \hline
-                    27 & Right Frontozygomaticus & 2.516 \\ \hline
-                    28 & Left Midsurpaorbital & 1.178 \\ \hline
-                    29 & Right Midsupraorbital & 1.348 \\ \hline
-                \end{tabular}
-                \label{table:Encode_landmarkresume}
-            \end{table}
-        
-        \noindent Como podemos observar en la \autoref{table:Encode_landmarkresume}, los valores son muy similares a los del modelo base, pese a que este ha entrenado durante más épocas. El \textit{Prosthion} sigue siendo el landmark mejor marcado con un valor del error NME ligeramente superior al del modelo base, sin embargo la verdadera mejora se aprecia en el marcado de landmarks de los perfiles, al mejorar la reconstrucción de los mismos, el \textit{Right Gonion} ha bajado su error considerablemente con respecto al modelbase.
-        
-        \medskip
-        
-        \noindent Por otro lado, como podemos ver en las tablas de validación por imágenes en el \autoref{ap:apendiceB}, el error de reconstrucción ha mejorado muy ligeramente en las imágenes de validación, y no supone una mejora considerable con respecto al modelo base. 
+    \subsection{Modelo Base}
+        \noindent En primer lugar se va a buscar un \textbf{modelo base} con el que obtener los primeros resultados y que iremos refinando hasta obtener el modelo solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos, todos ellos han sido entrenados en la fase de aprendizaje no supervisado, pero uno viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento en los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}. Así pues, la primera decisión a tomar es si emplear un modelo preentrenado en alguno de los datasets anteriores o utilizar uno sin entrenar. 
 
         \medskip
 
-        \noindent Finalmente podemos observar en las curvas de aprendizaje para este modelo en la \autoref{fig:curvas_encoder} que comienza a bajar la capacidad de generalización del modelo a partir de la época 20 aproximadamente. El error de entrenamiento comienza a descender muy lentamente mientras que el de validación se mantiene constante.
+        \noindent Para tomar la anterior decisión se han repasado los diferentes datasets sobre los que se entrenó la red y se ha decidido que se usará como modelo base el que ha sido entrenado en \textit{AFLW}, debido a que el número de landmarks que predice este modelo es similar al de nuestro problema, ya que predice 21 landmarks, mientras que los demás modelos han sido entrenados para predecir 68 en el caso de \textit{300w} y 98 en el caso de \textit{WFLW}. Por otro lado, los landmarks que predice AFLW, pese a no tener una justificación biológica, son parecidos a los anotados en el dataset que se proporciona. Es por esto que consideramos una buena primera decisión emplear la red \textbf{preentrenada en AFLW}.
+
+        %TODO INSERTAR IMAGEN DE LOS LANDMARKS DE AFLW vs LOS NUESTROS.
+
+        \medskip
+
+        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{fine-tuning} sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{40 épocas} hasta la convergencia del \textit{mse}, que es la medida de error entre los \textit{Heat maps} predichos por el modelo y los reales, y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
+
+        \begin{itemize}
+            \item El \textit{learning rate} para el optimizador Adam usado en el entrenamiento de las ITLs se establece en $0.001$. 
+            \item El valor del parámetro $\beta_1$ se establece en $0.0$.
+            \item El valor del parámetro $\beta_2$ se establece en $0.9$.
+        \end{itemize}
+
+        \noindent Los resultados obtenidos por imagen en cada partición de \textbf{cross validation 5-fold } se pueden encontrar en \autoref{ap:apendiceA}. En estas tablas podemos observar la media del NME obtenido entre todos los landmarks presentes en la imagen, es decir, los no marcados no computan en esta media. Los resultados obtenidos son en general buenos, el NME no es muy elevado. Por otro lado vemos también el error de reconstrucción, que como podemos observar generalmente es elevado, lo que nos indica que no se están reconstruyendo fielmente las imágenes, algo que podría afectar al marcado de landmarks, puesto que estos se marcan en primer lugar sobre la imagen reconstruida, y luego se trasladan a la original.
+
+        \begin{table}[!ht]
+            \centering
+            \caption{Media del error NME obtenido por landmark entre todas las particiones de cross-validation.}
+            \begin{tabular}{|l|l|l|}
+            \hline
+                ~ & Landmark & Media NME por landmark \\ \hline
+                0 & Menton & 3.944 \\ \hline
+                1 & Gnathion & 2.637 \\ \hline
+                2 & Pogonion & 2.549 \\ \hline
+                3 & Prosthion & 0.932 \\ \hline
+                4 & Labiale Superius & 2.099 \\ \hline
+                5 & Subnasale & 2.059 \\ \hline
+                6 & Nasion & 2.254 \\ \hline
+                7 & Glabella & 2.547 \\ \hline
+                8 & Vertex & 6.244 \\ \hline
+                9 & Left Gonion & 7.684 \\ \hline
+                10 & Right Gonion & 11.283 \\ \hline
+                11 & Left Zygion & 5.098 \\ \hline
+                12 & Right Zygion & 6.309 \\ \hline
+                13 & Left Alare & 1.939 \\ \hline
+                14 & Right Alare & 2.282 \\ \hline
+                15 & Left Endocanthion & 1.668 \\ \hline
+                16 & Right Endocanthion & 1.671 \\ \hline
+                17 & Left Exocanthion & 1.706 \\ \hline
+                18 & Right Exocanthion & 1.670 \\ \hline
+                19 & Left Tragion & 4.824 \\ \hline
+                20 & Right Tragion & 5.376 \\ \hline
+                21 & Labiale inferius & 1.705 \\ \hline
+                22 & Trichion & 4.478 \\ \hline
+                23 & Supramentale & 1.913 \\ \hline
+                24 & Left Frontotemporale & 2.319 \\ \hline
+                25 & Right Frontotemporale & 2.721 \\ \hline
+                26 & Left Frontozygomaticus & 1.513 \\ \hline
+                27 & Right Frontozygomaticus & 2.313 \\ \hline
+                28 & Left Midsurpaorbital & 1.205 \\ \hline
+                29 & Right Midsupraorbital & 1.43 \\ \hline
+            \end{tabular}
+            \label{table:ModelBase_landmarkresume}
+        \end{table}
+
+        \medskip
+
+        \noindent Los resultados por landmark se puden ver en la \autoref{table:ModelBase_landmarkresume}. Como podemos observar, los resultados son buenos en general, siendo el landmark mejor marcado en media el \textit{Prosthion}, y el peor el \textit{Right Gonion}. Si recordamos la \autoref{fig:Histograma}, sorprende el hecho de que el \textit{Prosthion} es de los landmarks que menos presencia tiene en las imágenes (aparece en menos de $40$ imágenes) y sin embargo es de los que mejor aprende a marcar la red. Por otro lado, el \textit{Right Gonion}, pese a aparecer en unas $100$ imágenes, resulta más dificil para la red predecir este, esto puede deberse a que las imágenes con mayor error de reconstrucción son las de perfil, y es en este tipo de imágenes en las que mejor se aprecia dicho landmark.
+
+        \medskip
+
+        \noindent Por otro lado, podemos ver en la \autoref{fig:Curvas_modelbase} las curvas de aprendizaje de cada partición. Todas tiene una gran capacidad de generalización, pues como vemos el error de validación desciende a la par que el de entrenamiento y está poco por encima de este último.
 
         \begin{figure}[!h]
             \centering
-            \includegraphics[width=0.9\textwidth]{img/curvas_encoder.png}
+            \includegraphics[width=0.9\textwidth]{img/curvas_aprendizaje_modelbase.png}
+            \caption{Curvas de aprendizaje en cada partición del modelo base.}
+            \label{fig:Curvas_modelbase}
+        \end{figure}
+
+        \noindent En resumen, los resultados parecen buenos para tratarse de una primera aproximación. Sin embargo, consideramos que debido a la gran variabilidad del dataset tanto en posturas, como en calidad e iluminación de imagen, la reconstrucción de las imágenes se ha resentido, especialmente en las imágenes de perfil. Esto provoca que el modelo también marque peor los landmarks, por lo que vamos a intentar mejorar esto en los próximos modelos.
+
+    \subsection{Modelo con reentrenamiento del encoder}
+        \noindent A la luz de los resultados anteriores, vamos a cambiar el modelo de manera que ahora junto con las ITLs (que seguirán usando el mismo optimizador con los mismos parámetros por defecto), vamos a entrenar los pesos del \textit{encoder}. Con este enfoque queremos enseñar a la red a codificar mejor la información presente en las imágenes del dataset (que son más difíciles que las de los datasets empleados anteriormente), a la par que la enseñamos a marcar landmarks en las mismas. 
+
+        \medskip
+
+        \noindent Este proceso no produce overfitting pues durante las etapas de entrenamiento los pesos del \textit{decoder} permanecerán congelados, y serán únicamente los pesos del \textit{encoder} los que se actualicen con backpropagation. El optimizador empleado para el entrenamiento del \textit{encoder} es Adam, el mismo que ellos emplean y los parámetros se mantienen por defecto ($\beta_1=0.9$ y $\beta_2=0.999$) a excepción del \textit{learning rate}, que se establece a $2^{-6}$, en vez de $2^{-5}$. El motivo por el cual se realiza este cambio es porque experimentando en esta fase se vio que con el antiguo \textit{Learning rate} no se conseguía mejorar apenas la reconstrucción en validación, pues durante el entrenamiento el error de reconstrucción pronto quedaba estancado en un valor. Para evitar esto se optó por reducir el learning rate consiguiendo mejorar un poco más el error de reconstrucción. El entrenamiento duró en total \textbf{100 épocas}, pues el modelos mejora más lentamente en el reconocimiento de landmarks.
+
+        \begin{table}[!ht]
+            \centering
+            \caption{Media del error NME obtenido por landmark entre todas las particiones de cross-validation.}
+            \begin{tabular}{|l|l|l|}
+            \hline
+                ~ & Landmark & Media NME por landmark \\ \hline
+                0 & Menton & 3.997 \\ \hline
+                1 & Gnathion & 2.606 \\ \hline
+                2 & Pogonion & 2.546 \\ \hline
+                3 & Prosthion & 1.048 \\ \hline
+                4 & Labiale Superius & 2.04 \\ \hline
+                5 & Subnasale & 1.992 \\ \hline
+                6 & Nasion & 2.099 \\ \hline
+                7 & Glabella & 2.736 \\ \hline
+                8 & Vertex & 5.89 \\ \hline
+                9 & Left Gonion & 5.789 \\ \hline
+                10 & Right Gonion & 5.301 \\ \hline
+                11 & Left Zygion & 5.288 \\ \hline
+                12 & Right Zygion & 6.291 \\ \hline
+                13 & Left Alare & 1.959 \\ \hline
+                14 & Right Alare & 2.232 \\ \hline
+                15 & Left Endocanthion & 1.71 \\ \hline
+                16 & Right Endocanthion & 1.647 \\ \hline
+                17 & Left Exocanthion & 1.733 \\ \hline
+                18 & Right Exocanthion & 1.746 \\ \hline
+                19 & Left Tragion & 3.633 \\ \hline
+                20 & Right Tragion & 5.252 \\ \hline
+                21 & Labiale inferius & 1.688 \\ \hline
+                22 & Trichion & 4.762 \\ \hline
+                23 & Supramentale & 1.991 \\ \hline
+                24 & Left Frontotemporale & 2.452 \\ \hline
+                25 & Right Frontotemporale & 3.282 \\ \hline
+                26 & Left Frontozygomaticus & 1.499 \\ \hline
+                27 & Right Frontozygomaticus & 2.516 \\ \hline
+                28 & Left Midsurpaorbital & 1.178 \\ \hline
+                29 & Right Midsupraorbital & 1.348 \\ \hline
+            \end{tabular}
+            \label{table:Encode_landmarkresume}
+        \end{table}
+    
+    \noindent Como podemos observar en la \autoref{table:Encode_landmarkresume}, los valores son muy similares a los del modelo base, pese a que este ha entrenado durante más épocas. El \textit{Prosthion} sigue siendo el landmark mejor marcado con un valor del error NME ligeramente superior al del modelo base, sin embargo la verdadera mejora se aprecia en el marcado de landmarks de los perfiles, al mejorar la reconstrucción de los mismos, el \textit{Right Gonion} ha bajado su error considerablemente con respecto al modelbase.
+    
+    \medskip
+    
+    \noindent Por otro lado, como podemos ver en las tablas de validación por imágenes en el \autoref{ap:apendiceB}, el error de reconstrucción ha mejorado muy ligeramente en las imágenes de validación, y no supone una mejora considerable con respecto al modelo base. 
+
+    \medskip
+
+    \noindent Finalmente podemos observar en las curvas de aprendizaje para este modelo en la \autoref{fig:curvas_encoder} que comienza a bajar la capacidad de generalización del modelo a partir de la época 20 aproximadamente. El error de entrenamiento comienza a descender muy lentamente mientras que el de validación se mantiene constante.
+
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.9\textwidth]{img/curvas_encoder.png}
+        \caption{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}
+        \label{fig:curvas_encoder}
+    \end{figure}
+
+    \medskip
+
+    \noindent Viendo estos resultados no parece muy prometedora esta línea de investigación, por lo que vamos a cambiar el enfoque sobre el finetuning en el siguiente modelo.
+
+    \subsection{Modelo con reentrenamiento del decoder}
+        \noindent Del mismo modo en que se experimentó con el \textit{encoder} se hizo con el \textit{decoder}. En este enfoque asumimos que el framework sabe codificar correctamente las imágenes pero que no realiza lo suficientemente bien la reconstrucción de las mismas debido a la alta variabilidad del dataset. Esta etapa es completamente análoga a la del modelo anterior (incluyendo el mismo tipo de optimizadores, parámetros y regiones que permanecen congeladas de la red), pero actualizando los pesos del \textit{decoder}.
+
+        \begin{table}[!ht]
+            \centering
+            \caption{Media del error NME obtenido por landmark en validación empleando todas las particiones de cross-validation.}
+            \begin{tabular}{|l|l|l|}
+            \hline
+                ~ & Landmark & Media NME por landmark \\ \hline
+                0 & Menton & 3.991 \\ \hline
+                1 & Gnathion & 2.634 \\ \hline
+                2 & Pogonion & 2.585 \\ \hline
+                3 & Prosthion & 0.97 \\ \hline
+                4 & Labiale Superius & 2.059 \\ \hline
+                5 & Subnasale & 2.089 \\ \hline
+                6 & Nasion & 2.275 \\ \hline
+                7 & Glabella & 2.912 \\ \hline
+                8 & Vertex & 6.137 \\ \hline
+                9 & Left Gonion & 5.665 \\ \hline
+                10 & Right Gonion & 5.468 \\ \hline
+                11 & Left Zygion & 5.29 \\ \hline
+                12 & Right Zygion & 6.14 \\ \hline
+                13 & Left Alare & 2.051 \\ \hline
+                14 & Right Alare & 2.295 \\ \hline
+                15 & Left Endocanthion & 1.827 \\ \hline
+                16 & Right Endocanthion & 1.61 \\ \hline
+                17 & Left Exocanthion & 1.809 \\ \hline
+                18 & Right Exocanthion & 1.734 \\ \hline
+                19 & Left Tragion & 4.163 \\ \hline
+                20 & Right Tragion & 4.791 \\ \hline
+                21 & Labiale inferius & 1.627 \\ \hline
+                22 & Trichion & 5.196 \\ \hline
+                23 & Supramentale & 1.839 \\ \hline
+                24 & Left Frontotemporale & 2.474 \\ \hline
+                25 & Right Frontotemporale & 3.009 \\ \hline
+                26 & Left Frontozygomaticus & 1.525 \\ \hline
+                27 & Right Frontozygomaticus & 2.395 \\ \hline
+                28 & Left Midsurpaorbital & 1.191 \\ \hline
+                29 & Right Midsupraorbital & 1.48 \\ \hline
+            \end{tabular}
+            \label{table:Decoder_landmarksresume}
+        \end{table}          
+        
+        \medskip 
+
+        \noindent De nuevo los errores por landmark que se muestran en la tabla \autoref{table:Decoder_landmarksresume} es muy similar a la de los dos modelos anteriores, por lo que no hemos logrado una gran mejora con este modelo tampoco. Lo único digno de mención es que de nuevo los landmarks que son más visibles en imágenes de perfil han reducido su error debido a la leve mejora de la reconstrucción de las imágenes. 
+
+        \medskip
+
+        \noindent Por otro lado, en lo que respecta a los errores promedio de todos los landmarks por imagen, las tablas por partición se pueden consultar en \autoref{ap:apendiceC}, aunque los resultados son muy similares a los de los modelos anteriores. El error de reconstrucción de nuevo no mejora apenas y los errores NMEs promedio son muy parecidos a los de los otros modelos. 
+
+        \medskip
+
+        \noindent Las curvas de aprendizaje se pueden ver en la \autoref{fig:curvas_decoder}, y vuelven a mostrar un ligero overfitting a partir de la época $30$-$40$, en la mayoría de casos. 
+        
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/curvas_decoder.png}
             \caption{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}
-            \label{fig:curvas_encoder}
+            \label{fig:curvas_decoder}
         \end{figure}
 
         \medskip
 
-        \noindent Viendo estos resultados no parece muy prometedora esta línea de investigación, por lo que vamos a cambiar el enfoque sobre el finetuning en el siguiente modelo.
+        \noindent Tras los resultados obtenidos se ha optado por abandonar también esta línea de investigación pues se obtienen resultados muy similares al modelo base y se debe entrenar por mucho más tiempo ($100$ épocas frente a $40$ del modelo base). 
 
-        \subsubsection{Modelo con reentrenamiento del decoder}
-            \noindent Del mismo modo en que se experimentó con el \textit{encoder} se hizo con el \textit{decoder}. En este enfoque asumimos que el framework sabe codificar correctamente las imágenes pero que no realiza lo suficientemente bien la reconstrucción de las mismas debido a la alta variabilidad del dataset. Esta etapa es completamente análoga a la del modelo anterior (incluyendo el mismo tipo de optimizadores, parámetros y regiones que permanecen congeladas de la red), pero actualizando los pesos del \textit{decoder}.
+    \subsection{Modelo con Data Augmentation}
+        \noindent Comparando los tres resultados anteriores, el modelo base sigue siendo el más prometedor, por lo que en lugar de mejorar el error de reconstrucción vamos a centrarnos en mejorar el marcado de landmarks. Como pudimos ver en el modelo base, se consiguieron buenos resultados del \textit{NME} pese a haber entrenado sin realizar técnicas de \textit{data augmentation}. Es por ello que en este segundo experimento vamos a realizar los siguientes cambios en el entrenamiento: 
+        
+        \begin{itemize}
+            \item En primer lugar se realizará un entrenamiento del modelo similar al del modelo base durante $40$ épocas.
+            \item Tras esto, se entrenará el modelo con el dataset al cual se le aplicarán técnicas de data augmentation, para aumentar el número de datos de entrenamiento e incrementar aún más la variabilidad de los mismos, de manera que cada imagen del dataset sufrirá de manera aleatoria una traslación ($\pm 4\%$), un reescalado ($\pm 5\%$), una rotación ($\pm 30$ grados) y oclusiones parciales. El entrenamiento en este nuevo dataset será durante $40$ épocas tras acabar las de la etapa anterior. 
+            %TODO PONER IMÁGENES DE EJEMPLO DE LAS TRANSFORMACIONES
+            \item En total serán \textbf{$80$ épocas} de entrenamiento sumando las dos etapas anteriores.
+        \end{itemize}
 
-            \begin{table}[!ht]
-                \centering
-                \caption{Media del error NME obtenido por landmark en validación empleando todas las particiones de cross-validation.}
-                \begin{tabular}{|l|l|l|}
-                \hline
-                    ~ & Landmark & Media NME por landmark \\ \hline
-                    0 & Menton & 3.991 \\ \hline
-                    1 & Gnathion & 2.634 \\ \hline
-                    2 & Pogonion & 2.585 \\ \hline
-                    3 & Prosthion & 0.97 \\ \hline
-                    4 & Labiale Superius & 2.059 \\ \hline
-                    5 & Subnasale & 2.089 \\ \hline
-                    6 & Nasion & 2.275 \\ \hline
-                    7 & Glabella & 2.912 \\ \hline
-                    8 & Vertex & 6.137 \\ \hline
-                    9 & Left Gonion & 5.665 \\ \hline
-                    10 & Right Gonion & 5.468 \\ \hline
-                    11 & Left Zygion & 5.29 \\ \hline
-                    12 & Right Zygion & 6.14 \\ \hline
-                    13 & Left Alare & 2.051 \\ \hline
-                    14 & Right Alare & 2.295 \\ \hline
-                    15 & Left Endocanthion & 1.827 \\ \hline
-                    16 & Right Endocanthion & 1.61 \\ \hline
-                    17 & Left Exocanthion & 1.809 \\ \hline
-                    18 & Right Exocanthion & 1.734 \\ \hline
-                    19 & Left Tragion & 4.163 \\ \hline
-                    20 & Right Tragion & 4.791 \\ \hline
-                    21 & Labiale inferius & 1.627 \\ \hline
-                    22 & Trichion & 5.196 \\ \hline
-                    23 & Supramentale & 1.839 \\ \hline
-                    24 & Left Frontotemporale & 2.474 \\ \hline
-                    25 & Right Frontotemporale & 3.009 \\ \hline
-                    26 & Left Frontozygomaticus & 1.525 \\ \hline
-                    27 & Right Frontozygomaticus & 2.395 \\ \hline
-                    28 & Left Midsurpaorbital & 1.191 \\ \hline
-                    29 & Right Midsupraorbital & 1.48 \\ \hline
-                \end{tabular}
-                \label{table:Decoder_landmarksresume}
-            \end{table}          
-            
-            \medskip 
+        \medskip
 
-            \noindent De nuevo los errores por landmark que se muestran en la tabla \autoref{table:Decoder_landmarksresume} es muy similar a la de los dos modelos anteriores, por lo que no hemos logrado una gran mejora con este modelo tampoco. Lo único digno de mención es que de nuevo los landmarks que son más visibles en imágenes de perfil han reducido su error debido a la leve mejora de la reconstrucción de las imágenes. 
+        \noindent De nuevo, el resto de parámetros continuarán con los valores por defecto de la etapa anterior, pues los resultados obtenidos han sido buenos hasta el momento y nada sugiere tener que cambiarlos.
 
-            \medskip
+        \begin{table}[!ht]
+            \centering
+            \caption{Media del error NME obtenido por landmark en validación empleando todas las particiones de cross-validation con el modelo de data augmentation.}
+            \begin{tabular}{|l|l|l|}
+            \hline
+                ~ & Landmark & Media NME por landmark \\ \hline
+                0 & Menton & 3.006 \\ \hline
+                1 & Gnathion & 1.497 \\ \hline
+                2 & Pogonion & 1.359 \\ \hline
+                3 & Prosthion & 0.815 \\ \hline
+                4 & Labiale Superius & 1.531 \\ \hline
+                5 & Subnasale & 1.272 \\ \hline
+                6 & Nasion & 1.241 \\ \hline
+                7 & Glabella & 1.545 \\ \hline
+                8 & Vertex & 3.99 \\ \hline
+                9 & Left Gonion & 1.846 \\ \hline
+                10 & Right Gonion & 1.673 \\ \hline
+                11 & Left Zygion & 3.322 \\ \hline
+                12 & Right Zygion & 4.441 \\ \hline
+                13 & Left Alare & 1.585 \\ \hline
+                14 & Right Alare & 1.362 \\ \hline
+                15 & Left Endocanthion & 1.227 \\ \hline
+                16 & Right Endocanthion & 1.129 \\ \hline
+                17 & Left Exocanthion & 1.186 \\ \hline
+                18 & Right Exocanthion & 1.12 \\ \hline
+                19 & Left Tragion & 2.066 \\ \hline
+                20 & Right Tragion & 2.234 \\ \hline
+                21 & Labiale inferius & 1.032 \\ \hline
+                22 & Trichion & 3.37 \\ \hline
+                23 & Supramentale & 1.109 \\ \hline
+                24 & Left Frontotemporale & 1.386 \\ \hline
+                25 & Right Frontotemporale & 1.826 \\ \hline
+                26 & Left Frontozygomaticus & 1.036 \\ \hline
+                27 & Right Frontozygomaticus & 1.057 \\ \hline
+                28 & Left Midsurpaorbital & 0.854 \\ \hline
+                29 & Right Midsupraorbital & 0.945 \\ \hline
+            \end{tabular}
+            \label{table:Daugmentation_landmarksresume}
+        \end{table}
 
-            \noindent Por otro lado, en lo que respecta a los errores promedio de todos los landmarks por imagen, las tablas por partición se pueden consultar en \autoref{ap:apendiceC}, aunque los resultados son muy similares a los de los modelos anteriores. El error de reconstrucción de nuevo no mejora apenas y los errores NMEs promedio son muy parecidos a los de los otros modelos. 
+        \medskip
 
-            \medskip
+        \noindent Como podemos ver en la \autoref{table:Daugmentation_landmarksresume}, los errores se han reducido en general en todos los landmarks, además la red ha conseguido aprender a marcar con un alto grado de precisión los puntos que se ven en el perfil de la cara. El punto mejor marcado sería el \textit{prosthion} de nuevo, y el peor marcado el \textit{right zygion}. Sin embargo, la diferencia en términos de error entre ambos es mucho menor que en el caso del modelo base. 
 
-            \noindent Las curvas de aprendizaje se pueden ver en la \autoref{fig:curvas_decoder}, y vuelven a mostrar un ligero overfitting a partir de la época $30$-$40$, en la mayoría de casos. 
-            
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.9\textwidth]{img/curvas_decoder.png}
-                \caption{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}
-                \label{fig:curvas_decoder}
-            \end{figure}
+        \medskip
 
-            \medskip
+        \noindent En lo que se refiere al error por imagen, como podemos ver en el \autoref{ap:apendiceD}, el error desciende mucho en comparación con los modelos anteriores pese a que el de reconstrucción continua elevado.
 
-            \noindent Tras los resultados obtenidos se ha optado por abandonar también esta línea de investigación pues se obtienen resultados muy similares al modelo base y se debe entrenar por mucho más tiempo ($100$ épocas frente a $40$ del modelo base). 
+        \medskip
 
-        \subsubsection{Modelo con Data Augmentation}
-            \noindent Comparando los tres resultados anteriores, el modelo base sigue siendo el más prometedor, por lo que en lugar de mejorar el error de reconstrucción vamos a centrarnos en mejorar el marcado de landmarks. Como pudimos ver en el modelo base, se consiguieron buenos resultados del \textit{NME} pese a haber entrenado sin realizar técnicas de \textit{data augmentation}. Es por ello que en este segundo experimento vamos a realizar los siguientes cambios en el entrenamiento: 
-            
-            \begin{itemize}
-                \item En primer lugar se realizará un entrenamiento del modelo similar al del modelo base durante $40$ épocas.
-                \item Tras esto, se entrenará el modelo con el dataset al cual se le aplicarán técnicas de data augmentation, para aumentar el número de datos de entrenamiento e incrementar aún más la variabilidad de los mismos, de manera que cada imagen del dataset sufrirá de manera aleatoria una traslación ($\pm 4\%$), un reescalado ($\pm 5\%$), una rotación ($\pm 30$ grados) y oclusiones parciales. El entrenamiento en este nuevo dataset será durante $40$ épocas tras acabar las de la etapa anterior. 
-                %TODO PONER IMÁGENES DE EJEMPLO DE LAS TRANSFORMACIONES
-                \item En total serán \textbf{$80$ épocas} de entrenamiento sumando las dos etapas anteriores.
-            \end{itemize}
+        \noindent Finalmente las curvas de aprendizaje obtenidas se pueden observar en \autoref{fig:curvas_daugmentation}. Como vemos presentan una gran capacidad de generalización, pues el error de entrenamiento y validación decrecen de forma continua y muy próxima.
 
-            \medskip
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/curvas_daugmentation.png}
+            \caption{Curvas de aprendizaje en cada partición del modelo de data augmentation.}
+            \label{fig:curvas_daugmentation}
+        \end{figure}
 
-            \noindent De nuevo, el resto de parámetros continuarán con los valores por defecto de la etapa anterior, pues los resultados obtenidos han sido buenos hasta el momento y nada sugiere tener que cambiarlos.
-
-            \begin{table}[!ht]
-                \centering
-                \caption{Media del error NME obtenido por landmark en validación empleando todas las particiones de cross-validation con el modelo de data augmentation.}
-                \begin{tabular}{|l|l|l|}
-                \hline
-                    ~ & Landmark & Media NME por landmark \\ \hline
-                    0 & Menton & 3.006 \\ \hline
-                    1 & Gnathion & 1.497 \\ \hline
-                    2 & Pogonion & 1.359 \\ \hline
-                    3 & Prosthion & 0.815 \\ \hline
-                    4 & Labiale Superius & 1.531 \\ \hline
-                    5 & Subnasale & 1.272 \\ \hline
-                    6 & Nasion & 1.241 \\ \hline
-                    7 & Glabella & 1.545 \\ \hline
-                    8 & Vertex & 3.99 \\ \hline
-                    9 & Left Gonion & 1.846 \\ \hline
-                    10 & Right Gonion & 1.673 \\ \hline
-                    11 & Left Zygion & 3.322 \\ \hline
-                    12 & Right Zygion & 4.441 \\ \hline
-                    13 & Left Alare & 1.585 \\ \hline
-                    14 & Right Alare & 1.362 \\ \hline
-                    15 & Left Endocanthion & 1.227 \\ \hline
-                    16 & Right Endocanthion & 1.129 \\ \hline
-                    17 & Left Exocanthion & 1.186 \\ \hline
-                    18 & Right Exocanthion & 1.12 \\ \hline
-                    19 & Left Tragion & 2.066 \\ \hline
-                    20 & Right Tragion & 2.234 \\ \hline
-                    21 & Labiale inferius & 1.032 \\ \hline
-                    22 & Trichion & 3.37 \\ \hline
-                    23 & Supramentale & 1.109 \\ \hline
-                    24 & Left Frontotemporale & 1.386 \\ \hline
-                    25 & Right Frontotemporale & 1.826 \\ \hline
-                    26 & Left Frontozygomaticus & 1.036 \\ \hline
-                    27 & Right Frontozygomaticus & 1.057 \\ \hline
-                    28 & Left Midsurpaorbital & 0.854 \\ \hline
-                    29 & Right Midsupraorbital & 0.945 \\ \hline
-                \end{tabular}
-                \label{table:Daugmentation_landmarksresume}
-            \end{table}
-
-            \medskip
-
-            \noindent Como podemos ver en la \autoref{table:Daugmentation_landmarksresume}, los errores se han reducido en general en todos los landmarks, además la red ha conseguido aprender a marcar con un alto grado de precisión los puntos que se ven en el perfil de la cara. El punto mejor marcado sería el \textit{prosthion} de nuevo, y el peor marcado el \textit{right zygion}. Sin embargo, la diferencia en términos de error entre ambos es mucho menor que en el caso del modelo base. 
-
-            \medskip
-
-            \noindent En lo que se refiere al error por imagen, como podemos ver en el \autoref{ap:apendiceD}, el error desciende mucho en comparación con los modelos anteriores pese a que el de reconstrucción continua elevado.
-
-            \medskip
-
-            \noindent Finalmente las curvas de aprendizaje obtenidas se pueden observar en \autoref{fig:curvas_daugmentation}. Como vemos presentan una gran capacidad de generalización, pues el error de entrenamiento y validación decrecen de forma continua y muy próxima.
-
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.9\textwidth]{img/curvas_daugmentation.png}
-                \caption{Curvas de aprendizaje en cada partición del modelo de data augmentation.}
-                \label{fig:curvas_daugmentation}
-            \end{figure}
     \subsection{Elección de modelo y obtención de resultados}
 
         \noindent Una vez analizados los distintos modelos que se proponen para resolver el problema, vemos que la alternativa más prometedora resulta ser la última, la de aplicar técnicas de \textit{data augmentation} al dataset. Es por ello que ahora tomaremos el conjunto de entrenamiento en su totalidad (sin realizar particiones como hicimos para \textit{cross validation}) y vamos a usarlo para entrenar el modelo durante las mismas épocas que en la sección anterior y con los mismos parámetros y transformaciones. Posteriormente usaremos el conjunto de test de $33$ imágenes que separamos al principio de esta sección, y que hasta ahora no hemos visto para evitar \textit{data snooping}, para validar el modelo.
@@ -615,7 +615,31 @@
             \label{table:FinalModel_landmarks}
         \end{table}
         
-        
+        \medskip
+
+        \noindent En primer lugar, como se puede apreciar en la \autoref{table:FinalModel_landmarks} obtenemos: 
+
+        \begin{itemize}
+            \item En general los landmarks empeoran ligeramente su error NME. Esto es normal pues en la etapa anterior todas las decisiones para mejorar los modelos se tomaron en función de los resultados de validación. Sin embargo estos datos nuevos en los que se está probando el modelos no han sido estudiados previamente, por lo que es normal que baje el rendimiento. No obstante, los resultados siguen siendo buenos, y no se empeoran excesivamente. 
+            \item En total empeoran su error $15$ de los $30$ landmarks marcados. En algunos casos el error se duplica, como puede ser el \textit{Gnation} y en otros empeora levemente, como ocurre con el \textit{Left Zygion}. 
+            \item En total mejoran su error $6$ de los $30$ landmarks, destacando la importante mejora en la identificación del \textit{Menton}, y algunas más leves como las del \textit{Right/Left Frontotemporale}.
+            \item En total se mantienen en su error $9$ de los $30$ landmarks marcados. Que sufren oscilaciones tan pequeñas que no podemos considerarlas como mejoras o empeoramientos.
+        \end{itemize}
+
+        \medskip
+
+        \noindent Por otro lado, las curvas de aprendizaje durante el entrenamiento del modelo se pueden observar en la \autoref{fig:curvas_FinalModel}. En ellas podemos observar una mayor distancia entre la curva de entrenamiento y validación, fruto de nuevo de no haber usado el conjunto de test para tomar decisiones, como si que hicimos con los datos de validación en \textit{cross-validation}.
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/curvas_FinalModel.png}
+            \caption{Curvas de aprendizaje durante el entrenamiento del modelo de data augmentation validado en el conjunto de test.}
+            \label{fig:curvas_FinalModel}
+        \end{figure}
+
+        \medskip
+
+        \noindent Como podemos ver, en general el modelo se comporta bien en la tarea del reconocimiento de landmarks, es capaz de predecirlos con una tasa de error muy pequeña.Por lo que podemos concluir que el modelo resuleve la tarea que nos habíamos propuesto con éxito. No obstante, el éxito real del modelo debe supervisarlo un experto forense, pues no sabemos si los errores cometidos en la identificación de landmarks son errores asumibles o si se requiere un mayor grado de precisión
 \endinput
 %------------------------------------------------------------------------------------
 % FIN DEL CAPÍTULO. 
