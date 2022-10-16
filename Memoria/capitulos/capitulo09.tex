@@ -2,13 +2,26 @@
 
 \section{Diseño del Sofware}
 
+\noindent El diseño software no se ha orientado a crear un programa funcional para ser empleado por un usuario, sino que tiene como función entrenar los modelos probados y recabar los resultados oportunos de esos procesos. 
+
+\medskip
+
+\noindent En primer lugar se ha programado un \textit{notebook} de Jupyter independiente al proyecto general del framework, en el cual se realiza el preprocesamiento de los datos, la identificación de las caras y la separación en conjunto de entrenamiento y test. El fichero se denomina \textit{Make-crop-split database.ipynb}.
+
+\medskip
+
+\noindent Por otro lado, en lo que respecta al entrenamiento y diseño de la red, partíamos de un proyecto ya elaborado minuciosamente que se ha tenido que adaptar para aceptar como entrada la nueva base de datos así como alterar ciertas partes de su entrenamiento (para poder hacer el ajuste fino del decoder por ejemplo, realizar técnicas de \textit{cross validation 5-fold}) o introducir nuevos parámetros y funciones para la obtención y manipulación de los datos, y la generación de las gráficas y tablas de resultados que se muestran. Además se tuvieron que alterar las funciones del cálculo de métricas para que tuvieran en cuenta que en todas las imágenes no necesariamente se incluían todos los landmarks, y por lo tanto que solo computasen aquellos presentes en las mismas.
+
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.9\textwidth]{img/diagrama_paquetes_1.png}
-    \caption{Diagrama de paquetes del proyecto.}
+    \caption{Diagrama de paquetes del proyecto generado por \textit{pyreverse}, herramienta incluida en el paquete Pylint}
     \label{fig:Diagrama_paquetes}
 \end{figure}
 
+\medskip
+
+\noindent En la imagen \autoref{fig:Diagrama_paquetes} podemos ver el diagrama de paquetes del proyecto. Dentro de dicho diagrama, el módulo que realiza el entrenamiento de la etapa supervisada (para la identificación de landmarks), se denomina \textit{train-aae-landmarks}. Y es configurado por una serie de parámetros que se introducen al programa desde la línea de comandos y que pueden consultarse los principales en la Tabla.
 
 \begin{figure}[!h]
     \centering

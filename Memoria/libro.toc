@@ -85,38 +85,38 @@
 \contentsline {chapter}{\numberline {9}Implementación}{89}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Diseño del Sofware}{89}{section.9.1}%
 \contentsline {section}{\numberline {9.2}Entorno de ejecución}{90}{section.9.2}%
-\contentsline {chapter}{\numberline {10}Experimentación}{91}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Análisis de la base de Datos}{91}{section.10.1}%
-\contentsline {subsection}{\numberline {10.1.1}Base de datos proporcionada}{91}{subsection.10.1.1}%
-\contentsline {subsection}{\numberline {10.1.2}Preprocesamiento}{92}{subsection.10.1.2}%
-\contentsline {subsubsection}{\numberline {10.1.2.1}Identificación de caras en las imágenes}{92}{subsubsection.10.1.2.1}%
-\contentsline {subsubsection}{\numberline {10.1.2.2}Creación del fichero annotations en el dataset}{94}{subsubsection.10.1.2.2}%
-\contentsline {subsubsection}{\numberline {10.1.2.3}Reajuste de los bounding boxes}{94}{subsubsection.10.1.2.3}%
-\contentsline {subsection}{\numberline {10.1.3}Separación en conjuntos de entrenamiento y validación}{95}{subsection.10.1.3}%
-\contentsline {section}{\numberline {10.2}Framework empleado}{95}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}Red empleada: 3FabRec}{95}{subsection.10.2.1}%
-\contentsline {subsubsection}{\numberline {10.2.1.1}Arquitectura Adversarial Autoencoder}{96}{subsubsection.10.2.1.1}%
-\contentsline {subsubsection}{\numberline {10.2.1.2}Interleaved Transfer Layer (ITL)}{96}{subsubsection.10.2.1.2}%
-\contentsline {subsection}{\numberline {10.2.2}Función de pérdida}{97}{subsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.2.3}Proceso de entrenamiento de la red}{98}{subsection.10.2.3}%
-\contentsline {subsection}{\numberline {10.2.4}Bases de datos usadas por el framework}{99}{subsection.10.2.4}%
-\contentsline {section}{\numberline {10.3}Experimentación}{99}{section.10.3}%
-\contentsline {subsection}{\numberline {10.3.1}Hipótesis iniciales}{99}{subsection.10.3.1}%
-\contentsline {subsection}{\numberline {10.3.2}Modelo Base}{100}{subsection.10.3.2}%
-\contentsline {subsection}{\numberline {10.3.3}Modelo con reentrenamiento del encoder}{101}{subsection.10.3.3}%
-\contentsline {subsection}{\numberline {10.3.4}Modelo con reentrenamiento del decoder}{102}{subsection.10.3.4}%
-\contentsline {subsection}{\numberline {10.3.5}Modelo con Data Augmentation}{103}{subsection.10.3.5}%
-\contentsline {subsection}{\numberline {10.3.6}Elección de modelo y obtención de resultados}{106}{subsection.10.3.6}%
-\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{115}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Objetivos Satisfechos}{115}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Trabajos Futuros y comentarios}{116}{section.11.2}%
-\contentsline {chapter}{\numberline {A}Apéndice A}{117}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{117}{section.Alph1.1}%
-\contentsline {chapter}{\numberline {B}Apéndice B}{123}{appendix.Alph2}%
-\contentsline {section}{\numberline {B.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{123}{section.Alph2.1}%
-\contentsline {chapter}{\numberline {C}Apéndice C}{129}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{129}{section.Alph3.1}%
-\contentsline {chapter}{\numberline {D}Apéndice D}{135}{appendix.Alph4}%
-\contentsline {section}{\numberline {D.1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{135}{section.Alph4.1}%
-\contentsline {chapter}{Glosario}{141}{chapter*.13}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{143}{chapter*.14}%
+\contentsline {chapter}{\numberline {10}Experimentación}{93}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Análisis de la base de Datos}{93}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Base de datos proporcionada}{93}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}Preprocesamiento}{94}{subsection.10.1.2}%
+\contentsline {subsubsection}{\numberline {10.1.2.1}Identificación de caras en las imágenes}{94}{subsubsection.10.1.2.1}%
+\contentsline {subsubsection}{\numberline {10.1.2.2}Creación del fichero annotations en el dataset}{96}{subsubsection.10.1.2.2}%
+\contentsline {subsubsection}{\numberline {10.1.2.3}Reajuste de los bounding boxes}{96}{subsubsection.10.1.2.3}%
+\contentsline {subsection}{\numberline {10.1.3}Separación en conjuntos de entrenamiento y validación}{97}{subsection.10.1.3}%
+\contentsline {section}{\numberline {10.2}Framework empleado}{97}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Red empleada: 3FabRec}{97}{subsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.1.1}Arquitectura Adversarial Autoencoder}{98}{subsubsection.10.2.1.1}%
+\contentsline {subsubsection}{\numberline {10.2.1.2}Interleaved Transfer Layer (ITL)}{98}{subsubsection.10.2.1.2}%
+\contentsline {subsection}{\numberline {10.2.2}Función de pérdida}{99}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Proceso de entrenamiento de la red}{100}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Bases de datos usadas por el framework}{101}{subsection.10.2.4}%
+\contentsline {section}{\numberline {10.3}Experimentación}{101}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Hipótesis iniciales}{101}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Modelo Base}{102}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}Modelo con reentrenamiento del encoder}{103}{subsection.10.3.3}%
+\contentsline {subsection}{\numberline {10.3.4}Modelo con reentrenamiento del decoder}{104}{subsection.10.3.4}%
+\contentsline {subsection}{\numberline {10.3.5}Modelo con Data Augmentation}{105}{subsection.10.3.5}%
+\contentsline {subsection}{\numberline {10.3.6}Elección de modelo y obtención de resultados}{108}{subsection.10.3.6}%
+\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{117}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Objetivos Satisfechos}{117}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Trabajos Futuros y comentarios}{118}{section.11.2}%
+\contentsline {chapter}{\numberline {A}Apéndice A}{119}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{119}{section.Alph1.1}%
+\contentsline {chapter}{\numberline {B}Apéndice B}{125}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{125}{section.Alph2.1}%
+\contentsline {chapter}{\numberline {C}Apéndice C}{131}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{131}{section.Alph3.1}%
+\contentsline {chapter}{\numberline {D}Apéndice D}{137}{appendix.Alph4}%
+\contentsline {section}{\numberline {D.1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{137}{section.Alph4.1}%
+\contentsline {chapter}{Glosario}{143}{chapter*.13}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{145}{chapter*.14}%
