@@ -106,6 +106,8 @@
 \contentsline {subsection}{\numberline {10.3.5}Modelo con Data Augmentation}{103}{subsection.10.3.5}%
 \contentsline {subsection}{\numberline {10.3.6}Elección de modelo y obtención de resultados}{106}{subsection.10.3.6}%
 \contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{115}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Objetivos Satisfechos}{115}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Trabajos Futuros y comentarios}{116}{section.11.2}%
 \contentsline {chapter}{\numberline {A}Apéndice A}{117}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{117}{section.Alph1.1}%
 \contentsline {chapter}{\numberline {B}Apéndice B}{123}{appendix.Alph2}%
