@@ -21,7 +21,18 @@
 
 \medskip
 
-\noindent En la imagen \autoref{fig:Diagrama_paquetes} podemos ver el diagrama de paquetes del proyecto. Dentro de dicho diagrama, el módulo que realiza el entrenamiento de la etapa supervisada (para la identificación de landmarks), se denomina \textit{train-aae-landmarks}. Y es configurado por una serie de parámetros que se introducen al programa desde la línea de comandos y que pueden consultarse los principales en la Tabla.
+\noindent La estructura de paquetes la podemos ver en la \autoref{fig:Diagrama_paquetes}:
+
+\begin{itemize}
+    \item \textbf{3FabRec.eval\_landmarks}: Se lleva a acabo la evaluación del modelo en el conjunto de test.
+    \item \textbf{3FabRec.train\_aae\_landmarks}: Se lleva a cabo todo el proceso del entrenamiento supervisado del marcado de landmarks. Es el fichero que más se ha tenido que modificar, pues hemos cambiado la lógica del entrenamiento con respecto a la del framework original. Los parámetros de ejecución se encuentran en la \autoref{table:Params}.
+    \item \textbf{3FabRec.train\_aae\_unsupervised}: En este paquete se lleva a cabo el entrenamiento no supervisado de la red.
+    \item Los dos paquetes anteriores, a su vez se combinan en \textbf{3FabRec.aa\_training}, que encapsula toda la lógica del entrenamiento, incluyendo el aprendizaje supervisado y el no supervisado.
+    \item El paquete \textbf{3FabRec.landmarks} lleva a cabo todo lo relaitvo a la manipulación de los landmarks, el cálculo de los errores asociados a los mismos, el paso de Heat maps a coordenadas y la inversa, etc... En este fichero se ha tenido que modificar el subpaquete \textbf{3FabRec.lanmarks.lmutils} y \textbf{3FabRec.landmakrs.lmvis}. En el caso del primero porque hemos modificado algunas funciones que calculan las métricas de error adaptándolas al problema y en el caso del segundo porque no toda la información que se mostraban en las imágenes de salida era relevante para nuestro estudio, por lo que se han eliminado los datos innecesarios.
+    \item El paquete \textbf{3FabRec.constants} contiene variables globales relativas a los conjuntos de datos de entrenamiento, validación y test.
+    \item El paquete \textbf{3FabRec.networks} contienen todas las redes que se emplean en la arquitectura de la red. En concreto usaremos \textbf{3FabRec.networks.aae} en la cual se encuentra la estructura general del adversarial autoencoder.
+\end{itemize}
+
 
 \begin{figure}[!h]
     \centering
@@ -29,6 +40,31 @@
     \caption{Diagrama de clases con las principales clases del proyecto.}
     \label{fig:Diagrama_clases}
 \end{figure}
+
+\begin{table}[!ht]
+    \centering
+    \caption{Argumentos con los que se ha experimentado en la ejecución del fichero train-aae-landmarks.py}
+    \begin{tabular}{|l|l|l|}
+    \hline
+        Parámetro & Descripción & Valor por defecto \\ \hline
+        --sessionname & Fichero de salida para los snapshots & None \\ \hline
+        -r & Ruta al snapshot a desde el que entrenar & None \\ \hline
+        --train-encoder & Si es True reentrena el encoder & False \\ \hline
+        --train-dencoder & Si True reentrena el dencoder & False \\ \hline
+        --epochs & Número de épocas que queremos entrenar la red & None \\ \hline
+        --batchsize & Tamaño del batchsize para entrenamiento & 50 \\ \hline
+        --batchsize-eval & Valor del batchsize para validación & 10 \\ \hline
+        --lr & Learning rate para el autoencoder & 0.00002 \\ \hline
+        --lr-heatmaps & Learning rate para las ITLs & 0.001 \\ \hline
+        --beta1 & Valor de beta 1 para Adam & 0.0 \\ \hline
+        --beta2 & Valor de beta 2 para Adam & 0.999 \\ \hline
+        --save-freq & Frecuencia de snapshot (en épocas) & 1 \\ \hline
+        --dataset & Dataset que se empleará & W300 \\ \hline
+        --sigma & Tamaño de los heatmaps & 7 \\ \hline
+    \end{tabular}
+    \label{table:Params}
+\end{table}
+
 
 \section{Entorno de ejecución}
 \noindent Las ejecuciones se han realizado todas en un ordenador portátil \textit{HP Pavilion} con las siguientes características: 
