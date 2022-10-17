@@ -18,7 +18,34 @@
 
             \noindent Este error se empleará para realizar \textit{backpropagation} a través de las ITLs de la red y será el responsable del aprendizaje de la red.
 
-        \subsection{SSIM}
+        \section{Métricas empleadas en validación y testing}
+
+        \subsection{Error de reconstrucción}
+            \noindent Aunque no se trata de un métrica propia de un problema de regresión, el valor del error de reconstrucción en las imágenes de validación nos llevará en la sección de experimentación a realizar hipótesis sobre la relación entre este error y el NME.
+
+            \medskip
+
+            \noindent Se trata de la función de coste \textbf{L1} que se aplica a la imagen original y la reconstruida  y nos porporciona una medida del error de reconstrucción a nivel de pixel.Su expresión es la siguiente:
+
+            \begin{equation}
+                Error Reconstrucción= \sum_{i=1}^n |p_i -q_i|
+            \end{equation}
+
+            \noindent Dónde $p_i$ representa cada pixel de la imagen reconstruida por la red y $q_i$ el equivalente en la imagen real.
+
+        \subsection{Normalized Mean Error}
+            \noindent Este será el error utilizado para medir la bondad de los resultados. Tiene la siguiente expresión para cada landmark de los $30$: 
+
+            \begin{equation}
+                NME=\frac{\sqrt{\sum_{i=1}^{n}(p_{i,1} -q_{i,1})^2+ (p_{i,2} -q_{i,2})^2}}{N}
+            \end{equation}
+
+
+            \noindent Así, si en total se han identificado en las imágenes de validación un total de $n$ landmarks de cierto tipo en las imágenes de test o validación, se calcula la distancia $L_2$ entre el landmark de la imagen $i$ predicho y el real. Y tras esto se suman todos los valores obtenidos. Como podemos ver, idealmente $n$ debería ser el total de imágenes que hay en validación o test, pero no todos los landmarks aparecen en todas las imágenes, por lo tanto $n\leq M$ siendo $M$ el total de imágenes en validación.
+
+            \noindent En dicha expresión $N$ es el término por el que se normaliza, y varía según el problema. En nnuestro caso normalizaremos la media del numerador por el ancho de la imagen que es de $256$ píxeles, ya que la distancia máxima permitida entre dos landmarks sería esta, y así todos los valores quedarían entre $0$ y $1$ siendo $0$ una estimación perfecta del landmark, y $1$ un error total en el marcado.
+
+            \subsection{SSIM}
             \noindent Se trata del \textit{structural similarity index} (SSIM) y da una medida de \textit{similaridad} entre dos imágenes \cite{wang2004image}, su expresión es la siguiente: 
 
             \begin{equation}
@@ -64,32 +91,6 @@
             \noindent Dónde $w$ representa la ventana sobre la que se aplica la función y $|w|$ el total de ventanas. En nuestro caso se emplean ventanas de tamaño $31\times 31$.
 
 
-        \section{Métricas empleadas en validación y testing}
-
-        \subsection{Error de reconstrucción}
-            \noindent Aunque no se trata de un métrica propia de un problema de regresión, el valor del error de reconstrucción en las imágenes de validación nos llevará en la sección de experimentación a realizar hipótesis sobre la relación entre este error y el NME.
-
-            \medskip
-
-            \noindent Se trata de la función de coste \textbf{L1} que se aplica a la imagen original y la reconstruida  y nos porporciona una medida del error de reconstrucción a nivel de pixel.Su expresión es la siguiente:
-
-            \begin{equation}
-                Error Reconstrucción= \sum_{i=1}^n |p_i -q_i|
-            \end{equation}
-
-            \noindent Dónde $p_i$ representa cada pixel de la imagen reconstruida por la red y $q_i$ el equivalente en la imagen real.
-
-        \subsection{Normalized Mean Error}
-            \noindent Este será el error utilizado para medir la bondad de los resultados. Tiene la siguiente expresión para cada landmark de los $30$: 
-
-            \begin{equation}
-                NME=\frac{\sqrt{\sum_{i=1}^{n}(p_{i,1} -q_{i,1})^2+ (p_{i,2} -q_{i,2})^2}}{N}
-            \end{equation}
-
-
-            \noindent Así, si en total se han identificado en las imágenes de validación un total de $n$ landmarks de cierto tipo en las imágenes de test o validación, se calcula la distancia $L_2$ entre el landmark de la imagen $i$ predicho y el real. Y tras esto se suman todos los valores obtenidos. Como podemos ver, idealmente $n$ debería ser el total de imágenes que hay en validación o test, pero no todos los landmarks aparecen en todas las imágenes, por lo tanto $n\leq M$ siendo $M$ el total de imágenes en validación.
-
-            \noindent En dicha expresión $N$ es el término por el que se normaliza, y varía según el problema. En nnuestro caso normalizaremos la media del numerador por el ancho de la imagen que es de $256$ píxeles, ya que la distancia máxima permitida entre dos landmarks sería esta, y así todos los valores quedarían entre $0$ y $1$ siendo $0$ una estimación perfecta del landmark, y $1$ un error total en el marcado.
 
 
 \endinput
