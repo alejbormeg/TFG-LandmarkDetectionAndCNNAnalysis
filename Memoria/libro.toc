@@ -80,10 +80,10 @@
 \contentsline {chapter}{\numberline {8}Métricas}{87}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Métricas usadas en el entrenamiento}{87}{section.8.1}%
 \contentsline {subsection}{\numberline {8.1.1}MSE}{87}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}SSIM}{87}{subsection.8.1.2}%
-\contentsline {section}{\numberline {8.2}Métricas empleadas en validación y testing}{88}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}Error de reconstrucción}{88}{subsection.8.2.1}%
+\contentsline {section}{\numberline {8.2}Métricas empleadas en validación y testing}{87}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Error de reconstrucción}{87}{subsection.8.2.1}%
 \contentsline {subsection}{\numberline {8.2.2}Normalized Mean Error}{88}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}SSIM}{88}{subsection.8.2.3}%
 \contentsline {chapter}{\numberline {9}Implementación}{91}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Diseño del Sofware}{91}{section.9.1}%
 \contentsline {section}{\numberline {9.2}Entorno de ejecución}{92}{section.9.2}%
@@ -93,22 +93,22 @@
 \contentsline {subsection}{\numberline {10.1.2}Preprocesamiento}{96}{subsection.10.1.2}%
 \contentsline {subsubsection}{\numberline {10.1.2.1}Identificación de caras en las imágenes}{96}{subsubsection.10.1.2.1}%
 \contentsline {subsubsection}{\numberline {10.1.2.2}Creación del fichero annotations en el dataset}{98}{subsubsection.10.1.2.2}%
-\contentsline {subsubsection}{\numberline {10.1.2.3}Reajuste de los bounding boxes}{98}{subsubsection.10.1.2.3}%
-\contentsline {subsection}{\numberline {10.1.3}Separación en conjuntos de entrenamiento y validación}{99}{subsection.10.1.3}%
-\contentsline {section}{\numberline {10.2}Framework empleado}{99}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}Red empleada: 3FabRec}{99}{subsection.10.2.1}%
-\contentsline {subsubsection}{\numberline {10.2.1.1}Arquitectura Adversarial Autoencoder}{100}{subsubsection.10.2.1.1}%
-\contentsline {subsubsection}{\numberline {10.2.1.2}Interleaved Transfer Layer (ITL)}{100}{subsubsection.10.2.1.2}%
-\contentsline {subsection}{\numberline {10.2.2}Función de pérdida}{101}{subsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.2.3}Proceso de entrenamiento de la red}{102}{subsection.10.2.3}%
-\contentsline {subsection}{\numberline {10.2.4}Bases de datos usadas por el framework}{103}{subsection.10.2.4}%
-\contentsline {section}{\numberline {10.3}Experimentación}{103}{section.10.3}%
-\contentsline {subsection}{\numberline {10.3.1}Hipótesis iniciales}{103}{subsection.10.3.1}%
-\contentsline {subsection}{\numberline {10.3.2}Modelo Base}{104}{subsection.10.3.2}%
-\contentsline {subsection}{\numberline {10.3.3}Modelo con reentrenamiento del encoder}{105}{subsection.10.3.3}%
-\contentsline {subsection}{\numberline {10.3.4}Modelo con reentrenamiento del decoder}{106}{subsection.10.3.4}%
-\contentsline {subsection}{\numberline {10.3.5}Modelo con Data Augmentation}{107}{subsection.10.3.5}%
-\contentsline {subsection}{\numberline {10.3.6}Elección de modelo y obtención de resultados}{110}{subsection.10.3.6}%
+\contentsline {subsubsection}{\numberline {10.1.2.3}Reajuste de los bounding boxes}{99}{subsubsection.10.1.2.3}%
+\contentsline {subsection}{\numberline {10.1.3}Separación en conjuntos de entrenamiento y validación}{100}{subsection.10.1.3}%
+\contentsline {section}{\numberline {10.2}Framework empleado}{101}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Red empleada: 3FabRec}{101}{subsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.1.1}Arquitectura Adversarial Autoencoder}{102}{subsubsection.10.2.1.1}%
+\contentsline {subsubsection}{\numberline {10.2.1.2}Interleaved Transfer Layer (ITL)}{102}{subsubsection.10.2.1.2}%
+\contentsline {subsection}{\numberline {10.2.2}Función de pérdida}{103}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Proceso de entrenamiento de la red}{104}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Bases de datos usadas por el framework}{105}{subsection.10.2.4}%
+\contentsline {section}{\numberline {10.3}Experimentación}{105}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Hipótesis iniciales}{105}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Modelo Base}{105}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}Modelo con reentrenamiento del encoder}{107}{subsection.10.3.3}%
+\contentsline {subsection}{\numberline {10.3.4}Modelo con reentrenamiento del decoder}{109}{subsection.10.3.4}%
+\contentsline {subsection}{\numberline {10.3.5}Modelo con Data Augmentation}{109}{subsection.10.3.5}%
+\contentsline {subsection}{\numberline {10.3.6}Elección de modelo y obtención de resultados}{112}{subsection.10.3.6}%
 \contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{119}{chapter.11}%
 \contentsline {section}{\numberline {11.1}Objetivos Satisfechos}{119}{section.11.1}%
 \contentsline {section}{\numberline {11.2}Trabajos Futuros y comentarios}{120}{section.11.2}%

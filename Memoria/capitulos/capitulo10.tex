@@ -24,6 +24,13 @@
 
             \begin{figure}[!h]
                 \centering
+                \includegraphics[width=0.9\textwidth]{img/imagenes_ejemplo_dataset.png}
+                \caption{Imágenes de ejemplo del dataset proporcionado. Como puede observarse hay gran variedad de tamaños, poses, condiciones de iluminación diferentes que añaden dificultad al problema.}
+                \label{fig:Imagenes_dataset}
+            \end{figure}
+
+            \begin{figure}[!h]
+                \centering
                 \includegraphics[width=0.9\textwidth]{img/distribucion_landmarks_imagenes.png}
                 \caption{Histograma con la aparición de cada tipo de landmark en las imágenes del dataset.}
                 \label{fig:Histograma}
@@ -64,6 +71,13 @@
 
             \medskip 
 
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.7\textwidth]{img/imagenes_ejemplo_bb.png}
+                \caption{Imágenes de ejemplo del dataset con los bounding boxes marcados por \textit{Facenet}. Como podemos observar, aunque son correctos, los bounding boxes marcados recortan excesivamente los límites del rostro, pudiendo incluso eliminar partes en las que hay landmarks marcados. Las imágenes han sido generadas con \textit{matplotlib}.}
+                \label{fig:Ejemplo_bb}
+            \end{figure}
+
             \noindent Además, durante el estudio anterior se observaron otros hechos dignos de mención. En primer lugar se identificaron dos imágenes repetidas, pero se decidió mantenerlas pues los landmarks presentes en una y otra eran diferentes, lo que podía ayudar al entrenamiento. Por otro lado, durante el entrenamiento se vió cómo había una imagen de un determinado sujeto en la que aprecían simultáneamente dos fotos, una  de frente y otra de perfil, sin embargo, al estar los landmarks anotados únicamente en la imagen de frente se tomó el bounding box de la imagen frontal desechando el otro para el perfil. En otras dos imágenes se pueden ver un conjunto de varias personas, y la red mostraba erróneamente los \textit{bounding boxes} de personas que no eran el sujeto de estudio, por lo que estudiar cuál de todos los \textit{bounding boxes} devueltos pertenecía al sujeto correcto.
 
         \subsubsection{Creación del fichero annotations en el dataset}
@@ -91,6 +105,13 @@
                 \includegraphics[width=0.8\textwidth]{img/Transformacion_rectangulo.png}
                 \caption{Proceso seguido para la transformación.}
                 \label{fig:Transformacion_BB}
+            \end{figure}
+
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.7\textwidth]{img/imagenes_ejemplo_cropping.png}
+                \caption{Recorte de las caras tras el reajuste del \textit{bounding box}.}
+                \label{fig:Reajuste_bb}
             \end{figure}
 
 
@@ -147,7 +168,7 @@
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.7\textwidth]{img/bloque_basico_encoder.png}
+                \includegraphics[width=0.96\textwidth]{img/bloque_basico_encoder.png}
                 \caption{Bloques básicos que utilza la red ResNet-$18$ en sus capas. Se trata de una sucesión clásica de Convolución 3x3 + Batch Normalization + ReLU que se repite dos veces. En el primer caso los filtros de convolución no reducen las dimensiones del tensor añadiendo un padding de 1. En el segundo caso se reduce la dimensión del tensor a la mitad tras la primera convolución y se manteiene la dimensionalidad en la segunda. En el primer caso, la suma residual puede realizarse con el tensor x sin problema, en el segundo caso el tensor debe reducirse para que casen las dimensiones.}
                 \label{fig:bloque_encoder}
             \end{figure}
@@ -169,14 +190,14 @@
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.7\textwidth]{img/bloque_invresnet.png}
+                \includegraphics[width=0.96\textwidth]{img/bloque_invresnet.png}
                 \caption{En primer lugar se aplica una convolución transpuesta que duplica las dimensiones del tensor de entrada y tras esto se sigue la misma estructura que en el bloque básico de la ResNet-$50$, la segunda convolución $3\times 3$ mantiene las dimensiones. Como consecuencia, para sumar el tensor de entrada con la salida del bloque se aumentan las dimensiones de este.}
                 \label{fig:Bloque_Decoder}
             \end{figure}
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.5\textwidth]{img/paso_generator.png}
+                \includegraphics[width=0.95\textwidth,height=0.35\textheight]{img/paso_generator.png}
                 \caption{Ejemplo del paso de un vector de $99$ dimensiones por el generador hasta reconstruirse la imagen de dimensiones $256 \times 256 \times 3$. La parte correspondiente al aprendizaje supervisado es la de los cuadrados azules, los cuadrados rojos corresponden a las \textit{ITLS} de la parte supervisada que se intercalan entre cada dos capas y dan como resultado los mapas de calor de los landmarks predichos.}
                 \label{fig:Paso_Generator}
             \end{figure}
@@ -185,7 +206,7 @@
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.99\textwidth]{img/DGaussian.png}
+                \includegraphics[width=0.95\textwidth]{img/DGaussian.png}
                 \caption{En la imagen superior vemos el discriminante que se emplea para los vectores producidos por el Encoder y en la imagen inferior vemos el discriminante que se emplea para las imágenes generadas por el Generador. En ambos casos se da como salida un valor entre $0$ y $1$ que hace referencia a la probabilidad de pertenecer a la distribución deseada en el primer caso o a seguir la distribución de los píxeles de las imágenes en el segundo caso.}
                 \label{fig:DGaussian}
             \end{figure}
