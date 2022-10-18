@@ -383,7 +383,14 @@
             \label{fig:Curvas_modelbase}
         \end{figure}
 
-        \noindent En resumen, los resultados parecen buenos para tratarse de una primera aproximación. Sin embargo, consideramos que debido a la gran variabilidad del dataset tanto en posturas, como en calidad e iluminación de imagen, la reconstrucción de las imágenes se ha resentido, especialmente en las imágenes de perfil. Esto provoca que el modelo también marque peor los landmarks, por lo que vamos a intentar mejorar esto en los próximos modelos.
+        \noindent En resumen, los resultados parecen buenos para tratarse de una primera aproximación. Sin embargo, consideramos que debido a la gran variabilidad del dataset tanto en posturas, como en calidad e iluminación de imagen, la reconstrucción de las imágenes se ha resentido, especialmente en las imágenes de perfil. Esto provoca que el modelo también marque peor los landmarks, por lo que vamos a intentar mejorar esto en los próximos modelos. Podemos ver el rendimiento del modelo en algunas imágenes en la \autoref{fig:Ejemplo_ModelBase}.
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/image_basemodel.png}
+            \caption{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf{modelo base}. Las imágenes de la fila superior son las imágenes reales, y las de la fila inferior las reconstruidas por la red. El marcado se realiza sobre las reconstruidas y luego se lleva a las superiores. Podemos apreciar en verde los landmarks reales y  en azul los predichos. El valor que aparece en la esquina inferior derecha es el NME global de la imagen (la media de los NMEs de cada landmark) y en la esquina inferior izquierda aparece el error de reconstrucción y encima el SSIM.}
+            \label{fig:Ejemplo_ModelBase}
+        \end{figure}
 
     \subsection{Modelo con reentrenamiento del encoder}
         \noindent A la luz de los resultados anteriores, vamos a cambiar el modelo de manera que ahora junto con las ITLs (que seguirán usando el mismo optimizador con los mismos parámetros por defecto), vamos a entrenar los pesos del \textit{encoder}. Con este enfoque queremos enseñar a la red a codificar mejor la información presente en las imágenes del dataset (que son más difíciles que las de los datasets empleados anteriormente), a la par que la enseñamos a marcar landmarks en las mismas. 
@@ -451,7 +458,14 @@
 
     \medskip
 
-    \noindent Viendo estos resultados no parece muy prometedora esta línea de investigación, por lo que vamos a cambiar el enfoque sobre el finetuning en el siguiente modelo.
+    \noindent Viendo estos resultados no parece muy prometedora esta línea de investigación, por lo que vamos a cambiar el enfoque sobre el finetuning en el siguiente modelo. Podemos ver el comportamiento del modelo en algunas imágenes de validación de diversas particiones de \textit{cross-validation} en la \autoref{fig:Ejemplo_Encoder}
+
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.9\textwidth]{img/image_encoder.png}
+        \caption{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf{modelo de ajuste fino del encoder}.}
+        \label{fig:Ejemplo_encoder}
+    \end{figure}
 
     \subsection{Modelo con reentrenamiento del decoder}
         \noindent Del mismo modo en que se experimentó con el \textit{encoder} se hizo con el \textit{decoder}. En este enfoque asumimos que el framework sabe codificar correctamente las imágenes pero que no realiza lo suficientemente bien la reconstrucción de las mismas debido a la alta variabilidad del dataset. Esta etapa es completamente análoga a la del modelo anterior (incluyendo el mismo tipo de optimizadores, parámetros y regiones que permanecen congeladas de la red), pero actualizando los pesos del \textit{decoder}.
@@ -517,7 +531,14 @@
 
         \medskip
 
-        \noindent Tras los resultados obtenidos se ha optado por abandonar también esta línea de investigación pues se obtienen resultados muy similares al modelo base y se debe entrenar por mucho más tiempo ($100$ épocas frente a $40$ del modelo base). 
+        \noindent Tras los resultados obtenidos se ha optado por abandonar también esta línea de investigación pues se obtienen resultados muy similares al modelo base y se debe entrenar por mucho más tiempo ($100$ épocas frente a $40$ del modelo base). Los resultados del modelo sobre algunas imágenes pueden verse en \autoref{fig:Ejemplo_decoder}
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/image_decoder.png}
+            \caption{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf{modelo de ajuste fino del decoder}.}
+            \label{fig:Ejemplo_decoder}
+        \end{figure}
 
     \subsection{Modelo con Data Augmentation}
         \noindent Comparando los tres resultados anteriores, el modelo base sigue siendo el más prometedor, por lo que en lugar de mejorar el error de reconstrucción vamos a centrarnos en mejorar el marcado de landmarks. Como pudimos ver en el modelo base, se consiguieron buenos resultados del \textit{NME} pese a haber entrenado sin realizar técnicas de \textit{data augmentation}. Es por ello que en este segundo experimento vamos a realizar los siguientes cambios en el entrenamiento: 
@@ -583,13 +604,20 @@
 
         \medskip
 
-        \noindent Finalmente las curvas de aprendizaje obtenidas se pueden observar en \autoref{fig:curvas_daugmentation}. Como vemos presentan una gran capacidad de generalización, pues el error de entrenamiento y validación decrecen de forma continua y muy próxima.
+        \noindent Finalmente las curvas de aprendizaje obtenidas se pueden observar en \autoref{fig:curvas_daugmentation}. Como vemos presentan una gran capacidad de generalización, pues el error de entrenamiento y validación decrecen de forma continua y muy próxima. Algunas imágenes de ejemplo podemos verlas en la \autoref{fig:Ejemplo_daug}.
 
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.9\textwidth]{img/curvas_daugmentation.png}
             \caption{Curvas de aprendizaje en cada partición del modelo de data augmentation.}
             \label{fig:curvas_daugmentation}
+        \end{figure}
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/image_daug.png}
+            \caption{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf{modelo data augmentation}.}
+            \label{fig:Ejemplo_daug}
         \end{figure}
 
     \subsection{Elección de modelo y obtención de resultados}
@@ -649,13 +677,20 @@
 
         \medskip
 
-        \noindent Por otro lado, las curvas de aprendizaje durante el entrenamiento del modelo se pueden observar en la \autoref{fig:curvas_FinalModel}. En ellas podemos observar una mayor distancia entre la curva de entrenamiento y validación, fruto de nuevo de no haber usado el conjunto de test para tomar decisiones, como si que hicimos con los datos de validación en \textit{cross-validation}.
+        \noindent Por otro lado, las curvas de aprendizaje durante el entrenamiento del modelo se pueden observar en la \autoref{fig:curvas_FinalModel}. En ellas podemos observar una mayor distancia entre la curva de entrenamiento y validación, fruto de nuevo de no haber usado el conjunto de test para tomar decisiones, como si que hicimos con los datos de validación en \textit{cross-validation}. Podemos ver el rendimiento del modelo en algunas imágenes en \autoref{fig:Ejemplo_finalmodel}.
 
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.9\textwidth]{img/curvas_FinalModel.png}
             \caption{Curvas de aprendizaje durante el entrenamiento del modelo de data augmentation validado en el conjunto de test.}
             \label{fig:curvas_FinalModel}
+        \end{figure}
+
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/image_finalmodel.png}
+            \caption{Rendimiento del modelo final elegido con data augmentation en imágenes del conjunto de test.}
+            \label{fig:Ejemplo_finalmodel}
         \end{figure}
 
         \medskip

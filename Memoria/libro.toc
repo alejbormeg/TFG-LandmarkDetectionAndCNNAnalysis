@@ -109,16 +109,16 @@
 \contentsline {subsection}{\numberline {10.3.4}Modelo con reentrenamiento del decoder}{109}{subsection.10.3.4}%
 \contentsline {subsection}{\numberline {10.3.5}Modelo con Data Augmentation}{109}{subsection.10.3.5}%
 \contentsline {subsection}{\numberline {10.3.6}Elección de modelo y obtención de resultados}{112}{subsection.10.3.6}%
-\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{119}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Objetivos Satisfechos}{119}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Trabajos Futuros y comentarios}{120}{section.11.2}%
-\contentsline {chapter}{\numberline {A}Apéndice A}{121}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{121}{section.Alph1.1}%
-\contentsline {chapter}{\numberline {B}Apéndice B}{127}{appendix.Alph2}%
-\contentsline {section}{\numberline {B.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{127}{section.Alph2.1}%
-\contentsline {chapter}{\numberline {C}Apéndice C}{133}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{133}{section.Alph3.1}%
-\contentsline {chapter}{\numberline {D}Apéndice D}{139}{appendix.Alph4}%
-\contentsline {section}{\numberline {D.1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{139}{section.Alph4.1}%
-\contentsline {chapter}{Glosario}{145}{chapter*.13}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{147}{chapter*.14}%
+\contentsline {chapter}{\numberline {11}Conclusiones y Trabajos Futuros}{123}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Objetivos Satisfechos}{123}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Trabajos Futuros y comentarios}{124}{section.11.2}%
+\contentsline {chapter}{\numberline {A}Apéndice A}{125}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{125}{section.Alph1.1}%
+\contentsline {chapter}{\numberline {B}Apéndice B}{131}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{131}{section.Alph2.1}%
+\contentsline {chapter}{\numberline {C}Apéndice C}{137}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{137}{section.Alph3.1}%
+\contentsline {chapter}{\numberline {D}Apéndice D}{143}{appendix.Alph4}%
+\contentsline {section}{\numberline {D.1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{143}{section.Alph4.1}%
+\contentsline {chapter}{Glosario}{149}{chapter*.13}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{151}{chapter*.14}%
