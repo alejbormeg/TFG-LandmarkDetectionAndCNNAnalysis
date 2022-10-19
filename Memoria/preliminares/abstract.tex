@@ -22,7 +22,37 @@
 
 \noindent First, we present an operator called scattering propagator. Using this operator in a cascade of convolutions we reach the windowed scattering transform, presented like the mathematical modelization of Convnets. We present a set of properties that this operator must verify, Lipschitz-continuity, like non-expansivity and translation invariant coefficients. The operator that verifies all these properties is the Littlewood-Paley wavelet transform. Once we have the operator we define the modelization of the windowed scattering and we study the similarities with the Convolutional Neural Networks. 
 
+\medskip
 
+\noindent To prove the translation invariance we need to use the properties of the windowed operator to prove that is non-expansive and then prove the translation invariance.
+
+\medskip
+
+\noindent Finally, we conclude all objectives are complete. Despite some results having complicated steps, the main results are explained with clarity.
+
+\medskip
+
+\noindent In the second part of this work, we adapt an existing Convnet specialized in facial landmarks detection called 3FabRec (which is an Adversarial Autoencoder with interleaved layers that predict landmarks). The objective is to predict cephalometric facial landmarks using this framework. Cephalometric landmarks have biological inspiration. The main problem is the small dataset provided with only a few images in the wild to train the model.
+
+\medskip
+
+\noindent To do this, the dataset provided had 167 images of people in the wild. We wanted to train the framework in order to predict a maximum of $30$ landmarks in each image. After a previous analysis of the dataset, we discovered that not all the landmarks are marked in all images, and we needed to use an auxiliary convnet called Facenet in order to identify the faces in each image and crop.
+
+\medskip
+
+\noindent We studied the state-of-art discovering that only 3 articles in the search we did were related to this specific problem. Two of them worked with a small number of cephalometric landmarks and applied techniques based on bank filters, and the last one uses deep learning techniques but the dataset was a set of images in the same position and illumination conditions. 
+
+\medskip
+
+\noindent We train the framework pretrained in the AFLW dataset. The first model we propose only trains the interleaved transfer layers, which marks the landmarks on the reconstructed face. The results were good, but we noticed that some reconstructed faces were not very realistic, so we propose two ways to improve the base model: The first one trains some parts of the architecture which reconstruct the face and the interleaved transfer layers, and the second one is to apply data augmentation techniques to increase the dataset.
+
+\medskip
+
+\noindent In the first option, we make two experiments. In the first one we train the encoder and the interleaved transfer layers (freezing the decoder), and in the second one, we train the decoder and interleaved layers freezing encoder. The results were similar to the base model and reconstruction loss did not improve a lot.
+
+\medskip
+
+\noindent In the second option, we increase the dataset using data augmentation techniques like rotating, resizing, translating and occlusions in the original images. This increases the difficulty of the problem too, but we obtained a very robust method which predicts with a very low error cephalometric landmarks in validation and test datasets.
 
 
 

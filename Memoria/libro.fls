@@ -332,6 +332,7 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkD
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/agradecimientos.tex
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/abstract.tex
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/abstract.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr9t.vf
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/resumen.tex
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/resumen.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Bold-tlf-t1.tfm
@@ -400,7 +401,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr9t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo02.tex

@@ -33,7 +33,7 @@
 
 \medskip
 %Se resumen las conclusiones extraidas
-\noindent Como resultado del proceso, se concluye que finalmente se cumplen todos los objetivos propuestos aunque el desarrollo del trabajo ha sido complicado debido al alto grado de detalle presente en la mayoría de los desarrollos. No obstante, los resultados obtenidos suponen una aproximación fiel a las propiedades que poseen las redes neuronales convolucionales y se proporcionan justificaciones para las mismas.
+\noindent Como resultado del proceso, se concluye que finalmente se cumplen todos los objetivos propuestos aunque el desarrollo del trabajo ha sido complicado debido al poco detalle presente en algunos resultados,o debido a que los mismos eran demasiado técnicos. No obstante, los resultados obtenidos suponen una aproximación fiel a las propiedades que poseen las redes neuronales convolucionales y se proporcionan justificaciones para las mismas.
 
 \medskip
 
@@ -55,15 +55,12 @@
 
 \noindent El entrenamiento se realiza a partir del conocimiento previo en el dataset \textit{AFLW} con los nuevos datos siguiendo diversos enfoques. En primer lugar se establece un modelo base en el que simplemente entrenamos las capas de la red relacionadas con el marcado de landmarks, tras esto obtenemos buenos resultados pero vemos cómo en algunos casos las reconstrucciones llevadas a cabo por el \textit{Adversarial Autoencoder} no son muy realistas, en especial en las imágenes de perfil, por lo que se adoptarán dos enfoques para tratar de mejorar el marcado: El primero consiste en reentrenar partes de la red encargadas para mejorar la reconstrucción, y el segundo entrenar en un dataset mayor aplicando técnicas de data augmentation y que complique los ejemplos de entreamiento. 
 
-
 \medskip 
 
 \noindent Para el primer enfoque se realizan dos experimentos, el primero es reentrenar las capas encargadas del marcado de landmarks junto con el encoder (dejando congelados los pesos del decoder para prevenir overfitting), y la segunda alternativa probada sería la contraria, entrenar decoder y capas de marcado dejando fijos los pesos del encoder. Ambas pruebas no mejoran excesivamente el marcado de landmarks y apenas reducen el error de reconstrucción, además de que son más costosas computacionalmete por lo que se opta por otra vía. 
 
 \medskip
 
-\noindent En la segunda alternativa se amplían las imágenes de entrenamiento introduciendo imágenes rotadas, trasladadas, giradas y con oclusiones parciales. Esto incrementa la dificulad pero como vereos los resultados obtenidos son muy satisfactorios tanto en validación como en el conjunto de test.
-
-\noindent Finalmente se concluye que el método obtiene muy buenos resultados en el problema que se propone solucionar y se abren nuevas vías de investigación futuras.
+\noindent En la segunda alternativa se amplían las imágenes de entrenamiento introduciendo imágenes rotadas, trasladadas, giradas y con oclusiones parciales. Esto incrementa la dificulad pero como vereos los resultados obtenidos son muy satisfactorios tanto en validación como en el conjunto de test. Se concluye así que el método obtiene muy buenos resultados en el problema que se propone solucionar y se abren nuevas vías de investigación futuras.
 
 \endinput
