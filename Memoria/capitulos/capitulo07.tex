@@ -5,97 +5,40 @@
 
     \section{Localización de landmarks cefalométricos en imágenes}
 
-        \noindent Para hacernos una primera idea del estado actual del problema de reconocimiento de landmarks faciales en imágenes realizamos una primera consulta en \textit{SCOPUS} (\autoref{fig:SCOPUS1}) con la siguiente \textit{keyword} restringiendo los artículos a aquellos relacionados con la informática:
+        \noindent Para hacernos una primera idea del estado actual del problema de reconocimiento de landmarks faciales en imágenes realizamos una primera consulta en \textit{SCOPUS} con la siguiente \textit{keyword} restringiendo los artículos a aquellos relacionados con la informática:
         
         \begin{verbatim}
-            TITLE-ABS-KEY ( 
-                facial  
-                AND  
-                ( landmarks  OR  keypoints )  
-                AND  
-                detection 
-                )  
-                AND  
-                ( LIMIT-TO ( SUBJAREA ,  "COMP" ) )
-        \end{verbatim}
-        
-        \medskip
-        
-        \noindent Como podemos observar, actualmente existe una tendencia creciente en la publicación de papers relacionados con este tema, en particular esta tendencia comienza en los años en que surge el Deep Learning y las CNN comienzan a utilizarse en visión por computador para el tratamiento de imágenes. 
-
-        \begin{figure}[htpb]
-            \centering
-            \includegraphics[width=0.6\textwidth]{img/Scopus_1.jpg}
-            \caption{Gráfica de publicaciones por año obtenida con la primera \textit{keyword} el $14$ de Julio de $2022$. Destaca el notable incremento de papers a partir de 2012, año en que aparece la red AlexNet y comienza a ganar popularidad el Deep Learning en el tratamiento de imágenes.}
-            \label{fig:SCOPUS1}
-        \end{figure}
-
-        \medskip
-
-        \noindent Sin embargo los artículos que se han encontrado en la \autoref{fig:SCOPUS1} no guardan una relación muy estrecha con el problema de deteción de landmarks cefalométricos en problemas de antropología forense, por ello para descubrir el estado del arte en este campo nos vemos obligados a realizar otra consulta en scopus un poco más concreta y que nos permita conocer mejor las publicaciones más relevantes en este campo en los últimos años descartando los que no sean artículos relacionados con informática. La consulta que realizamos es la siguiente: 
-
-        \begin{verbatim}
-            TITLE-ABS-KEY ( 
-                ( 
-                    ( anthropology  OR  ( anthropology  AND  forensic ) )  
-                    AND  
-                    ( cephalometric  AND  ( landmarks  OR  keypoints ) ) 
-                )  
-                
-                OR  
-                
-                ( 
-                    ( anthropology  OR  ( anthropology  AND  forensic ) )  
-                    AND  
-                    ( facial  AND  ( landmarks  OR  keypoints ) ) 
-                ) 
-                )  
-                AND  
-                ( LIMIT-TO ( SUBJAREA ,  "COMP" ) )
+        TITLE-ABS-KEY (facial AND (landmarks OR keypoints)AND  detection ) AND 
+        (LIMIT-TO(SUBJAREA , "COMP"))
         \end{verbatim}
 
         \medskip
 
-        \noindent Con la búsqueda anterior se obtienen un total de $14$ artículos, algo que nos confirma que es un área de investigación en la que apenas hay bibliografía o artículos. Podemos ver un gráfico de resultados de la búsqueda en \autoref{fig:SCOPUS2}.
+        \noindent Tras esto realizamos una segunda búsqueda mucho más concreta al tipo de problema que tratamos de resolver. Usando la siguiente \textit{keyword}:
+
+        \begin{verbatim}
+            TITLE-ABS-KEY ((( anthropology  OR  ( anthropology  AND  forensic ) ) AND  
+            ( cephalometric  AND  ( landmarks  OR  keypoints ))) OR ((anthropology OR  
+            ( anthropology AND forensic)) AND (facial AND (landmarks OR keypoints))))  
+            AND (LIMIT-TO(SUBJAREA,"COMP"))
+        \end{verbatim}
 
         \begin{figure}[htpb]
             \centering
-            \includegraphics[width=0.6\textwidth]{img/Scopus_2.png}
-            \caption{Gráfica de publicaciones por año obtenida con la segunda \textit{keyword} el $14$ de Julio de $2022$. La tendencia es a un artículo por año, aunque destaca el pico de tres artículos en 2015 y el de cuatro en 2019.}
-            \label{fig:SCOPUS2}
+            \includegraphics[width=0.9\textwidth]{img/SCOPUS_UNIDOS.png}
+            \caption{Arriba podemos ver la gráfica de publicaciones por año obtenida con la primera \textit{keyword} el $14$ de Julio de $2022$. Destaca el notable incremento de papers a partir de 2012, año en que aparece la red AlexNet y comienza a ganar popularidad el Deep Learning en el tratamiento de imágenes. Abajo tenemos la gráfica de publicaciones por año obtenida con la segunda \textit{keyword} el $14$ de Julio de $2022$. Como vemos, existe una gran diferencia entre ambas a nivel de artículos publicados por año.}
+            \label{fig:SCOPUS}
         \end{figure}
+        
+        \medskip
+        
+        \noindent Como podemos observar en las gráficas generadas para ambas \textit{keywords} en la \autoref{fig:SCOPUS}, actualmente existe una tendencia creciente en la publicación de papers relacionados con este tema, en particular esta tendencia comienza en los años en que surge el Deep Learning y las CNN comienzan a utilizarse en visión por computador para el tratamiento de imágenes. Sin embargo los artículos que se han encontrado no guardan una relación muy estrecha con el problema de deteción de landmarks cefalométricos en problemas de antropología forense. Con la segunda búsqueda anterior se obtienen un total de $14$ artículos, algo que nos confirma que es un área de investigación en la que apenas hay bibliografía o artículos.
+
+        
 
         \subsection{Evolución en la identificación forense de landmarks cefalométricos}
             
             \noindent Como hemos visto antes, la literatura existente es prácticamente nula, además de los catorce artículos obtenidos con la búsqueda anterior, la mayoría no se centran en el reconocimiento de landmarks cefalométricos en imágenes de rostros, hay artículos que se centran en la superposición craneofacial y otros basados en la identificación de landmarks en cráneos. Por lo tanto, de los catorce artículos vamos a destacar los siguientes por la relación directa con nuestro problema ordenados de mayor a menor antigüedad: 
-
-            \subsubsection{Two diﬀerent approaches to handle landmark location uncertainty in skull-face overlay: coevolution vs fuzzy landmarks}
-                \noindent Se trata de un artículo pulicado en $2011$ por Óscar Ibáñez et al \cite{ibanez2011two} en el cual abordan el problema de la superposición craneofacial diseñando un nuevo algoritmo basado en coevolución capaz de reducir el proceso de \textit{Skull-face overlay} (SFO) que tradicionalmente podía llegar a tardar unas 24 horas y comparándolo con un algoritmo ya existente basado en landmarks imprecisos en el cual el antropólogo forense marca regiones de la imagen en las que se encuentra cada landmark (esta tarea no está automatizada en este algoritmo). Aunque no guarda una relación directa con el problema, el algoritmo propuesto realiza una identificación de landmarks cefalométricos en imágenes, por lo que hemos decidido incluirlo en el estudio.
-
-                \medskip
-
-                \noindent Durante el proceso de SFO se dispone de un modelo $3$D de un cráneo y de una imagen, de manera que se considera exitoso el proceso cuando se coloca el cráneo en la misma posición en que aparece en la imagen. Durante este proceso se deben tener en cuenta factores como la edad de la persona, el peso o las expresiones faciales, que añaden un grado más de dificultad a la tarea.
-
-                \medskip
-
-                \noindent Generalmente se dispone de un conjunto de landmarks marcados tanto en la imagen como en el cráneo, y la tarea del SFO se reduce en calcular la transformación que permite llevar los landmarks del cráneo a ocupar la misma posición que en la imagen.
-
-                \medskip
-
-                \noindent La alternativa al algoritmo basado en landmarks imprecisos es un algorimto coevolutivo en el cual el valor de la función de fitness de cada elemento depende de la de él mismo y otros individuos que pueden interaccionar de forma cooperativa o conflictiva. Adaptado al problema de SFO tendríamos dos poblaciones: el conjunto de parámetros que definen la transformación que se aplica al modelo $3$D del cráneo y por otro lado las localizaciones de los landmarks cefalométricos. Ambas poblaciones colaboran para encontrar la mejor transformación posible y solucionar el SFO.
-
-                \medskip
-
-                \noindent En el experimento se disponía de seis procesos distintos de SFO correspondientes a tres casos reales proporcionados por el laboratorio de Antropología Física de la Universidad de Granada en colaboración con la policía científica. Se disponía así de tres modelos $3$D de cráneos pertenecientes a personas desaparecidas junto con un dataset de seis imágenes. Las imágenes, a pesar de ser pocas, presentan una gran variedad en iluminación, posición (hay imágenes frontales y en $3/4$) y con problemas de oclusión en algunos casos para los landmarks a causa del cabello. Por otro lado la calidad de las imágenes es muy variada, habiendo imágenes de gran resolución y otras de baja calidad. Finalmente se disponen cuatro imágenes para el caso de estudio $3$ y una única imagen para el caso de estudio $1$ y $2$.
-
-                \medskip
-                
-
-                \noindent En el experimento, el algoritmo empleado para la técnica de encontrar landmarks imprecisos es CMA-ES, y se comparó con el algoritmo coevolutivo desarrollado. Las conclusiones fueron que el nuevo algoritmo reducía considerablemente los tiempos de ejecución del algoritmo basado en landmarks imprecisos y que realizaba una Localización de landmarks cefalométricos apropiada. 
-                
-                \medskip
-
-                \noindent Por lo tanto podemos considerar este primer algoritmo coevolutivo como la primera aproximación a nuestro problema de detección automática de landmarks. A pesar de lo pobre que es el conjunto de datos de entrenamiento, se emplean imágenes que se encuentran en nuestro dataset y con diversas posturas y resolución de imagen. No obstante, la parte de detección de landmarks no es la principal de este artículo, pues aunque es una consecuencia del algoritmo que se desarrolla, se pretende realizar con el mayor éxito posible la fase SFO.
 
             \subsubsection{Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}
                 \noindent Se trata de un artículo publicado en $2014$ por Salina Mohd et al \cite{asi2014automatic} en el que se pretende diseñar un método para calcular en una imagen de los ojos de un sujeto el \textit{endocathion} y el \textit{exocanthion} basado en el uso de un clasificador entrenado sobre filtros de Haar usados para la identificación de caras por Viola-Jones.

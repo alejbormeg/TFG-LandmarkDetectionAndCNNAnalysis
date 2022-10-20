@@ -43,39 +43,39 @@
 \contentsline {subsubsection}{\numberline {6.1.1.4}Clasificación}{58}{subsubsection.6.1.1.4}%
 \contentsline {subsection}{\numberline {6.1.2}Aprendizaje no Supervisado}{58}{subsection.6.1.2}%
 \contentsline {subsection}{\numberline {6.1.3}Aprendizaje Automático en este Trabajo}{58}{subsection.6.1.3}%
-\contentsline {section}{\numberline {6.2}Visión por Computador}{59}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Deep Learning}{59}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Redes Neuronales}{59}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Back Propagation}{61}{subsection.6.3.2}%
-\contentsline {section}{\numberline {6.4}Redes Neuronales Convolucionales}{62}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Capa Convolucional}{64}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Capa de Pooling}{65}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Capa Totalmente Conectada (Fully Conected)}{66}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}Batch Normalization}{66}{subsection.6.4.4}%
-\contentsline {subsection}{\numberline {6.4.5}Optimizador Adam}{66}{subsection.6.4.5}%
-\contentsline {subsection}{\numberline {6.4.6}Proceso de entrenamiento de una CNN}{67}{subsection.6.4.6}%
-\contentsline {subsection}{\numberline {6.4.7}Evolución de las CNN}{67}{subsection.6.4.7}%
-\contentsline {subsubsection}{\numberline {6.4.7.1}LeNet-5}{67}{subsubsection.6.4.7.1}%
-\contentsline {subsubsection}{\numberline {6.4.7.2}AlexNet}{68}{subsubsection.6.4.7.2}%
-\contentsline {subsubsection}{\numberline {6.4.7.3}GoogLeNet}{68}{subsubsection.6.4.7.3}%
-\contentsline {subsubsection}{\numberline {6.4.7.4}VGG-16}{69}{subsubsection.6.4.7.4}%
-\contentsline {subsubsection}{\numberline {6.4.7.5}ResNet}{70}{subsubsection.6.4.7.5}%
-\contentsline {section}{\numberline {6.5}Autoencoders}{71}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Introducción}{71}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Evolución de los Autoencoders}{72}{subsection.6.5.2}%
-\contentsline {subsubsection}{\numberline {6.5.2.1}Generative Adversarial Networks (GANs)}{72}{subsubsection.6.5.2.1}%
-\contentsline {subsubsection}{\numberline {6.5.2.2}Variational Autoencoder (VAE)}{73}{subsubsection.6.5.2.2}%
-\contentsline {subsubsection}{\numberline {6.5.2.3}Adversarial Autoencoder(AAE)}{74}{subsubsection.6.5.2.3}%
-\contentsline {section}{\numberline {6.6}Técnicas empleadas}{75}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Few-shot Learning y Data Augmentation}{75}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.1.4}Visión por Computador}{59}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Deep Learning}{59}{subsection.6.1.5}%
+\contentsline {subsubsection}{\numberline {6.1.5.1}Redes Neuronales}{59}{subsubsection.6.1.5.1}%
+\contentsline {subsubsection}{\numberline {6.1.5.2}Backpropagation}{61}{subsubsection.6.1.5.2}%
+\contentsline {section}{\numberline {6.2}Redes Neuronales Convolucionales}{62}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Capa Convolucional}{64}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Capa de Pooling}{65}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Capa Totalmente Conectada (Fully Conected)}{66}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Batch Normalization}{66}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}Optimizador Adam}{66}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {6.2.6}Proceso de entrenamiento de una CNN}{67}{subsection.6.2.6}%
+\contentsline {subsection}{\numberline {6.2.7}Evolución de las CNN}{67}{subsection.6.2.7}%
+\contentsline {subsubsection}{\numberline {6.2.7.1}LeNet-5}{67}{subsubsection.6.2.7.1}%
+\contentsline {subsubsection}{\numberline {6.2.7.2}AlexNet}{68}{subsubsection.6.2.7.2}%
+\contentsline {subsubsection}{\numberline {6.2.7.3}GoogLeNet}{68}{subsubsection.6.2.7.3}%
+\contentsline {subsubsection}{\numberline {6.2.7.4}VGG-16}{69}{subsubsection.6.2.7.4}%
+\contentsline {subsubsection}{\numberline {6.2.7.5}ResNet}{70}{subsubsection.6.2.7.5}%
+\contentsline {section}{\numberline {6.3}Autoencoders}{71}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Introducción}{71}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Evolución de los Autoencoders}{72}{subsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.1}Generative Adversarial Networks (GANs)}{72}{subsubsection.6.3.2.1}%
+\contentsline {subsubsection}{\numberline {6.3.2.2}Variational Autoencoder (VAE)}{73}{subsubsection.6.3.2.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.3}Adversarial Autoencoder(AAE)}{74}{subsubsection.6.3.2.3}%
+\contentsline {section}{\numberline {6.4}Técnicas empleadas}{75}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Few-shot Learning y Data Augmentation}{75}{subsection.6.4.1}%
 \contentsline {chapter}{\numberline {7}Estado del Arte}{77}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Localización de landmarks cefalométricos en imágenes}{77}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Evolución en la identificación forense de landmarks cefalométricos}{78}{subsection.7.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.1.1}Two diﬀerent approaches to handle landmark location uncertainty in skull-face overlay: coevolution vs fuzzy landmarks}{78}{subsubsection.7.1.1.1}%
+\contentsline {subsection}{\numberline {7.1.1}Evolución en la identificación forense de landmarks cefalométricos}{77}{subsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.1.1}Two diﬀerent approaches to handle landmark location uncertainty in skull-face overlay: coevolution vs fuzzy landmarks}{79}{subsubsection.7.1.1.1}%
 \contentsline {subsubsection}{\numberline {7.1.1.2}Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}{80}{subsubsection.7.1.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.1.3}Automated facial landmark detection, comparison and visualization}{80}{subsubsection.7.1.1.3}%
-\contentsline {subsubsection}{\numberline {7.1.1.4}Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}{81}{subsubsection.7.1.1.4}%
-\contentsline {subsubsection}{\numberline {7.1.1.5}The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}{83}{subsubsection.7.1.1.5}%
+\contentsline {subsubsection}{\numberline {7.1.1.3}Automated facial landmark detection, comparison and visualization}{81}{subsubsection.7.1.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.1.4}Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}{82}{subsubsection.7.1.1.4}%
+\contentsline {subsubsection}{\numberline {7.1.1.5}The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}{82}{subsubsection.7.1.1.5}%
 \contentsline {subsection}{\numberline {7.1.2}Nuestra propuesta}{83}{subsection.7.1.2}%
 \contentsline {chapter}{\numberline {8}Métricas}{87}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Métricas usadas en el entrenamiento}{87}{section.8.1}%
