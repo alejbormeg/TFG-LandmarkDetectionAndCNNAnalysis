@@ -89,13 +89,6 @@ Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
 \newblock In {\em Proceedings of the IEEE conference on computer vision and
   pattern recognition}, pages 770--778, 2016.
 
-\bibitem[ICD11]{ibanez2011two}
-{\'O}scar Ib{\'a}{\~n}ez, {\'O}scar Cord{\'o}n, and Sergio Damas.
-\newblock Two different approaches to handle landmark location uncertainty in
-  skull-face overlay: coevolution vs fuzzy landmarks.
-\newblock In {\em Proceedings of the 7th conference of the European Society for
-  Fuzzy Logic and Technology}, pages 334--341. Atlantis Press, 2011.
-
 \bibitem[J.B12]{JBrunaOperatorsCommutingDiff}
 J.Bruna.
 \newblock Operators commuting with diffeomorphisms.
