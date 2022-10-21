@@ -127,37 +127,7 @@
                 \medskip
 
                 \noindent Todos los métodos que se han presentado en esta sección trataban de cumplir con el mismo objetivo, y han ido evolucionando con el paso de los años a la par que la informática, empezando por tratar de aplicar algoritmos coevolutivos, después filtros de Haar y técnicas de visión por computador y finalmente usar CNN de Deep Learning. De esta manera y viendo con perspectiva el estado del arte en el campo, consideramos que la propuesta que presentamos puede traer buenos resultados, pues pretendemos enseñar a un sistema experto en el reconocimiento de landmarks no biológicos a identificar estos otros puntos, lo cual puede suponer un nexo de unión entre las dos líneas de investigación.
-
-        \subsection{Nuestra propuesta}
-            \noindent El reconocimiento automático de landmarks faciales es una área de gran importancia en la actualidad en tareas como el reconocimiento de personas y que se está viendo muy desarrollado actualmente por la gran capacidad de las CNN para tareas de procesamiento automático de imágenes. 
-
-
-            \medskip 
-
-            \noindent La principal diferencia entre este enfoque y el forense explicado en la sección anterior radica en el tipo de landmarks que se utilizan. Los utilizados en antropología forense son landmarks con justificación biológica, a diferencia de los que se emplean en las tareas de reconocimiento facial, que generalmente atienden a puntos de interés de la cara para su correcto reconocimiento y son independientes del cráneo del sujeto. Así pues existen diversas bases de datos empleadas para este cometido con multitud de imágenes etiquetadas, destacamos entre ellas: 
-
-            \begin{itemize}
-                \item \textbf{300-W}: Se trata de un dataset compuesto por $3148$ imágenes de entrenamiento y $689$ imágenes de test \textit{in-the-wild}, es decir con multitud de poses, distinta iluminación y expresiones faciales. Está anotada por 51 landmarks o 68 landmarks si contamos el contorno del rostro \cite{300W}. Podemos ver los landmarks en la imagen \autoref{fig:300W}
-                
-                \begin{figure}[!h]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{img/33W.png}
-                    \caption{Conjunto de landmarks anotados en el dataset 300W, en la imagen \textit{a} contando el contorno del rostro son un total de 68 landmarks, en la imagen \textit{b} son 51 en total. Imagen extraida de \cite{300W}.}
-                    \label{fig:300W}
-                \end{figure}
-                
-                \item \textbf{AFLW}: Se trata de un dataset de $24386$ imágenes \textit{in-the-wild} con un total de 21 landmarks anotados entre las cejas y el mentón, como podemos ver en la imagen \autoref{fig:AFLW}  \cite{AFLW}
-                \begin{figure}[!h]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{img/AFLW.png}
-                    \caption{Conjunto de landmarks anotados sobre un modelo $3$D que emplea el dataset AFLW. Imagen extraida de \cite{AFLW}.}
-                    \label{fig:AFLW}
-                \end{figure}
-            \end{itemize}
-            
-            \medskip
-            
-            \noindent El hecho es que existen actualmente CNN que son capaces de reconocer con un alto grado de precisión estos conjuntos de landmarks marcados por las bases de datos anteriores, lo que nos hace pensar que quizá podría emplearse el conocimiento adquirido por estas redes para reentrenarlas en un proceso de \textit{fine-tuning} sobre una base de datos forense con landmarks anotados por un experto para tratar de resolver el problema de la identificación automática de landmarks. De ahí nace nuestra propuesta, que en cierto modo trata hace como nexo de unión entre las dos vías de investigación.    
+   
 \endinput
 %------------------------------------------------------------------------------------
 % FIN DEL CAPÍTULO. 
