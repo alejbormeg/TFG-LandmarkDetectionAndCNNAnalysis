@@ -127,7 +127,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
                 \begin{equation}
                     w_{i+1}=w_i-\eta \nabla J(w)
                 \end{equation}
-                \noindent Dónde $\eta$ es un factor conocido como \textbf{learning rate}(lr) que mide el \entrecomillado{tamaño} del paso que en cada iteración damos en búsqueda del mínimo. 
+                \noindent Dónde $\eta$ es un factor conocido como \textbf{learning rate}(lr) que mide el \entrecomillado{tamaño} del paso que en cada iteración damos en búsqueda del mínimo. Y dónde $\nabla J(w)$ es el valor del gradiente de la función de coste para el vector de pesos $w$. 
             \end{itemize}
     
             \noindent Idealmente, con este método se encuentra un mínimo global de la función de coste en el caso en que esta sea convexa. En caso de no serlo podría caer en un mínimo local en su lugar. 
@@ -159,11 +159,15 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
         \noindent Los algoritmos de Aprendizaje no Supervisado se caracterizan porque los datos que se proporcionan no están etiquetados, y no se busca una salida concreta, sino que se pretende analizar y extraer características de nuestro conjunto de datos. Así, por ejemplo, tareas que pueden resolverse con esta técnica pueden ser la agrupación de clientes de cierta compañía en distintas clases según sus características.
     
     \subsection{Aprendizaje Automático en este Trabajo}
-        \noindent En nuestro problema, el framework del que disponemos resuelve un problema de aprendizaje supervisado y no supervisado, pues intenta predecir los landmarks cefalométricos para una cierta imagen de entrada, lo que nos llevaría a un problema típico de aprendizaje supervisado en el que pretendemos a partir de la imagen de entrada conocer la función que nos proporciona la salida correcta (la imagen con los landmarks marcados correctametne).
+        \noindent En nuestro problema, el framework del que disponemos resuelve un problema de aprendizaje supervisado y no supervisado, pues intenta predecir un conjunto de landmarks para una cierta imagen de entrada, un problema típico de aprendizaje supervisado, en este caso de regresión dónde pretendemos a partir de la imagen de entrada conocer la función que nos proporciona la salida correcta (la imagen con los landmarks marcados correctametne).
 
         \medskip
 
         \noindent Por otro lado,tiene una etapa de entrenamiento previa al problema de los landmarks en la cual mediante conjuntos de datos de imágenes sin etiquetar de rostros humanos, se pretende reconstruir imágenes preservando al máximo posible la estructura de la cara. Esto, como podemos ver, es un problema típico de aprendizaje no supervisado, porque no se busca obtener una etiqueta para cada imagen, sino analizar la estructura de los distintos elementos de los datos de entrada para ser capaces de reconstruirlos preservando su estructura.
+
+        \medskip
+
+        \noindent En este trabajo, sin embargo, sólo nos centraremos en la reolución del problema de \textbf{regresión} en el cual trataremos de predecir un conjunto de landmarks \textbf{cefalométricos}, y por lo tanto distintos a los que la red sabe predecir, a partir de un  pequeño conjunto de imágenes etiquetadas pertenecientes a un conjunto de datos forense.
 
     \subsection{Visión por Computador}
         \noindent La \textbf{Visión por computador} es un área de conocimiento en el que se unen diversas disciplinas como la IA o el AA para un propósito común, que es el procesado de imágenes por medio de un ordenador con la finalidad de que la máquina pueda llegar a extraer información relativa a estas del mismo modo en que lo haría un ser humano \cite{rosenfeld1988computer}. 
@@ -472,8 +476,8 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.8\textwidth]{img/inception_module.png}
-                \caption{Ejemplos de módulos Inception.}
+                \includegraphics[width=0.98\textwidth]{img/inception_module.png}
+                \caption{Ejemplos de módulos Inception. Imágenes extraídas de \cite{StanfordCourse}.}
                 \label{fig:inception}
             \end{figure}
 
@@ -481,8 +485,8 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.8\textwidth]{img/GoogLeNet.png}
-                \caption{Arquitectura de GoogLeNet usando módulos Inception.}
+                \includegraphics[width=0.98\textwidth]{img/GoogLeNet.png}
+                \caption{Arquitectura de GoogLeNet usando módulos Inception.Imagen extraída de \cite{StanfordCourse}}
                 \label{fig:GoogLeNet}
             \end{figure}
 
@@ -501,7 +505,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.8\textwidth]{img/VGG-16.jpeg}
-                \caption{Arquitectura de VGG-16.}
+                \caption{Arquitectura de VGG-16.Imagen extraída de \cite{StanfordCourse}.}
                 \label{fig:VGG}
             \end{figure}
 
@@ -527,7 +531,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.5\textwidth]{img/resnet_module.jpeg}
+                \includegraphics[width=0.9\textwidth]{img/ImageNet.png}
                 \caption{Resumen de los ganadores del concurso ILSVRC hasta 2015 con la aparición de Resnet. Imagen extraída de \cite{StanfordCourse}.}
                 \label{fig:ImageNet}
             \end{figure}
@@ -552,7 +556,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
         \begin{figure}[!h]
             \centering
-            \includegraphics[width=0.5\textwidth]{img/Autoencoder.png}
+            \includegraphics[width=0.8\textwidth]{img/Autoencoder.png}
             \caption{Esquema de un Autoencoder básico. Imagen extraída de \cite{autoencoders2017}.}
             \label{fig:Autoencoder}
         \end{figure}
@@ -571,7 +575,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.5\textwidth]{img/Generative_network.png}
+                \includegraphics[width=0.8\textwidth]{img/Generative_network.png}
                 \caption{Ejemplo de una Generative Network que pretende aprender la distribución de probabilidad de un conjunto de imágenes de perros. Imagen extraída de \cite{autoencoders2017}.}
                 \label{fig:Generative Network}
             \end{figure}
@@ -582,13 +586,13 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.6\textwidth]{img/proceso_entrenamiento_GAN.png}
+                \includegraphics[width=0.8\textwidth]{img/proceso_entrenamiento_GAN.png}
                 \caption{Resumen del proceso de entrenamiento de una GAN. Imagen extraída de \cite{autoencoders2017}.}
             \end{figure}
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.5\textwidth]{img/GAN.png}
+                \includegraphics[width=0.98\textwidth]{img/GAN.png}
                 \caption{Ejemplo de la arquitectura de una GAN para generar imágenes de dígitos manuscritos. Imagen extraída de \cite{AAE}}
                 \label{fig:GAN}
             \end{figure}
@@ -609,7 +613,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.8\textwidth]{img/vae_1.png}
+                \includegraphics[width=0.98\textwidth]{img/vae_1.png}
                 \caption{Diferencia en el tratamiento de los datos por parte del encoder en una VAE y un Autoencoder clásico. Imagen extraída de \cite{VAE}.}
                 \label{fig:VAE_1}
             \end{figure}
@@ -618,7 +622,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.5\textwidth]{img/vae_2.png}
+                \includegraphics[width=0.8\textwidth]{img/vae_2.png}
                 \caption{Diferencia en la función de pérdida de un Autoencoder clásico (imagen superior) y una VAE (imagen inferior). Destacamos el término KL regularizante que pretende que las distribuciones de los datos sigan una normal estándar. Imagen extraída de \cite{VAE}.}
                 \label{fig:VAE_2}
             \end{figure}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  22 OCT 2022 11:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  22 OCT 2022 12:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1277,64 +1277,59 @@ LaTeX Info: Redefining \% on input line 165.
 LaTeX Info: Redefining \. on input line 192.
 LaTeX Info: Redefining \% on input line 192.
  [59]
-<img/single_hidden_layer.png, id=795, 1105.12875pt x 527.9725pt>
+<img/single_hidden_layer.png, id=794, 1105.12875pt x 527.9725pt>
 File: img/single_hidden_layer.png Graphic file (type png)
 <use img/single_hidden_layer.png>
-Package pdftex.def Info: img/single_hidden_layer.png  used on input line 199.
+Package pdftex.def Info: img/single_hidden_layer.png  used on input line 203.
 (pdftex.def)             Requested size: 285.80672pt x 136.5365pt.
-LaTeX Info: Redefining \. on input line 220.
-LaTeX Info: Redefining \% on input line 220.
+LaTeX Info: Redefining \. on input line 222.
+LaTeX Info: Redefining \% on input line 222.
  [60 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/single_hidden_layer.png>]
-<img/GrafoComputacional.png, id=806, 1044.90375pt x 278.03876pt>
+LaTeX Info: Redefining \. on input line 261.
+LaTeX Info: Redefining \% on input line 261.
+ [61]
+<img/GrafoComputacional.png, id=810, 1044.90375pt x 278.03876pt>
 File: img/GrafoComputacional.png Graphic file (type png)
 <use img/GrafoComputacional.png>
-Package pdftex.def Info: img/GrafoComputacional.png  used on input line 264.
+Package pdftex.def Info: img/GrafoComputacional.png  used on input line 268.
 (pdftex.def)             Requested size: 326.63892pt x 86.91658pt.
-LaTeX Info: Redefining \. on input line 267.
-LaTeX Info: Redefining \% on input line 267.
- [61]
-<img/BP_ejemplo.png, id=815, 973.6375pt x 950.55125pt>
+<img/BP_ejemplo.png, id=814, 973.6375pt x 950.55125pt>
 File: img/BP_ejemplo.png Graphic file (type png)
 <use img/BP_ejemplo.png>
-Package pdftex.def Info: img/BP_ejemplo.png  used on input line 282.
+Package pdftex.def Info: img/BP_ejemplo.png  used on input line 286.
 (pdftex.def)             Requested size: 326.63892pt x 318.8899pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 302.
-LaTeX Info: Redefining \% on input line 302.
+LaTeX Info: Redefining \. on input line 301.
+LaTeX Info: Redefining \% on input line 301.
 [62 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/GrafoComputacional.png>]
-LaTeX Info: Redefining \. on input line 320.
-LaTeX Info: Redefining \% on input line 320.
+Underfull \vbox (badness 1097) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 316.
+LaTeX Info: Redefining \% on input line 316.
  [63 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/BP_ejemplo.png>]
-<img/mapa_activacion.png, id=833, 863.225pt x 392.46625pt>
+LaTeX Info: Redefining \. on input line 358.
+LaTeX Info: Redefining \% on input line 358.
+ [64]
+<img/mapa_activacion.png, id=837, 863.225pt x 392.46625pt>
 File: img/mapa_activacion.png Graphic file (type png)
 <use img/mapa_activacion.png>
-Package pdftex.def Info: img/mapa_activacion.png  used on input line 362.
+Package pdftex.def Info: img/mapa_activacion.png  used on input line 366.
 (pdftex.def)             Requested size: 326.63892pt x 148.50392pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<img/sucesion_conv_layer.png, id=836, 665.48625pt x 322.20375pt>
+<img/sucesion_conv_layer.png, id=840, 665.48625pt x 322.20375pt>
 File: img/sucesion_conv_layer.png Graphic file (type png)
 <use img/sucesion_conv_layer.png>
-Package pdftex.def Info: img/sucesion_conv_layer.png  used on input line 369.
+Package pdftex.def Info: img/sucesion_conv_layer.png  used on input line 373.
 (pdftex.def)             Requested size: 326.63892pt x 158.1467pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-LaTeX Info: Redefining \. on input line 376.
-LaTeX Info: Redefining \% on input line 376.
-[64]
-LaTeX Info: Redefining \. on input line 384.
-LaTeX Info: Redefining \% on input line 384.
+LaTeX Info: Redefining \. on input line 380.
+LaTeX Info: Redefining \% on input line 380.
  [65 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/mapa_activacion.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/sucesion_conv_layer.png>]
 <img/pooling.png, id=852, 823.075pt x 261.97874pt>
 File: img/pooling.png Graphic file (type png)
 <use img/pooling.png>
-Package pdftex.def Info: img/pooling.png  used on input line 390.
+Package pdftex.def Info: img/pooling.png  used on input line 394.
 (pdftex.def)             Requested size: 326.63892pt x 103.96616pt.
 LaTeX Info: Redefining \. on input line 411.
 LaTeX Info: Redefining \% on input line 411.
@@ -1342,10 +1337,10 @@ LaTeX Info: Redefining \% on input line 411.
 <img/LeNet.png, id=864, 728.7225pt x 215.80624pt>
 File: img/LeNet.png Graphic file (type png)
 <use img/LeNet.png>
-Package pdftex.def Info: img/LeNet.png  used on input line 430.
+Package pdftex.def Info: img/LeNet.png  used on input line 434.
 (pdftex.def)             Requested size: 326.63892pt x 96.72992pt.
 
-Overfull \hbox (10.0905pt too wide) detected at line 439
+Overfull \hbox (10.0905pt too wide) detected at line 443
 \OML/zplm/m/it/10 INPUT \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 CONV \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 AVG POOL \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 CONV \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 AVG POOL \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 FC \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 FC \OMS/zplm/m/n/10 ! \OML/zplm/m/it/10 OUTPUT\OT1/pplx/m/n/10 .
  []
 
@@ -1355,121 +1350,134 @@ LaTeX Info: Redefining \% on input line 443.
 <img/AlexNet.png, id=877, 839.135pt x 304.13625pt>
 File: img/AlexNet.png Graphic file (type png)
 <use img/AlexNet.png>
-Package pdftex.def Info: img/AlexNet.png  used on input line 450.
+Package pdftex.def Info: img/AlexNet.png  used on input line 454.
 (pdftex.def)             Requested size: 326.63892pt x 118.38525pt.
-LaTeX Info: Redefining \. on input line 470.
-LaTeX Info: Redefining \% on input line 470.
+LaTeX Info: Redefining \. on input line 468.
+LaTeX Info: Redefining \% on input line 468.
  [68 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/AlexNet.png>]
-<img/inception_module.png, id=890, 702.625pt x 197.73875pt>
+<img/inception_module.png, id=889, 702.625pt x 197.73875pt>
 File: img/inception_module.png Graphic file (type png)
 <use img/inception_module.png>
-Package pdftex.def Info: img/inception_module.png  used on input line 475.
-(pdftex.def)             Requested size: 326.63892pt x 91.92644pt.
-<img/GoogLeNet.png, id=892, 702.625pt x 156.585pt>
+Package pdftex.def Info: img/inception_module.png  used on input line 479.
+(pdftex.def)             Requested size: 400.12941pt x 112.60966pt.
+<img/GoogLeNet.png, id=893, 702.625pt x 156.585pt>
 File: img/GoogLeNet.png Graphic file (type png)
 <use img/GoogLeNet.png>
-Package pdftex.def Info: img/GoogLeNet.png  used on input line 484.
-(pdftex.def)             Requested size: 326.63892pt x 72.79454pt.
-<img/VGG-16.jpeg, id=894, 702.625pt x 413.545pt>
+Package pdftex.def Info: img/GoogLeNet.png  used on input line 488.
+(pdftex.def)             Requested size: 400.12941pt x 89.17313pt.
+LaTeX Info: Redefining \. on input line 500.
+LaTeX Info: Redefining \% on input line 500.
+ [69 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/inception_module.png (PNG copy)> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/GoogLeNet.png (PNG copy)>]
+<img/VGG-16.jpeg, id=905, 702.625pt x 413.545pt>
 File: img/VGG-16.jpeg Graphic file (type jpg)
 <use img/VGG-16.jpeg>
-Package pdftex.def Info: img/VGG-16.jpeg  used on input line 503.
+Package pdftex.def Info: img/VGG-16.jpeg  used on input line 507.
 (pdftex.def)             Requested size: 326.63892pt x 192.25226pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-LaTeX Info: Redefining \. on input line 513.
-LaTeX Info: Redefining \% on input line 513.
-[69 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/inception_module.png (PNG copy)> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/GoogLeNet.png (PNG copy)>]
-<img/resnet_module.jpeg, id=905, 465.74pt x 260.975pt>
+<img/resnet_module.jpeg, id=909, 465.74pt x 260.975pt>
 File: img/resnet_module.jpeg Graphic file (type jpg)
 <use img/resnet_module.jpeg>
-Package pdftex.def Info: img/resnet_module.jpeg  used on input line 521.
-(pdftex.def)             Requested size: 204.14854pt x 114.39131pt.
-File: img/resnet_module.jpeg Graphic file (type jpg)
-<use img/resnet_module.jpeg>
-Package pdftex.def Info: img/resnet_module.jpeg  used on input line 530.
+Package pdftex.def Info: img/resnet_module.jpeg  used on input line 525.
 (pdftex.def)             Requested size: 204.14854pt x 114.39131pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 537.
-LaTeX Info: Redefining \% on input line 537.
-[70 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/VGG-16.jpeg> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/resnet_module.jpeg>]
-<img/Autoencoder.png, id=919, 1405.25pt x 332.24126pt>
+<img/ImageNet.png, id=912, 881.2925pt x 440.64626pt>
+File: img/ImageNet.png Graphic file (type png)
+<use img/ImageNet.png>
+Package pdftex.def Info: img/ImageNet.png  used on input line 534.
+(pdftex.def)             Requested size: 367.46489pt x 183.73213pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 541.
+LaTeX Info: Redefining \% on input line 541.
+[70 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/VGG-16.jpeg>]
+LaTeX Info: Redefining \. on input line 551.
+LaTeX Info: Redefining \% on input line 551.
+ [71 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/resnet_module.jpeg> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/ImageNet.png>]
+<img/Autoencoder.png, id=934, 1405.25pt x 332.24126pt>
 File: img/Autoencoder.png Graphic file (type png)
 <use img/Autoencoder.png>
-Package pdftex.def Info: img/Autoencoder.png  used on input line 555.
-(pdftex.def)             Requested size: 204.14854pt x 48.26245pt.
-LaTeX Info: Redefining \. on input line 567.
-LaTeX Info: Redefining \% on input line 567.
- [71 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Autoencoder.png (PNG copy)>]
-<img/Generative_network.png, id=931, 1405.25pt x 669.50125pt>
+Package pdftex.def Info: img/Autoencoder.png  used on input line 559.
+(pdftex.def)             Requested size: 326.63892pt x 77.225pt.
+<img/Generative_network.png, id=938, 1405.25pt x 669.50125pt>
 File: img/Generative_network.png Graphic file (type png)
 <use img/Generative_network.png>
-Package pdftex.def Info: img/Generative_network.png  used on input line 574.
-(pdftex.def)             Requested size: 204.14854pt x 97.25397pt.
-<img/proceso_entrenamiento_GAN.png, id=934, 1405.25pt x 552.0625pt>
+Package pdftex.def Info: img/Generative_network.png  used on input line 578.
+(pdftex.def)             Requested size: 326.63892pt x 155.61656pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/proceso_entrenamiento_GAN.png, id=941, 1405.25pt x 552.0625pt>
 File: img/proceso_entrenamiento_GAN.png Graphic file (type png)
 <use img/proceso_entrenamiento_GAN.png>
-Package pdftex.def Info: img/proceso_entrenamiento_GAN.png  used on input line 585.
-(pdftex.def)             Requested size: 244.98074pt x 96.24173pt.
-<img/GAN.png, id=937, 702.625pt x 320.19624pt>
+Package pdftex.def Info: img/proceso_entrenamiento_GAN.png  used on input line 589.
+(pdftex.def)             Requested size: 326.63892pt x 128.3195pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/GAN.png, id=944, 702.625pt x 320.19624pt>
 File: img/GAN.png Graphic file (type png)
 <use img/GAN.png>
-Package pdftex.def Info: img/GAN.png  used on input line 591.
-(pdftex.def)             Requested size: 204.14854pt x 93.03041pt.
-
+Package pdftex.def Info: img/GAN.png  used on input line 595.
+(pdftex.def)             Requested size: 400.12941pt x 182.34763pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 598.
-LaTeX Info: Redefining \% on input line 598.
-[72 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Generative_network.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/proceso_entrenamiento_GAN.png>]
-<img/vae_1.png, id=950, 1405.25pt x 463.7325pt>
+LaTeX Info: Redefining \. on input line 606.
+LaTeX Info: Redefining \% on input line 606.
+[72 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Autoencoder.png (PNG copy)>]
+<img/vae_1.png, id=955, 1405.25pt x 463.7325pt>
 File: img/vae_1.png Graphic file (type png)
 <use img/vae_1.png>
-Package pdftex.def Info: img/vae_1.png  used on input line 612.
-(pdftex.def)             Requested size: 326.63892pt x 107.78838pt.
-<img/vae_2.png, id=954, 1266.7325pt x 1306.8825pt>
-File: img/vae_2.png Graphic file (type png)
-<use img/vae_2.png>
-Package pdftex.def Info: img/vae_2.png  used on input line 621.
-(pdftex.def)             Requested size: 204.14854pt x 210.60107pt.
+Package pdftex.def Info: img/vae_1.png  used on input line 616.
+(pdftex.def)             Requested size: 400.12941pt x 132.04483pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 628.
-LaTeX Info: Redefining \% on input line 628.
-[73 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/GAN.png (PNG copy)> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/vae_1.png>]
-<img/AAE.png, id=968, 702.625pt x 514.92375pt>
+LaTeX Info: Redefining \. on input line 622.
+LaTeX Info: Redefining \% on input line 622.
+[73 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/Generative_network.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/proceso_entrenamiento_GAN.png>]
+<img/vae_2.png, id=967, 1266.7325pt x 1306.8825pt>
+File: img/vae_2.png Graphic file (type png)
+<use img/vae_2.png>
+Package pdftex.def Info: img/vae_2.png  used on input line 625.
+(pdftex.def)             Requested size: 326.63892pt x 336.98964pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 636.
+LaTeX Info: Redefining \% on input line 636.
+[74 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/GAN.png (PNG copy)> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/vae_1.png>]
+<img/AAE.png, id=981, 702.625pt x 514.92375pt>
 File: img/AAE.png Graphic file (type png)
 <use img/AAE.png>
-Package pdftex.def Info: img/AAE.png  used on input line 645.
+Package pdftex.def Info: img/AAE.png  used on input line 649.
 (pdftex.def)             Requested size: 204.14854pt x 149.60692pt.
-LaTeX Info: Redefining \. on input line 648.
-LaTeX Info: Redefining \% on input line 648.
- [74 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/vae_2.png>]) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo07.tex
+LaTeX Info: Redefining \. on input line 652.
+LaTeX Info: Redefining \% on input line 652.
+ [75 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/vae_2.png>]) (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo07.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [75 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/AAE.png (PNG copy)>] [76
-
-
-]
+ [76 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/AAE.png (PNG copy)>]
 chapter 7.
-<img/SCOPUS_UNIDOS.png, id=986, 890.32625pt x 1119.18124pt>
+<img/SCOPUS_UNIDOS.png, id=994, 890.32625pt x 1119.18124pt>
 File: img/SCOPUS_UNIDOS.png Graphic file (type png)
 <use img/SCOPUS_UNIDOS.png>
 Package pdftex.def Info: img/SCOPUS_UNIDOS.png  used on input line 28.
 (pdftex.def)             Requested size: 367.46489pt x 461.92412pt.
-[77]
+[77
+
+
+]
 LaTeX Info: Redefining \. on input line 45.
 LaTeX Info: Redefining \% on input line 45.
  [78 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/SCOPUS_UNIDOS.png>]
-<img/frankfort.png, id=1002, 493.845pt x 521.95pt>
+<img/frankfort.png, id=1011, 493.845pt x 521.95pt>
 File: img/frankfort.png Graphic file (type png)
 <use img/frankfort.png>
 Package pdftex.def Info: img/frankfort.png  used on input line 71.
@@ -1478,7 +1486,7 @@ Package pdftex.def Info: img/frankfort.png  used on input line 71.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/comparativa_landmarks.png, id=1006, 643.40375pt x 355.3275pt>
+<img/comparativa_landmarks.png, id=1015, 643.40375pt x 355.3275pt>
 File: img/comparativa_landmarks.png Graphic file (type png)
 <use img/comparativa_landmarks.png>
 Package pdftex.def Info: img/comparativa_landmarks.png  used on input line 84.
@@ -1514,13 +1522,13 @@ LaTeX Info: Redefining \% on input line 1.
 
 ]
 chapter 9.
-<img/diagrama_paquetes_1.png, id=1061, 1455.4375pt x 517.935pt>
+<img/diagrama_paquetes_1.png, id=1069, 1455.4375pt x 517.935pt>
 File: img/diagrama_paquetes_1.png Graphic file (type png)
 <use img/diagrama_paquetes_1.png>
 Package pdftex.def Info: img/diagrama_paquetes_1.png  used on input line 17.
 (pdftex.def)             Requested size: 367.46489pt x 130.76372pt.
 [87 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/diagrama_paquetes_1.png (PNG copy)>]
-<img/diagrama_clases.png, id=1069, 1289.81876pt x 1307.88625pt>
+<img/diagrama_clases.png, id=1077, 1289.81876pt x 1307.88625pt>
 File: img/diagrama_clases.png Graphic file (type png)
 <use img/diagrama_clases.png>
 Package pdftex.def Info: img/diagrama_clases.png  used on input line 39.
@@ -1539,7 +1547,7 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [90]
 chapter 10.
-<img/33W.png, id=1087, 598.235pt x 831.105pt>
+<img/33W.png, id=1095, 598.235pt x 831.105pt>
 File: img/33W.png Graphic file (type png)
 <use img/33W.png>
 Package pdftex.def Info: img/33W.png  used on input line 14.
@@ -1547,7 +1555,7 @@ Package pdftex.def Info: img/33W.png  used on input line 14.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/AFLW.png, id=1092, 724.7075pt x 451.6875pt>
+<img/AFLW.png, id=1100, 724.7075pt x 451.6875pt>
 File: img/AFLW.png Graphic file (type png)
 <use img/AFLW.png>
 Package pdftex.def Info: img/AFLW.png  used on input line 22.
@@ -1562,7 +1570,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 43.
 LaTeX Info: Redefining \% on input line 43.
  [92 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/33W.png>]
-<img/3fabrec_arquitectura.png, id=1109, 1296.845pt x 649.42625pt>
+<img/3fabrec_arquitectura.png, id=1117, 1296.845pt x 649.42625pt>
 File: img/3fabrec_arquitectura.png Graphic file (type png)
 <use img/3fabrec_arquitectura.png>
 Package pdftex.def Info: img/3fabrec_arquitectura.png  used on input line 48.
@@ -1570,12 +1578,12 @@ Package pdftex.def Info: img/3fabrec_arquitectura.png  used on input line 48.
 LaTeX Info: Redefining \. on input line 58.
 LaTeX Info: Redefining \% on input line 58.
  [93 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/AFLW.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/3fabrec_arquitectura.png>]
-<img/bloque_basico_encoder.png, id=1118, 2004.48875pt x 769.87625pt>
+<img/bloque_basico_encoder.png, id=1126, 2004.48875pt x 769.87625pt>
 File: img/bloque_basico_encoder.png Graphic file (type png)
 <use img/bloque_basico_encoder.png>
 Package pdftex.def Info: img/bloque_basico_encoder.png  used on input line 65.
 (pdftex.def)             Requested size: 391.96796pt x 150.5423pt.
-<img/3FabRec-Page-2.drawio.png, id=1120, 738.76pt x 1737.49126pt>
+<img/3FabRec-Page-2.drawio.png, id=1128, 738.76pt x 1737.49126pt>
 File: img/3FabRec-Page-2.drawio.png Graphic file (type png)
 <use img/3FabRec-Page-2.drawio.png>
 Package pdftex.def Info: img/3FabRec-Page-2.drawio.png  used on input line 76.
@@ -1587,7 +1595,7 @@ LaTeX Warning: Float too large for page by 104.98221pt on input line 79.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/bloque_invresnet.png, id=1123, 2692.0575pt x 509.905pt>
+<img/bloque_invresnet.png, id=1131, 2692.0575pt x 509.905pt>
 File: img/bloque_invresnet.png Graphic file (type png)
 <use img/bloque_invresnet.png>
 Package pdftex.def Info: img/bloque_invresnet.png  used on input line 87.
@@ -1595,7 +1603,7 @@ Package pdftex.def Info: img/bloque_invresnet.png  used on input line 87.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/paso_generator.png, id=1124, 4027.045pt x 2019.545pt>
+<img/paso_generator.png, id=1132, 4027.045pt x 2019.545pt>
 File: img/paso_generator.png Graphic file (type png)
 <use img/paso_generator.png>
 Package pdftex.def Info: img/paso_generator.png  used on input line 94.
@@ -1603,7 +1611,7 @@ Package pdftex.def Info: img/paso_generator.png  used on input line 94.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/DGaussian.png, id=1126, 2451.1575pt x 1435.3625pt>
+<img/DGaussian.png, id=1134, 2451.1575pt x 1435.3625pt>
 File: img/DGaussian.png Graphic file (type png)
 <use img/DGaussian.png>
 Package pdftex.def Info: img/DGaussian.png  used on input line 103.
@@ -1620,7 +1628,7 @@ LaTeX Info: Redefining \% on input line 157.
 LaTeX Info: Redefining \. on input line 193.
 LaTeX Info: Redefining \% on input line 193.
  [96]
-<img/imagenes_ejemplo_dataset.png, id=1153, 2238.3625pt x 1911.14pt>
+<img/imagenes_ejemplo_dataset.png, id=1161, 2238.3625pt x 1911.14pt>
 File: img/imagenes_ejemplo_dataset.png Graphic file (type png)
 <use img/imagenes_ejemplo_dataset.png>
 Package pdftex.def Info: img/imagenes_ejemplo_dataset.png  used on input line 220.
@@ -1629,7 +1637,7 @@ Package pdftex.def Info: img/imagenes_ejemplo_dataset.png  used on input line 22
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/distribucion_landmarks_imagenes.png, id=1154, 722.7pt x 722.7pt>
+<img/distribucion_landmarks_imagenes.png, id=1162, 722.7pt x 722.7pt>
 File: img/distribucion_landmarks_imagenes.png Graphic file (type png)
 <use img/distribucion_landmarks_imagenes.png>
 Package pdftex.def Info: img/distribucion_landmarks_imagenes.png  used on input line 227.
@@ -1643,7 +1651,7 @@ LaTeX Info: Redefining \% on input line 236.
 LaTeX Info: Redefining \. on input line 264.
 LaTeX Info: Redefining \% on input line 264.
  [98]
-<img/imagenes_ejemplo_bb.png, id=1170, 480.79625pt x 533.995pt>
+<img/imagenes_ejemplo_bb.png, id=1178, 480.79625pt x 533.995pt>
 File: img/imagenes_ejemplo_bb.png Graphic file (type png)
 <use img/imagenes_ejemplo_bb.png>
 Package pdftex.def Info: img/imagenes_ejemplo_bb.png  used on input line 269.
@@ -1652,7 +1660,7 @@ Package pdftex.def Info: img/imagenes_ejemplo_bb.png  used on input line 269.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/Transformacion_rectangulo.png, id=1172, 673.51625pt x 322.20375pt>
+<img/Transformacion_rectangulo.png, id=1180, 673.51625pt x 322.20375pt>
 File: img/Transformacion_rectangulo.png Graphic file (type png)
 <use img/Transformacion_rectangulo.png>
 Package pdftex.def Info: img/Transformacion_rectangulo.png  used on input line 298.
@@ -1660,7 +1668,7 @@ Package pdftex.def Info: img/Transformacion_rectangulo.png  used on input line 2
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/imagenes_ejemplo_cropping.png, id=1173, 753.81625pt x 763.85374pt>
+<img/imagenes_ejemplo_cropping.png, id=1181, 753.81625pt x 763.85374pt>
 File: img/imagenes_ejemplo_cropping.png Graphic file (type png)
 <use img/imagenes_ejemplo_cropping.png>
 Package pdftex.def Info: img/imagenes_ejemplo_cropping.png  used on input line 305.
@@ -1674,7 +1682,7 @@ LaTeX Info: Redefining \% on input line 314.
 LaTeX Info: Redefining \. on input line 343.
 LaTeX Info: Redefining \% on input line 343.
  [100]
-<img/curvas_aprendizaje_modelbase.png, id=1190, 2033.5975pt x 1319.93124pt>
+<img/curvas_aprendizaje_modelbase.png, id=1198, 2033.5975pt x 1319.93124pt>
 File: img/curvas_aprendizaje_modelbase.png Graphic file (type png)
 <use img/curvas_aprendizaje_modelbase.png>
 Package pdftex.def Info: img/curvas_aprendizaje_modelbase.png  used on input line 410.
@@ -1686,7 +1694,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 416.
 LaTeX Info: Redefining \% on input line 416.
 [101]
-<img/image_basemodel.png, id=1199, 934.49126pt x 484.81125pt>
+<img/image_basemodel.png, id=1207, 934.49126pt x 484.81125pt>
 File: img/image_basemodel.png Graphic file (type png)
 <use img/image_basemodel.png>
 Package pdftex.def Info: img/image_basemodel.png  used on input line 419.
@@ -1701,7 +1709,7 @@ LaTeX Info: Redefining \% on input line 430.
 LaTeX Info: Redefining \. on input line 472.
 LaTeX Info: Redefining \% on input line 472.
  [103]
-<img/curvas_encoder.png, id=1213, 1334.9875pt x 872.25874pt>
+<img/curvas_encoder.png, id=1221, 1334.9875pt x 872.25874pt>
 File: img/curvas_encoder.png Graphic file (type png)
 <use img/curvas_encoder.png>
 Package pdftex.def Info: img/curvas_encoder.png  used on input line 483.
@@ -1710,7 +1718,7 @@ Package pdftex.def Info: img/curvas_encoder.png  used on input line 483.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/image_encoder.png, id=1215, 1055.945pt x 531.9875pt>
+<img/image_encoder.png, id=1223, 1055.945pt x 531.9875pt>
 File: img/image_encoder.png Graphic file (type png)
 <use img/image_encoder.png>
 Package pdftex.def Info: img/image_encoder.png  used on input line 494.
@@ -1718,7 +1726,7 @@ Package pdftex.def Info: img/image_encoder.png  used on input line 494.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/curvas_decoder.png, id=1219, 1334.9875pt x 872.25874pt>
+<img/curvas_decoder.png, id=1227, 1334.9875pt x 872.25874pt>
 File: img/curvas_decoder.png Graphic file (type png)
 <use img/curvas_decoder.png>
 Package pdftex.def Info: img/curvas_decoder.png  used on input line 556.
@@ -1726,7 +1734,7 @@ Package pdftex.def Info: img/curvas_decoder.png  used on input line 556.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/image_decoder.png, id=1221, 1046.91125pt x 527.9725pt>
+<img/image_decoder.png, id=1229, 1046.91125pt x 527.9725pt>
 File: img/image_decoder.png Graphic file (type png)
 <use img/image_decoder.png>
 Package pdftex.def Info: img/image_decoder.png  used on input line 567.
@@ -1743,7 +1751,7 @@ LaTeX Info: Redefining \% on input line 580.
 LaTeX Info: Redefining \. on input line 635.
 LaTeX Info: Redefining \% on input line 635.
  [106]
-<img/curvas_daugmentation.png, id=1245, 1334.9875pt x 872.25874pt>
+<img/curvas_daugmentation.png, id=1253, 1334.9875pt x 872.25874pt>
 File: img/curvas_daugmentation.png Graphic file (type png)
 <use img/curvas_daugmentation.png>
 Package pdftex.def Info: img/curvas_daugmentation.png  used on input line 640.
@@ -1752,7 +1760,7 @@ Package pdftex.def Info: img/curvas_daugmentation.png  used on input line 640.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/image_daug.png, id=1246, 1044.90375pt x 527.9725pt>
+<img/image_daug.png, id=1254, 1044.90375pt x 527.9725pt>
 File: img/image_daug.png Graphic file (type png)
 <use img/image_daug.png>
 Package pdftex.def Info: img/image_daug.png  used on input line 647.
@@ -1760,7 +1768,7 @@ Package pdftex.def Info: img/image_daug.png  used on input line 647.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/curvas_FinalModel.png, id=1250, 462.528pt x 346.896pt>
+<img/curvas_FinalModel.png, id=1258, 462.528pt x 346.896pt>
 File: img/curvas_FinalModel.png Graphic file (type png)
 <use img/curvas_FinalModel.png>
 Package pdftex.def Info: img/curvas_FinalModel.png  used on input line 713.
@@ -1768,7 +1776,7 @@ Package pdftex.def Info: img/curvas_FinalModel.png  used on input line 713.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/image_finalmodel.png, id=1251, 832.10875pt x 422.57875pt>
+<img/image_finalmodel.png, id=1259, 832.10875pt x 422.57875pt>
 File: img/image_finalmodel.png Graphic file (type png)
 <use img/image_finalmodel.png>
 Package pdftex.def Info: img/image_finalmodel.png  used on input line 720.
@@ -2006,25 +2014,25 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 297.
 Package rerunfilecheck Info: File `libro.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package rerunfilecheck Info: File `libro.brf' has not changed.
-(rerunfilecheck)             Checksum: 31FD6C84E927AA996FFFBCF9206AB585;3364.
+(rerunfilecheck)             Checksum: EF5A9B323A99F4AF3492B2AA99A2A3B3;3518.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 17668 strings out of 481239
- 310353 string characters out of 5920378
- 734238 words of memory out of 5000000
- 31457 multiletter control sequences out of 15000+600000
- 758267 words of font info for 495 fonts, out of 8000000 for 9000
+ 17670 strings out of 481239
+ 310408 string characters out of 5920378
+ 734413 words of memory out of 5000000
+ 31461 multiletter control sequences out of 15000+600000
+ 758111 words of font info for 492 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  53i,13n,72p,10207b,829s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cabin/cbn_meva6t.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cabin/cbn_i3ioen.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}</usr/share/texlive/texmf-dist/fonts/type1/impallari/cabin/Cabin-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/impallari/cabin/Cabin-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" (171 pages, 23693968 bytes).
+Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" (171 pages, 23795310 bytes).
 PDF statistics:
- 2054 PDF objects out of 2073 (max. 8388607)
- 1701 compressed objects within 18 object streams
+ 2066 PDF objects out of 2073 (max. 8388607)
+ 1708 compressed objects within 18 object streams
  508 named destinations out of 1000 (max. 500000)
- 88684 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 88689 words of extra memory for PDF output out of 89155 (max. 10000000)
 
