@@ -87,7 +87,7 @@
 \contentsline {section}{\numberline {9.2}Entorno de ejecución}{88}{section.9.2}%
 \contentsline {chapter}{\numberline {10}Solución propuesta y experimentos realizados}{91}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Framework empleado: 3FabRec}{91}{section.10.1}%
-\contentsline {subsection}{\numberline {10.1.1}Arquitectura Adversarial Autoencoder}{93}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.1}Arquitectura Adversarial Autoencoder}{94}{subsection.10.1.1}%
 \contentsline {subsubsection}{\numberline {10.1.1.1}Interleaved Transfer Layer (ITL)}{94}{subsubsection.10.1.1.1}%
 \contentsline {subsection}{\numberline {10.1.2}Función de pérdida}{95}{subsection.10.1.2}%
 \contentsline {subsection}{\numberline {10.1.3}Proceso de entrenamiento de la red}{96}{subsection.10.1.3}%

@@ -4,7 +4,7 @@
 
     \medskip 
 
-    \noindent La principal diferencia entre este enfoque y el forense explicado en la sección anterior radica en el tipo de landmarks que se utilizan. Los utilizados en antropología forense son landmarks con justificación biológica, a diferencia de los que se emplean en las tareas de reconocimiento facial, que generalmente atienden a puntos de interés de la cara para su correcto reconocimiento y son independientes del cráneo del sujeto. Así pues existen diversas bases de datos empleadas para este cometido con multitud de imágenes etiquetadas, destacamos entre ellas: 
+    \noindent La principal diferencia entre este enfoque y el forense radica en el tipo de landmarks que se utilizan. Los utilizados en antropología forense son landmarks con justificación biológica, a diferencia de los que se emplean en las tareas de reconocimiento facial, que generalmente atienden a puntos de interés de la cara para su correcto reconocimiento y son independientes del cráneo del sujeto. Así pues existen diversas bases de datos empleadas para este cometido con multitud de imágenes etiquetadas, destacamos entre ellas: 
 
     \begin{itemize}
     \item \textbf{300-W}: Se trata de un dataset compuesto por $3148$ imágenes de entrenamiento y $689$ imágenes de test \textit{in-the-wild}, es decir con multitud de poses, distinta iluminación y expresiones faciales. Está anotada por 51 landmarks o 68 landmarks si contamos el contorno del rostro \cite{300W}. Podemos ver los landmarks en la imagen \autoref{fig:300W}
@@ -45,7 +45,7 @@
 
         \begin{figure}[!h]
             \centering
-            \includegraphics[width=0.7\textwidth]{img/3fabrec_arquitectura.png}
+            \includegraphics[width=0.98\textwidth]{img/3fabrec_arquitectura.png}
             \caption{Imagen resumen del framework 3FabRec. En ella podemos ver la estructura del \textit{Adversarial Autoencoder}, dividido en un Encoder (región bajo la \textit{E}) y un Generator (región bajo la \textit{G}) }
             \label{fig:3FabRec Resumen}
         \end{figure}
@@ -58,7 +58,7 @@
                 \item \textbf{Decoder}: emplean la misma red ResNet-$18$ pero invertida.
             \end{itemize}
 
-            \noindent Para una mejor comprensión he realizado unos diagramas con la herramienta \textit{diagrams.net}. En la \autoref{fig:bloque_encoder} podemos ver la estructura básica de los bloques de la ResNet-$18$.
+            \noindent Para una mejor comprensión hemos realizado unos diagramas con la herramienta \textit{diagrams.net}. En la \autoref{fig:bloque_encoder} podemos ver la estructura básica de los bloques de la ResNet-$18$.
 
             \begin{figure}[!h]
                 \centering
