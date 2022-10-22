@@ -1,6 +1,6 @@
 \chapter{Solución propuesta y experimentos realizados}
 
-    \noindent El reconocimiento automático de landmarks faciales es una área de gran importancia en la actualidad en tareas como el reconocimiento de personas y que se está viendo muy desarrollado actualmente por la gran capacidad de las CNN para tareas de procesamiento automático de imágenes. 
+    \noindent El reconocimiento automático de landmarks faciales es una área de gran importancia en la actualidad en tareas como el reconocimiento de personas y que se está viendo muy desarrollada por la gran capacidad de las CNN para tareas de procesamiento automático de imágenes. 
 
     \medskip 
 
@@ -31,7 +31,7 @@
 
 
     \section{Framework empleado: 3FabRec }
-        \noindent La red empleada para la resolución del problema es la desarrollada por \textbf{Bjorn Browatzki et al} en $2020$ \cite{browatzki20203fabrec} denominada \textbf{3FabRec}.La red en cuestión es un \textbf{Adversarial Autoencoder} combiando con una red \textit{GAN} (por la presencia de un segundo discriminante del estilo que hay en las GAN) que puede predecir landmarks gracias a la incorporación de unas capas convolucionales intermedias denominadas \textit{Interleaved Transfer Layer} en la etapa de reconstrucción y que explicaremos en profundidad más adelante.            
+        \noindent La red empleada para la resolución del problema es la desarrollada por \textbf{Bjorn Browatzki et al} en $2020$ \cite{browatzki20203fabrec} denominada \textbf{3FabRec}.La red en cuestión es un \textbf{Adversarial Autoencoder} combiando con una red \textit{GAN} (por la presencia de un segundo discriminante del estilo que hay en las GAN) que puede predecir landmarks gracias a la incorporación de unas capas convolucionales intermedias denominadas \textit{Interleaved Transfer Layers} (ITLs) en la etapa de reconstrucción y que explicaremos en profundidad más adelante.            
 
         \medskip
 
@@ -39,14 +39,14 @@
 
         \begin{itemize}
             \item Hay una primera fase de \textbf{aprendizaje no supervisado} dónde se pretende adquirir conocimiento implícito sobre la estructura facial contenida en grandes conjuntos de imágenes de rostros de personas en diversas posiciones, iluminación y etnia. Para ello se codifica todo este conocimiento implícito en un vector de un espacio latente de baja dimensionalidad para posteriormente reconstruir la imagen. Este proceso se hace íntegramente en el \textit{Adversarial Autoencoder}.
-            \item Posteriormente, en una segunda fase de \textbf{aprendizaje supervisado}, se entrena la red con un conjunto de imágenes etiquetadas con landmarks faciales que la red tratará de predecir. Para ello se intercalan entre las capas del generador capas de convolución encargadas de reconstruir los mapas de calor de cada landmark junto con la reconstrucción del rostro del paso previo.
+            \item Posteriormente, en una segunda fase de \textbf{aprendizaje supervisado}, se entrena la red con un conjunto de imágenes etiquetadas con landmarks faciales que la red tratará de predecir. Para ello se intercalan entre las capas del generador capas de convolución encargadas de reconstruir los mapas de calor de cada landmark junto con la reconstrucción del rostro del paso previo. Estas son las ITLs que mencionamos anteriormente.
             \item Finalmente, se puede incluir una tercera fase de \textit{finetuning} en la cual se entrena el Encoder para mejorar el rendimiento en la predicción de landmarks.
         \end{itemize} 
 
         \begin{figure}[!h]
             \centering
             \includegraphics[width=0.98\textwidth]{img/3fabrec_arquitectura.png}
-            \caption{Imagen resumen del framework 3FabRec. En ella podemos ver la estructura del \textit{Adversarial Autoencoder}, dividido en un Encoder (región bajo la \textit{E}) y un Generator (región bajo la \textit{G}) }
+            \caption{Imagen resumen del framework 3FabRec. En ella podemos ver la estructura del \textit{Adversarial Autoencoder}, dividido en un Encoder (región bajo la \textit{E}) y un Generator (región bajo la \textit{G}). En rojo podemos ver las ITLs que se intercalan entre cada capa del Generador y dan como resultado un conjunto de mapas de calor. Imagen extraída de \cite{browatzki20203fabrec}.}
             \label{fig:3FabRec Resumen}
         \end{figure}
 
@@ -62,7 +62,7 @@
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.96\textwidth]{img/bloque_basico_encoder.png}
+                \includegraphics[width=0.95\textwidth]{img/bloque_basico_encoder.png}
                 \caption{Bloques básicos que utilza la red ResNet-$18$ en sus capas. Se trata de una sucesión clásica de Convolución 3x3 + Batch Normalization + ReLU que se repite dos veces. En el primer caso los filtros de convolución no reducen las dimensiones del tensor añadiendo un padding de 1. En el segundo caso se reduce la dimensión del tensor a la mitad tras la primera convolución y se manteiene la dimensionalidad en la segunda. En el primer caso, la suma residual puede realizarse con el tensor x sin problema, en el segundo caso el tensor debe reducirse para que casen las dimensiones.}
                 \label{fig:bloque_encoder}
             \end{figure}
@@ -91,7 +91,7 @@
 
             \begin{figure}[!h]
                 \centering
-                \includegraphics[width=0.95\textwidth,height=0.35\textheight]{img/paso_generator.png}
+                \includegraphics[width=0.95\textwidth]{img/paso_generator.png}
                 \caption{Ejemplo del paso de un vector de $99$ dimensiones por el generador hasta reconstruirse la imagen de dimensiones $256 \times 256 \times 3$. La parte correspondiente al aprendizaje supervisado es la de los cuadrados azules, los cuadrados rojos corresponden a las \textit{ITLS} de la parte supervisada que se intercalan entre cada dos capas y dan como resultado los mapas de calor de los landmarks predichos.}
                 \label{fig:Paso_Generator}
             \end{figure}
@@ -111,7 +111,7 @@
             
         \subsection{Función de pérdida}
 
-            \noindent Para el entrenamiento de la red se emplean dos funciones de pérdida, la primera que presentaremos se emplea en el entrenamiento del \textit{Adversarial Autoencoder}, en la parte no supervisada, y la segunda función de pérdida se empleará tanto en la parte de aprendizaje supervisado como en la de \textit{finetuning} del Encoder.
+            \noindent La red utiliza dos funciones de pérdida, la primera que presentaremos se emplea en el entrenamiento del \textit{Adversarial Autoencoder}, en la parte no supervisada, y la segunda función de pérdida se utiliza tanto en la parte de aprendizaje supervisado como en la de \textit{finetuning} del Encoder. Debido al interés que tiene en el estudio del framework se van a presentar y explicar ambas funciones de pérdida, pero cabe resaltar, que debido a que el problema que vamos a resolver es de \textbf{regresión}, en la fase de experimentación únicamente tendrá interés la segunda función de coste, asociada al entrenamiento de la parte supervisada.
 
             \medskip
 
@@ -123,17 +123,40 @@
                 & + \lambda_{enc}\mathcal{L}_{enc}(E,D_z)+ \lambda_{adv} \mathcal{L}_{adv}(E,G,D_x)
             \end{align*}
 
-            \noindent En la cual $\lambda_{enc}$ y $\lambda_{adv}$ toman el valor $1.0$ mientras que $\lambda_{rec}$ y $\lambda{cs}$ se establecen en $1.0$ y $60.0$ respectivamente. El valor de la función de coste se propagará por los pesos de $E$,$G$,$D_z$ y $D_x$ actualizándolos mediante \textit{back-propagation}.
+            \noindent En la cual $\lambda_{enc}$ y $\lambda_{adv}$ toman el valor $1.0$ mientras que $\lambda_{rec}$ y $\lambda{cs}$ se establecen en $1.0$ y $60.0$ respectivamente. El valor de la función de coste se propagará por los pesos de $E$,$G$,$D_z$ y $D_x$ actualizándolos mediante \textit{back-propagation}. 
 
             \medskip
 
-            \noindent Por otro lado, la función de pérdida que se empleará en el entrenmiento de las \textit{ITLs} será la siguiente: 
+            \noindent Como podemos observar en la expresión anterior, se trata de una combinación lineal de cuatro funciones de coste distintas: 
+
+            \begin{itemize}
+                \item \textit{Error de reconstrucción}: Se trata de un error encargado de asegurarse de que la red reconstruya de forma apropiada las imágenes, para ello calcula la distancia $l_1$ entre la imagen original y la reconstruida pixel a pixel. Tiene la siguiente expresión, que coincide con la presentada en el apartado anterior de métricas.
+                \begin{equation}
+                    \mathcal{L}_{rec}(E,G)= \mathbb{E}_{x~p(x)}\left[\|x- G(E(x)) \|_1\right]
+                \end{equation}
+                \item \textit{Error estructural de la imagen}: Se trata de una variante del \textbf{SSIM} encargado de que la imagen real y la reconstruida tengan una estructura similar. Su expresión es la misma que la función presentada en la sección anterior de Métricas.
+                \begin{equation}
+                    \mathcal{L}_{cs}(E,G)= \mathbb{E}_{x~p(x)}\left[cs(x, G(E(x)))\right]
+                \end{equation}
+                \item \textit{Error del Encoder}: es el error empleado comunmente en este tipo de redes y que se asegura que el vector latente que genera el encoder siga la distribución impuesta en el discriminador $D_z$. Su expresión es:
+                \begin{equation}
+                    \mathcal{L}_{enc}(E,D_z)=\mathbb{E}_{z^*~p(z)}[\log(D_z(z^*))] + \mathbb{E}_{x~p(x)}[\log(1-D_z(E(x)))]
+                \end{equation}
+                \item \textit{Error adversario de imagen}: normalmente las imágenes generadas por los Autoencoders suelen generar imágenes emborronadas. Es por ello que se introduce este error, que añade un discriminador típico de una red \textit{GAN} que pretende discernir entre si la imagen que recibe como salida de la red pertenece al conjunto de imágenes de entrenamiento o si es una imagen generada por la red, de esta forma se generan imágenes más realistas. Su expresión es la siguiente: 
+                \begin{equation}
+                    \mathcal{L}_{adv}(E,D_z)=\mathbb{E}_{x~p(x)}[\log(D_x(x))] + \mathbb{E}_{x~p(x)}[\log(1-D_x(G(E(x))))]
+                \end{equation}
+            \end{itemize}
+
+            \medskip
+
+            \noindent Por otro lado, la función de pérdida que se empleará en el \textbf{entrenmiento de las \textit{ITLs}} será la siguiente: 
 
             \begin{equation} \label{eq::L2}
-                \mathcal{L}_H(ITL) = \mathbb{E}_{x ~ p(x)} \left[ \| H-ITL(a_1)\|_2 \right]
+                \mathcal{L}_H(ITL) = \mathbb{E}_{x ~ p(x)} \left[ \| H-ITL(a)\|_2 \right]
             \end{equation}
 
-            \noindent Dónde $a_1$ serían los mapas de activación que genera el primer bloque de la ResNet invertida para la imagen codificada $z=E(x)$ (siendo $x$ la imagen de entrada a la red). En este caso se computa la distancia \textbf{$L_2$}entre los \textit{Heathmaps} de los lanmarks originales de la imagen $x$ de entrada, y los predichos por las \textit{ITLs}. Propagando el error por los pesos de las \textit{ITLS} solamente.
+            \noindent Dónde $a$ serían los mapas de activación que genera la ResNet invertida para la imagen codificada $z=E(x)$ (siendo $x$ la imagen de entrada a la red). En este caso se computa la distancia \textbf{$L_2$} entre los \textit{Heathmaps} de los lanmarks originales de la imagen $x$ de entrada, y los predichos por las \textit{ITLs}. Propagando el error por los pesos de las \textit{ITLS} solamente.
 
             \medskip
 
@@ -176,7 +199,7 @@
 
             \subsection{Bases de datos usadas por el framework}
                 
-                \noindent Para el entrenamiento no supervisado se emplearon los siguientes datasets unidos: 
+                \noindent Para el entrenamiento supervisado se emplearon los siguientes datasets unidos: 
 
                 \begin{itemize}
                     \item \textbf{VGGFace2} : Contiene un total de $3.3$ millones de imágenes de rostros en distintas poses, edad, iluminación, etnia, etc... Del dataset eliminaron las imágenes de rostros que tuviera una altura mayor a $100$ píxeles, quedando un total de $1.8$ millones de caras.
@@ -239,12 +262,12 @@
             \noindent Así pues, se realizó un primer estudio para determinar los mejores parámetros para \textit{facenet}. Existen muchos parámetros editables, pero la mayoría se dejaron con sus valores por defecto, únicamente se consideró modificar: 
 
             \begin{enumerate}
-                \item \textbf{image size}: Determina el tamaño de la imagen de salida.
-                \item \textbf{select largest}: Si su valor es \textit{true}, se devuelve la cara más grande detectada, y si su valor es \textit{false}, se devuelve la de mayor confianza detectada.
+                \item \textbf{image\_size}: Determina el tamaño de la imagen de salida.
+                \item \textbf{select\_largest}: Si su valor es \textit{true}, se devuelve la cara más grande detectada, y si su valor es \textit{false}, se devuelve la de mayor confianza detectada.
             \end{enumerate}
 
 
-            \noindent En nuestro caso, primero se probó con un \textit{image size} de $256 \times 256$, pero esto tenía problemas pues en ocasiones no podían construirse bounding boxes de este tamaño y producían error, por lo que se redujo a $128 \times 128$ generando buenos resultados, por esto finalmente se dejó este valor. Por otro lado, observando las imágenes del dataset de entrenamiento, nos dimos cuenta que en algunas imágenes aparecían varios sujetos, y en ocasiones la cara más \entrecomillado{grande} mo pertenecía al sujeto principal. Es por ello que se decidió establecer el parámetro \textit{select largest} a \textit{False}, y así obtener como salida una lista de \textit{bounding boxes} ordenados de mayor a menor según el nivel de confianza.
+            \noindent En nuestro caso, primero se probó con un \textit{image\_size} de $256 \times 256$, pero esto tenía problemas pues en ocasiones no podían construirse bounding boxes de este tamaño y producían error, por lo que se redujo a $128 \times 128$ generando buenos resultados, por esto finalmente se dejó este valor. Por otro lado, observando las imágenes del dataset de entrenamiento, nos dimos cuenta que en algunas imágenes aparecían varios sujetos, y en ocasiones la cara más \entrecomillado{grande} mo pertenecía al sujeto principal. Es por ello que se decidió establecer el parámetro \textit{select\_largest} a \textit{False}, y así obtener como salida una lista de \textit{bounding boxes} ordenados de mayor a menor según el nivel de confianza.
 
             \medskip
 
@@ -355,7 +378,7 @@
             \item El valor del parámetro $\beta_2$ se establece en $0.9$.
         \end{itemize}
 
-        \noindent Los resultados obtenidos por imagen en cada partición de \textbf{cross validation 5-fold } se pueden encontrar en \autoref{ap:apendiceA}. En estas tablas podemos observar la media del NME obtenido entre todos los landmarks presentes en la imagen, es decir, los no marcados no computan en esta media. Los resultados obtenidos son en general buenos, el NME no es muy elevado. Por otro lado vemos también el error de reconstrucción, que como podemos observar generalmente es elevado, lo que nos indica que no se están reconstruyendo fielmente las imágenes, algo que podría afectar al marcado de landmarks, puesto que estos se marcan en primer lugar sobre la imagen reconstruida, y luego se trasladan a la original.
+        \noindent Los resultados obtenidos por imagen en cada partición de \textbf{cross validation 5-fold } se pueden encontrar en \autoref{ap:apendiceA}. En estas tablas podemos observar la media del NME obtenido entre todos los landmarks presentes en la imagen, es decir, los no marcados no computan en esta media. Los resultados obtenidos son en general buenos, el NME no es muy elevado. Por otro lado vemos también el error de reconstrucción y estructural, que como podemos observar generalmente es elevado, lo que nos indica que no se están reconstruyendo fielmente las imágenes, algo que podría afectar al marcado de landmarks, puesto que estos se marcan en primer lugar sobre la imagen reconstruida, y luego se trasladan a la original.
 
         \begin{table}[!ht]
             \centering
@@ -472,7 +495,7 @@
     
     \medskip
     
-    \noindent Por otro lado, como podemos ver en las tablas de validación por imágenes en el \autoref{ap:apendiceB}, el error de reconstrucción ha mejorado muy ligeramente en las imágenes de validación, y no supone una mejora considerable con respecto al modelo base. 
+    \noindent Por otro lado, como podemos ver en las tablas de validación por imágenes en el \autoref{ap:apendiceB}, el error de reconstrucción ha mejorado muy ligeramente en las imágenes de validación, y no supone una mejora considerable con respecto al modelo base, ocurriendo lo mismo con el error estructural.
 
     \medskip
 
@@ -545,7 +568,7 @@
 
         \medskip
 
-        \noindent Por otro lado, en lo que respecta a los errores promedio de todos los landmarks por imagen, las tablas por partición se pueden consultar en \autoref{ap:apendiceC}, aunque los resultados son muy similares a los de los modelos anteriores. El error de reconstrucción de nuevo no mejora apenas y los errores NMEs promedio son muy parecidos a los de los otros modelos. 
+        \noindent Por otro lado, en lo que respecta a los errores promedio de todos los landmarks por imagen, las tablas por partición se pueden consultar en \autoref{ap:apendiceC}, aunque los resultados son muy similares a los de los modelos anteriores. El error de reconstrucción de nuevo no mejora apenas, igual que el estructural y los errores NMEs promedio son muy parecidos a los de los otros modelos. 
 
         \medskip
 
@@ -574,8 +597,7 @@
         
         \begin{itemize}
             \item En primer lugar se realizará un entrenamiento del modelo similar al del modelo base durante $40$ épocas.
-            \item Tras esto, se entrenará el modelo con el dataset al cual se le aplicarán técnicas de data augmentation, para aumentar el número de datos de entrenamiento e incrementar aún más la variabilidad de los mismos, de manera que cada imagen del dataset sufrirá de manera aleatoria una traslación ($\pm 4\%$), un reescalado ($\pm 5\%$), una rotación ($\pm 30$ grados) y oclusiones parciales. El entrenamiento en este nuevo dataset será durante $40$ épocas tras acabar las de la etapa anterior. 
-            %TODO PONER IMÁGENES DE EJEMPLO DE LAS TRANSFORMACIONES
+            \item Tras esto, se entrenará el modelo con el dataset al cual se le aplicarán técnicas de data augmentation, para aumentar el número de datos de entrenamiento e incrementar aún más la variabilidad de los mismos, de manera que cada imagen del dataset sufrirá de manera aleatoria una traslación ($\pm 4\%$), un reescalado ($\pm 5\%$), una rotación ($\pm 30$ grados) y oclusiones parciales. El entrenamiento en este nuevo dataset será durante $40$ épocas tras acabar las de la etapa anterior.
             \item En total serán \textbf{$80$ épocas} de entrenamiento sumando las dos etapas anteriores.
         \end{itemize}
 
