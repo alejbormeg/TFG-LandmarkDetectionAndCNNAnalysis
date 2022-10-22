@@ -12,7 +12,7 @@
                 MSE = \frac{1}{N} \sum_{i=1}^{N} (y_i - \widehat{y}_i)^2
             \end{equation}
 
-            \noindent En nuestro caso concreto, este error se calcula entre los mapas de calor realies y predichos de los landmarks a nivel de pixel, es decir $y_i$ en la fórmula anterior corresponde a cada pixel del heatmap del landmark real y por tanto $\widehat{y}_i$ es el valor del pixel correspondiente en el heatmap predicho. Dichas diferencias se suman en todos los heatmaps y se divide por $N$ que en este caso es el número total de píxeles juntando todos los Heatmaps.
+            \noindent En nuestro caso concreto, este error se calcula entre los mapas de calor de los landmarks reales y predichos a nivel de pixel, es decir $y_i$ en la fórmula anterior corresponde a cada pixel del heatmap del landmark real y por tanto $\widehat{y}_i$ es el valor del pixel correspondiente en el heatmap predicho. Dichas diferencias se suman en todos los heatmaps y se divide por $N$ que en este caso es el número total de píxeles juntando todos los Heatmaps.
 
             \medskip
 
@@ -25,10 +25,10 @@
 
             \medskip
 
-            \noindent Se trata de la función de coste \textbf{L1} que se aplica a la imagen original y la reconstruida  y nos porporciona una medida del error de reconstrucción a nivel de pixel.Su expresión es la siguiente:
+            \noindent Se trata de la función de coste \textbf{L1} que se aplica a la imagen original y la reconstruida  y nos porporciona una medida del error de reconstrucción a nivel de pixel. Su expresión es la siguiente:
 
             \begin{equation}
-                Error Reconstrucción= \sum_{i=1}^n |p_i -q_i|
+                Reconstruction \; Loss = \sum_{i=1}^n |p_i -q_i|
             \end{equation}
 
             \noindent Dónde $p_i$ representa cada pixel de la imagen reconstruida por la red y $q_i$ el equivalente en la imagen real.
