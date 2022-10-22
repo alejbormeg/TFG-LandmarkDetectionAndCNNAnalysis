@@ -3,7 +3,7 @@
 
 \chapter{Introducción}  \label{ch:Introduccion_informatica}
 
-\noindent La tecnología se encuentra presente en prácticamente todas las tareas y disciplinas. Particularmente, en los últimos años hemos podido ver cómo el desarrollo de la \textbf{Inteligencia Artificial} ha permitido que tareas que antes se consideraban lentas o complicadas puedan realizarse rápidamente y con precisión con ayuda de un ordenador. En cambio, hay otras tareas que todavía resultan complicadas de resolver de forma rápida tanto para expertos en la materia como para ordenadores. Es dentro de este conjunto dónde se va a desarrollar el presente trabajo, pues como veremos a continuación y en posteriores secciones apenas hay publicaciones relacionadas con el tema. En particular se desarrollará en el ámbito de las ciencias forenses, que explicaremos a continuación.
+\noindent La tecnología se encuentra presente en prácticamente todas las tareas y disciplinas. Particularmente, en los últimos años hemos podido ver cómo el desarrollo de la \textbf{Inteligencia Artificial} ha permitido que tareas que antes se consideraban lentas o complicadas puedan realizarse rápidamente y con precisión con ayuda de un ordenador. En cambio, hay otras que todavía resultan complicadas de resolver de forma rápida tanto para expertos en la materia como para ordenadores. Es dentro de este conjunto dónde se va a desarrollar el presente trabajo, pues como veremos a continuación y en posteriores secciones apenas hay publicaciones relacionadas con el tema. En particular se desarrollará en el ámbito de las ciencias forenses, que explicaremos a continuación.
 
 \medskip
 
@@ -24,13 +24,13 @@
 \noindent Los antropólogos forenses emplean diversas técnicas para la identificación de personas a partir de restos óseos como son la reconstrucción de huesos, el cotejo fotográfico con el cráneo o el análisis de imágenes. De entre estas técnicas, destaca la \textbf{Superposición Craneofacial} por ser la que se encuentra más relacionada con el fin de este trabajo. Se trata de una técnica de identificación forense mediante la cual se comparan imágenes de la persona difunta (imágenes se le denominan imágenes ante-mortem) con una representación 3D de un cráneo candidato, con el fin de determinar si el cráneo pertenece a la persona de las imágenes o no. Se distinguen cuatro etapas en el proceso: 
 
 \begin{enumerate}
-    \item Se recogen todos los datos necesarios para el proceso. Se recogen todas las imágenes disponibles de los sujetos ante-mortem, se realiza un escaneo $3D$ de los cráneos candidatos y se realiza el marcado de \textit{landmarks} o puntos de referencia. 
+    \item \textbf{Se recogen todas las imágenes y datos disponibles} de los sujetos ante-mortem, se realiza un escaneo $3D$ de los cráneos candidatos y se realiza el marcado de \textit{landmarks} o puntos de referencia. 
     
     \medskip
     
     \noindent El marcado de landmarks se realiza \textbf{de acuerdo a correspondencias morfológicas} tanto en la cara del sujeto en las imágenes como en el modelo $3D$ del cráneo candidato, de manera que cada punto marcado sobre el rosto tiene un homólogo marcado sobre el cráneo. Estos puntos de referencia reciben el nombre de \textbf{puntos craneométricos} cuando se marcan sobre el cráneo y \textbf{puntos cefalométricos} cuando se marcan sobre el rostro.
-    \item Análisis morfológico y morfométrico. En esta etapa se realiza la selección de parejas imagen modelo $3D$ sobre las que realizar la superposición craneofacial.
-    \item Se realiza la superposición cráneo-cara por parte del experto con ayuda de alguna herramienta como puede ser photoshop tratando de hacer corresponder cada landmark cefalométrico con su homólogo craneométrico.
+    \item \textbf{Análisis morfológico y morfométrico}: en esta etapa se realiza la selección de parejas imagen modelo $3D$ sobre las que realizar la superposición craneofacial.
+    \item \textbf{Se realiza la superposición cráneo-cara} por parte del experto con ayuda de alguna herramienta como puede ser photoshop tratando de hacer corresponder cada landmark cefalométrico con su homólogo craneométrico.
     \item Se realiza la toma de decisiones en función de la bondad de los ajustes realizados.
 \end{enumerate}
 
@@ -47,7 +47,7 @@
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.9\textwidth]{img/marcado_landmarks.png}
-    \caption{En esta imagen podemos ver algunos de los landmarks que se van a estudiar marcados tanto en rostro (cefalométricos) como en cráneo (craneométricos). Imagen extraida de \cite{damas2020handbook}.}
+    \caption{En esta imagen podemos ver la correspondencia entre landmarks craneométricos y cefalométricos. Algunos de los landmarks que aparecen en la imagen serán estudiados en este trabajo. Imagen extraida de \cite{damas2020handbook}.}
 \end{figure}
 
 
@@ -58,7 +58,7 @@
 \begin{center}
     \begin{tabular}{ |c|l|l|c| } 
         \hline
-         & \textbf{Landmarks} & \textbf{notación} \\
+         & \textbf{Landmarks} & \textbf{Notación} \\
         \hline
         1 & Menton & Me \\ 
         2 & Gnathion & Gn \\ 
@@ -99,7 +99,7 @@
 
 \section{Motivación}
 
-Actualmente, este proceso del marcado de landmarks es esencialmente costoso y complicado de replicar, y pese a los avances actuales que se están llevando a cabo para automatizar esta tarea \cite{Huete2015PastPA}, la identificación de \textit{landmarks} sigue realizándose a mano normalmente. Sin embargo en la identificación de landmarks \textbf{craneométricos} podemos encontrar algunos trabajos publicados como \cite{bermejo2021automatic} que permiten una atomatización de esta parte del proceso. En este contexto, el presente trabajo tratará de proporcionar una solución automática al proceso del marcado de \textbf{landmarks cefalométricos} (en imágenes ante-mortem).
+Actualmente, este proceso del marcado de landmarks es costoso y complicado de replicar, y pese a los avances actuales que se están llevando a cabo para automatizar esta tarea \cite{Huete2015PastPA}, la identificación de \textit{landmarks} sigue realizándose a mano normalmente. Sin embargo en la identificación de landmarks \textbf{craneométricos} podemos encontrar algunos trabajos publicados como \cite{bermejo2021automatic} que permiten una atomatización de esta parte del proceso. En este contexto, el presente trabajo tratará de proporcionar una solución automática al proceso del marcado de \textbf{landmarks cefalométricos} (en imágenes ante-mortem).
 
 \medskip
 
@@ -122,11 +122,7 @@ Actualmente, este proceso del marcado de landmarks es esencialmente costoso y co
 
 \medskip 
 
-\noindent Debido a que el algoritmo va a operar con imágenes, buscamos una solución dentro del área de la \textbf{visión por computador}. Actualmente existen  multitud de trabajos relacionados con el marcado de landmarks en imágenes dentro de este área, la mayoría usando algoritmos de \textbf{deep learning} y enfocadas al reconocimiento de individuos en imágenes. Los landmarks que marcan en estas propuestas no siguen correspondencias morfológicas, y dependen únicamente de la estructura facial del individuo. Dichos algoritmos son entrenados con grandes bases de datos de imágenes etiquetadas y actualmente se obtienen excelentes resultados en este tipo de problemas.
-
-\medskip
-
-\noindent En particular nos hemos fijado en el framework \textbf{3FabRec}\cite{browatzki20203fabrec}.Dicho framework cuenta con excelentes resultados en la tarea de detección de landmarks en imágenes y sobre todo nos interesa porque obtiene buenos resultados entrenando con pocas imágenes. Es este artículo el que supone el punto de partida para este trabajo, debido a que nos parece una buena alternativa tratar de adaptar este framework a la detección de landmarks cefalométricos en imágenes usando un dataset forense que contiene pocas imágenes etiquetadas por un experto.
+\noindent Debido a que el algoritmo va a operar con imágenes, buscamos una solución dentro del área de la \textbf{visión por computador}. Actualmente existen  multitud de trabajos relacionados con el marcado de landmarks en imágenes dentro de este área, la mayoría usando algoritmos de \textbf{deep learning} y enfocadas al reconocimiento de individuos en imágenes. Los landmarks que marcan en estas propuestas no siguen correspondencias morfológicas, y dependen únicamente de la estructura facial del individuo. Dichos algoritmos son entrenados con grandes bases de datos de imágenes etiquetadas y actualmente se obtienen excelentes resultados en este tipo de problemas. En particular nos hemos fijado en el framework \textbf{3FabRec}\cite{browatzki20203fabrec}.Dicho framework cuenta con excelentes resultados en la tarea de detección de landmarks en imágenes y sobre todo nos interesa porque obtiene buenos resultados entrenando con pocas imágenes. Es este artículo el que supone el punto de partida para este trabajo, debido a que nos parece una buena alternativa tratar de adaptar este framework a la detección de landmarks cefalométricos en imágenes usando un dataset forense que contiene pocas imágenes etiquetadas por un experto.
 
 \section{Objetivos}
 
@@ -175,7 +171,7 @@ Actualmente, este proceso del marcado de landmarks es esencialmente costoso y co
 
     \begin{figure}[!h]
         \centering
-        \includegraphics[width=0.8\textwidth]{img/plan_provisional.png}
+        \includegraphics[width=0.9\textwidth]{img/plan_provisional.png}
         \caption{Planificación original.}
         \label{Fig::Planificacion original}
     \end{figure}
@@ -191,7 +187,7 @@ Actualmente, este proceso del marcado de landmarks es esencialmente costoso y co
         \item En total el tiempo estimado de desarrollo del proyecto fue de \textbf{344 horas}.
     \end{itemize}
         
-    \noindent No obstante, esta estimación resultó ser muy ajustada para completar el trabajo, lo que ocasionó que se retrasara la entrega del mismo a Noviembre, es por ello que el plan definitivo del proyecto se puede ver en la \autoref{Fig::Planificacion final}. Aquí se puede ver cómo desde Septiembre, a causa de los resultados obtenidos en la experimentación se vuelve atrás en el ciclo de vida del software a la parte de análisis del problema y requisitos para consultar a los tutores con los resultados obtenidos y modeificar el resto de etapas sucesivas. El tiempo invertido por día en esta segunda fase fue de \textbf{4 horas} diarias. Lo que incrementa el tiempo total invertido a:
+    \noindent No obstante, esta estimación resultó ser muy ajustada para completar el trabajo, lo que ocasionó que se retrasara la entrega del mismo a Noviembre, es por ello que el plan definitivo del proyecto se puede ver en la \autoref{Fig::Planificacion final}. Aquí se puede ver cómo desde Septiembre, a causa de los resultados obtenidos en la experimentación, se vuelve atrás en el ciclo de vida del software a la parte de análisis del problema y requisitos para consultar a los tutores con los resultados obtenidos y modificar el resto de etapas sucesivas. El tiempo invertido por día en esta segunda fase fue de \textbf{4 horas} diarias. Lo que incrementa el tiempo total invertido a:
 
     \begin{itemize}
         \item \textbf{148 horas} para la primera fase.
@@ -202,7 +198,7 @@ Actualmente, este proceso del marcado de landmarks es esencialmente costoso y co
 
     \begin{figure}[!h]
         \centering
-        \includegraphics[width=0.8\textwidth]{img/plan_definitivo.png}
+        \includegraphics[width=0.95\textwidth]{img/plan_definitivo.png}
         \caption{Planificación original.}
         \label{Fig::Planificacion final}
     \end{figure}
