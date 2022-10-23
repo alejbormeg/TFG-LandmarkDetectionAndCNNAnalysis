@@ -1,10 +1,6 @@
 \chapter{Solución propuesta y experimentos realizados}
 
-    \noindent El reconocimiento automático de landmarks faciales es una área de gran importancia en la actualidad en tareas como el reconocimiento de personas y que se está viendo muy desarrollada por la gran capacidad de las CNN para tareas de procesamiento automático de imágenes. 
-
-    \medskip 
-
-    \noindent La principal diferencia entre este enfoque y el forense radica en el tipo de landmarks que se utilizan. Los utilizados en antropología forense son landmarks con justificación biológica, a diferencia de los que se emplean en las tareas de reconocimiento facial, que generalmente atienden a puntos de interés de la cara para su correcto reconocimiento y son independientes del cráneo del sujeto. Así pues existen diversas bases de datos empleadas para este cometido con multitud de imágenes etiquetadas, destacamos entre ellas: 
+    \noindent El reconocimiento automático de landmarks faciales es una área de gran importancia en la actualidad en tareas como el reconocimiento de personas y que se está viendo muy desarrollada gracias a las CNN. La principal diferencia entre este enfoque y el forense radica en el tipo de landmarks que se utilizan. Los utilizados en antropología forense son landmarks con justificación biológica, dichos landmarks se correpsonden con localizaciones concretas del cráneo del ser humano, y los landmarks cefalométricos intentan predecir la posición de estos puntos sobre la piel, a diferencia de los que se emplean en las tareas de reconocimiento facial, que generalmente atienden a puntos de interés de la cara para su correcto reconocimiento y son independientes del cráneo del sujeto. Así pues existen diversas bases de datos empleadas para este cometido con multitud de imágenes etiquetadas, destacamos entre ellas: 
 
     \begin{itemize}
     \item \textbf{300-W}: Se trata de un dataset compuesto por $3148$ imágenes de entrenamiento y $689$ imágenes de test \textit{in-the-wild}, es decir con multitud de poses, distinta iluminación y expresiones faciales. Está anotada por 51 landmarks o 68 landmarks si contamos el contorno del rostro \cite{300W}. Podemos ver los landmarks en la imagen \autoref{fig:300W}
@@ -31,11 +27,11 @@
 
 
     \section{Framework empleado: 3FabRec }
-        \noindent La red empleada para la resolución del problema es la desarrollada por \textbf{Bjorn Browatzki et al} en $2020$ \cite{browatzki20203fabrec} denominada \textbf{3FabRec}.La red en cuestión es un \textbf{Adversarial Autoencoder} combiando con una red \textit{GAN} (por la presencia de un segundo discriminante del estilo que hay en las GAN) que puede predecir landmarks gracias a la incorporación de unas capas convolucionales intermedias denominadas \textit{Interleaved Transfer Layers} (ITLs) en la etapa de reconstrucción y que explicaremos en profundidad más adelante.            
+        \noindent La red empleada para la resolución del problema es la desarrollada por \textbf{Bjorn Browatzki et al} en $2020$ \cite{browatzki20203fabrec} denominada \textbf{3FabRec}. La red en cuestión es un \textbf{Adversarial Autoencoder} combiando con una red \textit{GAN} (por la presencia de un segundo discriminante del estilo que hay en las GAN) que puede predecir landmarks gracias a la incorporación de unas capas convolucionales intermedias denominadas \textit{Interleaved Transfer Layers} (ITLs) en la etapa de reconstrucción y que explicaremos en profundidad más adelante.            
 
         \medskip
 
-        \noindent Aplica un método \textit{semi-supervisado} en el cual:
+        \noindent Esta red aplica un método \textit{semi-supervisado} en el cual:
 
         \begin{itemize}
             \item Hay una primera fase de \textbf{aprendizaje no supervisado} dónde se pretende adquirir conocimiento implícito sobre la estructura facial contenida en grandes conjuntos de imágenes de rostros de personas en diversas posiciones, iluminación y etnia. Para ello se codifica todo este conocimiento implícito en un vector de un espacio latente de baja dimensionalidad para posteriormente reconstruir la imagen. Este proceso se hace íntegramente en el \textit{Adversarial Autoencoder}.
@@ -51,7 +47,7 @@
         \end{figure}
 
         \subsection{Arquitectura Adversarial Autoencoder}
-            \noindent Para la construcción del \textit{Adversarial Autoencoder} emplean:
+            \noindent Para la construcción del \textit{Adversarial Autoencoder} utilizan:
             
             \begin{itemize}
                 \item \textbf{Encoder}: emplean una ResNet-$18$  hasta codificar la entrada en un vector de $99$ dimensiones. Está pensado para imágenes de res $256 \times 256 \times 3$, aunque se adapta también a imágenes de dimensiones $512 \times 512 \times 3$.
@@ -96,7 +92,7 @@
                 \label{fig:Paso_Generator}
             \end{figure}
 
-            \noindent Finalmente, para definir el autoencoder necesitamos un Discriminador, el cual que procure que los vectores del espacio vectorial latente sigan una determinada distribución. Dicha distribución será una normal multivariante estándar a la que vamos a añadirle un segundo discriminador propio de las redes \textbf{GAN} que nos dirá si la imagen reconstruida procede de la distribución que siguen los píxeles de la imagen de inicio. En la \autoref{fig:DGaussian} las redes neuronales que definen ambos discriminadores.
+            \noindent Finalmente, para definir el autoencoder necesitamos un Discriminador, el cual que procure que los vectores del espacio vectorial latente sigan una determinada distribución. Dicha distribución será una normal multivariante estándar. Por otro lado, se añadirá un segundo discriminador propio de las redes \textbf{GAN} que nos dirá si la imagen reconstruida procede de la distribución que siguen los píxeles de la imagen de inicio. Este discriminador permite que la red genere imágenes más realistas, y es novedoso por no ser frecuente en la arquitectura de un Adversarial Autoencoder. En la \autoref{fig:DGaussian} las redes neuronales que definen ambos discriminadores.
 
             \begin{figure}[!h]
                 \centering
@@ -106,6 +102,9 @@
             \end{figure}
 
             \subsubsection{Interleaved Transfer Layer (ITL)}
+                \noindent Se denominan ITLs a las capas convolucionales encargadas de la predicción de landmarks. Se tratan de una solución novedosa porque premiten adaptar una AAE pensado originalmente para tareas de aprendizaje no supervisado a un problema de \textbf{regresión}, típico del aprendizaje supervisado.
+
+                \medskip
                 
                 \noindent Se tratan de simples capas convolucionales que se intercalan entre las capas del Generador. La última de estas capas proporciona como salida un conjunto de mapas de calor, uno por cada landmark predicho. Estos mapas de calor luego se emplean para representar en la imagen reconstruida los landmarks. La arquitectura de esta etapa podemos verla en la \autoref{fig:Paso_Generator}.
             
@@ -216,6 +215,10 @@
                     \item \textbf{WFLW}: Es la más reciente de las empleadas y tiene un total de $10,000$ imágenes. Se usan $7,500$ para entrenamiento y $2,500$ para test. Las imágenes tienen un total de \textbf{$98$} landmarks anotados.
                 \end{itemize}
 
+                \medskip
+
+                \noindent Como podemos observar, los conjuntos de datos disponibles para el entrenamiento de redes especializadas en la identificación de landmarks faciales son variados y con muchos ejemplos de entrenamiento. En nuestro caso concreto, no contamos con tantos ejemplos y apenas hay bases de datos forenses con landmarks cefalométricos, lo cual es una dificultad añadida al problema, pues solo podremos entrenar con los datos que se nos proporcionan y como veremos son muy pocos.
+
 \section{Análisis de la base de Datos}
     \noindent En esta sección se van a presentar el dataset con los datos para resolver el problema principal de este trabajo, así como el análisis previo a la manipulación de los mismos y el preprocesamiento realizado.
 
@@ -229,7 +232,7 @@
             \item Las imágenes se presentan en un conjunto muy variado de posiciones. Disponemos de: 
             \begin{itemize}
                 \item $87$ imágenes frontales.
-                \item $57$ imágenes con rostros en posición de $3/4$.
+                \item $57$ imágenes con rostros en posición de \textbf{$3/4$}.
                 \item $23$ imágenes de perfil.
             \end{itemize}
             \item Hay hasta un total de $30$ landmarks que pueden marcarse, aunque por regla general el número de landmarks en las imágenes es menor, como puede apreciarse en la \autoref{fig:Histograma}.
@@ -255,7 +258,7 @@
     \subsection{Preprocesamiento}
         
         \subsubsection{Identificación de caras en las imágenes}
-            \noindent Antes de poder entrenar el modelo, es necesario adecuar el dataset para que pueda usarse durante el entrenamiento. El framework está pensado para recibir como entrada una imagen a la cual se le hace un recorte a la región que ocupa el rostro con ayuda de un bounding box predefinido y determinado por las coordenadas en la imagen de las cuatro esquinas o bien siguiendo los landmarks descritos por el fichero auxiliar asociado a cada imagen. En nuestro caso, debido a que la mayoría de landmarks son internos y no se suelen situar en los bordes de la cara, hemos pensado que la mejor manera de entrenar la red es que serealice el recorte de la imagen de entrada de acuerdo a un \textit{bounding box}. Para ello fue necesario emplear una red especializada en la detección de caras en imágenes y que nos proporcionaba como salida una lista con los \textit{bounding boxes} de todas las caras detectadas, la red se denomina \textbf{Facenet} y que se puede importar de la librería \textit{facenet pytorch} como \textit{mtcnn}.
+            \noindent Antes de poder entrenar el modelo, es necesario adecuar el dataset para que pueda usarse durante el entrenamiento. El framework está pensado para recibir como entrada una imagen a la cual se le hace un recorte a la región que ocupa el rostro con ayuda de un \textit{bounding box} predefinido y determinado por las coordenadas en la imagen de las cuatro esquinas o bien siguiendo los landmarks descritos por el fichero auxiliar asociado a cada imagen. En nuestro caso, debido a que la mayoría de landmarks son internos y no se suelen situar en los bordes de la cara, hemos pensado que la mejor manera de entrenar la red es que serealice el recorte de la imagen de entrada de acuerdo a un \textit{bounding box}. Para ello fue necesario emplear una red especializada en la detección de caras en imágenes y que nos proporcionaba como salida una lista con los \textit{bounding boxes} de todas las caras detectadas, la red se denomina \textbf{Facenet} y que se puede importar de la librería \textit{facenet pytorch} como \textit{mtcnn}.
 
             \medskip
 
@@ -267,7 +270,7 @@
             \end{enumerate}
 
 
-            \noindent En nuestro caso, primero se probó con un \textit{image\_size} de $256 \times 256$, pero esto tenía problemas pues en ocasiones no podían construirse bounding boxes de este tamaño y producían error, por lo que se redujo a $128 \times 128$ generando buenos resultados, por esto finalmente se dejó este valor. Por otro lado, observando las imágenes del dataset de entrenamiento, nos dimos cuenta que en algunas imágenes aparecían varios sujetos, y en ocasiones la cara más \entrecomillado{grande} mo pertenecía al sujeto principal. Es por ello que se decidió establecer el parámetro \textit{select\_largest} a \textit{False}, y así obtener como salida una lista de \textit{bounding boxes} ordenados de mayor a menor según el nivel de confianza.
+            \noindent En nuestro caso, primero se probó con un \textit{image\_size} de $256 \times 256$, pero esto tenía problemas pues en ocasiones no podían construirse \textit{bounding boxes} de este tamaño y producían error, por lo que se redujo a $128 \times 128$ generando buenos resultados, por esto finalmente se dejó este valor. Por otro lado, observando las imágenes del dataset de entrenamiento, nos dimos cuenta que en algunas imágenes aparecían varios sujetos, y en ocasiones la cara más \entrecomillado{grande} mo pertenecía al sujeto principal. Es por ello que se decidió establecer el parámetro \textit{select\_largest} a \textit{False}, y así obtener como salida una lista de \textit{bounding boxes} ordenados de mayor a menor según el nivel de confianza.
 
             \medskip
 
@@ -290,11 +293,11 @@
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.7\textwidth]{img/imagenes_ejemplo_bb.png}
-                \caption{Imágenes de ejemplo del dataset con los bounding boxes marcados por \textit{Facenet}. Como podemos observar, aunque son correctos, los bounding boxes marcados recortan excesivamente los límites del rostro, pudiendo incluso eliminar partes en las que hay landmarks marcados. Las imágenes han sido generadas con \textit{matplotlib}.}
+                \caption{Imágenes de ejemplo del dataset con los \textit{bounding boxes} marcados por \textit{Facenet}. Como podemos observar, aunque son correctos, los \textit{bounding boxes} marcados recortan excesivamente los límites del rostro, pudiendo incluso eliminar partes en las que hay landmarks marcados. Las imágenes han sido generadas con \textit{matplotlib}.}
                 \label{fig:Ejemplo_bb}
             \end{figure}
 
-            \noindent Además, durante el estudio anterior se observaron otros hechos dignos de mención. En primer lugar se identificaron dos imágenes repetidas, pero se decidió mantenerlas pues los landmarks presentes en una y otra eran diferentes, lo que podía ayudar al entrenamiento. Por otro lado, durante el entrenamiento se vió cómo había una imagen de un determinado sujeto en la que aprecían simultáneamente dos fotos, una  de frente y otra de perfil, sin embargo, al estar los landmarks anotados únicamente en la imagen de frente se tomó el bounding box de la imagen frontal desechando el otro para el perfil. En otras dos imágenes se pueden ver un conjunto de varias personas, y la red mostraba erróneamente los \textit{bounding boxes} de personas que no eran el sujeto de estudio, por lo que estudiar cuál de todos los \textit{bounding boxes} devueltos pertenecía al sujeto correcto.
+            \noindent Además, durante el estudio anterior se observaron otros hechos dignos de mención. En primer lugar se identificaron dos imágenes repetidas, pero se decidió mantenerlas pues los landmarks presentes en una y otra eran diferentes, lo que podía ayudar al entrenamiento. Por otro lado, durante el entrenamiento se vió cómo había una imagen de un determinado sujeto en la que aprecían simultáneamente dos fotos, una  de frente y otra de perfil, sin embargo, al estar los landmarks anotados únicamente en la imagen de frente se tomó el \textit{bounding box} de la imagen frontal desechando el otro para el perfil. En otras dos imágenes se pueden ver un conjunto de varias personas, y la red mostraba erróneamente los \textit{bounding boxes} de personas que no eran el sujeto de estudio, por lo que estudiar cuál de todos los \textit{bounding boxes} devueltos pertenecía al sujeto correcto.
 
         \subsubsection{Creación del fichero annotations en el dataset}
 
@@ -353,7 +356,7 @@
 
 \section{Experimentación}
     \subsection{Hipótesis iniciales}
-        \noindent Debido a que partimos de \textbf{3fabRec}, un framework diseñado y probado de forma exahustiva por Björn Browatzki y Christian Wallraven, en Experimentación se va a respetar la arquitectura de la red en su totalidad, sin añadir ni eliminar capas. Del mismo modo debido a que la elección del optimizador \textbf{Adam} empleado por los autores ha sido fruto de un proceso de experimentación exahustiva por parte de los mismos no se va a probar a cambiarlo, además el optimizador Adam es adaptativo y tiene muy buen rendimiento en general, por lo que no tenemos ninguna razón que nos lleve a pensar que lograríamos grandes mejoras cambiando de optimizador.
+        \noindent Debido a que partimos de \textbf{3fabRec}, un framework diseñado y probado de forma exahustiva por Björn Browatzki y Christian Wallraven, en los experimentos se va a respetar la arquitectura de la red en su totalidad, sin añadir ni eliminar capas. Del mismo modo debido a que la elección del optimizador \textbf{Adam} empleado por los autores ha sido fruto de un proceso de experimentación exahustiva por parte de los mismos no se va a probar a cambiarlo, además el optimizador Adam es adaptativo y tiene muy buen rendimiento en general, por lo que no tenemos ninguna razón que nos lleve a pensar que lograríamos grandes mejoras cambiando de optimizador.
 
         \medskip
 
@@ -445,7 +448,7 @@
         \end{figure}
 
     \subsection{Modelo con reentrenamiento del encoder}
-        \noindent A la luz de los resultados anteriores, vamos a cambiar el modelo de manera que ahora junto con las ITLs (que seguirán usando el mismo optimizador con los mismos parámetros por defecto), vamos a entrenar los pesos del \textit{encoder}. Con este enfoque queremos enseñar a la red a codificar mejor la información presente en las imágenes del dataset (que son más difíciles que las de los datasets empleados anteriormente), a la par que la enseñamos a marcar landmarks en las mismas. 
+        \noindent A la luz de los resultados anteriores, vamos a cambiar el modelo de manera que ahora junto con las ITLs (que seguirán usando el mismo optimizador con los mismos parámetros por defecto), vamos a entrenar los pesos del \textit{encoder}. Con este enfoque queremos enseñar a la red a codificar mejor la información presente en las imágenes del dataset (que son más difíciles que las de los datasets empleados anteriormente), a la par que la enseñamos a marcar landmarks en las mismas. Remarcamos que la función de coste que se empleará tanto para el entrenamiento de los pesos de las ITLs como los del encoder será el \textit{MSE} entre los mapas de calor predichos y los reales.
 
         \medskip
 

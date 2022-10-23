@@ -268,57 +268,54 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplrc9d.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplrc9d.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplrc9d.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/dedicatoria.tex
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/dedicatoria.tex
-INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4r-0.tfm
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/tablacontenidos.tex
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/tablacontenidos.tex
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/agradecimientos.tex
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/agradecimientos.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Bold-tlf-t1.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Bold-tlf-t1.tfm
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.toc
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Bold-tlf-sc-t1.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Bold-tlf-sc-t1.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Bold-tlf-t1.tfm
-INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pplx.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pplx.fd
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr9t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr9t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr9t.tfm
-INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm
-INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
-INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
-INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
-INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/impallari/cabin/Cabin-Bold-tlf-t1.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Bold-tlf-t1--base.tfm
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/tablacontenidos.tex
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/tablacontenidos.tex
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.toc
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.toc
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Bold-tlf-sc-t1.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Bold-tlf-sc-t1.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Bold-tlf-t1.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pplx.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pplx.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr9t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr9t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr9t.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/impallari/cabin/Cabin-Bold-tlf-t1.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Bold-tlf-t1--base.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/impallari/cabin/Cabin-Bold-tlf-sc-t1.vf
@@ -328,8 +325,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Bold-tlf-t1-
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplri9d.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplri9d.vf
 OUTPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/agradecimientos.tex
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/agradecimientos.tex
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/abstract.tex
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/preliminares/abstract.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr9t.vf
@@ -544,6 +539,9 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkD
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/AAE.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo07.tex
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/capitulos/capitulo07.tex
+INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4r-0.tfm
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/SCOPUS_UNIDOS.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/SCOPUS_UNIDOS.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/SCOPUS_UNIDOS.png
