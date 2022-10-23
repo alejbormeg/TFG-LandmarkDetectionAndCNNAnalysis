@@ -10,7 +10,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 \medskip
 
 \begin{proposicion}
-\noindent Para todo $(f,h) \in L^2(\mathbb{R}^d)^2$ y $J\in \mathbb{Z}$, 
+\noindent Para $f,h \in L^2(\mathbb{R}^d)$ y $J\in \mathbb{Z}$ se cumple
 
 \begin{equation} \label{eq::1.10}
   || S_{J+1} [\mathcal{P}_{J+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h || 
@@ -45,7 +45,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 \noindent Para ello vamos a necesitar el siguiente lema:
 
 \begin{lema}
-  Para ondeletas que satisfacen la propiedad presentada en la \autoref{unitario}, para toda función \textbf{real} $f\in L^2(\mathbb{R}^d)$ y todo $q \in \mathbb{Z}$ se verifica: 
+  Para ondeletas que satisfacen la propiedad presentada en la Proposición \ref{unitario}, para toda función \textbf{real} $f\in L^2(\mathbb{R}^d)$ y todo $q \in \mathbb{Z}$ se verifica: 
 
   $$\sum_{-q\geq l > -J} \sum_{r \in G^+} || f \ast \psi_{2^lr}||^2 + || f \ast \phi_{2^J}||^2 = || f \ast \phi_{2^q} ||^2$$
 
@@ -53,7 +53,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 
 \begin{proof}
 
-  \noindent En primer lugar vamos a ver que de \autoref{unitario} se deduce la siguiente expresión: 
+  \noindent En primer lugar vamos a ver que de la Proposición \ref{unitario} se deduce la siguiente expresión: 
 
   $$|\widehat{\phi}(2^J \omega)|^2 + \sum_{-q\geq l > -J} \sum_{r \in G^+}|\widehat{\psi}(2^{-l}r^{-1} \omega)|^2=|\widehat{\phi}(2^q \omega) |^2$$
 
@@ -64,7 +64,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
     \;\;|\widehat{\phi}(\omega)|^2= \frac{1}{2} \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2,
   \end{align*}
 
-  \noindent se tiene de la misma forma que vimos en la demostración de la \autoref{unitario} que:
+  \noindent se tiene de la misma forma que vimos en la demostración de la Proposición \ref{unitario} que:
 
   $$\forall J \in \mathbb{Z} \; \; \; \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \frac{1}{2} \sum_{j>-J,r\in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=1. $$
 
@@ -72,7 +72,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 
   $$\left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \frac{1}{2}  \sum_{-q \geq j >-J,r \in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2= \frac{1}{2} \sum_{j>-q,r \in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=|\widehat{\phi}(2^q \omega)|^2$$
   
-  \noindent Ahora multiplicamos en la expresión anterior por $|\widehat{f}(\omega)|^2$, 
+  \noindent Ahora multiplicamos la expresión anterior por $|\widehat{f}(\omega)|^2$, 
   
   $$\left|\widehat{f}(\omega)\right|^2 \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \frac{1}{2} \sum_{-q \geq j >-J,r \in G} \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=\left|\widehat{f}(\omega)\right|^2 \left|\widehat{\phi}(2^q \omega)\right|^2.$$
 
@@ -80,7 +80,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 
   $$\int \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 d\omega + \frac{1}{2} \sum_{-q \geq j >-J,r \in G} \int \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2 d\omega=\int \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\phi}(2^q \omega)\right|^2 d\omega.$$
 
-  \noindent Ahora estamos en condiciones de aplicar el \autoref{Teorema::Convolucion}, y nos quedaría que la expresión anterior equivale a: 
+  \noindent Ahora estamos en condiciones de aplicar el \autoref{Teorema::Convolucion}, y nos queda que la expresión anterior equivale a: 
 
   \begin{align*}
     \int \left|(f \ast \phi_{2^J}) (x)\right|^2 dx + \sum_{-q \geq j >-J,r \in G} \int \left|(f \ast \psi_{2^{j}r})(x)\right|^2 dx=\int \left|(f \ast \phi_{2^q}) (x)\right|^2 dx,
@@ -122,7 +122,7 @@ $$||g \ast \phi_{2^{J+1}} ||^2 + \sum_{r\in G^+} || g\ast \psi_{2^{-J}r} ||^2=||
 \end{align*}
 
 
-\noindent Como $S_{J+1}[\mathcal{P}_{J+1}]U[p+2^{-J}r]f=\lbrace S_{J+1} [p+2^{-J}r+p'']\rbrace_{p''\in\mathcal{P}_{J+1}}$  y $S_{J+1}[\mathcal{P}_{J+1}]f$ es no expansiva por la \autoref{proposicion::NoExpansiva}, usando la desigualdad anterior podemos escribir
+\noindent Como $S_{J+1}[\mathcal{P}_{J+1}]U[p+2^{-J}r]f=\lbrace S_{J+1} [p+2^{-J}r+p'']\rbrace_{p''\in\mathcal{P}_{J+1}}$  y $S_{J+1}[\mathcal{P}_{J+1}]f$ es no expansiva por la Proposición \ref{proposicion::NoExpansiva}, usando la desigualdad anterior podemos escribir
 
 \begin{align*}
     ||S_{J}[p]f - S_J[p]h||^2 \geq & ||S_{J+1}[p]f-S_{J+1}[p]h||^2 \\
@@ -143,7 +143,7 @@ $$||g \ast \phi_{2^{J+1}} ||^2 + \sum_{r\in G^+} || g\ast \psi_{2^{-J}r} ||^2=||
 
 \noindent La proposición anterior nos demuestra que $||S_J[\mathcal{P}_J]-S_J[\mathcal{P}_J]h||$ es positivo y no creciente cuando $J$ se incrementa, y de hecho converge. Como $S_J[\mathcal{P}_J]$ es no expansiva, el límite tampoco: 
 
-$$\forall (f,h)\in L^2(\mathbb{R}^d)^2 \lim_{J\rightarrow\infty} ||S_J[\mathcal{P}_J]f-S_{J}[\mathcal{P}_J]h|| \leq ||f-h||.$$
+$$\forall f,h \in L^2(\mathbb{R}^d) \lim_{J\rightarrow\infty} ||S_J[\mathcal{P}_J]f-S_{J}[\mathcal{P}_J]h|| \leq ||f-h||.$$
 
 \medskip
 
@@ -165,7 +165,7 @@ $$\forall (f,h)\in L^2(\mathbb{R}^d)^2 \lim_{J\rightarrow\infty} ||S_J[\mathcal{
 
   $$\int |k(x,u)|du \leq C \implies ||K||\leq C.$$
 
-  \noindent Dónde $||K||$ es la norma en $L^2(\mathbb{R}^d)$ de $K$.
+  \noindent Donde $||K||$ es la norma en $L^2(\mathbb{R}^d)$ de $K$.
 
   \medskip
 
@@ -177,7 +177,7 @@ $$\forall (f,h)\in L^2(\mathbb{R}^d)^2 \lim_{J\rightarrow\infty} ||S_J[\mathcal{
 
   $$k_J(0,0)=\phi_{2^J}(0)-\phi_{2^J}(0)=0.$$
 
-  \noindent Si ahora calculamos su serie de primer orden de Taylor centrado en el $(0,0)$ se obtiene: 
+  \noindent Si ahora calculamos su polinomio de Taylor de primer orden centrado en el $(0,0)$ se obtiene: 
 
   $$k_J=k_J(0,0)+\int_0^1 \nabla \phi_{2^J} (x-t\tau(x)-u)\tau(x). dt$$
 
@@ -207,13 +207,13 @@ $$\forall (f,h)\in L^2(\mathbb{R}^d)^2 \lim_{J\rightarrow\infty} ||S_J[\mathcal{
     &= 2^{-dJ} \nabla(\phi(2^{-J}x)).
   \end{align*}
 
-  \noindent Si nos fijamos, debido a que x está multiplicado por $2^{-J}$ en cada componente del vector, siempre que derivemos con respecto a alguna componente, vamos a poder sacar como factor común $2^{-J}$ por lo tanto:
+  \noindent Si nos fijamos, debido a que $x$ está multiplicado por $2^{-J}$ en cada componente del vector, siempre que derivemos con respecto a alguna componente, vamos a poder sacar como factor común $2^{-J}$ por lo tanto:
 
   \begin{align*}
     \nabla \phi_{2^J}(x) = 2^{-dJ-J} \nabla(\phi(2^{-J}x)).
   \end{align*}
 
-  \noindent De esta forma, realizando un cambio de variable tendríamos: 
+  \noindent De esta forma, realizando un cambio de variable obtenemos: 
 
   \begin{align*}
     \int |k_J| du &\leq ||\tau(x)||_\infty  2^{-dJ-J} \int \left| \nabla \phi (2^J u')\right|du' \\
@@ -255,7 +255,7 @@ $$\forall (f,h)\in L^2(\mathbb{R}^d)^2 \lim_{J\rightarrow\infty} ||S_J[\mathcal{
 \end{proof}
 
 
-\noindent Con esto ya tenemos todas las herramientas necesarias para enunciar y demostrar el teorema central de esta sección, que nos garantiza que el operador que estamos construyendo y que modeliza una red neuronal convolucional, es invariante a traslaciones.
+\noindent Con esto ya tenemos todas las herramientas necesarias para enunciar y demostrar el teorema central de esta sección, que nos garantiza que el operador que estamos construyendo y que modeliza una red neuronal convolucional, es invariante por traslaciones.
 
 \begin{teorema} \label{invarianzaTraslaciones}
 Para ondeletas de dispersión admisibles se tiene que 
@@ -285,7 +285,7 @@ $$||L_c A_J - A_J|| \leq C 2^{-J} |c|.$$
   & \leq C 2^{-J} |c| ||U[\mathcal{P}_J]f||
 \end{align*}
 
-\noindent Como la admisibilidad de la condición \eqref{eq::1.7} se satisface, \autoref{lema::Admisibilidad} se demuestra en \eqref{eq::1.9} que para $J>1$
+\noindent Como la admisibilidad de la condición \eqref{eq::1.7} se satisface, en el Lema \ref{lema::Admisibilidad} se demuestra en \eqref{eq::1.9} que para $J>1$ se cumple
 
 $$\frac{\alpha}{2}||U[\mathcal{P}_J]f||^2 \leq (J+1)||f||^2+||f||^2_w.$$
 
@@ -299,7 +299,7 @@ $$\frac{\alpha}{2}||U[\mathcal{P}_J]f||^2 \leq (J+1)||f||^2+||f||^2_w.$$
 
 $$||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f ||^2 \leq ((J+1)||f||^2+||f||_w^2)C^2 2 \alpha^{-1} 2^{-2J} |c|^2,$$
 
-\noindent y tomando límite en ambo lados cuando $J\rightarrow \infty$ tenemos que 
+\noindent y tomando límite en ambos lados cuando $J\rightarrow \infty$ tenemos que 
 
 \begin{align*}
   \lim_{J\rightarrow \infty} ||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f ||^2 &\leq \lim_{J\rightarrow \infty} ((J+1)||f||^2+||f||_w^2)C^2 2 \alpha^{-1} 2^{-2J} |c|^2 \\
@@ -310,7 +310,7 @@ $$||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f ||^2 \leq ((J+1)||f||^2+||f||_
 
 \medskip
 
-\noindent Finalmente vamos a probar ahora que el límite anterior se da $\forall f \in L^2(\mathbb{R}^d)$, con un argumento similar al de la prueba del \autoref{teoremaOndeletasAdmisibles}. Cualquier $f\in L^2(\mathbb{R}^d)$ se puede escribir como el límite de una sucesión de funciones $\lbrace f_n \rbrace_{n\in\mathbb{N}}$ con $||f_n||_w < \infty$, y como $S_J[\mathcal{P}_J]$ es no expansivo y $L_c$ es unitario, se puede verificar que 
+\noindent Finalmente vamos a probar ahora que el límite anterior se da $\forall f \in L^2(\mathbb{R}^d)$, con un argumento similar al de la prueba del \autoref{teoremaOndeletasAdmisibles}. Cualquier $f\in L^2(\mathbb{R}^d)$ se puede escribir como el límite de una sucesión de funciones $\lbrace f_n \rbrace_{n\in\mathbb{N}}$ con $||f_n||_w < \infty$, y como $S_J[\mathcal{P}_J]$ es no expansivo y $L_c$ es unitario, usando la desigualdad triangula deducimos que 
 
 $$||L_c S_J[\mathcal{P}_J]f-S_J[\mathcal{P}_J]f|| \leq ||L_c S_J [\mathcal{P}_J]f_n -S_J[\mathcal{P}_J]f_n|| + 2||f-f_n||.$$
 
