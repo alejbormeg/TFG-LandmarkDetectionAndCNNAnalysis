@@ -14,7 +14,7 @@
 \contentsline {subsection}{\numberline {2.1.4}Convenios para futuras secciones}{19}{subsection.2.1.4}%
 \contentsline {section}{\numberline {2.2}El operador de dispersión sobre un camino ordenado}{20}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Ejemplo para obtener coeficientes invariantes por traslaciones}{21}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}El operador módulo.}{22}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.2}El operador módulo}{22}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Propiedades de un camino de frecuencias.}{24}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Construcción del operador de dispersión.}{24}{subsection.2.2.4}%
 \contentsline {section}{\numberline {2.3}Propagador de dispersión y conservación de la Norma}{26}{section.2.3}%

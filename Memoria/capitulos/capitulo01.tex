@@ -4,16 +4,11 @@
 
 \chapter{Introducción}
 
-\noindent Actualmente, las \textbf{Redes Neuronales Convolucionales} (CNN\footnote{Convolutional Neural Network}) son una de las herramientas más usadas de la Inteligencia Artificial para tareas de Aprendizaje Automático (AA), de hecho son el principal objeto de estudio del \textbf{Deep Learning}, una rama del AA en la que hoy en día se está invirtiendo mucho esfuerzo en invesitgar y de la que anualmente se publican muchos artículos que nos enseñan la gran potencia de las CNN para diveras tareas.
-
-
-\medskip
-
-\noindent Destaca especialmente el excelente desempeño que tienen las CNN en el procesamiento de imágenes para tareas de clasificación, segmentación o incluso generación de nuevas imágenes. Es por ello que en el presente trabajo nos proponemos intentar realizar una \textbf{modelización matemática} de estas CNN, para conocerlas mejor desde un punto de vista más teórico y \textbf{poder demostrar una de sus principales propiedades}: la invarianza por traslaciones.
+\noindent Actualmente, las \textbf{Redes Neuronales Convolucionales} (CNN\footnote{Convolutional Neural Network}) son una de las herramientas más usadas de la Inteligencia Artificial para tareas de Aprendizaje Automático (AA), de hecho son el principal objeto de estudio del \textbf{Deep Learning}, una rama del AA en la que hoy en día se está invirtiendo mucho esfuerzo en invesitgar y de la que anualmente se publican muchos artículos que nos enseñan la gran potencia de las CNN. Destaca especialmente el excelente desempeño que tienen en el procesamiento de imágenes para tareas de clasificación, segmentación o incluso generación de nuevas imágenes. Es por ello que en el presente trabajo nos proponemos intentar realizar una \textbf{modelización matemática} de estas CNN, para conocerlas mejor desde un punto de vista más teórico y poder demostrar una de sus principales propiedades: \textbf{la invarianza por traslaciones}.
 
 \medskip
 
-\noindent En primer lugar vamos a definir el concepto de \textbf{invarianza} como la capacidad de reconocer un objeto en una imagen incluso si su apariencia ha variado en algún sentido (mediante una rotación, una  ligera deformación o una traslación). Esto es algo muy importante, pues esto indica que se preserva la identidad del objeto incluso a pesar de haberse sometido a ciertos cambios.
+\noindent En primer lugar vamos a definir el concepto de \textbf{invarianza} como la capacidad de reconocer un objeto en una imagen incluso si su apariencia ha variado en algún sentido (mediante una rotación, una  ligera deformación o una traslación). Esto es algo muy importante, pues nos indica que se preserva la identidad del objeto incluso a pesar de haberse sometido a ciertos cambios.
 
 \medskip
 
@@ -28,7 +23,7 @@
 
 \medskip
 
-\noindent Otra propiedad importante que sería la \textbf{invarianza frente a pequeñas deformaciones} (difeomorfismos), que es la capacidad de reconocer la identidad de un objeto en una imagen a pesar de que este pueda haber sido alterado con pequeñas deformaciones.
+\noindent Otra propiedad importante es la \textbf{invarianza frente a pequeñas deformaciones} (difeomorfismos), que es la capacidad de reconocer la identidad de un objeto en una imagen a pesar de que este pueda haber sido alterado con pequeñas deformaciones.
 
 
 \begin{figure}[!h]
@@ -55,11 +50,11 @@
 \medskip
 
 
-\noindent Realizaremos nuestro estudio sobre las funciones $L^2(\mathbb{R}^d)$, que son Lipschitz-continuas por la acción de difeomorfismos y que mantienen información de alta frecuencia para diferenciar entre distintos tipos de señales. Así, el objetivo será encontrar un operador que verifique una serie de propiedades que veremos en secciones futuras así como la invarianza por traslaciones que presentaremos como una posible modelización matemática de una CNN.
+\noindent Realizaremos nuestro estudio sobre las funciones $L^2(\mathbb{R}^d)$, que son Lipschitz-continuas por la acción de difeomorfismos y que mantienen información de alta frecuencia para diferenciar entre distintos tipos de señales. Así, el objetivo será encontrar un operador que verifique una serie de propiedades que veremos en secciones futuras así como la invarianza por traslaciones, dicho operador representa una posible modelización matemática de una CNN.
 
 \medskip
 
-\noindent La invarianza por traslaciones, entendida en el contexto de las imágenes puede verse como trasladar cada pixel de la imagen en una misma dirección la misma distancia. En este sentido: 
+\noindent La invarianza por traslaciones, entendida en el contexto de las imágenes puede verse como trasladar cada pixel de la imagen en una misma dirección la misma distancia. En este sentido definimos las traslaciones de funciones de cuadrado integrable: 
 
 \begin{definicion}
 $L_cf(x)=f(x-c)$ es la traslación de $f \in L^2(\mathbb{R}^d)$ por $c \in \mathbb{R}^d$ .
@@ -67,7 +62,7 @@ $L_cf(x)=f(x-c)$ es la traslación de $f \in L^2(\mathbb{R}^d)$ por $c \in \math
 
 \medskip
 
-\noindent Así, decimos que un operador $\Phi$ de  $L^2(\mathbb{R}^d)$ en un espacio de Hilbert $\mathcal{H}$ es invariante por traslaciones si $\Phi(L_cf(x))=\Phi(f)$ para todo $f \in L^2(\mathbb{R}^d)$ y para todo $c \in \mathbb{R}^d$. En el siguiente apartado trataremos el caso del módulo de la transformada de Fourier de $f$ como un ejemplo de un operador invariante por traslaciones, aunque la aparición de inestabilidades frente a deformaciones en las altas frecuencias nos obligará a descartarlo como opción para la modelización de CNN pues no preserva la Lipschitz-continuidad en este caso.
+\noindent Así, decimos que un operador $\Phi$ de  $L^2(\mathbb{R}^d)$ en un espacio de Hilbert $\mathcal{H}$ es invariante por traslaciones si $\Phi(L_cf(x))=\Phi(f)$ para todo $f \in L^2(\mathbb{R}^d)$ y para todo $c \in \mathbb{R}^d$. En el siguiente apartado trataremos el caso del módulo de la transformada de Fourier de $f$ como un ejemplo de un operador invariante por traslaciones, aunque la aparición de inestabilidades frente a deformaciones en las altas frecuencias nos obligará a descartarlo como opción para la modelización de CNN pues no preserva la Lipschitz-continuidad.
 
 \medskip
 
@@ -87,19 +82,19 @@ $$\forall (f,h) \in L^2(\mathbb{R}^d)^2 \; || \Phi(f)-\Phi(h)||_\mathcal{H} \leq
 
 
 \begin{definicion}
-  Una función diferenciable $f: X \rightarrow \Omega$ donde $X$ y $\Omega$ son variedades, es un \entrecomillado{Difeomorfismo} si $f$ es una biyección y su inversa $f^{-1}:\Omega \rightarrow X$ es también diferenciable. 
+  Una función diferenciable $f: \mathbb{R}^d \rightarrow \mathbb{R}^d$, es un \textit{difeomorfismo} si $f$ es una biyección y su inversa $f^{-1}:\mathbb{R}^d \rightarrow X$ es también diferenciable. 
 \end{definicion}
 
 
 \noindent En nuestro caso, vamos a encargarnos de verificar la Lipschitz-continuidad relativa a la acción de pequeños difeomorfismos cercanos a las traslaciones. Dichos difeomorfismos transforman $x \in \mathbb{R}^d$ en $x-\tau (x)$ donde $\tau$ es el campo de desplazamiento. 
 
 \begin{definicion}
-Denotemos $L_{\tau} f(x)=f(x-\tau(x))$ como la acción del difeomorfismo $\mathbb{1}-\tau$ en $f$.
+Denotemos $L_{\tau} f(x)=f(x-\tau(x))$ como la acción del difeomorfismo $\mathbb{1}-\tau$ sobre $f$.
 \end{definicion} 
 
 \medskip
 
-\noindent Por otro lado, la condición de Lipschitz es la siguiente: 
+\noindent Recordemos que la condición de Lipschitz es la siguiente: 
 
 \begin{definicion}
   Sea $f: M \rightarrow N$ una función entre dos espacios métricos $M$ y $N$ con sus respectivas distancias $d_M$ y $d_N$. Se dice que $f$ satisface la condición de Lipschitz si $\exists C>0$ tal que: 
@@ -107,7 +102,7 @@ Denotemos $L_{\tau} f(x)=f(x-\tau(x))$ como la acción del difeomorfismo $\mathb
   $$d_N(f(x),f(y))\leq C d_M(x,y), \; \; \forall x,y \in M$$
 \end{definicion}
 
-\noindent En nuestro caso, la distancia que utilizaremos será la inducida por la norma del espacio de Hilbert $\mathcal{H}$ de llegada, pero necesitamos definir de alguna manera una distancia $d_M$ entre los difeomorfismo $\mathbb{1}$ y $\mathbb{1}-\tau$ para escribir correctamente la condición de Lipschitz. Además, dado que el espacio de partida es $L^2(\mathbb{R}^d)$ y los puntos que vamos a comparar son las funciones $f$ y $L_\tau f=f(x-\tau(x))$ sabemos que $\|\Phi(f) - \Phi(L_cf) \|$ estará acotada por $\|f\| · d(\mathbb{1}, \mathbb{1}-\tau)$, de manera que necesitamos definir una distancia entre el difeomorfismo $\mathbb{1}$ y $\mathbb{1}-\tau$.
+\noindent En nuestro caso, la distancia que utilizaremos será la inducida por la norma del espacio de Hilbert $\mathcal{H}$ de llegada, pero necesitamos definir de alguna manera una distancia $d_M$ entre los difeomorfismos $\mathbb{1}$ y $\mathbb{1}-\tau$ para escribir correctamente la condición de Lipschitz. Además, dado que el espacio de partida es $L^2(\mathbb{R}^d)$ y los puntos que vamos a comparar son las funciones $f$ y $L_\tau f=f(x-\tau(x))$ sabemos que $\|\Phi(f) - \Phi(L_cf) \|$ estará acotada por $\|f\| · d(\mathbb{1}, \mathbb{1}-\tau)$, de manera que necesitamos definir una distancia entre el difeomorfismo $\mathbb{1}$ y $\mathbb{1}-\tau$.
 
 \begin{definicion}
 Se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subconjunto compacto $\Omega$ de $\mathbb{R}^d$ como 
@@ -119,7 +114,7 @@ Se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subc
 \end{definicion}
 \medskip
 
-\noindent Donde $|\tau (x)|$ es la norma euclídea en $\mathbb{R}^d$, $\nabla |\tau (x)|$ la norma del supremo de la matriz $\nabla \tau (x)$, y $|H \tau (x)|$ la norma del supremo del Hessiano.
+\noindent Donde $|\tau (x)|$ es la norma euclídea en $\mathbb{R}^d$, $\nabla |\tau (x)|$ es la norma del supremo de la matriz jacobiana $\nabla \tau (x)$, y $|H \tau (x)|$ es la norma del supremo del Hessiano.
 
 \medskip
 
@@ -129,7 +124,7 @@ Se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subc
 \begin{itemize}
   \item $|| \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\tau(x)|$
   \item $||\nabla \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\nabla \tau(x)|$
-  \item $||H \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |H \tau(x)|$ donde $|H \tau(x)|$ es la norma del tensor Hessiano. 
+  \item $||H \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |H \tau(x)|$ 
 \end{itemize}
 
 \medskip
@@ -152,12 +147,12 @@ con  $|| \nabla \tau ||_\infty + ||H \tau ||_\infty < 1$ para asegurarnos de que
 
 \medskip
 
-\noindent Debido a que $\Phi$ es invariante a traslaciones, la cota superior de Lipschitz no depende de la amplitud máxima de traslación $\sup_{x \in \mathbb{R}^d}|\tau (x)|$ de la métrica del difeomorfismo \eqref{eq::distancia}. Por otro lado la continuidad Lipschitz de \eqref{eq::Lipschitz_condition} implica que $\Phi$ es invariante por traslaciones globales, pero es mucho más fuerte. $\Phi$ se ve poco afectada por los términos de primer y segundo grado de difeomorfismos que son traslaciones locales.
+\noindent Debido a que $\Phi$ es invariante a traslaciones, la cota superior de Lipschitz no depende de la amplitud máxima de traslación $\sup_{x \in \mathbb{R}^d}|\tau (x)|$ en la métrica del difeomorfismo \eqref{eq::distancia}. Por otro lado la continuidad Lipschitz de \eqref{eq::Lipschitz_condition} implica que $\Phi$ es invariante por traslaciones globales, pero dicha condición es mucho más fuerte: \eqref{eq::Lipschitz_condition} garantiza que $\Phi$ se ve poco afectada por los términos de primer y segundo grado de difeomorfismos que son traslaciones locales.
 
 \medskip
 
 
-\noindent Una vez presentadas las principales herramientas con las que trabajaremos, en las futuras secciones veremos como para solucionar el problema se optará por utilizar \textbf{transformadas de ondeletas}, aunque esto abre nuevos problemas como el hecho de que estas \textbf{no son invariantes por traslaciones}. Para lograr la invarianza por traslaciones será necesario componer la transformada con un \textbf{operador no lineal} obtener coeficientes invariantes. Este nuevo operador consistirá en una \textbf{cascada de convoluciones} de operadores no lineales y no conmuntativos de manera que cada uno de ellos calcula el módulo de la transfomada de odeletas, y será este nuevo operador el que podremos interpretar como la modelización matemática de una CNN.
+\noindent Una vez presentadas las principales herramientas con las que trabajaremos, en las futuras secciones veremos como para solucionar el problema se optará por utilizar \textbf{transformadas de ondeletas}, aunque esto abre nuevos problemas como el hecho de que estas \textbf{no son invariantes por traslaciones}. Para lograr la invarianza por traslaciones será necesario componer la transformada con un \textbf{operador no lineal} obtener coeficientes invariantes. Este nuevo operador consistirá en una \textbf{cascada de convoluciones} de operadores no lineales y no conmutativos de manera que cada uno de ellos calcula el módulo de la transfomada de odeletas, y será este nuevo operador el que podremos interpretar como la modelización matemática de una CNN.
 
 
 \endinput
