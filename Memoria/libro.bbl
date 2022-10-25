@@ -131,6 +131,11 @@ Stéphane Mallat.
 \newblock Group invariant scattering.
 \newblock {\em Communications on Pure and Applied Mathematics}, 65, 10 2012.
 
+\bibitem[NI02]{norvig2002modern}
+P~Russel Norvig and S~Artificial Intelligence.
+\newblock {\em A modern approach}, volume~90.
+\newblock 2002.
+
 \bibitem[PJDoM06]{HaarBasis}
 University of~Iowa Palle Jorgensen Department~of Mathematics.
 \newblock Image decomposition using haar wavelet.

@@ -3,7 +3,7 @@
 
 \chapter{Introducción}  \label{ch:Introduccion_informatica}
 
-\noindent La tecnología se encuentra presente en prácticamente todas las tareas y disciplinas. Particularmente, en los últimos años hemos podido ver cómo el desarrollo de la \textbf{Inteligencia Artificial} ha permitido que tareas que antes se consideraban lentas o complicadas puedan realizarse rápidamente y con precisión con ayuda de un ordenador. En cambio, hay otras que todavía resultan complicadas de resolver de forma rápida tanto para expertos en la materia como para ordenadores. Es dentro de este conjunto dónde se va a desarrollar el presente trabajo, pues como veremos a continuación y en posteriores secciones apenas hay publicaciones relacionadas con el tema. En particular se desarrollará en el ámbito de las ciencias forenses, que explicaremos a continuación.
+\noindent En los últimos años, el desarrollo de la Inteligencia Artificial \cite{norvig2002modern} ha permitido que tareas que antes se consideraban lentas o complicadas se puedan llevar a cabo con mayor rapidez y precisión. En cambio, hay otras que, incluso para expertos en la materia, todavía resultan complicadas de resolver de forma rápida y precisa. El presente trabajo de fin de grado (TFG) se ocupa de una de estas tareas: la localización automática de landmarks cefalométricos en fotografías para tareas de identificación humana forense
 
 \medskip
 
@@ -16,7 +16,7 @@
 
 \medskip
 
-\noindent Dentro de la medicina forense se encuentra la \textbf{antropología forense}, que principalmente se encarga de la identificación de personas a partir de restos óseos. Y es en este ambiente dónde se encuentra el proceso que da sentido a este trabajo.
+\noindent Dentro de la medicina forense se encuentra la \textbf{antropología forense}, que principalmente se encarga de la identificación de personas a partir de restos óseos. Y es en este ámbito donde se encuentra el proceso que da sentido a este trabajo.
 
 
 \section{Descripción del problema}
@@ -24,11 +24,7 @@
 \noindent Los antropólogos forenses emplean diversas técnicas para la identificación de personas a partir de restos óseos como son la reconstrucción de huesos, el cotejo fotográfico con el cráneo o el análisis de imágenes. De entre estas técnicas, destaca la \textbf{Superposición Craneofacial} por ser la que se encuentra más relacionada con el fin de este trabajo. Se trata de una técnica de identificación forense mediante la cual se comparan imágenes de la persona difunta (imágenes se le denominan imágenes ante-mortem) con una representación 3D de un cráneo candidato, con el fin de determinar si el cráneo pertenece a la persona de las imágenes o no. Se distinguen cuatro etapas en el proceso: 
 
 \begin{enumerate}
-    \item \textbf{Se recogen todas las imágenes y datos disponibles} de los sujetos ante-mortem, se realiza un escaneo $3D$ de los cráneos candidatos y se realiza el marcado de \textit{landmarks} o puntos de referencia. 
-    
-    \medskip
-    
-    \noindent El marcado de landmarks se realiza \textbf{de acuerdo a correspondencias morfológicas} tanto en la cara del sujeto en las imágenes como en el modelo $3D$ del cráneo candidato, de manera que cada punto marcado sobre el rosto tiene un homólogo marcado sobre el cráneo. Estos puntos de referencia reciben el nombre de \textbf{puntos craneométricos} cuando se marcan sobre el cráneo y \textbf{puntos cefalométricos} cuando se marcan sobre el rostro.
+    \item \textbf{Se recogen todas las imágenes y datos disponibles} de los sujetos ante-mortem, se realiza un escaneo $3D$ de los cráneos candidatos y se realiza el marcado de \textit{landmarks} o puntos de referencia. El marcado de landmarks se realiza \textbf{de acuerdo a correspondencias morfológicas} tanto en la cara del sujeto en las imágenes como en el modelo $3D$ del cráneo candidato, de manera que cada punto marcado sobre el rosto tiene un homólogo marcado sobre el cráneo. Estos puntos de referencia reciben el nombre de \textbf{puntos craneométricos} cuando se marcan sobre el cráneo y \textbf{puntos cefalométricos} cuando se marcan sobre el rostro.
     \item \textbf{Análisis morfológico y morfométrico}: en esta etapa se realiza la selección de parejas imagen modelo $3D$ sobre las que realizar la superposición craneofacial.
     \item \textbf{Se realiza la superposición cráneo-cara} por parte del experto con ayuda de alguna herramienta como puede ser photoshop tratando de hacer corresponder cada landmark cefalométrico con su homólogo craneométrico.
     \item Se realiza la toma de decisiones en función de la bondad de los ajustes realizados.
@@ -42,7 +38,7 @@
 
 \medskip
 
-\noindent Sin embargo, esta tarea no es sencilla por factores diversos a tener en cuenta como son la grasa, la calidad de la imagen y el tejido blando facial que separa el punto craneométrico de su homólogo cefalométrico y que se traduce en una ligera traslación del punto. El desplazamiento ocasionado por el tejido blando facial no es constante ni se produce siempre en la misma dirección. Estos problemas, ocasionan que el experto forense tarde mucho en la tarea del marcado de landmarks. Una vez determinados los landmarks, un algoritmo automático puede encargarse de realziar el solapamiento del cráneo 3D y la imagen 2D acelerando el proceso y ahorrando tiempo en esta tarea al experto.
+\noindent Sin embargo, esta tarea no es sencilla por factores diversos a tener en cuenta como son la calidad de la imagen y el tejido blando facial que separa el punto craneométrico de su homólogo cefalométrico y que se traduce en una ligera traslación del punto. El desplazamiento ocasionado por el tejido blando facial no es constante ni se produce siempre en la misma dirección. Estos problemas, ocasionan que el experto forense tarde mucho en la tarea del marcado de landmarks. Una vez determinados los landmarks, un algoritmo automático puede encargarse de realziar el solapamiento del cráneo 3D y la imagen 2D acelerando el proceso y ahorrando tiempo en esta tarea al experto.
 
 \begin{figure}[!h]
     \centering
@@ -99,7 +95,7 @@
 
 \section{Motivación}
 
-Actualmente, este proceso del marcado de landmarks es costoso y complicado de replicar, y pese a los avances actuales que se están llevando a cabo para automatizar esta tarea \cite{Huete2015PastPA}, la identificación de \textit{landmarks} sigue realizándose a mano normalmente. Sin embargo en la identificación de landmarks \textbf{craneométricos} podemos encontrar algunos trabajos publicados como \cite{bermejo2021automatic} que permiten una atomatización de esta parte del proceso. En este contexto, el presente trabajo tratará de proporcionar una solución automática al proceso del marcado de \textbf{landmarks cefalométricos} (en imágenes ante-mortem).
+Actualmente, este proceso del marcado de landmarks es costoso y complicado de replicar, y pese a los avances actuales que se están llevando a cabo para automatizar esta tarea \cite{Huete2015PastPA}, la identificación de \textit{landmarks} sigue realizándose a mano normalmente. Sin embargo en la identificación de landmarks \textbf{craneométricos} podemos encontrar algunos trabajos publicados como \cite{bermejo2021automatic} que permiten una automatización de esta parte del proceso. En este contexto, el presente trabajo tratará de proporcionar una solución automática al proceso del marcado de \textbf{landmarks cefalométricos} (en imágenes ante-mortem).
 
 \medskip
 
@@ -107,11 +103,7 @@ Actualmente, este proceso del marcado de landmarks es costoso y complicado de re
 
 \begin{itemize}
     \item Debe ser un método \textbf{robusto}, en el sentido de que debe abarcar todos los posibles casos y variaciones del problema. En nuestro caso se traduce en saber lidiar con imágenes frontales, de perfil o $3/4$ junto con otros factores como la calidad de la imagen, iluminación y oclusiones parciales. En todos los casos anteriores, el algoritmo debería tener un buen comportamiento.
-    \item Capaz de operar con un \textbf{pequeño conjunto de datos}, ya que como hemos comentado anteriormente, se dispone generalmente de pocas imágenes para realizar el marcado de landmarks.
-    
-    \medskip
-
-    \noindent Esta propiedad es deseable porque generalmente, en los problemas forenses reales, no se dispone de una amplia variedad de imágenes de la persona desaparecida, en algunos casos sólo se dispone de unas pocas imágenes y no todas van a ser frontales y con buena calidad e iluminación.
+    \item Capaz de operar con un \textbf{pequeño conjunto de datos}, ya que como hemos comentado anteriormente, se dispone generalmente de pocas imágenes para realizar el marcado de landmarks. Esta propiedad es deseable porque generalmente, en los problemas forenses reales, no se dispone de una amplia variedad de imágenes de la persona desaparecida, en algunos casos sólo se dispone de unas pocas imágenes y no todas van a ser frontales y con buena calidad e iluminación.
 
     \item Debe proporcionar siempre una solución lo más \textbf{correcta} posible.  
     
@@ -130,10 +122,8 @@ Actualmente, este proceso del marcado de landmarks es costoso y complicado de re
 
 \begin{enumerate}
     \item Realizar una investigación sobre el estado del arte en la localización de landmarks cefalométricos en fotografías en el ámbito de la antropología forense.
-    \item Afianzar conocimientos adquiridos sobre Aprendizaje Automático y Visión por computador.
-    \item Realizar una investigación sobre los modelos de Auteoncoders y redes Adversarias existentes.
-    \item Realizar un estudio en el dataset proporcionado para identificar errores o anomalías.
-    \item Generar un nuevo dataset a partir del proporcionado realizando un cropping de las imágenes originales para quedarnos únicamente con la cara del sujeto y poder entrenar la red.
+    \item Realizar una investigación sobre los modelos de Autoencoders y redes adversarias existentes.
+    \item Explorar el dataset proporcionado para identificar errores o anomalías y pre-procesar el conjunto de datos existente, con el fin de obtener un dataset apto para el entrenamiento de la red.
     \item Realizar un estudio experimental realizando diversas pruebas sobre el framework con el conjunto de datos proporcionado.
 \end{enumerate}
 
@@ -156,7 +146,7 @@ Actualmente, este proceso del marcado de landmarks es costoso y complicado de re
         \item \textbf{Análisis del problema y requisitos}: En esta tapa se profundizará sobre el contexto y la importancia del problema a resolver y se llevarán a cabo reuniones con los tutores del trabajo para aclarar los requisitos y objetivos concreto del software a desarrollar. 
         \item \textbf{Diseño}: En nuestro caso, en esta etapa se realizarán dos tareas: 
         
-        En primer lugar se diseñará el estudio de la base de datos que emplearemos así como las transformaciones que deban sufrir los datos para poder ser empleados por el software que emplearemos en la fase de experimentación. 
+        En primer lugar se realizará un análisis de la base de datos que emplearemos así como las transformaciones que deban sufrir los datos para poder ser empleados por el software de experimentación. 
 
         En segundo lugar se diseñarán los experimentos a realizar así como las técnicas que se aplicarán, las métricas y los protocolos de validación que se usarán.
 
@@ -166,7 +156,7 @@ Actualmente, este proceso del marcado de landmarks es costoso y complicado de re
     
     \medskip
 
-    \noindent Debido a la alta carga de trabajo durante el curso, desde un comienzo, el desarrollo del trabajo se planificó pensando en su defensa para la convocatoria extraordinaria de Septiembre o para la convocatoria especial de Noviembre. Por ello, la planificación original por meses se puede observar en la \autoref{Fig::Planificacion original}.
+    \noindent Debido a la alta carga de trabajo durante el curso, desde un comienzo, el desarrollo del trabajo se planificó pensando en su defensa para la convocatoria extraordinaria de Septiembre o para la convocatoria especial de Noviembre. Por ello, la planificación original por meses se puede observar en la \autoref{Fig::Planificacion final}.
 
 
     \begin{figure}[!h]
@@ -199,7 +189,7 @@ Actualmente, este proceso del marcado de landmarks es costoso y complicado de re
     \begin{figure}[!h]
         \centering
         \includegraphics[width=0.95\textwidth]{img/plan_definitivo.png}
-        \caption{Planificación original.}
+        \caption{Planificación final.}
         \label{Fig::Planificacion final}
     \end{figure}
 
