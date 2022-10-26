@@ -14,13 +14,6 @@ Joan Bruna and St{\'e}phane Mallat.
 \newblock {\em IEEE transactions on pattern analysis and machine intelligence},
   35(8):1872--1886, 2013.
 
-\bibitem[BTO{\etalchar{+}}21]{bermejo2021automatic}
-Enrique Bermejo, Kei Taniguchi, Yoshinori Ogawa, Rub{\'e}n Martos, Andrea
-  Valsecchi, Pablo Mesejo, Oscar Ib{\'a}{\~n}ez, and Kazuhiko Imaizumi.
-\newblock Automatic landmark annotation in 3d surface scans of skulls:
-  Methodological proposal and reliability study.
-\newblock {\em Computer Methods and Programs in Biomedicine}, 210:106380, 2021.
-
 \bibitem[BW20]{browatzki20203fabrec}
 Bjorn Browatzki and Christian Wallraven.
 \newblock 3fabrec: Fast few-shot face alignment by reconstruction.
@@ -130,6 +123,12 @@ St{\'e}phane Mallat.
 Stéphane Mallat.
 \newblock Group invariant scattering.
 \newblock {\em Communications on Pure and Applied Mathematics}, 65, 10 2012.
+
+\bibitem[MMi{\etalchar{+}}20]{article}
+Pablo Mesejo, Ruben Martos, Oscar ibáñez, Jorge Novo, and Marcos Ortega.
+\newblock A survey on artificial intelligence techniques for biomedical image
+  analysis in skeleton-based forensic human identification.
+\newblock {\em Applied Sciences}, 10:4703, 07 2020.
 
 \bibitem[NI02]{norvig2002modern}
 P~Russel Norvig and S~Artificial Intelligence.

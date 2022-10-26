@@ -3,11 +3,11 @@
 
 \chapter{Introducción}  \label{ch:Introduccion_informatica}
 
-\noindent En los últimos años, el desarrollo de la Inteligencia Artificial \cite{norvig2002modern} ha permitido que tareas que antes se consideraban lentas o complicadas se puedan llevar a cabo con mayor rapidez y precisión. En cambio, hay otras que, incluso para expertos en la materia, todavía resultan complicadas de resolver de forma rápida y precisa. El presente trabajo de fin de grado (TFG) se ocupa de una de estas tareas: la localización automática de landmarks cefalométricos en fotografías para tareas de identificación humana forense
+\noindent En los últimos años, el desarrollo de la Inteligencia Artificial \cite{norvig2002modern} ha permitido que tareas que antes se consideraban lentas o complicadas se puedan llevar a cabo con mayor rapidez y precisión. En cambio, hay otras que, incluso para expertos en la materia, todavía resultan complicadas de resolver de forma rápida y precisa. El presente trabajo de fin de grado (TFG) se ocupa de una de estas tareas: la localización automática de landmarks cefalométricos en fotografías para tareas de identificación humana forense. 
 
 \medskip
 
-\noindent Las \textbf{ciencias forenses} son aquellas que aplican el método científico a hechos presuntamente delictivos con la finalidad de aportar pruebas a efectos judiciales. Dentro de este campo destacan principalmente dos disciplinas: 
+\noindent Nos encontramos pues en el ámbito de las \textbf{ciencias forenses}. Aquellas que aplican el método científico a hechos presuntamente delictivos, con la finalidad de aportar pruebas a efectos judiciales. Dentro de este campo destacan principalmente dos disciplinas: 
 
 \begin{itemize}
     \item La \textbf{Criminalística}: disciplina encargada del descubrimiento y verificación científica de presuntos hechos delictivos y quienes los cometen.
@@ -16,88 +16,83 @@
 
 \medskip
 
-\noindent Dentro de la medicina forense se encuentra la \textbf{antropología forense}, que principalmente se encarga de la identificación de personas a partir de restos óseos. Y es en este ámbito donde se encuentra el proceso que da sentido a este trabajo.
+\noindent Dentro de la medicina forense se encuentra la \textbf{antropología forense}, que principalmente se encarga de la identificación de personas a partir de restos óseos. Y es en este ámbito donde se encuentra el proceso que da sentido a este trabajo. 
 
 
-\section{Descripción del problema}
+\section{Descripción del problema y Motivación}
 
-\noindent Los antropólogos forenses emplean diversas técnicas para la identificación de personas a partir de restos óseos como son la reconstrucción de huesos, el cotejo fotográfico con el cráneo o el análisis de imágenes. De entre estas técnicas, destaca la \textbf{Superposición Craneofacial} por ser la que se encuentra más relacionada con el fin de este trabajo. Se trata de una técnica de identificación forense mediante la cual se comparan imágenes de la persona difunta (imágenes se le denominan imágenes ante-mortem) con una representación 3D de un cráneo candidato, con el fin de determinar si el cráneo pertenece a la persona de las imágenes o no. Se distinguen cuatro etapas en el proceso: 
+    \noindent Los \textbf{landmarks cefalométricos} son puntos localizados en la cara que nos permiten caracterizar la morfología de la cabeza. La correcta identificación de estos puntos es de extrema importancia en tareas como la extracción de índices de proporción antropométricos para problemas de clasificación o detección de patologías, la comparación facial forense y la identificación humana forense mediante la superposición craneofacial (SCF). Este último método es un procedimiento de identificación muy utilizado en el cual se comparan imágenes de la persona difunta (imágenes ante-mortem) con una representación 3D de un cráneo candidato, con el fin de determinar si el cráneo pertenece a la persona de las imágenes o no. La correspondencia entre cara y cráneo se hace con ayuda del marcado en el cráneo de landmarks \textit{craneométricos}. Así, cada landmark cefalométricos tiene un homólogo craneométrico con el mismo nombre. En la \autoref{fig:procesoSCF}  podemos ver un esquema del proceso seguido.
 
-\begin{enumerate}
-    \item \textbf{Se recogen todas las imágenes y datos disponibles} de los sujetos ante-mortem, se realiza un escaneo $3D$ de los cráneos candidatos y se realiza el marcado de \textit{landmarks} o puntos de referencia. El marcado de landmarks se realiza \textbf{de acuerdo a correspondencias morfológicas} tanto en la cara del sujeto en las imágenes como en el modelo $3D$ del cráneo candidato, de manera que cada punto marcado sobre el rosto tiene un homólogo marcado sobre el cráneo. Estos puntos de referencia reciben el nombre de \textbf{puntos craneométricos} cuando se marcan sobre el cráneo y \textbf{puntos cefalométricos} cuando se marcan sobre el rostro.
-    \item \textbf{Análisis morfológico y morfométrico}: en esta etapa se realiza la selección de parejas imagen modelo $3D$ sobre las que realizar la superposición craneofacial.
-    \item \textbf{Se realiza la superposición cráneo-cara} por parte del experto con ayuda de alguna herramienta como puede ser photoshop tratando de hacer corresponder cada landmark cefalométrico con su homólogo craneométrico.
-    \item Se realiza la toma de decisiones en función de la bondad de los ajustes realizados.
-\end{enumerate}
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.95\textwidth]{img/SCF.png}
+        \caption{Etapas del proceso de superposición craneofacial. En primer lugar se realiza la recogida de imágenes ante-mortem (AM) y muestras post-mortem (PM) junto con el marcado de landmarks y escaneo $3D$ del cráneo candidato. Tras esto comienza el experto comienza el proceso iterativo en el que trata de hacer coincidir los landmarks cefalométricos y craneométricos. Finalmente se realiza una toma de decisiones en función de los resultados obtenidos. Imagen extraída de \cite{article}.}
+        \label{fig:procesoSCF}
+    \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/ejemplo_SCF_intro.png}
-    \caption{Ejemplo del proceso a seguir por el antropólogo forense en la superposición cráneo facial. Imagen extraida de \cite{damas2020handbook}.}
-\end{figure}
+    \medskip
 
-\medskip
-
-\noindent Sin embargo, esta tarea no es sencilla por factores diversos a tener en cuenta como son la calidad de la imagen y el tejido blando facial que separa el punto craneométrico de su homólogo cefalométrico y que se traduce en una ligera traslación del punto. El desplazamiento ocasionado por el tejido blando facial no es constante ni se produce siempre en la misma dirección. Estos problemas, ocasionan que el experto forense tarde mucho en la tarea del marcado de landmarks. Una vez determinados los landmarks, un algoritmo automático puede encargarse de realziar el solapamiento del cráneo 3D y la imagen 2D acelerando el proceso y ahorrando tiempo en esta tarea al experto.
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{img/marcado_landmarks.png}
-    \caption{En esta imagen podemos ver la correspondencia entre landmarks craneométricos y cefalométricos. Algunos de los landmarks que aparecen en la imagen serán estudiados en este trabajo. Imagen extraida de \cite{damas2020handbook}.}
-\end{figure}
+    \noindent El marcado de landmarks cefalométricos no es una tarea sencilla, pues depende de factores diversos a tener en cuenta como son la calidad de la imagen, la posición del sujeto o el tejido blando facial (que separa el punto craneométrico de su homólogo cefalométrico). El desplazamiento ocasionado por el tejido blando facial no es constante ni se produce siempre en la misma dirección, podemos ver un ejemplo de este hecho en la \autoref{fig:landmarks_marcados}. Estos problemas, ocasionan que el experto forense tarde mucho en la tarea del marcado de landmarks y que el proceso sea difícilmente replicable. Por esto, pese a los avances actuales que se están llevando a cabo para automatizar esta tarea \cite{Huete2015PastPA}, la identificación de landmarks cefalométricos sigue realizándose a mano normalmente. En este contexto, el presente trabajo tratará de proporcionar una solución automática al proceso del marcado de \textbf{landmarks cefalométricos}.
 
 
-\newpage
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.9\textwidth]{img/marcado_landmarks.png}
+        \caption{En esta imagen podemos ver la correspondencia entre landmarks craneométricos y cefalométricos. Algunos de los landmarks que aparecen en la imagen serán estudiados en este trabajo. Imagen extraída de \cite{damas2020handbook}.}
+        \label{fig:landmarks_marcados}
+    \end{figure}
 
-\noindent En este trabajo se estudiarán un total de $30$ landmarks, que son los siguientes: 
+    \medskip 
 
-\begin{center}
-    \begin{tabular}{ |c|l|l|c| } 
-        \hline
-         & \textbf{Landmarks} & \textbf{Notación} \\
-        \hline
-        1 & Menton & Me \\ 
-        2 & Gnathion & Gn \\ 
-        3 & Pogonion & Pg \\ 
-        4 & Prosthion & Pr \\ 
-        5 & Labiale Superius & Ls \\ 
-        6 & Subnasale & Sn \\ 
-        7 & Nasion & N \\ 
-        8 & Glabella & G’ \\ 
-        9 & Vertex & v \\ 
-        10 & Left Gonion & GoL \\ 
-        11 & Right Gonion & GoR\\ 
-        12 & Left Zygion & zyL \\ 
-        13 & Right Zygion & zyR\\ 
-        14 & Left Alare & alL \\ 
-        15 & Right Alare & alR \\ 
-        16 & Left Endocanthion & EnL \\ 
-        17 & Right Endocanthion & EnR \\ 
-        18 & Left Exocanthion & ExL \\ 
-        19 & Right Exocanthion & ExR \\ 
-        20 & Left Tragion & T’L \\ 
-        21 & Right Tragion & T’R \\ 
-        22 & Infradentale & Id \\ 
-        23 & Trichion & Tr \\ 
-        24 & Supramentale & sm\\ 
-        25 & Left Frontotemporale & FtL \\ 
-        26 & Right Frontotemporale & FtR \\ 
-        27 & Left Frontozygomaticus & fzL \\ 
-        28 & Right Frontozygomaticus & fxR \\ 
-        29 & Left Midsurpaorbital & msoL \\ 
-        30 & Right Midsupraorbital & msoR \\ 
-        \hline
-    \end{tabular}
-\end{center}
+    \noindent Por otro lado, el reconocimiento de \textbf{landmarks faciales} (puntos de referencia marcados en la cara sin justificación biológica) es una tarea muy investigada actualmente, de la que existen  multitud de trabajos resueltos en su mayoría usando algoritmos de \textbf{deep learning}. Pese a no guardar relación con la morfología del cráneo, este tipo de landmarks son de gran utilidad para la identificación de personas en vídeos, el reconocimiento de gestos y posición de la cara o determinar la dirección en la que un individuo mira. 
+    
+    \medskip
+    
+    \noindent Para entrenar dichos algoritmos, se cuenta con multitud de bases de datos y ejemplos etiquetados, a diferencia que con los landmarks cefalométricos. Así, en este trabajo vamos a tratar de tomar una CNN experta en el reconocimiento de landmarks faciales en imágenes \textit{in-the-wild}, y vamos a tratar de especializarla en el marcado de \textbf{landmarks cefalométricos} aprovechando el conocimiento que ya poseen. En particular nos hemos fijado en el framework \textbf{3FabRec}\cite{browatzki20203fabrec}. Dicho framework cuenta con excelentes resultados en la tarea de detección de landmarks en imágenes y sobre todo nos interesa porque obtiene buenos resultados entrenando con pocas imágenes, algo que nos puede ser de utilidad teniendo en cuenta los pocos datos de los que se disponen. Así, se pretende diseñar un modelo capaz de aprender a marcar un total de $30$ landmarks, que son los siguientes: 
 
-\medskip 
+    \begin{center}
+        \begin{tabular}{ |c|l|l|c| } 
+            \hline
+            & \textbf{Landmarks} & \textbf{Notación} \\
+            \hline
+            1 & Menton & Me \\ 
+            2 & Gnathion & Gn \\ 
+            3 & Pogonion & Pg \\ 
+            4 & Prosthion & Pr \\ 
+            5 & Labiale Superius & Ls \\ 
+            6 & Subnasale & Sn \\ 
+            7 & Nasion & N \\ 
+            8 & Glabella & G’ \\ 
+            9 & Vertex & v \\ 
+            10 & Left Gonion & GoL \\ 
+            11 & Right Gonion & GoR\\ 
+            12 & Left Zygion & zyL \\ 
+            13 & Right Zygion & zyR\\ 
+            14 & Left Alare & alL \\ 
+            15 & Right Alare & alR \\ 
+            16 & Left Endocanthion & EnL \\ 
+            17 & Right Endocanthion & EnR \\ 
+            18 & Left Exocanthion & ExL \\ 
+            19 & Right Exocanthion & ExR \\ 
+            20 & Left Tragion & T’L \\ 
+            21 & Right Tragion & T’R \\ 
+            22 & Infradentale & Id \\ 
+            23 & Trichion & Tr \\ 
+            24 & Supramentale & sm\\ 
+            25 & Left Frontotemporale & FtL \\ 
+            26 & Right Frontotemporale & FtR \\ 
+            27 & Left Frontozygomaticus & fzL \\ 
+            28 & Right Frontozygomaticus & fxR \\ 
+            29 & Left Midsurpaorbital & msoL \\ 
+            30 & Right Midsupraorbital & msoR \\ 
+            \hline
+        \end{tabular}
+    \end{center}
+
+    \medskip 
 
 
-\section{Motivación}
-
-Actualmente, este proceso del marcado de landmarks es costoso y complicado de replicar, y pese a los avances actuales que se están llevando a cabo para automatizar esta tarea \cite{Huete2015PastPA}, la identificación de \textit{landmarks} sigue realizándose a mano normalmente. Sin embargo en la identificación de landmarks \textbf{craneométricos} podemos encontrar algunos trabajos publicados como \cite{bermejo2021automatic} que permiten una automatización de esta parte del proceso. En este contexto, el presente trabajo tratará de proporcionar una solución automática al proceso del marcado de \textbf{landmarks cefalométricos} (en imágenes ante-mortem).
-
-\medskip
+\section{Requisitos mínimos del algoritmo}
 
 \noindent El algoritmo que buscamos debería tener unos requisitos mínimos: 
 
@@ -111,10 +106,6 @@ Actualmente, este proceso del marcado de landmarks es costoso y complicado de re
 \end{itemize}
 
 \noindent Remarcamos que la intención no es reemplazar al experto en su labor del marcado de landmarks sino proporcionar una ayuda para acelerar el proceso.
-
-\medskip 
-
-\noindent Debido a que el algoritmo va a operar con imágenes, buscamos una solución dentro del área de la \textbf{visión por computador}. Actualmente existen  multitud de trabajos relacionados con el marcado de landmarks en imágenes dentro de este área, la mayoría usando algoritmos de \textbf{deep learning} y enfocadas al reconocimiento de individuos en imágenes. Los landmarks que marcan en estas propuestas no siguen correspondencias morfológicas, y dependen únicamente de la estructura facial del individuo. Dichos algoritmos son entrenados con grandes bases de datos de imágenes etiquetadas y actualmente se obtienen excelentes resultados en este tipo de problemas. En particular nos hemos fijado en el framework \textbf{3FabRec}\cite{browatzki20203fabrec}.Dicho framework cuenta con excelentes resultados en la tarea de detección de landmarks en imágenes y sobre todo nos interesa porque obtiene buenos resultados entrenando con pocas imágenes. Es este artículo el que supone el punto de partida para este trabajo, debido a que nos parece una buena alternativa tratar de adaptar este framework a la detección de landmarks cefalométricos en imágenes usando un dataset forense que contiene pocas imágenes etiquetadas por un experto.
 
 \section{Objetivos}
 

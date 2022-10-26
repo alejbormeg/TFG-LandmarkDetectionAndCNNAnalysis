@@ -6,36 +6,36 @@ Database file #1: library.bib
 Warning--empty publisher in norvig2002modern
 You've used 38 entries,
             2543 wiz_defined-function locations,
-            799 strings with 11875 characters,
-and the built_in function-call counts, 15385 in all, are:
-= -- 1507
-> -- 797
+            797 strings with 11757 characters,
+and the built_in function-call counts, 15278 in all, are:
+= -- 1499
+> -- 782
 < -- 21
-+ -- 282
-- -- 278
-* -- 1085
-:= -- 2543
++ -- 277
+- -- 272
+* -- 1073
+:= -- 2523
 add.period$ -- 115
 call.type$ -- 38
-change.case$ -- 251
+change.case$ -- 248
 chr.to.int$ -- 37
 cite$ -- 39
 duplicate$ -- 582
-empty$ -- 1096
-format.name$ -- 325
-if$ -- 3126
+empty$ -- 1094
+format.name$ -- 319
+if$ -- 3107
 int.to.chr$ -- 2
 int.to.str$ -- 0
 missing$ -- 35
 newline$ -- 195
 num.names$ -- 114
-pop$ -- 265
+pop$ -- 262
 preamble$ -- 1
-purify$ -- 293
+purify$ -- 290
 quote$ -- 0
 skip$ -- 512
 stack$ -- 0
-substring$ -- 765
+substring$ -- 760
 swap$ -- 95
 text.length$ -- 21
 text.prefix$ -- 13
