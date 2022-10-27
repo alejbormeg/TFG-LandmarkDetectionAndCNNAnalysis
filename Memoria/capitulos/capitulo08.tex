@@ -1,96 +1,93 @@
-\chapter{Métricas}
+\chapter{Implementación}
 
-    \noindent En este capítulo se van a presentar las principales métricas de error que se emplearán para estudiar la bondad de los resultados que se obtengan en futuros capítulos.
+\section{Diseño del Sofware}
 
-    \section{Métricas usadas en el entrenamiento}
-        \noindent Las métricas que se muestran durante el entrenamiento utilizadas por el modelo son:
+\noindent El diseño software no se ha orientado a crear un programa funcional para ser empleado por un usuario, sino que tiene como función entrenar los modelos probados y recabar los resultados oportunos de esos procesos. 
 
-        \subsection{MSE}
-            \noindent Se trata del error cuadrático medio, una función empleada típicamente en problemas de regresión y que tiene la siguiente expresión: 
+\medskip
 
-            \begin{equation}
-                MSE = \frac{1}{N} \sum_{i=1}^{N} (y_i - \widehat{y}_i)^2
-            \end{equation}
+\noindent En primer lugar se ha programado un \textit{notebook} de Jupyter independiente al proyecto general del framework, en el cual se realiza el preprocesamiento de los datos, la identificación de las caras y la separación en conjunto de entrenamiento y test. El fichero se denomina \textit{Make-crop-split database.ipynb}.
 
-            \noindent En nuestro caso concreto, este error se calcula entre los mapas de calor de los landmarks reales y predichos a nivel de pixel, es decir $y_i$ en la fórmula anterior corresponde a cada pixel del heatmap del landmark real y por tanto $\widehat{y}_i$ es el valor del pixel correspondiente en el heatmap predicho. Dichas diferencias se suman en todos los heatmaps y se divide por $N$ que en este caso es el número total de píxeles juntando todos los Heatmaps.
+\medskip
 
-            \medskip
+\noindent Por otro lado, en lo que respecta al entrenamiento y diseño de la red, partíamos de un proyecto ya elaborado minuciosamente que se ha tenido que adaptar para aceptar como entrada la nueva base de datos así como alterar ciertas partes de su entrenamiento (para poder hacer el ajuste fino del decoder por ejemplo, realizar técnicas de \textit{cross validation 5-fold}) o introducir nuevos parámetros y funciones para la obtención y manipulación de los datos, y la generación de las gráficas y tablas de resultados que se muestran. Además se tuvieron que alterar las funciones del cálculo de métricas para que tuvieran en cuenta que en todas las imágenes no necesariamente se incluían todos los landmarks, y por lo tanto que solo computasen aquellos presentes en las mismas.
 
-            \noindent Este error se empleará para realizar \textit{backpropagation} a través de las ITLs de la red y será el responsable del aprendizaje de la red.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/diagrama_paquetes_1.png}
+    \caption{Diagrama de paquetes del proyecto generado por \textit{pyreverse}, herramienta incluida en el paquete Pylint}
+    \label{fig:Diagrama_paquetes}
+\end{figure}
 
-        \section{Métricas empleadas en validación y testing}
+\medskip
 
-        \subsection{Error de reconstrucción}
-            \noindent Aunque no se trata de un métrica propia de un problema de regresión, el valor del error de reconstrucción en las imágenes de validación nos llevará en la sección de experimentación a realizar hipótesis sobre la relación entre este error y el NME.
+\noindent La estructura de paquetes la podemos ver en la \autoref{fig:Diagrama_paquetes}:
 
-            \medskip
-
-            \noindent Se trata de la función de coste \textbf{L1} que se aplica a la imagen original y la reconstruida  y nos porporciona una medida del error de reconstrucción a nivel de pixel. Su expresión es la siguiente:
-
-            \begin{equation}
-                Reconstruction \; Loss = \sum_{i=1}^n |p_i -q_i|
-            \end{equation}
-
-            \noindent Dónde $p_i$ representa cada pixel de la imagen reconstruida por la red y $q_i$ el equivalente en la imagen real.
-
-        \subsection{Normalized Mean Error}
-            \noindent Este será el error utilizado para medir la bondad de los resultados. Tiene la siguiente expresión para cada landmark de los $30$: 
-
-            \begin{equation}
-                NME=\frac{\sqrt{\sum_{i=1}^{n}(p_{i,1} -q_{i,1})^2+ (p_{i,2} -q_{i,2})^2}}{N}
-            \end{equation}
+\begin{itemize}
+    \item \textbf{3FabRec.eval\_landmarks}: Se lleva a acabo la evaluación del modelo en el conjunto de test.
+    \item \textbf{3FabRec.train\_aae\_landmarks}: Se lleva a cabo todo el proceso del entrenamiento supervisado del marcado de landmarks. Es el fichero que más se ha tenido que modificar, pues hemos cambiado la lógica del entrenamiento con respecto a la del framework original. Los parámetros de ejecución se encuentran en la \autoref{table:Params}.
+    \item \textbf{3FabRec.train\_aae\_unsupervised}: En este paquete se lleva a cabo el entrenamiento no supervisado de la red.
+    \item Los dos paquetes anteriores, a su vez se combinan en \textbf{3FabRec.aa\_training}, que encapsula toda la lógica del entrenamiento, incluyendo el aprendizaje supervisado y el no supervisado.
+    \item El paquete \textbf{3FabRec.landmarks} lleva a cabo todo lo relaitvo a la manipulación de los landmarks, el cálculo de los errores asociados a los mismos, el paso de Heat maps a coordenadas y la inversa, etc... En este fichero se ha tenido que modificar el subpaquete \textbf{3FabRec.lanmarks.lmutils} y \textbf{3FabRec.landmakrs.lmvis}. En el caso del primero porque hemos modificado algunas funciones que calculan las métricas de error adaptándolas al problema y en el caso del segundo porque no toda la información que se mostraban en las imágenes de salida era relevante para nuestro estudio, por lo que se han eliminado los datos innecesarios.
+    \item El paquete \textbf{3FabRec.constants} contiene variables globales relativas a los conjuntos de datos de entrenamiento, validación y test.
+    \item El paquete \textbf{3FabRec.networks} contienen todas las redes que se emplean en la arquitectura de la red. En concreto usaremos \textbf{3FabRec.networks.aae} en la cual se encuentra la estructura general del adversarial autoencoder.
+\end{itemize}
 
 
-            \noindent Así, si en total se han identificado en las imágenes de validación un total de $n$ landmarks de cierto tipo en las imágenes de test o validación, se calcula la distancia $L_2$ entre el landmark de la imagen $i$ predicho y el real. Y tras esto se suman todos los valores obtenidos. Como podemos ver, idealmente $n$ debería ser el total de imágenes que hay en validación o test, pero no todos los landmarks aparecen en todas las imágenes, por lo tanto $n\leq M$ siendo $M$ el total de imágenes en validación.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/diagrama_clases.png}
+    \caption{Diagrama de clases con las principales clases del proyecto.}
+    \label{fig:Diagrama_clases}
+\end{figure}
 
-            \noindent En dicha expresión $N$ es el término por el que se normaliza, y varía según el problema. En nnuestro caso normalizaremos la media del numerador por el ancho de la imagen que es de $256$ píxeles, ya que la distancia máxima permitida entre dos landmarks sería esta, y así todos los valores quedarían entre $0$ y $1$ siendo $0$ una estimación perfecta del landmark, y $1$ un error total en el marcado.
-
-            \subsection{SSIM}
-            \noindent Se trata del \textit{structural similarity index} (SSIM) y da una medida de \textit{similaridad} entre dos imágenes \cite{wang2004image}, su expresión es la siguiente: 
-
-            \begin{equation}
-                SSIM(x,y)=[l(x,y)]^\alpha[c(x,y)]^{\beta}[s(x,y)]^{\gamma}
-            \end{equation}
-
-            \medskip
-
-            \noindent Dónde $x,y$ son las dos imágenes que van a ser comparadas.
-
-            \medskip
-
-            \noindent La componente $c(x,y)$ hace referencia a la función de comparación del contraste de las dos imágenes y viene dada por la siguiente expresión: 
-
-            \begin{equation}
-                c(x,y)=\frac{2\sigma_x \sigma_y + C}{\sigma_x^2+ \sigma_y^2+C}
-            \end{equation}
-
-            \noindent Dónde $\sigma_x, \sigma_y$ hacen referencia a la desviación estándar de cada imagen.
-
-            \medskip
-
-            \noindent La componente $s(x,y)$ es la función de comparación estructural entre las dos imágenes y viene dada por la siguiente expresión:
-
-            \begin{equation}
-                s(x,y)=\frac{\sigma_{xy}+C/2}{\sigma_x \sigma_y +C/2}
-            \end{equation}
-
-            \noindent Dónde $\sigma_{xy}$ denota la covarianza.
-
-            \medskip
-
-            \noindent La componente $l(x,y)$ hace referencia a la \textit{luminosidad}, pero en el caso de 3FabRec se prescinde de esta componente, además los exponentes $\alpha, \beta , \gamma$ se igualan a $1$.
-
-            \medskip
-
-            \noindent Por otra parte siguen las indicaciones del paper original de SSIM que recomiendan usar estas comparaciones en regiones de la imagen y promediarlas en vez de aplicarlas sobre todo el conjunto de píxeles de la imagen, es por ello que la expresión final queda:
-
-            \begin{equation}
-                cs(x,y)=\frac{1}{|w|} \sum{c(x_w,y_w)s(x_w,y_w)}_w
-            \end{equation}
-
-            \noindent Dónde $w$ representa la ventana sobre la que se aplica la función y $|w|$ el total de ventanas. En nuestro caso se emplean ventanas de tamaño $31\times 31$.
+\begin{table}[!ht]
+    \centering
+    \caption{Argumentos con los que se ha experimentado en la ejecución del fichero train-aae-landmarks.py}
+    \begin{tabular}{|l|l|l|}
+    \hline
+        Parámetro & Descripción & Valor por defecto \\ \hline
+        --sessionname & Fichero de salida para los snapshots & None \\ \hline
+        -r & Ruta al snapshot a desde el que entrenar & None \\ \hline
+        --train-encoder & Si es True reentrena el encoder & False \\ \hline
+        --train-dencoder & Si True reentrena el dencoder & False \\ \hline
+        --epochs & Número de épocas que queremos entrenar la red & None \\ \hline
+        --batchsize & Tamaño del batchsize para entrenamiento & 50 \\ \hline
+        --batchsize-eval & Valor del batchsize para validación & 10 \\ \hline
+        --lr & Learning rate para el autoencoder & 0.00002 \\ \hline
+        --lr-heatmaps & Learning rate para las ITLs & 0.001 \\ \hline
+        --beta1 & Valor de beta 1 para Adam & 0.0 \\ \hline
+        --beta2 & Valor de beta 2 para Adam & 0.999 \\ \hline
+        --save-freq & Frecuencia de snapshot (en épocas) & 1 \\ \hline
+        --dataset & Dataset que se empleará & W300 \\ \hline
+        --sigma & Tamaño de los heatmaps & 7 \\ \hline
+    \end{tabular}
+    \label{table:Params}
+\end{table}
 
 
+\section{Entorno de ejecución}
+\noindent Las ejecuciones se han realizado todas en un ordenador portátil \textit{HP Pavilion} con las siguientes características: 
+
+\begin{itemize}
+    \item Ubuntu $20.04.5$ LTS $64$ bits.
+    \item $8$ GB de RAM
+    \item $8$ x Intel® Core™ i$5$-$8300$H CPU @ $2.30$GHz
+    \item GPU NVIDIA GeForce GTX $1050$ Mobile
+\end{itemize}
+
+\medskip
+
+\noindent Por otro lado, las versiones del software empleado son: 
+
+\begin{itemize}
+    \item Python 3.6.13
+    \item CUDA 10.1
+    \item PyTorch 1.1.0
+    \item Numpy 1.17.4
+    \item Pandas 0.23.3
+    \item Matplotlib 3.3.4
+\end{itemize}
 
 
 \endinput

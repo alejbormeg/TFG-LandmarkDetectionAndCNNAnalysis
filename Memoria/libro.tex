@@ -73,6 +73,10 @@
 \usepackage[mathscr]{eucal} 					% Proporciona el comando \mathscr para
                                       % fuentes de tipo manuscrito en modo matemático sin sobreescribir el comando \mathcal
 
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{tabularx}
+    \newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
 % TIPOGRAFÍA 
 % ---------------------------------------------------------------------
 % El paquete microtype mejora la tipografía del documento.
@@ -241,7 +245,6 @@
 \input{capitulos/capitulo08}
 \input{capitulos/capitulo09}
 \input{capitulos/capitulo10}
-\input{capitulos/capitulo11}
 
 % --------------------------------------------------------------------
 % APPENDIX: Opcional
