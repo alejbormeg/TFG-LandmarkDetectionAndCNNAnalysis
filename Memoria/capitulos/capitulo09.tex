@@ -5,15 +5,15 @@
     \begin{itemize}
     \item \textbf{300-W}: Se trata de un dataset compuesto por $3148$ imágenes de entrenamiento y $689$ imágenes de test \textit{in-the-wild}, es decir con multitud de poses, distinta iluminación y expresiones faciales. Está anotada por 51 landmarks o 68 landmarks si contamos el contorno del rostro \cite{300W}. Podemos ver los landmarks en la imagen \autoref{fig:300W}
     
-    \begin{figure}[!h]
+    \begin{figure}[h]
         \centering
-        \includegraphics[width=0.8\textwidth]{img/33W.png}
+        \includegraphics[width=0.5\textwidth]{img/33W.png}
         \caption{Conjunto de landmarks anotados en el dataset 300W, en la imagen \textit{a} contando el contorno del rostro son un total de 68 landmarks, en la imagen \textit{b} son 51 en total. Imagen extraida de \cite{300W}.}
         \label{fig:300W}
     \end{figure}
     
     \item \textbf{AFLW}: Se trata de un dataset de $24386$ imágenes \textit{in-the-wild} con un total de 21 landmarks anotados entre las cejas y el mentón, como podemos ver en la imagen \autoref{fig:AFLW}  \cite{AFLW}
-    \begin{figure}[!h]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{img/AFLW.png}
         \caption{Conjunto de landmarks anotados sobre un modelo $3$D que emplea el dataset AFLW. Imagen extraida de \cite{AFLW}.}
@@ -39,7 +39,7 @@
             \item Finalmente, se puede incluir una tercera fase de \textit{finetuning} en la cual se entrena el Encoder para mejorar el rendimiento en la predicción de landmarks.
         \end{itemize} 
 
-        \begin{figure}[!h]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=0.98\textwidth]{img/3fabrec_arquitectura.png}
             \caption{Imagen resumen del framework 3FabRec. En ella podemos ver la estructura del \textit{Adversarial Autoencoder}, dividido en un Encoder (región bajo la \textit{E}) y un Generator (región bajo la \textit{G}). En rojo podemos ver las ITLs que se intercalan entre cada capa del Generador y dan como resultado un conjunto de mapas de calor. Imagen extraída de \cite{browatzki20203fabrec}.}
@@ -54,20 +54,16 @@
                 \item \textbf{Decoder}: emplean la misma red ResNet-$18$ pero invertida.
             \end{itemize}
 
-            \noindent Para una mejor comprensión hemos realizado unos diagramas con la herramienta \textit{diagrams.net}. En la \autoref{fig:bloque_encoder} podemos ver la estructura básica de los bloques de la ResNet-$18$.
+            \noindent Para una mejor comprensión hemos realizado unos diagramas con la herramienta \textit{diagrams.net}. En la \autoref{fig:bloque_encoder} podemos ver la estructura básica de los bloques de la ResNet-$18$. Por otro lado en la \autoref{fig:Paso_encoder} podemos ver el paso de una imagen de entrada de tres canales y resolución $256 \times 256$ por el encoder.
 
-            \begin{figure}[!h]
+            \begin{figure}[htbp]
                 \centering
                 \includegraphics[width=0.95\textwidth]{img/bloque_basico_encoder.png}
                 \caption{Bloques básicos que utilza la red ResNet-$18$ en sus capas. Se trata de una sucesión clásica de Convolución 3x3 + Batch Normalization + ReLU que se repite dos veces. En el primer caso los filtros de convolución no reducen las dimensiones del tensor añadiendo un padding de 1. En el segundo caso se reduce la dimensión del tensor a la mitad tras la primera convolución y se manteiene la dimensionalidad en la segunda. En el primer caso, la suma residual puede realizarse con el tensor x sin problema, en el segundo caso el tensor debe reducirse para que casen las dimensiones.}
                 \label{fig:bloque_encoder}
             \end{figure}
 
-            \medskip 
-
-            \noindent Por otro lado en la \autoref{fig:Paso_encoder} podemos ver el paso de una imagen de entrada de tres canales y resolución $256 \times 256$ por el encoder.
-
-            \begin{figure}[!h]
+            \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.7\textwidth]{img/3FabRec-Page-2.drawio.png}
                 \caption{Ejemplo de paso de una imagen a través del Encoder. Cabe destacar que a partir de la Layer 1, todos los bloques tienen downsample.}
@@ -78,14 +74,14 @@
 
             \noindent En la \autoref{fig:Bloque_Decoder} podemos ver la estructura básica de un bloque en el Generador \textit{Inverse ResNet}, y un ejemplo del paso de un vector por el generador podemos verlo en la \autoref{fig:Paso_Generator}
 
-            \begin{figure}[!h]
+            \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.96\textwidth]{img/bloque_invresnet.png}
                 \caption{En primer lugar se aplica una convolución transpuesta que duplica las dimensiones del tensor de entrada y tras esto se sigue la misma estructura que en el bloque básico de la ResNet-$50$, la segunda convolución $3\times 3$ mantiene las dimensiones. Como consecuencia, para sumar el tensor de entrada con la salida del bloque se aumentan las dimensiones de este.}
                 \label{fig:Bloque_Decoder}
             \end{figure}
 
-            \begin{figure}[!h]
+            \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.95\textwidth]{img/paso_generator.png}
                 \caption{Ejemplo del paso de un vector de $99$ dimensiones por el generador hasta reconstruirse la imagen de dimensiones $256 \times 256 \times 3$. La parte correspondiente al aprendizaje supervisado es la de los cuadrados azules, los cuadrados rojos corresponden a las \textit{ITLS} de la parte supervisada que se intercalan entre cada dos capas y dan como resultado los mapas de calor de los landmarks predichos.}
@@ -94,7 +90,7 @@
 
             \noindent Finalmente, para definir el autoencoder necesitamos un Discriminador, el cual que procure que los vectores del espacio vectorial latente sigan una determinada distribución. Dicha distribución será una normal multivariante estándar. Por otro lado, se añadirá un segundo discriminador propio de las redes \textbf{GAN} que nos dirá si la imagen reconstruida procede de la distribución que siguen los píxeles de la imagen de inicio. Este discriminador permite que la red genere imágenes más realistas, y es novedoso por no ser frecuente en la arquitectura de un Adversarial Autoencoder. En la \autoref{fig:DGaussian} las redes neuronales que definen ambos discriminadores.
 
-            \begin{figure}[!h]
+            \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.95\textwidth]{img/DGaussian.png}
                 \caption{En la imagen superior vemos el discriminante que se emplea para los vectores producidos por el Encoder y en la imagen inferior vemos el discriminante que se emplea para las imágenes generadas por el Generador. En ambos casos se da como salida un valor entre $0$ y $1$ que hace referencia a la probabilidad de pertenecer a la distribución deseada en el primer caso o a seguir la distribución de los píxeles de las imágenes en el segundo caso.}
@@ -196,28 +192,28 @@
 
                 \noindent Finalmente, durante la etapa de \textit{fine-tuning} se establece un \textit{learning-rate} de $0.0001$ en las \textit{ITLs} mientras que el del \textit{Encoder} se mantiene en su valor por defecto de $2 \times 10^{-5}$ y cambiando el valor de $\beta_1 = 0.9$.
 
-            \subsection{Bases de datos usadas por el framework}
-                
-                \noindent Para el entrenamiento supervisado se emplearon los siguientes datasets unidos: 
+        \subsection{Bases de datos usadas por el framework}
+            
+            \noindent Para el entrenamiento supervisado se emplearon los siguientes datasets unidos: 
 
-                \begin{itemize}
-                    \item \textbf{VGGFace2} : Contiene un total de $3.3$ millones de imágenes de rostros en distintas poses, edad, iluminación, etnia, etc... Del dataset eliminaron las imágenes de rostros que tuviera una altura mayor a $100$ píxeles, quedando un total de $1.8$ millones de caras.
-                    \item \textbf{AffectNet} : Se trata de un dataset de $228$ mil imágenes en una gran variedad de poses, iluminación, etc..
-                \end{itemize}
+            \begin{itemize}
+                \item \textbf{VGGFace2} : Contiene un total de $3.3$ millones de imágenes de rostros en distintas poses, edad, iluminación, etnia, etc... Del dataset eliminaron las imágenes de rostros que tuviera una altura mayor a $100$ píxeles, quedando un total de $1.8$ millones de caras.
+                \item \textbf{AffectNet} : Se trata de un dataset de $228$ mil imágenes en una gran variedad de poses, iluminación, etc..
+            \end{itemize}
 
-                \noindent En total usaron unas $2.1$ millones de imágenes.
+            \noindent En total usaron unas $2.1$ millones de imágenes.
 
-                \noindent Para el entrenamiento no supervisado se emplearon los siguientes datasets: 
+            \noindent Para el entrenamiento no supervisado se emplearon los siguientes datasets: 
 
-                \begin{itemize}
-                    \item \textbf{300-W} : une diversos datasets de rostros etiquetados con \textbf{$68$}landmarks de manera semi-automática como son \textbf{LFPW},\textbf{AFW}, \textbf{HELEN} y \textbf{XM2VTS}. Además de añadir datos propios. En total emplearon $3,148$ (aproximadamente el $80 \%$ )imágenes para el entrenamiento y $689$ para test, las cuales se dividieron en dos grupos, uno de $554$ imágenes considerado el grupo test estándar, y otro de $135$ imágenes difíciles.
-                    \item \textbf{AFLW} : contiene un total de $24,386$ imágenes \textit{in-the-wild} con un amplio rango de poses distintas. Se emplearon $20,000$ (aproximadamente el $80 \%$) imágenes para test y $4,386$ para entrenamiento. Las imágenes vienen etiquetadas con $21$ landmarks, pero en el framework se entrena la red para predecir \textbf{$19$}.
-                    \item \textbf{WFLW}: Es la más reciente de las empleadas y tiene un total de $10,000$ imágenes. Se usan $7,500$ para entrenamiento y $2,500$ para test. Las imágenes tienen un total de \textbf{$98$} landmarks anotados.
-                \end{itemize}
+            \begin{itemize}
+                \item \textbf{300-W} : une diversos datasets de rostros etiquetados con \textbf{$68$}landmarks de manera semi-automática como son \textbf{LFPW},\textbf{AFW}, \textbf{HELEN} y \textbf{XM2VTS}. Además de añadir datos propios. En total emplearon $3,148$ (aproximadamente el $80 \%$ )imágenes para el entrenamiento y $689$ para test, las cuales se dividieron en dos grupos, uno de $554$ imágenes considerado el grupo test estándar, y otro de $135$ imágenes difíciles.
+                \item \textbf{AFLW} : contiene un total de $24,386$ imágenes \textit{in-the-wild} con un amplio rango de poses distintas. Se emplearon $20,000$ (aproximadamente el $80 \%$) imágenes para test y $4,386$ para entrenamiento. Las imágenes vienen etiquetadas con $21$ landmarks, pero en el framework se entrena la red para predecir \textbf{$19$}.
+                \item \textbf{WFLW}: Es la más reciente de las empleadas y tiene un total de $10,000$ imágenes. Se usan $7,500$ para entrenamiento y $2,500$ para test. Las imágenes tienen un total de \textbf{$98$} landmarks anotados.
+            \end{itemize}
 
-                \medskip
+            \medskip
 
-                \noindent Como podemos observar, los conjuntos de datos disponibles para el entrenamiento de redes especializadas en la identificación de landmarks faciales son variados y con muchos ejemplos de entrenamiento. En nuestro caso concreto, no contamos con tantos ejemplos y apenas hay bases de datos forenses con landmarks cefalométricos, lo cual es una dificultad añadida al problema, pues solo podremos entrenar con los datos que se nos proporcionan y como veremos son muy pocos.
+            \noindent Como podemos observar, los conjuntos de datos disponibles para el entrenamiento de redes especializadas en la identificación de landmarks faciales son variados y con muchos ejemplos de entrenamiento. En nuestro caso concreto, no contamos con tantos ejemplos y apenas hay bases de datos forenses con landmarks cefalométricos, lo cual es una dificultad añadida al problema, pues solo podremos entrenar con los datos que se nos proporcionan y como veremos son muy pocos.
 
 \section{Métricas}
 
@@ -333,14 +329,14 @@
             \noindent La aparición en mayor o menor medida de cierto landmark en las imágenes nos sirve de indicador de si podrá ser o no aprendido por el modelo que usemos, de manera que los landmarks mencionados anteriormente, a causa del bajo número de ejemplos en los que aparecen puede ser más difícil que se aprendan.
         \end{itemize}
 
-            \begin{figure}[!h]
+            \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.9\textwidth]{img/imagenes_ejemplo_dataset.png}
                 \caption{Imágenes de ejemplo del dataset proporcionado. Como puede observarse hay gran variedad de tamaños, poses, condiciones de iluminación diferentes que añaden dificultad al problema.}
                 \label{fig:Imagenes_dataset}
             \end{figure}
 
-            \begin{figure}[!h]
+            \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.9\textwidth]{img/distribucion_landmarks_imagenes.png}
                 \caption{Histograma con la aparición de cada tipo de landmark en las imágenes del dataset.}
@@ -382,7 +378,7 @@
 
             \medskip 
 
-            \begin{figure}[!h]
+            \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.7\textwidth]{img/imagenes_ejemplo_bb.png}
                 \caption{Imágenes de ejemplo del dataset con los \textit{bounding boxes} marcados por \textit{Facenet}. Como podemos observar, aunque son correctos, los \textit{bounding boxes} marcados recortan excesivamente los límites del rostro, pudiendo incluso eliminar partes en las que hay landmarks marcados. Las imágenes han sido generadas con \textit{matplotlib}.}
@@ -411,14 +407,14 @@
             \noindent La transfomación consiste en desplazar la esquina superior izquierda del rectángulo una cantidad \textit{m} en el eje de ordenadas y abscisas y establecer el resto de esquinas de acuerdo a este parámetro como se muestra en la \autoref{fig:Transformacion_BB}.
 
 
-            \begin{figure}[!h]
+            \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.8\textwidth]{img/Transformacion_rectangulo.png}
                 \caption{Proceso seguido para la transformación.}
                 \label{fig:Transformacion_BB}
             \end{figure}
 
-            \begin{figure}[!h]
+            \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.7\textwidth]{img/imagenes_ejemplo_cropping.png}
                 \caption{Recorte de las caras tras el reajuste del \textit{bounding box}.}
@@ -521,7 +517,7 @@
 
         \noindent Por otro lado, podemos ver en la \autoref{fig:Curvas_modelbase} las curvas de aprendizaje de cada partición. Todas tiene una gran capacidad de generalización, pues como vemos el error de validación desciende a la par que el de entrenamiento y está poco por encima de este último.
 
-        \begin{figure}[!h]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/curvas_aprendizaje_modelbase.png}
             \caption{Curvas de aprendizaje en cada partición del modelo base.}
@@ -530,7 +526,7 @@
 
         \noindent En resumen, los resultados parecen buenos para tratarse de una primera aproximación. Sin embargo, consideramos que debido a la gran variabilidad del dataset tanto en posturas, como en calidad e iluminación de imagen, la reconstrucción de las imágenes se ha resentido, especialmente en las imágenes de perfil. Esto provoca que el modelo también marque peor los landmarks, por lo que vamos a intentar mejorar esto en los próximos modelos. Podemos ver el rendimiento del modelo en algunas imágenes en la \autoref{fig:Ejemplo_ModelBase}.
 
-        \begin{figure}[!h]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/image_basemodel.png}
             \caption{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf{modelo base}. Las imágenes de la fila superior son las imágenes reales, y las de la fila inferior las reconstruidas por la red. El marcado se realiza sobre las reconstruidas y luego se lleva a las superiores. Podemos apreciar en verde los landmarks reales y  en azul los predichos. El valor que aparece en la esquina inferior derecha es el NME global de la imagen (la media de los NMEs de cada landmark) y en la esquina inferior izquierda aparece el error de reconstrucción y encima el SSIM.}
@@ -538,11 +534,11 @@
         \end{figure}
 
     \subsection{Modelo con reentrenamiento del encoder}
-        \noindent A la luz de los resultados anteriores, vamos a cambiar el modelo de manera que ahora junto con las ITLs (que seguirán usando el mismo optimizador con los mismos parámetros por defecto), vamos a entrenar los pesos del \textit{encoder}. Con este enfoque queremos enseñar a la red a codificar mejor la información presente en las imágenes del dataset (que son más difíciles que las de los datasets empleados anteriormente), a la par que la enseñamos a marcar landmarks en las mismas. Remarcamos que la función de coste que se empleará tanto para el entrenamiento de los pesos de las ITLs como los del encoder será el \textit{MSE} entre los mapas de calor predichos y los reales.
+        \noindent A la luz de los resultados anteriores, vamos a cambiar el modelo de manera que ahora junto con las ITLs (que seguirán usando el mismo optimizador con los mismos parámetros por defecto), vamos a entrenar los pesos del \textit{encoder}. Con este enfoque queremos enseñar a la red a \textbf{codificar mejor} la información presente en las imágenes del dataset (que, son más difíciles que las de los datasets empleados anteriormente), a la par que la enseñamos a marcar landmarks en las mismas. Remarcamos, que la función de coste que se empleará tanto para el entrenamiento de los pesos de las ITLs como los del encoder será el \textit{MSE} entre los mapas de calor predichos y los reales.
 
         \medskip
 
-        \noindent Este proceso no produce overfitting pues durante las etapas de entrenamiento los pesos del \textit{decoder} permanecerán congelados, y serán únicamente los pesos del \textit{encoder} los que se actualicen con backpropagation. El optimizador empleado para el entrenamiento del \textit{encoder} es Adam, el mismo que ellos emplean y los parámetros se mantienen por defecto ($\beta_1=0.9$ y $\beta_2=0.999$) a excepción del \textit{learning rate}, que se establece a $2^{-6}$, en vez de $2^{-5}$. El motivo por el cual se realiza este cambio es porque experimentando en esta fase se vio que con el antiguo \textit{Learning rate} no se conseguía mejorar apenas la reconstrucción en validación, pues durante el entrenamiento el error de reconstrucción pronto quedaba estancado en un valor. Para evitar esto se optó por reducir el learning rate consiguiendo mejorar un poco más el error de reconstrucción. El entrenamiento duró en total \textbf{100 épocas}, pues el modelos mejora más lentamente en el reconocimiento de landmarks.
+        \noindent Es importante aclarar que este proceso no produce overfitting, pues durante las etapas de entrenamiento los pesos del \textit{decoder} permanecerán congelados, y serán únicamente los pesos del \textit{encoder} los que se actualicen con backpropagation. El optimizador empleado para el entrenamiento del \textit{encoder} es Adam, el mismo que ellos emplean y los parámetros se mantienen por defecto ($\beta_1=0.9$ y $\beta_2=0.999$) a excepción del \textit{learning rate}, que se establece a $2^{-6}$, en vez de $2^{-5}$. El motivo por el cual se realiza este cambio es porque experimentando en esta fase se vio que con el antiguo \textit{Learning rate} no se conseguía mejorar apenas la reconstrucción en validación, pues durante el entrenamiento el error de reconstrucción pronto quedaba estancado en un valor. Para evitar esto se optó por reducir el learning rate consiguiendo mejorar un poco más el error de reconstrucción. El entrenamiento duró en total \textbf{100 épocas}, pues como veremos, el modelos mejora más lentamente en el reconocimiento de landmarks.
 
             \begin{table}[!ht]
                 \centering
@@ -583,7 +579,8 @@
                 \end{tabular}
                 \label{table:Encode_landmarkresume}
             \end{table}    
-    \noindent Como podemos observar en la \autoref{table:Encode_landmarkresume}, los valores son muy similares a los del modelo base, pese a que este ha entrenado durante más épocas. El \textit{Prosthion} sigue siendo el landmark mejor marcado con un valor del error NME ligeramente superior al del modelo base, sin embargo la verdadera mejora se aprecia en el marcado de landmarks de los perfiles, al mejorar la reconstrucción de los mismos, el \textit{Right Gonion} ha bajado su error considerablemente con respecto al modelbase.
+
+    \noindent Como podemos observar en la \autoref{table:Encode_landmarkresume}, los valores son muy similares a los del modelo base, pese a que este ha entrenado durante más épocas. El \textit{Prosthion} sigue siendo el landmark mejor marcado, con un valor del error NME ligeramente superior al del modelo base. Sin embargo la verdadera mejora se aprecia en el marcado de landmarks de los perfiles, al mejorar la reconstrucción de los mismos, el \textit{Right Gonion} ha bajado su error a la mitad, y el \textit{Left Gonion} ha reducido su error en dos puntos con respecto al modelo base.
     
     \medskip
     
@@ -591,9 +588,9 @@
 
     \medskip
 
-    \noindent Finalmente podemos observar en las curvas de aprendizaje para este modelo en la \autoref{fig:curvas_encoder} que comienza a bajar la capacidad de generalización del modelo a partir de la época 20 aproximadamente. El error de entrenamiento comienza a descender muy lentamente mientras que el de validación se mantiene constante.
+    \noindent Finalmente podemos observar las curvas de aprendizaje para este modelo en la \autoref{fig:curvas_encoder}. A diferencia del modelo anterior, comienza a bajar la capacidad de generalización a partir de la época 20 aproximadamente. El error de entrenamiento comienza a descender muy lentamente con cada época mientras que el de validación se mantiene constante.
 
-    \begin{figure}[!h]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{img/curvas_encoder.png}
         \caption{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}
@@ -602,9 +599,9 @@
 
     \medskip
 
-    \noindent Viendo estos resultados no parece muy prometedora esta línea de investigación, por lo que vamos a cambiar el enfoque sobre el finetuning en el siguiente modelo. Podemos ver el comportamiento del modelo en algunas imágenes de validación de diversas particiones de \textit{cross-validation} en la \autoref{fig:Ejemplo_encoder}
+    \noindent Viendo estos resultados no parece muy prometedora esta línea de investigación. Bien es cierto que hemos mejorado considerablemente el error de los dos landmarks peor marcados, pero el coste computacional que ha supuesto no compensa para la leve mejora global del modelo. Es por esto por lo que vamos a cambiar el enfoque sobre el \textit{fine-tuning} en el siguiente modelo. Podemos ver el comportamiento del modelo en algunas imágenes de validación de diversas particiones de \textit{cross-validation} en la \autoref{fig:Ejemplo_encoder}
 
-    \begin{figure}[!h]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{img/image_encoder.png}
         \caption{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf{modelo de ajuste fino del encoder}.}
@@ -612,7 +609,7 @@
     \end{figure}
 
     \subsection{Modelo con reentrenamiento del decoder}
-        \noindent Del mismo modo en que se experimentó con el \textit{encoder} se hizo con el \textit{decoder}. En este enfoque asumimos que el framework sabe codificar correctamente las imágenes pero que no realiza lo suficientemente bien la reconstrucción de las mismas debido a la alta variabilidad del dataset. Esta etapa es completamente análoga a la del modelo anterior (incluyendo el mismo tipo de optimizadores, parámetros y regiones que permanecen congeladas de la red), pero actualizando los pesos del \textit{decoder}.
+        \noindent Del mismo modo en que se experimentó con el \textit{encoder} se hizo con el \textit{decoder}. En este enfoque asumimos que el framework sabe codificar correctamente las imágenes pero que no realiza lo suficientemente bien la reconstrucción de las mismas debido a la alta variabilidad del dataset. Esta etapa es completamente análoga a la del modelo anterior (incluyendo el mismo tipo de optimizadores, parámetros y regiones que permanecen congeladas de la red), pero actualizando los pesos del \textit{decoder} y las ITLs mientras se congelan los pesos del \textit{encoder}.
 
         \begin{table}[!ht]
             \centering
@@ -655,17 +652,17 @@
         \end{table}
         \medskip 
 
-        \noindent De nuevo los errores por landmark que se muestran en la tabla \autoref{table:Decoder_landmarksresume} es muy similar a la de los dos modelos anteriores, por lo que no hemos logrado una gran mejora con este modelo tampoco. Lo único digno de mención es que de nuevo los landmarks que son más visibles en imágenes de perfil han reducido su error debido a la leve mejora de la reconstrucción de las imágenes. 
+        \noindent De nuevo los errores por landmark que se muestran en la tabla \autoref{table:Decoder_landmarksresume} es muy similar a la de los dos modelos anteriores, por lo que no hemos logrado una gran mejora con este modelo tampoco. Lo único digno de mención es que de nuevo los landmarks que son más visibles en imágenes de perfil han reducido su error debido a la leve mejora de la reconstrucción de las imágenes, aunque esta mejora es prácticamente la misma que en el modelo anterior de ajuste fino del encoder.
 
         \medskip
 
-        \noindent Por otro lado, en lo que respecta a los errores promedio de todos los landmarks por imagen, las tablas por partición se pueden consultar en \autoref{ap:apendiceC}, aunque los resultados son muy similares a los de los modelos anteriores. El error de reconstrucción de nuevo no mejora apenas, igual que el estructural y los errores NMEs promedio son muy parecidos a los de los otros modelos. 
+        \noindent Por otro lado, en lo que respecta a los errores promedio de todos los landmarks por imagen, las tablas por partición se pueden consultar en \autoref{ap:apendiceC}. Aunque los resultados son muy similares a los de los modelos anteriores, el error de reconstrucción de nuevo no mejora apenas, igual que el estructural y los errores NMEs promedio son muy parecidos a los de los otros modelos. 
 
         \medskip
 
         \noindent Las curvas de aprendizaje se pueden ver en la \autoref{fig:curvas_decoder}, y vuelven a mostrar un ligero overfitting a partir de la época $30$-$40$, en la mayoría de casos. 
         
-        \begin{figure}[!h]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/curvas_decoder.png}
             \caption{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}
@@ -676,7 +673,7 @@
 
         \noindent Tras los resultados obtenidos se ha optado por abandonar también esta línea de investigación pues se obtienen resultados muy similares al modelo base y se debe entrenar por mucho más tiempo ($100$ épocas frente a $40$ del modelo base). Los resultados del modelo sobre algunas imágenes pueden verse en \autoref{fig:Ejemplo_decoder}
 
-        \begin{figure}[!h]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/image_decoder.png}
             \caption{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf{modelo de ajuste fino del decoder}.}
@@ -684,7 +681,7 @@
         \end{figure}
 
     \subsection{Modelo con Data Augmentation}
-        \noindent Comparando los tres resultados anteriores, el modelo base sigue siendo el más prometedor, por lo que en lugar de mejorar el error de reconstrucción vamos a centrarnos en mejorar el marcado de landmarks. Como pudimos ver en el modelo base, se consiguieron buenos resultados del \textit{NME} pese a haber entrenado sin realizar técnicas de \textit{data augmentation}. Es por ello que en este segundo experimento vamos a realizar los siguientes cambios en el entrenamiento: 
+        \noindent Vamos a optar a continuación por un nuevo enfoque. En lugar de mejorar el error de reconstrucción vamos a centrarnos en mejorar el marcado de landmarks en las imágenes reconstruidas que genera el modelo preentrenado. Como pudimos ver en el modelo base, se consiguieron buenos resultados del \textit{NME} pese a haber entrenado sin realizar técnicas de \textit{data augmentation}. Es por ello que en este segundo experimento vamos a realizar los siguientes cambios en el entrenamiento: 
         
         \begin{itemize}
             \item En primer lugar se realizará un entrenamiento del modelo similar al del modelo base durante $40$ épocas.
@@ -737,7 +734,7 @@
         \end{table}
         \medskip
 
-        \noindent Como podemos ver en la \autoref{table:Daugmentation_landmarksresume}, los errores se han reducido en general en todos los landmarks, además la red ha conseguido aprender a marcar con un alto grado de precisión los puntos que se ven en el perfil de la cara. El punto mejor marcado sería el \textit{prosthion} de nuevo, y el peor marcado el \textit{right zygion}. Sin embargo, la diferencia en términos de error entre ambos es mucho menor que en el caso del modelo base. 
+        \noindent Como podemos ver en la \autoref{table:Daugmentation_landmarksresume}, los errores se han reducido en todos los landmarks. Además, la red ha conseguido aprender a marcar con un alto grado de precisión los puntos que se ven en el perfil de la cara también, siendo esta alternativa menos costosa que la de los dos modelos anteriores tanto en número de épocas como en parámetros que se actualizan de la red (en este nuevo modelo sólo se actualizan los pesos de las ITLs). El punto mejor marcado sería el \textit{prosthion} de nuevo, y el peor marcado el \textit{right zygion}. Sin embargo, la diferencia en términos de error entre ambos es mucho menor que en el caso del modelo base. 
 
         \medskip
 
@@ -747,14 +744,14 @@
 
         \noindent Finalmente las curvas de aprendizaje obtenidas se pueden observar en \autoref{fig:curvas_daugmentation}. Como vemos presentan una gran capacidad de generalización, pues el error de entrenamiento y validación decrecen de forma continua y muy próxima. Algunas imágenes de ejemplo podemos verlas en la \autoref{fig:Ejemplo_daug}.
 
-        \begin{figure}[!h]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/curvas_daugmentation.png}
             \caption{Curvas de aprendizaje en cada partición del modelo de data augmentation.}
             \label{fig:curvas_daugmentation}
         \end{figure}
 
-        \begin{figure}[!h]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/image_daug.png}
             \caption{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf{modelo data augmentation}.}
@@ -767,40 +764,40 @@
 
         \begin{table}[!ht]
             \centering
-            \caption{Tabla con la media del error NME por landmark en el conjunto de test}
+            \caption{Tabla comparativa entre los resultados del modelo de data augmentation en el conjunto de validación y test}
             \begin{tabular}{|l|l|l|}
             \hline
-                ~ & \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{Media NME por landmark} \\ \hline
-                0 & Menton & 0.946 \\ \hline
-                1 & Gnathion & 3.323 \\ \hline
-                2 & Pogonion & 3.149 \\ \hline
-                3 & Prosthion & 0.89 \\ \hline
-                4 & Labiale Superius & 1.134 \\ \hline
-                5 & Subnasale & 2.982 \\ \hline
-                6 & Nasion & 3.1 \\ \hline
-                7 & Glabella & 3.089 \\ \hline
-                8 & Vertex & 6.568 \\ \hline
-                9 & Left Gonion & 4.334 \\ \hline
-                10 & Right Gonion & 1.297 \\ \hline
-                11 & Left Zygion & 4.813 \\ \hline
-                12 & Right Zygion & 4.465 \\ \hline
-                13 & Left Alare & 3.531 \\ \hline
-                14 & Right Alare & 3.641 \\ \hline
-                15 & Left Endocanthion & 3.917 \\ \hline
-                16 & Right Endocanthion & 4.685 \\ \hline
-                17 & Left Exocanthion & 3.936 \\ \hline
-                18 & Right Exocanthion & 4.526 \\ \hline
-                19 & Left Tragion & 2.365 \\ \hline
-                20 & Right Tragion & 1.678 \\ \hline
-                21 & Labiale inferius & 1.083 \\ \hline
-                22 & Trichion & 1.731 \\ \hline
-                23 & Supramentale & 1.064 \\ \hline
-                24 & Left Frontotemporale & 1.208 \\ \hline
-                25 & Right Frontotemporale & 1.282 \\ \hline
-                26 & Left Frontozygomaticus & 1.024 \\ \hline
-                27 & Right Frontozygomaticus & 0.943 \\ \hline
-                28 & Left Midsurpaorbital & 0.846 \\ \hline
-                29 & Right Midsupraorbital & 2.027 \\ \hline
+                \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{NME Test} & \cellcolor{gray!25}\textbf{NME Validación} \\ \hline
+                \textbf{Menton} & \cellcolor{green!25}0.946 & 3.006 \\ \hline
+                \textbf{Gnathion} & 3.323 & \cellcolor{green!25}1.497 \\ \hline
+                \textbf{Pogonion} & 3.149 & \cellcolor{green!25}1.359 \\ \hline
+                \textbf{Prosthion} & 0.89 & \cellcolor{green!25}0.815 \\ \hline
+                \textbf{Labiale Superius} & \cellcolor{green!25}1.134 & 1.531 \\ \hline
+                \textbf{Subnasale} & 2.982 & \cellcolor{green!25}1.272 \\ \hline
+                \textbf{Nasion} & 3.1 & \cellcolor{green!25}1.241 \\ \hline
+                \textbf{Glabella} & 3.089 & \cellcolor{green!25}1.545 \\ \hline
+                \textbf{Vertex} & 6.568 & \cellcolor{green!25}3.99 \\ \hline
+                \textbf{Left Gonion} & 4.334 & \cellcolor{green!25}1.846 \\ \hline
+                \textbf{Right Gonion} & \cellcolor{green!25}1.297 & 1.673 \\ \hline
+                \textbf{Left Zygion} & 4.813 & \cellcolor{green!25}3.322 \\ \hline
+                \textbf{Right Zygion} & 4.465 & \cellcolor{green!25}4.441 \\ \hline
+                \textbf{Left Alare} & 3.531 & \cellcolor{green!25}1.585 \\ \hline
+                \textbf{Right Alare} & 3.641 & \cellcolor{green!25}1.362 \\ \hline
+                \textbf{Left Endocanthion} & 3.917 & \cellcolor{green!25}1.227 \\ \hline
+                \textbf{Right Endocanthion} & 4.685 & \cellcolor{green!25}1.129 \\ \hline
+                \textbf{Left Exocanthion} & 3.936 & \cellcolor{green!25}1.186 \\ \hline
+                \textbf{Right Exocanthion} & 4.526 & \cellcolor{green!25}1.12 \\ \hline
+                \textbf{Left Tragion} & 2.365 & \cellcolor{green!25}2.066 \\ \hline
+                \textbf{Right Tragion} & \cellcolor{green!25}1.678 & 2.234 \\ \hline
+                \textbf{Labiale inferius} & 1.083 & \cellcolor{green!25}1.032 \\ \hline
+                \textbf{Trichion} & \cellcolor{green!25}1.731 & 3.37 \\ \hline
+                \textbf{Supramentale} & \cellcolor{green!25}1.064 & 1.109 \\ \hline
+                \textbf{Left Frontotemporale} & \cellcolor{green!25}1.208 & 1.386 \\ \hline
+                \textbf{Right Frontotemporale} & \cellcolor{green!25}1.282 & 1.826 \\ \hline
+                \textbf{Left Frontozygomaticus} & \cellcolor{green!25}1.024 & 1.036 \\ \hline
+                \textbf{Right Frontozygomaticus} & \cellcolor{green!25}0.943 & 1.057 \\ \hline
+                \textbf{Left Midsurpaorbital} & \cellcolor{green!25}0.846 & 0.854 \\ \hline
+                \textbf{Right Midsupraorbital} & 2.027 & \cellcolor{green!25}0.945 \\ \hline
             \end{tabular}
             \label{table:FinalModel_landmarks}
         \end{table}
@@ -810,24 +807,23 @@
         \noindent En primer lugar, como se puede apreciar en la \autoref{table:FinalModel_landmarks} obtenemos: 
 
         \begin{itemize}
-            \item En general los landmarks empeoran ligeramente su error NME. Esto es normal pues en la etapa anterior todas las decisiones para mejorar los modelos se tomaron en función de los resultados de validación. Sin embargo estos datos nuevos en los que se está probando el modelos no han sido estudiados previamente, por lo que es normal que baje el rendimiento. No obstante, los resultados siguen siendo buenos, y no se empeoran excesivamente. 
-            \item En total empeoran su error $15$ de los $30$ landmarks marcados. En algunos casos el error se duplica, como puede ser el \textit{Gnation} y en otros empeora levemente, como ocurre con el \textit{Left Zygion}. 
-            \item En total mejoran su error $6$ de los $30$ landmarks, destacando la importante mejora en la identificación del \textit{Menton}, y algunas más leves como las del \textit{Right/Left Frontotemporale}.
-            \item En total se mantienen en su error $9$ de los $30$ landmarks marcados. Que sufren oscilaciones tan pequeñas que no podemos considerarlas como mejoras o empeoramientos.
+            \item En general los landmarks empeoran ligeramente su error NME. Esto es normal pues en la etapa anterior todas las decisiones para mejorar los modelos se tomaron en función de los resultados de validación. Sin embargo estos datos nuevos en los que se está probando el modelos no han sido estudiados previamente, por lo que es normal que baje el rendimiento. No obstante, los resultados siguen siendo buenos, y no se empeoran excesivamente en la mayoría de casos. 
+            \item En total empeoran su error $19$ de los $30$ landmarks marcados. En algunos casos el error se duplica, como puede ser el \textit{Gnation} y en otros empeora levemente, como ocurre con el \textit{Left Zygion}. 
+            \item En total mejoran su error $11$ de los $30$ landmarks, destacando la importante mejora en la identificación del \textit{Menton}, y algunas más leves como las del \textit{Right/Left Frontotemporale}.
         \end{itemize}
 
         \medskip
 
         \noindent Por otro lado, las curvas de aprendizaje durante el entrenamiento del modelo se pueden observar en la \autoref{fig:curvas_FinalModel}. En ellas podemos observar una mayor distancia entre la curva de entrenamiento y validación, fruto de nuevo de no haber usado el conjunto de test para tomar decisiones, como si que hicimos con los datos de validación en \textit{cross-validation}. Podemos ver el rendimiento del modelo en algunas imágenes en \autoref{fig:Ejemplo_finalmodel}.
 
-        \begin{figure}[!h]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/curvas_FinalModel.png}
             \caption{Curvas de aprendizaje durante el entrenamiento del modelo de data augmentation validado en el conjunto de test.}
             \label{fig:curvas_FinalModel}
         \end{figure}
 
-        \begin{figure}[!h]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/image_finalmodel.png}
             \caption{Rendimiento del modelo final elegido con data augmentation en imágenes del conjunto de test.}
@@ -836,60 +832,98 @@
 
         \medskip
 
-        \noindent Como podemos ver, en general el modelo se comporta bien en la tarea del reconocimiento de landmarks, es capaz de predecirlos con una tasa de error muy pequeña.Por lo que podemos concluir que el modelo resuleve la tarea que nos habíamos propuesto con éxito. No obstante, el éxito real del modelo debe supervisarlo un experto forense, pues no sabemos si los errores cometidos en la identificación de landmarks son errores asumibles o si se requiere un mayor grado de precisión.
+        \noindent Como podemos ver, en general el modelo se comporta bien en la tarea del reconocimiento de landmarks, es capaz de predecirlos con una tasa de error NME muy pequeña, por lo que podemos concluir que el modelo resuleve la tarea que nos habíamos propuesto con éxito. No obstante, el éxito real del modelo debe supervisarlo un experto forense, pues no sabemos si los errores cometidos en la identificación de landmarks son errores asumibles o si se requiere un mayor grado de precisión.
 
-    \subsection{Comparativa entre 3FabRec y HyperFace-ResNet101}
-        \begin{table}[!ht]
-            \centering
-            \caption{Tabla comparativa a nivel global entre los dos modelos}
-            \begin{tabular}{|l|l|l|l|l|}
-            \hline
-                \cellcolor{gray!25}\textbf{Modelo} & \cellcolor{gray!25}\textbf{RMSE} & \cellcolor{gray!25}\textbf{P25} & \cellcolor{gray!25}\textbf{P50} & \cellcolor{gray!25}\textbf{P75} \\ \hline
-                \textbf{Modelo HyperFace-Resnet101} & \cellcolor{green!25}3.4106 & \cellcolor{green!25}1.802 & \cellcolor{green!25}2.7569 & \cellcolor{green!25}4.2849 \\ \hline
-                \textbf{Modelo 3FabRec} & 5.3862 & 3.0991 & 5.3862 & 5.9819 \\ \hline
-            \end{tabular}
-            \label{table:comparativa-global}
-        \end{table}
+    \section{Comparativa entre 3FabRec y HyperFace-ResNet101}
+        \noindent Vamos a comparar ahora el modelo final obtenido a partir de \textbf{3FabRec} con otro que fue diseñado para el mismo propósito basado en \textbf{HyperFace-Resnet101}, otra red especializada en el marcado de landmarks, realizado por Guillermo Gómez.
 
-        \begin{table}[!ht]
-            \centering
-            \caption{Tabla comparativa a nivel de landmarks entre el modelo final basado en 3FabRec y el de HyperFace-REsNet101}
-            \begin{tabular}{|l|l|l|}
-            \hline
-                \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{RMSE 3FabRec} & \cellcolor{gray!25}\textbf{RMSE HyperFace-Resnet101} \\ \hline
-                \textbf{Menton} & 6.43 & \cellcolor{green!25} 4.97 \\ \hline
-                \textbf{Gnathion} & 5.5 & \cellcolor{green!25}3.84 \\ \hline
-                \textbf{Pogonion} & 5.5 & \cellcolor{green!25}3.99 \\ \hline
-                \textbf{Prosthion} & \cellcolor{green!25}1.73 & 3.23 \\ \hline
-                \textbf{Labiale Superius} & 3.35 & \cellcolor{green!25}2.35 \\ \hline
-                \textbf{Subnasale} & 4.9 & \cellcolor{green!25}3.33 \\ \hline
-                \textbf{Nasion} & 4.91 & \cellcolor{green!25}3.12 \\ \hline
-                \textbf{Glabella} & 5.36 & \cellcolor{green!25}3.89 \\ \hline
-                \textbf{Vertex} & 10.95 & \cellcolor{green!25}8.83 \\ \hline
-                \textbf{Left Gonion} & 9.7 & \cellcolor{green!25}7.12 \\ \hline
-                \textbf{Right Gonion} & 7.23 & \cellcolor{green!25}6.11 \\ \hline
-                \textbf{Left Zygion} & 11.49 & \cellcolor{green!25}5.78 \\ \hline
-                \textbf{Right Zygion} & 13.47 & \cellcolor{green!25}6.94 \\ \hline
-                \textbf{Left Alare} & 5.6 & \cellcolor{green!25}3.50 \\ \hline
-                \textbf{Right Alare} & 5.68 & \cellcolor{green!25}2.84 \\ \hline
-                \textbf{Left Endocanthion} & 5.11 & \cellcolor{green!25}2.40 \\ \hline
-                \textbf{Right Endocanthion} & 6.0 & \cellcolor{green!25}2.32 \\ \hline
-                \textbf{Left Exocanthion} & 6.11 & \cellcolor{green!25}3.73 \\ \hline
-                \textbf{Right Exocanthion} & 5.92 & \cellcolor{green!25}3.62 \\ \hline
-                \textbf{Left Tragion} & \cellcolor{green!25}5.34 & 7.01 \\ \hline
-                \textbf{Right Tragion} & \cellcolor{green!25}5.81 & 6.41 \\ \hline
-                \textbf{Labiale inferius} & \cellcolor{green!25}2.43 & 3.11 \\ \hline
-                \textbf{Trichion} & \cellcolor{green!25}5.41 & 7.02 \\ \hline
-                \textbf{Supramentale} & \cellcolor{green!25}2.29 & 3.43 \\ \hline
-                \textbf{Left Frontotemporale} & \cellcolor{green!25}3.16 & 3.78 \\ \hline
-                \textbf{Right Frontotemporale} & \cellcolor{green!25}3.08 & 3.27 \\ \hline
-                \textbf{Left Frontozygomaticus} & \cellcolor{green!25}2.25 & 2.75 \\ \hline
-                \textbf{Right Frontozygomaticus} & \cellcolor{green!25}2.2 & 2.80 \\ \hline
-                \textbf{Left Midsurpaorbital} & \cellcolor{green!25}1.91 & 2.57 \\ \hline
-                \textbf{Right Midsupraorbital} & 3.05 & \cellcolor{green!25}2.24 \\ \hline
-            \end{tabular}
-            \label{table:comparativa-Landmarks}
-        \end{table}
+        \subsection{Preprocesamiento y base de datos empleada}
+            \noindent En lo que respecta al preprocesamiento de los datos, nuestro modelo basado en \textit{3FabRec} únicamente emplea como etapa de preprocesamiento la identificación de bounding boxes en el conjunto de datos inicial de cara a poder entrenar la red. Por otro lado, este estudio se limita a usar las $167$ imágenes proporcionadas.
+
+            \medskip
+
+            \noindent En cambio, el modelo basado en \textit{HF-ResNet} además de emplear también un detector de caras para los bounding boxes, contaba con un dataset auxiliar de modelos $3D$ de personas sobre las que estaban marcados $27$ de los $30$ landmarks que se predicen. Lo cual sirvió para aumentar el conjunto de datos de entrenamiento realizando proyecciones $2D$ a partir de estos modelos.
+
+        \subsection{Métricas empleadas}
+            \noindent La métrica empleada en el trabajo dónde se presenta el modelo es el \textbf{RMSE}. Se trata de la raíz del error cuadrático medio y su expresión es la siguiente: 
+
+            \begin{equation}
+                RMSE(y,\widehat{y})= \sqrt{\frac{1}{N} \sum_{i=1}^{N} (y_i-\widehat{y}_i)^2}
+            \end{equation}
+
+            \noindent donde $y_i$ representa las coordenadas del landmark real y $\widehat{y_i}$ el predicho homólogo número $i$ del total de $N$ landmarks marcados.
+
+            \medskip
+
+            \noindent Para poder realizar una comparación entre ambos métodos, se extrae esta métrica del rendimiento del modelo final en el conjunto de test. 
+
+        \subsection{Comparación de resultados}
+            \noindent En primer lugar comparamos ambos modelos calculando la mediana del \textit{RMSE} producido en cada landmark, así como los percentiles $25$, $50$ y $75$. Podemos ver estos resultados en la \autoref{table:comparativa-global}.
+
+            \begin{table}[!ht]
+                \centering
+                \caption{Tabla comparativa a nivel global entre los dos modelos. Como podemos observar, el modelo basado en \textbf{HyperFace-Resnet101} obtiene mejores resultados en global en todos los campos.}
+                \begin{tabular}{|l|l|l|l|l|}
+                \hline
+                    \cellcolor{gray!25}\textbf{Modelo} & \cellcolor{gray!25}\textbf{RMSE} & \cellcolor{gray!25}\textbf{P25} & \cellcolor{gray!25}\textbf{P50} & \cellcolor{gray!25}\textbf{P75} \\ \hline
+                    \textbf{Modelo HyperFace-Resnet101} & \cellcolor{green!25}3.4106 & \cellcolor{green!25}1.802 & \cellcolor{green!25}2.7569 & \cellcolor{green!25}4.2849 \\ \hline
+                    \textbf{Modelo 3FabRec} & 5.3862 & 3.0991 & 5.3862 & 5.9819 \\ \hline
+                \end{tabular}
+                \label{table:comparativa-global}
+            \end{table}
+            
+            \medskip
+
+            \noindent A nivel general, parece que el modelo basado en \textit{HyperFace-ResNet101} es mejor que el presentado en este trabajo, no obstante vamos a realizar una comparativa a nivel de landmark entre los dos modelos. Podemos ver esta comparativa en la \autoref{table:comparativa-Landmarks}.
+            \begin{table}[!ht]
+                \centering
+                \caption{Tabla comparativa a nivel de landmarks entre el modelo final basado en 3FabRec y el de HyperFace-REsNet101.}
+                \begin{tabular}{|l|l|l|}
+                \hline
+                    \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{RMSE 3FabRec} & \cellcolor{gray!25}\textbf{RMSE HyperFace-Resnet101} \\ \hline
+                    \textbf{Menton} & 6.43 & \cellcolor{green!25} 4.97 \\ \hline
+                    \textbf{Gnathion} & 5.5 & \cellcolor{green!25}3.84 \\ \hline
+                    \textbf{Pogonion} & 5.5 & \cellcolor{green!25}3.99 \\ \hline
+                    \textbf{Prosthion} & \cellcolor{green!25}1.73 & 3.23 \\ \hline
+                    \textbf{Labiale Superius} & 3.35 & \cellcolor{green!25}2.35 \\ \hline
+                    \textbf{Subnasale} & 4.9 & \cellcolor{green!25}3.33 \\ \hline
+                    \textbf{Nasion} & 4.91 & \cellcolor{green!25}3.12 \\ \hline
+                    \textbf{Glabella} & 5.36 & \cellcolor{green!25}3.89 \\ \hline
+                    \textbf{Vertex} & 10.95 & \cellcolor{green!25}8.83 \\ \hline
+                    \textbf{Left Gonion} & 9.7 & \cellcolor{green!25}7.12 \\ \hline
+                    \textbf{Right Gonion} & 7.23 & \cellcolor{green!25}6.11 \\ \hline
+                    \textbf{Left Zygion} & 11.49 & \cellcolor{green!25}5.78 \\ \hline
+                    \textbf{Right Zygion} & 13.47 & \cellcolor{green!25}6.94 \\ \hline
+                    \textbf{Left Alare} & 5.6 & \cellcolor{green!25}3.50 \\ \hline
+                    \textbf{Right Alare} & 5.68 & \cellcolor{green!25}2.84 \\ \hline
+                    \textbf{Left Endocanthion} & 5.11 & \cellcolor{green!25}2.40 \\ \hline
+                    \textbf{Right Endocanthion} & 6.0 & \cellcolor{green!25}2.32 \\ \hline
+                    \textbf{Left Exocanthion} & 6.11 & \cellcolor{green!25}3.73 \\ \hline
+                    \textbf{Right Exocanthion} & 5.92 & \cellcolor{green!25}3.62 \\ \hline
+                    \textbf{Left Tragion} & \cellcolor{green!25}5.34 & 7.01 \\ \hline
+                    \textbf{Right Tragion} & \cellcolor{green!25}5.81 & 6.41 \\ \hline
+                    \textbf{Labiale inferius} & \cellcolor{green!25}2.43 & 3.11 \\ \hline
+                    \textbf{Trichion} & \cellcolor{green!25}5.41 & 7.02 \\ \hline
+                    \textbf{Supramentale} & \cellcolor{green!25}2.29 & 3.43 \\ \hline
+                    \textbf{Left Frontotemporale} & \cellcolor{green!25}3.16 & 3.78 \\ \hline
+                    \textbf{Right Frontotemporale} & \cellcolor{green!25}3.08 & 3.27 \\ \hline
+                    \textbf{Left Frontozygomaticus} & \cellcolor{green!25}2.25 & 2.75 \\ \hline
+                    \textbf{Right Frontozygomaticus} & \cellcolor{green!25}2.2 & 2.80 \\ \hline
+                    \textbf{Left Midsurpaorbital} & \cellcolor{green!25}1.91 & 2.57 \\ \hline
+                    \textbf{Right Midsupraorbital} & 3.05 & \cellcolor{green!25}2.24 \\ \hline
+                \end{tabular}
+                \label{table:comparativa-Landmarks}
+            \end{table}
+
+            \medskip
+            
+            \begin{itemize}
+                \item En total $11$ landmarks se marcan con mayor precisión con el modelo basado en \textbf{3FabRec}.
+                \item En total $19$ landmarks se marcan mejor en con el modelo basado en \textbf{HyperFace-ResNet101}.
+            \end{itemize}
+
+            \noindent Como podemos observar, en su mayoría los landmarks que el modelo basado en \textit{HyperFace-ResNet101} son más precisos que los marcados por nuestro modelo en una media de $2$ píxeles de diferencia.
+           
 \endinput
 %------------------------------------------------------------------------------------
 % FIN DEL CAPÍTULO. 
