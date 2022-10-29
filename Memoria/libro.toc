@@ -108,6 +108,7 @@
 \contentsline {subsection}{\numberline {9.4.4}Modelo con reentrenamiento del decoder}{102}{subsection.9.4.4}%
 \contentsline {subsection}{\numberline {9.4.5}Modelo con Data Augmentation}{104}{subsection.9.4.5}%
 \contentsline {subsection}{\numberline {9.4.6}Elección de modelo y obtención de resultados}{106}{subsection.9.4.6}%
+\contentsline {subsection}{\numberline {9.4.7}Comparativa entre 3FabRec y HyperFace-ResNet101}{107}{subsection.9.4.7}%
 \contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{121}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{121}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{122}{section.10.2}%

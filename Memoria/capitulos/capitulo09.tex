@@ -448,24 +448,22 @@
 
 \section{Experimentación}
     \subsection{Hipótesis iniciales}
-        \noindent Debido a que partimos de \textbf{3fabRec}, un framework diseñado y probado de forma exahustiva por Björn Browatzki y Christian Wallraven, en los experimentos se va a respetar la arquitectura de la red en su totalidad, sin añadir ni eliminar capas. Del mismo modo debido a que la elección del optimizador \textbf{Adam} empleado por los autores ha sido fruto de un proceso de experimentación exahustiva por parte de los mismos no se va a probar a cambiarlo, además el optimizador Adam es adaptativo y tiene muy buen rendimiento en general, por lo que no tenemos ninguna razón que nos lleve a pensar que lograríamos grandes mejoras cambiando de optimizador.
+        \noindent Debido a que partimos de \textbf{3fabRec}, un framework diseñado y probado de forma exahustiva por Björn Browatzki y Christian Wallraven, en los experimentos se va a respetar la arquitectura de la red en su totalidad, sin añadir ni eliminar capas. Del mismo modo, debido a que la elección del optimizador \textbf{Adam} empleado por los autores ha sido fruto de un proceso de experimentación exahustiva por parte de los mismos no, se va a probar a cambiarlo. Además, el optimizador Adam es adaptativo y tiene muy buen rendimiento en general, por lo que no tenemos ninguna razón que nos lleve a pensar que lograríamos grandes mejoras cambiando de optimizador.
 
         \medskip
 
         \noindent También, en la creación de los \textit{Heat maps} se ha optado por mantener el valor de $\sigma =7$ que se recomienda en el paper \cite{browatzki20203fabrec}, ya que de nuevo ha sido probado minuciosamente por los autores del framework.
     
     \subsection{Modelo Base}
-        \noindent En primer lugar se va a buscar un \textbf{modelo base} con el que obtener los primeros resultados y que iremos refinando hasta obtener el modelo solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos, todos ellos han sido entrenados en la fase de aprendizaje no supervisado, pero uno viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento en los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}. Así pues, la primera decisión a tomar es si emplear un modelo preentrenado en alguno de los datasets anteriores o utilizar uno sin entrenar. 
+        \noindent Buscamos un \textbf{modelo base} con el que obtener los primeros resultados, y que iremos refinando hasta obtener el modelo solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos. Todos ellos han sido entrenados en la fase de aprendizaje no supervisado. Uno de ellos viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento en los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}. Así pues, la primera decisión a tomar es si emplear un modelo preentrenado en alguno de los datasets o utilizar uno sin entrenar. 
 
         \medskip
 
-        \noindent Para tomar la anterior decisión se han repasado los diferentes datasets sobre los que se entrenó la red y se ha decidido que se usará como modelo base el que ha sido entrenado en \textit{AFLW}, debido a que el número de landmarks que predice este modelo es similar al de nuestro problema, ya que predice 21 landmarks, mientras que los demás modelos han sido entrenados para predecir 68 en el caso de \textit{300w} y 98 en el caso de \textit{WFLW}. Por otro lado, los landmarks que predice AFLW, pese a no tener una justificación biológica, son parecidos a los anotados en el dataset que se proporciona. Es por esto que consideramos una buena primera decisión emplear la red \textbf{preentrenada en AFLW}.
-
-        %TODO INSERTAR IMAGEN DE LOS LANDMARKS DE AFLW vs LOS NUESTROS.
+        \noindent Los tres datasets anteriores han sido ya estudiados en apartados anteriores, y finalmente se ha optado por usar como modelo base el que ha sido entrenado en \textit{AFLW}. Esto se debe a que el número de landmarks que predice este modelo es similar al de nuestro problema, ya que predice 21 landmarks. Por otro lado, los landmarks de AFLW, pese a no tener una justificación biológica, son parecidos a los anotados en el dataset que se proporciona. Es por esto que consideramos una buena primera decisión emplear la red \textbf{preentrenada en AFLW}.
 
         \medskip
 
-        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{fine-tuning} sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{40 épocas} hasta la convergencia del \textit{mse}, que es la medida de error entre los \textit{Heat maps} predichos por el modelo y los reales, y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
+        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{ajuste fino} del encoder sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{40 épocas}, valor a partir del cual se aprecia la convergencia del \textit{mse} (que recordamos, es la medida de error entre los \textit{Heat maps} predichos por el modelo y los reales), y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
 
         \begin{itemize}
             \item El \textit{learning rate} para el optimizador Adam usado en el entrenamiento de las ITLs se establece en $0.001$. 
@@ -473,14 +471,14 @@
             \item El valor del parámetro $\beta_2$ se establece en $0.9$.
         \end{itemize}
 
-        \noindent Los resultados obtenidos por imagen en cada partición de \textbf{cross validation 5-fold } se pueden encontrar en \autoref{ap:apendiceA}. En estas tablas podemos observar la media del NME obtenido entre todos los landmarks presentes en la imagen, es decir, los no marcados no computan en esta media. Los resultados obtenidos son en general buenos, el NME no es muy elevado. Por otro lado vemos también el error de reconstrucción y estructural, que como podemos observar generalmente es elevado, lo que nos indica que no se están reconstruyendo fielmente las imágenes, algo que podría afectar al marcado de landmarks, puesto que estos se marcan en primer lugar sobre la imagen reconstruida, y luego se trasladan a la original.
+        \noindent Los resultados obtenidos por imagen en cada partición de \textbf{cross validation 5-fold } se pueden encontrar en \autoref{ap:apendiceA}. En estas tablas podemos observar la media del NME obtenido entre todos los landmarks presentes en la imagen, los no marcados no computan. Los resultados obtenidos son en general buenos para ser el modelo base. El NME no es muy elevado, aunque el error de reconstrucción y estructural sí lo son. Podemos concluir así que no se están reconstruyendo fielmente las imágenes a nivel de píxel, aunque como vemos en la \autoref{fig:Ejemplo_ModelBase}, la reconstrucción de las caras es apropiada en general. No obstante, esto podría afectar al marcado de landmarks, puesto que estos se marcan en primer lugar sobre la imagen reconstruida, y luego se trasladan a la original.
 
         \begin{table}[!ht]
             \centering
             \caption{Media del error NME obtenido por landmark entre todas las particiones de cross-validation.}
             \begin{tabular}{|l|l|l|}
             \hline
-                ~ & Landmark & Media NME por landmark \\ \hline
+                ~ & \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{Media NME por landmark} \\ \hline
                 0 & Menton & 3.944 \\ \hline
                 1 & Gnathion & 2.637 \\ \hline
                 2 & Pogonion & 2.549 \\ \hline
@@ -517,7 +515,7 @@
 
         \medskip
 
-        \noindent Los resultados por landmark se puden ver en la \autoref{table:ModelBase_landmarkresume}. Como podemos observar, los resultados son buenos en general, siendo el landmark mejor marcado en media el \textit{Prosthion}, y el peor el \textit{Right Gonion}. Si recordamos la \autoref{fig:Histograma}, sorprende el hecho de que el \textit{Prosthion} es de los landmarks que menos presencia tiene en las imágenes (aparece en menos de $40$ imágenes) y sin embargo es de los que mejor aprende a marcar la red. Por otro lado, el \textit{Right Gonion}, pese a aparecer en unas $100$ imágenes, resulta más dificil para la red predecir este, esto puede deberse a que las imágenes con mayor error de reconstrucción son las de perfil, y es en este tipo de imágenes en las que mejor se aprecia dicho landmark.
+        \noindent Los resultados por landmark se puden ver en la \autoref{table:ModelBase_landmarkresume} y son buenos en general para tratarse del modelo base, siendo el landmark mejor marcado en media el \textit{Prosthion}, y el peor el \textit{Right Gonion}. Si recordamos la \autoref{fig:Histograma}, sorprende el hecho de que el \textit{Prosthion} es de los landmarks que menos presencia tiene en las imágenes (aparece en menos de $40$ imágenes), y sin embargo es de los que mejor aprende a marcar la red. Por otro lado, el \textit{Right Gonion}, pese a aparecer en unas $100$ imágenes, resulta más dificil para la red predecirlo. Esto puede deberse a que las imágenes con mayor error de reconstrucción son las de perfil, y es en este tipo de imágenes en las que mejor se aprecia dicho landmark.
 
         \medskip
 
@@ -551,7 +549,7 @@
                 \caption{Tabla comparativa entre los dos modelos explorados por ahora. Medimos el NME medio a nivel de landmark. En verde se resalta el mejor valor de marcado para cada landmark, en un verde más intenso las mejoras más considerables.}
                 \begin{tabular}{|l|l|l|l|}
                 \hline
-                    \textbf{} & \textbf{Landmark} & \textbf{Media NME (Modelo base)} & \textbf{Media NME (Modelo Encoder)} \\ \hline
+                    \textbf{} & \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{Media NME (Modelo base)} & \cellcolor{gray!25}\textbf{Media NME (Modelo Encoder)} \\ \hline
                     \textbf{0} & Menton & \cellcolor{green!25} 3.944 & 3.997 \\ \hline
                     \textbf{1} & Gnathion & 2.637 & \cellcolor{green!25} 2.606 \\ \hline
                     \textbf{2} & Pogonion & 2.549 & \cellcolor{green!25} 2.546 \\ \hline
@@ -621,7 +619,7 @@
             \caption{Tabla comparativa entre los tres modelos probados. En este caso no se aprecia ninguna mejora considerable con respecto a las introducidas por el modelo de ajuste fino del encoder}
             \begin{tabular}{|l|l|l|l|l|}
             \hline
-                \textbf{} & \textbf{Landmark} & \textbf{M.Base} & \textbf{M.Encoder} & \textbf{M.Decoder} \\ \hline
+                \textbf{} & \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{M.Base} & \cellcolor{gray!25}\textbf{M.Encoder} & \cellcolor{gray!25}\textbf{M.Decoder} \\ \hline
                 \textbf{0} & Menton & 3.944 & 3.997 & \cellcolor{green!25} 3.991 \\ \hline
                 \textbf{1} & Gnathion & 2.637 & \cellcolor{green!25} 2.606 & 2.634 \\ \hline
                 \textbf{2} & Pogonion & 2.549 & \cellcolor{green!25} 2.546 & 2.585 \\ \hline
@@ -703,7 +701,7 @@
             \caption{Tabla comparativa entre todos los modelos probados.}
             \begin{tabular}{|l|l|l|l|l|l|}
             \hline
-                \textbf{} & \textbf{Landmark} & \textbf{M.Base} & \textbf{M.E} & \textbf{M.Decoder} & \textbf{Data augmentation} \\ \hline
+                \textbf{} & \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{M.Base} & \cellcolor{gray!25}\textbf{M.E} & \cellcolor{gray!25}\textbf{M.Decoder} & \cellcolor{gray!25}\textbf{Data augmentation} \\ \hline
                 \textbf{0} & Menton & 3.944 & 3.997 & 3.991 & \cellcolor{green!25}3.006 \\ \hline
                 \textbf{1} & Gnathion & 2.637 & 2.606 & 2.634 & \cellcolor{green!25}1.497 \\ \hline
                 \textbf{2} & Pogonion & 2.549 & 2.546 & 2.585 & \cellcolor{green!25}1.359 \\ \hline
@@ -772,7 +770,7 @@
             \caption{Tabla con la media del error NME por landmark en el conjunto de test}
             \begin{tabular}{|l|l|l|}
             \hline
-                ~ & Landmark & Media NME por landmark \\ \hline
+                ~ & \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{Media NME por landmark} \\ \hline
                 0 & Menton & 0.946 \\ \hline
                 1 & Gnathion & 3.323 \\ \hline
                 2 & Pogonion & 3.149 \\ \hline
@@ -838,7 +836,60 @@
 
         \medskip
 
-        \noindent Como podemos ver, en general el modelo se comporta bien en la tarea del reconocimiento de landmarks, es capaz de predecirlos con una tasa de error muy pequeña.Por lo que podemos concluir que el modelo resuleve la tarea que nos habíamos propuesto con éxito. No obstante, el éxito real del modelo debe supervisarlo un experto forense, pues no sabemos si los errores cometidos en la identificación de landmarks son errores asumibles o si se requiere un mayor grado de precisión
+        \noindent Como podemos ver, en general el modelo se comporta bien en la tarea del reconocimiento de landmarks, es capaz de predecirlos con una tasa de error muy pequeña.Por lo que podemos concluir que el modelo resuleve la tarea que nos habíamos propuesto con éxito. No obstante, el éxito real del modelo debe supervisarlo un experto forense, pues no sabemos si los errores cometidos en la identificación de landmarks son errores asumibles o si se requiere un mayor grado de precisión.
+
+    \subsection{Comparativa entre 3FabRec y HyperFace-ResNet101}
+        \begin{table}[!ht]
+            \centering
+            \caption{Tabla comparativa a nivel global entre los dos modelos}
+            \begin{tabular}{|l|l|l|l|l|}
+            \hline
+                \cellcolor{gray!25}\textbf{Modelo} & \cellcolor{gray!25}\textbf{RMSE} & \cellcolor{gray!25}\textbf{P25} & \cellcolor{gray!25}\textbf{P50} & \cellcolor{gray!25}\textbf{P75} \\ \hline
+                \textbf{Modelo HyperFace-Resnet101} & \cellcolor{green!25}3.4106 & \cellcolor{green!25}1.802 & \cellcolor{green!25}2.7569 & \cellcolor{green!25}4.2849 \\ \hline
+                \textbf{Modelo 3FabRec} & 5.3862 & 3.0991 & 5.3862 & 5.9819 \\ \hline
+            \end{tabular}
+            \label{table:comparativa-global}
+        \end{table}
+
+        \begin{table}[!ht]
+            \centering
+            \caption{Tabla comparativa a nivel de landmarks entre el modelo final basado en 3FabRec y el de HyperFace-REsNet101}
+            \begin{tabular}{|l|l|l|}
+            \hline
+                \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{RMSE 3FabRec} & \cellcolor{gray!25}\textbf{RMSE HyperFace-Resnet101} \\ \hline
+                \textbf{Menton} & 6.43 & \cellcolor{green!25} 4.97 \\ \hline
+                \textbf{Gnathion} & 5.5 & \cellcolor{green!25}3.84 \\ \hline
+                \textbf{Pogonion} & 5.5 & \cellcolor{green!25}3.99 \\ \hline
+                \textbf{Prosthion} & \cellcolor{green!25}1.73 & 3.23 \\ \hline
+                \textbf{Labiale Superius} & 3.35 & \cellcolor{green!25}2.35 \\ \hline
+                \textbf{Subnasale} & 4.9 & \cellcolor{green!25}3.33 \\ \hline
+                \textbf{Nasion} & 4.91 & \cellcolor{green!25}3.12 \\ \hline
+                \textbf{Glabella} & 5.36 & \cellcolor{green!25}3.89 \\ \hline
+                \textbf{Vertex} & 10.95 & \cellcolor{green!25}8.83 \\ \hline
+                \textbf{Left Gonion} & 9.7 & \cellcolor{green!25}7.12 \\ \hline
+                \textbf{Right Gonion} & 7.23 & \cellcolor{green!25}6.11 \\ \hline
+                \textbf{Left Zygion} & 11.49 & \cellcolor{green!25}5.78 \\ \hline
+                \textbf{Right Zygion} & 13.47 & \cellcolor{green!25}6.94 \\ \hline
+                \textbf{Left Alare} & 5.6 & \cellcolor{green!25}3.50 \\ \hline
+                \textbf{Right Alare} & 5.68 & \cellcolor{green!25}2.84 \\ \hline
+                \textbf{Left Endocanthion} & 5.11 & \cellcolor{green!25}2.40 \\ \hline
+                \textbf{Right Endocanthion} & 6.0 & \cellcolor{green!25}2.32 \\ \hline
+                \textbf{Left Exocanthion} & 6.11 & \cellcolor{green!25}3.73 \\ \hline
+                \textbf{Right Exocanthion} & 5.92 & \cellcolor{green!25}3.62 \\ \hline
+                \textbf{Left Tragion} & \cellcolor{green!25}5.34 & 7.01 \\ \hline
+                \textbf{Right Tragion} & \cellcolor{green!25}5.81 & 6.41 \\ \hline
+                \textbf{Labiale inferius} & \cellcolor{green!25}2.43 & 3.11 \\ \hline
+                \textbf{Trichion} & \cellcolor{green!25}5.41 & 7.02 \\ \hline
+                \textbf{Supramentale} & \cellcolor{green!25}2.29 & 3.43 \\ \hline
+                \textbf{Left Frontotemporale} & \cellcolor{green!25}3.16 & 3.78 \\ \hline
+                \textbf{Right Frontotemporale} & \cellcolor{green!25}3.08 & 3.27 \\ \hline
+                \textbf{Left Frontozygomaticus} & \cellcolor{green!25}2.25 & 2.75 \\ \hline
+                \textbf{Right Frontozygomaticus} & \cellcolor{green!25}2.2 & 2.80 \\ \hline
+                \textbf{Left Midsurpaorbital} & \cellcolor{green!25}1.91 & 2.57 \\ \hline
+                \textbf{Right Midsupraorbital} & 3.05 & \cellcolor{green!25}2.24 \\ \hline
+            \end{tabular}
+            \label{table:comparativa-Landmarks}
+        \end{table}
 \endinput
 %------------------------------------------------------------------------------------
 % FIN DEL CAPÍTULO. 
