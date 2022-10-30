@@ -3,11 +3,11 @@
 
 \chapter{Modelización Matemática de una Red Neuronal Convolucional} 
 
-\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{CNN}, para ello necesitamos en primer lugar definir un operador que denominaremos \textbf{propagador de dispersión} (PD) que será el que aplicaremos de forma recursiva en la cascada de convoluciones que modeliza una CNN, para ello explicaremos la problemática de elegir un operador \textit{lipschitz-continuo} bajo la acción de difeomorfismos e \textit{invariante por traslaciones}, para evitar problemas como la inestabilidad en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos. 
+\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{CNN}. Necesitamos, en primer lugar, definir un operador, que denominaremos \textbf{propagador de dispersión} (PD), que será el que aplicaremos de forma recursiva en la cascada de convoluciones que modeliza una CNN. Para ello, explicaremos la problemática de elegir un operador \textit{lipschitz-continuo} bajo la acción de difeomorfismos e \textit{invariante por traslaciones} para evitar problemas como la inestabilidad en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos. 
 
 \medskip
 
-\noindent Tras esto  veremos posibles alternativas para evitar que se produzcan estas inestabilidades, mediante el uso de bases de la transformada de ondeletas de \textbf{Littlewood-Paley}. En concreto con esta segunda alternativa obtendremos un operador que es \textbf{Lipschitz-continuo} bajo la acción de difeomorfismos. 
+\noindent en segundo lugar,  veremos posibles alternativas para evitar que se produzcan estas inestabilidades mediante el uso de bases de la transformada de ondeletas de \textbf{Littlewood-Paley}. En concreto con esta alternativa obtendremos un operador \textbf{Lipschitz-continuo} bajo la acción de difeomorfismos. 
 
 \medskip
 
@@ -15,14 +15,14 @@
 
 \medskip
 
-\noindent Una vez tengamos un operador con todas las propiedades anteriores presentaremos el \textbf{PD}, y será la aplicación en cadena de este operador sobre un \entrecomillado{camino} de frecuencias y rotaciones el que definirá la modelización matemática de una Red Neuronal Convolucional. Todo este capítulo está basado en la investigación de Stéphane Mallat y sigue como hilo conductor su publicación \cite{GroupInvariantScattering} junto con otros autores que serán citados debidamente.
+\noindent Una vez tengamos un operador con todas las propiedades anteriores presentaremos el \textbf{PD}, y será la aplicación en cadena de este operador sobre un \entrecomillado{camino} de frecuencias y rotaciones el que definirá la modelización matemática de una Red Neuronal Convolucional. Todo este capítulo está basado en la investigación de Mallat y sigue como hilo conductor su publicación \cite{GroupInvariantScattering} junto con otros autores que serán citados debidamente.
 
 
 \section{De Fourier a las ondeletas de Littlewood-Paley}
 
 \subsection{El módulo de la Transformada de Fourier}
 
-\noindent El análisis de Fourier tradicionalmente ha jugado un papel fundamental en el procesamiento de señales \cite{DigitalImageProcessing}, por lo que podría parecer un buen punto de partida para la construcción del \textit{propagador de dispersión} emplear la \textbf{transformada de Fourier}, una de las herramientas matemáticas más potentes en este campo. La intuición detrás de su fórmula es la de representar funciones no periódicas (pero que tienen área finita bajo su gráfica) como la integral de senos y cosenos multiplicados por una función que determina los pesos en cada instante. Formalmente tiene la siguiente expresión:
+\noindent El análisis de Fourier, tradicionalmente, ha jugado un papel fundamental en el procesamiento de señales \cite{DigitalImageProcessing}, por lo que podría parecer un buen punto de partida para la construcción del \textit{propagador de dispersión} emplear la \textbf{transformada de Fourier},una de las herramientas matemáticas más potentes en este campo. La intuición detrás de su fórmula, es la de representar funciones no periódicas (pero que tienen área finita bajo su gráfica) como la integral de senos y cosenos multiplicados por una función que determina los pesos en cada instante. Formalmente, tiene la siguiente expresión:
 
 \begin{equation}
 \widehat{f}(\omega):= \int{f(x)e^{-ix\omega}dx}=\int{f(x)\left[\cos{x\omega} -i\sin{x\omega}\right]dx}.
@@ -32,35 +32,35 @@
 
 \medskip
 
-\noindent Esto a priori es algo atractivo, pues nos permitiría trabajar en un dominio más sencillo y extraer conclusiones que podemos traducir al dominio original de la señal sin pérdida de información. Además, en el estudio de señales se suele emplear el módulo de la transformada de Fourier para evitar fases complejas en el análisis, de esta forma el operador que vamos a probar en primer lugar es: 
+\noindent Esto, a priori, es algo atractivo, pues nos permitiría trabajar en un dominio más sencillo y extraer conclusiones que podemos traducir al dominio original de la señal sin pérdida de información. Además, en el estudio de señales se suele emplear el módulo de la transformada de Fourier para evitar fases complejas en el análisis. De esta forma, el operador que vamos a probar en primer lugar es: 
 
 \begin{definicion}
 $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier. 
 \end{definicion}
 
-\noindent Vamos a comprobar si se trata de un operador válido para nuestro propósito. Para ello necesitamos en primer lugar que sea un operador \textbf{invariante por traslaciones}. Veamos  que sí cumple esta propiedad.
+\noindent Vamos a comprobar si se trata de un operador válido para nuestro propósito. Para ello necesitamos en primer lugar que sea un operador \textbf{invariante por traslaciones}.
 
 \begin{lema} \label{lema::invarianza_traslaciones}
-    El operador $\Phi(f)=|\widehat{f}|$ es invariante por traslaciones.
+    El operador $\Phi$ es invariante por traslaciones.
 \end{lema}
 
 \begin{proof}
-    \noindent Consideramos para cada $c \in \mathbb{R}^d$, la traslación $L_cf(x)=f(x-c)$ se tiene que:  
+    \noindent Consideramos, para cada $c \in \mathbb{R}^d$, la traslación $L_cf(x)=f(x-c)$. Se tiene que:  
     
     $$\widehat{L_cf}(w)=\int_{\mathbb{R}^d}{L_cf(x) e^{-ixw} dx}=\int_{\mathbb{R}^d}{f(x-c)e^{-ixw}dx}$$
     
     \noindent y realizando el cambio de variable $x-c=y$ se obtiene: 
     
     \begin{align*}
-        \int_{\mathbb{R}^d}{f(x-c)e^{-ixw}dx} &= \int_{\mathbb{R}^d}{f(y)e^{-i(y+c)w}dy}= \\      &=\int_{\mathbb{R}^d}{f(y)e^{-iyw}e^{-icw}dy}= \\ &=\int_{\mathbb{R}^d}=e^{-icw}\int_{\mathbb{R}^d}{f(y)e^{-iyw}dy}=e^{-icw}\widehat{f}(w)
+        \int_{\mathbb{R}^d}{f(x-c)e^{-ixw}dx} &= \int_{\mathbb{R}^d}{f(y)e^{-i(y+c)w}dy}= \\      &=\int_{\mathbb{R}^d}{f(y)e^{-iyw}e^{-icw}dy}= \\ &=e^{-icw}\int_{\mathbb{R}^d}{f(y)e^{-iyw}dy}=e^{-icw}\widehat{f}(w)
     \end{align*}
     
-    \noindent Por lo que se tiene que $|\widehat{L_cf}(w)|=|e^{-icw}| |\widehat{f}(w)|=|\widehat{f}(w)|$ y entonces $\Phi(f)=|\widehat{f}|$ es invariante por traslaciones. \qedhere
+    \noindent Por lo que se tiene que $|\widehat{L_cf}(w)|=|e^{-icw}| |\widehat{f}(w)|=|\widehat{f}(w)|$ y entonces $\Phi$ es invariante por traslaciones. \qedhere
 \end{proof}
 
 \medskip
     
-\noindent Sin embargo, la invaianza por traslaciones no es suficiente, necesitamos también que nuestro operador sea invariante frente a pequeñas deformaciones (difeomorfismos). De esta forma, diremos que un operador $\Phi(f)$ es estable frente a deformaciones si verifica la Definición \ref{def::Lipschitz_cont}.
+\noindent Sin embargo, la invarianza por traslaciones, no es suficiente. Necesitamos también que nuestro operador sea invariante frente a pequeñas deformaciones (difeomorfismos). De esta forma, diremos que un operador $\Phi(f)$ es estable frente a deformaciones si verifica la Definición \ref{def::Lipschitz_cont}.
 
 \begin{observacion}\label{lemma:TF_inestable_difeomorfismos}
   El módulo de la Transformada de Fourier no es estable frente a pequeñas deformaciones y no es \entrecomillado{Lipschitz-continuo} en el sentido de la Definición \ref{def::Lipschitz_cont}.
@@ -71,7 +71,7 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
 
 
   \begin{equation} \label{eq::lipschitz_condition}
-    \|\;|\widehat{f}| -|\widehat{L_\tau f}| \; \| \leq c \|f\| (\|\nabla \tau \|_{\infty} + \|H\tau\|_\infty) \leq c \|f\| \epsilon
+    \|\;|\widehat{f}| -|\widehat{L_\tau f}| \; \| \leq c \|f\| (\|\nabla \tau \|_{\infty} + \|H\tau\|_\infty) = c \|f\| \epsilon
   \end{equation}
 
   \noindent Lo que implica encontrar una constante $c\in \mathbb{R}$ que cumpla la desigualdad para cualquier valor de $\epsilon$.Vamos a ver un contraejemplo con una función de una dimensión por simplicidad.
@@ -135,10 +135,10 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
     &= \frac{1}{(1-\epsilon)}\left|  \int{f((1-\epsilon)x)e^{-ix\omega}dx}  \right | \\
     &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \xi \tilde{x}}e^{-|\tilde{x}|}e^{-i\frac{\tilde{x}}{(1-\epsilon)}\omega}d\tilde{x}}  \right | \\
     &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \left[ \frac{(1-\epsilon) \xi - \omega}{(1-\epsilon)}\right]\tilde{x}}e^{-|\tilde{x}|} d\tilde{x}}  \right | \\
-    &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \tilde{\beta}\tilde{x}}e^{-|\tilde{x}|} d\tilde{x}}  \right |, \\
+    &=\frac{1}{(1-\epsilon)}\left|  \int{e^{i \tilde{\beta}\tilde{x}}e^{-|\tilde{x}|} d\tilde{x}}  \right |. \\
   \end{align*}
 
-  \noindent como podemos ver, llegamos a una integral que se resuelve de la misma manera que en el caso anterior haciendo uso de \eqref{eq:res_auxiliar_1} y \eqref{eq:res_auxiliar_2}:
+  \noindent Como podemos ver, llegamos a una integral que se resuelve de la misma manera que en el caso anterior haciendo uso de \eqref{eq:res_auxiliar_1} y \eqref{eq:res_auxiliar_2}:
 
   \begin{align*}
     |\widehat{L_\tau f}(\omega)| 
@@ -206,7 +206,7 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
  
 \medskip
 
-\noindent La demostración anterior no ha tenido en cuenta la hipótesis de que la función $f$ debe tener soporte compacto, pero se ha realizado de esta manera por simplicidad en las cuentas, aunque puede adaptarse al caso de una función de soporte compacto.
+\noindent El razonamiento anterior no ha tenido en cuenta la hipótesis de que la función $f$ debe tener soporte compacto, pero se ha realizado de esta manera por simplicidad en las cuentas, aunque puede adaptarse a este caso también.
 
 \medskip
 
@@ -216,7 +216,7 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
 
 \subsection{Alternativa: Las ondeletas}
 
-\noindent Las ondeletas \cite{MallatWavelets} son pequeñas ondas estables bajo la acción de deformaciones, al contrario que las ondas sinusoidales de Fourier. Definiremos la transformada de ondeletas y veremos que calcula, mediante convoluciones con bases de ondeletas, coeficientes estables bajo la acción de difeomorfismos.
+\noindent Las ondeletas, son pequeñas ondas estables bajo la acción de deformaciones, a diferencia de las ondas sinusoidales de Fourier. Definiremos la transformada de ondeletas y veremos que calcula, mediante convoluciones con bases de ondeletas, coeficientes estables bajo la acción de difeomorfismos.
 
 \medskip
 
@@ -224,14 +224,18 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
 
 \medskip
 
-\noindent A modo de ejemplo vamos a ver la base de Haar que, aunque no sea la que utilicemos para construir nuestro propagador de dispersión, puede ayudar a entender mejor la filosofía de las ondeletas. Se construye a partir de la siguiente función: 
+\noindent A modo de ejemplo vamos a ver la base de Haar que, aunque no sea la que utilicemos para construir nuestro propagador de dispersión, puede ayudar a entender mejor la filosofía de las ondeletas. Lo que sigue está basado en  \cite{MallatWavelets}.
+
+\medskip
+
+\noindent Se construye a partir de la siguiente función: 
 
 $$ \psi(t)= \begin{cases} 
       1 & 0\leq t < 1/2 \\
       -1 & 1/2\leq t < 1 \\
-      0 & \; en \; otro \; caso
+      0 & \; \text{en otro caso},
    \end{cases}$$
-
+\noindent podemos ver una representación gráfica en la \autoref{fig:Ondeleta_de_Haar}.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.5\textwidth]{img/Haar_wavelet.png}
@@ -261,11 +265,11 @@ $$f=\sum_{j=-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}  \langle f,\psi_{j,n} \
 
 \begin{itemize}
   \item Cada ondeleta $\psi_{j,n}$ tiene media $0$ en su soporte $[2^jn, 2^j(n+1)]$.
-  \item Si $f$ es localmente regular y el intervalo donde tiene soporte la ondeleta correspondiente soporte es muy pequeño, debido a las propiedades de $f$, la función en el intervalo  $[2^jn, 2^j(n+1)]$ será prácticamente constante, lo que se traduce en que su coeficiente de ondeleta $\langle f,\psi_{j,n} \rangle$ es prácticamente cero.
+  \item Si $f$ es localmente regular y el intervalo donde tiene soporte la ondeleta correspondiente es muy pequeño, debido a las propiedades de $f$, la función en el intervalo  $[2^jn, 2^j(n+1)]$ será prácticamente constante, lo que se traduce en que su coeficiente de ondeleta $\langle f,\psi_{j,n} \rangle$ es prácticamente cero.
   \item Los mayores coeficientes se localizan en los cambios bruscos de intensidad de señal, como pueden ser los bordes, las esquinas o las texturas en las imágenes, pues en estos casos somos capaces de encontrar un elemento de la base de Haar con cuyo soporte esté en el intervalo dónde se produzca el cambio de intensidad, y por lo tanto que tenga un coeficiente de ondeletas distinto de cero.
 \end{itemize}
 
-\noindent Para el caso concreto de imágenes \footnote{ver por ejemplo sección 1.1 de \cite{MallatWavelets}}, las bases de ondeletas ortonormales pueden construirse a partir de bases ortonormales en señales de una dimensión. Lo haremos a partir de tres ondeletas para capturar las variaciones horizontales, verticales y diagonales presentes en la imagen. Así, denominamos a las ondeletas usadas como $\psi^1(x)$, $\psi^2(x)$ y $\psi^3(x)$ con $x=(x_1,x_2)\in \mathbb{R}^2$, dilatadas por el factor $2^j$ y trasladadas por $2^jn$ con $n=(n_1,n_2) \in \mathbb{Z}^2$, se construye una base ortonormal para el espacio $L^2(\mathbb{R}^2)$: 
+\noindent Para el caso concreto de imágenes \footnote{ver sección 1.1 de \cite{MallatWavelets}}, las bases de ondeletas ortonormales pueden construirse a partir de bases ortonormales en señales de una dimensión. Lo haremos a partir de tres ondeletas para capturar las variaciones horizontales, verticales y diagonales presentes en la imagen. Así, denominamos a las ondeletas usadas como $\psi^1(x)$, $\psi^2(x)$ y $\psi^3(x)$ con $x=(x_1,x_2)\in \mathbb{R}^2$, dilatadas por el factor $2^j$ y trasladadas por $2^jn$ con $n=(n_1,n_2) \in \mathbb{Z}^2$, se construye una base ortonormal para el espacio $L^2(\mathbb{R}^2)$: 
 $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{2^j}\right) \right \rbrace_{(j,n) \in \mathbb{Z}^2}$$
 
 \medskip
