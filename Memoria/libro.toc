@@ -115,12 +115,12 @@
 \contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{123}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{123}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{124}{section.10.2}%
-\contentsline {chapter}{\numberline {A}Apéndice A}{125}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{125}{section.Alph1.1}%
-\contentsline {chapter}{\numberline {B}Apéndice B}{131}{appendix.Alph2}%
-\contentsline {section}{\numberline {B.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{131}{section.Alph2.1}%
-\contentsline {chapter}{\numberline {C}Apéndice C}{137}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{137}{section.Alph3.1}%
-\contentsline {chapter}{\numberline {D}Apéndice D}{143}{appendix.Alph4}%
-\contentsline {section}{\numberline {D.1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{143}{section.Alph4.1}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{149}{chapter*.10}%
+\contentsline {chapter}{\numberline {A}Apéndice A}{127}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{127}{section.Alph1.1}%
+\contentsline {chapter}{\numberline {B}Apéndice B}{133}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{133}{section.Alph2.1}%
+\contentsline {chapter}{\numberline {C}Apéndice C}{139}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{139}{section.Alph3.1}%
+\contentsline {chapter}{\numberline {D}Apéndice D}{145}{appendix.Alph4}%
+\contentsline {section}{\numberline {D.1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{145}{section.Alph4.1}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{151}{chapter*.10}%
