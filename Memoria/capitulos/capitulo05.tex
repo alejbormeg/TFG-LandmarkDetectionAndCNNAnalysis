@@ -16,12 +16,12 @@
 
 \medskip
 
-\noindent Dentro de la medicina forense se encuentra la \textbf{antropología forense}, que principalmente se encarga de la identificación de personas a partir de restos óseos. Y es en este ámbito donde se encuentra el proceso que da sentido a este trabajo. 
+\noindent Dentro de la medicina forense se encuentra la \textbf{antropología forense}, que principalmente se encarga de la identificación de personas a partir de restos óseos. Y es en este ámbito donde se encuentran los procesos que dan sentido a este trabajo. 
 
 
 \section{Descripción del problema y Motivación}
 
-    \noindent Los \textbf{landmarks cefalométricos} son puntos localizados en la cara que nos permiten caracterizar la morfología de la cabeza. La correcta identificación de estos puntos es de extrema importancia en tareas como la extracción de índices de proporción antropométricos para problemas de clasificación o detección de patologías, la comparación facial forense y la identificación humana forense mediante la superposición craneofacial (SCF). Este último método es un procedimiento de identificación muy utilizado en el cual se comparan imágenes de la persona difunta (imágenes ante-mortem) con una representación 3D de un cráneo candidato, con el fin de determinar si el cráneo pertenece a la persona de las imágenes o no. La correspondencia entre cara y cráneo se hace con ayuda del marcado en el cráneo de landmarks \textit{craneométricos}. Así, cada landmark cefalométricos tiene un homólogo craneométrico con el mismo nombre. En la \autoref{fig:procesoSCF}  podemos ver un esquema del proceso seguido.
+    \noindent Los \textbf{landmarks cefalométricos} son puntos localizados en la cara que nos permiten caracterizar la morfología de la cabeza. La correcta identificación de estos puntos es de extrema importancia en tareas como la extracción de índices de proporción antropométricos (por ejemplo, para problemas de clasificación o detección de patologías), la comparación facial forense y la identificación humana forense mediante la superposición craneofacial (SCF). Este último método es un procedimiento de identificación muy utilizado, en el cual se comparan imágenes de la persona difunta (imágenes ante-mortem) con una representación 3D de un cráneo candidato, con el fin de determinar si el cráneo pertenece a la persona de las imágenes o no. La correspondencia entre cara y cráneo se hace con ayuda del marcado en el cráneo de landmarks \textit{craneométricos}. Así, cada landmark \textit{cefalométricos} tiene un homólogo \textit{craneométrico} con el mismo nombre. En la \autoref{fig:procesoSCF}  podemos ver un esquema del proceso seguido.
 
     \begin{figure}[!h]
         \centering
@@ -89,8 +89,10 @@
         \end{tabular}
     \end{center}
 
-    \medskip 
 
+    \medskip
+
+    \noindent En este contexto, el presente TFG comparte el mismo problema que el TFG realizado por Guillermo Gómez en $2019$, que representa una medida del estado del arte en este campo, por lo que compararemos los resultados obtenidos por su modelo con los que obtengamos en este trabajo. Además, el enfoque de los datos a usar es distinto, pues aunque partimos del mismo dataset, vamos a explorar técnicas de \textit{few-shot learning}, es decir, trataremos de obtener un modelo competente con pocos datos de entrenamiento. Mientras que en este trabajo se amplió el conjunto de entrenamiento con un dataset extra de modelos $3D$ de rostros con landmarks anotados de los que se extrajeron proyecciones $2D$.
 
 \section{Requisitos mínimos del algoritmo}
 
