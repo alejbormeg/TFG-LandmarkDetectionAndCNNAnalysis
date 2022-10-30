@@ -1,6 +1,6 @@
 \chapter{Solución propuesta y experimentos realizados}
 
-    \noindent El reconocimiento automático de landmarks faciales es una área de gran importancia en la actualidad en tareas como el reconocimiento de personas y que se está viendo muy desarrollada gracias a las CNN. La principal diferencia entre este enfoque y el forense radica en el tipo de landmarks que se utilizan. Los utilizados en antropología forense son landmarks con justificación biológica, dichos landmarks se correpsonden con localizaciones concretas del cráneo del ser humano, y los landmarks cefalométricos intentan predecir la posición de estos puntos sobre la piel, a diferencia de los que se emplean en las tareas de reconocimiento facial, que generalmente atienden a puntos de interés de la cara para su correcto reconocimiento y son independientes del cráneo del sujeto. Así pues existen diversas bases de datos empleadas para este cometido con multitud de imágenes etiquetadas, destacamos entre ellas: 
+    \noindent El reconocimiento automático de landmarks faciales es una área de gran importancia en la actualidad en tareas como el reconocimiento de personas y que se está viendo muy desarrollada gracias a las CNN. La principal diferencia entre este enfoque y el forense radica en el tipo de landmarks que se utilizan. Los utilizados en antropología forense son landmarks con justificación biológica. Dichos landmarks se correpsonden con localizaciones concretas del cráneo del ser humano, y los landmarks cefalométricos intentan predecir la posición de estos puntos sobre la piel, a diferencia de los que se emplean en las tareas de reconocimiento facial, que generalmente atienden a puntos de interés de la cara para su correcto reconocimiento y son independientes del cráneo del sujeto. Así pues existen diversas bases de datos empleadas para este cometido con multitud de imágenes etiquetadas, destacamos entre ellas: 
 
     \begin{itemize}
     \item \textbf{300-W}: Se trata de un dataset compuesto por $3148$ imágenes de entrenamiento y $689$ imágenes de test \textit{in-the-wild}, es decir con multitud de poses, distinta iluminación y expresiones faciales. Está anotada por 51 landmarks o 68 landmarks si contamos el contorno del rostro \cite{300W}. Podemos ver los landmarks en la imagen \autoref{fig:300W}
@@ -27,14 +27,14 @@
 
 
 \section{Framework empleado: 3FabRec }
-        \noindent La red empleada para la resolución del problema es la desarrollada por \textbf{Bjorn Browatzki et al} en $2020$ \cite{browatzki20203fabrec} denominada \textbf{3FabRec}. La red en cuestión es un \textbf{Adversarial Autoencoder} combiando con una red \textit{GAN} (por la presencia de un segundo discriminante del estilo que hay en las GAN) que puede predecir landmarks gracias a la incorporación de unas capas convolucionales intermedias denominadas \textit{Interleaved Transfer Layers} (ITLs) en la etapa de reconstrucción y que explicaremos en profundidad más adelante.            
+        \noindent La red empleada para la resolución del problema es la desarrollada por \textbf{Bjorn Browatzki et al} en $2020$ \cite{browatzki20203fabrec} denominada \textbf{3FabRec}. La red en cuestión es un \textbf{Adversarial Autoencoder} combiando con una red \textit{GAN} (por la presencia de un segundo discriminante propio de las GANs) que puede predecir landmarks gracias a la incorporación de unas capas convolucionales intermedias denominadas \textit{Interleaved Transfer Layers} (ITLs) en la etapa de reconstrucción. Todos estos elementos serán explicados en profundidad más adelante.      
 
         \medskip
 
         \noindent Esta red aplica un método \textit{semi-supervisado} en el cual:
 
         \begin{itemize}
-            \item Hay una primera fase de \textbf{aprendizaje no supervisado} dónde se pretende adquirir conocimiento implícito sobre la estructura facial contenida en grandes conjuntos de imágenes de rostros de personas en diversas posiciones, iluminación y etnia. Para ello se codifica todo este conocimiento implícito en un vector de un espacio latente de baja dimensionalidad para posteriormente reconstruir la imagen. Este proceso se hace íntegramente en el \textit{Adversarial Autoencoder}.
+            \item Hay una primera fase de \textbf{aprendizaje no supervisado}, donde se pretende adquirir conocimiento implícito sobre la estructura facial contenida en grandes conjuntos de imágenes de rostros de personas en diversas posiciones, iluminación y etnia. Para ello se codifica todo este conocimiento implícito en un vector de un espacio latente de baja dimensionalidad para posteriormente reconstruir la imagen. Este proceso se hace íntegramente en el \textit{Adversarial Autoencoder}, sin hacer uso de las ITLs.
             \item Posteriormente, en una segunda fase de \textbf{aprendizaje supervisado}, se entrena la red con un conjunto de imágenes etiquetadas con landmarks faciales que la red tratará de predecir. Para ello se intercalan entre las capas del generador capas de convolución encargadas de reconstruir los mapas de calor de cada landmark junto con la reconstrucción del rostro del paso previo. Estas son las ITLs que mencionamos anteriormente.
             \item Finalmente, se puede incluir una tercera fase de \textit{finetuning} en la cual se entrena el Encoder para mejorar el rendimiento en la predicción de landmarks.
         \end{itemize} 
@@ -106,7 +106,7 @@
             
         \subsection{Función de pérdida}
 
-            \noindent La red utiliza dos funciones de pérdida, la primera que presentaremos se emplea en el entrenamiento del \textit{Adversarial Autoencoder}, en la parte no supervisada, y la segunda función de pérdida se utiliza tanto en la parte de aprendizaje supervisado como en la de \textit{finetuning} del Encoder. Debido al interés que tiene en el estudio del framework se van a presentar y explicar ambas funciones de pérdida, pero cabe resaltar, que debido a que el problema que vamos a resolver es de \textbf{regresión}, en la fase de experimentación únicamente tendrá interés la segunda función de coste, asociada al entrenamiento de la parte supervisada.
+            \noindent La red utiliza dos funciones de pérdida, la primera que presentaremos se emplea en el entrenamiento del \textit{Adversarial Autoencoder}, en la parte no supervisada, y la segunda se utiliza tanto en la parte de aprendizaje supervisado como en la de \textit{fine-tuning} del Encoder. Debido al interés que tiene en el estudio del framework se van a presentar y explicar ambas funciones de pérdida. Cabe resaltar, que debido a que el problema que vamos a resolver es de \textbf{regresión}, en la fase de experimentación únicamente tendrá interés la segunda función de coste, asociada al entrenamiento de la parte supervisada.
 
             \medskip
 
@@ -194,7 +194,7 @@
 
         \subsection{Bases de datos usadas por el framework}
             
-            \noindent Para el entrenamiento supervisado se emplearon los siguientes datasets unidos: 
+            \noindent Para el entrenamiento no supervisado se emplearon los siguientes datasets unidos: 
 
             \begin{itemize}
                 \item \textbf{VGGFace2} : Contiene un total de $3.3$ millones de imágenes de rostros en distintas poses, edad, iluminación, etnia, etc... Del dataset eliminaron las imágenes de rostros que tuviera una altura mayor a $100$ píxeles, quedando un total de $1.8$ millones de caras.
@@ -203,7 +203,7 @@
 
             \noindent En total usaron unas $2.1$ millones de imágenes.
 
-            \noindent Para el entrenamiento no supervisado se emplearon los siguientes datasets: 
+            \noindent Para el entrenamiento supervisado se emplearon los siguientes datasets: 
 
             \begin{itemize}
                 \item \textbf{300-W} : une diversos datasets de rostros etiquetados con \textbf{$68$}landmarks de manera semi-automática como son \textbf{LFPW},\textbf{AFW}, \textbf{HELEN} y \textbf{XM2VTS}. Además de añadir datos propios. En total emplearon $3,148$ (aproximadamente el $80 \%$ )imágenes para el entrenamiento y $689$ para test, las cuales se dividieron en dos grupos, uno de $554$ imágenes considerado el grupo test estándar, y otro de $135$ imágenes difíciles.
@@ -217,7 +217,7 @@
 
 \section{Métricas}
 
-\noindent En este capítulo se van a presentar las principales métricas de error que se emplearán para estudiar la bondad de los resultados que se obtengan en futuros capítulos.
+\noindent En esta sección, se van a presentar las principales métricas de error que se emplearán para estudiar la bondad de los resultados que se obtengan en futuros capítulos.
 
     \subsection{Métricas usadas en el entrenamiento}
         \noindent Las métricas que se muestran durante el entrenamiento utilizadas por el modelo son:
@@ -314,8 +314,8 @@
         \noindent El conjunto de datos Forense que se proporciona para resolver el problema presenta las siguientes características: 
 
         \begin{itemize}
-            \item Contienen un total de \textbf{167 imágenes} de distintos sujetos. No se distribuye de forma equitativa el número de imágenes por sujeto, de manera que para algunos solo se dispone de una imagen mientras que otros disponen de varias. El sujeto con mayor número de imágenes tiene siete.
-            \item La resolución de las imágenes también varía mucho, encontrando imágenes de alta calidad junto con otras con una muy baja resolución, oscilando entre los $4350 \times 3400$ píxeles y $168 \times 256$ píxeles.
+            \item Contienen un total de \textbf{167 imágenes} de distintos sujetos \textit{in-the-wild}. El número de imágenes por sujeto no se distribuye de forma equitativa, algunos solo disponen de una imagen mientras que otros tienen varias. El sujeto con mayor número de imágenes tiene siete.
+            \item La resolución de las imágenes también varía mucho, oscilando entre los $4350 \times 3400$ píxeles y $168 \times 256$ píxeles.
             \item Hay imágenes a color y en escla de grises.
             \item Las imágenes se presentan en un conjunto muy variado de posiciones. Disponemos de: 
             \begin{itemize}
@@ -323,22 +323,21 @@
                 \item $57$ imágenes con rostros en posición de \textbf{$3/4$}.
                 \item $23$ imágenes de perfil.
             \end{itemize}
-            \item Hay hasta un total de $30$ landmarks que pueden marcarse, aunque por regla general el número de landmarks en las imágenes es menor, como puede apreciarse en la \autoref{fig:Histograma}.
+            \item Hay hasta un total de $30$ landmarks que pueden marcarse. Sin embargo, el número de landmarks en las imágenes es menor, como puede apreciarse en la \autoref{fig:Histograma}.
             \item En la \autoref{fig:Histograma} también podemos apreciar como la aparición de algunos landmarks es extremadamente baja, como es el caso del \textit{prosthion} y el \textit{Tragion} (tanto el izquierdo como el derecho). El resto de landmarks aparecen en más de la mitad de las imágenes. 
             \medskip
             \noindent La aparición en mayor o menor medida de cierto landmark en las imágenes nos sirve de indicador de si podrá ser o no aprendido por el modelo que usemos, de manera que los landmarks mencionados anteriormente, a causa del bajo número de ejemplos en los que aparecen puede ser más difícil que se aprendan.
         \end{itemize}
-
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=0.9\textwidth]{img/imagenes_ejemplo_dataset.png}
+                \includegraphics[width=0.5\textwidth]{img/imagenes_ejemplo_dataset.png}
                 \caption{Imágenes de ejemplo del dataset proporcionado. Como puede observarse hay gran variedad de tamaños, poses, condiciones de iluminación diferentes que añaden dificultad al problema.}
                 \label{fig:Imagenes_dataset}
             \end{figure}
 
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=0.9\textwidth]{img/distribucion_landmarks_imagenes.png}
+                \includegraphics[width=0.7\textwidth]{img/distribucion_landmarks_imagenes.png}
                 \caption{Histograma con la aparición de cada tipo de landmark en las imágenes del dataset.}
                 \label{fig:Histograma}
             \end{figure}
@@ -346,7 +345,7 @@
     \subsection{Preprocesamiento}
         
         \subsubsection{Identificación de caras en las imágenes}
-            \noindent Antes de poder entrenar el modelo, es necesario adecuar el dataset para que pueda usarse durante el entrenamiento. El framework está pensado para recibir como entrada una imagen a la cual se le hace un recorte a la región que ocupa el rostro con ayuda de un \textit{bounding box} predefinido y determinado por las coordenadas en la imagen de las cuatro esquinas o bien siguiendo los landmarks descritos por el fichero auxiliar asociado a cada imagen. En nuestro caso, debido a que la mayoría de landmarks son internos y no se suelen situar en los bordes de la cara, hemos pensado que la mejor manera de entrenar la red es que serealice el recorte de la imagen de entrada de acuerdo a un \textit{bounding box}. Para ello fue necesario emplear una red especializada en la detección de caras en imágenes y que nos proporcionaba como salida una lista con los \textit{bounding boxes} de todas las caras detectadas, la red se denomina \textbf{Facenet} y que se puede importar de la librería \textit{facenet pytorch} como \textit{mtcnn}.
+            \noindent Antes de poder entrenar el modelo, es necesario adecuar el dataset para que pueda usarse modelo. El framework está pensado para recibir como entrada una imagen, a la cual, se le hace un recorte a la región que ocupa el rostro con ayuda de un \textit{bounding box} predefinido y determinado por las coordenadas en la imagen de las cuatro esquinas o bien siguiendo los landmarks descritos por el fichero auxiliar asociado a cada imagen. En nuestro caso, debido a que la mayoría de landmarks son internos y no se suelen situar en los bordes de la cara, hemos pensado que la mejor manera de entrenar la red es que serealice el recorte de la imagen de entrada de acuerdo a un \textit{bounding box}. Para ello fue necesario emplear una red especializada en la detección de caras en imágenes y que nos proporcionaba como salida una lista con los \textit{bounding boxes} de todas las caras detectadas. La red se denomina \textbf{Facenet}, y se puede importar de la librería \textit{facenet} de \textit{pytorch} como \textit{mtcnn}.
 
             \medskip
 
@@ -358,7 +357,7 @@
             \end{enumerate}
 
 
-            \noindent En nuestro caso, primero se probó con un \textit{image\_size} de $256 \times 256$, pero esto tenía problemas pues en ocasiones no podían construirse \textit{bounding boxes} de este tamaño y producían error, por lo que se redujo a $128 \times 128$ generando buenos resultados, por esto finalmente se dejó este valor. Por otro lado, observando las imágenes del dataset de entrenamiento, nos dimos cuenta que en algunas imágenes aparecían varios sujetos, y en ocasiones la cara más \entrecomillado{grande} mo pertenecía al sujeto principal. Es por ello que se decidió establecer el parámetro \textit{select\_largest} a \textit{False}, y así obtener como salida una lista de \textit{bounding boxes} ordenados de mayor a menor según el nivel de confianza.
+            \noindent En nuestro caso, primero se probó con un \textit{image\_size} de $256 \times 256$, pero esto tenía problemas pues en ocasiones no podían construirse \textit{bounding boxes} de este tamaño y producían error, por lo que se redujo a $128 \times 128$. Por otro lado, observando las imágenes del dataset de entrenamiento, nos dimos cuenta que en algunas imágenes aparecían varios sujetos, y en ocasiones la cara más \entrecomillado{grande} mo pertenecía al sujeto principal. Es por ello que se decidió establecer el parámetro \textit{select\_largest} a \textit{False}, y así obtener como salida una lista de \textit{bounding boxes} ordenados de mayor a menor según el nivel de confianza. No obstante, en algunos casos se tuvo que elegir con cuidado cuál de los bounding boxes proporcionados se correspondía con el sujeto principal.
 
             \medskip
 
@@ -385,7 +384,7 @@
                 \label{fig:Ejemplo_bb}
             \end{figure}
 
-            \noindent Además, durante el estudio anterior se observaron otros hechos dignos de mención. En primer lugar se identificaron dos imágenes repetidas, pero se decidió mantenerlas pues los landmarks presentes en una y otra eran diferentes, lo que podía ayudar al entrenamiento. Por otro lado, durante el entrenamiento se vió cómo había una imagen de un determinado sujeto en la que aprecían simultáneamente dos fotos, una  de frente y otra de perfil, sin embargo, al estar los landmarks anotados únicamente en la imagen de frente se tomó el \textit{bounding box} de la imagen frontal desechando el otro para el perfil. En otras dos imágenes se pueden ver un conjunto de varias personas, y la red mostraba erróneamente los \textit{bounding boxes} de personas que no eran el sujeto de estudio, por lo que estudiar cuál de todos los \textit{bounding boxes} devueltos pertenecía al sujeto correcto.
+            \noindent Durante el estudio anterior, se observaron otros hechos dignos de mención. En primer lugar se identificaron dos imágenes repetidas, pero se decidió mantenerlas pues los landmarks presentes en una y otra eran diferentes, lo que podía ayudar al entrenamiento. Por otro lado, durante el entrenamiento se vió cómo había una imagen de un determinado sujeto en la que aprecían simultáneamente dos fotos, una  de frente y otra de perfil. Sin embargo, al estar los landmarks anotados únicamente en la imagen de frente se tomó el \textit{bounding box} de la imagen frontal desechando el otro para el perfil. En otras dos imágenes se pueden ver un conjunto de varias personas, y la red mostraba erróneamente los \textit{bounding boxes} de personas que no eran el sujeto de estudio, por lo que estudiar cuál de todos los \textit{bounding boxes} devueltos pertenecía al sujeto correcto.
 
         \subsubsection{Creación del fichero annotations en el dataset}
 
@@ -395,12 +394,12 @@
                 \item El nombre del fichero.
                 \item El índice de la imagen dentro del dataset. 
                 \item Una lista con las coordenadas $2D$ de cada landmark en la imagen (incluidos los no presentes como situados en la posición $[-1,-1]$). 
-                \item Una lista denominada máscara que representa la visibilidad de cada landmark en la imagen. Los landmarks visibles en la imagen tienen asociado el valor $1$, mientras que los no visibles tienen asociado el valor $0$.
+                \item Una lista denominada máscara, que representa la visibilidad de cada landmark en la imagen. Los landmarks visibles en la imagen tienen asociado el valor $1$, mientras que los no visibles tienen asociado el valor $0$. Esta máscara será de gra utilidad a la hora de extraer las métricas, pues hay que realizar las medias de acuerdo al número de landmarks visibles de cada tipo, no se puede usar siempre el valor $30$.
                 \item Finalmente, se almacena la posición de las cuatro esquinas que definen el \textit{bounding box}, para que el framework recorte la imagen quedándose con el rostro únicamente. 
             \end{itemize}
 
         \subsubsection{Reajuste de los bounding boxes}
-            \noindent Finalmente, como parte del proceso de determinar los \textit{bounding boxes}, se vió que todos los casos, dichos rectángulos cortaban parte de las caras de los sujetos. En ocasiones partes en las que había landmarks marcados, es por ello, que se tuvo que realizar una transformación del \textit{bounding box} sugerido para que manteniendo el centro del mismo abarcase una mayor superficie y que contuviera el rostro completo del sujeto. 
+            \noindent Finalmente, como parte del proceso de determinar los \textit{bounding boxes}, se vió que en todos los casos, dichos rectángulos cortaban parte de las caras de los sujetos. En ocasiones partes en las que había landmarks marcados, es por ello, que se tuvo que realizar una transformación del \textit{bounding box} sugerido para que manteniendo el centro del mismo abarcase una mayor superficie y que contuviera el rostro completo del sujeto. 
 
             \medskip
 
@@ -424,7 +423,7 @@
 
 
     \subsection{Separación en conjuntos de entrenamiento y validación}
-        \noindent En primer lugar separaremos el conjunto de datos que se proporciona en conjuntos de entrenamiento, validación y test. Debido a que trabajaremos con un conjunto de datos reducido será necesario emplear \textbf{validación cruzada} para la elección entre los modelos que se prueben. Así pues, de las \textbf{164 imágenes} que usaremos en total, establecemos una semilla para que los procesos aleatorios sean replicables en cualquier máquina y con ayuda de la función \textit{random-shuffle} de python separamos los datos en: 
+        \noindent En primer lugar ,separaremos el conjunto de datos que se proporciona en conjuntos de entrenamiento, validación y test. Debido a que trabajaremos con un conjunto de datos reducido será necesario emplear \textbf{validación cruzada} para la elección entre los modelos que se prueben. Así pues, de las \textbf{164 imágenes} que usaremos en total, establecemos una semilla para que los procesos aleatorios sean replicables en cualquier máquina y con ayuda de la función \textit{random-shuffle} de python separamos los datos en: 
 
         \begin{itemize}
             \item \textbf{Conjunto de test}: 33 imágenes ($20\%$ del total de imágenes).
