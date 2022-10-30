@@ -8,56 +8,31 @@
 \selectlanguage{english}
 \chapter{Abstract}
 
-\noindent The main purpose of the work detailed below is to show a possible mathematic modelization of a Convolutional Neural Network and demonstrate one of the main properties of this kind of network, Translation Invariance.  On the other side, we will adapt the architecture of an existing network in order to solve a real problem about cephalometric landmark detection from a Machine Learning perspective.
+\noindent The main purpose of the work detailed below is to show a possible mathematic modelization of a Convolutional Neural Network and demonstrate one of the main properties of this kind of network, Translation Invariance.  On the other side, we will adapt the architecture of an existing network in order to solve a real problem about cephalometric landmark detection from a Machine Learning perspective using few-shot learning.
 
 \medskip
 
-\noindent Convolutional Neural Networks are recent tools which have demonstrated a great capacity for image-processing tasks. Their good performance on this kind of task can be checked empirically. However, their mathematical modelization and the theoretical justification of why they are good for this kind of task still is an open case study. For this reason, the main purpose of this part of the work is to present a possible modelization for Convnets based on the theoretical approximation presented by Stephane Mallat in his work \textbf{Group Invariant Scattering}. Once the modelization is shown, we try to prove one of the most important properties of this network, Translation Invariance. The main difficulty is that we do not have many articles to compare related information, and many times, the way are presented the main results may sound confusing, that is the reason why we try to explain these steps with clarity.
+\noindent Convolutional Neural Networks are recent tools which have demonstrated a great capacity for image-processing tasks. Their good performance on this kind of task can be checked empirically. However, their mathematical modelization and the theoretical justification of why they are good for this kind of task still is an open case study. For this reason, the main purpose of this part of the work is to present a possible modelization for Convnets based on the theoretical approximation presented by Stephane Mallat in his work \textbf{Group Invariant Scattering}. Once the modelization is shown, we try to prove one of the most important properties of this network, Translation Invariance.
 
 \medskip
 
-\noindent In this work appears concepts of functional analytics, Fourier analysis and signal processing via wavelets.  A great part of the process consisted of the study and investigation of new concepts like wavelets and wavelet transform. The principal book consulted was \textbf{Digital image processing} by Rafael Gonzalez.
+\noindent To do so, we present an operator called scattering propagator. Using this operator in a cascade of convolutions we reach the windowed scattering transform, presented as the mathematical modelization of Convnets. We present a set of properties that this operator must satisfy, like Lipschitz-continuity, non-expansivity and translation invariant coefficients. The operator that satisfies all these properties is the Littlewood-Paley wavelet transform. Once we have the operator we define the modelization of the windowed scattering and we study the similarities with the Convolutional Neural Networks. To prove the translation invariance we use that properties of the windowed operator is non-expansive.
 
 \medskip
 
-\noindent First, we present an operator called scattering propagator. Using this operator in a cascade of convolutions we reach the windowed scattering transform, presented like the mathematical modelization of Convnets. We present a set of properties that this operator must verify, Lipschitz-continuity, like non-expansivity and translation invariant coefficients. The operator that verifies all these properties is the Littlewood-Paley wavelet transform. Once we have the operator we define the modelization of the windowed scattering and we study the similarities with the Convolutional Neural Networks. 
+\noindent In the second part of this work, we adapt an existing CNN specialized in facial landmarks detection called 3FabRec (which is an Adversarial Autoencoder with interleaved layers that predict landmarks). The objective is to predict cephalometric facial landmarks using this framework. Cephalometric landmarks have biological inspiration. The main problem is the small dataset provided with only a few images in-the-wild to train the model.
 
 \medskip
 
-\noindent To prove the translation invariance we need to use the properties of the windowed operator to prove that is non-expansive and then prove the translation invariance.
+\noindent To do so, the dataset provided had 167 images of people in the wild. We wanted to train the framework to predict a maximum of $30$ landmarks in each image. After a previous analysis of the dataset, we discovered that not all the landmarks are marked in all images, and we needed to use an auxiliary network called Facenet to identify bounding boxes on the images and be able to train the model. Due to the few amount of data we have, this is contained in the field of few-shot learning. 
 
 \medskip
 
-\noindent Finally, we conclude all objectives are complete. Despite some results having complicated steps, the main results are explained with clarity. This has been a hard process but in the end, our model verifies all the main properties that a convolutional neural network must verify.  
+\noindent We studied the state-of-art discovering that only a few articles in the search we did were related to this specific problem. In these articles, a set of images in the same position and illumination conditions were used, instead of the in-the-wild dataset we use. Our model solves the problem using a Network pretrained on the AFLW dataset and making fine-tuning with the forensic dataset. We apply data augmentation techniques to do so and we obtain competitive results like an average NME of $2.65$. 
 
 \medskip
 
-\noindent In the second part of this work, we adapt an existing Convnet specialized in facial landmarks detection called 3FabRec (which is an Adversarial Autoencoder with interleaved layers that predict landmarks). The objective is to predict cephalometric facial landmarks using this framework. Cephalometric landmarks have biological inspiration. The main problem is the small dataset provided with only a few images in the wild to train the model.
-
-\medskip
-
-\noindent To do this, the dataset provided had 167 images of people in the wild. We wanted to train the framework in order to predict a maximum of $30$ landmarks in each image. After a previous analysis of the dataset, we discovered that not all the landmarks are marked in all images, and we needed to use an auxiliary convnet called Facenet in order to identify the faces in each image and crop.
-
-\medskip
-
-\noindent We studied the state-of-art discovering that only 3 articles in the search we did were related to this specific problem. Two of them worked with a small number of cephalometric landmarks and applied techniques based on bank filters, and the last one uses deep learning techniques but the dataset was a set of images in the same position and illumination conditions. 
-
-\medskip
-
-\noindent We train the framework pretrained in the AFLW dataset. The first model we propose only trains the interleaved transfer layers, which marks the landmarks on the reconstructed face. The results were good, but we noticed that some reconstructed faces were not very realistic, so we propose two ways to improve the base model: The first one trains some parts of the architecture which reconstruct the face and the interleaved transfer layers, and the second one is to apply data augmentation techniques to increase the dataset.
-
-\medskip
-
-\noindent In the first option, we make two experiments. In the first one we train the encoder and the interleaved transfer layers (freezing the decoder), and in the second one, we train the decoder and interleaved layers freezing encoder. The results were similar to the base model and reconstruction loss did not improve a lot.
-
-\medskip
-
-\noindent In the second option, we increase the dataset using data augmentation techniques like rotating, resizing, translating and occlusions in the original images. This increases the difficulty of the problem too, but we obtained a very robust method which predicts with a very low error cephalometric landmarks in validation and test datasets.
-
-\medskip
-
-\noindent In the end, all objectives are completed and the chosen model is the las one, which uses data augmentation techniques due to the fantastic results on the test dataset.
-
+\noindent Finally, we compare our results with the model proposed by Guillermo Gómez in his project on $2019$. The median RMSE of our model is $5.3862$ and in the model presented in $2019$ is $3.4106$. Despite the lower average RMSE error, our model improves the performance in some landmarks using a smaller dataset.
 
 % Al finalizar el resumen en inglés, volvemos a seleccionar el idioma español para el documento
 \selectlanguage{spanish} 

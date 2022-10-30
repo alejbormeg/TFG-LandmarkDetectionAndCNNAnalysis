@@ -11,7 +11,7 @@
 \chapter{Resumen}
 
 %Introducción a ambos trabajos
-\noindent El trabajo fin de grado (TFG) que a continuación se detalla tiene como objetivo presentar una posible modelización, desde el punto de vista matemático, de lo que es una \textbf{Red Neuronal Convolucional} (CNN), junto con la demostración de una de sus principales propiedades: la invarianza frente a traslaciones. Por otro lado, se pretende adaptar una arquitectura de red neuronal convolucional ya existente a un problema real que resulte apropiado para este tipo de algoritmos, que se abordará desde el punto de vista informático.
+\noindent El trabajo fin de grado (TFG) que a continuación se detalla tiene como objetivo presentar una posible modelización, desde el punto de vista matemático, de lo que es una \textbf{Red Neuronal Convolucional} (CNN), junto con la demostración de una de sus principales propiedades: la invarianza frente a traslaciones. Por otro lado, se pretende adaptar una arquitectura de red neuronal convolucional ya existente a un problema real que resulte apropiado con \textit{few-shot} learning, que se abordará desde el punto de vista informático.
 
 \medskip
 
@@ -19,13 +19,8 @@
 \noindent Las CNN son herramientas, que pese a haber surgido recientemente, han demostrado tener un gran potencial para el procesamiento de imágenes, convirtiéndose rápidamente en una de las principales herramientas para estos fines. Su buen rendimiento en este tipo de tareas es comprobable empíricamente, sin embargo siguen siendo una vía de estudio abierta en lo que se refiere la modelización matemática y la justificación teórica de estos resultados. Así, en la primera parte del TFG se pretende desarrollar \textbf{la modelización matemática} propuesta por Mallat, en su trabajo \textbf{Group Invariant Scattering}, junto con la demostración una de las principales propiedades: \textbf{la invarianza por traslaciones}.
 
 \medskip
-%Se detallan el enfoque elegido a seguir y por qué 
-\noindent Los conceptos tratados son propios del análisis funcional, análisis de Fourier y procesamiento de señales por medio de ondeletas. Algunos son nuevos y no se han visto durante la carrera, como el concepto de \textit{ondeleta} y en otros casos, profundizar e investigar sobre conceptos vistos en el grado, como en las técnicas del procesamiento de imágenes.
 
-
-\medskip
-
-\noindent En lo que respecta a la modelización, comenzamos con la búsqueda de un operador que denominado \textit{propagador de dispersión}, con el cual,  aplicando la operación de convolución de forma recusrsiva, se construye el denominado \textit{operador de ventana}. Esta será la modelización propuesta y actuará sobre caminos de frecuencias finitos (pues, como demostraremos, se puede conseguir retener tanta información como se quiera). Algunas propiedades importantes que debe verificar nuestro operador son la\textit{Lipschitz-continuidad}, que sea no expansivo o que produzca coeficientes invariantes a traslaciones. Esto, nos impedirá usar herramientas clásicas como la transformada de Fourier, y tendremos que recurrir a la transformada de ondeletas de \textit{Littlewood-Paley}. Al llegar a la posible modelización se realiza un estudio de las diferencias y similitudes que guarda con las CNN tal y como las conocemos.
+\noindent En lo que respecta a la modelización, comenzamos con la búsqueda de un operador que denominado \textit{propagador de dispersión}, con el cual,  aplicando la operación de convolución de forma recusrsiva, se construye el denominado \textit{operador de ventana}. Este, será la modelización propuesta y actuará sobre caminos de frecuencias finitos (pues, como demostraremos, se puede conseguir retener tanta información como se quiera). Algunas propiedades importantes que debe verificar nuestro operador son la\textit{Lipschitz-continuidad}, que sea no expansivo o que produzca coeficientes invariantes a traslaciones. Esto, nos impedirá usar herramientas clásicas como la transformada de Fourier, y tendremos que recurrir a la transformada de ondeletas de \textit{Littlewood-Paley}. Al llegar a la posible modelización se realiza un estudio de las diferencias y similitudes que guarda con las CNN tal y como las conocemos.
 
 \medskip
 
@@ -39,11 +34,15 @@
 \medskip
 
 %Se explican el conjunto de datos del que se parte y los métodos usados.
-\noindent Para llevar a cabo esta tarea se parte de un conjunto de 167 imágenes de distintos sujetos en una gran variedad de posturas, condiciones de iluminación y de calidad de imagen con los landmarks etiquetados por un experto. Este conjunto de datos se dividirá en entrenamiento y test. Entrenaremos la red neuronal mencionada anteriormente para lograr predecir hasta un máximo de \textbf{30 landmarks} distribuidos por toda la cara. Tras un primer análisis vemos como Sin embargo, no todos los landmarks se encuentran marcados en todas las imágenes del dataset. Previo al entrenamiento de la red, haremos un \textit{cropping} o recorte de rostros en la base de datos. 
+\noindent Para llevar a cabo esta tarea se parte de un conjunto de 167 imágenes de distintos sujetos en una gran variedad de posturas, condiciones de iluminación y de calidad de imagen con los landmarks etiquetados por un experto. Este conjunto de datos se dividirá en entrenamiento y test. Entrenaremos la red neuronal mencionada anteriormente para lograr predecir hasta un máximo de \textbf{30 landmarks} distribuidos por toda la cara. Tras un análisis exahustivo, vemos como no todos los landmarks se encuentran marcados en todas las imágenes del dataset o la necesidad de emplear un identificador de caras para marcar \textit{bounding boxes} en las imágenes y poder recortarlas en un paso previo al entrenamiento de la red. Debido a los pocos ejemplos de entrenamiento que poseemos, consideramos el problema dentro del ámbito del \textit{few-shot learning}.
 
 \medskip
 
 %Se explica el estado del arte y por qué es una apuesta novedosa y ver si constituye el estado del arte en este campo.
-\noindent Se ha revisado con detenimiento el estado del arte en este campo, descubriendo que se trata de una aproximación novedosa. Los trabajos encontrados que guarden relación sobre el tema son muy escasos, y los que aplican técnicas de deep learning, no emplean conjuntos de datos \textit{in-the-wild}. Además, nuestra propuesta plantea aprovechar el conocimineto adquirido por una red en un amplio dataset, como es \textit{AFLW}, en el reconocimiento de landmarks no antropométricos y ajustarla mediante \textit{fine-tuning}  y técnicas \textit{data augmentation}  para el reconocimiento de landmarks cefalométricos. El problema a resolver, por tanto, es de \textbf{regresión} los resultados obtenidos son competitivos con el estado del arte, obteniéndose una media de error NME de $2.65$.
+\noindent El problema en cuestión que se trata ha sido tratado en anteriores TFGs, como por ejemplo el de Guillermo Gómez de 2019 que usaremos para comparar los resultados obtenidos. No obstante,se ha revisado con detenimiento la literatura existente y el estado del arte en este campo, descubriendo que se trata de una aproximación novedosa. Los trabajos encontrados que guarden relación sobre el tema son muy escasos, y los que aplican técnicas de deep learning, no emplean conjuntos de datos \textit{in-the-wild}. Además, nuestra propuesta plantea aprovechar el conocimineto adquirido por una red en un amplio dataset, como es \textit{AFLW}, en el reconocimiento de landmarks no antropométricos y ajustarla mediante \textit{fine-tuning}  y técnicas \textit{data augmentation}  para el reconocimiento de landmarks cefalométricos. El problema a resolver, por tanto, es de \textbf{regresión} los resultados obtenidos son competitivos con el estado del arte, obteniéndose una media de error NME de $2.65$.
+
+\medskip
+
+\noindent Por otro lado, se realiza una comparación a nivel cuantitativo entre la solución propuesta y el presentado en el TFG de 2019. La mediana del RMSE cometido por nuestro modelo es de $5.3862$ píxeles de error, frente a los $3.4106$ del otro modelo. No obstante veremos como a nivel de landmark, se mejora el rendimiento en el marcado de ciertos puntos y se ha obtenido con un conjunto menor de datos etiquetados.
 
 \endinput
