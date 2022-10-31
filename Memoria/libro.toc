@@ -15,11 +15,11 @@
 \contentsline {section}{\numberline {2.2}El operador de dispersión sobre un camino ordenado}{20}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Ejemplo para obtener coeficientes invariantes por traslaciones}{21}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}El operador módulo}{22}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Propiedades de un camino de frecuencias.}{24}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}Definición de camino de frecuencias y propiedades.}{23}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Construcción del operador de dispersión.}{24}{subsection.2.2.4}%
 \contentsline {section}{\numberline {2.3}Propagador de dispersión y conservación de la Norma}{26}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Proceso de dispersión del propagador.}{26}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Diferencias y similitudes con una CNN}{27}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.2}Diferencias y similitudes con una CNN}{26}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Relación con herramientas clásicas de visión por computador}{27}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Operador no expansivo.}{28}{subsection.2.3.4}%
 \contentsline {subsection}{\numberline {2.3.5}Conservación de la norma.}{29}{subsection.2.3.5}%

@@ -269,7 +269,7 @@ $$f=\sum_{j=-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}  \langle f,\psi_{j,n} \
   \item Los mayores coeficientes se localizan en los cambios bruscos de intensidad de señal, como pueden ser los bordes, las esquinas o las texturas en las imágenes, pues en estos casos somos capaces de encontrar un elemento de la base de Haar con cuyo soporte esté en el intervalo dónde se produzca el cambio de intensidad, y por lo tanto que tenga un coeficiente de ondeletas distinto de cero.
 \end{itemize}
 
-\noindent Para el caso concreto de imágenes \footnote{ver sección 1.1 de \cite{MallatWavelets}}, las bases de ondeletas ortonormales pueden construirse a partir de bases ortonormales en señales de una dimensión. Lo haremos a partir de tres ondeletas para capturar las variaciones horizontales, verticales y diagonales presentes en la imagen. Así, denominamos a las ondeletas usadas como $\psi^1(x)$, $\psi^2(x)$ y $\psi^3(x)$ con $x=(x_1,x_2)\in \mathbb{R}^2$, dilatadas por el factor $2^j$ y trasladadas por $2^jn$ con $n=(n_1,n_2) \in \mathbb{Z}^2$, se construye una base ortonormal para el espacio $L^2(\mathbb{R}^2)$: 
+\noindent Para el caso concreto de imágenes (ver sección 1.1 de \cite{MallatWavelets}), las bases de ondeletas ortonormales pueden construirse a partir de bases ortonormales en señales de una dimensión. Lo haremos a partir de tres ondeletas para capturar las variaciones horizontales, verticales y diagonales presentes en la imagen. Así, denominamos a las ondeletas usadas como $\psi^1(x)$, $\psi^2(x)$ y $\psi^3(x)$ con $x=(x_1,x_2)\in \mathbb{R}^2$, dilatadas por el factor $2^j$ y trasladadas por $2^jn$ con $n=(n_1,n_2) \in \mathbb{Z}^2$, se construye una base ortonormal para el espacio $L^2(\mathbb{R}^2)$: 
 $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{2^j}\right) \right \rbrace_{(j,n) \in \mathbb{Z}^2}$$
 
 \medskip
@@ -284,12 +284,12 @@ $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{
   \label{fig:base_haar}
 \end{figure}
 
-\noindent Del mismo modo que en una dimensión, los coeficientes de ondeletas $\langle f,\psi_{j,n}^k \rangle$ serán pequeños si $f(x)$ es regular, y serán grandes cerca de los cambios bruscos de frecuencias como en los bordes o esquinas de las imágenes, como podemos ver en \autoref{fig:ejemplo_haar}.
+\noindent Igual que en el caso unidimensional, los coeficientes de ondeletas $\langle f,\psi_{j,n}^k \rangle$ serán pequeños si $f(x)$ es regular, y serán grandes cerca de los cambios bruscos de frecuencias como en los bordes o esquinas de las imágenes, como podemos ver en \autoref{fig:ejemplo_haar}.
 
 \begin{figure} [!h]
   \centering
   \includegraphics[width=0.8\textwidth]{img/ejemplos_haar_basis.png}
-  \caption{Ejemplos de aplicar la base de Haar a dos imágenes.Los filtros resaltan los bordes en tres direcciones, horizontal (derecha) vertical (abajo) y en diagonal (abajo derecha). Imagen extraida de \cite{HaarBasis}.}
+  \caption{Ejemplos de aplicar la base de Haar a dos imágenes. Los filtros resaltan los bordes en tres direcciones, horizontal (derecha) vertical (abajo) y en diagonal (abajo derecha). Imagen extraída de \cite{HaarBasis}.}
   \label{fig:ejemplo_haar}
 \end{figure}
 
@@ -300,13 +300,13 @@ $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{
 \begin{definicion}
   Una ondeleta madre escalada por un factor $2^{j}$ con $j \in \mathbb{Z}$ y rotada por $r \in G$ siendo $G$ el grupo finito de rotaciones, se escribe: 
 
-  $$\psi_{2^j r}(x)=2^{dj} \psi(2^j r^{-1} x).$$
+  $$\psi_{2^j r}(x)=2^{j} \psi(2^j r^{-1} x).$$
 \end{definicion}
 
 
 \medskip
 
-\noindent Su transformada de Fourier es $\widehat{\psi_{2^j r}}(\omega)=\widehat{\psi}(2^j r^{-1} \omega)$.
+\noindent Su transformada de Fourier es $\widehat{\psi_{2^j r}}(\omega)=\widehat{\psi}(2^{-j} r^{-1} \omega)$.
 
 \medskip
 
@@ -314,7 +314,7 @@ $$\left \lbrace \psi_{j,n}^k(x)= \frac{1}{\sqrt{2^j}} \psi^k\left(\frac{x-2^jn}{
 
 $$\psi(x)=e^{i\eta x} \Theta(x)$$
 
-\noindent donde $\widehat{\Theta}(x)$ es una función real centrada en una bola de baja frecuencia en $x=0$, cuyo radio es del orden de $\pi$.
+\noindent donde $\widehat{\Theta}(x)$ es una función real con soporte en una bola de baja frecuencia en $x=0$, cuyo radio es del orden de $\pi$.
 
 \medskip
 
@@ -326,18 +326,18 @@ $$\psi(x)=e^{i\eta x} \Theta(x)$$
 
 \medskip
 
-\noindent Por lo tanto, $\widehat{\psi}(\omega)$ es real y centrada en una bola de mismo radio pero centrada en $\omega=\eta$ que tras el escalado y rotación: 
+\noindent Por lo tanto, $\widehat{\psi}(\omega)$ es real y con soporte en una bola de mismo radio pero centrada en $\omega=\eta$, que tras el escalado y rotación, queda: 
 $$\widehat{\psi}_\lambda(\omega)= \widehat{\Theta} (\lambda^{-1}\omega-\eta),$$ 
 
 \noindent donde $\lambda=2^jr \in 2^{\mathbb{Z}}\times G$. 
 
-\noindent Por lo tanto $\widehat{\psi}_\lambda(\omega)$ recubre una bola centrada en $\lambda^{-1}\eta$ con radio proporcional a $|\lambda|=2^j$.
+\noindent Por lo tanto $\widehat{\psi}_\lambda(\omega)$ tiene soporte en una bola centrada en $\lambda^{-1}\eta$ con radio proporcional a $|\lambda|=2^j$.
  
 \medskip 
 
 \subsection{La Transformada de Littlewood-Paley} \label{ch:seccion12}
 
-\noindent Una vez conocemos un poco más en profundidad las ondeletas y su funcionamiento, pasamos a presentar la \textbf{Transformada de ondeleta de Littlewood-Paley}, que es la que emplearemos para construir el propagador de dispersión.
+\noindent Una vez conocemos, un poco más en profundidad, las ondeletas y su funcionamiento, pasamos a presentar la \textbf{Transformada de ondeleta de Littlewood-Paley}, que es la que emplearemos para construir el propagador de dispersión.
 
 \medskip
 
@@ -351,16 +351,14 @@ $$\widehat{\psi}_\lambda(\omega)= \widehat{\Theta} (\lambda^{-1}\omega-\eta),$$
 
 \medskip
 
-\noindent Calculamos su transformada de Fourier, para ello tendremos en cuenta el teorema de Convolución de la Transformada de Fourier, el cual dice: 
+\noindent Calculamos su transformada de Fourier, para ello tendremos en cuenta el teorema de Convolución de la Transformada de Fourier: 
 
 \begin{teorema} \label{Teorema::Convolucion}
- Sean $f$ y $g$ dos funciones integrables.
-
- Si 
+ Sean $f$ y $g$ dos funciones integrables. Si 
 
  $$h(x)=(f\ast g)(x)=\int f(y)g(x-y) dy$$
 
- Entonces: 
+ entonces: 
 
  $$\widehat{h}(\omega)=\widehat{f}(\omega) \widehat{g}(\omega)$$
 
@@ -377,33 +375,37 @@ $$\widehat{W[\lambda]f}(\omega)=\widehat{f}(\omega)\widehat{\psi_\lambda}(\omega
 \noindent Además, teniendo en cuenta la propiedad que nos dice que si la función $f$ es real entonces su transformada coincide con el conjugado complejo $\widehat{f}(-\omega)=\overline{\widehat{f}(\omega)}$, podemos ver que: 
 
 \begin{itemize}
-  \item si $\widehat{\psi}(\omega)$ y $f$ son reales entonces $W[-\lambda]f= \overline{W[\lambda]f}$, utilizando la misma propiedad de antes. Además, si denotamos por $G^{+}$ al cociente de G con $\lbrace-\mathbb{1},\mathbb{1}\rbrace$, conjunto en el cual las dos rotaciones $r$ y $-r$ son equivalentes, sería suficiente calcular $W[2^jr]f$ para las rotaciones "positivas" de $G^{+}$.
+  \item si $\widehat{\psi}(\omega)$ y $f$ son reales entonces $W[-\lambda]f= \overline{W[\lambda]f}$, utilizando la misma propiedad de antes. Además, si denotamos por $G^{+}$ al cociente de G sobre $\lbrace-\mathbb{1},\mathbb{1}\rbrace$, conjunto en el cual las dos rotaciones $r$ y $-r$ son equivalentes, sería suficiente calcular $W[2^jr]f$ para las rotaciones "positivas" de $G^{+}$.
   \item En cambio, si $f$ fuese compleja, entonces $W[2^jr]f$ tendría que calcularse para todo $r \in G$.
 \end{itemize}
 
 \medskip
  
-\noindent Podemos entender que cuanto menor sea el factor de escala que afecta a la ondeleta, más \entrecomillado{comprimida} estará esta, y viceversa. Por lo tanto podemos establecer una relación entre la frecuencia y la escala: 
+\noindent Podemos entender, que cuanto menor sea el factor de escala que afecta a la ondeleta, más \entrecomillado{comprimida} estará esta, y viceversa. Por lo tanto podemos establecer una relación entre la frecuencia y la escala: 
 
 \begin{itemize}
-  \item A menor escala, más comprimida estará la ondeleta, los cambios en la señal se detectarán más rápidamente y las frecuencias obtenidas serán mayores. 
+  \item A menor escala, más comprimida estará la ondeleta, los cambios en la señal se detectarán más rápidamente y las frecuencias obtenidas serán mayores. Véase la \autoref{fig:small_long_scale}.
   \item A mayor escala, la ondeleta estará más dilatada, los cambios se detectan en menor medida (solo si son lo suficientemente bruscos) y las frecuencias obtenidas serán menores.
 \end{itemize}
 
 \begin{figure} [!h]
   \centering
   \includegraphics[width=0.8\textwidth]{img/Relacion_escala_frecuencia.png}
-  \caption{Como podemos ver, en el caso de la izquierda la ondleta (en color morado) se ve afectada por una menor escala, lo que le permitirá detectar con mayores frecuencias los cambios que se producen en la señal al convolucionar con esta a lo largo del tiempo. En cambio, en el segundo caso, se ve afectada por una escala mayor, lo que le impedirá detectar con tanta precisión los cambios que se produzcan en la señal. Imagen extraida de \cite{WAVELETS}.}
-  \label{fig:scattering_propagator}
+  \caption{Como podemos ver, en el caso de la izquierda la ondleta (en color morado) se ve afectada por una menor escala, lo que le permitirá detectar con mayores frecuencias los cambios que se producen en la señal al convolucionar con esta a lo largo del tiempo. En cambio, en el segundo caso, se ve afectada por una escala mayor, lo que le impedirá detectar con tanta precisión los cambios que se produzcan en la señal. Imagen extraída de \cite{WAVELETS}.}
+  \label{fig:small_long_scale}
 \end{figure}
 
 \medskip
 
-\noindent Con la transformada de Littlewood-Paley ocurre lo mismo, a una cierta escala $2^J$ (con $j \in \mathbb{Z}$ fijo), sólo retiene las ondeletas de frecuencias $2^j > 2^{-J}$. Así, podemos obtener una estimación de lo dilatadas que deben estar las ondeletas como mínimo para no generar coeficientes no nulos. De esta forma, las bajas frecuencias que no son cubiertas por estas ondeletas vienen dadas por un promedio en el dominio proporcional a $2^J$:
+\noindent Con la transformada de Littlewood-Paley ocurre lo mismo, a una cierta escala $2^J$ (con $J \in \mathbb{Z}$ fijo), solo retiene las ondeletas afectadas por un factor de escala $2^j > 2^{-J}$. Así, podemos obtener un umbral a partir del cual la base ortonormal de ondeletas no sería capaz de identificar cambios de frecuencias. Surge la necesidad por tanto, de promediar las bajas frecuencias que no son cubiertas por estas ondeletas en un dominio proporcional al factor $2^J$:
 
 \begin{equation}
   A_Jf=f \ast \phi_ {2^J} \; \; con \; \phi_ {2^J}(x)=2^{-dJ} \phi(2^{-J}x).
 \end{equation}
+
+\medskip
+
+\noindent Donde $\phi$ es una función ija de la que dependerá la transformada de ondeleta.
 
 \medskip
 
@@ -418,7 +420,7 @@ $$W_J f=\lbrace A_Jf,(W[\lambda]f)_{\lambda \in \Lambda_J} \rbrace$$
 \noindent Su norma sería: 
 
 \begin{equation} \label{eq::norma}
-  ||W_Jf||^2=||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2.
+  ||W_Jf||^2=||A_Jf||^2+\sum_{\lambda \in \Lambda_J} ||W[\lambda]f||^2.
 \end{equation}
 
 \medskip
@@ -432,7 +434,7 @@ $$W_\infty f=\lbrace W[\lambda]f\rbrace_{\lambda \in \Lambda_\infty},$$
 
 $$||W_\infty f||^2=\sum_{\lambda \in \Lambda_\infty} ||W[\lambda]f||^2.$$
 
-\noindent En el caso en que $f$ sea compleja, se incluyen todas las rotaciones $W_Jf=\lbrace A_J f,(W[\lambda]f)_{-\lambda,\lambda \in \Lambda_J} \rbrace$ y $W_\infty f=\lbrace W[\lambda]f\rbrace_{-\lambda,\lambda \in \Lambda_\infty}$. 
+\noindent En el caso en que $f$ sea compleja, se incluyen todas las rotaciones y obtnemos $W_Jf=\lbrace A_J f,(W[\lambda]f)_{-\lambda,\lambda \in \Lambda_J} \rbrace$ y $W_\infty f=\lbrace W[\lambda]f\rbrace_{-\lambda,\lambda \in \Lambda_\infty}$. 
 
 \medskip
 
@@ -635,7 +637,7 @@ En resumen, queremos un operador no lineal que produzca coeficientes invariantes
 
 \subsection{El operador módulo}
 
-\noindent En nuestro caso, para preservar la Lipschitz-continuidad bajo la acción de difeomorfismos necesitamos que $M[\lambda]$ conmute con estos y que además sea no expansiva para garantizar la estabilidad en $L^2(\mathbb{R}^d)$. Se puede comprobar que entonces $M[\lambda]$ tiene que ser necesariamente un operador punto a punto \cite{JBrunaOperatorsCommutingDiff}, lo que significa que el operador $M[\lambda]h(x)$ que buscamos dependería únicamente del valor de $h$ en el punto $x$.
+\noindent En nuestro caso, para preservar la Lipschitz-continuidad bajo la acción de difeomorfismos necesitamos que $M[\lambda]$ conmute con éstos y que además sea no expansiva para garantizar la estabilidad en $L^2(\mathbb{R}^d)$. Se puede comprobar que entonces $M[\lambda]$ tiene que ser necesariamente un operador punto a punto \cite{JBrunaOperatorsCommutingDiff}, lo que significa que el operador $M[\lambda]h(x)$ que buscamos dependería únicamente del valor de $h$ en el punto $x$.
 
 \medskip
 
@@ -646,12 +648,12 @@ En resumen, queremos un operador no lineal que produzca coeficientes invariantes
   & \iff \int_{\mathbb{R}^d} |M[\lambda]h (x)|^2 dx=\int_{\mathbb{R}^d} |h(x)|^2 dx \\
   & \iff \int_{\mathbb{R}^d} |M[\lambda]h (x)|^2-|h(x)|^2 dx = 0 \\
   & \iff |M[\lambda]h (x)|^2 - |h(x)|^2 = 0 \\
-  & \iff |M[\lambda]h (x)| = |h(x)|
+  & \iff |M[\lambda]h (x)| = |h(x)|.
 \end{align*}
 
 \medskip
 
-\noindent Dado que se tratan de dos funciones positivas las que se restan en el integrnado, y para llegar a la conclusión que sugiere el autor \cite{GroupInvariantScattering} se ha supuesto que $\left|M[\lambda]h(x) \right| \geq \left| h(x)\right| \;\; \forall x \in \mathbb{R}^d$.
+\noindent Para llegar a la conclusión que sugiere el autor \cite{GroupInvariantScattering}, se ha supuesto que $\left|M[\lambda]h(x) \right| \geq \left| h(x)\right| \;\; \forall x \in \mathbb{R}^d$, que junto con el hecho de que las dos funciones que se restan en el integrando son positivas, nos dan el resultado buscado.  
 
 \medskip
 
@@ -659,15 +661,15 @@ En resumen, queremos un operador no lineal que produzca coeficientes invariantes
 
 $$M[\lambda]W[\lambda]f=|W[\lambda]f|=|f^\lambda \ast \Theta_\lambda|.$$
 
-\noindent Vamos a visualizar con un ejemplo cómo al interferir dos señales con este operador, la frecuencia resultante es menor que cada una de las originales. 
+\noindent Vamos a visualizar con un ejemplo cómo, al interferir dos señales con este operador, la frecuencia resultante es menor que cada una de las originales. 
 
 \medskip
 
-\noindent Por ejemplo, si 
+\noindent Si 
 
 $$f(x)=\cos(\xi_1 x)+a\cos(\xi_2 x)$$
 
-\noindent dónde $\xi_1 > 0$ y $\xi_2 > 0$ están en la banda de frecuencia cubierta por $\widehat{\psi}_\lambda$, entonces al aplicar el operador módulo obtenemos: 
+\noindent donde $\xi_1 > 0$ y $\xi_2 > 0$ están en la banda de frecuencia cubierta por $\widehat{\psi}_\lambda$, entonces al aplicar el operador módulo obtenemos: 
 
 $$|f \ast \psi_\lambda (x) |=2^{-1} |\widehat{\psi}_\lambda(\xi_1)+a\widehat{\psi}_\lambda(\xi_2)e^{i(\xi_2-\xi_1)x}|$$
 
@@ -675,7 +677,7 @@ $$|f \ast \psi_\lambda (x) |=2^{-1} |\widehat{\psi}_\lambda(\xi_1)+a\widehat{\ps
 
 \medskip
 
-\noindent De esta manera, por la forma en que hemos construido el operador $U[\lambda] f$ la integración de $\int_{\mathbb{R}^d}U[\lambda]f(x) dx= \int_{\mathbb{R}^d} | f \ast \psi_\lambda(x)|dx$ es invariante por traslaciones pero elimina todas las altas frecuencias de $|f \ast \psi_\lambda(x)|$. Para recuperarlas, el PD calcula los coeficientes de ondeletas para cada $U[\lambda]f$ que son $\lbrace U[\lambda]f \ast \psi_{\lambda'}\rbrace_{\lambda'}$. De nuevo, los coeficientes invariantes a traslaciones se obtienen con el módulo $U[\lambda']U[\lambda]f=|U[\lambda]f \ast \psi_{\lambda'}|$ y después integrando $\int_{\mathbb{R}^d} U[\lambda']U[\lambda]f(x) dx$. 
+\noindent De esta manera, por la forma en que hemos construido el operador $U[\lambda] f$ la integración de $\int_{\mathbb{R}^d}U[\lambda]f(x) dx= \int_{\mathbb{R}^d} | f \ast \psi_\lambda(x)|dx$ es invariante por traslaciones, pero elimina todas las altas frecuencias de $|f \ast \psi_\lambda(x)|$. Para recuperarlas, el PD calcula los coeficientes de ondeletas para cada $U[\lambda]f$ que son $\lbrace U[\lambda]f \ast \psi_{\lambda'}\rbrace_{\lambda'}$. De nuevo, los coeficientes invariantes a traslaciones se obtienen con el módulo $U[\lambda']U[\lambda]f=|U[\lambda]f \ast \psi_{\lambda'}|$ y después integrando $\int_{\mathbb{R}^d} U[\lambda']U[\lambda]f(x) dx$. 
 
 \medskip
 
@@ -683,12 +685,10 @@ $$|f \ast \psi_\lambda (x) |=2^{-1} |\widehat{\psi}_\lambda(\xi_1)+a\widehat{\ps
 
 \medskip
 
-\noindent A continuación introducimos el PD que extiende estas descomposiciones.
-
-\medskip
+\subsection{Definición de camino de frecuencias y propiedades.}
 
 \begin{definicion}
-Una secuencia ordenada $p=(\lambda_1,\lambda_2, ... , \lambda_m)$ con $\lambda_k \in \Lambda_\infty=2^{\mathbb{Z}} \times G^{+} $ se denomina \textbf{camino}. Al camino vacío se le denota por $p=\emptyset$. 
+Una secuencia ordenada $p=(\lambda_1,\lambda_2, \ldots , \lambda_m)$ con $\lambda_k \in \Lambda_\infty=2^{\mathbb{Z}} \times G^{+} $ se denomina \textbf{camino}. Al camino vacío se le denota por $p=\emptyset$. 
 \end{definicion}
 
 
@@ -696,7 +696,7 @@ Una secuencia ordenada $p=(\lambda_1,\lambda_2, ... , \lambda_m)$ con $\lambda_k
 Un PD es un producto de operadores de la forma $U[\lambda]f=M[\lambda]W[\lambda]f=|f \ast \psi_\lambda|=\left | \int_{\mathbb{R}^d} f(u)\psi_\lambda(x-u) du \right|$ para $f \in L^2(\mathbb{R}^d)$ no conmuntativos por un camino ordenado:
 
 \begin{equation}
-  U[p]f=U[\lambda_m]...U[\lambda_2]U[\lambda_1],
+  U[p]f=U[\lambda_m] \ldots U[\lambda_2]U[\lambda_1],
 \end{equation}
 
 con $U[\emptyset]=Id$
@@ -707,14 +707,12 @@ con $U[\emptyset]=Id$
 \noindent El PD es por tanto una cascada de convoluciones y módulos: 
 
 \begin{equation}
-  \left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | ... | \ast \psi_{\lambda_m} \right|  
+  \left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | \ldots | \ast \psi_{\lambda_m} \right|  
 \end{equation}
 
 \medskip
 
 \noindent Cada $U[\lambda]$ filtra la frecuencia del componente en la banda cubierta por $\widehat{\psi}_\lambda$ y lo aplica en un espacio de frecuencias menores con la operación módulo.
-
-\subsection{Propiedades de un camino de frecuencias.}
 
 \noindent A continuación vamos a probar ciertas propiedades que tienen los caminos de frecuencias tal y como los hemos descrito anteriormente. Para ello empezamos con algunas definiciones que serán de utilidad:
 
@@ -745,15 +743,15 @@ Como $p+p'=(\lambda_1,\lambda_2,...,\lambda_m,\lambda_1',\lambda_2',...,\lambda_
 
 \medskip
 
-\noindent En la \autoref{ch:seccion12} veíamos que si $f$ era compleja, entonces su transformada de ondeletas era $ W_\infty=\lbrace W[\lambda]f \rbrace_{\lambda , -\lambda  \in \Lambda_{\infty} }$. Pero en este caso, gracias al módulo si $f$ es compleja, tras la iteración $U[\lambda_1]f=\left|W[\lambda_1]f\right|$ sería una función real, luego para las siguientes transfomadas de ondeletas solo haría falta calcularlas para $\lambda_k \in \Lambda_\infty$. Por lo tanto para los propagadores de dispersión de funciones complejas se definen sobre caminos "positivos" $p=(\lambda_1,\lambda_2, \ldots , \lambda_m)$ y caminos "negativos" $-p=(-\lambda_1,\lambda_2, \ldots , \lambda_m)$.
+\noindent En la \autoref{ch:seccion12} veíamos que si $f$ era compleja, entonces su transformada de ondeletas era $ W_\infty=\lbrace W[\lambda]f \rbrace_{\lambda , -\lambda  \in \Lambda_{\infty} }$. Pero en este caso, gracias al módulo, tras la iteración $U[\lambda_1]f=\left|W[\lambda_1]f\right|$ sería una función real. Por tanto, las siguientes transfomadas de ondeletas solo haría falta calcularlas para $\lambda_k \in \Lambda_\infty$. Por eso, los propagadores de dispersión de funciones complejas se definen sobre caminos \entrecomillado{positivos} $p=(\lambda_1,\lambda_2, \ldots , \lambda_m)$ y caminos \entrecomillado{negativos} $-p=(-\lambda_1,\lambda_2, \ldots , \lambda_m)$.
 
 \medskip
 
-\noindent Sin embargo para simplificar cálculos, todos los resultados siguientes se haran sobre PD aplicados a funciones reales.
+\noindent Sin embargo, para simplificar cálculos, todos los resultados siguientes se haran sobre PD aplicados a funciones reales.
 
 \subsection{Construcción del operador de dispersión.}
 
-\noindent En este momento ya disponemos de un operador $U[\lambda]$ que cumple todas las condiciones deseables, por lo que en esta sección vamos a ser capaces de llegar finalmente a la modelización matemática de una CNN.
+\noindent En este momento, disponemos de un operador $U[\lambda]$ que cumple todas las condiciones deseables, por lo que en esta sección vamos a ser capaces de llegar finalmente a la modelización matemática de una CNN.
 
 \begin{definicion} \label{def:S_barra}
 Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
@@ -770,11 +768,11 @@ Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transforma
 
 \medskip
 
-\noindent Esta defnición guarda muchas similitudes con la el módulo de la transformada de Fourier, pero en este caso la transformada es Lipschitz-continua bajo la acción de difeomorfismos, porque se calcula iterando en transformadas de ondeletas y módulos que, como hemos visto anteriormente, son estables. 
+\noindent Esta defnición, guarda muchas similitudes con la el módulo de la transformada de Fourier. Pero en este caso, la transformada es Lipschitz-continua bajo la acción de difeomorfismos, porque se calcula iterando en transformadas de ondeletas y módulos que, como hemos visto anteriormente, son estables. 
 
 \medskip
 
-\noindent No obstante, para problemas de clasificación, es mucho más frecuente calcular pequeños descriptores que sean invariantes por traslaciones frente a una escala predefinida $2^J$, manteniendo las frecuencias superiores a $2^{-J}$, lo que nos permite ver esta variabilidad espacial. Esto se consigue convolucionando la transformada con una ventana escalada a la frecuencia deseada, en nuestro caso $\phi_{2^J}(x)=2^{-dJ}\phi(2^{-J}x)$. 
+\noindent No obstante, para problemas de clasificación, es mucho más frecuente calcular pequeños descriptores que sean invariantes por traslaciones frente a una escala predefinida $2^J$, manteniendo las frecuencias superiores a $2^{-J}$, lo que nos permite ver esta variabilidad espacial. Esto se consigue convolucionando la transformada con una ventana escalada a la frecuencia deseada, en nuestro caso $\phi_{2^J}(x)=2^{-J}\phi(2^{-J}x)$. 
 
 \begin{definicion}
 Sea $J \in \mathbb{Z}$ y $\mathcal{P}_J$ el conjunto de caminos finitos $p=(\lambda_1,\lambda_2,...,\lambda_m)$ con $\lambda_k \in \Lambda_J$ y $|\lambda_k|=2^{k}>2^{-J}$. Una ventana de transformada de dispersión se define para todo $p \in \mathcal{P}_J$ por
@@ -799,26 +797,22 @@ $$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
 
 \medskip
 
-\noindent Si nos fijamos, para cada camino $p$, $S_J[p]f(x)$ es una función que actúa sobre la ventana centrada en la posición $x$ cuyo tamaño serían intervalos de dimensión $2^J$.
-
-\medskip
-
-\noindent Para el caso de funciones complejas solo tendríamos que inculir en $\mathcal{P}_J$ los caminos negativos, y si $f$ es real $S_J[-p]=S_J[p]f$.
+\noindent Si nos fijamos, para cada camino $p$, $S_J[p]f(x)$ es una función que actúa sobre la ventana centrada en la posición $x$ cuyo tamaño serían intervalos de dimensión $2^J$. Para el caso de funciones complejas, solo tendríamos que inculir en $\mathcal{P}_J$ los caminos negativos, y si $f$ es real $S_J[-p]=S_J[p]f$.
 \noindent En la \autoref{ch:seccion13} se comprueba que para ondeletas apropiadas, $||f||^2=\sum_{p\in\mathcal{P}_J}\left|\left|S_J[p]f\right|\right|^2$. 
 
 \medskip
 
-\noindent Sin embargo, la energía de señal se concentra en un conjunto mucho más pequeño de caminos de frecuencias descendentes $p=(\lambda_k)_{k\leq m}$ en el cual $|\lambda_{k+1}| \leq |\lambda_k|$. Esto ocurre porque como mencionamos antes, el propagador $U[\lambda]$ progresivamente lleva la energía de la señal a frecuencias cada vez menores, hasta que en cierto punto es nula.
+\noindent Sin embargo, la energía de señal se concentra en un conjunto mucho más pequeño de caminos de frecuencias descendentes $p=(\lambda_k)_{k\leq m}$ en el cual $|\lambda_{k+1}| \leq |\lambda_k|$. Esto ocurre porque el propagador $U[\lambda]$ progresivamente lleva la energía de la señal a frecuencias cada vez menores, hasta que en cierto punto es nula.
 
 \medskip
 
-\noindent Veamos ahora la relación que guarda este propagador de ventana con el que se definió originalmente en la Definición $1.14$(\autoref{def:S_barra}). Como $\phi(x)$ es continua en $0$, si $f\in L^1 (\mathbb{R}^d)$ se tiene que su transformada de dispersión de ventana converge punto a punto a la transformada de dispersión cuando la escala $2^J$ tiende a $\infty$: 
+\noindent Veamos ahora la relación que guarda este propagador de ventana con el que se definió originalmente en la Definición \ref{def:S_barra}. Como $\phi(x)$ es continua en $0$, si $f\in L^1 (\mathbb{R}^d)$ se tiene que su transformada de dispersión de ventana converge punto a punto a la transformada de dispersión cuando la escala $2^J$ tiende a $\infty$: 
 
 \begin{align*}
-    \forall x \in \mathbb{R}^d \;\; \lim_{J \rightarrow \infty} 2^{dJ} S_J[p]f(x) 
-    &=\lim_{J \rightarrow \infty} 2^{dJ} U[p]f \ast \phi_{2^J}(x) \\
-    &=\lim_{J \rightarrow \infty} 2^{dJ} \int_{\mathbb{R}^d} U[p]f(u)\phi_{2^J}(x-u) du \\
-    &=\lim_{J \rightarrow \infty} 2^{dJ} \int_{\mathbb{R}^d} U[p]f(u) 2^{-dJ} \phi(2^{-J}(x-u)) du   \\
+    \forall x \in \mathbb{R}^d \;\; \lim_{J \rightarrow \infty} 2^{J} S_J[p]f(x) 
+    &=\lim_{J \rightarrow \infty} 2^{J} U[p]f \ast \phi_{2^J}(x) \\
+    &=\lim_{J \rightarrow \infty} 2^{J} \int_{\mathbb{R}^d} U[p]f(u)\phi_{2^J}(x-u) du \\
+    &=\lim_{J \rightarrow \infty} 2^{J} \int_{\mathbb{R}^d} U[p]f(u) 2^{-J} \phi(2^{-J}(x-u)) du   \\
     &= \int_{\mathbb{R}^d} U[p]f \phi(0) du  \\
     &=\phi(0)\int_{\mathbb{R}^d}U[p]f(u) du \\
     &= \phi(0)\overline{Sf}(p).\\ 
@@ -829,11 +823,7 @@ $$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
 
 \subsection{Proceso de dispersión del propagador.}
 
-\noindent Hasta ahora hemos probado que el propagador $S_J$ es no-expansivo y que preserva la norma de $L^2(\mathbb{R}^d)$. A partir de ahora denotamos por $S_J[\Omega] \coloneqq \lbrace S_J[p] \rbrace_{p\in\Omega}$ y $U[\Omega]\coloneqq \lbrace U[p] \rbrace_{p\in\Omega}$ a la familia de operadores indexados por el conjunto de caminos $\Omega \subset \mathcal{P}_\infty$.
-
-\medskip
-
-\noindent Un dispersor de ventanas $S_J$ puede calcularse iterando en el propagador de un paso definido anteriormente como: 
+\noindent A partir de ahora denotamos por $S_J[\Omega] \coloneqq \lbrace S_J[p] \rbrace_{p\in\Omega}$ y $U[\Omega]\coloneqq \lbrace U[p] \rbrace_{p\in\Omega}$ a la familia de operadores indexados por el conjunto de caminos $\Omega \subset \mathcal{P}_\infty$. Así, un dispersor de ventanas $S_J$ puede calcularse iterando en el propagador de un paso definido anteriormente como: 
 
 $$U_Jf=\lbrace A_Jf, (U[\lambda]f)_{\lambda\in\Lambda_J} \rbrace,$$
 
@@ -862,12 +852,13 @@ $$U_Jf=\lbrace A_Jf, (U[\lambda]f)_{\lambda\in\Lambda_J} \rbrace,$$
   U_J U[\Lambda_J^m]=\lbrace S_J[\Lambda_J^m]f,(U[\Lambda_J^{m+1}]f)_{\lambda\in\Lambda_J}\rbrace.
 \end{equation}
 
-\noindent Del hecho de que $\mathcal{P}_J=\cup_{m\in \mathbb{N}}\Lambda_J^m$, uno puede calcular $S_J[\mathcal{P}_J]f$ a partir de $f=U[\emptyset]f$ iterativamente calculando $U_J U[\Lambda_J^m]f$ para $m$ tendiendo a $\infty$, tal y cómo se puede ver en la imagen \autoref{fig:scattering_propagator}. 
+\noindent Del hecho de que $\mathcal{P}_J=\cup_{m\in \mathbb{N}}\Lambda_J^m$, uno puede calcular $S_J[\mathcal{P}_J]f$ a partir de $f=U[\emptyset]f$ iterativamente calculando $U_J U[\Lambda_J^m]f$ para $m$ tendiendo a $\infty$, tal y cómo se puede ver en la imagen \autoref{fig:arbol_propag}. 
 
 \begin{figure} [!h]
   \centering
   \includegraphics[width=0.8\textwidth]{img/ScatteringPropagator.png}
-  \caption{Un PD $U_J$ aplicado a un punto de una señal $f(x)$ calcula $U[\lambda_1]f(x)=|f(x)\ast \psi_{\lambda_1}|$ y como salida a la capa $m=0$ se promedian los coeficientes que han dado $0$ (por tener $2^j<2^{-J}$) obteniendo como salida $S_J[\emptyset]f(x)=f(x)\ast \phi_{2^J}$ (como se puede ver en la flecha negra). Después se aplica de nuevo $U_J$ a cada coeficiente $U[\lambda_1]f(x)$ del paso anterior ($m=1$) $U[\lambda_1,\lambda2]f(x)$ obteniendo como salida $S_J[\lambda_1]f(x)=U[\lambda_1]f(x) \ast \phi_{2^J}$. Se repite este proceso de manera recursiva para cada coeficiente $U[p]f(x)$ y obteniendo como resultado $S_J[p]f(x)=U[p]f(x) \ast \phi_{2^J}$. Imagen extraida de \cite{bruna2013invariant}.}
+  \caption{Un PD $U_J$ aplicado a un punto de una señal $f(x)$ calcula $U[\lambda_1]f(x)=|f(x)\ast \psi_{\lambda_1}|$ y como salida a la capa $m=0$ se promedian los coeficientes que han dado $0$ (por tener $2^j<2^{-J}$) obteniendo como salida $S_J[\emptyset]f(x)=f(x)\ast \phi_{2^J}$ (como se puede ver en la flecha negra). Después se aplica de nuevo $U_J$ a cada coeficiente $U[\lambda_1]f(x)$ del paso anterior ($m=1$) $U[\lambda_1,\lambda2]f(x)$ obteniendo como salida $S_J[\lambda_1]f(x)=U[\lambda_1]f(x) \ast \phi_{2^J}$. Se repite este proceso de manera recursiva para cada coeficiente $U[p]f(x)$ y obteniendo como resultado $S_J[p]f(x)=U[p]f(x) \ast \phi_{2^J}$. Imagen extraída de \cite{bruna2013invariant}.}
+  \label{fig:arbol_propag}
 \end{figure}
 
 
@@ -888,7 +879,7 @@ Las operaciones de la transformada de dispersión que hemos descrito siguen la e
 
 
 \subsection{Relación con herramientas clásicas de visión por computador}
-\noindent Por otro lado, la modelización  con los algoritmos clásicos de visión por computador como \textbf{SIFT}  \cite{DistinctiveImageFeatures} para calcular puntos de interés en imágenes. Así, con la ondeletas apropiadas, los coeficientes de primer orden $S[\lambda_1] f$ serían equivalentes a los coeficientes del algoritmo. De hecho, en el artículo sobre el descriptor DAISY \cite{Daisy} se muestra cómo esos coeficientes son aproximados por $S_J[2^j r] f= | f \ast \psi_{2^j r} | \ast \phi_{2^J}(x)$, dónde $\psi_{2^j r}$ es la derivada parcial de una Gaussiana calculada en imagen de escala $2^j$ de mayor calidad, para 8 rotaciones distintas $r$. El filtro para promediar $\phi_{2^J}$ es un filtro Gaussiano escalado.
+\noindent Por otro lado, la modelización  con los algoritmos clásicos de visión por computador como \textbf{SIFT}  \cite{DistinctiveImageFeatures}, se usa para calcular puntos de interés en imágenes. Así, con la ondeletas apropiadas, los coeficientes de primer orden $S[\lambda_1] f$ serían equivalentes a los coeficientes del algoritmo. De hecho, en el artículo sobre el descriptor DAISY \cite{Daisy} se muestra cómo esos coeficientes son aproximados por $S_J[2^j r] f= | f \ast \psi_{2^j r} | \ast \phi_{2^J}(x)$, donde $\psi_{2^j r}$ es la derivada parcial de una Gaussiana calculada en imagen de escala $2^j$ de mayor calidad, para 8 rotaciones distintas $r$. El filtro para promediar $\phi_{2^J}$ es un filtro Gaussiano escalado.
 
 
 \subsection{Operador no expansivo.}
@@ -988,7 +979,7 @@ En la \autoref{ch:seccion12} se obtuvo que cada coeficiente $U[\lambda]f=|f \ast
       &= \left | \int f(v) \psi_\lambda \ast h_\eta(x-v) dv \right| = |f\ast \psi_\lambda \ast h_\eta|
   \end{align*}
 
-  \noindent Dónde se ha usado el cambio de variable $u'=x-u$ con $Jacobiano=1$.
+  \noindent Donde se ha usado el cambio de variable $u'=x-u$ con Jacobiano igual a $1$.
 \end{proof}
 
 \noindent A continuación definimos el concepto de \entrecomillado{ondeleta admisible:}
@@ -1041,7 +1032,7 @@ Si \eqref{eq::1.7} se satisface y
 y
 
 \begin{equation}
-  \|S_J[\mathcal{P}_J]f\|=\|f\|
+  \|S_J[\mathcal{P}_J]f\|=\|f\|.
 \end{equation}
 
 \end{teorema}
@@ -1051,7 +1042,7 @@ y
   
   \medskip
 
-  \noindent La clave de esto reside en el \autoref{lema::Cota_inferior}, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva. Como 
+  \noindent La clave de esto reside en el Lema\ref{lema::Cota_inferior}, que nos da una cota inferior de $|f\ast\psi_\lambda|$ convolucionada con una función positiva. Como 
 
   $$ \| U[\mathcal{P}_J]f ||^2= \sum_{m=0}^{+\infty} ||U[\Lambda_J^m]f\|^2,$$
 
@@ -1067,7 +1058,7 @@ y
 
   \medskip
 
-  \noindent Como $U[\Lambda^m]$ es no expansiva, $||U[\Lambda_J^m]f-U[\Lambda_J^m]f_n|| \leq ||f - f_n||$, por lo que 
+  \noindent Como $U[\Lambda^m]$ es no expansiva, se tiene $||U[\Lambda_J^m]f-U[\Lambda_J^m]f_n|| \leq ||f - f_n||$, por lo que 
 
   $$||U[\Lambda_J^m]f|| \leq || f-f_n|| + ||U[\Lambda_J^m]f_n||.$$
 
@@ -1108,13 +1099,8 @@ y
   \end{align*}
   \noindent Y tomando límites cuando $m\rightarrow \infty$
   \begin{align*}
-    \lim_{m\rightarrow \infty}||U[\Lambda_J^m]f||^2 =\lim_{m\rightarrow \infty}\sum_{n=m}^\infty ||S_J[\Lambda_J^n]f||^2  \\
+    \lim_{m\rightarrow \infty}||U[\Lambda_J^m]f||^2 =\lim_{m\rightarrow \infty}\sum_{n=m}^\infty ||S_J[\Lambda_J^n]f||^2.  \\
   \end{align*}
-  \noindent Llegados a este punto se puede apreciar claramente que
-  
-  $$Si \; \; \lim_{m\rightarrow \infty} ||U[\Lambda_J^m]f||^2=0 \implies \lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} ||S_J[\Lambda_J^n]f||^2=0$$
-
-  \noindent Y el recíproco también es cierto, luego ambas expresiones son equivalentes.
 
   \medskip
 

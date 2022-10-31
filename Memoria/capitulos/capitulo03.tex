@@ -2,7 +2,7 @@
 
 \chapter{Invarianza por Traslaciones} \label{ch:seccion14}
 
-\noindent Hasta ahora hemos definido el propagador de dispersión y hemos visto algunas propiedades como la conservación de la norma de la señal $f$. No obstante, aún queda por demostrar la invaianza por traslaciones.
+\noindent Hasta ahora hemos definido el propagador de dispersión y hemos visto algunas propiedades como la conservación de la norma de la señal $f$. No obstante, aún queda por demostrar la invarianza por traslaciones.
 
 \section{No expansividad del operador de ventana en conjuntos de caminos}
 Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J] h ||$ es no expansiva cuando se incrementa $J$, y que de hecho converge cuando $J \rightarrow \infty$. Esto define una distancia límite que como veremos a continuación es invariante por traslaciones.
@@ -27,7 +27,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 \noindent Si recordamos la definición de $\mathcal{P}_J$, era un conjunto de caminos finitos $p=(\lambda_1,\ldots,\lambda_m)$ tal que $\lambda_k\in\Lambda_J$ y $|\lambda_k|=2^{k}>2^{-J}$. Luego todo camino $p' \in \mathcal{P}_{J+1}$, puede ser unívocamente escrito como una extensión de un camino $p\in \mathcal{P}_J$ donde $p$ es el prefijo más grande de $p'$ que pertenece a $\mathcal{P}_J$, y $p'=p+q$ para algún $q\in \mathcal{P}_{J+1}$. De hecho, podemos definir el conjunto de todas las extensiones de $p\in \mathcal{P}_J$ en $\mathcal{P}_{J+1}$ como: 
 
 \begin{equation}
-  \mathcal{P}_{J+1}^{p}={p} \cup {p+2^{-J}r+p''}_{r\in G^{+},p''\in \mathcal{P}_{J+1}}
+  \mathcal{P}_{J+1}^{p}={p} \cup {p+2^{-J}r+p''} \; \; r\in G^{+},p''\in \mathcal{P}_{J+1}.
 \end{equation}
 
 \noindent Esto define una partición disjunta de $\mathcal{P}_{J+1}=\cup_{p \in \mathcal{P}_J} \mathcal{P}_{J+1}^{p}$. Y deberíamos probar que dichas extensiones son no expansivas,
@@ -55,7 +55,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 
   \noindent En primer lugar vamos a ver que de la Proposición \ref{unitario} se deduce la siguiente expresión: 
 
-  $$|\widehat{\phi}(2^J \omega)|^2 + \sum_{-q\geq l > -J} \sum_{r \in G^+}|\widehat{\psi}(2^{-l}r^{-1} \omega)|^2=|\widehat{\phi}(2^q \omega) |^2$$
+  $$|\widehat{\phi}(2^J \omega)|^2 + \sum_{-q\geq l > -J} \sum_{r \in G^+}|\widehat{\psi}(2^{-l}r^{-1} \omega)|^2=|\widehat{\phi}(2^q \omega) |^2.$$
 
   \noindent Para ello, de la expresión
 
@@ -70,7 +70,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 
   \noindent Y partiendo el sumatorio obtenemos que: 
 
-  $$\left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \frac{1}{2}  \sum_{-q \geq j >-J,r \in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2= \frac{1}{2} \sum_{j>-q,r \in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=|\widehat{\phi}(2^q \omega)|^2$$
+  $$\left|\widehat{\phi}\left(2^J\omega\right)\right|^2 + \frac{1}{2}  \sum_{-q \geq j >-J,r \in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2= \frac{1}{2} \sum_{j>-q,r \in G}\left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2=|\widehat{\phi}(2^q \omega)|^2.$$
   
   \noindent Ahora multiplicamos la expresión anterior por $|\widehat{f}(\omega)|^2$, 
   
@@ -78,7 +78,11 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 
   \noindent Integramos en $\omega$, 
 
-  $$\int \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 d\omega + \frac{1}{2} \sum_{-q \geq j >-J,r \in G} \int \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2 d\omega=\int \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\phi}(2^q \omega)\right|^2 d\omega.$$
+  \begin{align*}
+    \int \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\phi}\left(2^J\omega\right)\right|^2 d\omega &+ \frac{1}{2} \sum_{-q \geq j >-J,r \in G} \int \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\psi}\left(2^{-j}r^{-1}\omega\right)\right|^2 d\omega \\ 
+    &=\int \left|\widehat{f}(\omega)\right|^2 \left|\widehat{\phi}(2^q \omega)\right|^2 d\omega.
+  \end{align*}
+
 
   \noindent Ahora estamos en condiciones de aplicar el \autoref{Teorema::Convolucion}, y nos queda que la expresión anterior equivale a: 
 
@@ -86,7 +90,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
     \int \left|(f \ast \phi_{2^J}) (x)\right|^2 dx + \sum_{-q \geq j >-J,r \in G} \int \left|(f \ast \psi_{2^{j}r})(x)\right|^2 dx=\int \left|(f \ast \phi_{2^q}) (x)\right|^2 dx,
   \end{align*}
 
-  \noindent Y teniendo en cuenta que $f$ es real y por lo tanto que $||f \ast \psi_{2^j r}||= ||f \ast \psi_{2^j -r}||$ junto con la defnición de la norma de $L^2(\mathbb{R}^d)$, se tiene  
+  \noindent y teniendo en cuenta que $f$ es real y por lo tanto que $||f \ast \psi_{2^j r}||= ||f \ast \psi_{2^j -r}||$ junto con la defnición de la norma de $L^2(\mathbb{R}^d)$, se tiene  
 
   \begin{align*}
     \sum_{-q\geq l > -J} \sum_{r \in G^+} || f \ast \psi_{2^lr}||^2 + || f \ast \phi_{2^J}||^2 = || f \ast \phi_{2^q} ||^2& \\ 
@@ -100,7 +104,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 
 $$||g \ast \phi_{2^{J+1}} ||^2 + \sum_{r\in G^+} || g\ast \psi_{2^{-J}r} ||^2=||g \ast \phi_{2^J}||^2.$$
 
-\noindent Así, sustituyendo el valor de $g$ por el que hemos definido antes y aplicando la propiedad distributiva de la convolución:
+\noindent Así, sustituyendo el valor de $g$ por el que hemos definido antes y aplicando la propiedad distributiva de la convolución, obtenemos:
 
 \begin{align*}
   ||U[p]f \ast \phi_{2^J} -U[p]h \ast \phi_{2^J}||^2 = &||U[p]f \ast \phi_{2^{J+1}} - U[p]h \ast \phi_{2^{J+1}} ||^2 \\
