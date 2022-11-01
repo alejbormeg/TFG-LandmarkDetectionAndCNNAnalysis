@@ -145,14 +145,30 @@ $$||g \ast \phi_{2^{J+1}} ||^2 + \sum_{r\in G^+} || g\ast \psi_{2^{-J}r} ||^2=||
 
 \section{Invarianza por traslaciones}
 
-\noindent La proposición anterior nos demuestra que $||S_J[\mathcal{P}_J]-S_J[\mathcal{P}_J]h||$ es positivo y no creciente cuando $J$ se incrementa, y de hecho converge. Como $S_J[\mathcal{P}_J]$ es no expansiva, el límite tampoco: 
+\noindent La proposición anterior nos demuestra que $||S_J[\mathcal{P}_J]-S_J[\mathcal{P}_J]h||$ es positivo y no creciente cuando $J$ se incrementa, y de hecho converge. Como $S_J[\mathcal{P}_J]$ es no expansiva, el límite también lo es: 
 
 $$\forall f,h \in L^2(\mathbb{R}^d) \lim_{J\rightarrow\infty} ||S_J[\mathcal{P}_J]f-S_{J}[\mathcal{P}_J]h|| \leq ||f-h||.$$
 
 \medskip
 
-\noindent Para ondeletas de dispersión admisibles que satisfacen \eqref{eq::1.7}, el \autoref{teoremaOndeletasAdmisibles} nos demuestra que si $||S_J[\mathcal{P}_J]f||=||f||$ entonces $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J]f||=||f||$. El siguiente teorema demuestra que el límite es invariante por traslaciones, pero para la demostración del teorema necesitaremos un resultado auxiliar: 
+\noindent Para ondeletas de dispersión admisibles que satisfacen \eqref{eq::1.7}, el \autoref{teoremaOndeletasAdmisibles} nos demuestra que si $||S_J[\mathcal{P}_J]f||=||f||$ entonces $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J]f||=||f||$. El siguiente teorema demuestra que el límite es invariante por traslaciones, pero para la demostración del teorema necesitaremos dos resultados auxiliares:
 
+\begin{lema} \label{lemma:Schur}
+  Para cualquier operador $Kf(x)=\int f(u)k(x,u)du \; \in L^2(\mathbb{R}^d)$ se tiene 
+
+  $$\int |k(x,u)| dx \leq C,$$
+
+  \noindent con $C >0$, y además 
+
+  $$\int |k(x,u)|du \leq C \implies ||K||\leq C.$$
+
+  \noindent Donde $||K||$ es la norma en $L^2(\mathbb{R}^d)$ de $K$.
+\end{lema}
+
+\medskip
+
+\noindent Para la demostración del lema anterior se necesita el Lema de Schur \cite{SchurLemma}. Debido a que se trata de un lema auxiliar que emplearemos para la demostración del teorema principal de la sección, no lo demostraremos.
+ 
 \begin{lema} \label{lema::constante}
   Existe una constante $C$ tal que para todo $\tau \in \C^2(\mathbb{R}^d)$ con $||\nabla \tau ||_\infty \leq \frac{1}{2}$ se tiene que 
   
@@ -161,19 +177,11 @@ $$\forall f,h \in L^2(\mathbb{R}^d) \lim_{J\rightarrow\infty} ||S_J[\mathcal{P}_
 
 \begin{proof}
 
-  \noindent En esta prueba, al igual que en otras cotas superiores para normas, vamos a necesitar el Lema de Schur \cite{SchurLemma}. De esta manera, el Lema de Schur nos recuerda que para cualquier operador $Kf(x)=\int f(u)k(x,u)du$ se tiene 
-
-  $$\int |k(x,u)| dx \leq C,$$
-
-  \noindent y además 
-
-  $$\int |k(x,u)|du \leq C \implies ||K||\leq C.$$
-
-  \noindent Donde $||K||$ es la norma en $L^2(\mathbb{R}^d)$ de $K$.
+  \noindent En esta prueba, vamos a necesitar el Lema\ref{lemma:Schur}. 
 
   \medskip
 
-  El operador norma de $k_J=L_\tau A_J - A_J$ se calcula aplicando el lema de Schur a su kernel,
+  \noindent El operador norma de $k_J=L_\tau A_J - A_J$ se calcula aplicando el lema de Schur a su kernel,
 
   $$k_J(x,u)=\phi_{s^J}(x-\tau(x)-u)-\phi_{2^J}(x-u).$$
 
@@ -230,7 +238,7 @@ $$\forall f,h \in L^2(\mathbb{R}^d) \lim_{J\rightarrow\infty} ||S_J[\mathcal{P}_
     \int |k_J(x,u)| dx &\leq ||\tau(x)||_\infty \int_0^1 \int \left| \nabla \phi_{2^J} (x-t\tau(x)-u)\right| dx \; dt
   \end{align*}
 
-  \noindent Si ahora aplicamos el cambio de variable $v=x - t\tau(x)$ y calculamos su Jacobiano
+  \noindent Ahora, aplicamos el cambio de variable $v=x - t\tau(x)$ y calculamos su Jacobiano
 
   \begin{align*}
     Jv& =J(x-t\tau(x))=J(x)-J(t\tau(x)) \\
@@ -269,7 +277,7 @@ $$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\r
 
 \begin{proof}
 
-\noindent Fijamos $f\in L^2(\mathbb{R}^d)$. Teniendo en cuenta la conmutatividad $S_J[\mathcal{P}_J] L_cf = L_cf S_J[\mathcal{P}_J]$ y la definición $S_J[\mathcal{P}_J]f=A_J U[\mathcal{P}_J]f$,
+\noindent Fijamos $f\in L^2(\mathbb{R}^d)$. Teniendo en cuenta la conmutatividad $S_J[\mathcal{P}_J] L_cf = L_cf S_J[\mathcal{P}_J]$ y la definición $S_J[\mathcal{P}_J]f=A_J U[\mathcal{P}_J]f$, obtenemos
 
 \begin{align*}
     ||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f || &= ||L_c A_J U[\mathcal{P}_J]f - A_J U[\mathcal{P}_J]f|| \\
@@ -278,7 +286,7 @@ $$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\r
 
 \medskip
 
-\noindent Si ahora aplicamos el \autoref{lema::constante} con $\tau=c$, se tiene que $||\tau||_\infty=|c|$ y además
+\noindent Si ahora aplicamos el Lema\ref{lema::constante} con $\tau=c$, se tiene que $||\tau||_\infty=|c|$ y además
 
 $$||L_c A_J - A_J|| \leq C 2^{-J} |c|.$$
 
@@ -314,7 +322,7 @@ $$||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f ||^2 \leq ((J+1)||f||^2+||f||_
 
 \medskip
 
-\noindent Finalmente vamos a probar ahora que el límite anterior se da $\forall f \in L^2(\mathbb{R}^d)$, con un argumento similar al de la prueba del \autoref{teoremaOndeletasAdmisibles}. Cualquier $f\in L^2(\mathbb{R}^d)$ se puede escribir como el límite de una sucesión de funciones $\lbrace f_n \rbrace_{n\in\mathbb{N}}$ con $||f_n||_w < \infty$, y como $S_J[\mathcal{P}_J]$ es no expansivo y $L_c$ es unitario, usando la desigualdad triangula deducimos que 
+\noindent Finalmente vamos a probar ahora que el límite anterior se da $\forall f \in L^2(\mathbb{R}^d)$, con un argumento similar al de la prueba del \autoref{teoremaOndeletasAdmisibles}. Cualquier $f\in L^2(\mathbb{R}^d)$ se puede escribir como el límite de una sucesión de funciones $\lbrace f_n \rbrace_{n\in\mathbb{N}}$ con $||f_n||_w < \infty$, y como $S_J[\mathcal{P}_J]$ es no expansivo y $L_c$ es unitario, usando la desigualdad triangular, deducimos que 
 
 $$||L_c S_J[\mathcal{P}_J]f-S_J[\mathcal{P}_J]f|| \leq ||L_c S_J [\mathcal{P}_J]f_n -S_J[\mathcal{P}_J]f_n|| + 2||f-f_n||.$$
 
