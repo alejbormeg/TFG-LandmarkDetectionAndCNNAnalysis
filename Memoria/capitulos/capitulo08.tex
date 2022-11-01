@@ -2,11 +2,16 @@
 
 \section{Diseño del Sofware}
 
-\noindent El diseño software no se ha orientado a crear un programa funcional para ser empleado por un usuario, sino que tiene como función entrenar los modelos probados y recabar los resultados oportunos de esos procesos. 
+\noindent El diseño software no se ha orientado a crear un programa funcional para ser empleado por un usuario, sino que tiene como función entrenar los modelos probados y recabar los resultados oportunos de esos procesos. Se ha utilizado el sistema de control de versiones \textit{Git} junto con \textit{GitHub}. En total se han creado dos repositorios:
+
+\begin{enumerate}
+    \item Un repositorio con la planificación y elaboración de la memoria junto con los scripts utilziados para el preprocesamiento de los datos: \url{https://github.com/alejbormeg/TFG-LandmarkDetectionAndCNNAnalysis}
+    \item Un \textit{fork} a partir del repositorio principal del paper, dónde se han elaborado todas las adaptaciones a nuestro problema: \url{https://github.com/alejbormeg/3FabRec/tree/master}
+\end{enumerate}
 
 \medskip
 
-\noindent En primer lugar se ha programado un \textit{notebook} de Jupyter independiente al proyecto general del framework, en el cual se realiza el preprocesamiento de los datos, la identificación de las caras y la separación en conjunto de entrenamiento y test. El fichero se denomina \textit{Make-crop-split database.ipynb}.
+\noindent En primer lugar, se ha programado un \textit{notebook} de Jupyter independiente al proyecto general del framework, en el cual, se realiza el preprocesamiento de los datos, la identificación de las caras y la separación en conjunto de entrenamiento y test. El fichero se denomina \textit{Make-crop-split database.ipynb}.
 
 \medskip
 
@@ -14,7 +19,7 @@
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.9\textwidth]{img/diagrama_paquetes_1.png}
+    \includegraphics[width=0.99\textwidth]{img/diagrama_paquetes_1.png}
     \caption{Diagrama de paquetes del proyecto generado por \textit{pyreverse}, herramienta incluida en el paquete Pylint}
     \label{fig:Diagrama_paquetes}
 \end{figure}
@@ -36,12 +41,12 @@
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.9\textwidth]{img/diagrama_clases.png}
+    \includegraphics[width=0.99\textwidth]{img/diagrama_clases.png}
     \caption{Diagrama de clases con las principales clases del proyecto.}
     \label{fig:Diagrama_clases}
 \end{figure}
 
-\begin{table}[!ht]
+\begin{table}[!h]
     \centering
     \caption{Argumentos con los que se ha experimentado en la ejecución del fichero train-aae-landmarks.py}
     \begin{tabular}{|l|l|l|}
@@ -64,6 +69,21 @@
     \end{tabular}
     \label{table:Params}
 \end{table}
+
+\medskip
+
+\noindent Por otro lado, en la \autoref{fig:Diagrama_secuencia} podemos ver el diagrama de secuencia de la ejecución del software 3FabRec para la etapa de entrenamiento y validación y posteriormente para la de evaluación del modelo final. No obstante, remarcamos el hecho de que el software diseñado no tiene como fin su uso por parte de terceros. De ser así, se habría creado una interfaz de usuario amigable en la cual, de manera intuitiva se pudieran elegir las distintas opciones de ejecución.
+
+\newpage
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.99\textwidth]{img/Diagrama_secuencia.png}
+    \caption{Diagrama de secuencia del software empleado.}
+    \label{fig:Diagrama_secuencia}
+\end{figure}
+
+\newpage
 
 
 \section{Entorno de ejecución}
