@@ -238,11 +238,9 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkD
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/impallari/cabin/Cabin-Regular-tlf-t1.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/impallari/cabin/Cabin-Regular-tlf-t1--base.tfm
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr9d.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplrc8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplrc9d.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplrc8r.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr9d.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
@@ -265,6 +263,8 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr9d.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplrc8r.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr9d.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplb9d.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplb9d.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
