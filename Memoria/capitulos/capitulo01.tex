@@ -4,7 +4,7 @@
 
 \chapter{Introducción}
 
-\noindent Actualmente, las \textbf{Redes Neuronales Convolucionales} (CNN\footnote{Convolutional Neural Network}) son una de las herramientas más usadas de la Inteligencia Artificial para tareas de Aprendizaje Automático (AA). De hecho, son el principal objeto de estudio del \textbf{Deep Learning}, una rama del AA en la que hoy en día se está invirtiendo mucho esfuerzo en invesitgar y de la que anualmente se publican muchos artículos que nos enseñan la gran potencial de las CNN. Destaca especialmente el excelente desempeño que tienen en el procesamiento de imágenes para tareas de clasificación, segmentación o incluso generación de nuevas imágenes. Es por ello que en el presente trabajo nos proponemos intentar realizar una \textbf{modelización matemática} de este tipo de redes, para conocerlas mejor desde un punto de vista más teórico y poder demostrar una de sus principales propiedades: \textbf{la invarianza por traslaciones}.
+\noindent Actualmente, las \textbf{Redes Neuronales Convolucionales} (CNN\footnote{Convolutional Neural Network}) son una de las herramientas más usadas de la Inteligencia Artificial. De hecho, son el principal objeto de estudio del \textbf{Deep Learning}, una rama del \textit{Aprendizaje Automático} (AA) en la que hoy en día se está invirtiendo mucho esfuerzo en invesitgar y de la que, anualmente, se publican muchos artículos. Destaca, especialmente, el excelente desempeño que tienen en el procesamiento de imágenes para tareas de clasificación, segmentación o incluso generación de nuevas imágenes. Es por ello que, en el presente trabajo, nos proponemos intentar realizar una \textbf{modelización matemática} de este tipo de redes, para conocerlas mejor desde un punto de vista más teórico y poder demostrar una de sus principales propiedades: \textbf{la invarianza por traslaciones}.
 
 \medskip
 
@@ -109,7 +109,11 @@ Se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subc
 \end{definicion}
 \medskip
 
-\noindent Donde $|\tau (x)|$ es la norma euclídea en $\mathbb{R}^d$, $\nabla |\tau (x)|$ es la norma del supremo de la matriz jacobiana $\nabla \tau (x)$, y $|H \tau (x)|$ es la norma del supremo del Hessiano.
+\noindent Donde $|\tau (x)|$ es la norma euclídea en $\mathbb{R}^d$, $|\nabla \tau (x)|$ es la norma del supremo de la matriz jacobiana $\nabla \tau (x)$, y $|H \tau (x)|$ es la norma del supremo del Hessiano.
+
+\medskip
+
+\noindent No obstante, debido a que trataremos con funciones que son invariantes por traslaciones, la condición de Lipschitz será independiente de la amplitud máxima de la traslación $\sup_{x \in \mathbb{R}^d}|\tau (x)|$, es por ello que obviaremos este término. 
 
 \medskip
 
@@ -117,7 +121,6 @@ Se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subc
 \noindent En lo que sigue vamos a denotar: 
 
 \begin{itemize}
-  \item $|| \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\tau(x)|$
   \item $||\nabla \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |\nabla \tau(x)|$
   \item $||H \tau ||_\infty := \sup_{x \in \mathbb{R}^d} |H \tau(x)|$ 
 \end{itemize}
@@ -135,19 +138,16 @@ Se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subc
 \begin{equation} \label{eq::Lipschitz_condition}
   \| \Phi(f)-\Phi(L_{\tau}f)\|_\mathcal{H} \leq C\|f\|(\|\nabla\tau\|_{\infty} + \|H \tau\|_\infty)
 \end{equation}
-
-%Cuidado con la cita esta, tratar de descubrir el por qué, me he descargado el artículo.
-con  $|| \nabla \tau ||_\infty + ||H \tau ||_\infty < 1$ para asegurarnos de que la deformación sea invertible \cite{doi:10.1137/S0036141002404838}.
 \end{definicion}
 
 \medskip
 
-\noindent Debido a que $\Phi$ es invariante por traslaciones, la cota superior de Lipschitz no depende de la amplitud máxima de traslación $\sup_{x \in \mathbb{R}^d}|\tau (x)|$ en la métrica del difeomorfismo \eqref{eq::distancia}. Por otro lado la continuidad Lipschitz de \eqref{eq::Lipschitz_condition} implica que $\Phi$ es invariante por traslaciones globales, pero dicha condición es mucho más fuerte: \eqref{eq::Lipschitz_condition} garantiza que $\Phi$ se ve poco afectada por los términos de primer y segundo grado de difeomorfismos que son traslaciones locales.
+\noindent La continuidad Lipschitz de \eqref{eq::Lipschitz_condition} implica que $\Phi$ es invariante por traslaciones globales, pero dicha condición es mucho más fuerte: \eqref{eq::Lipschitz_condition} garantiza que $\Phi$ se ve poco afectada por los términos de primer y segundo grado de difeomorfismos que son traslaciones locales.
 
 \medskip
 
 
-\noindent Una vez presentadas las principales herramientas con las que trabajaremos, en las futuras secciones veremos cómo, para solucionar el problema, se optará por utilizar \textbf{transformadas de ondeletas}, aunque esto abre nuevos problemas como el hecho de que estas \textbf{no son invariantes por traslaciones}. Para lograr la invarianza por traslaciones será necesario componer la transformada con un \textbf{operador no lineal} para obtener coeficientes invariantes. Este nuevo operador consistirá en una \textbf{cascada de convoluciones} de operadores no lineales y no conmutativos de manera que cada uno de ellos calcula el módulo de la transfomada de odeletas, y será este nuevo operador el que podremos interpretar como la modelización matemática de una CNN.
+\noindent Una vez presentadas las principales herramientas con las que trabajaremosm, veremos en las futuras secciones cómo, para solucionar el problema, se optará por utilizar \textbf{transformadas de ondeletas}. Aunque esto abre nuevos frentes como el hecho de que estas \textbf{no son invariantes por traslaciones}. Para lograr la invarianza por traslaciones será necesario componer la transformada con un \textbf{operador no lineal} para obtener coeficientes invariantes. Este nuevo operador consistirá en una \textbf{cascada de convoluciones} de operadores no lineales y no conmutativos de manera que cada uno de ellos calcula el módulo de la transfomada de odeletas, y será este nuevo operador el que podremos interpretar como la modelización matemática de una CNN.
 
 
 \endinput

@@ -211,11 +211,6 @@ Engin Tola, Vincent Lepetit, and Pascal Fua.
 \newblock {\em IEEE transactions on pattern analysis and machine intelligence},
   32:815--30, 05 2010.
 
-\bibitem[TY05]{doi:10.1137/S0036141002404838}
-Alain Trouvé and Laurent Younes.
-\newblock Local geometry of deformable templates.
-\newblock {\em SIAM Journal on Mathematical Analysis}, 37(1):17--59, 2005.
-
 \bibitem[WBSS04]{wang2004image}
 Zhou Wang, Alan~C Bovik, Hamid~R Sheikh, and Eero~P Simoncelli.
 \newblock Image quality assessment: from error visibility to structural

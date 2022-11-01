@@ -3,11 +3,11 @@
 
 \chapter{Modelización Matemática de una Red Neuronal Convolucional} 
 
-\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{CNN}. Necesitamos, en primer lugar, definir un operador, que denominaremos \textbf{propagador de dispersión} (PD), que será el que aplicaremos de forma recursiva en la cascada de convoluciones que modeliza una CNN. Para ello, explicaremos la problemática de elegir un operador \textit{lipschitz-continuo} bajo la acción de difeomorfismos e \textit{invariante por traslaciones} para evitar problemas como la inestabilidad en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos. 
+\noindent Nuestro primer objetivo será tratar de llegar a la modelización matemática de lo que es una \textbf{CNN}. Para ello, necesitamos definir un operador, que denominaremos \textbf{propagador de dispersión} (PD), que será el que aplicaremos de forma recursiva en una cascada de convoluciones. Explicaremos la problemática de elegir un operador \textit{lipschitz-continuo} bajo la acción de difeomorfismos e \textit{invariante por traslaciones} para evitar problemas como la inestabilidad en altas frecuencias que se producen en las señales bajo la acción de difeomorfismos. 
 
 \medskip
 
-\noindent en segundo lugar,  veremos posibles alternativas para evitar que se produzcan estas inestabilidades mediante el uso de bases de la transformada de ondeletas de \textbf{Littlewood-Paley}. En concreto con esta alternativa obtendremos un operador \textbf{Lipschitz-continuo} bajo la acción de difeomorfismos. 
+\noindent En segundo lugar,  veremos posibles alternativas para evitar que se produzcan estas inestabilidades mediante el uso de bases de la transformada de ondeletas de \textbf{Littlewood-Paley}. En concreto con esta alternativa obtendremos un operador \textbf{Lipschitz-continuo} bajo la acción de difeomorfismos. 
 
 \medskip
 
@@ -22,7 +22,7 @@
 
 \subsection{El módulo de la Transformada de Fourier}
 
-\noindent El análisis de Fourier, tradicionalmente, ha jugado un papel fundamental en el procesamiento de señales \cite{DigitalImageProcessing}, por lo que podría parecer un buen punto de partida para la construcción del \textit{propagador de dispersión} emplear la \textbf{transformada de Fourier},una de las herramientas matemáticas más potentes en este campo. La intuición detrás de su fórmula, es la de representar funciones no periódicas (pero que tienen área finita bajo su gráfica) como la integral de senos y cosenos multiplicados por una función que determina los pesos en cada instante. Formalmente, tiene la siguiente expresión:
+\noindent El análisis de Fourier, tradicionalmente, ha jugado un papel fundamental en el procesamiento de señales \cite{DigitalImageProcessing}, por lo que podría parecer un buen punto de partida para la construcción del \textit{propagador de dispersión} emplear la \textbf{transformada de Fourier}, una de las herramientas matemáticas más potentes en este campo. La intuición detrás de su fórmula, es la de representar funciones no periódicas (pero que tienen área finita bajo su gráfica) como la integral de senos y cosenos multiplicados por una función que determina los pesos en cada instante. Formalmente, tiene la siguiente expresión:
 
 \begin{equation}
 \widehat{f}(\omega):= \int{f(x)e^{-ix\omega}dx}=\int{f(x)\left[\cos{x\omega} -i\sin{x\omega}\right]dx}.
@@ -62,12 +62,7 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
     
 \noindent Sin embargo, la invarianza por traslaciones, no es suficiente. Necesitamos también que nuestro operador sea invariante frente a pequeñas deformaciones (difeomorfismos). De esta forma, diremos que un operador $\Phi(f)$ es estable frente a deformaciones si verifica la Definición \ref{def::Lipschitz_cont}.
 
-\begin{observacion}\label{lemma:TF_inestable_difeomorfismos}
-  El módulo de la Transformada de Fourier no es estable frente a pequeñas deformaciones y no es \entrecomillado{Lipschitz-continuo} en el sentido de la Definición \ref{def::Lipschitz_cont}.
-
-  \medskip
-
-  \noindent Consideramos la función $\tau(x)\coloneqq \epsilon x$ con $0 < \epsilon << 1$. De esta forma $||\nabla \tau (x) ||_\infty = \epsilon$ y $||H\tau(x)||_\infty=0$ con esto, la condición de Lipschitz para el módulo de la transfomada de Fourier nos daría la existencia de una constante $c>0$ de modo que la desigualdad que se tendría que cumplir para cada $f \in L^2(\mathbb{R}^d)$ y cada $0 < \epsilon << 1$ sería:
+\noindent Consideramos la función $\tau(x)\coloneqq \epsilon x$ con $0 < \epsilon << 1$. De esta forma $||\nabla \tau (x) ||_\infty = \epsilon$ y $||H\tau(x)||_\infty=0$. Con esto, la condición de Lipschitz para el módulo de la transfomada de Fourier nos daría la existencia de una constante $c>0$ de modo que la desigualdad que se tendría que cumplir para cada $f \in L^2(\mathbb{R}^d)$ y cada $0 < \epsilon << 1$ sería:
 
 
   \begin{equation} \label{eq::lipschitz_condition}
@@ -202,7 +197,7 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
     \label{fig:Grafica_funciones}
   \end{figure}
 
-\end{observacion}
+
  
 \medskip
 
@@ -259,7 +254,7 @@ $$\langle f,\psi_{j,n} \rangle =\int_{-\infty}^{+\infty} f(t) \psi_{j,n} (t) dt 
 
 $$f=\sum_{j=-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}  \langle f,\psi_{j,n} \rangle \psi_{j,n} $$
 
-\noindent Esto nos permite (igual que pasaba con el módulo de la Transformada de Fourier) trabajar en un dominio más sencillo que nos permite procesar la información con mayor rapidez y posteriormente reconstruir la señal a partir de los coeficientes sin perder información. Algunas propiedades de la base de Haar son: 
+\noindent Esto nos permite (igual que pasaba con el módulo de la Transformada de Fourier) trabajar en un dominio más sencillo donde procesar la información con mayor rapidez y posteriormente reconstruir la señal a partir de los coeficientes sin perder información. Algunas propiedades de la base de Haar son: 
 
 \newpage
 
@@ -337,11 +332,7 @@ $$\widehat{\psi}_\lambda(\omega)= \widehat{\Theta} (\lambda^{-1}\omega-\eta),$$
 
 \subsection{La Transformada de Littlewood-Paley} \label{ch:seccion12}
 
-\noindent Una vez conocemos, un poco más en profundidad, las ondeletas y su funcionamiento, pasamos a presentar la \textbf{Transformada de ondeleta de Littlewood-Paley}, que es la que emplearemos para construir el propagador de dispersión.
-
-\medskip
-
-\noindent Se trata de una representacion redundante que calcula convoluciones para todo $x \in \mathbb{R}^d$ sin realizar sub-muestreo: 
+\noindent Una vez conocemos, un poco más en profundidad, las ondeletas y su funcionamiento, pasamos a presentar la \textbf{Transformada de ondeleta de Littlewood-Paley}, que es la que emplearemos para construir el propagador de dispersión. Su expresión es la siguiente: 
 
 \begin{equation}
   \forall x \in  \mathbb{R}^d \;\; W[\lambda]f(x)= f \ast \psi_\lambda(x)=\int f(u)\psi_\lambda(x-u) du .
@@ -400,12 +391,12 @@ $$\widehat{W[\lambda]f}(\omega)=\widehat{f}(\omega)\widehat{\psi_\lambda}(\omega
 \noindent Con la transformada de Littlewood-Paley ocurre lo mismo, a una cierta escala $2^J$ (con $J \in \mathbb{Z}$ fijo), solo retiene las ondeletas afectadas por un factor de escala $2^j > 2^{-J}$. Así, podemos obtener un umbral a partir del cual la base ortonormal de ondeletas no sería capaz de identificar cambios de frecuencias. Surge la necesidad por tanto, de promediar las bajas frecuencias que no son cubiertas por estas ondeletas en un dominio proporcional al factor $2^J$:
 
 \begin{equation}
-  A_Jf=f \ast \phi_ {2^J} \; \; con \; \phi_ {2^J}(x)=2^{-dJ} \phi(2^{-J}x).
+  A_Jf=f \ast \phi_ {2^J} \; \; con \; \phi_ {2^J}(x)=2^{-J} \phi(2^{-J}x).
 \end{equation}
 
 \medskip
 
-\noindent Donde $\phi$ es una función ija de la que dependerá la transformada de ondeleta.
+\noindent Donde $\phi$ es una función fija, de la que dependerá la transformada de ondeleta.
 
 \medskip
 
@@ -522,7 +513,7 @@ $$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,
 \begin{itemize}
     \item $\widehat{\psi}$ es una función real que satisface la condición \eqref{eq::1.2}. Lo que implica que $\widehat{\psi}(0)=\int \psi(x)dx=0$ y $|\widehat{\phi}(r\omega)|=|\widehat{\phi}(\omega)| \;\; \forall r\in G$.
     \item $\widehat{\phi}(\omega)$ es real y simétrica, por lo que $\phi$ también lo será y $\phi(rx)=\phi(x) \;\; \forall r \in G$. 
-    % \item Suponemos que $\phi$ y $\psi$ son dos veces diferenciables y su decrecimineto así como el de sus derivadas de primer y segundo orden es $O((1+|x|)^{-d-2})$.
+    \item Las derivadas de $\phi$ pertenecen a $L^1(\mathbb{R}^d)$.
 \end{itemize}
 
 \medskip
