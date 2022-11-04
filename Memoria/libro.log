@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  4 NOV 2022 17:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  4 NOV 2022 18:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -581,6 +581,22 @@ LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
 LaTeX Info: Redefining \. on input line 38.
 LaTeX Info: Redefining \% on input line 38.
+
+
+LaTeX Warning: Label `table:ModelBase_landmarkresume' multiply defined.
+
+
+LaTeX Warning: Label `table:ModelBase_landmarkresume' multiply defined.
+
+
+LaTeX Warning: Label `table:ModelBase_landmarkresume' multiply defined.
+
+
+LaTeX Warning: Label `table:ModelBase_landmarkresume' multiply defined.
+
+
+LaTeX Warning: Label `table:ModelBase_landmarkresume' multiply defined.
+
 )
 \openout1 = `libro.aux'.
 
@@ -1663,12 +1679,12 @@ LaTeX Info: Redefining \% on input line 582.
 LaTeX Info: Redefining \. on input line 590.
 LaTeX Info: Redefining \% on input line 590.
  [107]
-<img/curvas_encoder.png, id=1197, 1334.9875pt x 872.25874pt>
+<img/curvas_encoder.png, id=1198, 1334.9875pt x 872.25874pt>
 File: img/curvas_encoder.png Graphic file (type png)
 <use img/curvas_encoder.png>
 Package pdftex.def Info: img/curvas_encoder.png  used on input line 593.
 (pdftex.def)             Requested size: 367.46489pt x 240.09149pt.
-<img/image_encoder.png, id=1199, 1055.945pt x 531.9875pt>
+<img/image_encoder.png, id=1200, 1055.945pt x 531.9875pt>
 File: img/image_encoder.png Graphic file (type png)
 <use img/image_encoder.png>
 Package pdftex.def Info: img/image_encoder.png  used on input line 604.
@@ -1679,7 +1695,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 608.
 LaTeX Info: Redefining \% on input line 608.
  [108 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/curvas_encoder.png>]
-<img/curvas_decoder.png, id=1209, 1334.9875pt x 872.25874pt>
+<img/curvas_decoder.png, id=1210, 1334.9875pt x 872.25874pt>
 File: img/curvas_decoder.png Graphic file (type png)
 <use img/curvas_decoder.png>
 Package pdftex.def Info: img/curvas_decoder.png  used on input line 665.
@@ -1695,7 +1711,7 @@ Overfull \vbox (111.28961pt too high) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 669.
 LaTeX Info: Redefining \% on input line 669.
  [110 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/curvas_decoder.png>]
-<img/image_decoder.png, id=1223, 1046.91125pt x 527.9725pt>
+<img/image_decoder.png, id=1224, 1046.91125pt x 527.9725pt>
 File: img/image_decoder.png Graphic file (type png)
 <use img/image_decoder.png>
 Package pdftex.def Info: img/image_decoder.png  used on input line 676.
@@ -1703,7 +1719,7 @@ Package pdftex.def Info: img/image_decoder.png  used on input line 676.
 LaTeX Info: Redefining \. on input line 736.
 LaTeX Info: Redefining \% on input line 736.
  [111 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/image_decoder.png>]
-<img/curvas_daugmentation.png, id=1235, 1334.9875pt x 872.25874pt>
+<img/curvas_daugmentation.png, id=1236, 1334.9875pt x 872.25874pt>
 File: img/curvas_daugmentation.png Graphic file (type png)
 <use img/curvas_daugmentation.png>
 Package pdftex.def Info: img/curvas_daugmentation.png  used on input line 747.
@@ -1711,7 +1727,7 @@ Package pdftex.def Info: img/curvas_daugmentation.png  used on input line 747.
 LaTeX Info: Redefining \. on input line 750.
 LaTeX Info: Redefining \% on input line 750.
  [112]
-<img/image_daug.png, id=1242, 1044.90375pt x 527.9725pt>
+<img/image_daug.png, id=1243, 1044.90375pt x 527.9725pt>
 File: img/image_daug.png Graphic file (type png)
 <use img/image_daug.png>
 Package pdftex.def Info: img/image_daug.png  used on input line 754.
@@ -1722,12 +1738,12 @@ LaTeX Info: Redefining \% on input line 762.
 LaTeX Info: Redefining \. on input line 809.
 LaTeX Info: Redefining \% on input line 809.
  [114]
-<img/curvas_FinalModel.png, id=1258, 462.528pt x 346.896pt>
+<img/curvas_FinalModel.png, id=1259, 462.528pt x 346.896pt>
 File: img/curvas_FinalModel.png Graphic file (type png)
 <use img/curvas_FinalModel.png>
 Package pdftex.def Info: img/curvas_FinalModel.png  used on input line 819.
 (pdftex.def)             Requested size: 367.46489pt x 275.61162pt.
-<img/image_finalmodel.png, id=1259, 832.10875pt x 422.57875pt>
+<img/image_finalmodel.png, id=1260, 832.10875pt x 422.57875pt>
 File: img/image_finalmodel.png Graphic file (type png)
 <use img/image_finalmodel.png>
 Package pdftex.def Info: img/image_finalmodel.png  used on input line 826.
@@ -1923,17 +1939,21 @@ Package rerunfilecheck Info: File `libro.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package rerunfilecheck Info: File `libro.brf' has not changed.
 (rerunfilecheck)             Checksum: AD5F644B9CF68776DF2C772185CFD7C0;2795.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 17754 strings out of 481239
- 309997 string characters out of 5920378
- 731470 words of memory out of 5000000
- 31578 multiletter control sequences out of 15000+600000
+ 17749 strings out of 481239
+ 309850 string characters out of 5920378
+ 730855 words of memory out of 5000000
+ 31573 multiletter control sequences out of 15000+600000
  758116 words of font info for 492 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  53i,13n,72p,10207b,822s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cabin/cbn_meva6t.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cabin/cbn_i3ioen.enc}</usr/share/texlive/texmf-dist/fonts/type1/impallari/cabin/Cabin-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/impallari/cabin/Cabin-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" (164 pages, 22508816 bytes).
+Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" (164 pages, 22509678 bytes).
 PDF statistics:
  1968 PDF objects out of 2073 (max. 8388607)
  1632 compressed objects within 17 object streams
