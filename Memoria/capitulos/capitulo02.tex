@@ -388,7 +388,7 @@ $$\widehat{W[\lambda]f}(\omega)=\widehat{f}(\omega)\widehat{\psi_\lambda}(\omega
 
 \medskip
 
-\noindent Con la transformada de Littlewood-Paley ocurre lo mismo, a una cierta escala $2^J$ (con $J \in \mathbb{Z}$ fijo), solo retiene las ondeletas afectadas por un factor de escala $2^j > 2^{-J}$. Así, podemos obtener un umbral a partir del cual la base ortonormal de ondeletas no sería capaz de identificar cambios de frecuencias. Surge la necesidad por tanto, de promediar las bajas frecuencias que no son cubiertas por estas ondeletas en un dominio proporcional al factor $2^J$:
+\noindent Con la transformada de Littlewood-Paley ocurre lo mismo, a una cierta escala $2^J$ (con $J \in \mathbb{Z}$ fijo), solo retiene las ondeletas afectadas por un factor de escala $2^j > 2^{-J}$. Así, podemos obtener un umbral a partir del cual la base ortonormal de ondeletas, no sería capaz de identificar cambios de frecuencias. Surge la necesidad, por tanto, de promediar las bajas frecuencias que no son cubiertas por estas ondeletas en un dominio proporcional al factor $2^J$:
 
 \begin{equation}
   A_Jf=f \ast \phi_ {2^J} \; \; con \; \phi_ {2^J}(x)=2^{-J} \phi(2^{-J}x).
@@ -808,6 +808,12 @@ $$S_J[\mathcal{P}_J]f \coloneqq \lbrace S_J[p]f \rbrace_{p\in\mathcal{P}_J}.$$
     &=\phi(0)\int_{\mathbb{R}^d}U[p]f(u) du \\
     &= \phi(0)\overline{Sf}(p).\\ 
 \end{align*}
+
+\medskip
+
+\noindent  Además de la convergencia punto a punto cabe destacar que, mientras que hasta ahora se ha trabajado exclusivamente en $L^2(\mathbb{R}^d)$, el operador presentado se encuentra en $L^1(\mathbb{R}^d)$. Sin embargo, en la sección $3.2$ de \cite{GroupInvariantScattering}, se demuestra que el operador $\overline{S}f(p), \; \forall f \in L^2(\mathbb{R}^d)$ y para todo camino $p$, pertenece a $L^2(\mathbb{R}^d)$. Además se da una condición suficiente que garantiza la convergencia uniforme de del operador de ventana $S_Jf$ en $\overline{S}f$. Sin embargo no se consigue dar una demostracion para el recíproco, a pesar de que puede apreciarse en numerosos ejemplos. Debido a la falta de tiempo y la gran complejidad técnica de la sección referenciada anteriormente, se ha optado por citarla para justificar así el motivo por el que se define en $L^1(\mathbb{R}^d)$.
+
+
 
 \section{Propagador de dispersión y conservación de la Norma} \label{ch:seccion13}
 

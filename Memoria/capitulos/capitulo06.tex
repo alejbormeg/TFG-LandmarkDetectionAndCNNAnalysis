@@ -423,118 +423,118 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
                 \item Se actualizan los pesos en base al gradiente calculado en el paso anterior y según el optimizador que se esté empleando (Adam, gradiente descendente, etc...)
             \end{itemize}
 
-        \subsection{Evolución de las CNN}
-        Una vez hemos presentado las CNN y sus principales componentes vamos a dar un breve repaso por la historia y evolución de su arquitectura \cite{EvolutionCNN}.
+        % \subsection{Evolución de las CNN}
+        % Una vez hemos presentado las CNN y sus principales componentes vamos a dar un breve repaso por la historia y evolución de su arquitectura \cite{EvolutionCNN}.
 
-        \subsubsection{LeNet-5}
-            \noindent La primera arquitectura conocida que forma parte de las CNN fue desarrollada por LeCun \cite{lecun1998gradient} para el reconocimiento de dígitos manuscritos, a dicha red la llamaron \textbf{LeNet-5} y fue la que sirvió de inspiración para el desarrollo de las posteriores redes.
+        % \subsubsection{LeNet-5}
+        %     \noindent La primera arquitectura conocida que forma parte de las CNN fue desarrollada por LeCun \cite{lecun1998gradient} para el reconocimiento de dígitos manuscritos, a dicha red la llamaron \textbf{LeNet-5} y fue la que sirvió de inspiración para el desarrollo de las posteriores redes.
 
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.8\textwidth]{img/LeNet.png}
-                \caption{Arquitectura de la red LeNet. Como podemos observar tiene capas convolucionales, capas de average pooling y capas totalmente conectadas al final. Imagen extraída de \cite{lecun1998gradient}.}
-                \label{fig:LeNet}
-            \end{figure}
+        %     \begin{figure}[!h]
+        %         \centering
+        %         \includegraphics[width=0.8\textwidth]{img/LeNet.png}
+        %         \caption{Arquitectura de la red LeNet. Como podemos observar tiene capas convolucionales, capas de average pooling y capas totalmente conectadas al final. Imagen extraída de \cite{lecun1998gradient}.}
+        %         \label{fig:LeNet}
+        %     \end{figure}
 
-            \noindent Algunas de sus características eran: 
+        %     \noindent Algunas de sus características eran: 
 
-            \begin{itemize}
-                \item Su arquitectura consiste en: 
-                $$INPUT \rightarrow CONV \rightarrow AVG\;POOL \rightarrow CONV \rightarrow AVG \; POOL \rightarrow FC \rightarrow FC \rightarrow OUTPUT.$$
-                \item Las imágenes de entrada eran de dimensión $32 \times 32$ y pertenecían a una base de datos MNIST de dígitos manuscritos.
-                \item Tiene alrededor de unos $60000$ parámetros para entrenar.
-                \item Las dimensiones de la imagen de entrada descienden en cada paso mientras que la profundidad del tensor aumenta hasta llegar a las capas FC.
-            \end{itemize}
+        %     \begin{itemize}
+        %         \item Su arquitectura consiste en: 
+        %         $$INPUT \rightarrow CONV \rightarrow AVG\;POOL \rightarrow CONV \rightarrow AVG \; POOL \rightarrow FC \rightarrow FC \rightarrow OUTPUT.$$
+        %         \item Las imágenes de entrada eran de dimensión $32 \times 32$ y pertenecían a una base de datos MNIST de dígitos manuscritos.
+        %         \item Tiene alrededor de unos $60000$ parámetros para entrenar.
+        %         \item Las dimensiones de la imagen de entrada descienden en cada paso mientras que la profundidad del tensor aumenta hasta llegar a las capas FC.
+        %     \end{itemize}
 
-        \subsubsection{AlexNet}
-            \noindent Tras el éxito de LeNet comenzaron a desarrollarse nuevas arquitecturas basadas en CNN para problemas de reconocimiento de objetos en imágenes, aunque a pesar del buen rendimiento que tenían, resultaban muy costosas de entrenar para grandes volúmenes de datos o en imágenes de alta resolución. De esta manera surgión la red AlexNet \cite{krizhevsky2012imagenet}.
+        % \subsubsection{AlexNet}
+        %     \noindent Tras el éxito de LeNet comenzaron a desarrollarse nuevas arquitecturas basadas en CNN para problemas de reconocimiento de objetos en imágenes, aunque a pesar del buen rendimiento que tenían, resultaban muy costosas de entrenar para grandes volúmenes de datos o en imágenes de alta resolución. De esta manera surgión la red AlexNet \cite{krizhevsky2012imagenet}.
 
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.8\textwidth]{img/AlexNet.png}
-                \caption{Arquitectura de la red AlexNet. Destaca que parece estar \entrecomillado{partida} en dos mitades, esto es porque por primera vez se usaron las GPUs para entrenar la red de manera que una GPU realizaba la parte superior de la arquitectura y otra la parte inferior. Imagen extraída de \cite{krizhevsky2012imagenet}.}
-                \label{fig:AlexNet}
-            \end{figure}
+        %     \begin{figure}[!h]
+        %         \centering
+        %         \includegraphics[width=0.8\textwidth]{img/AlexNet.png}
+        %         \caption{Arquitectura de la red AlexNet. Destaca que parece estar \entrecomillado{partida} en dos mitades, esto es porque por primera vez se usaron las GPUs para entrenar la red de manera que una GPU realizaba la parte superior de la arquitectura y otra la parte inferior. Imagen extraída de \cite{krizhevsky2012imagenet}.}
+        %         \label{fig:AlexNet}
+        %     \end{figure}
 
-            \noindent Destacan las siguientes propiedades:
+        %     \noindent Destacan las siguientes propiedades:
 
-            \begin{itemize}
-                \item Tiene un total de ocho capas sin contar las de pooling, cinco convolucionales y tres FC.
-                \item Emplea ReLU como función de activación en lugar de tanh pues se demuestra que acelera el proceso de entrenamiento $\times 6$ y obtiene un error del $25\%$ en el dataset CIFAR-10.
-                \item Se emplearon múltiples GPUs para el entrenamiento dividiendo las neuronas en dos conjuntos. Esto aceleró aún más el entrenamiento.
-                \item Emplean la técnica de Max Pooling en lugar de la de Average Pooling de LeNet. 
-                \item Tienen 60 millones de parámetros que aprender, de manera que para evitar el Overfitting se usó la técnica de \textbf{dropout}, que consistía en \entrecomillado{apagar} neuronas en cada iteración del entrenamiento de acuerdo a una probabilida del $50\%$. También se usó \textbf{data augmentation} que explicaremos en \autoref{sub:data_augmentation}.
-                \item El modelo ganó la competición ImageNet en $2012$ con una diferencia en precisión del $11\%$ con respecto al algoritmo que quedó en segundo lugar.
-            \end{itemize}
+        %     \begin{itemize}
+        %         \item Tiene un total de ocho capas sin contar las de pooling, cinco convolucionales y tres FC.
+        %         \item Emplea ReLU como función de activación en lugar de tanh pues se demuestra que acelera el proceso de entrenamiento $\times 6$ y obtiene un error del $25\%$ en el dataset CIFAR-10.
+        %         \item Se emplearon múltiples GPUs para el entrenamiento dividiendo las neuronas en dos conjuntos. Esto aceleró aún más el entrenamiento.
+        %         \item Emplean la técnica de Max Pooling en lugar de la de Average Pooling de LeNet. 
+        %         \item Tienen 60 millones de parámetros que aprender, de manera que para evitar el Overfitting se usó la técnica de \textbf{dropout}, que consistía en \entrecomillado{apagar} neuronas en cada iteración del entrenamiento de acuerdo a una probabilida del $50\%$. También se usó \textbf{data augmentation} que explicaremos en \autoref{sub:data_augmentation}.
+        %         \item El modelo ganó la competición ImageNet en $2012$ con una diferencia en precisión del $11\%$ con respecto al algoritmo que quedó en segundo lugar.
+        %     \end{itemize}
         
-        \subsubsection{GoogLeNet}
-            \noindent La arquitectura de GoogLeNet está basada en un módulo que se denomina \textbf{Inception} creado con la intención de reducir el coste computacional de las CNNs. Para ello se propone que en vez de construir una red muy profundas se realicen simultáneamente múltiples convoluciones en una sola capa. Con este modelo aparecen los primeros filtros de convolución $1\times 1$ encargados de reducir la profundidad del volumen de entrada manteniendo las dimensiones.
+        % \subsubsection{GoogLeNet}
+        %     \noindent La arquitectura de GoogLeNet está basada en un módulo que se denomina \textbf{Inception} creado con la intención de reducir el coste computacional de las CNNs. Para ello se propone que en vez de construir una red muy profundas se realicen simultáneamente múltiples convoluciones en una sola capa. Con este modelo aparecen los primeros filtros de convolución $1\times 1$ encargados de reducir la profundidad del volumen de entrada manteniendo las dimensiones.
 
-            \medskip
+        %     \medskip
 
-            \noindent Con este modelo, se permitía realizar simultáneamente diversas operaciones sobre un volumen de entrada y finalmente se concatenaban los mapas de activación.
+        %     \noindent Con este modelo, se permitía realizar simultáneamente diversas operaciones sobre un volumen de entrada y finalmente se concatenaban los mapas de activación.
 
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.98\textwidth]{img/inception_module.png}
-                \caption{Ejemplos de módulos Inception. Imágenes extraídas de \cite{StanfordCourse}.}
-                \label{fig:inception}
-            \end{figure}
+        %     \begin{figure}[!h]
+        %         \centering
+        %         \includegraphics[width=0.98\textwidth]{img/inception_module.png}
+        %         \caption{Ejemplos de módulos Inception. Imágenes extraídas de \cite{StanfordCourse}.}
+        %         \label{fig:inception}
+        %     \end{figure}
 
-            \noindent Con este nuevo módulo se desarrolló en 2015 la red GoogLeNet \cite{szegedy2015going}, que consiguió ganar el concurso ImageNet con empate técnico con la red \textbf{VGG-19}. En vez de usar capas FC usaron la técnica de \textbf{golbal average pooling} mediante la cual reducían la dimensión de los tensores con convoluciones $1 \times 1$.
+        %     \noindent Con este nuevo módulo se desarrolló en 2015 la red GoogLeNet \cite{szegedy2015going}, que consiguió ganar el concurso ImageNet con empate técnico con la red \textbf{VGG-19}. En vez de usar capas FC usaron la técnica de \textbf{golbal average pooling} mediante la cual reducían la dimensión de los tensores con convoluciones $1 \times 1$.
 
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.98\textwidth]{img/GoogLeNet.png}
-                \caption{Arquitectura de GoogLeNet usando módulos Inception.Imagen extraída de \cite{StanfordCourse}}
-                \label{fig:GoogLeNet}
-            \end{figure}
+        %     \begin{figure}[!h]
+        %         \centering
+        %         \includegraphics[width=0.98\textwidth]{img/GoogLeNet.png}
+        %         \caption{Arquitectura de GoogLeNet usando módulos Inception.Imagen extraída de \cite{StanfordCourse}}
+        %         \label{fig:GoogLeNet}
+        %     \end{figure}
 
-            \noindent Destacan las siguientes propiedades:
+        %     \noindent Destacan las siguientes propiedades:
 
-            \begin{itemize}
-                \item Tiene un total de 27 capas de profundidad, por lo que aumenta notablemente la profundidad con respecto a sus antecesores.
-                \item El uso de convoluciones $1\times 1$ con 128 filtros ayudan a reducir la dimensionalidad en lugar de usar capas FC.
-                \item Contiene una capa FC con 1024 unidades y que alimenta una ReLU. 
-                \item Tiene una capa lineal con Softmax para clasificación multiclase.
-            \end{itemize}
+        %     \begin{itemize}
+        %         \item Tiene un total de 27 capas de profundidad, por lo que aumenta notablemente la profundidad con respecto a sus antecesores.
+        %         \item El uso de convoluciones $1\times 1$ con 128 filtros ayudan a reducir la dimensionalidad en lugar de usar capas FC.
+        %         \item Contiene una capa FC con 1024 unidades y que alimenta una ReLU. 
+        %         \item Tiene una capa lineal con Softmax para clasificación multiclase.
+        %     \end{itemize}
 
-        \subsubsection{VGG-16}
-            \noindent Supuso un gran salto en rendimiento con respecto a los modelos anteriores. Los principales cambios con modelos anteriores como AlexNet es que dejaron de usar filtros de grandes dimensiones en las primeras etapas de la red para pasar a usar solo filtros $3 \times 3$. Esto ahorraba costes y permitía hacer una red más profunda \cite{simonyan2014very}.
+        % \subsubsection{VGG-16}
+        %     \noindent Supuso un gran salto en rendimiento con respecto a los modelos anteriores. Los principales cambios con modelos anteriores como AlexNet es que dejaron de usar filtros de grandes dimensiones en las primeras etapas de la red para pasar a usar solo filtros $3 \times 3$. Esto ahorraba costes y permitía hacer una red más profunda \cite{simonyan2014very}.
 
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.8\textwidth]{img/VGG-16.jpeg}
-                \caption{Arquitectura de VGG-16.Imagen extraída de \cite{StanfordCourse}.}
-                \label{fig:VGG}
-            \end{figure}
+        %     \begin{figure}[!h]
+        %         \centering
+        %         \includegraphics[width=0.8\textwidth]{img/VGG-16.jpeg}
+        %         \caption{Arquitectura de VGG-16.Imagen extraída de \cite{StanfordCourse}.}
+        %         \label{fig:VGG}
+        %     \end{figure}
 
-            \noindent Destacan las siguientes propiedades:
+        %     \noindent Destacan las siguientes propiedades:
 
-            \begin{itemize}
-                \item Consigue en Imagenet una precisión del $92.7 \%$.
-                \item Tiene unos 138 millones de parámetros entrenables que es más del doble de cualquiera de los modelos anteriores, lo que hace que VGG-16 sea muy lenta de entrenar.
-            \end{itemize}
+        %     \begin{itemize}
+        %         \item Consigue en Imagenet una precisión del $92.7 \%$.
+        %         \item Tiene unos 138 millones de parámetros entrenables que es más del doble de cualquiera de los modelos anteriores, lo que hace que VGG-16 sea muy lenta de entrenar.
+        %     \end{itemize}
 
-        \subsubsection{ResNet}
+        % \subsubsection{ResNet}
 
-            \noindent Tras los modelos anteriores, todavía quedaba un problema que tenían las CNN sin resolver, y es que cuanto más profundas eran, más problema había con el cálculo de los gradientes, pues tendían a cantidades infinitesimalmente pequeñas. Es por ello que surge la arquitectura \textbf{ResNet} \cite{he2016deep}, que introduce cortes en la red conectando un tensor con el que había unas cuantas etapas atrás, a esto se le denomina \textbf{bloque residual}. 
+        %     \noindent Tras los modelos anteriores, todavía quedaba un problema que tenían las CNN sin resolver, y es que cuanto más profundas eran, más problema había con el cálculo de los gradientes, pues tendían a cantidades infinitesimalmente pequeñas. Es por ello que surge la arquitectura \textbf{ResNet} \cite{he2016deep}, que introduce cortes en la red conectando un tensor con el que había unas cuantas etapas atrás, a esto se le denomina \textbf{bloque residual}. 
 
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.5\textwidth]{img/resnet_module.jpeg}
-                \caption{Bloque residual de una ResNet. Como vemos, se suma el tensor $x$ con el tensor $\mathcal{F}(x)$ que surge unas etapas después. Imagen extraída de \cite{he2016deep}.}
-                \label{fig:Resnet}
-            \end{figure}
+        %     \begin{figure}[!h]
+        %         \centering
+        %         \includegraphics[width=0.5\textwidth]{img/resnet_module.jpeg}
+        %         \caption{Bloque residual de una ResNet. Como vemos, se suma el tensor $x$ con el tensor $\mathcal{F}(x)$ que surge unas etapas después. Imagen extraída de \cite{he2016deep}.}
+        %         \label{fig:Resnet}
+        %     \end{figure}
             
-            \noindent Con estos bloques residuales impedimos que los gradientes tiendan a cero rápidamente, con lo que podemos crear redes mucho más profundas. De hecho la versión de ResNet con 152 capas ganó el concurso ILSVRC 2015 siendo la red más profunda en aquel entonces. 
+        %     \noindent Con estos bloques residuales impedimos que los gradientes tiendan a cero rápidamente, con lo que podemos crear redes mucho más profundas. De hecho la versión de ResNet con 152 capas ganó el concurso ILSVRC 2015 siendo la red más profunda en aquel entonces. 
 
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.9\textwidth]{img/ImageNet.png}
-                \caption{Resumen de los ganadores del concurso ILSVRC hasta 2015 con la aparición de Resnet. Imagen extraída de \cite{StanfordCourse}.}
-                \label{fig:ImageNet}
-            \end{figure}
+        %     \begin{figure}[!h]
+        %         \centering
+        %         \includegraphics[width=0.9\textwidth]{img/ImageNet.png}
+        %         \caption{Resumen de los ganadores del concurso ILSVRC hasta 2015 con la aparición de Resnet. Imagen extraída de \cite{StanfordCourse}.}
+        %         \label{fig:ImageNet}
+        %     \end{figure}
 
 \section{Autoencoders}
     \noindent Hasta ahora hemos visto qué son las CNN y su gran importancia en Deep learning en tareas de reconocimiento de objetos en imágenes. A continuación vamos a presentar un tipo de red que se emplea en tareas de \textit{Aprendizaje no supervisado} y que será de gran importancia en nuestro trabajo. Se tratan de las redes conocidas como \textbf{Autoencoders}.

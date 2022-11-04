@@ -471,43 +471,42 @@
         \begin{table}[!ht]
             \centering
             \caption{Media del error NME obtenido por landmark entre todas las particiones de cross-validation.}
-            \begin{tabular}{|l|l|l|}
+            \begin{tabular}{|l|l|}
             \hline
-                ~ & \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{Media NME por landmark} \\ \hline
-                0 & Menton & 3.944 \\ \hline
-                1 & Gnathion & 2.637 \\ \hline
-                2 & Pogonion & 2.549 \\ \hline
-                3 & Prosthion & 0.932 \\ \hline
-                4 & Labiale Superius & 2.099 \\ \hline
-                5 & Subnasale & 2.059 \\ \hline
-                6 & Nasion & 2.254 \\ \hline
-                7 & Glabella & 2.547 \\ \hline
-                8 & Vertex & 6.244 \\ \hline
-                9 & Left Gonion & 7.684 \\ \hline
-                10 & Right Gonion & 11.283 \\ \hline
-                11 & Left Zygion & 5.098 \\ \hline
-                12 & Right Zygion & 6.309 \\ \hline
-                13 & Left Alare & 1.939 \\ \hline
-                14 & Right Alare & 2.282 \\ \hline
-                15 & Left Endocanthion & 1.668 \\ \hline
-                16 & Right Endocanthion & 1.671 \\ \hline
-                17 & Left Exocanthion & 1.706 \\ \hline
-                18 & Right Exocanthion & 1.670 \\ \hline
-                19 & Left Tragion & 4.824 \\ \hline
-                20 & Right Tragion & 5.376 \\ \hline
-                21 & Labiale inferius & 1.705 \\ \hline
-                22 & Trichion & 4.478 \\ \hline
-                23 & Supramentale & 1.913 \\ \hline
-                24 & Left Frontotemporale & 2.319 \\ \hline
-                25 & Right Frontotemporale & 2.721 \\ \hline
-                26 & Left Frontozygomaticus & 1.513 \\ \hline
-                27 & Right Frontozygomaticus & 2.313 \\ \hline
-                28 & Left Midsurpaorbital & 1.205 \\ \hline
-                29 & Right Midsupraorbital & 1.43 \\ \hline
+                \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{Media NME por landmark} \\ \hline
+                Menton & 3.365 \\ \hline
+                Gnathion & 2.437 \\ \hline
+                Pogonion & 2.421 \\ \hline
+                Prosthion & 1.098 \\ \hline
+                Labiale Superius & 1.966 \\ \hline
+                Subnasale & 2.068 \\ \hline
+                Nasion & 2.001 \\ \hline
+                Glabella & 2.4 \\ \hline
+                Vertex & 4.277 \\ \hline
+                Left Gonion & 4.261 \\ \hline
+                Right Gonion & 4.094 \\ \hline
+                Left Zygion & 4.343 \\ \hline
+                Right Zygion & 4.485 \\ \hline
+                Left Alare & 1.705 \\ \hline
+                Right Alare & 1.965 \\ \hline
+                Left Endocanthion & 1.448 \\ \hline
+                Right Endocanthion & 1.336 \\ \hline
+                Left Exocanthion & 1.69 \\ \hline
+                Right Exocanthion & 1.906 \\ \hline
+                Left Tragion & 3.813 \\ \hline
+                Right Tragion & 4.124 \\ \hline
+                Labiale inferius & 1.793 \\ \hline
+                Trichion & 3.759 \\ \hline
+                Supramentale & 1.955 \\ \hline
+                Left Frontotemporale & 1.789 \\ \hline
+                Right Frontotemporale & 2.175 \\ \hline
+                Left Frontozygomaticus & 1.584 \\ \hline
+                Right Frontozygomaticus & 1.896 \\ \hline
+                Left Midsurpaorbital & 1.424 \\ \hline
+                Right Midsupraorbital & 1.685 \\ \hline
             \end{tabular}
             \label{table:ModelBase_landmarkresume}
         \end{table}
-
         \medskip
 
         \noindent Los resultados por landmark se puden ver en la \autoref{table:ModelBase_landmarkresume} y son buenos en general para tratarse del modelo base, siendo el landmark mejor marcado en media el \textit{Prosthion}, y el peor el \textit{Right Gonion}. Si recordamos la \autoref{fig:Histograma}, sorprende el hecho de que el \textit{Prosthion} es de los landmarks que menos presencia tiene en las imágenes (aparece en menos de $40$ imágenes), y sin embargo es de los que mejor aprende a marcar la red. Por otro lado, el \textit{Right Gonion}, pese a aparecer en unas $100$ imágenes, resulta más dificil para la red predecirlo. Esto puede deberse a que las imágenes con mayor error de reconstrucción son las de perfil, y es en este tipo de imágenes en las que mejor se aprecia dicho landmark.

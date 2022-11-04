@@ -19,8 +19,8 @@
 \contentsline {subsection}{\numberline {2.2.4}Construcción del operador de dispersión.}{24}{subsection.2.2.4}%
 \contentsline {section}{\numberline {2.3}Propagador de dispersión y conservación de la Norma}{26}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Proceso de dispersión del propagador.}{26}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Diferencias y similitudes con una CNN}{26}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Relación con herramientas clásicas de visión por computador}{27}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.2}Diferencias y similitudes con una CNN}{27}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Relación con herramientas clásicas de visión por computador}{28}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Operador no expansivo.}{28}{subsection.2.3.4}%
 \contentsline {subsection}{\numberline {2.3.5}Conservación de la norma.}{29}{subsection.2.3.5}%
 \contentsline {subsection}{\numberline {2.3.6}Conclusiones extraídas del teorema}{33}{subsection.2.3.6}%
@@ -54,73 +54,67 @@
 \contentsline {subsection}{\numberline {6.2.4}Batch Normalization}{66}{subsection.6.2.4}%
 \contentsline {subsection}{\numberline {6.2.5}Optimizador Adam}{67}{subsection.6.2.5}%
 \contentsline {subsection}{\numberline {6.2.6}Proceso de entrenamiento de una CNN}{67}{subsection.6.2.6}%
-\contentsline {subsection}{\numberline {6.2.7}Evolución de las CNN}{67}{subsection.6.2.7}%
-\contentsline {subsubsection}{\numberline {6.2.7.1}LeNet-5}{67}{subsubsection.6.2.7.1}%
-\contentsline {subsubsection}{\numberline {6.2.7.2}AlexNet}{68}{subsubsection.6.2.7.2}%
-\contentsline {subsubsection}{\numberline {6.2.7.3}GoogLeNet}{69}{subsubsection.6.2.7.3}%
-\contentsline {subsubsection}{\numberline {6.2.7.4}VGG-16}{70}{subsubsection.6.2.7.4}%
-\contentsline {subsubsection}{\numberline {6.2.7.5}ResNet}{70}{subsubsection.6.2.7.5}%
-\contentsline {section}{\numberline {6.3}Autoencoders}{71}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Introducción}{71}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Evolución de los Autoencoders}{72}{subsection.6.3.2}%
-\contentsline {subsubsection}{\numberline {6.3.2.1}Generative Adversarial Networks (GANs)}{72}{subsubsection.6.3.2.1}%
-\contentsline {subsubsection}{\numberline {6.3.2.2}Variational Autoencoder (VAE)}{72}{subsubsection.6.3.2.2}%
-\contentsline {subsubsection}{\numberline {6.3.2.3}Adversarial Autoencoder(AAE)}{74}{subsubsection.6.3.2.3}%
-\contentsline {section}{\numberline {6.4}Técnicas empleadas}{76}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Few-shot Learning y Data Augmentation}{76}{subsection.6.4.1}%
-\contentsline {chapter}{\numberline {7}Estado del Arte}{77}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Localización de landmarks cefalométricos en imágenes}{77}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Evolución en la identificación forense de landmarks cefalométricos}{77}{subsection.7.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.1.1}Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}{79}{subsubsection.7.1.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.1.2}Automated facial landmark detection, comparison and visualization}{79}{subsubsection.7.1.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.1.3}Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}{79}{subsubsection.7.1.1.3}%
-\contentsline {subsubsection}{\numberline {7.1.1.4}The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}{81}{subsubsection.7.1.1.4}%
-\contentsline {chapter}{\numberline {8}Implementación}{83}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Diseño del Sofware}{83}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Entorno de ejecución}{85}{section.8.2}%
-\contentsline {chapter}{\numberline {9}Solución propuesta y experimentos realizados}{89}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Framework empleado: 3FabRec}{90}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}Arquitectura Adversarial Autoencoder}{91}{subsection.9.1.1}%
-\contentsline {subsubsection}{\numberline {9.1.1.1}Interleaved Transfer Layer (ITL)}{95}{subsubsection.9.1.1.1}%
-\contentsline {subsection}{\numberline {9.1.2}Función de pérdida}{95}{subsection.9.1.2}%
-\contentsline {subsection}{\numberline {9.1.3}Proceso de entrenamiento de la red}{97}{subsection.9.1.3}%
-\contentsline {subsubsection}{\numberline {9.1.3.1}Entrenamiento no-supervisado}{97}{subsubsection.9.1.3.1}%
-\contentsline {subsubsection}{\numberline {9.1.3.2}Entrenamiento supervisado}{97}{subsubsection.9.1.3.2}%
-\contentsline {subsection}{\numberline {9.1.4}Bases de datos usadas por el framework}{98}{subsection.9.1.4}%
-\contentsline {section}{\numberline {9.2}Métricas}{98}{section.9.2}%
-\contentsline {subsection}{\numberline {9.2.1}Métricas usadas en el entrenamiento}{98}{subsection.9.2.1}%
-\contentsline {subsubsection}{\numberline {9.2.1.1}MSE}{99}{subsubsection.9.2.1.1}%
-\contentsline {subsection}{\numberline {9.2.2}Métricas empleadas en validación y testing}{99}{subsection.9.2.2}%
-\contentsline {subsubsection}{\numberline {9.2.2.1}Error de reconstrucción}{99}{subsubsection.9.2.2.1}%
-\contentsline {subsubsection}{\numberline {9.2.2.2}Normalized Mean Error}{99}{subsubsection.9.2.2.2}%
-\contentsline {subsubsection}{\numberline {9.2.2.3}SSIM}{100}{subsubsection.9.2.2.3}%
-\contentsline {section}{\numberline {9.3}Análisis de la base de Datos}{100}{section.9.3}%
-\contentsline {subsection}{\numberline {9.3.1}Base de datos proporcionada}{100}{subsection.9.3.1}%
-\contentsline {subsection}{\numberline {9.3.2}Preprocesamiento}{102}{subsection.9.3.2}%
-\contentsline {subsubsection}{\numberline {9.3.2.1}Identificación de caras en las imágenes}{102}{subsubsection.9.3.2.1}%
-\contentsline {subsubsection}{\numberline {9.3.2.2}Creación del fichero annotations en el dataset}{104}{subsubsection.9.3.2.2}%
-\contentsline {subsubsection}{\numberline {9.3.2.3}Reajuste de los bounding boxes}{105}{subsubsection.9.3.2.3}%
-\contentsline {subsection}{\numberline {9.3.3}Separación en conjuntos de entrenamiento y validación}{106}{subsection.9.3.3}%
-\contentsline {section}{\numberline {9.4}Experimentación}{107}{section.9.4}%
-\contentsline {subsection}{\numberline {9.4.1}Hipótesis iniciales}{107}{subsection.9.4.1}%
-\contentsline {subsection}{\numberline {9.4.2}Modelo Base}{107}{subsection.9.4.2}%
-\contentsline {subsection}{\numberline {9.4.3}Modelo con reentrenamiento del encoder}{110}{subsection.9.4.3}%
-\contentsline {subsection}{\numberline {9.4.4}Modelo con reentrenamiento del decoder}{113}{subsection.9.4.4}%
-\contentsline {subsection}{\numberline {9.4.5}Modelo con Data Augmentation}{115}{subsection.9.4.5}%
-\contentsline {subsection}{\numberline {9.4.6}Elección de modelo y obtención de resultados}{117}{subsection.9.4.6}%
-\contentsline {section}{\numberline {9.5}Comparativa entre 3FabRec y HyperFace-ResNet101}{120}{section.9.5}%
-\contentsline {subsection}{\numberline {9.5.1}Preprocesamiento y base de datos empleada}{120}{subsection.9.5.1}%
-\contentsline {subsection}{\numberline {9.5.2}Métricas empleadas}{121}{subsection.9.5.2}%
-\contentsline {subsection}{\numberline {9.5.3}Comparación de resultados}{121}{subsection.9.5.3}%
-\contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{123}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{123}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{124}{section.10.2}%
-\contentsline {chapter}{\numberline {A}Apéndice A}{127}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{127}{section.Alph1.1}%
-\contentsline {chapter}{\numberline {B}Apéndice B}{133}{appendix.Alph2}%
-\contentsline {section}{\numberline {B.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{133}{section.Alph2.1}%
-\contentsline {chapter}{\numberline {C}Apéndice C}{139}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{139}{section.Alph3.1}%
-\contentsline {chapter}{\numberline {D}Apéndice D}{145}{appendix.Alph4}%
-\contentsline {section}{\numberline {D.1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{145}{section.Alph4.1}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{151}{chapter*.10}%
+\contentsline {section}{\numberline {6.3}Autoencoders}{67}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Introducción}{67}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Evolución de los Autoencoders}{68}{subsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.1}Generative Adversarial Networks (GANs)}{68}{subsubsection.6.3.2.1}%
+\contentsline {subsubsection}{\numberline {6.3.2.2}Variational Autoencoder (VAE)}{69}{subsubsection.6.3.2.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.3}Adversarial Autoencoder(AAE)}{70}{subsubsection.6.3.2.3}%
+\contentsline {section}{\numberline {6.4}Técnicas empleadas}{71}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Few-shot Learning y Data Augmentation}{72}{subsection.6.4.1}%
+\contentsline {chapter}{\numberline {7}Estado del Arte}{73}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Localización de landmarks cefalométricos en imágenes}{73}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Evolución en la identificación forense de landmarks cefalométricos}{73}{subsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.1.1}Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}{75}{subsubsection.7.1.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.1.2}Automated facial landmark detection, comparison and visualization}{75}{subsubsection.7.1.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.1.3}Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}{75}{subsubsection.7.1.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.1.4}The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}{77}{subsubsection.7.1.1.4}%
+\contentsline {chapter}{\numberline {8}Implementación}{79}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Diseño del Sofware}{79}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Entorno de ejecución}{81}{section.8.2}%
+\contentsline {chapter}{\numberline {9}Solución propuesta y experimentos realizados}{85}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Framework empleado: 3FabRec}{86}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Arquitectura Adversarial Autoencoder}{87}{subsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.1.1}Interleaved Transfer Layer (ITL)}{91}{subsubsection.9.1.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Función de pérdida}{91}{subsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.1.3}Proceso de entrenamiento de la red}{93}{subsection.9.1.3}%
+\contentsline {subsubsection}{\numberline {9.1.3.1}Entrenamiento no-supervisado}{93}{subsubsection.9.1.3.1}%
+\contentsline {subsubsection}{\numberline {9.1.3.2}Entrenamiento supervisado}{93}{subsubsection.9.1.3.2}%
+\contentsline {subsection}{\numberline {9.1.4}Bases de datos usadas por el framework}{94}{subsection.9.1.4}%
+\contentsline {section}{\numberline {9.2}Métricas}{94}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Métricas usadas en el entrenamiento}{94}{subsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.1.1}MSE}{95}{subsubsection.9.2.1.1}%
+\contentsline {subsection}{\numberline {9.2.2}Métricas empleadas en validación y testing}{95}{subsection.9.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.2.1}Error de reconstrucción}{95}{subsubsection.9.2.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2.2}Normalized Mean Error}{95}{subsubsection.9.2.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.2.3}SSIM}{96}{subsubsection.9.2.2.3}%
+\contentsline {section}{\numberline {9.3}Análisis de la base de Datos}{96}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Base de datos proporcionada}{96}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.3.2}Preprocesamiento}{98}{subsection.9.3.2}%
+\contentsline {subsubsection}{\numberline {9.3.2.1}Identificación de caras en las imágenes}{98}{subsubsection.9.3.2.1}%
+\contentsline {subsubsection}{\numberline {9.3.2.2}Creación del fichero annotations en el dataset}{100}{subsubsection.9.3.2.2}%
+\contentsline {subsubsection}{\numberline {9.3.2.3}Reajuste de los bounding boxes}{101}{subsubsection.9.3.2.3}%
+\contentsline {subsection}{\numberline {9.3.3}Separación en conjuntos de entrenamiento y validación}{102}{subsection.9.3.3}%
+\contentsline {section}{\numberline {9.4}Experimentación}{103}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}Hipótesis iniciales}{103}{subsection.9.4.1}%
+\contentsline {subsection}{\numberline {9.4.2}Modelo Base}{103}{subsection.9.4.2}%
+\contentsline {subsection}{\numberline {9.4.3}Modelo con reentrenamiento del encoder}{106}{subsection.9.4.3}%
+\contentsline {subsection}{\numberline {9.4.4}Modelo con reentrenamiento del decoder}{109}{subsection.9.4.4}%
+\contentsline {subsection}{\numberline {9.4.5}Modelo con Data Augmentation}{111}{subsection.9.4.5}%
+\contentsline {subsection}{\numberline {9.4.6}Elección de modelo y obtención de resultados}{113}{subsection.9.4.6}%
+\contentsline {section}{\numberline {9.5}Comparativa entre 3FabRec y HyperFace-ResNet101}{116}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}Preprocesamiento y base de datos empleada}{116}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Métricas empleadas}{117}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}Comparación de resultados}{117}{subsection.9.5.3}%
+\contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{119}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{119}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{120}{section.10.2}%
+\contentsline {chapter}{\numberline {A}Apéndice A}{123}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{123}{section.Alph1.1}%
+\contentsline {chapter}{\numberline {B}Apéndice B}{129}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{129}{section.Alph2.1}%
+\contentsline {chapter}{\numberline {C}Apéndice C}{135}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{135}{section.Alph3.1}%
+\contentsline {chapter}{\numberline {D}Apéndice D}{141}{appendix.Alph4}%
+\contentsline {section}{\numberline {D.1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{141}{section.Alph4.1}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{147}{chapter*.10}%

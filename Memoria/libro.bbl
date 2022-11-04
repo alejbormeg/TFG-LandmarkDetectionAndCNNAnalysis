@@ -56,13 +56,6 @@ Rafael~C. González.
   Woods}.
 \newblock Pearson Education Limited, Harlow, 4th ed., global ed. edition, 2017.
 
-\bibitem[Gup20]{EvolutionCNN}
-Aaryan Gupta.
-\newblock Evolution of convolutional neural networ architectures.
-\newblock \url =
-  {https://medium.com/the-pen-point/evolution-of-convolutional-neural-network-architectures-6b90d067e403},,
-  2020.
-
 \bibitem[HIWK15]{Huete2015PastPA}
 Mar{\'i}a~Isabel Huete, {\'O}scar Ib{\'a}{\~n}ez, Caroline Wilkinson, and Tzipi
   Kahana.
@@ -76,21 +69,10 @@ Nguyen Dao Xuan~Hai Ho~Nguyen Anh~Tuan and Nguyen~Truong Thinh.
   vietnamese human face based on clinical diagnosis.
 \newblock {\em Journal of Image and Graphics(United Kingdom)}, 12:76--81, 2022.
 
-\bibitem[HZRS16]{he2016deep}
-Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
-\newblock Deep residual learning for image recognition.
-\newblock In {\em Proceedings of the IEEE conference on computer vision and
-  pattern recognition}, pages 770--778, 2016.
-
 \bibitem[J.B12]{JBrunaOperatorsCommutingDiff}
 J.Bruna.
 \newblock Operators commuting with diffeomorphisms.
 \newblock {\em CMAP Tech. REport}, 2012.
-
-\bibitem[KSH12]{krizhevsky2012imagenet}
-Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
-\newblock Imagenet classification with deep convolutional neural networks.
-\newblock {\em Advances in neural information processing systems}, 25, 2012.
 
 \bibitem[KWRB11]{AFLW}
 Martin Köstinger, Paul Wohlhart, Peter~M. Roth, and Horst Bischof.
@@ -98,11 +80,6 @@ Martin Köstinger, Paul Wohlhart, Peter~M. Roth, and Horst Bischof.
   database for facial landmark localization.
 \newblock In {\em 2011 IEEE International Conference on Computer Vision
   Workshops (ICCV Workshops)}, pages 2144--2151, 2011.
-
-\bibitem[LBBH98]{lecun1998gradient}
-Yann LeCun, L{\'e}on Bottou, Yoshua Bengio, and Patrick Haffner.
-\newblock Gradient-based learning applied to document recognition.
-\newblock {\em Proceedings of the IEEE}, 86(11):2278--2324, 1998.
 
 \bibitem[LBH15]{lecun2015deep}
 Yann LeCun, Yoshua Bengio, and Geoffrey Hinton.
@@ -181,13 +158,6 @@ Azriel Rosenfeld.
 \newblock Computer vision: basic principles.
 \newblock {\em Proceedings of the IEEE}, 76(8):863--868, 1988.
 
-\bibitem[SLJ{\etalchar{+}}15]{szegedy2015going}
-Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
-  Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich.
-\newblock Going deeper with convolutions.
-\newblock In {\em Proceedings of the IEEE conference on computer vision and
-  pattern recognition}, pages 1--9, 2015.
-
 \bibitem[SSA17]{sharma2017activation}
 Sagar Sharma, Simone Sharma, and Anidhya Athaiya.
 \newblock Activation functions in neural networks.
@@ -199,11 +169,6 @@ Christos Sagonas, Georgios Tzimiropoulos, Stefanos Zafeiriou, and Maja Pantic.
   localization challenge.
 \newblock In {\em 2013 IEEE International Conference on Computer Vision
   Workshops}, pages 397--403, 2013.
-
-\bibitem[SZ14]{simonyan2014very}
-Karen Simonyan and Andrew Zisserman.
-\newblock Very deep convolutional networks for large-scale image recognition.
-\newblock {\em arXiv preprint arXiv:1409.1556}, 2014.
 
 \bibitem[TLF10]{Daisy}
 Engin Tola, Vincent Lepetit, and Pascal Fua.
