@@ -611,40 +611,40 @@
 
         \begin{table}[!ht]
             \centering
-            \caption{Tabla comparativa entre los tres modelos probados. En este caso no se aprecia ninguna mejora considerable con respecto a las introducidas por el modelo de ajuste fino del encoder}
-            \begin{tabular}{|l|l|l|l|l|}
+            \caption{Tabla comparativa entre los tres modelos explorados por ahora. Medimos el NME medio a nivel de landmark. }
+            \begin{tabular}{|l|l|l|l|}
             \hline
-                \textbf{} & \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{M.Base} & \cellcolor{gray!25}\textbf{M.Encoder} & \cellcolor{gray!25}\textbf{M.Decoder} \\ \hline
-                \textbf{0} & Menton & 3.944 & 3.997 & \cellcolor{green!25} 3.991 \\ \hline
-                \textbf{1} & Gnathion & 2.637 & \cellcolor{green!25} 2.606 & 2.634 \\ \hline
-                \textbf{2} & Pogonion & 2.549 & \cellcolor{green!25} 2.546 & 2.585 \\ \hline
-                \textbf{3} & Prosthion & \cellcolor{green!25} 0.932 & 1.048 & 0.97 \\ \hline
-                \textbf{4} & Labiale Superius & 2.099 & \cellcolor{green!25} 2.04 & 2.059 \\ \hline
-                \textbf{5} & Subnasale & 2.059 & \cellcolor{green!25} 1.992 & 2.089 \\ \hline
-                \textbf{6} & Nasion & 2.254 & \cellcolor{green!25} 2.099 & 2.275 \\ \hline
-                \textbf{7} & Glabella & \cellcolor{green!25} 2.547 & 2.736 & 2.912 \\ \hline
-                \textbf{8} & Vertex & 6.244 & \cellcolor{green!25} 5.89 & 6.137 \\ \hline
-                \textbf{9} & Left Gonion & 7.684 & 5.789 & \cellcolor{green!25} 5.665 \\ \hline
-                \textbf{10} & Right Gonion & 11.283 & \cellcolor{green!25} 5.301 & 5.468 \\ \hline
-                \textbf{11} & Left Zygion & \cellcolor{green!25} 5.098 & 5.288 & 5.29 \\ \hline
-                \textbf{12} & Right Zygion & 6.309 & 6.291 & \cellcolor{green!25} 6.14 \\ \hline
-                \textbf{13} & Left Alare & \cellcolor{green!25} 1.939 & 1.959 & 2.051 \\ \hline
-                \textbf{14} & Right Alare & 2.282 & \cellcolor{green!25} 2.232 & 2.295 \\ \hline
-                \textbf{15} & Left Endocanthion & \cellcolor{green!25} 1.668 & 1.71 & 1.827 \\ \hline
-                \textbf{16} & Right Endocanthion & 1.671 & 1.647 & \cellcolor{green!25} 1.61 \\ \hline
-                \textbf{17} & Left Exocanthion & \cellcolor{green!25} 1.706 & 1.733 & 1.809 \\ \hline
-                \textbf{18} & Right Exocanthion & \cellcolor{green!25} 1.670 & 1.746 & 1.734 \\ \hline
-                \textbf{19} & Left Tragion & 4.824 & \cellcolor{green!25} 3.633 & 4.163 \\ \hline
-                \textbf{20} & Right Tragion & 5.376 & 5.252 & \cellcolor{green!25} 4.791 \\ \hline
-                \textbf{21} & Labiale inferius & 1.705 & 1.688 & \cellcolor{green!25} 1.627 \\ \hline
-                \textbf{22} & Trichion & \cellcolor{green!25} 4.478 & 4.762 & 5.196 \\ \hline
-                \textbf{23} & Supramentale & 1.913 & 1.991 & \cellcolor{green!25} 1.839 \\ \hline
-                \textbf{24} & Left Frontotemporale & \cellcolor{green!25} 2.319 & 2.452 & 2.474 \\ \hline
-                \textbf{25} & Right Frontotemporale & \cellcolor{green!25} 2.721 & 3.282 & 3.009 \\ \hline
-                \textbf{26} & Left Frontozygomaticus & 1.513 & \cellcolor{green!25} 1.499 & 1.525 \\ \hline
-                \textbf{27} & Right Frontozygomaticus & \cellcolor{green!25} 2.313 & 2.516 & 2.395 \\ \hline
-                \textbf{28} & Left Midsurpaorbital & 1.205 & \cellcolor{green!25} 1.178 & 1.191 \\ \hline
-                \textbf{29} & Right Midsupraorbital & 1.43 & \cellcolor{green!25} 1.348 & 1.48 \\ \hline
+            \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{NME (M. Base)} & \cellcolor{gray!25}\textbf{NME (M. Encoder)} & \cellcolor{gray!25}\textbf{NME (M. Decoder)} \\ \hline
+                Menton & 3.365 & \cellcolor{green!25}3.257 & 3.289 \\ \hline
+                Gnathion & 2.437 & 2.367 & \cellcolor{green!25}2.285 \\ \hline
+                Pogonion & 2.421 & 2.399 & \cellcolor{green!25}2.348 \\ \hline
+                Prosthion & 1.098 & 1.125 & \cellcolor{green!25}1.042 \\ \hline
+                Labiale Superius & 1.966 & 1.887 & \cellcolor{green!25}1.854 \\ \hline
+                Subnasale & 2.068 & \cellcolor{green!25}1.885 & 2.077 \\ \hline
+                Nasion & 2.001 & \cellcolor{green!25}1.815 & 1.976 \\ \hline
+                Glabella & 2.4 & \cellcolor{green!25}2.294 & 2.372 \\ \hline
+                Vertex & 4.277 & \cellcolor{green!25}3.881 & 4.11 \\ \hline
+                Left Gonion & 4.261 & \cellcolor{green!25}4.131 & 4.311 \\ \hline
+                Right Gonion & 4.094 & 4.157 & \cellcolor{green!25}4.014 \\ \hline
+                Left Zygion & 4.343 & \cellcolor{green!25}4.037 & 4.303 \\ \hline
+                Right Zygion & 4.485 & \cellcolor{green!25}4.387 & 4.495 \\ \hline
+                Left Alare & 1.705 & \cellcolor{green!25}1.666 & 1.876 \\ \hline
+                Right Alare & 1.965 & \cellcolor{green!25}1.89 & 1.949 \\ \hline
+                Left Endocanthion & 1.448 & \cellcolor{green!25}1.387 & 1.398 \\ \hline
+                Right Endocanthion & \cellcolor{green!25}1.336 & 1.337 & 1.437 \\ \hline
+                Left Exocanthion & 1.69 & \cellcolor{green!25}1.629 & 1.755 \\ \hline
+                Right Exocanthion & 1.906 & \cellcolor{green!25}1.776 & 1.923 \\ \hline
+                Left Tragion & 3.813 & \cellcolor{green!25}3.372 & 3.852 \\ \hline
+                Right Tragion & 4.124 & \cellcolor{green!25}3.835 & 3.863 \\ \hline
+                Labiale inferius & 1.793 & \cellcolor{green!25}1.732 & 1.753 \\ \hline
+                Trichion & 3.759 & \cellcolor{green!25}3.614 & 3.703 \\ \hline
+                Supramentale & 1.955 & \cellcolor{green!25}1.794 & 1.889 \\ \hline
+                Left Frontotemporale & \cellcolor{green!25}1.789 & 1.851 & 1.954 \\ \hline
+                Right Frontotemporale & 2.175 & \cellcolor{green!25}2.13 & 2.313 \\ \hline
+                Left Frontozygomaticus & \cellcolor{green!25}1.584 & 1.586 & 1.624 \\ \hline
+                Right Frontozygomaticus & 1.896 & \cellcolor{green!25}1.611 & 1.779 \\ \hline
+                Left Midsurpaorbital & 1.424 & \cellcolor{green!25}1.261 & 1.331 \\ \hline
+                Right Midsupraorbital & 1.685 & 1.563 & \cellcolor{green!25}1.637 \\ \hline
             \end{tabular}
             \label{table:Decoder_landmarksresume}
         \end{table}
@@ -693,40 +693,40 @@
 
         \begin{table}[!ht]
             \centering
-            \caption{Tabla comparativa entre todos los modelos probados.}
-            \begin{tabular}{|l|l|l|l|l|l|}
+            \caption{Tabla comparativa entre todos los modelos probados. }
+            \begin{tabular}{|l|l|l|l|l|}
             \hline
-                \textbf{} & \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{M.Base} & \cellcolor{gray!25}\textbf{M.E} & \cellcolor{gray!25}\textbf{M.Decoder} & \cellcolor{gray!25}\textbf{Data augmentation} \\ \hline
-                \textbf{0} & Menton & 3.944 & 3.997 & 3.991 & \cellcolor{green!25}3.006 \\ \hline
-                \textbf{1} & Gnathion & 2.637 & 2.606 & 2.634 & \cellcolor{green!25}1.497 \\ \hline
-                \textbf{2} & Pogonion & 2.549 & 2.546 & 2.585 & \cellcolor{green!25}1.359 \\ \hline
-                \textbf{3} & Prosthion & 0.932 & 1.048 & 0.97 & \cellcolor{green!25}0.815 \\ \hline
-                \textbf{4} & Labiale Superius & 2.099 & 2.04 & 2.059 & \cellcolor{green!25}1.531 \\ \hline
-                \textbf{5} & Subnasale & 2.059 & 1.992 & 2.089 & \cellcolor{green!25}1.272 \\ \hline
-                \textbf{6} & Nasion & 2.254 & 2.099 & 2.275 & \cellcolor{green!25}1.241 \\ \hline
-                \textbf{7} & Glabella & 2.547 & 2.736 & 2.912 & \cellcolor{green!25}1.545 \\ \hline
-                \textbf{8} & Vertex & 6.244 & 5.89 & 6.137 & \cellcolor{green!50}\textbf{3.99} \\ \hline
-                \textbf{9} & Left Gonion & 7.684 & 5.789 & 5.665 & \cellcolor{green!50}\textbf{1.846} \\ \hline
-                \textbf{10} & Right Gonion & 11.283 & 5.301 & 5.468 & \cellcolor{green!50}\textbf{1.673} \\ \hline
-                \textbf{11} & Left Zygion & 5.098 & 5.288 & 5.29 & \cellcolor{green!50} \textbf{3.322} \\ \hline
-                \textbf{12} & Right Zygion & 6.309 & 6.291 & 6.14 & \cellcolor{green!50} \textbf{4.441} \\ \hline
-                \textbf{13} & Left Alare & 1.939 & 1.959 & 2.051 & \cellcolor{green!25}1.585 \\ \hline
-                \textbf{14} & Right Alare & 2.282 & 2.232 & 2.295 & \cellcolor{green!25}1.362 \\ \hline
-                \textbf{15} & Left Endocanthion & 1.668 & 1.71 & 1.827 & \cellcolor{green!25}1.227 \\ \hline
-                \textbf{16} & Right Endocanthion & 1.671 & 1.647 & 1.61 & \cellcolor{green!25}1.129 \\ \hline
-                \textbf{17} & Left Exocanthion & 1.706 & 1.733 & 1.809 & \cellcolor{green!25}1.186 \\ \hline
-                \textbf{18} & Right Exocanthion & 1.670 & 1.746 & 1.734 & \cellcolor{green!25}1.12 \\ \hline
-                \textbf{19} & Left Tragion & 4.824 & 3.633 & 4.163 & \cellcolor{green!25}2.066 \\ \hline
-                \textbf{20} & Right Tragion & 5.376 & 5.252 & 4.791 & \cellcolor{green!25}2.234 \\ \hline
-                \textbf{21} & Labiale inferius & 1.705 & 1.688 & 1.627 & \cellcolor{green!25}1.032 \\ \hline
-                \textbf{22} & Trichion & 4.478 & 4.762 & 5.196 & \cellcolor{green!25} 3.37 \\ \hline
-                \textbf{23} & Supramentale & 1.913 & 1.991 & 1.839 & \cellcolor{green!25}1.109 \\ \hline
-                \textbf{24} & Left Frontotemporale & 2.319 & 2.452 & 2.474 & \cellcolor{green!25}1.386 \\ \hline
-                \textbf{25} & Right Frontotemporale & 2.721 & 3.282 & 3.009 & \cellcolor{green!25}1.826 \\ \hline
-                \textbf{26} & Left Frontozygomaticus & 1.513 & 1.499 & 1.525 & \cellcolor{green!25}1.036 \\ \hline
-                \textbf{27} & Right Frontozygomaticus & 2.313 & 2.516 & 2.395 & \cellcolor{green!25}1.057 \\ \hline
-                \textbf{28} & Left Midsurpaorbital & 1.205 & 1.178 & 1.191 & \cellcolor{green!25}0.854 \\ \hline
-                \textbf{29} & Right Midsupraorbital & 1.43 & 1.348 & 1.48 & \cellcolor{green!25}0.945 \\ \hline
+            \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{M. Base} & \cellcolor{gray!25}\textbf{M. Encoder} & \cellcolor{gray!25}\textbf{M. Decoder} & \cellcolor{gray!25}\textbf{Data Augmentation} \\ \hline
+                Menton & 3.365 & 3.257 & 3.289 & \cellcolor{green!25}2.246 \\ \hline
+                Gnathion & 2.437 & 2.367 & 2.285 & \cellcolor{green!25}1.025 \\ \hline
+                Pogonion & 2.421 & 2.399 & 2.348 & \cellcolor{green!25}1.332 \\ \hline
+                Prosthion & 1.098 & 1.125 & 1.042 & \cellcolor{green!25}0.809 \\ \hline
+                Labiale Superius & 1.966 & 1.887 & 1.854 & \cellcolor{green!25}1.205 \\ \hline
+                Subnasale & 2.068 & 1.885 & 2.077 & \cellcolor{green!25}1.166 \\ \hline
+                Nasion & 2.001 & 1.815 & 1.976 & \cellcolor{green!25}0.91 \\ \hline
+                Glabella & 2.4 & 2.294 & 2.372 & \cellcolor{green!25}1.118 \\ \hline
+                Vertex & 4.277 & 3.881 & 4.11 & \cellcolor{green!25}2.043 \\ \hline
+                Left Gonion & 4.261 & 4.131 & 4.311 & \cellcolor{green!25}2.262 \\ \hline
+                Right Gonion & 4.094 & 4.157 & 4.014 & \cellcolor{green!25}1.704 \\ \hline
+                Left Zygion & 4.343 & 4.037 & 4.303 & \cellcolor{green!25}2.357 \\ \hline
+                Right Zygion & 4.485 & 4.387 & 4.495 & \cellcolor{green!25}2.841 \\ \hline
+                Left Alare & 1.705 & 1.666 & 1.876 & \cellcolor{green!25}1.168 \\ \hline
+                Right Alare & 1.965 & 1.89 & 1.949 & \cellcolor{green!25}1.226 \\ \hline
+                Left Endocanthion & 1.448 & 1.387 & 1.398 & \cellcolor{green!25}0.969 \\ \hline
+                Right Endocanthion & 1.336 & 1.337 & 1.437 & \cellcolor{green!25}1.039 \\ \hline
+                Left Exocanthion & 1.69 & 1.629 & 1.755 & \cellcolor{green!25}1.158 \\ \hline
+                Right Exocanthion & 1.906 & 1.776 & 1.923 & \cellcolor{green!25}1.099 \\ \hline
+                Left Tragion & 3.813 & 3.372 & 3.852 & \cellcolor{green!25}2.091 \\ \hline
+                Right Tragion & 4.124 & 3.835 & 3.863 & \cellcolor{green!25}2.064 \\ \hline
+                Labiale inferius & 1.793 & 1.732 & 1.753 & \cellcolor{green!25}1.036 \\ \hline
+                Trichion & 3.759 & 3.614 & 3.703 & \cellcolor{green!25}1.549 \\ \hline
+                Supramentale & 1.955 & 1.794 & 1.889 & \cellcolor{green!25}0.97 \\ \hline
+                Left Frontotemporale & 1.789 & 1.851 & 1.954 & \cellcolor{green!25}1.201 \\ \hline
+                Right Frontotemporale & 2.175 & 2.13 & 2.313 & \cellcolor{green!25}1.176 \\ \hline
+                Left Frontozygomaticus & 1.584 & 1.586 & 1.624 & \cellcolor{green!25}0.959 \\ \hline
+                Right Frontozygomaticus & 1.896 & 1.611 & 1.779 & \cellcolor{green!25}1.046 \\ \hline
+                Left Midsurpaorbital & 1.424 & 1.261 & 1.331 & \cellcolor{green!25}0.858 \\ \hline
+                Right Midsupraorbital & 1.685 & 1.563 & 1.637 & \cellcolor{green!25}0.907 \\ \hline
             \end{tabular}
             \label{table:Daugmentation_landmarksresume}
         \end{table}
