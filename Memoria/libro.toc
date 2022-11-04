@@ -98,23 +98,23 @@
 \contentsline {section}{\numberline {9.4}Experimentación}{103}{section.9.4}%
 \contentsline {subsection}{\numberline {9.4.1}Hipótesis iniciales}{103}{subsection.9.4.1}%
 \contentsline {subsection}{\numberline {9.4.2}Modelo Base}{103}{subsection.9.4.2}%
-\contentsline {subsection}{\numberline {9.4.3}Modelo con reentrenamiento del encoder}{106}{subsection.9.4.3}%
-\contentsline {subsection}{\numberline {9.4.4}Modelo con reentrenamiento del decoder}{109}{subsection.9.4.4}%
-\contentsline {subsection}{\numberline {9.4.5}Modelo con Data Augmentation}{111}{subsection.9.4.5}%
-\contentsline {subsection}{\numberline {9.4.6}Elección de modelo y obtención de resultados}{113}{subsection.9.4.6}%
-\contentsline {section}{\numberline {9.5}Comparativa entre 3FabRec y HyperFace-ResNet101}{116}{section.9.5}%
-\contentsline {subsection}{\numberline {9.5.1}Preprocesamiento y base de datos empleada}{116}{subsection.9.5.1}%
-\contentsline {subsection}{\numberline {9.5.2}Métricas empleadas}{117}{subsection.9.5.2}%
-\contentsline {subsection}{\numberline {9.5.3}Comparación de resultados}{117}{subsection.9.5.3}%
-\contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{119}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{119}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{120}{section.10.2}%
-\contentsline {chapter}{\numberline {A}Apéndice A}{123}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{123}{section.Alph1.1}%
-\contentsline {chapter}{\numberline {B}Apéndice B}{129}{appendix.Alph2}%
-\contentsline {section}{\numberline {B.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{129}{section.Alph2.1}%
-\contentsline {chapter}{\numberline {C}Apéndice C}{135}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{135}{section.Alph3.1}%
-\contentsline {chapter}{\numberline {D}Apéndice D}{141}{appendix.Alph4}%
-\contentsline {section}{\numberline {D.1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{141}{section.Alph4.1}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{147}{chapter*.10}%
+\contentsline {subsection}{\numberline {9.4.3}Modelo con reentrenamiento del encoder}{107}{subsection.9.4.3}%
+\contentsline {subsection}{\numberline {9.4.4}Modelo con reentrenamiento del decoder}{111}{subsection.9.4.4}%
+\contentsline {subsection}{\numberline {9.4.5}Modelo con Data Augmentation}{113}{subsection.9.4.5}%
+\contentsline {subsection}{\numberline {9.4.6}Elección de modelo y obtención de resultados}{116}{subsection.9.4.6}%
+\contentsline {section}{\numberline {9.5}Comparativa entre 3FabRec y HyperFace-ResNet101}{119}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}Preprocesamiento y base de datos empleada}{119}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Métricas empleadas}{119}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}Comparación de resultados}{119}{subsection.9.5.3}%
+\contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{123}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{123}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{124}{section.10.2}%
+\contentsline {chapter}{\numberline {A}Apéndice A}{127}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Resultados por imagen durante el entrenamiento del modelo base}{127}{section.Alph1.1}%
+\contentsline {chapter}{\numberline {B}Apéndice B}{133}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{133}{section.Alph2.1}%
+\contentsline {chapter}{\numberline {C}Apéndice C}{139}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{139}{section.Alph3.1}%
+\contentsline {chapter}{\numberline {D}Apéndice D}{145}{appendix.Alph4}%
+\contentsline {section}{\numberline {D.1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{145}{section.Alph4.1}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{151}{chapter*.10}%
