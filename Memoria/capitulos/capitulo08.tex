@@ -2,7 +2,7 @@
 
 \section{Diseño del Sofware}
 
-\noindent El diseño software no se ha orientado a crear un programa funcional para ser empleado por un usuario, sino que tiene como función entrenar los modelos probados y recabar los resultados oportunos de esos procesos. Se ha utilizado el sistema de control de versiones \textit{Git} junto con \textit{GitHub}. En total se han creado dos repositorios:
+\noindent El diseño software no se ha orientado a crear un programa funcional para ser empleado por un usuario, sino que tiene como función entrenar los modelos probados y recabar los resultados oportunos del proceso de experimentación. Se ha utilizado el sistema de control de versiones \textit{Git} junto con \textit{GitHub}. En total se han creado dos repositorios:
 
 \begin{enumerate}
     \item Un repositorio con la planificación y elaboración de la memoria junto con los scripts utilziados para el preprocesamiento de los datos: \url{https://github.com/alejbormeg/TFG-LandmarkDetectionAndCNNAnalysis}
@@ -26,16 +26,17 @@
 
 \medskip
 
-\noindent La estructura de paquetes la podemos ver en la \autoref{fig:Diagrama_paquetes}:
+\noindent La estructura de paquetes la podemos ver en la \autoref{fig:Diagrama_paquetes}. Los paquetes en color rojo son los que han sido modificados o creados para este trabajo, el resto pertenecen al software original de \cite{browatzki20203fabrec}:
 
 \begin{itemize}
-    \item \textbf{3FabRec.eval\_landmarks}: Se lleva a acabo la evaluación del modelo en el conjunto de test.
-    \item \textbf{3FabRec.train\_aae\_landmarks}: Se lleva a cabo todo el proceso del entrenamiento supervisado del marcado de landmarks. Es el fichero que más se ha tenido que modificar, pues hemos cambiado la lógica del entrenamiento con respecto a la del framework original. Los parámetros de ejecución se encuentran en la \autoref{table:Params}.
+    \item \textcolor{mygreen}{\textbf{3FabRec.eval\_landmarks}}: Se lleva a acabo la evaluación del modelo en el conjunto de test y se extraen las métricas. Se adapta para extraer el \textbf{RMSE} por landmark teniendo en cuenta que cada landmark puede estar no marcado en algunas imágenes.
+    \item \textcolor{mygreen}{\textbf{3FabRec.train\_aae\_landmarks}}: Se lleva a cabo todo el proceso del entrenamiento supervisado del marcado de landmarks. Es el fichero que más se ha tenido que modificar, pues hemos cambiado la lógica del entrenamiento con respecto a la del framework original. Los parámetros de ejecución se encuentran en la \autoref{table:Params}.
     \item \textbf{3FabRec.train\_aae\_unsupervised}: En este paquete se lleva a cabo el entrenamiento no supervisado de la red.
     \item Los dos paquetes anteriores, a su vez se combinan en \textbf{3FabRec.aa\_training}, que encapsula toda la lógica del entrenamiento, incluyendo el aprendizaje supervisado y el no supervisado.
-    \item El paquete \textbf{3FabRec.landmarks} lleva a cabo todo lo relaitvo a la manipulación de los landmarks, el cálculo de los errores asociados a los mismos, el paso de Heat maps a coordenadas y la inversa, etc... En este fichero se ha tenido que modificar el subpaquete \textbf{3FabRec.lanmarks.lmutils} y \textbf{3FabRec.landmakrs.lmvis}. En el caso del primero porque hemos modificado algunas funciones que calculan las métricas de error adaptándolas al problema y en el caso del segundo porque no toda la información que se mostraban en las imágenes de salida era relevante para nuestro estudio, por lo que se han eliminado los datos innecesarios.
+    \item El paquete \textbf{3FabRec.landmarks} lleva a cabo todo lo relaitvo a la manipulación de los landmarks, el cálculo de los errores asociados a los mismos, el paso de Heat maps a coordenadas y la inversa, etc... En este fichero se ha tenido que modificar el subpaquete \textcolor{mygreen}{\textbf{3FabRec.lanmarks.lmutils}} y \textcolor{mygreen}{\textbf{3FabRec.landmakrs.lmvis}}. En el caso del primero porque hemos modificado algunas funciones que calculan las métricas de error adaptándolas al problema y en el caso del segundo porque no toda la información que se mostraban en las imágenes de salida era relevante para nuestro estudio, por lo que se han eliminado los datos innecesarios.
     \item El paquete \textbf{3FabRec.constants} contiene variables globales relativas a los conjuntos de datos de entrenamiento, validación y test.
     \item El paquete \textbf{3FabRec.networks} contienen todas las redes que se emplean en la arquitectura de la red. En concreto usaremos \textbf{3FabRec.networks.aae} en la cual se encuentra la estructura general del adversarial autoencoder.
+    \item El paquete \textbf{3FabRec.datasets} contiene todos los ficheros relativos a la creación de la clase \textit{Dataset} y \textit{Dataloader} para cada base de datos concreta que se emplea en el framework. Dentro de este paquete se crea el fichero \textcolor{mygreen}{\textbf{3FabRec.datasets.forense\_am}}, que se encarga de la lectura correcta de los datos de entrenamiento de la base de datos proporcionada.
 \end{itemize}
 
 
@@ -52,8 +53,6 @@
     \begin{tabular}{|l|l|l|}
     \hline
         Parámetro & Descripción & Valor por defecto \\ \hline
-        --sessionname & Fichero de salida para los snapshots & None \\ \hline
-        -r & Ruta al snapshot a desde el que entrenar & None \\ \hline
         --train-encoder & Si es True reentrena el encoder & False \\ \hline
         --train-dencoder & Si True reentrena el dencoder & False \\ \hline
         --epochs & Número de épocas que queremos entrenar la red & None \\ \hline

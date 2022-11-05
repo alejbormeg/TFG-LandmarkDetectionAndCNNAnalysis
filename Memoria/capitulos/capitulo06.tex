@@ -392,7 +392,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.8\textwidth]{img/sucesion_conv_layer.png}
-                \caption{Sucesión de varias capas convolucionales + ReLU que describen la estructura básica de una CNN. Cabe destacar como la produndidad de los filtros es siemore la misma que la del volumen de entrada, de acuerdo a lo que hemos dicho anteriormente. La imagen han sido extraída de \cite{StanfordCourse}}
+                \caption{Sucesión de varias capas convolucionales + ReLU que describen la estructura básica de una CNN. Cabe destacar como la produndidad de los filtros es siempre la misma que la del volumen de entrada, de acuerdo a lo que hemos dicho anteriormente. La imagen han sido extraída de \cite{StanfordCourse}}
                 \label{fig:estructura_convnet}
             \end{figure}
 
@@ -592,7 +592,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
             \medskip
 
-            \noindent Para esta tarea suele emplearse una CNN denominada \textit{Generative Network} que tiene como objetivo recibir una imagen o un vector aleatorio y producir como salida una imagen de las mismas dimensiones que la de entrada que siga la distribución de probabilidad de las imágenes del dataset a nivel de \textbf{pixel}. Esta red tiene la estructura de un \textbf{Autoencoder}.
+            \noindent Para esta tarea suele emplearse una CNN denominada \textit{Generative Network}, que tiene como objetivo recibir una imagen o un tensor que sigue una distribución conocida y producir como salida una imagen de las mismas dimensiones que la de entrada que siga la distribución desconocida de las imágenes del dataset a nivel de \textbf{pixel}. Esta red tiene la estructura de un \textbf{Autoencoder}.
 
             \begin{figure}[!h]
                 \centering
@@ -665,6 +665,10 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
                 \item \textbf{Discriminador}. Toma vectores de la distribución del espacio vectorial latente deseada (reales) y también vectores generados por el Encoder (fakes) y tratará de discernir entre si proceden de la distribución o no.
             \end{itemize}
 
+            \medskip
+
+            \noindent Podemos ver un esquema de esta arquitectura en la \autoref{fig:AAE}. Esta arquitectura será la que emplearemos en nuestro proyecto, aunque presenta algunas variaciones que introduciremos más adelante.
+            
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.5\textwidth]{img/AAE.png}
@@ -672,7 +676,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
                 \label{fig:AAE}
             \end{figure}
 
-            \noindent Esta arquitectura será la que emplearemos en nuestro proyecto, aunque presenta algunas variaciones que introduciremos más adelante.
+            
 
 \section{Técnicas empleadas}
     \noindent En esta sección vamos a presentar las distintas técnicas que se emplearán en el trabajo durante el entrenamiento de la red que utilizaremos y que se presentará más adelante. 

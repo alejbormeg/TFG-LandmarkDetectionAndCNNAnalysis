@@ -64,7 +64,7 @@
 \contentsline {subsection}{\numberline {6.3.1}Introducción}{72}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}Evolución de los Autoencoders}{73}{subsection.6.3.2}%
 \contentsline {subsubsection}{\numberline {6.3.2.1}Generative Adversarial Networks (GANs)}{73}{subsubsection.6.3.2.1}%
-\contentsline {subsubsection}{\numberline {6.3.2.2}Variational Autoencoder (VAE)}{73}{subsubsection.6.3.2.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.2}Variational Autoencoder (VAE)}{74}{subsubsection.6.3.2.2}%
 \contentsline {subsubsection}{\numberline {6.3.2.3}Adversarial Autoencoder(AAE)}{75}{subsubsection.6.3.2.3}%
 \contentsline {section}{\numberline {6.4}Técnicas empleadas}{77}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}Few-shot Learning y Data Augmentation}{77}{subsection.6.4.1}%
