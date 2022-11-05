@@ -35,7 +35,7 @@
 
         \begin{itemize}
             \item Hay una primera fase de \textbf{aprendizaje no supervisado}, donde se pretende adquirir conocimiento implícito sobre la estructura facial contenida en grandes conjuntos de imágenes de rostros de personas en diversas posiciones, iluminación y etnia. Para ello se codifica todo este conocimiento implícito en un vector de un espacio latente de baja dimensionalidad para posteriormente reconstruir la imagen. Este proceso se hace íntegramente en el \textit{Adversarial Autoencoder}, sin hacer uso de las ITLs.
-            \item Posteriormente, en una segunda fase de \textbf{aprendizaje supervisado}, se entrena la red con un conjunto de imágenes etiquetadas con landmarks faciales que la red tratará de predecir. Para ello se intercalan entre las capas del generador capas de convolución encargadas de reconstruir los mapas de calor de cada landmark junto con la reconstrucción del rostro del paso previo. Estas son las ITLs que mencionamos anteriormente.
+            \item Posteriormente, en una segunda fase de \textbf{aprendizaje supervisado}, se entrena la red con un conjunto de imágenes etiquetadas con landmarks faciales que la red tratará de predecir. Para ello se intercalan entre las capas del generador capas de convolución. Estas son las ITLs que mencionamos anteriormente, y se encargan de reutilizar el conocimiento estructural aprendido y fijado en la primera fase del entrenamiento para adaptar el generador a la tarea de predecir los mapas de calor.
             \item Finalmente, se puede incluir una tercera fase de \textit{finetuning} en la cual se entrena el Encoder para mejorar el rendimiento en la predicción de landmarks.
         \end{itemize} 
 
@@ -77,7 +77,7 @@
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.96\textwidth]{img/bloque_invresnet.png}
-                \caption{En primer lugar se aplica una convolución transpuesta que duplica las dimensiones del tensor de entrada y tras esto se sigue la misma estructura que en el bloque básico de la ResNet-$50$, la segunda convolución $3\times 3$ mantiene las dimensiones. Como consecuencia, para sumar el tensor de entrada con la salida del bloque se aumentan las dimensiones de este.}
+                \caption{En primer lugar se aplica una convolución transpuesta que duplica las dimensiones del tensor de entrada y tras esto se sigue la misma estructura que en el bloque básico de la ResNet-$18$, la segunda convolución $3\times 3$ mantiene las dimensiones. Como consecuencia, para sumar el tensor de entrada con la salida del bloque se aumentan las dimensiones de este.}
                 \label{fig:Bloque_Decoder}
             \end{figure}
 
@@ -88,7 +88,7 @@
                 \label{fig:Paso_Generator}
             \end{figure}
 
-            \noindent Finalmente, para definir el autoencoder necesitamos un Discriminador, el cual que procure que los vectores del espacio vectorial latente sigan una determinada distribución. Dicha distribución será una normal multivariante estándar. Por otro lado, se añadirá un segundo discriminador propio de las redes \textbf{GAN} que nos dirá si la imagen reconstruida procede de la distribución que siguen los píxeles de la imagen de inicio. Este discriminador permite que la red genere imágenes más realistas, y es novedoso por no ser frecuente en la arquitectura de un Adversarial Autoencoder. En la \autoref{fig:DGaussian} las redes neuronales que definen ambos discriminadores.
+            \noindent Finalmente, necesitamos un Discriminador, que procure que los vectores del espacio vectorial latente sigan una determinada distribución. Dicha distribución será una normal multivariante estándar. Por otro lado, se añadirá un segundo discriminador propio de las redes \textbf{GAN} que nos dirá si la imagen reconstruida procede de la distribución que siguen los píxeles de la imagen de inicio. Este discriminador permite que la red genere imágenes más realistas. En la \autoref{fig:DGaussian} las redes neuronales que definen ambos discriminadores.
 
             \begin{figure}[H]
                 \centering
@@ -125,11 +125,11 @@
             \noindent Como podemos observar en la expresión anterior, se trata de una combinación lineal de cuatro funciones de coste distintas: 
 
             \begin{itemize}
-                \item \textit{Error de reconstrucción}: Se trata de un error encargado de asegurarse de que la red reconstruya de forma apropiada las imágenes, para ello calcula la distancia $l_1$ entre la imagen original y la reconstruida pixel a pixel. Tiene la siguiente expresión, que coincide con la presentada en el apartado anterior de métricas.
+                \item \textit{Error de reconstrucción}: Se trata de un error encargado de asegurarse de que la red reconstruya de forma apropiada las imágenes, para ello calcula la distancia $L_1$ entre la imagen original y la reconstruida pixel a pixel. Tiene la siguiente expresión, que coincide con la presentada en el apartado anterior de métricas.
                 \begin{equation}
                     \mathcal{L}_{rec}(E,G)= \mathbb{E}_{x~p(x)}\left[\|x- G(E(x)) \|_1\right]
                 \end{equation}
-                \item \textit{Error estructural de la imagen}: Se trata de una variante del \textbf{SSIM} encargado de que la imagen real y la reconstruida tengan una estructura similar. Su expresión es la misma que la función presentada en la sección anterior de Métricas.
+                \item \textit{Error estructural de la imagen}: Se trata de una variante del \textbf{SSIM} encargado de que la imagen real y la reconstruida tengan una estructura similar. La expresión de la función $cs$ que aparece en la fórmula se detalla más adelante.
                 \begin{equation}
                     \mathcal{L}_{cs}(E,G)= \mathbb{E}_{x~p(x)}\left[cs(x, G(E(x)))\right]
                 \end{equation}
@@ -151,7 +151,7 @@
                 \mathcal{L}_H(ITL) = \mathbb{E}_{x ~ p(x)} \left[ \| H-ITL(a)\|_2 \right]
             \end{equation}
 
-            \noindent Dónde $a$ serían los mapas de activación que genera la ResNet invertida para la imagen codificada $z=E(x)$ (siendo $x$ la imagen de entrada a la red). En este caso se computa la distancia \textbf{$L_2$} entre los \textit{Heathmaps} de los lanmarks originales de la imagen $x$ de entrada, y los predichos por las \textit{ITLs}. Propagando el error por los pesos de las \textit{ITLS} solamente.
+            \noindent Dónde $a$ serían los mapas de activación que genera la ResNet invertida para la imagen codificada $z=E(x)$ (siendo $x$ la imagen de entrada a la red). En este caso se computa la distancia \textbf{$L_2$} entre los \textit{Heathmaps} de los lanmarks originales de la imagen $x$ de entrada, y los predichos por las \textit{ITLs}. Propagando el error por los pesos de las \textit{ITLS} solamente, forzando a adaptarse a los pesos ya aprendidos del generador.
 
             \medskip
 
@@ -194,10 +194,10 @@
 
         \subsection{Bases de datos usadas por el framework}
             
-            \noindent Para el entrenamiento no supervisado se emplearon los siguientes datasets unidos: 
+            \noindent Para el entrenamiento no supervisado del \textit{AAE}, se emplearon los siguientes datasets unidos: 
 
             \begin{itemize}
-                \item \textbf{VGGFace2} : Contiene un total de $3.3$ millones de imágenes de rostros en distintas poses, edad, iluminación, etnia, etc... Del dataset eliminaron las imágenes de rostros que tuviera una altura mayor a $100$ píxeles, quedando un total de $1.8$ millones de caras.
+                \item \textbf{VGGFace2} : Contiene un total de $3.3$ millones de imágenes de rostros en distintas poses, edad, iluminación, etnia, etc \ldots  Del dataset eliminaron las imágenes de rostros que tuviera una altura menor a $100$ píxeles, quedando un total de $1.8$ millones de caras.
                 \item \textbf{AffectNet} : Se trata de un dataset de $228$ mil imágenes en una gran variedad de poses, iluminación, etc..
             \end{itemize}
 
@@ -238,17 +238,17 @@
     \subsection{Métricas empleadas en validación y testing}
 
         \subsubsection{Error de reconstrucción}
-            \noindent Aunque no se trata de un métrica propia de un problema de regresión, el valor del error de reconstrucción en las imágenes de validación nos llevará en la sección de experimentación a realizar hipótesis sobre la relación entre este error y el NME.
+            \noindent El valor del error de reconstrucción en las imágenes de validación nos llevará en la sección de experimentación a realizar hipótesis sobre la relación entre este error y el NME.
 
             \medskip
 
             \noindent Se trata de la función de coste \textbf{L1} que se aplica a la imagen original y la reconstruida  y nos porporciona una medida del error de reconstrucción a nivel de pixel. Su expresión es la siguiente:
 
             \begin{equation}
-                Reconstruction \; Loss = \sum_{i=1}^n |p_i -q_i|
+                Reconstruction \; Loss = \frac{\sum_{i=1}^n |p_i -q_i|}{N}
             \end{equation}
 
-            \noindent Dónde $p_i$ representa cada pixel de la imagen reconstruida por la red y $q_i$ el equivalente en la imagen real.
+            \noindent Donde $p_i$ representa cada pixel de la imagen reconstruida por la red, $q_i$ el equivalente en la imagen real y $N$ el total de píxeles presentes en la imagen.
 
         \subsubsection{Normalized Mean Error}
             \noindent Este será el error utilizado para medir la bondad de los resultados. Tiene la siguiente expresión para cada landmark de los $30$: 
@@ -260,7 +260,7 @@
 
             \noindent Así, si en total se han identificado en las imágenes de validación un total de $n$ landmarks de cierto tipo en las imágenes de test o validación, se calcula la distancia $L_2$ entre el landmark de la imagen $i$ predicho y el real. Y tras esto se suman todos los valores obtenidos. Como podemos ver, idealmente $n$ debería ser el total de imágenes que hay en validación o test, pero no todos los landmarks aparecen en todas las imágenes, por lo tanto $n\leq M$ siendo $M$ el total de imágenes en validación.
 
-            \noindent En dicha expresión $N$ es el término por el que se normaliza, y varía según el problema. En nnuestro caso normalizaremos la media del numerador por el ancho de la imagen que es de $256$ píxeles, ya que la distancia máxima permitida entre dos landmarks sería esta, y así todos los valores quedarían entre $0$ y $1$ siendo $0$ una estimación perfecta del landmark, y $1$ un error total en el marcado.
+            \noindent En dicha expresión $N$ es el término por el que se normaliza, y varía según el problema. En nuestro caso normalizaremos la media del numerador por el ancho de la imagen que es de $256$ píxeles, ya que la distancia máxima permitida entre dos landmarks sería esta, y así todos los valores quedarían entre $0$ y $1$ siendo $0$ una estimación perfecta del landmark, y $1$ un error total en el marcado. Es importante la normalización debido a la heterogeneidad de los tamaños de los datos de entrada. Así, el NME extraído en cada dato es comparable con los del resto.
 
             \subsubsection{SSIM}
             \noindent Se trata del \textit{structural similarity index} (SSIM) y da una medida de \textit{similaridad} entre dos imágenes \cite{wang2004image}, su expresión es la siguiente: 
@@ -307,45 +307,10 @@
 
             \noindent Dónde $w$ representa la ventana sobre la que se aplica la función y $|w|$ el total de ventanas. En nuestro caso se emplean ventanas de tamaño $31\times 31$.
 
-\section{Análisis de la base de Datos}
-    \noindent En esta sección se van a presentar el dataset con los datos para resolver el problema principal de este trabajo, así como el análisis previo a la manipulación de los mismos y el preprocesamiento realizado.
-
-    \subsection{Base de datos proporcionada}
-        \noindent El conjunto de datos Forense que se proporciona para resolver el problema presenta las siguientes características: 
-
-        \begin{itemize}
-            \item Contienen un total de \textbf{167 imágenes} de distintos sujetos \textit{in-the-wild}. El número de imágenes por sujeto no se distribuye de forma equitativa, algunos solo disponen de una imagen mientras que otros tienen varias. El sujeto con mayor número de imágenes tiene siete.
-            \item La resolución de las imágenes también varía mucho, oscilando entre los $4350 \times 3400$ píxeles y $168 \times 256$ píxeles.
-            \item Hay imágenes a color y en escla de grises.
-            \item Las imágenes se presentan en un conjunto muy variado de posiciones. Disponemos de: 
-            \begin{itemize}
-                \item $87$ imágenes frontales.
-                \item $57$ imágenes con rostros en posición de \textbf{$3/4$}.
-                \item $23$ imágenes de perfil.
-            \end{itemize}
-            \item Hay hasta un total de $30$ landmarks que pueden marcarse. Sin embargo, el número de landmarks en las imágenes es menor, como puede apreciarse en la \autoref{fig:Histograma}.
-            \item En la \autoref{fig:Histograma} también podemos apreciar como la aparición de algunos landmarks es extremadamente baja, como es el caso del \textit{prosthion} y el \textit{Tragion} (tanto el izquierdo como el derecho). El resto de landmarks aparecen en más de la mitad de las imágenes. 
-            \medskip
-            \noindent La aparición en mayor o menor medida de cierto landmark en las imágenes nos sirve de indicador de si podrá ser o no aprendido por el modelo que usemos, de manera que los landmarks mencionados anteriormente, a causa del bajo número de ejemplos en los que aparecen puede ser más difícil que se aprendan.
-        \end{itemize}
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=0.5\textwidth]{img/imagenes_ejemplo_dataset.png}
-                \caption{Imágenes de ejemplo del dataset proporcionado. Como puede observarse hay gran variedad de tamaños, poses, condiciones de iluminación diferentes que añaden dificultad al problema.}
-                \label{fig:Imagenes_dataset}
-            \end{figure}
-
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=0.7\textwidth]{img/distribucion_landmarks_imagenes.png}
-                \caption{Histograma con la aparición de cada tipo de landmark en las imágenes del dataset.}
-                \label{fig:Histograma}
-            \end{figure}
-    
-    \subsection{Preprocesamiento}
+\section{Preprocesamiento de los datos}
         
-        \subsubsection{Identificación de caras en las imágenes}
-            \noindent Antes de poder entrenar el modelo, es necesario adecuar el dataset para que pueda usarse modelo. El framework está pensado para recibir como entrada una imagen, a la cual, se le hace un recorte a la región que ocupa el rostro con ayuda de un \textit{bounding box} predefinido y determinado por las coordenadas en la imagen de las cuatro esquinas o bien siguiendo los landmarks descritos por el fichero auxiliar asociado a cada imagen. En nuestro caso, debido a que la mayoría de landmarks son internos y no se suelen situar en los bordes de la cara, hemos pensado que la mejor manera de entrenar la red es que serealice el recorte de la imagen de entrada de acuerdo a un \textit{bounding box}. Para ello fue necesario emplear una red especializada en la detección de caras en imágenes y que nos proporcionaba como salida una lista con los \textit{bounding boxes} de todas las caras detectadas. La red se denomina \textbf{Facenet}, y se puede importar de la librería \textit{facenet} de \textit{pytorch} como \textit{mtcnn}.
+        \subsection{Identificación de caras en las imágenes}
+            \noindent Antes de poder entrenar el modelo, es necesario adecuar el dataset para que pueda usarse modelo. El framework está pensado para recibir como entrada una imagen, a la cual, se le hace un recorte a la región que ocupa el rostro con ayuda de un \textit{bounding box} predefinido y determinado por las coordenadas en la imagen de las cuatro esquinas o bien siguiendo los landmarks descritos por el fichero auxiliar asociado a cada imagen. En nuestro caso, debido a que la mayoría de landmarks son internos y no se suelen situar en los bordes de la cara, hemos pensado que la mejor manera de entrenar la red es que se realice el recorte de la imagen de entrada de acuerdo a un \textit{bounding box}. Para ello fue necesario emplear una red especializada en la detección de caras en imágenes y que nos proporcionaba como salida una lista con los \textit{bounding boxes} de todas las caras detectadas. La red se denomina \textbf{Facenet}, y se puede importar de la librería \textit{facenet} de \textit{pytorch} como \textit{mtcnn}.
 
             \medskip
 
@@ -386,7 +351,7 @@
 
             \noindent Durante el estudio anterior, se observaron otros hechos dignos de mención. En primer lugar se identificaron dos imágenes repetidas, pero se decidió mantenerlas pues los landmarks presentes en una y otra eran diferentes, lo que podía ayudar al entrenamiento. Por otro lado, durante el entrenamiento se vió cómo había una imagen de un determinado sujeto en la que aprecían simultáneamente dos fotos, una  de frente y otra de perfil. Sin embargo, al estar los landmarks anotados únicamente en la imagen de frente se tomó el \textit{bounding box} de la imagen frontal desechando el otro para el perfil. En otras dos imágenes se pueden ver un conjunto de varias personas, y la red mostraba erróneamente los \textit{bounding boxes} de personas que no eran el sujeto de estudio, por lo que estudiar cuál de todos los \textit{bounding boxes} devueltos pertenecía al sujeto correcto.
 
-        \subsubsection{Creación del fichero annotations en el dataset}
+        \subsection{Creación del fichero annotations en el dataset}
 
             \noindent Una vez se identificaban correctamente todos los \textit{bounding boxes}, siguiendo como inspiración el dataset \textit{AFLW}, se generó un fichero denominado \textit{annotations.csv} dentro de la carpeta del proyecto en el que encuentra el dataset. En este fichero se almacenó \textbf{para cada imagen} una serie de datos: 
 
@@ -395,10 +360,10 @@
                 \item El índice de la imagen dentro del dataset. 
                 \item Una lista con las coordenadas $2D$ de cada landmark en la imagen (incluidos los no presentes como situados en la posición $[-1,-1]$). 
                 \item Una lista denominada máscara, que representa la visibilidad de cada landmark en la imagen. Los landmarks visibles en la imagen tienen asociado el valor $1$, mientras que los no visibles tienen asociado el valor $0$. Esta máscara será de gra utilidad a la hora de extraer las métricas, pues hay que realizar las medias de acuerdo al número de landmarks visibles de cada tipo, no se puede usar siempre el valor $30$.
-                \item Finalmente, se almacena la posición de las cuatro esquinas que definen el \textit{bounding box}, para que el framework recorte la imagen quedándose con el rostro únicamente. 
+                \item Finalmente, se almacena la posición en coordenadas de la esquina inferior izquierda del \textit{bounding box} junto con el ancho y el alto, para que el framework recorte la imagen quedándose con el rostro únicamente. 
             \end{itemize}
 
-        \subsubsection{Reajuste de los bounding boxes}
+        \subsection{Reajuste de los bounding boxes}
             \noindent Finalmente, como parte del proceso de determinar los \textit{bounding boxes}, se vió que en todos los casos, dichos rectángulos cortaban parte de las caras de los sujetos. En ocasiones partes en las que había landmarks marcados, es por ello, que se tuvo que realizar una transformación del \textit{bounding box} sugerido para que manteniendo el centro del mismo abarcase una mayor superficie y que contuviera el rostro completo del sujeto. 
 
             \medskip

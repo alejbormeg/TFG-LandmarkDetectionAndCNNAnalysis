@@ -94,6 +94,39 @@
 
     \noindent En este contexto, el presente TFG comparte el mismo problema que el TFG realizado por Guillermo Gómez en $2019$, que representa una medida del estado del arte en este campo, por lo que compararemos los resultados obtenidos por su modelo con los que obtengamos en este trabajo. Además, el enfoque de los datos a usar es distinto, pues aunque partimos del mismo dataset, vamos a explorar técnicas de \textit{few-shot learning}, es decir, trataremos de obtener un modelo competente con pocos datos de entrenamiento. Mientras que en este trabajo se amplió el conjunto de entrenamiento con un dataset extra de modelos $3D$ de rostros con landmarks anotados de los que se extrajeron proyecciones $2D$.
 
+
+
+    \subsection{Base de datos proporcionada}
+        \noindent El conjunto de datos Forense que se proporciona para resolver el problema presenta las siguientes características: 
+
+        \begin{itemize}
+            \item Contienen un total de \textbf{167 imágenes} de distintos sujetos \textit{in-the-wild}. El número de imágenes por sujeto no se distribuye de forma equitativa, algunos solo disponen de una imagen mientras que otros tienen varias. El sujeto con mayor número de imágenes tiene siete.
+            \item La resolución de las imágenes también varía mucho, oscilando entre los $4350 \times 3400$ píxeles y $168 \times 256$ píxeles.
+            \item Hay imágenes a color y en escla de grises.
+            \item Las imágenes se presentan en un conjunto muy variado de posiciones. Disponemos de: 
+            \begin{itemize}
+                \item $87$ imágenes frontales.
+                \item $57$ imágenes con rostros en posición de \textbf{$3/4$}.
+                \item $23$ imágenes de perfil.
+            \end{itemize}
+            \item Hay hasta un total de $30$ landmarks que pueden marcarse. Sin embargo, el número de landmarks en las imágenes es menor, como puede apreciarse en la \autoref{fig:Histograma}.
+            \item En la \autoref{fig:Histograma} también podemos apreciar como la aparición de algunos landmarks es extremadamente baja, como es el caso del \textit{prosthion} y el \textit{Tragion} (tanto el izquierdo como el derecho). El resto de landmarks aparecen en más de la mitad de las imágenes. Los landmarks que más aparecen son los que \entrecomillado{a priori} pueden aprenderse mejor. No obstante, el framework que usaremos cuenta con excelentes datos de rendimiento entrenando con pocas imágenes, por lo que los landmarks con menor aparición también pueden ser aprendidos.
+        \end{itemize}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\textwidth]{img/imagenes_ejemplo_dataset.png}
+                \caption{Imágenes de ejemplo del dataset proporcionado. Como puede observarse hay gran variedad de tamaños, poses, condiciones de iluminación diferentes que añaden dificultad al problema.}
+                \label{fig:Imagenes_dataset}
+            \end{figure}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\textwidth]{img/distribucion_landmarks_imagenes.png}
+                \caption{Histograma con la aparición de cada tipo de landmark en las imágenes del dataset.}
+                \label{fig:Histograma}
+            \end{figure}
+    
+
 \section{Requisitos mínimos del algoritmo}
 
 \noindent El algoritmo que buscamos debería tener unos requisitos mínimos: 
