@@ -385,6 +385,14 @@
                 \label{fig:Reajuste_bb}
             \end{figure}
 
+            \medskip
+
+            \noindent No obstante, el framework 3FabRec dispone de un método de recorte y redimensión automático de las caras empleando \textit{bounding boxes}. En un primer momento, forzamos al framework a respetar los \textit{bounding boxes} construidos durante el preprocesamiento, con el reajuste mencionado anteriormente, pero los errores de reconstrucción de estas imágenes, durante el proceso de entrenamiento, eran muy elevados. Tanto, que no resultaba práctico para entrenar la red, pues el framework marca los puntos sobre localizaciones que no guardaban parecido con el lugar real del punto en la imagen original.
+
+            \medskip
+
+            \noindent Se probó entonces a aplicar al \textit{bounding box} definido, el reajuste que realiza 3FabRec. Este nuevo reajuste dejaba en la mayoría de casos mal marcado el \textit{vertex}, pues suele recortar la parte superior de la cabeza. No obstante los errores de reconstrucción eran mucho menores con esta alternativa y los landmarks predichos se localizaban en las imágenes reconstruidas sobre puntos que guardaban una estrecha relación con la localización real en la imagen original. Es por eso que definitivamente se optó por aplicar esta transformación extra, sacrificando el correcto marcado del \textit{vertex} en algunas imágenes. 
+
 
 
     \subsection{Separación en conjuntos de entrenamiento y validación}
