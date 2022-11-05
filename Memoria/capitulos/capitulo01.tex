@@ -4,7 +4,7 @@
 
 \chapter{Introducción}
 
-\noindent Actualmente, las \textbf{Redes Neuronales Convolucionales} (CNN\footnote{Convolutional Neural Network}) son una de las herramientas más usadas de la Inteligencia Artificial. De hecho, son el principal objeto de estudio del \textbf{Deep Learning}, una rama del \textit{Aprendizaje Automático} (AA) en la que hoy en día se está invirtiendo mucho esfuerzo en invesitgar y de la que, anualmente, se publican muchos artículos. Destaca, especialmente, el excelente desempeño que tienen en el procesamiento de imágenes para tareas de clasificación, segmentación o incluso generación de nuevas imágenes. Es por ello que, en el presente trabajo, nos proponemos intentar realizar una \textbf{modelización matemática} de este tipo de redes, para conocerlas mejor desde un punto de vista más teórico y poder demostrar una de sus principales propiedades: \textbf{la invarianza por traslaciones}.
+\noindent Actualmente, las \textbf{Redes Neuronales Convolucionales} (CNN\footnote{Convolutional Neural Network}) son una de las herramientas más usadas de la Inteligencia Artificial. De hecho, son el principal objeto de estudio del \textbf{Deep Learning}, una rama del \textit{Aprendizaje Automático} (AA) en la que hoy en día se está invirtiendo mucho esfuerzo en invesitgar y de la que, anualmente, se publican muchos artículos. Destaca especialmente el excelente desempeño que tienen en el procesamiento de imágenes para tareas de clasificación, segmentación o incluso generación de nuevas imágenes. Es por ello que, en el presente trabajo, nos proponemos intentar realizar una \textbf{modelización matemática} de este tipo de redes, para conocerlas mejor desde un punto de vista más teórico y poder demostrar una de sus principales propiedades: \textbf{la invarianza por traslaciones}.
 
 \medskip
 
@@ -50,7 +50,7 @@
 \medskip
 
 
-\noindent Realizaremos nuestro estudio sobre las funciones $L^2(\mathbb{R}^d)$, que son Lipschitz-continuas por la acción de difeomorfismos y que mantienen información de alta frecuencia para diferenciar entre distintos tipos de señales. Por tanto, el objetivo será encontrar un operador que verifique las propiedades mencionadas.
+\noindent Realizaremos nuestro estudio sobre las funciones $L^2(\mathbb{R}^d)$. Buscaremos en este espacio un operador Lipschitz-continuo por la acción de difeomorfismos y que mantenga información de altas frecuencias para diferenciar entre distintos tipos de señales. 
 
 \medskip
 
@@ -136,7 +136,7 @@ Se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subc
 \noindent Un operador invariante por traslaciones $\Phi$ se dice \entrecomillado{Lipchitz-continuo} por la acción de los difeomorfismos $C^2$  si para cualquier compacto $\Omega \subset \mathbb{R}^d$ existe una constante $C$ tal que para todo $f \in L^2(\mathbb{R}^d)$ con soporte en $\Omega$ y para todo $\tau \in C^2(\mathbb{R}^d)$ se cumple:
 
 \begin{equation} \label{eq::Lipschitz_condition}
-  \| \Phi(f)-\Phi(L_{\tau}f)\|_\mathcal{H} \leq C\|f\|(\|\nabla\tau\|_{\infty} + \|H \tau\|_\infty)
+  \| \Phi(f)-\Phi(L_{\tau}f)\|_\mathcal{H} \leq C\|f\|(\|\nabla\tau\|_{\infty} + \|H \tau\|_\infty).
 \end{equation}
 \end{definicion}
 
@@ -147,7 +147,7 @@ Se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subc
 \medskip
 
 
-\noindent Una vez presentadas las principales herramientas con las que trabajaremosm, veremos en las futuras secciones cómo, para solucionar el problema, se optará por utilizar \textbf{transformadas de ondeletas}. Aunque esto abre nuevos frentes como el hecho de que estas \textbf{no son invariantes por traslaciones}. Para lograr la invarianza por traslaciones será necesario componer la transformada con un \textbf{operador no lineal} para obtener coeficientes invariantes. Este nuevo operador consistirá en una \textbf{cascada de convoluciones} de operadores no lineales y no conmutativos de manera que cada uno de ellos calcula el módulo de la transfomada de odeletas, y será este nuevo operador el que podremos interpretar como la modelización matemática de una CNN.
+\noindent Una vez presentadas las principales herramientas con las que trabajaremos, veremos en las futuras secciones cómo, para solucionar el problema, se optará por utilizar \textbf{transformadas de ondeletas}. Aunque esto abre nuevos frentes como el hecho de que estas \textbf{no son invariantes por traslaciones}. Para lograr la invarianza por traslaciones será necesario componer la transformada con un \textbf{operador no lineal} para obtener coeficientes invariantes. Este nuevo operador consistirá en una \textbf{cascada de convoluciones} de operadores no lineales y no conmutativos de manera que cada uno de ellos calcula el módulo de la transfomada de odeletas, y será este nuevo operador el que podremos interpretar como la modelización matemática de una CNN.
 
 
 \endinput
