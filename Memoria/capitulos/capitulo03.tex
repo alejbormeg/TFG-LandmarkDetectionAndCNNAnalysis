@@ -13,7 +13,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 \noindent Para $f,h \in L^2(\mathbb{R}^d)$ y $J\in \mathbb{Z}$ se cumple
 
 \begin{equation} \label{eq::1.10}
-  || S_{J+1} [\mathcal{P}_{J+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h || 
+  || S_{J+1} [\mathcal{P}_{J+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h ||. 
 \end{equation}
 
 \end{proposicion}
@@ -47,7 +47,7 @@ Vamos a demostrar en primer lugar que $||S_J[\mathcal{P}_J] f- S_J[\mathcal{P}_J
 \begin{lema}
   Para ondeletas que satisfacen la propiedad presentada en la Proposición \ref{unitario}, para toda función \textbf{real} $f\in L^2(\mathbb{R}^d)$ y todo $q \in \mathbb{Z}$ se verifica: 
 
-  $$\sum_{-q\geq l > -J} \sum_{r \in G^+} || f \ast \psi_{2^lr}||^2 + || f \ast \phi_{2^J}||^2 = || f \ast \phi_{2^q} ||^2$$
+  $$\sum_{-q\geq l > -J} \sum_{r \in G^+} || f \ast \psi_{2^lr}||^2 + || f \ast \phi_{2^J}||^2 = || f \ast \phi_{2^q} ||^2.$$
 
 \end{lema}
 
@@ -177,7 +177,7 @@ $$\forall f,h \in L^2(\mathbb{R}^d) \lim_{J\rightarrow\infty} ||S_J[\mathcal{P}_
 
 \begin{proof}
 
-  \noindent En esta prueba, vamos a necesitar el Lema\ref{lemma:Schur}. 
+  \noindent En esta prueba, vamos a necesitar el Lema \ref{lemma:Schur}. 
 
   \medskip
 
@@ -272,7 +272,7 @@ $$\forall f,h \in L^2(\mathbb{R}^d) \lim_{J\rightarrow\infty} ||S_J[\mathcal{P}_
 \begin{teorema} \label{invarianzaTraslaciones}
 Para ondeletas de dispersión admisibles se tiene que 
 
-$$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\rightarrow \infty}||S_J[\mathcal{P}_J] f-S_J[\mathcal{P}_J] L_cf||=0$$
+$$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\rightarrow \infty}||S_J[\mathcal{P}_J] f-S_J[\mathcal{P}_J] L_cf||=0.$$
 \end{teorema}
 
 \begin{proof}
@@ -286,7 +286,7 @@ $$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\r
 
 \medskip
 
-\noindent Si ahora aplicamos el Lema\ref{lema::constante} con $\tau=c$, se tiene que $||\tau||_\infty=|c|$ y además
+\noindent Si ahora aplicamos el Lema \ref{lema::constante} con $\tau=c$, se tiene que $||\tau||_\infty=|c|$ y además
 
 $$||L_c A_J - A_J|| \leq C 2^{-J} |c|.$$
 
@@ -307,7 +307,7 @@ $$\frac{\alpha}{2}||U[\mathcal{P}_J]f||^2 \leq (J+1)||f||^2+||f||^2_w.$$
   ||U[\mathcal{P}_J]f||^2 \leq ((J+1)||f||^2+||f||^2_w) 2 \alpha^{-1}
 \end{align*}
 
-\noindent Si $||f||_w < \infty$ entonces elevando al cuadrado en la desigualdad de antes tenemos
+\noindent Si $||f||_w < \infty$ entonces elevando al cuadrado en la desigualdad anterior, tenemos
 
 $$||S_J[\mathcal{P}_J] L_cf - S_J[\mathcal{P}_J]f ||^2 \leq ((J+1)||f||^2+||f||_w^2)C^2 2 \alpha^{-1} 2^{-2J} |c|^2,$$
 
