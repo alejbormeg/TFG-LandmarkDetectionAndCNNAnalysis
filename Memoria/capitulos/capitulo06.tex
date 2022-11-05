@@ -4,7 +4,7 @@
 En esta sección se introducirán los conceptos teóricos más importantes en los que se sustenta el trabajo y sus resultados. Para ello se ha recurrido al conocimiento adquirido en asignaturas como \textbf{Visión por Computador} o \textbf{Aprendizaje Automático}, así como diversos artículos que se citarán dónde sea conveniente.
 
 \section{Aprendizaje Automático}
-    \noindent Actualmente la \textbf{Inteligencia Artificial} (IA) es una rama de la informática de importancia creciente que pretende dotar a los ordenadores de una manera de razonar o solucionar problemas de forma inteligente. En este contexto, la IA ha explorado diversos métodos para conseguir este propósito, lo que dan lugar a un amplio árbol de investigación dónde podemos destacar el estudio de Metaheurísticas, la Ingeniería del Conocimiento y más recientemente el conocido \textbf{Aprendizaje Automático} (AA). 
+    \noindent Actualmente, la \textbf{Inteligencia Artificial} (IA) es una rama de la informática de importancia creciente que pretende dotar a los ordenadores de una manera de razonar o solucionar problemas de forma inteligente. En este contexto, la IA ha explorado diversos métodos para conseguir este propósito, lo que dan lugar a un amplio árbol de investigación dónde podemos destacar el estudio de Metaheurísticas, la Ingeniería del Conocimiento y el \textbf{Aprendizaje Automático} (AA). 
     
     \medskip
 
@@ -12,11 +12,13 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
     \medskip
     
-    \noindent La primera y más clásica nos la proporciona Arthur Samuel en $1959$, en la cual define el AA como \textbf{el área de conocimiento que da a los ordenadores la capacidad de aprender sin ser programados explícitamente}. Esta definición es poco precisa, pero nos permite hacernos una idea de lo que se pretende conseguir, que es dotar a los ordenadores de la capacidad de \entrecomillado{aprender} a resolver un determinad problema a partir de una base de datos de entrenamiento.
+    \noindent La primera y más clásica nos la proporciona Arthur Samuel en $1959$, en la cual define el AA como \textbf{el área de conocimiento que da a los ordenadores la capacidad de aprender sin ser programados explícitamente}. Esta definición es poco precisa, pero nos proporciona una perspectiva global de lo que se pretende: dotar a los ordenadores de la capacidad de \entrecomillado{aprender} a resolver un determinad problema a partir de una base de datos de entrenamiento.
     
     \medskip
     
-    \noindent Una definición un poco más reciente de Tom Mitchell ($1998$) nos dice que: \textbf{Un programa de ordenador se dice que aprende de la experiencia E en una tarea T y alguna medida de rendimiento P, si su rendimiento en T, medido por P, mejora con la experiencia E}. Esta segunda definición, a diferencia de la anterior, nos permite identificar los elementos necesarios para poder resolver un problema mediante técnicas de AA.
+    \noindent Una definición más reciente de Tom Mitchell ($1998$) nos dice que: \textbf{Un programa de ordenador se dice que aprende de la experiencia E en una tarea T y alguna medida de rendimiento P, si su rendimiento en T, medido por P, mejora con la experiencia E}. Esta segunda definición, a diferencia de la anterior, nos permite identificar los elementos necesarios para poder resolver un problema mediante técnicas de AA.
+
+    \medskip
 
     \noindent Así, los elementos necesarios serían una problema (T) que queremos resolver con ayuda de un ordenador, una experiencia (E) en esa tarea, que generalmente es una base de datos asociada, y una medida de rendimiento (P) que mide el rendimiento del algoritmo en la resolución del problema y que generalmente se asocia con una función objetivo que se pretende minimizar/maximizar.
 
@@ -31,7 +33,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
     \medskip 
     
-    \noindent Además, en los últimos años han aparecido otras técnicas como el Aprendizaje por Refuezo que están siendo muy usadas, pero no vamos a profindizar en ellas pues no son necesarias para el trabajo que nos ocupa.
+    \noindent Además, en los últimos años han aparecido otras técnicas como el Aprendizaje por Refuezo que están siendo muy usadas, pero no vamos a profundizar en ellas pues no son necesarias para el trabajo que nos ocupa.
 
     \subsection{Aprendizaje Supervisado}
         \noindent Los algoritmos de AA que se emplean en este conjunto se caracterizan porque disponen de una base de datos \textbf{etiquetados} de manera que para cada dato $x$ conocemos su etiqueta asociada $y$, y el objetivo sería tratar de conocer la función $f$ que los relaciona, de manera que $f(x)=y$.
@@ -81,8 +83,23 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
             \noindent Con todos estos datos, nuestro objetivo sería encontrar el vector de pesos $w$ que minimice la función de coste $J$ y para ello utilizamos los datos de entrenamiento $X$.     
             
+            
+        \subsubsection{Clasificación}
+            \noindent Por otro lado tenemos los problemas de \textbf{clasificación}, en los datos se encuentran agrupados en clases y se pretende clasificar cada dato de entrada en la clase correcta. Los casos más sencillos de este problema son los de \textbf{clasificación binaria}, en ellos se pretende predecir la petenencia o no a una determinada clase de un conjunto de datos que se codifica como $0$ y $1$. 
+
+            \medskip
+
+            \noindent En este tipo de problemas se pretende buscar una manera de definir lo mejor posible la frontera entre los diferentes tipos de datos que queremos separar. Algunos algoritmos de los más empleados en esta son los siguientes: 
+
+             \begin{itemize}
+                \item \textbf{K-Nearest Neighbours}(K-NN): En este algoritmo asociamos a cada dato la etiqueta del conjunto al que pertenece de acuerdo a los $K$ (con $K \in \mathbb{N}$) vecinos más cercanos.
+                \item \textbf{Máquina de vector de soporte}(SVM): Se trata de buscar el hiperplano que tenga la mayor distancia (margen) con los pontos más cercanos a él de cada conjunto.
+                \item \textbf{Redes Neuronales}, que explicaremos en detalle en futuras secciones y destacando el \textit{perceptrón multicapa} (MLP).
+             \end{itemize}
+
+
         \subsubsection{Gradiente Descendente}
-            \noindent En esta sección hemos hablado de qué es el AA y cómo se formalizan sus problemas para poder resolverlos. Sin embargo, no hemos hablado de ningún algoritmo que se use en la minimización de la función de coste. Es por ello que vamos a explicar el principal algoritmo que se utiliza para esta tarea, el \textbf{Gradiente Descendente}. 
+            \noindent En esta sección hemos hablado de qué es el AA y cómo se formalizan sus problemas para poder resolverlos. Sin embargo, no hemos hablado de ningún algoritmo que se use en la minimización de la función de coste. Es por ello que vamos a explicar el algoritmo clásicamente se utiliza para esta tarea, el \textbf{Gradiente Descendente}. 
     
             \medskip
     
@@ -134,27 +151,20 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
     
             \medskip
     
-            \noindent Por otro lado, cabe destacar la importancia de una buena elección del \textbf{learning rate}, pues si este es demasiado pequeño puede ocasionar una lenta convergencia al mínimo, y por lo tanto que se realice un gran número de iteraciones, y en cambio un valor excesivamente grande de este puede impedir la convergencia,pues los saltos serían tan grandes en la dirección del mínimo local o global que podría llegar a \entrecomillado{pasar por encima} de este siempre. Por lo tanto una técnica habitual aunque costosa de este algoritmo consiste en usar un learning rate adaptativo, que sea mayor en las primeras iteraciones y que vaya disminuyendo conforme se incremente el número de iteraciones (pues se entiende que se estará cerca del mínimo).
+            \noindent Por otro lado, cabe destacar la importancia de una buena elección del \textbf{learning rate}. Si este es demasiado pequeño puede ocasionar una lenta convergencia al mínimo, y por lo tanto que se realice un gran número de iteraciones. Por otro lado, un valor excesivamente grande de este puede impedir la convergencia, pues los saltos serían tan grandes en la dirección del mínimo local o global que podría llegar a \entrecomillado{pasar por encima} de este siempre. Por lo tanto una técnica habitual aunque costosa de este algoritmo consiste en usar un learning rate adaptativo, que sea mayor en las primeras iteraciones y que vaya disminuyendo conforme se incremente el número de iteraciones (pues se entiende que se estará cerca del mínimo). Podemos ver reflejado esto en la \autoref{fig:learning_rate}.
+
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.9\textwidth]{img/lr-types.png}
+                \caption{Pretendemos alcanzar el mínimo de la función representada en las imágenes de la primera fila. Podemos ver el impacto de la elección del learning rate, si es muy pequeño, harán falta muchas iteraciones hasta la convergencia (primera imagen), si tiene un tamaño adecuado, converge rápidamente a la solución (segunda imagen), si es grande, puede quedar \entrecomillado{atrapado} el algoritmo (tercera imagen), y si es demasiado grande podría incluso diverger. Imagen extraída de \cite{StanfordCourse}.}
+                \label{fig:learning_rate}
+            \end{figure}
+            
     
         \subsubsection{Gradiente Descendente Estocástico}
     
-            \noindent El algoritmo descrito anteriormente tiene el problema de ser costoso computacionalmete, debido a que en cada iteración se debe calcular la función de coste para todos los ejemplos del conjunto de entrenamiento $X$. Es por ello que suele emplearse en su lugar una versión modificada y que sigue dando buenos resultados que consiste en actualizar los pesos en base a unos pocos ejemplos del conjunto de entrenamiento $X$ que se conoce como \entrecomillado{minibatch}.
+            \noindent El algoritmo descrito anteriormente tiene el problema de ser costoso computacionalmete, debido a que en cada iteración se debe calcular la función de coste para todos los ejemplos del conjunto de entrenamiento $X$. Es por ello, que suele emplearse en su lugar una versión modificada y que sigue dando buenos resultados que consiste en actualizar los pesos en base a unos pocos ejemplos del conjunto de entrenamiento $X$ que se conoce como \entrecomillado{minibatch}.
         
-            
-        \subsubsection{Clasificación}
-            \noindent Por otro lado tenemos los problemas de \textbf{clasificación}, en los datos se encuentran agrupados en clases y se pretende clasificar cada dato de entrada en la clase correcta. Los casos más sencillos de este problema son los de \textbf{clasificación binaria}, y en ellos se pretende agrupar los datos en dos posibles clases que suelen codificarse como $0$ y $1$. 
-
-            \medskip
-
-            \noindent En este tipo de problemas se pretende buscar una manera de definir lo mejor posible la frontera entre los diferentes tipos de datos que queremos separar. Algunos algoritmos de los más empleados en esta son los siguientes: 
-
-             \begin{itemize}
-                \item \textbf{K-Nearest Neighbours}(K-NN): En este algoritmo asociamos a cada dato la etiqueta del conjunto al que pertenece de acuerdo a los $K$ (con $K \in \mathbb{N}$) vecinos más cercanos.
-                \item \textbf{Máquina de vector de soporte}(SVM): Se trata de buscar el hiperplano que tenga la mayor distancia (margen) con los pontos más cercanos a él de cada conjunto.
-                \item \textbf{Redes Neuronales}, que explicaremos en detalle en futuras secciones y destacando el \textit{perceptrón multicapa} (MLP).
-             \end{itemize}
-
-
     \subsection{Aprendizaje no Supervisado}
         \noindent Los algoritmos de Aprendizaje no Supervisado se caracterizan porque los datos que se proporcionan no están etiquetados, y no se busca una salida concreta, sino que se pretende analizar y extraer características de nuestro conjunto de datos. Así, por ejemplo, tareas que pueden resolverse con esta técnica pueden ser la agrupación de clientes de cierta compañía en distintas clases según sus características.
     
@@ -163,11 +173,15 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
         \medskip
 
-        \noindent Por otro lado,tiene una etapa de entrenamiento previa al problema de los landmarks en la cual mediante conjuntos de datos de imágenes sin etiquetar de rostros humanos, se pretende reconstruir imágenes preservando al máximo posible la estructura de la cara. Esto, como podemos ver, es un problema típico de aprendizaje no supervisado, porque no se busca obtener una etiqueta para cada imagen, sino analizar la estructura de los distintos elementos de los datos de entrada para ser capaces de reconstruirlos preservando su estructura.
+        \noindent Por otro lado, tiene una etapa de entrenamiento previa al problema de los landmarks en la cual mediante conjuntos de datos de imágenes sin etiquetar de rostros humanos, se pretende reconstruir imágenes preservando al máximo posible la estructura de la cara. Esto, como podemos ver, es un problema típico de aprendizaje no supervisado, porque no se busca obtener una etiqueta para cada imagen, sino analizar la estructura de los distintos elementos de los datos de entrada para ser capaces de reconstruirlos preservando su estructura. 
+        
+        \medskip
+        
+        \noindent Un ejemplo clásico de un problema similar es \textit{EigenFaces}, utilizado en el reconocimiento de rostros. El objetivo era extraer los vectores propios de la matriz de covarianza del conjunto de rostros de la base de datos.
 
         \medskip
 
-        \noindent En este trabajo, sin embargo, sólo nos centraremos en la reolución del problema de \textbf{regresión} en el cual trataremos de predecir un conjunto de landmarks \textbf{cefalométricos}, y por lo tanto distintos a los que la red sabe predecir, a partir de un  pequeño conjunto de imágenes etiquetadas pertenecientes a un conjunto de datos forense.
+        \noindent En este trabajo, sin embargo, sólo nos centraremos en la resolución del problema de \textbf{regresión} en el cual trataremos de predecir un conjunto de landmarks \textbf{cefalométricos}, y por lo tanto distintos a los que la red sabe predecir, a partir de un  pequeño conjunto de imágenes etiquetadas pertenecientes a un conjunto de datos forense.
 
     \subsection{Visión por Computador}
         \noindent La \textbf{Visión por computador} es un área de conocimiento en el que se unen diversas disciplinas como la IA o el AA para un propósito común, que es el procesado de imágenes por medio de un ordenador con la finalidad de que la máquina pueda llegar a extraer información relativa a estas del mismo modo en que lo haría un ser humano \cite{rosenfeld1988computer}. 
@@ -178,14 +192,14 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
         \medskip
 
-        \noindent Finalmente, en los últimos años esta rama ha experimentado un fuerte impulso en la comunidad científica debido al actual desarrollo del \textbf{Deep Learning} y las \textbf{redes convolucionales profundas} que explicaremos en detalle en la siguiente sección. Estas nuevas herramientas han permitido crear programas que obtienen un gran rendimiento en el tratamiento de imágenes.
+        \noindent Finalmente, en los últimos años esta rama ha experimentado un fuerte impulso en la comunidad científica debido al actual desarrollo del \textbf{Deep Learning} y su principal herramienta: las \textbf{redes convolucionales profundas}, que explicaremos en detalle en la siguiente sección. Éstas, han permitido crear programas que obtienen un gran rendimiento en el tratamiento de imágenes.
 
     \subsection{Deep Learning}
         Como ya se ha mencionado anteriormente, la IA se encuentra muy desarrollada actualmente y es capaz de resolver problemas que tradicionalmente eran muy complicados para ser resueltos por un humano. Sin embargo, e irónicamente, algunas de las tareas más fáciles para los seres humanos como son el reconocimiento del habla o la identificación de objetos en imágenes han suponen un verdadero reto para un odernador, y no ha sido hasta los últimos años con el nacimiento del \textbf{Deep Learning} que se han empezado a obtener resultados satisfactorios en este campo.
 
         \medskip
         
-        \noindent Por lo tanto, los algoritmos del Deep Learning se caracterizan por resolver estos problemas a partir de representaciones del mismo que se expresan en terminos de otras más simples. De esta manera se pueden construir conceptos difíciles a partir de otros más sencillos. Este grafo puede ser tan profundo como se necesite, por ello se le conoce como Deep Learning.
+        \noindent Por lo tanto, los algoritmos del Deep Learning se caracterizan por resolver estos problemas a partir de representaciones del mismo que se expresan en terminos de otras más simples. De esta manera, se pueden construir conceptos difíciles a partir de otros más sencillos. Este grafo puede ser profundo en ocasiones, por ello se le conoce como Deep Learning.
 
         \subsubsection{Redes Neuronales} \label{sub:redes_neuronales}
             La arquitectura básica de los modelos de Deep Learning viene descrita por las \textbf{redes neuronales}. Es por ello que vamos a profundizar un poco en esta estructura y partiendo de un ejemplo clásico como es el \textbf{Perceptrón multicapa}(MLP). Para esta sección vamos a seguir el capítulo 6 de \cite{Goodfellow-et-al-2016}.
@@ -201,11 +215,11 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.7\textwidth]{img/single_hidden_layer.png}
-                \caption{Red neuronal con una capa oculta. Formalmente podría describirse como $f'(x)=(f_3(f_2(f_1(x))))$, dónde $f_1$ hace referencia a la capa de entrada a la red, $f_2$ a la capa oculta y $f_3$ a la capa de salida.}
+                \caption{Red neuronal con una capa oculta. Formalmente podría describirse como $f'(x)=(f_2(f_1(x)))$, donde $f_2$ hace referencia a la transformación de los datos de entrada a la capa oculta y $f_3$ de la capa oculta a la de salida.}
                 \label{fig:red_neuronal_capa_oculta}
             \end{figure}
 
-            \noindent La \textbf{profundidad} de la red vendría dada por la cantidad de \textbf{capas ocultas} que esta tiene. En los algoritmos de Deep Learning veremos un gran número de capas ocultas, de ahí el nombre. 
+            \noindent La \textbf{profundidad} de la red vendría dada por la cantidad de \textbf{capas ocultas} que esta tiene.
 
             \medskip
 
@@ -220,7 +234,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
                 \begin{equation}
                     tanh(x)=\frac{e^x - e^{-x}}{e^x + e^{-x}} 
                 \end{equation}
-                \item \textbf{Función ReLU}. Es una de las más usadas en redes neuronales por ser de las más eficientes, ya que permite que no se activen todas las neuronas a la vez, ya que en aquellas cuya salida tras la combinación lineal con los pesos de la capa correspondiente sea 0 no serán activadas.
+                \item \textbf{Función ReLU}. Es una de las más usadas en redes neuronales por ser de las más eficientes, ya que permite que no se activen todas las neuronas a la vez. Aquellas cuya salida tras la combinación lineal con los pesos de la capa correspondiente sea 0 no serán activadas.
                 \begin{equation}
                     ReLU(x)=\max(0,x)
                 \end{equation}
@@ -243,6 +257,13 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
                     \sigma(x)_j= \frac{e^{z_j}}{\sum_{k=1}^{K}e^{z_k}} \; \; j=1, \ldots, K
                 \end{equation}
             \end{itemize}
+
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.8\textwidth]{img/functions.png}
+                \caption{Representación gráfica de las funciones de activación más empleadas. La imagen ha sido extraída de  \cite{sharma2017activation}.}
+                \label{fig:GrafoComputacional}
+            \end{figure}
 
             \noindent No existe una manera de elegir la mejor función para cada caso, pero de forma experimental se ha podido comprobar que la función ReLU en general da buenos resultados y si hubiera demasiadas neuronas muertas en la red podría cambiarse por la Leaky ReLU.
 
@@ -291,11 +312,11 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \noindent Como vemos en \autoref{fig:Ejemplo BP}, se produce un flujo desde la salida hacia la entrada en la que se van calculando los gradientes para cada parámetro. Una vez calculado el gradiente se procede a actualizar los pesos usando por ejemplo el algoritmo de \textbf{gradiente descendente}.
         
     \section{Redes Neuronales Convolucionales}
-        \noindent Las \textbf{Redes Neuronales Convolucionales} (CNN) son la principal herramienta del Deep Learning y están inspiradas en las redes neuronales que hemos explicado anteriormente, con la salvedad de que ahora en vez de tener como entrada un vector de $\mathbb{R}^d$ ahora pueden entrar a la red volúmenes de datos en varias dimensiones, como por ejemplo imágenes que se representan como una matriz $2$D.
+        \noindent Las \textbf{Redes Neuronales Convolucionales} (CNN, por el inglés \textit{Convolutional Neural Networks}) son la principal herramienta del Deep Learning y están inspiradas en las redes neuronales que hemos explicado anteriormente, con la salvedad de que ahora en vez de tener como entrada un vector de $\mathbb{R}^d$ ahora pueden entrar a la red volúmenes de datos en varias dimensiones, como por ejemplo imágenes que se representan como $\mathbb{R}^{w\times h\times c}$.
         
         \medskip
 
-        \noindent La principal motivación para la creación de estas redes es el concepto de \textbf{conectividad local}, pues cuando se trabaja con entradas de grandes dimensiones como son las imágenes, resulta impráctico conectar cada neurona con todas las de la capa anterior (como suele ocurrir en las redes neuronales clásicas que hemos visto anteriormente). Es por ello que se decide conectar cada neurona con una región local del volumen de entrada. Por lo que vamos a emplear filtros que siempre van a tener la misma profundidad que el volumen de entrada y que vamos a ir desplazando a lo largo del volumen de entrada. A continuación vamos a ver qué operación realizaremos con este filtro sobre el volumen de la imagen que ocupa para alimentar cada neurona de la siguiente capa.
+        \noindent La principal motivación para la creación de estas redes es el concepto de \textbf{conectividad local}, pues cuando se trabaja con entradas de grandes dimensiones como son las imágenes, resulta impráctico conectar cada neurona con todas las de la capa anterior (como suele ocurrir en las redes neuronales clásicas que hemos visto anteriormente). Es por ello que se decide conectar cada neurona con una región local del volumen de entrada. Por lo que vamos a emplear filtros que siempre van a tener la misma profundidad que el volumen de entrada y que vamos a ir desplazando a lo largo de $\mathbb{R}^{w\times h\times c}$. A continuación, presentamos la operación que realizaremos  este filtro y cuyo resultado alimenta la siguiente capa de la red.
 
         \medskip
 
@@ -347,8 +368,8 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
             \begin{itemize}
                 \item El parámetro \textbf{depth} se corresponde con el número de filtros que queremos aplicar al volumen de entrada, pues se pretende que cada uno de ellos aprenda algo distinto sobre este. Como cada filtro produce un volumen $m \times n$ de profundidad $1$ conocido como \textbf{mapa de activación}, este parámetro nos genera tantos mapas de activación como indique.
-                \item El parámetro \textbf{stride} indica el paso con el que vamos desplazando cada filtro sobre el volumen de entrada, así un stride de $1$ indica que el filtro se desplaza de uno en uno por los píxeles, y un stride de $2$ indicaría que se desplaza de dos en dos. Cuanto mayor sea de menores dimensiones será el mapa de activación.
-                \item El parámetro \textbf{padding} indica en cuantas filas y columnas se amplía el volumen de entrada antes de aplicar los filtros. Este parámetro se utiliza para controlar la dimensión de salida de los mapas de activación pues la convolución es una operación que reduce la dimensionalidad siempre.
+                \item El parámetro \textbf{stride} indica el paso con el que vamos desplazando cada filtro sobre el volumen de entrada, así un stride de $1$ indica que el filtro se desplaza de uno en uno por los píxeles, y un stride de $2$ indicaría que se desplaza de dos en dos. Cuanto mayor sea el valor de este parámemtro, menor será la dimensional del mapa de activación.
+                \item El parámetro \textbf{padding} indica en cuantas filas y columnas se amplía el volumen de entrada antes de aplicar los filtros. Este parámetro se utiliza para controlar la dimensión de salida de los mapas de activación pues la convolución es una operación que reduce la dimensionalidad siempre, a menos que el filtro aplicado sea de $1 \times 1$.
             \end{itemize}
 
             \noindent Con todo esto en mente, la relación que determina el volumen de salida de una capa convolucional para un volumen de entrada de dimensión $W \times W \times d$ y empleando filtros de dimensión $F \times F \times d$ con un padding $P$, un stride $S$ sería: 
