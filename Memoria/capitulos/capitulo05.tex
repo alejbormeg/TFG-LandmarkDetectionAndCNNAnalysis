@@ -21,23 +21,20 @@
 
 \section{Descripción del problema y Motivación}
 
-    \noindent Los \textbf{landmarks cefalométricos} son puntos localizados en la cara que nos permiten caracterizar la morfología de la cabeza. La correcta identificación de estos puntos es de extrema importancia en tareas como la extracción de índices de proporción antropométricos (por ejemplo, para problemas de clasificación o detección de patologías), la comparación facial forense y la identificación humana forense mediante la superposición craneofacial (SCF). Este último método es un procedimiento de identificación muy utilizado, en el cual se comparan imágenes de la persona difunta (imágenes ante-mortem) con una representación 3D de un cráneo candidato, con el fin de determinar si el cráneo pertenece a la persona de las imágenes o no. La correspondencia entre cara y cráneo se hace con ayuda del marcado en el cráneo de landmarks \textit{craneométricos}. Así, cada landmark \textit{cefalométricos} tiene un homólogo \textit{craneométrico} con el mismo nombre. En la \autoref{fig:procesoSCF}  podemos ver un esquema del proceso seguido.
+    \noindent Los \textbf{landmarks cefalométricos} son puntos localizados en la cara que nos permiten caracterizar la morfología de la cabeza. La correcta identificación de estos puntos es de extrema importancia en tareas como la extracción de índices de proporción antropométricos (por ejemplo, para problemas de clasificación o detección de patologías), la comparación facial forense y la identificación humana forense mediante la superposición craneofacial (SCF), en el cual se comparan imágenes de la persona difunta (imágenes ante-mortem) con una representación 3D de un cráneo candidato, con el fin de determinar si el cráneo pertenece a la persona de las imágenes o no. La correspondencia entre cara y cráneo se hace con ayuda del marcado en el cráneo de landmarks \textit{craneométricos}. Así, cada landmark \textit{cefalométricos} tiene un homólogo \textit{craneométrico} con el mismo nombre. En la \autoref{fig:procesoSCF}  podemos ver un esquema del proceso seguido.
 
-    \begin{figure}[!h]
+    \medskip
+
+    \noindent El marcado de landmarks cefalométricos no es una tarea sencilla, pues depende de factores diversos a tener en cuenta como son la calidad de la imagen, la posición del sujeto o el tejido blando facial (que separa el punto craneométrico de su homólogo cefalométrico). El desplazamiento ocasionado por el tejido blando facial no es constante ni se produce siempre en la misma dirección, podemos ver un ejemplo de este hecho en la \autoref{fig:landmarks_marcados}. Estos problemas, ocasionan que el experto forense tarde mucho en la tarea del marcado de landmarks y que el proceso sea difícilmente replicable. Por esto, pese a los avances actuales que se están llevando a cabo para automatizar esta tarea \cite{Huete2015PastPA}, la identificación de landmarks cefalométricos sigue realizándose a mano normalmente. En este contexto, el presente trabajo tratará de proporcionar una solución automática al proceso del marcado de \textbf{landmarks cefalométricos}.
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.95\textwidth]{img/SCF.png}
         \caption{Etapas del proceso de superposición craneofacial. En primer lugar se realiza la recogida de imágenes ante-mortem (AM) y muestras post-mortem (PM) junto con el marcado de landmarks y escaneo $3D$ del cráneo candidato. Tras esto comienza el experto comienza el proceso iterativo en el que trata de hacer coincidir los landmarks cefalométricos y craneométricos. Finalmente se realiza una toma de decisiones en función de los resultados obtenidos. Imagen extraída de \cite{article}.}
         \label{fig:procesoSCF}
     \end{figure}
-
-    \medskip
-
-    \noindent El marcado de landmarks cefalométricos no es una tarea sencilla, pues depende de factores diversos a tener en cuenta como son la calidad de la imagen, la posición del sujeto o el tejido blando facial (que separa el punto craneométrico de su homólogo cefalométrico). El desplazamiento ocasionado por el tejido blando facial no es constante ni se produce siempre en la misma dirección, podemos ver un ejemplo de este hecho en la \autoref{fig:landmarks_marcados}. Estos problemas, ocasionan que el experto forense tarde mucho en la tarea del marcado de landmarks y que el proceso sea difícilmente replicable. Por esto, pese a los avances actuales que se están llevando a cabo para automatizar esta tarea \cite{Huete2015PastPA}, la identificación de landmarks cefalométricos sigue realizándose a mano normalmente. En este contexto, el presente trabajo tratará de proporcionar una solución automática al proceso del marcado de \textbf{landmarks cefalométricos}.
-
-
-    \begin{figure}[!h]
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.9\textwidth]{img/marcado_landmarks.png}
+        \includegraphics[width=0.7\textwidth]{img/marcado_landmarks.png}
         \caption{En esta imagen podemos ver la correspondencia entre landmarks craneométricos y cefalométricos. Algunos de los landmarks que aparecen en la imagen serán estudiados en este trabajo. Imagen extraída de \cite{damas2020handbook}.}
         \label{fig:landmarks_marcados}
     \end{figure}
@@ -45,12 +42,14 @@
     \medskip 
 
     \noindent Por otro lado, el reconocimiento de \textbf{landmarks faciales} (puntos de referencia marcados en la cara sin justificación biológica) es una tarea muy investigada actualmente, de la que existen  multitud de trabajos resueltos en su mayoría usando algoritmos de \textbf{deep learning}. Pese a no guardar relación con la morfología del cráneo, este tipo de landmarks son de gran utilidad para la identificación de personas en vídeos, el reconocimiento de gestos y posición de la cara o determinar la dirección en la que un individuo mira. 
-    
-    \medskip
-    
-    \noindent Para entrenar dichos algoritmos, se cuenta con multitud de bases de datos y ejemplos etiquetados, a diferencia que con los landmarks cefalométricos. Así, en este trabajo vamos a tratar de tomar una CNN experta en el reconocimiento de landmarks faciales en imágenes \textit{in-the-wild}, y vamos a tratar de especializarla en el marcado de \textbf{landmarks cefalométricos} aprovechando el conocimiento que ya poseen. En particular nos hemos fijado en el framework \textbf{3FabRec}\cite{browatzki20203fabrec}. Dicho framework cuenta con excelentes resultados en la tarea de detección de landmarks en imágenes y sobre todo nos interesa porque obtiene buenos resultados entrenando con pocas imágenes, algo que nos puede ser de utilidad teniendo en cuenta los pocos datos de los que se disponen. Así, se pretende diseñar un modelo capaz de aprender a marcar un total de $30$ landmarks, que son los siguientes: 
 
-    \begin{center}
+    \medskip
+
+    \noindent Para entrenar dichos algoritmos, se cuenta con multitud de bases de datos y ejemplos etiquetados, a diferencia que con los landmarks cefalométricos. Así, en este trabajo vamos a tratar de tomar una CNN experta en el reconocimiento de landmarks faciales en imágenes \textit{in-the-wild} (conjunto de imágenes tomadas en situaciones no controladas de iluminación, pose o calidad), y vamos a tratar de especializarla en el marcado de \textbf{landmarks cefalométricos} aprovechando el conocimiento que ya poseen. En particular nos hemos fijado en el framework \textbf{3FabRec}\cite{browatzki20203fabrec}. Dicho framework cuenta con excelentes resultados en la tarea de detección de landmarks en imágenes y sobre todo nos interesa porque obtiene buenos resultados entrenando con pocas imágenes, algo que nos puede ser de utilidad teniendo en cuenta los pocos datos de los que se disponen. Así, se pretende diseñar un modelo capaz de aprender a marcar un total de $30$ landmarks, que podemos ver en la \autoref{table:tabla_landmarks}. 
+
+    \begin{table}
+        \centering
+        \caption{Landmarks que se intentarán predecir.}
         \begin{tabular}{ |c|l|l|c| } 
             \hline
             & \textbf{Landmarks} & \textbf{Notación} \\
@@ -87,7 +86,8 @@
             30 & Right Midsupraorbital & msoR \\ 
             \hline
         \end{tabular}
-    \end{center}
+        \label{table:tabla_landmarks}
+    \end{table}
 
 
     \medskip
@@ -121,7 +121,7 @@
 \end{enumerate}
 
 \section{Planificación}
-    \noindent La planificación del proyecto desde un comienzo fue pensada para llevar a cabo el desarrollo del software siguiendo un modelo en cascada, un modelo que evita la vuelta atrás entre etapas. Sin embargo, debido a que el desarrollo consistirá principalmente en una adaptación de un software ya existente a un problema concreto, se estimó desde un principio que en esta etapa no se desarrollaría un programa de gran complejidad, sabíamos que el software podría sufrir ligeras modificaciones en función de los resultados obtenidos durante la experimentación, es por ello que se optó por un modelo de ciclo de vida en cascada retroalimentado como se puede ver en \autoref{Fig::Ciclo de vida}:
+    \noindent La planificación del proyecto, desde un comienzo, fue pensada para llevar a cabo el desarrollo del software siguiendo un modelo en cascada, evitando la vuelta atrás entre etapas. Sin embargo, debido a que el desarrollo consistirá principalmente en una adaptación de un software ya existente, se estimó desde un principio que en esta etapa no se desarrollaría un programa de gran complejidad. Una vez adaptado el framework a nuestro objetivo, sabíamos que el software podría sufrir ligeras modificaciones en función de los resultados obtenidos durante la experimentación. Es por ello, que se optó por un modelo de ciclo de vida en cascada retroalimentado como se puede ver en \autoref{Fig::Ciclo de vida}.
 
 
     \begin{figure}[!h]

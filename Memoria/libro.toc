@@ -31,8 +31,8 @@
 \contentsline {part}{\numberline {II}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{45}{part.2}%
 \contentsline {chapter}{\numberline {5}Introducción}{47}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Descripción del problema y Motivación}{47}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Requisitos mínimos del algoritmo}{50}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Objetivos}{50}{section.5.3}%
+\contentsline {section}{\numberline {5.2}Requisitos mínimos del algoritmo}{49}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Objetivos}{51}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Planificación}{51}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Fundamentos Teóricos y Métodos}{55}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Aprendizaje Automático}{55}{section.6.1}%
