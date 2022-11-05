@@ -7,10 +7,11 @@
 \backcite {JBrunaOperatorsCommutingDiff}{{22}{2.2.2}{subsection.2.2.2}}
 \backcite {GroupInvariantScattering}{{22}{2.2.2}{subsection.2.2.2}}
 \backcite {bruna2013invariant}{{22}{2.2.2}{subsection.2.2.2}}
-\backcite {lecun2015deep}{{26}{2.3.2}{subsection.2.3.2}}
+\backcite {GroupInvariantScattering}{{26}{2.2.4}{teorema.2.2.8}}
 \backcite {bruna2013invariant}{{27}{2.6}{figure.2.6}}
-\backcite {DistinctiveImageFeatures}{{27}{2.3.3}{subsection.2.3.3}}
-\backcite {Daisy}{{27}{2.3.3}{subsection.2.3.3}}
+\backcite {lecun2015deep}{{27}{2.3.2}{subsection.2.3.2}}
+\backcite {DistinctiveImageFeatures}{{28}{2.3.3}{subsection.2.3.3}}
+\backcite {Daisy}{{28}{2.3.3}{subsection.2.3.3}}
 \backcite {GroupInvariantScattering}{{30}{2.3.5}{equation.2.3.12}}
 \backcite {SchurLemma}{{38}{3.2}{teorema.3.2.1}}
 \backcite {norvig2002modern}{{47}{5}{chapter.5}}
