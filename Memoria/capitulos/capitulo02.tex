@@ -60,13 +60,13 @@ $\Phi(f)=|\widehat{f}|$ módulo de la transformada de Fourier.
 
 \medskip
     
-\noindent Sin embargo, la invarianza por traslaciones, no es suficiente. Necesitamos también que nuestro operador sea invariante frente a pequeñas deformaciones (difeomorfismos). De esta forma, diremos que un operador $\Phi(f)$ es estable frente a deformaciones si verifica la Definición \ref{def::Lipschitz_cont}.
+\noindent Sin embargo, la invarianza por traslaciones no es suficiente. Necesitamos también que nuestro operador sea invariante frente a pequeñas deformaciones (difeomorfismos). De esta forma, diremos que un operador $\Phi(f)$ es estable frente a deformaciones si verifica la Definición \ref{def::Lipschitz_cont}.
 
 \noindent Consideramos la función $\tau(x)\coloneqq \epsilon x$ con $0 < \epsilon << 1$. De esta forma $||\nabla \tau (x) ||_\infty = \epsilon$ y $||H\tau(x)||_\infty=0$. Con esto, la condición de Lipschitz para el módulo de la transfomada de Fourier nos daría la existencia de una constante $c>0$ de modo que la desigualdad que se tendría que cumplir para cada $f \in L^2(\mathbb{R}^d)$ y cada $0 < \epsilon << 1$ sería:
 
 
   \begin{equation} \label{eq::lipschitz_condition}
-    \|\;|\widehat{f}| -|\widehat{L_\tau f}| \; \| \leq c \|f\| (\|\nabla \tau \|_{\infty} + \|H\tau\|_\infty) = c \|f\| \epsilon
+    \|\;|\widehat{f}| -|\widehat{L_\tau f}| \; \| \leq c \|f\| (\|\nabla \tau \|_{\infty} + \|H\tau\|_\infty) = c \|f\| \epsilon.
   \end{equation}
 
   \noindent Lo que implica encontrar una constante $c\in \mathbb{R}$ que cumpla la desigualdad para cualquier valor de $\epsilon$.Vamos a ver un contraejemplo con una función de una dimensión por simplicidad.
@@ -382,7 +382,7 @@ $$\widehat{W[\lambda]f}(\omega)=\widehat{f}(\omega)\widehat{\psi_\lambda}(\omega
 \begin{figure} [!h]
   \centering
   \includegraphics[width=0.8\textwidth]{img/Relacion_escala_frecuencia.png}
-  \caption{Como podemos ver, en el caso de la izquierda la ondleta (en color morado) se ve afectada por una menor escala, lo que le permitirá detectar con mayores frecuencias los cambios que se producen en la señal al convolucionar con esta a lo largo del tiempo. En cambio, en el segundo caso, se ve afectada por una escala mayor, lo que le impedirá detectar con tanta precisión los cambios que se produzcan en la señal. Imagen extraída de \cite{WAVELETS}.}
+  \caption{Como podemos ver, en el caso de la izquierda la ondeleta (en color morado) se ve afectada por una menor escala, lo que le permitirá detectar con mayores frecuencias los cambios que se producen en la señal al convolucionar con ésta a lo largo del tiempo. En cambio, en el segundo caso, se ve afectada por una escala mayor, lo que le impedirá detectar con tanta precisión los cambios que se produzcan en la señal. Imagen extraída de \cite{WAVELETS}.}
   \label{fig:small_long_scale}
 \end{figure}
 
@@ -534,7 +534,7 @@ $$||A_Jf||^2+\sum_{\lambda \in \Lambda_j} ||W[\lambda]f||^2=||W_J f||^2=||f||^2,
 
 \medskip
 
-\noindent Como $\phi$ es invariante a traslaciones en $G$, podemos comprobar que $A_J$ conmuta con las rotaciones de $G$: $A_J(g\circ f)=g\circ A_J f \;\; \forall g \in G$. 
+\noindent Como $\phi$ es invariante a rotaciones en $G$, podemos comprobar que $A_J$ conmuta con las rotaciones de $G$: $A_J(g\circ f)=g\circ A_J f \;\; \forall g \in G$. 
 
 \section{El operador de dispersión sobre un camino ordenado}
 
@@ -684,7 +684,7 @@ Una secuencia ordenada $p=(\lambda_1,\lambda_2, \ldots , \lambda_m)$ con $\lambd
 
 
 \begin{definicion}
-Un PD es un producto de operadores de la forma $U[\lambda]f=M[\lambda]W[\lambda]f=|f \ast \psi_\lambda|=\left | \int_{\mathbb{R}^d} f(u)\psi_\lambda(x-u) du \right|$ para $f \in L^2(\mathbb{R}^d)$ no conmuntativos por un camino ordenado:
+Un propagador de dispersión (PD) es un producto de operadores de la forma $U[\lambda]f=M[\lambda]W[\lambda]f=|f \ast \psi_\lambda|=\left | \int_{\mathbb{R}^d} f(u)\psi_\lambda(x-u) du \right|$ para $f \in L^2(\mathbb{R}^d)$ no conmuntativos por un camino ordenado:
 
 \begin{equation}
   U[p]f=U[\lambda_m] \ldots U[\lambda_2]U[\lambda_1],
