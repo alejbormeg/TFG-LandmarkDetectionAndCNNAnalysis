@@ -150,11 +150,6 @@ Lucas~Faria Porto, Laise Nascimento~Correia Lima, Marta Regina~Pinheiro Flores,
   approach based on supervised learning techniques.
 \newblock {\em Digital Investigation}, 30:108--116, 2019.
 
-\bibitem[QV18]{SchurLemma}
-Stephen Quinn and Igor~E Verbitsky.
-\newblock A sublinear version of schur’s lemma and elliptic pde.
-\newblock {\em Analysis \& PDE}, 11(2):439--466, 2018.
-
 \bibitem[Ras20]{AAE}
 Fathy Rashad.
 \newblock Adversarial auto encoder (aae).

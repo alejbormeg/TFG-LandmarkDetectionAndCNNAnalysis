@@ -469,7 +469,7 @@
 
         \medskip
 
-        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{ajuste fino} del encoder sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{40 épocas}, valor a partir del cual se aprecia la convergencia del \textit{mse} (que recordamos, es la medida de error entre los \textit{Heat-maps} predichos por el modelo y los reales), y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
+        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{ajuste fino} del encoder sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{60 épocas}, apreciándose la convergencia del \textit{mse} (que recordamos, es la medida de error entre los \textit{Heat-maps} predichos por el modelo y los reales), y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
 
         \begin{itemize}
             \item El \textit{learning rate} para el optimizador Adam usado en el entrenamiento de las ITLs se establece en $0.001$. 
@@ -481,44 +481,43 @@
 
         \begin{table}[!ht]
             \centering
-            \caption{Media del error NME obtenido por landmark entre todas las particiones de cross-validation.}
+            \caption{Media del error NME obtenido por landmark entre todas las particiones de cross-validation. Marcamos en amarillo el vertex pues no está correctamente marcado en todas las imágenes.}
             \begin{tabular}{|l|l|l|}
             \hline
-                ~ & \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{Media NME por landmark} \\ \hline
-                0 & Menton & 3.944 \\ \hline
-                1 & Gnathion & 2.637 \\ \hline
-                2 & Pogonion & 2.549 \\ \hline
-                3 & Prosthion & 0.932 \\ \hline
-                4 & Labiale Superius & 2.099 \\ \hline
-                5 & Subnasale & 2.059 \\ \hline
-                6 & Nasion & 2.254 \\ \hline
-                7 & Glabella & 2.547 \\ \hline
-                8 & Vertex & 6.244 \\ \hline
-                9 & Left Gonion & 7.684 \\ \hline
-                10 & Right Gonion & 11.283 \\ \hline
-                11 & Left Zygion & 5.098 \\ \hline
-                12 & Right Zygion & 6.309 \\ \hline
-                13 & Left Alare & 1.939 \\ \hline
-                14 & Right Alare & 2.282 \\ \hline
-                15 & Left Endocanthion & 1.668 \\ \hline
-                16 & Right Endocanthion & 1.671 \\ \hline
-                17 & Left Exocanthion & 1.706 \\ \hline
-                18 & Right Exocanthion & 1.670 \\ \hline
-                19 & Left Tragion & 4.824 \\ \hline
-                20 & Right Tragion & 5.376 \\ \hline
-                21 & Labiale inferius & 1.705 \\ \hline
-                22 & Trichion & 4.478 \\ \hline
-                23 & Supramentale & 1.913 \\ \hline
-                24 & Left Frontotemporale & 2.319 \\ \hline
-                25 & Right Frontotemporale & 2.721 \\ \hline
-                26 & Left Frontozygomaticus & 1.513 \\ \hline
-                27 & Right Frontozygomaticus & 2.313 \\ \hline
-                28 & Left Midsurpaorbital & 1.205 \\ \hline
-                29 & Right Midsupraorbital & 1.43 \\ \hline
+                ~ & \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{Media NME} \\ \hline
+                0 & Menton & 4.176 \\ \hline
+                1 & Gnathion & 2.629 \\ \hline
+                2 & Pogonion & 2.509 \\ \hline
+                3 & Prosthion & 1.178 \\ \hline
+                4 & Labiale Superius & 1.965 \\ \hline
+                5 & Subnasale & 2.056 \\ \hline
+                6 & Nasion & 2.211 \\ \hline
+                7 & Glabella & 2.562 \\ \hline
+                \cellcolor{yellow!50}8 & \cellcolor{yellow!50}Vertex & \cellcolor{yellow!50}5.904 \\ \hline
+                9 & Left Gonion & 5.652 \\ \hline
+                10 & Right Gonion & 5.655 \\ \hline
+                11 & Left Zygion & 5.351 \\ \hline
+                12 & Right Zygion & 6.504 \\ \hline
+                13 & Left Alare & 1.972 \\ \hline
+                14 & Right Alare & 2.27 \\ \hline
+                15 & Left Endocanthion & 1.675 \\ \hline
+                16 & Right Endocanthion & 1.731 \\ \hline
+                17 & Left Exocanthion & 1.7 \\ \hline
+                18 & Right Exocanthion & 1.651 \\ \hline
+                19 & Left Tragion & 4.15 \\ \hline
+                20 & Right Tragion & 5.639 \\ \hline
+                21 & Labiale inferius & 1.734 \\ \hline
+                22 & Trichion & 4.445 \\ \hline
+                23 & Supramentale & 1.933 \\ \hline
+                24 & Left Frontotemporale & 2.37 \\ \hline
+                25 & Right Frontotemporale & 2.97 \\ \hline
+                26 & Left Frontozygomaticus & 1.566 \\ \hline
+                27 & Right Frontozygomaticus & 2.483 \\ \hline
+                28 & Left Midsurpaorbital & 1.168 \\ \hline
+                29 & Right Midsupraorbital & 1.429 \\ \hline
             \end{tabular}
             \label{table:ModelBase_landmarkresume}
         \end{table}
-
         \medskip
 
         \noindent Los resultados por landmark se puden ver en la \autoref{table:ModelBase_landmarkresume} y son buenos en general para tratarse del modelo base, siendo el landmark mejor marcado en media el \textit{Prosthion}, y el peor el \textit{Right Gonion}. Si recordamos la \autoref{fig:Histograma}, sorprende el hecho de que el \textit{Prosthion} es de los landmarks que menos presencia tiene en las imágenes (aparece en menos de $40$ imágenes), y sin embargo es de los que mejor aprende a marcar la red. Por otro lado, el \textit{Right Gonion}, pese a aparecer en unas $100$ imágenes, resulta más dificil para la red predecirlo. Esto puede deberse a que las imágenes con mayor error de reconstrucción son las de perfil, y es en este tipo de imágenes en las que mejor se aprecia dicho landmark.
