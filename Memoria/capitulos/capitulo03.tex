@@ -154,20 +154,24 @@ $$\forall f,h \in L^2(\mathbb{R}^d) \lim_{J\rightarrow\infty} ||S_J[\mathcal{P}_
 \noindent Para ondeletas de dispersión admisibles que satisfacen \eqref{eq::1.7}, el \autoref{teoremaOndeletasAdmisibles} nos demuestra que si $||S_J[\mathcal{P}_J]f||=||f||$ entonces $\lim_{J\rightarrow\infty}||S_J[\mathcal{P}_J]f||=||f||$. El siguiente teorema demuestra que el límite es invariante por traslaciones, pero para la demostración del teorema necesitaremos dos resultados auxiliares:
 
 \begin{lema} \label{lemma:Schur}
-  Para cualquier operador $Kf(x)=\int f(u)k(x,u)du \; \in L^2(\mathbb{R}^d)$ se tiene 
+  Sea $K:L^2(\mathbb{R}^d) \rightarrow L^2(\mathbb{R}^d)$ un operador tal que $\forall f \in L^2(\mathbb{R}^d)$, $Kf(x)=\int f(u)k(x,u)du$ verificando
 
-  $$\int |k(x,u)| dx \leq C,$$
+  $$\int |k(x,u)| dx \leq C$$
 
-  \noindent con $C >0$, y además 
+  \noindent y 
 
-  $$\int |k(x,u)|du \leq C \implies ||K||\leq C.$$
+  $$\int |k(x,u)|du \leq C$$
 
-  \noindent Donde $||K||$ es la norma en $L^2(\mathbb{R}^d)$ de $K$.
+  \noindent con $C >0$. 
+
+  \medskip
+
+  \noindent Entonces $\|K\| \leq C$. Donde $||K||$ es la norma en $L^2(\mathbb{R}^d)$ de $K$.
 \end{lema}
 
 \medskip
 
-\noindent Para la demostración del lema anterior se necesita el Lema de Schur \cite{SchurLemma}. Debido a que se trata de un lema auxiliar que emplearemos para la demostración del teorema principal de la sección, no lo demostraremos.
+\noindent El lema anterior es conocido como Lema de Schur. Sin embargo, como se trata de un lema auxiliar que emplearemos para la demostración del teorema principal de la sección, no lo demostraremos.
  
 \begin{lema} \label{lema::constante}
   Existe una constante $C$ tal que para todo $\tau \in \C^2(\mathbb{R}^d)$ con $||\nabla \tau ||_\infty \leq \frac{1}{2}$ se tiene que 
