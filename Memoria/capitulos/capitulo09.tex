@@ -364,21 +364,21 @@
             \end{itemize}
 
         \subsection{Reajuste de los bounding boxes}
-            \noindent Finalmente, como parte del proceso de determinar los \textit{bounding boxes}, se vió que en todos los casos, dichos rectángulos cortaban parte de las caras de los sujetos. En ocasiones partes en las que había landmarks marcados, es por ello, que se tuvo que realizar una transformación del \textit{bounding box} sugerido para que manteniendo el centro del mismo abarcase una mayor superficie y que contuviera el rostro completo del sujeto. 
+            \noindent Finalmente, como parte del proceso de determinar los \textit{bounding boxes}, se vió que en todos los casos, dichos rectángulos cortaban parte de las caras de los sujetos (partes en las que había landmarks marcados). Es por ello, que se tuvo que realizar una transformación del \textit{bounding box} sugerido para que manteniendo el centro del mismo abarcase una mayor superficie y que contuviera el rostro completo del sujeto. 
 
             \medskip
 
             \noindent La transfomación consiste en desplazar la esquina superior izquierda del rectángulo una cantidad \textit{m} en el eje de ordenadas y abscisas y establecer el resto de esquinas de acuerdo a este parámetro como se muestra en la \autoref{fig:Transformacion_BB}.
 
 
-            \begin{figure}[H]
+            \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.8\textwidth]{img/Transformacion_rectangulo.png}
                 \caption{Proceso seguido para la transformación.}
                 \label{fig:Transformacion_BB}
             \end{figure}
 
-            \begin{figure}[H]
+            \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.7\textwidth]{img/imagenes_ejemplo_cropping.png}
                 \caption{Recorte de las caras tras el reajuste del \textit{bounding box}.}
@@ -387,13 +387,46 @@
 
             \medskip
 
-            \noindent No obstante, el framework 3FabRec dispone de un método de recorte y redimensión automático de las caras empleando \textit{bounding boxes}. En un primer momento, forzamos al framework a respetar los \textit{bounding boxes} construidos durante el preprocesamiento, con el reajuste mencionado anteriormente, pero los errores de reconstrucción de estas imágenes, durante el proceso de entrenamiento, eran muy elevados. Tanto, que no resultaba práctico para entrenar la red, pues el framework marca los puntos sobre localizaciones que no guardaban parecido con el lugar real del punto en la imagen original.
+            \noindent No obstante, el framework 3FabRec dispone de un método de recorte y redimensión automático de las caras empleando \textit{bounding boxes}. En un primer momento, forzamos al framework a respetar los \textit{bounding boxes} construidos durante el preprocesamiento, pero los errores de reconstrucción de estas imágenes eran muy elevados. No resultaba práctico para entrenar la red, pues el framework marca los puntos sobre localizaciones que no guardaban parecido con el lugar real del punto en la imagen original. Podemos ver algunos ejemplos de reconstrucción en la \autoref{fig:bb_custom}.
+
+
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.7\textwidth]{img/bounding_box_custom.png}
+                \caption{Error estructural y de reconstrucción de las imágenes con el bounding box reajustado. El error de reconstrucción se encuentra en la esquina inferior izquierda, y el estructural encima del anterior. Como podemos observar, en todos los casos son muy elevados y la imagen reconstruida apenas guarda relación con la original.}
+                \label{fig:bb_custom}
+            \end{figure}
 
             \medskip
 
-            \noindent Se probó entonces a aplicar al \textit{bounding box} definido, el reajuste que realiza 3FabRec. Este nuevo reajuste dejaba en la mayoría de casos mal marcado el \textit{vertex}, pues suele recortar la parte superior de la cabeza. No obstante los errores de reconstrucción eran mucho menores con esta alternativa y los landmarks predichos se localizaban en las imágenes reconstruidas sobre puntos que guardaban una estrecha relación con la localización real en la imagen original. Es por eso que definitivamente se optó por aplicar esta transformación extra, sacrificando el correcto marcado del \textit{vertex} en algunas imágenes. 
+            \noindent Se probó entonces a aplicar al \textit{bounding box} definido, el reajuste que realiza 3FabRec. Este nuevo reajuste dejaba en la mayoría de casos mal marcado el \textit{vertex}, pues suele recortar la parte superior de la cabeza. No obstante los errores de reconstrucción eran mucho menores con esta alternativa y los landmarks predichos se localizaban en las imágenes reconstruidas sobre puntos que guardaban una estrecha relación con la localización real en la imagen original (véase la \autoref{fig:bb_3fabrec}). Se decidió entonces estudiar por qué ocurría esto.
 
+            \begin{figure}[!h]
+                \centering
+                \includegraphics[width=0.7\textwidth]{img/bounding_box_3fabrec.png}
+                \caption{Error estructural y de reconstrucción de las imágenes con el reajuste del bounding box de 3FabRec. Como podemos ver, sigue habiendo grandes errores de reconstrucción y estructurales, pero se consigue un mejor resultado de la estructura facial. No obstante, el vertex no se aprecia correctamente en las imágenes.}
+                \label{fig:bb_3fabrec}
+            \end{figure}
 
+            \noindent El reajuste que realiza 3FabRec es el siguiente:
+            \begin{enumerate}
+                \item En primer lugar, se determina el tamaño de la región de interés (ROI, del inglés region of interest) en píxeles. Para ello, el framework por defecto calcula la diagonal del tamaño de las imágenes de entrada (en nuestro caso son $256 \times 256$), y lo redondea al entero superior más próximo (el resultado es de $363$ píxeles, en nuestro caso). De este valor se obtienen dos parámetros, el \textit{crop\_size} y el \textit{margin}, de manera que \textit{crop\_size + margin = roi} (en nuestro caso \textit{crop\_size}=$256$ y \textit{margin}=$107$).
+                \item En segundo lugar, se reajusta el bounding box convirtiéndolo siempre en cuadrado de lado $\max(ancho,alto)$. Se calcula el factor de escalado $escala = \frac{crop\_size + margin}{crop\_size}$, para ampliar el bounding box original uniformemente, de acuerdo al margin. 
+                \item  Finalmente se reescala el resultado a una imagen de tamaño $256\times 256$.
+            \end{enumerate}
+
+            \medskip
+
+            \noindent Por otro lado, el entrenamiento no supervisado del \textit{AAE} hizo que la red aprendiera la distribución de un determinado dataset de imágenes. Estudiando minuciosamente los ficheros encargados de preparar los datos de entrenamiento (affectnet.py y vgg2face.py), se vio que en ambos, el tamaño de las imágenes es de $256 \times 256$, pero no se especifica un valor determinado para el ROI, por lo que este se calcula por el framework de la misma manera que hace con nuestras imágenes, realizando un ajuste de los bounding boxes idéntico al nuestro. Además, para el ajuste fino del encoder utilizando las imágenes de \textit{AFLW}, de nuevo se aplicaron estas transformaciones.
+            
+            \medskip
+            
+            \noindent Esto, puede explicar por qué en el primer caso no se reconstruyen bien las imágenes, ya que se fuerza a que no se apliquen estas transformaciones a las imágenes de entrada. De esta manera, la distribución de las imágenes de entrada cambia radicalmente con respecto a la distribución con la que fue entrenada la red y su posterior \textit{fine-tuning} con \textit{AFLW}. Sin embargo, si permitimos que 3FabRec realice las transformaciones descritas anteriormente, conseguimos que la distribución de los datos de entrada (pese a seguir siendo diferente) sea lo mas \entrecomillado{parecida} posible a la distribución sobre la que fue entrenada la red, mejorando la reconstrucción de las imágenes. 
+            
+            \medskip
+            
+            
+            \noindent Por lo expuesto anteriormente, se decide continuar con el reajuste que realiza el framework para lograr una mejor reconstrucción, aunque se pierda el marcado correcto del \textit{vertex}.
 
     \subsection{Separación en conjuntos de entrenamiento y validación}
         \noindent En primer lugar ,separaremos el conjunto de datos que se proporciona en conjuntos de entrenamiento, validación y test. Debido a que trabajaremos con un conjunto de datos reducido será necesario emplear \textbf{validación cruzada} para la elección entre los modelos que se prueben. Así pues, de las \textbf{164 imágenes} que usaremos en total, establecemos una semilla para que los procesos aleatorios sean replicables en cualquier máquina y con ayuda de la función \textit{random-shuffle} de python separamos los datos en: 
