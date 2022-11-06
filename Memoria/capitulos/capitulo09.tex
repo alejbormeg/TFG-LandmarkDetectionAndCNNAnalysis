@@ -151,7 +151,7 @@
                 \mathcal{L}_H(ITL) = \mathbb{E}_{x ~ p(x)} \left[ \| H-ITL(a)\|_2 \right]
             \end{equation}
 
-            \noindent Dónde $a$ serían los mapas de activación que genera la ResNet invertida para la imagen codificada $z=E(x)$ (siendo $x$ la imagen de entrada a la red). En este caso se computa la distancia \textbf{$L_2$} entre los \textit{Heathmaps} de los lanmarks originales de la imagen $x$ de entrada, y los predichos por las \textit{ITLs}. Propagando el error por los pesos de las \textit{ITLS} solamente, forzando a adaptarse a los pesos ya aprendidos del generador.
+            \noindent Dónde $a$ serían los mapas de activación que genera la ResNet invertida para la imagen codificada $z=E(x)$ (siendo $x$ la imagen de entrada a la red). En este caso se computa la distancia \textbf{$L_2$} entre los \textit{Heat-maps} de los lanmarks originales de la imagen $x$ de entrada, y los predichos por las \textit{ITLs}. Propagando el error por los pesos de las \textit{ITLS} solamente, forzando a adaptarse a los pesos ya aprendidos del generador.
 
             \medskip
 
@@ -182,7 +182,7 @@
                 
                 \medskip
 
-                \noindent Por otro lado se crean los \textit{Heathmaps} para cada landmark. Para esto se crea una imagen de tamaño $128 \times 128$ por cada landmark marcando el punto con ayuda de una distribución normalde dos dimensiones centrada en las coordenadas del landmark y usando una desviación típica de $\sigma=7$.
+                \noindent Por otro lado se crean los \textit{Heat-maps} para cada landmark. Para esto se crea una imagen de tamaño $128 \times 128$ por cada landmark marcando el punto con ayuda de una distribución normalde dos dimensiones centrada en las coordenadas del landmark y usando una desviación típica de $\sigma=7$.
 
                 \medskip
 
@@ -229,7 +229,7 @@
                 MSE = \frac{1}{N} \sum_{i=1}^{N} (y_i - \widehat{y}_i)^2
             \end{equation}
 
-            \noindent En nuestro caso concreto, este error se calcula entre los mapas de calor de los landmarks reales y predichos a nivel de pixel, es decir $y_i$ en la fórmula anterior corresponde a cada pixel del heatmap del landmark real y por tanto $\widehat{y}_i$ es el valor del pixel correspondiente en el heatmap predicho. Dichas diferencias se suman en todos los heatmaps y se divide por $N$ que en este caso es el número total de píxeles juntando todos los Heatmaps.
+            \noindent En nuestro caso concreto, este error se calcula entre los mapas de calor de los landmarks reales y predichos a nivel de pixel, es decir $y_i$ en la fórmula anterior corresponde a cada pixel del heatmap del landmark real y por tanto $\widehat{y}_i$ es el valor del pixel correspondiente en el heatmap predicho. Dichas diferencias se suman en todos los heatmaps y se divide por $N$ que en este caso es el número total de píxeles juntando todos los Heat-maps.
 
             \medskip
 
@@ -429,7 +429,7 @@
             \noindent Por lo expuesto anteriormente, se decide continuar con el reajuste que realiza el framework para lograr una mejor reconstrucción, aunque se pierda el marcado correcto del \textit{vertex}.
 
     \subsection{Separación en conjuntos de entrenamiento y validación}
-        \noindent En primer lugar ,separaremos el conjunto de datos que se proporciona en conjuntos de entrenamiento, validación y test. Debido a que trabajaremos con un conjunto de datos reducido será necesario emplear \textbf{validación cruzada} para la elección entre los modelos que se prueben. Así pues, de las \textbf{164 imágenes} que usaremos en total, establecemos una semilla para que los procesos aleatorios sean replicables en cualquier máquina y con ayuda de la función \textit{random-shuffle} de python separamos los datos en: 
+        \noindent Separamos la base de datos proporcionada en conjuntos de entrenamiento, validación y test. Por el limitado número de ejemplos que tenemos, será necesario emplear \textbf{validación cruzada} para la elección entre los modelos que se prueben. Así pues, de las \textbf{164 imágenes} que usaremos en total, establecemos una semilla para que los procesos aleatorios sean replicables en cualquier máquina y con ayuda de la función \textit{random-shuffle} de python separamos los datos en: 
 
         \begin{itemize}
             \item \textbf{Conjunto de test}: 33 imágenes ($20\%$ del total de imágenes).
@@ -440,11 +440,16 @@
         
         \medskip
 
-        \noindent Para esta técnica se realizan cinco ejecuciones independientes en la cual se toman cuatro de los cinco subconjuntos de entrenamiento para entrenar el modelo y se deja el último subconjunto para validar el modelo. Con esta técnica, en cada iteración se cambia el conjunto que se empleará para validación, con la finalidad de mejorar la calidad de las decisiones que se tomen sobre el rendimiento, pues la decisión estará mejor informada. 
+        \noindent Para esta técnica se realizan cinco ejecuciones independientes en la cual se toman cuatro de los cinco subconjuntos de entrenamiento para entrenar el modelo y se deja el último subconjunto para validar el modelo. Así, en cada iteración se cambia el conjunto que se empleará para validación, con la finalidad de mejorar la calidad de las decisiones que se tomen sobre el rendimiento, pues la decisión estará mejor informada.
 
         \medskip
 
-        \noindent De esta manera, con cada propuesta de modelo que realicemos, se medirá su rendimiento usando \textbf{5-fold cross-validation}, obteniendo 5 salidas de validación para cada modelo. La elección del mejor será mediante el cómputo de la mediana de estos para cada mdelo.
+        \noindent Con cada propuesta de modelo, se medirá su rendimiento usando \textbf{5-fold cross-validation}, obteniendo 5 salidas de validación para cada modelo. Cada salida se compone de una tabla en la que aparece el NME medio por landmark (teniendo en cuenta sólamente los marcados en validación), y una tabla en la que para cada imagen de validación se obtiene su NME medio (haciendo la media del NME cometido por cada landmark), y el error de reconstrucción. Para la elección del modelo final se tendrá en cuenta: 
+
+        \begin{itemize}
+            \item Una tabla en la que se promedian las cinco tablas obtenidas con el NME medio por landmark.
+            \item Una tabla en la para cada imagen del conjunto de entrenamiento, se tiene el NME cometido y el error de reconstrucción. Esta tabla se obtiene concatenando todas las predicciones de cada partición de cross-validation.
+        \end{itemize}
 
 
 \section{Experimentación}
@@ -453,23 +458,23 @@
 
         \medskip
 
-        \noindent También, en la creación de los \textit{Heat maps} se ha optado por mantener el valor de $\sigma =7$ que se recomienda en el paper \cite{browatzki20203fabrec}, ya que de nuevo ha sido probado minuciosamente por los autores del framework.
+        \noindent También, en la creación de los \textit{Heat-maps} se ha optado por mantener el valor de $\sigma =7$ que se recomienda en el paper \cite{browatzki20203fabrec}, ya que de nuevo ha sido probado minuciosamente por los autores del framework.
     
     \subsection{Modelo Base}
-        \noindent Buscamos un \textbf{modelo base} con el que obtener los primeros resultados, y que iremos refinando hasta obtener el modelo solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos. Todos ellos han sido entrenados en la fase de aprendizaje no supervisado. Uno de ellos viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento en los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}. Así pues, la primera decisión a tomar es si emplear un modelo preentrenado en alguno de los datasets o utilizar uno sin entrenar. 
+        \noindent Buscamos un \textbf{modelo base} con el que obtener los primeros resultados, y que iremos refinando hasta obtener el modelo solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos. Todos ellos han sido entrenados en la fase de aprendizaje no supervisado con la unión explicada de los datasets \textit{VGG2Face} y \textit{Affectnet}. Uno de ellos viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento y \textit{fine-tuning} del encoder een los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}.
 
         \medskip
 
-        \noindent Los tres datasets anteriores han sido ya estudiados en apartados anteriores, y finalmente se ha optado por usar como modelo base el que ha sido entrenado en \textit{AFLW}. Esto se debe a que el número de landmarks que predice este modelo es similar al de nuestro problema, ya que predice 21 landmarks. Por otro lado, los landmarks de AFLW, pese a no tener una justificación biológica, son parecidos a los anotados en el dataset que se proporciona. Es por esto que consideramos una buena primera decisión emplear la red \textbf{preentrenada en AFLW}.
+        \noindent Se ha optado por usar como modelo base el que ha sido entrenado en \textit{AFLW} porque el número de landmarks que predice este modelo es similar al de nuestro problema, ya que predice 21 landmarks, y la estructura de estos landmarks (visibles y no visibles) es similar a la nuestra.
 
         \medskip
 
-        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{ajuste fino} del encoder sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{40 épocas}, valor a partir del cual se aprecia la convergencia del \textit{mse} (que recordamos, es la medida de error entre los \textit{Heat maps} predichos por el modelo y los reales), y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
+        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{ajuste fino} del encoder sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{40 épocas}, valor a partir del cual se aprecia la convergencia del \textit{mse} (que recordamos, es la medida de error entre los \textit{Heat-maps} predichos por el modelo y los reales), y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
 
         \begin{itemize}
             \item El \textit{learning rate} para el optimizador Adam usado en el entrenamiento de las ITLs se establece en $0.001$. 
-            \item El valor del parámetro $\beta_1$ se establece en $0.0$.
-            \item El valor del parámetro $\beta_2$ se establece en $0.9$.
+            \item El valor del parámetro $\beta_1$ se establece en $0.9$.
+            \item El valor del parámetro $\beta_2$ se establece en $0.999$.
         \end{itemize}
 
         \noindent Los resultados obtenidos por imagen en cada partición de \textbf{cross validation 5-fold } se pueden encontrar en \autoref{ap:apendiceA}. En estas tablas podemos observar la media del NME obtenido entre todos los landmarks presentes en la imagen, los no marcados no computan. Los resultados obtenidos son en general buenos para ser el modelo base. El NME no es muy elevado, aunque el error de reconstrucción y estructural sí lo son. Podemos concluir así que no se están reconstruyendo fielmente las imágenes a nivel de píxel, aunque como vemos en la \autoref{fig:Ejemplo_ModelBase}, la reconstrucción de las caras es apropiada en general. No obstante, esto podría afectar al marcado de landmarks, puesto que estos se marcan en primer lugar sobre la imagen reconstruida, y luego se trasladan a la original.

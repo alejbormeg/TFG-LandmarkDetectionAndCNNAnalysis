@@ -100,8 +100,8 @@
 \contentsline {subsection}{\numberline {9.3.2}Creación del fichero annotations en el dataset}{106}{subsection.9.3.2}%
 \contentsline {subsection}{\numberline {9.3.3}Reajuste de los bounding boxes}{107}{subsection.9.3.3}%
 \contentsline {subsection}{\numberline {9.3.4}Separación en conjuntos de entrenamiento y validación}{110}{subsection.9.3.4}%
-\contentsline {section}{\numberline {9.4}Experimentación}{110}{section.9.4}%
-\contentsline {subsection}{\numberline {9.4.1}Hipótesis iniciales}{110}{subsection.9.4.1}%
+\contentsline {section}{\numberline {9.4}Experimentación}{111}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}Hipótesis iniciales}{111}{subsection.9.4.1}%
 \contentsline {subsection}{\numberline {9.4.2}Modelo Base}{111}{subsection.9.4.2}%
 \contentsline {subsection}{\numberline {9.4.3}Modelo con reentrenamiento del encoder}{114}{subsection.9.4.3}%
 \contentsline {subsection}{\numberline {9.4.4}Modelo con reentrenamiento del decoder}{117}{subsection.9.4.4}%
