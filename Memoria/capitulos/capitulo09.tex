@@ -549,45 +549,45 @@
 
         \noindent Es importante aclarar que este proceso no produce overfitting, pues durante las etapas de entrenamiento los pesos del \textit{decoder} permanecerán congelados, y serán únicamente los pesos del \textit{encoder} los que se actualicen con backpropagation. El optimizador empleado para el entrenamiento del \textit{encoder} es Adam, el mismo que ellos emplean y los parámetros se mantienen por defecto ($\beta_1=0.9$ y $\beta_2=0.999$) a excepción del \textit{learning rate}, que se establece a $2^{-6}$, en vez de $2^{-5}$. El motivo por el cual se realiza este cambio es porque experimentando en esta fase se vio que con el antiguo \textit{Learning rate} no se conseguía mejorar apenas la reconstrucción en validación, pues durante el entrenamiento el error de reconstrucción pronto quedaba estancado en un valor. Para evitar esto se optó por reducir el learning rate consiguiendo mejorar un poco más el error de reconstrucción. El entrenamiento duró en total \textbf{100 épocas}, pues como veremos, el modelos mejora más lentamente en el reconocimiento de landmarks.
 
-            \begin{table}[!ht]
-                \centering
-                \caption{Tabla comparativa entre los dos modelos explorados por ahora. Medimos el NME medio a nivel de landmark. En verde se resalta el mejor valor de marcado para cada landmark, en un verde más intenso las mejoras más considerables.}
-                \begin{tabular}{|l|l|l|l|}
-                \hline
-                    \textbf{} & \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{Media NME (Modelo base)} & \cellcolor{gray!25}\textbf{Media NME (Modelo Encoder)} \\ \hline
-                    \textbf{0} & Menton & \cellcolor{green!25} 3.944 & 3.997 \\ \hline
-                    \textbf{1} & Gnathion & 2.637 & \cellcolor{green!25} 2.606 \\ \hline
-                    \textbf{2} & Pogonion & 2.549 & \cellcolor{green!25} 2.546 \\ \hline
-                    \textbf{3} & Prosthion & \cellcolor{green!25} 0.932 & 1.048 \\ \hline
-                    \textbf{4} & Labiale Superius & 2.099 & \cellcolor{green!25} 2.04 \\ \hline
-                    \textbf{5} & Subnasale & 2.059 & \cellcolor{green!25} 1.992 \\ \hline
-                    \textbf{6} & Nasion & 2.254 & \cellcolor{green!25} 2.099 \\ \hline
-                    \textbf{7} & Glabella & \cellcolor{green!25} 2.547 & 2.736 \\ \hline
-                    \textbf{8} & Vertex & 6.244 &\cellcolor{green!25} 5.89 \\ \hline
-                    \textbf{9} & Left Gonion & 7.684 & \cellcolor{green!50} \textbf{5.789} \\ \hline
-                    \textbf{10} & Right Gonion & 11.283 & \cellcolor{green!50} \textbf{5.301} \\ \hline
-                    \textbf{11} & Left Zygion & \cellcolor{green!25} 5.098 & 5.288 \\ \hline
-                    \textbf{12} & Right Zygion & 6.309 & \cellcolor{green!25} 6.291 \\ \hline
-                    \textbf{13} & Left Alare & \cellcolor{green!25} 1.939 & 1.959 \\ \hline
-                    \textbf{14} & Right Alare & 2.282 & \cellcolor{green!25} 2.232 \\ \hline
-                    \textbf{15} & Left Endocanthion & \cellcolor{green!25} 1.668 & 1.71 \\ \hline
-                    \textbf{16} & Right Endocanthion & 1.671 & \cellcolor{green!25} 1.647 \\ \hline
-                    \textbf{17} & Left Exocanthion & \cellcolor{green!25} 1.706 & 1.733 \\ \hline
-                    \textbf{18} & Right Exocanthion & \cellcolor{green!25} 1.670 & 1.746 \\ \hline
-                    \textbf{19} & Left Tragion & 4.824 & \cellcolor{green!25} 3.633 \\ \hline
-                    \textbf{20} & Right Tragion & 5.376 & \cellcolor{green!25} 5.252 \\ \hline
-                    \textbf{21} & Labiale inferius & 1.705 & \cellcolor{green!25} 1.688 \\ \hline
-                    \textbf{22} & Trichion & \cellcolor{green!25} 4.478 & 4.762 \\ \hline
-                    \textbf{23} & Supramentale & \cellcolor{green!25} 1.913 & 1.991 \\ \hline
-                    \textbf{24} & Left Frontotemporale & \cellcolor{green!25} 2.319 & 2.452 \\ \hline
-                    \textbf{25} & Right Frontotemporale & \cellcolor{green!25} 2.721 & 3.282 \\ \hline
-                    \textbf{26} & Left Frontozygomaticus & 1.513 & \cellcolor{green!25} 1.499 \\ \hline
-                    \textbf{27} & Right Frontozygomaticus & \cellcolor{green!25} 2.313 & 2.516 \\ \hline
-                    \textbf{28} & Left Midsurpaorbital & 1.205 & \cellcolor{green!25} 1.178 \\ \hline
-                    \textbf{29} & Right Midsupraorbital & 1.43 & \cellcolor{green!25} 1.348 \\ \hline
-                \end{tabular}
-                \label{table:Encode_landmarkresume}
-            \end{table}    
+        \begin{table}[!ht]
+            \centering
+            \caption{Tabla comparativa entre los dos modelos explorados por ahora. Medimos el NME medio a nivel de landmark. En verde se resalta el mejor valor de marcado para cada landmark.}
+            \begin{tabular}{|l|l|l|}
+            \hline
+            \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{M. Base} & \cellcolor{gray!25}\textbf{M. Encoder} \\ \hline
+                Menton & 4.176 & \cellcolor{green!25}3.997 \\ \hline
+                Gnathion & 2.629 & \cellcolor{green!25}2.606 \\ \hline
+                Pogonion & \cellcolor{green!25}2.509 & 2.546 \\ \hline
+                Prosthion & 1.178 & \cellcolor{green!25}1.048 \\ \hline
+                Labiale Superius & \cellcolor{green!25}1.965 & 2.04 \\ \hline
+                Subnasale & 2.056 & \cellcolor{green!25}1.992 \\ \hline
+                Nasion & 2.211 & \cellcolor{green!25}2.099 \\ \hline
+                Glabella & \cellcolor{green!25}2.562 & 2.736 \\ \hline
+                \cellcolor{yellow!50}Vertex &\cellcolor{yellow!50} 5.904 & \cellcolor{yellow!50}5.89 \\ \hline
+                Left Gonion & \cellcolor{green!25}5.652 & 5.789 \\ \hline
+                Right Gonion & 5.655 & \cellcolor{green!25}5.301 \\ \hline
+                Left Zygion & 5.351 & \cellcolor{green!25}5.288 \\ \hline
+                Right Zygion & 6.504 & \cellcolor{green!25}6.291 \\ \hline
+                Left Alare & 1.972 & \cellcolor{green!25}1.959 \\ \hline
+                Right Alare & 2.27 & \cellcolor{green!25}2.232 \\ \hline
+                Left Endocanthion & \cellcolor{green!25}1.675 & 1.71 \\ \hline
+                Right Endocanthion & 1.731 & \cellcolor{green!25}1.647 \\ \hline
+                Left Exocanthion & \cellcolor{green!25}1.7 & 1.733 \\ \hline
+                Right Exocanthion & \cellcolor{green!25}1.651 & 1.746 \\ \hline
+                Left Tragion & 4.15 & \cellcolor{green!25}3.633 \\ \hline
+                Right Tragion & 5.639 & \cellcolor{green!25}5.252 \\ \hline
+                Labiale inferius & 1.734 & \cellcolor{green!25}1.688 \\ \hline
+                Trichion & \cellcolor{green!25}4.445 & 4.762 \\ \hline
+                Supramentale & \cellcolor{green!25}1.933 & 1.991 \\ \hline
+                Left Frontotemporale & \cellcolor{green!25}2.37 & 2.452 \\ \hline
+                Right Frontotemporale & \cellcolor{green!25}2.97 & 3.282 \\ \hline
+                Left Frontozygomaticus & 1.566 & \cellcolor{green!25}1.499 \\ \hline
+                Right Frontozygomaticus & \cellcolor{green!25}2.483 & 2.516 \\ \hline
+                Left Midsurpaorbital & \cellcolor{green!25}1.168 & 1.178 \\ \hline
+                Right Midsupraorbital & 1.429 & \cellcolor{green!25}1.348 \\ \hline
+            \end{tabular}
+            \label{table:Encode_landmarkresume}
+        \end{table}
 
     \noindent Como podemos observar en la \autoref{table:Encode_landmarkresume}, los valores son muy similares a los del modelo base, pese a que este ha entrenado durante más épocas. El \textit{Prosthion} sigue siendo el landmark mejor marcado, con un valor del error NME ligeramente superior al del modelo base. Sin embargo la verdadera mejora se aprecia en el marcado de landmarks de los perfiles, al mejorar la reconstrucción de los mismos, el \textit{Right Gonion} ha bajado su error a la mitad, y el \textit{Left Gonion} ha reducido su error en dos puntos con respecto al modelo base.
     
