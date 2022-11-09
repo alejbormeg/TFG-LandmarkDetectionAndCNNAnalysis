@@ -461,7 +461,7 @@
         \noindent También, en la creación de los \textit{Heat-maps} se ha optado por mantener el valor de $\sigma =7$ que se recomienda en el paper \cite{browatzki20203fabrec}, ya que de nuevo ha sido probado minuciosamente por los autores del framework.
     
     \subsection{Modelo Base}
-        \noindent Buscamos un \textbf{modelo base} con el que obtener los primeros resultados, y que iremos refinando hasta obtener el modelo solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos. Todos ellos han sido entrenados en la fase de aprendizaje no supervisado con la unión explicada de los datasets \textit{VGG2Face} y \textit{Affectnet}. Uno de ellos viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento y \textit{fine-tuning} del encoder een los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}.
+        \noindent Buscamos un \textbf{modelo base} con el que obtener los primeros resultados, y que iremos refinando hasta obtener la solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos. Todos ellos han sido entrenados en la fase de aprendizaje no supervisado con la unión explicada de los datasets \textit{VGG2Face} y \textit{Affectnet}. Uno de ellos viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento y \textit{fine-tuning} del encoder een los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}.
 
         \medskip
 
@@ -469,7 +469,7 @@
 
         \medskip
 
-        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{ajuste fino} del encoder sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{60 épocas}, apreciándose la convergencia del \textit{mse} (que recordamos, es la medida de error entre los \textit{Heat-maps} predichos por el modelo y los reales), y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
+        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{ajuste fino} del encoder sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{60 épocas}, hasra la convergencia del \textit{mse} (que recordamos, es la medida de error entre los \textit{Heat-maps} predichos por el modelo y los reales), y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
 
         \begin{itemize}
             \item El \textit{learning rate} para el optimizador Adam usado en el entrenamiento de las ITLs se establece en $0.001$. 
@@ -477,7 +477,32 @@
             \item El valor del parámetro $\beta_2$ se establece en $0.999$.
         \end{itemize}
 
-        \noindent Los resultados obtenidos por imagen en cada partición de \textbf{cross validation 5-fold } se pueden encontrar en \autoref{ap:apendiceA}. En estas tablas podemos observar la media del NME obtenido entre todos los landmarks presentes en la imagen, los no marcados no computan. Los resultados obtenidos son en general buenos para ser el modelo base. El NME no es muy elevado, aunque el error de reconstrucción y estructural sí lo son. Podemos concluir así que no se están reconstruyendo fielmente las imágenes a nivel de píxel, aunque como vemos en la \autoref{fig:Ejemplo_ModelBase}, la reconstrucción de las caras es apropiada en general. No obstante, esto podría afectar al marcado de landmarks, puesto que estos se marcan en primer lugar sobre la imagen reconstruida, y luego se trasladan a la original.
+        \noindent La predicción por imagen que resulta de concatenar la salida de \textbf{cross validation 5-fold } para cada partición se pueden encontrar en \autoref{ap:apendiceA}. Los resultados son los siguientes pueden verse en la \autoref{fig:boxplot_ModeloBase_NME} y la \autoref{table:ModelBase_images_results}:
+
+        \begin{table}[!ht]
+            \centering
+            \caption{Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo base.}
+            \begin{tabular}{|l|l|l|l|l|l|l|}
+            \hline
+                \cellcolor{gray!25}\textbf{Error} & \cellcolor{gray!25}\textbf{P25} & \cellcolor{gray!25}\textbf{P50} & \cellcolor{gray!25}\textbf{P75} & \cellcolor{gray!25}\textbf{RI} & \cellcolor{gray!25}\textbf{Media} & \cellcolor{gray!25}\textbf{Valores atípicos} \\ \hline
+                NME & 1.839 & 2.18 & 2.860 & 1.021 & 2.974 & 12 \\ \hline
+                Reconstrucción & 30.02 & 37.104 & 44.38 & 14.35 & 38.04 & 4 \\ \hline
+            \end{tabular}
+            \label{table:ModelBase_images_results}
+        \end{table}
+         
+        \medskip
+
+        \noindent Como podemo ver, la distribución del error NME es compacta, lo cual es un buen indicador, pues el modelo tiene un rendimiento similar en la mayoría de imágenes. Por otro lado, los outliers representan el $9,16 \%$ de los datos, un porcentaje no muy elevado pero que dada la poca cantidad de datos de la que disponemos, intentaremos reducir. Estos valores suelen corresponderse con imágenes especialmente complejas (de perfil y de baja calidad), en las que el error de reconstrucción también es muy elevado, llegando a ser el NME más alto superior a $30$. En cambio, en lo que respecta al error de reconstrucción, a distribución no está tan concentrada, los valores son en general altos, pero el número de outliers es mucho menor ($3.05\%$).
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/boxplot_modelo_base.png}
+            \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento. Se han omitido los Outliers para una correcta visualización.}
+            \label{fig:boxplot_ModeloBase_NME}
+        \end{figure}
+
+        \noindent Podemos concluir por tanto, que la reconstrucción a nivel de pixel no es adecuada, aunque como vemos en la \autoref{fig:Ejemplo_ModelBase}, la reconstrucción de las caras es apropiada en general, es decir, almacena conocimiento implícito sobre la estructura facial correctamente. Como el framework emplea el conocimiento aprendido sobre la estructura facial para la predicción de landmarks, sería ideal que esta reconstrucción fuese lo más fiel posible. No obstante, el error en el marcado de landmarks cometido es bajo.
 
         \begin{table}[!ht]
             \centering
@@ -520,11 +545,11 @@
         \end{table}
         \medskip
 
-        \noindent Los resultados por landmark se puden ver en la \autoref{table:ModelBase_landmarkresume} y son buenos en general para tratarse del modelo base, siendo el landmark mejor marcado en media el \textit{Prosthion}, y el peor el \textit{Right Gonion}. Si recordamos la \autoref{fig:Histograma}, sorprende el hecho de que el \textit{Prosthion} es de los landmarks que menos presencia tiene en las imágenes (aparece en menos de $40$ imágenes), y sin embargo es de los que mejor aprende a marcar la red. Por otro lado, el \textit{Right Gonion}, pese a aparecer en unas $100$ imágenes, resulta más dificil para la red predecirlo. Esto puede deberse a que las imágenes con mayor error de reconstrucción son las de perfil, y es en este tipo de imágenes en las que mejor se aprecia dicho landmark.
+        \noindent Los resultados por landmark se puden ver en la \autoref{table:ModelBase_landmarkresume} y son buenos en general para tratarse del modelo base. El landmark mejor marcado en media es el \textit{Prosthion}, y el peor el \textit{Right Gonion}. Si recordamos la \autoref{fig:Histograma}, sorprende el hecho de que el \textit{Prosthion} es de los landmarks que menos presencia tiene en las imágenes (aparece en menos de $40$ imágenes), esto nos demuestra la capacidad de 3FabRec de aprender con pocos ejemplos de entrenamiento. Por otro lado, el \textit{Right Gonion}, pese a aparecer en unas $100$ imágenes, resulta más dificil para la red predecirlo. Esto puede deberse a que las imágenes con mayor error de reconstrucción son las de perfil, y es en este tipo de imágenes en las que mejor se aprecia dicho landmark. Por otro lado, pese a que el \textit{Vertex} no se encuentra correctamente marcado algunas de las imágenes, hemos optado por medir su rendimiento también.
 
         \medskip
 
-        \noindent Por otro lado, podemos ver en la \autoref{fig:Curvas_modelbase} las curvas de aprendizaje de cada partición. Todas tiene una gran capacidad de generalización, pues como vemos el error de validación desciende a la par que el de entrenamiento y está poco por encima de este último.
+        \noindent En la \autoref{fig:Curvas_modelbase} podemos observar las curvas de aprendizaje de cada partición. Podemos observar un rápido descenso del error en entrenamiento y validación hasta la época $30$-$40$, a partir de la cual tiende a estabilizarse el error.
 
         \begin{figure}[H]
             \centering
@@ -533,7 +558,7 @@
             \label{fig:Curvas_modelbase}
         \end{figure}
 
-        \noindent En resumen, los resultados parecen buenos para tratarse de una primera aproximación. Sin embargo, consideramos que debido a la gran variabilidad del dataset tanto en posturas, como en calidad e iluminación de imagen, la reconstrucción de las imágenes se ha resentido, especialmente en las imágenes de perfil. Esto provoca que el modelo también marque peor los landmarks, por lo que vamos a intentar mejorar esto en los próximos modelos. Podemos ver el rendimiento del modelo en algunas imágenes en la \autoref{fig:Ejemplo_ModelBase}.
+        \noindent En resumen, los resultados son esperanzadores para tratarse de una primera aproximación. Sin embargo, consideramos que debido a la gran variabilidad del dataset tanto en posturas, como en calidad e iluminación de imagen, la reconstrucción de las imágenes se ha resentido, especialmente en las imágenes de perfil. Esto provoca que el modelo también marque peor los landmarks, por lo que vamos a intentar mejorar esto en los próximos modelos. Podemos ver el rendimiento del modelo en algunas imágenes en la \autoref{fig:Ejemplo_ModelBase}.
 
         \begin{figure}[H]
             \centering
@@ -547,7 +572,31 @@
 
         \medskip
 
-        \noindent Es importante aclarar que este proceso no produce overfitting, pues durante las etapas de entrenamiento los pesos del \textit{decoder} permanecerán congelados, y serán únicamente los pesos del \textit{encoder} los que se actualicen con backpropagation. El optimizador empleado para el entrenamiento del \textit{encoder} es Adam, el mismo que ellos emplean y los parámetros se mantienen por defecto ($\beta_1=0.9$ y $\beta_2=0.999$) a excepción del \textit{learning rate}, que se establece a $2^{-6}$, en vez de $2^{-5}$. El motivo por el cual se realiza este cambio es porque experimentando en esta fase se vio que con el antiguo \textit{Learning rate} no se conseguía mejorar apenas la reconstrucción en validación, pues durante el entrenamiento el error de reconstrucción pronto quedaba estancado en un valor. Para evitar esto se optó por reducir el learning rate consiguiendo mejorar un poco más el error de reconstrucción. El entrenamiento duró en total \textbf{100 épocas}, pues como veremos, el modelos mejora más lentamente en el reconocimiento de landmarks.
+        \noindent Es importante aclarar que este proceso restringe el reisgo de producir \textit{overfitting}, pues durante las etapas de entrenamiento los pesos del \textit{decoder} permanecerán congelados, y serán únicamente los pesos del \textit{encoder} y las ITLs los que se actualicen con backpropagation. El optimizador empleado para el entrenamiento del \textit{encoder} es Adam, el mismo que ellos emplean y los parámetros se mantienen por defecto ($\beta_1=0.9$ y $\beta_2=0.999$) a excepción del \textit{learning rate}, que se establece a $2^{-6}$, en vez de $2^{-5}$. El motivo por el cual se realiza este cambio es porque experimentando en esta fase se vio que con el antiguo \textit{Learning rate} no se conseguía mejorar apenas la reconstrucción en validación, pues durante el entrenamiento el error de reconstrucción pronto quedaba estancado en un valor. Para evitar esto, se optó por reducir el learning rate consiguiendo mejorar un poco más el error de reconstrucción. El entrenamiento duró en total \textbf{100 épocas}, pues como veremos, el modelos mejora más lentamente en el reconocimiento de landmarks.
+
+        \medskip
+
+        \noindent Como podemos ver en la \autoref{fig:ModelEncoder_images_results} y la \autoref{fig:boxplot_ModeloEncoder_NME}, la distribución de los errores de reconstrucción y NME es prácticamente idéntica a la anterior, con la única salvedad de que se ha reducido el número de outliers en una unidad. Las tablas con las predicciones por imagen pueden consultarse en el \autoref{ap:apendiceB}.
+
+        \begin{table}[!ht]
+            \centering
+            \caption{Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de ajuste fino del encoder.}
+            \begin{tabular}{|l|l|l|l|l|l|l|}
+            \hline
+            \cellcolor{gray!25}\textbf{Error} & \cellcolor{gray!25}\textbf{P25} & \cellcolor{gray!25}\textbf{P50} & \cellcolor{gray!25}\textbf{P75} & \cellcolor{gray!25}\textbf{RI} & \cellcolor{gray!25}\textbf{Media} & \cellcolor{gray!25}\textbf{Valores atípicos}\\ \hline
+                NME & 1.804 & 2.163 & 2.912 & 1.107 & 2.978 & 11 \\ \hline
+                Reconstrucción & 30.128 & 37.225 & 44.1135 & 13.98 & 38.006 & 3 \\ \hline
+            \end{tabular}
+            \label{table:ModelEncoder_images_results}
+        \end{table}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/boxplot_modelo_base.png}
+            \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento. Se han omitido los Outliers para una correcta visualización.}
+            \label{fig:boxplot_ModeloEncoder_NME}
+        \end{figure}
+
 
         \begin{table}[!ht]
             \centering
@@ -591,9 +640,6 @@
 
     \noindent Como podemos observar en la \autoref{table:Encode_landmarkresume}, los valores son muy similares a los del modelo base, pese a que este ha entrenado durante más épocas. El \textit{Prosthion} sigue siendo el landmark mejor marcado, con un valor del error NME ligeramente superior al del modelo base. Sin embargo la verdadera mejora se aprecia en el marcado de landmarks de los perfiles, al mejorar la reconstrucción de los mismos, el \textit{Right Gonion} ha bajado su error a la mitad, y el \textit{Left Gonion} ha reducido su error en dos puntos con respecto al modelo base.
     
-    \medskip
-    
-    \noindent Por otro lado, como podemos ver en las tablas de validación por imágenes en el \autoref{ap:apendiceB}, el error de reconstrucción ha mejorado muy ligeramente en las imágenes de validación, y no supone una mejora considerable con respecto al modelo base, ocurriendo lo mismo con el error estructural.
 
     \medskip
 
