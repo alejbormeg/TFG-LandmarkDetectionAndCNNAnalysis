@@ -592,7 +592,7 @@
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.9\textwidth]{img/boxplot_modelo_base.png}
+            \includegraphics[width=0.9\textwidth]{img/boxplot_encoder.png}
             \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento. Se han omitido los Outliers para una correcta visualización.}
             \label{fig:boxplot_ModeloEncoder_NME}
         \end{figure}
@@ -666,6 +666,29 @@
     \subsection{Modelo con reentrenamiento del decoder}
         \noindent Del mismo modo en que se experimentó con el \textit{encoder} se hizo con el \textit{decoder}. En este enfoque asumimos que el framework sabe codificar correctamente las imágenes pero que no realiza lo suficientemente bien la reconstrucción de las mismas debido a la alta variabilidad del dataset. Esta etapa es completamente análoga a la del modelo anterior (incluyendo el mismo tipo de optimizadores, parámetros y regiones que permanecen congeladas de la red), pero actualizando los pesos del \textit{decoder} y las ITLs mientras se congelan los pesos del \textit{encoder}.
 
+        \medskip
+
+        \noindent Podemos observar los resultados obtenidos en la \autoref{fig:boxplot_ModeloDecoder_NME} y la \autoref{table:ModelDecoder_images_results}. Como podemos observar, los resultados son muy similares a los anteriores modelos e incluso empeoran ligeramente en el marcado de landmarks, aumentando el número de outliers en la distribución de los errores NME a 13. Las tablas por partición se pueden consultar en \autoref{ap:apendiceC}
+
+    \begin{table}[!ht]
+            \centering
+            \caption{Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de ajuste fino del decoder.}
+            \begin{tabular}{|l|l|l|l|l|l|l|}
+            \hline
+            \cellcolor{gray!25}\textbf{Error} & \cellcolor{gray!25}\textbf{P25} & \cellcolor{gray!25}\textbf{P50} & \cellcolor{gray!25}\textbf{P75} & \cellcolor{gray!25}\textbf{RI} & \cellcolor{gray!25}\textbf{Media} & \cellcolor{gray!25}\textbf{Valores atípicos}\\ \hline
+                NME & 1.868 & 2.249 & 2.925 & 1.057 & 3.039 & 13 \\ \hline
+                Reconstrucción & 30.02 & 37.104 & 44.382 & 14.357 & 38.043 & 3 \\ \hline
+            \end{tabular}
+            \label{table:ModelDecoder_images_results}
+        \end{table}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/boxplot_decoder.png}
+            \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento. Se han omitido los Outliers para una correcta visualización.}
+            \label{fig:boxplot_ModeloDecoder_NME}
+        \end{figure}
+
         \begin{table}[!ht]
             \centering
             \caption{Tabla comparativa entre los tres modelos probados. En este caso no se aprecia ninguna mejora considerable con respecto a las introducidas por el modelo de ajuste fino del encoder.}
@@ -711,10 +734,6 @@
 
         \medskip
 
-        \noindent Por otro lado, en lo que respecta a los errores promedio de todos los landmarks por imagen, las tablas por partición se pueden consultar en \autoref{ap:apendiceC}. Aunque los resultados son muy similares a los de los modelos anteriores, el error de reconstrucción de nuevo no mejora apenas, igual que el estructural y los errores NMEs promedio son muy parecidos a los de los otros modelos. 
-
-        \medskip
-
         \noindent Las curvas de aprendizaje se pueden ver en la \autoref{fig:curvas_decoder}, y vuelven a mostrar un ligero overfitting a partir de la época $30$-$40$, en la mayoría de casos. 
         
         \begin{figure}[H]
@@ -747,6 +766,25 @@
         \medskip
 
         \noindent De nuevo, el resto de parámetros continuarán con los valores por defecto de la etapa anterior, pues los resultados obtenidos han sido buenos hasta el momento y nada sugiere tener que cambiarlos.
+
+        \begin{table}[!ht]
+            \centering
+            \caption{Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de data augmentation.}
+            \begin{tabular}{|l|l|l|l|l|l|l|}
+            \hline
+            \cellcolor{gray!25}\textbf{Error} & \cellcolor{gray!25}\textbf{P25} & \cellcolor{gray!25}\textbf{P50} & \cellcolor{gray!25}\textbf{P75} & \cellcolor{gray!25}\textbf{RI} & \cellcolor{gray!25}\textbf{Media} & \cellcolor{gray!25}\textbf{Valores atípicos}\\ \hline
+                NME & 1.1 & 1.253 & 1.472 & 0.371 & 1.706 & 13 \\ \hline
+                Reconstrucción & 30.024 & 37.104 & 44.382 & 14.357 & 38.043 & 3 \\ \hline
+            \end{tabular}
+            \label{table:ModelDaug_images_results}
+        \end{table}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/boxplot_daug.png}
+            \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento. Se han omitido los Outliers para una correcta visualización.}
+            \label{fig:boxplot_ModeloDaug_NME}
+        \end{figure}
 
         \begin{table}[!ht]
             \centering
