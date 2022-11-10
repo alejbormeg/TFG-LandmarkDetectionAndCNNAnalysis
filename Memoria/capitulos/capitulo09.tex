@@ -1060,7 +1060,22 @@
            
         \subsection{Conclusiones extraídas}
 
-            \noindent Como podemos ver en los resultados de la \autoref{table:comparativa-global}, a nivel de distribución de los datos en el conjunto
+            \noindent Como podemos ver en los resultados de la \autoref{table:comparativa-global}, a nivel de distribución del error RMSE en las imágenes de test, el RI en el modelo de \textit{HF-Resnet101} es de $2.48$ píxeles, mientras que en el modelo de \textit{3FabRec} es de $2.97$ píxeles, la diferencia es muy pequeña entre ambos. Por otro lado, mientras que en el caso del modelo de \textit{HF-Resnet101} el valor de la mediana se sitúa aproximadamente en el punto medio entre el $P25$ y el $P75$ (que es $3.04$), podemos ver que los datos parecen distribuirse de manera uniforme. En cambio, en el modelo de $3FabRec$ la distribución parece estar inclinada a la derecha, pues la mediana es muy próxima al $P75$.
+
+            \medskip
+
+            \noindent Por otro lado, hemos visto que en el problema del marcado de landmarks cefalométricos, la mayor dificultad reside en la obtención de datos etiquetados, es decir, con landmarks marcados por un experto. Para el modelo basado en \textit{HF-Resnet101} se logró ampliar notablemente el dataset gracias a las proyecciones $2D$ de un conjunto de $99$ modelos $3D$, y pese a estar sesgada la información de este dataset (en lo referente a condiciones de luminosidad, ángulo y expresión facial), lo cierto es que se logró ampliar notablemente el conjunto de entrenamiento. En cambio, no es frecuente que todos los laboratorios forenses dispongan de una base de datos de modelos $3D$ etiquetados con los que ampliar el conjunto de entrenamiento. Es ahí donde crece el interés por el modelo presentado en este trabajo, pues en nuestro caso nos hemos ceñido exclusivamente a un pequeño dataset de apenas $167$ imágenes, que es un volumen de datos más frecuente en este tipo de problemas. 
+            
+            \noindent Teniendo en cuenta lo anterior, el rendimiento a nivel de landmark, es muy satisfactorio por parte del modelo presentado, pues pese a estar por detrás del error cometido por el modelo de \textit{HF-Resnet101}, y observamos dos hechos destacables: 
+
+            \begin{itemize}
+                \item La mayoría de los landmarks que nuestro modelo marca mejor (a excepción del \textit{Left Tragion} y \textit{Right Tragion}), se encuentran principalmente en imágenes frontales y de $3/4$, que coinciden con el tipo de imágenes que mejor reconstruye la red.
+                \item Los landmarks que aparecen generalmente en imágenes de perfil, son en general mucho mejor marcados por el modelo de \textit{HF-Resnet101}. Esto se debe a que \textit{3FabRec} reconstruía peor este tipo de imágenes, y como en el problema de regresión modificamos el encoder para un problema de regresión aprovechando el conocimiento implícito sobre la estructura facial, si dicho conocimiento es de baja calidad (como ocurre con las imágenes de perfil), el marcado de este tipo de landmarks también será de peor calidad, de ahí los errores cometidos.
+            \end{itemize}
+
+            \medskip
+
+            \noindent Por todo lo mencionado anteriormente, considero que una buena alternativa sería conseguir un gran conjunto de datos de imágenes sin etiquetar con la misma variabilidad que la que teníamos presente en nuestro dataset y realizar un ajuste fino del \textit{AAE} con este dataset para aprender la distribución de imágenes que define este tipo de bases de datos. La obtención de este tipo de imágenes no es tan complicada como la de conseguir imágenes etiquetadas, la capacidad para \textit{few-shot} learning de $3FabRec$ considero probable que se mejoren estos resultados notablemente, en especial en las imágenes de perfil.
             
 
 \endinput
