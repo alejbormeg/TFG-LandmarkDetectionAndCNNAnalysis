@@ -788,7 +788,7 @@
 
         \medskip
 
-        \noindent Los resultados por imagen de \textbf{cross-validation}, pueden consultarse en la \autoref{table:ModelDaug_images_results} y la \autoref{fig:boxplot_ModeloDaug_NME}. En este caso, se aprecia una considerable mejora en el error del NME, compactando mucho la distribución, como vemos, el rango intercuartílico (RI) es de $0,371$. Los valores atípicos suben a los $13$, lo que suponen un $10\%$ de los datos aproximadamente. No obstante, podemos concluir que le modelo es robusto, a pesar de la gran variabilidad de los datos empleados.
+        \noindent Los resultados por imagen de \textbf{cross-validation}, pueden consultarse en la \autoref{table:ModelDaug_images_results} y la \autoref{fig:boxplot_ModeloDaug_NME}. En este caso, se aprecia una considerable mejora en el error del NME, compactando mucho la distribución, como vemos, el rango intercuartílico (RI) es de $0,371$. Los valores atípicos suben a los $13$, lo que suponen un $10\%$ de los datos aproximadamente. No obstante, podemos concluir que le modelo es robusto, a pesar de la gran variabilidad de los datos empleados. Por otro lado, la distribución del error de reconstrucción es idéntica a la del modelo base, ya que no entrenamos los pesos del encoder ni decoder.
 
         \begin{table}[!ht]
             \centering
@@ -853,12 +853,8 @@
 
         \noindent Como podemos ver en la \autoref{table:Daugmentation_landmarksresume}, los errores se han reducido en todos los landmarks. Además, la red ha conseguido aprender a marcar con un alto grado de precisión los puntos que se ven en el perfil, siendo esta alternativa menos costosa que la de los dos modelos anteriores tanto en número de épocas como en parámetros que se actualizan de la red (en este nuevo modelo sólo se actualizan los pesos de las ITLs). El punto mejor marcado sería el \textit{prosthion} de nuevo, y el peor marcado el \textit{right zygion}. Sin embargo, la diferencia en términos de error entre ambos es mucho menor que en el caso del modelo base. 
 
-        \medskip
-
-        \noindent En lo que se refiere al error por imagen, como podemos ver en el \autoref{ap:apendiceD}, el error desciende mucho en comparación con los modelos anteriores pese a que el de reconstrucción continua elevado.
-
-        \medskip
-
+        
+        \subsubsection*{Análisis Cualitativo}
         \noindent Finalmente las curvas de aprendizaje obtenidas se pueden observar en \autoref{fig:curvas_daugmentation}. Como vemos presentan una gran capacidad de generalización, pues el error de entrenamiento y validación decrecen de forma continua y muy próxima. Algunas imágenes de ejemplo podemos verlas en la \autoref{fig:Ejemplo_daug}.
 
         \begin{figure}[H]
@@ -877,18 +873,22 @@
 
     \subsection{Elección de modelo y obtención de resultados}
 
-        \noindent Una vez analizados los distintos modelos que se proponen para resolver el problema, vemos que la alternativa más prometedora resulta ser la última, la de aplicar técnicas de \textit{data augmentation} al dataset. Es por ello que ahora tomaremos el conjunto de entrenamiento en su totalidad (sin realizar particiones como hicimos para \textit{cross validation}) y vamos a usarlo para entrenar el modelo durante las mismas épocas que en la sección anterior y con los mismos parámetros y transformaciones. Posteriormente usaremos el conjunto de test de $33$ imágenes que separamos al principio de esta sección, y que hasta ahora no hemos visto para evitar \textit{data snooping}, para validar el modelo.
+        \noindent Una vez analizados los distintos modelos que se proponen para resolver el problema, vemos que la alternativa más prometedora resulta ser la última. Podemos ver una comparación de la distribución de los errores de NME y reconstrucción de todos los modelos en la \autoref{fig:boxplot_summary}, aquí podemos ver mejor la gran reducción del error NME lograda por el último modelo. Por otro lado, la distribución de los errores de reconstrucción apenas varía en los cuatro modelos probados. 
+        
+        \medskip
+
+        \noindent Una vez elegido el modelo, tomamos el conjunto de entrenamiento en su totalidad (sin realizar particiones) y vamos a usarlo para entrenar el modelo durante las mismas épocas que en la sección anterior y con los mismos parámetros y transformaciones. Posteriormente usaremos el conjunto de test de $33$ imágenes que separamos al principio de esta sección, y que hasta ahora no hemos visto para evitar \textit{data snooping}, para validar el modelo.
 
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/boxplot_sumarize.png}
-            \caption{Diagramas de cajas de todos los modelos probados concatenados. Para una correcta visualización se eliminan los Outliers del gráfico.}
+            \caption{Diagramas de cajas de todos los modelos probados concatenados. Para una correcta visualización se eliminan los outliers del gráfico.}
             \label{fig:boxplot_summary}
         \end{figure}
 
         \begin{table}[!ht]
             \centering
-            \caption{Tabla comparativa entre los resultados del modelo de data augmentation en el conjunto de validación y test}
+            \caption{Tabla comparativa entre los resultados del modelo de data augmentation en el conjunto de validación y test.}
             \begin{tabular}{|l|l|l|}
             \hline
                 \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{NME Test} & \cellcolor{gray!25}\textbf{NME Validación} \\ \hline
@@ -931,7 +931,7 @@
         \noindent En primer lugar, como se puede apreciar en la \autoref{table:FinalModel_landmarks} obtenemos: 
 
         \begin{itemize}
-            \item En general los landmarks empeoran ligeramente su error NME. Esto es normal pues en la etapa anterior todas las decisiones para mejorar los modelos se tomaron en función de los resultados de validación. Sin embargo estos datos nuevos en los que se está probando el modelos no han sido estudiados previamente, por lo que es normal que baje el rendimiento. No obstante, los resultados siguen siendo buenos, y no se empeoran excesivamente en la mayoría de casos. 
+            \item El marcado de landmarks empeora ligeramente ligeramente con respecto a validación. Esto es normal, pues en la etapa anterior todas las decisiones para mejorar los modelos se tomaron en función de los resultados de validación. Sin embargo, estos datos nuevos en los que se está probando el modelos no han sido estudiados previamente, por lo que es normal que baje el rendimiento. No obstante, los resultados siguen siendo buenos, y no se empeoran excesivamente en la mayoría de casos. 
             \item En total empeoran su error $19$ de los $30$ landmarks marcados. En algunos casos el error se duplica, como puede ser el \textit{Gnation} y en otros empeora levemente, como ocurre con el \textit{Left Zygion}. 
             \item En total mejoran su error $11$ de los $30$ landmarks, destacando la importante mejora en la identificación del \textit{Menton}, y algunas más leves como las del \textit{Right/Left Frontotemporale}.
         \end{itemize}
@@ -956,7 +956,17 @@
 
         \medskip
 
-        \noindent Como podemos ver, en general el modelo se comporta bien en la tarea del reconocimiento de landmarks, es capaz de predecirlos con una tasa de error NME muy pequeña, por lo que podemos concluir que el modelo resuleve la tarea que nos habíamos propuesto con éxito. No obstante, el éxito real del modelo debe supervisarlo un experto forense, pues no sabemos si los errores cometidos en la identificación de landmarks son errores asumibles o si se requiere un mayor grado de precisión.
+        \noindent Vamos a ver a continuación si el modelo elegido cumple con los requisitos deseables que nos habíamos impuesto al comienzo del trabajo: 
+        \begin{itemize}
+            \item Se trata de un modelo \textbf{robusto}, pues tiene un buen comportamiento en la mayoría de ejemplos de test empleados.
+            \item Es capaz de operar con un \textbf{pequeño conjunto de datos}, ya que los resultados obtenidos son muy prometedores pese a haber sido entrenado con $131$ imágenes (recordemos que modelos para la predicción de landmarks faciales cuentan con miles de ejemplos de entrenamiento en los datasets).
+            \item Proporciona una solución muy próxima a la \textbf{correcta}. Aunque falta la supervisión de un experto antropólogo forense para afirmarlo.
+            \item Se trata de un proceso \textbf{eficaz} y \textbf{eficiente}, pues se obtienen buenos resultados en apenas unos segundos de ejecución.
+        \end{itemize}
+
+        \medskip
+
+        \noindent Como podemos ver, en general el modelo cumple los requisitos que le habíamos impuesto, y podemos concluir que el modelo resuleve la tarea que nos habíamos propuesto con éxito. No obstante, insistimos en que el éxito real del modelo debe supervisarlo un experto forense, pues no sabemos si los errores cometidos en la identificación de landmarks son errores asumibles o si se requiere un mayor grado de precisión en el marcado.
 
     \section{Comparativa entre 3FabRec y HyperFace-ResNet101}
         \noindent Vamos a comparar ahora el modelo final obtenido a partir de \textbf{3FabRec} con otro que fue diseñado para el mismo propósito basado en \textbf{HyperFace-Resnet101}, otra red especializada en el marcado de landmarks, realizado por Guillermo Gómez.
@@ -966,7 +976,7 @@
 
             \medskip
 
-            \noindent En cambio, el modelo basado en \textit{HF-ResNet} además de emplear también un detector de caras para los bounding boxes, contaba con un dataset auxiliar de modelos $3D$ de personas sobre las que estaban marcados $27$ de los $30$ landmarks que se predicen. Lo cual sirvió para aumentar el conjunto de datos de entrenamiento realizando proyecciones $2D$ a partir de estos modelos.
+            \noindent En cambio, el modelo basado en \textit{HF-ResNet} además de emplear también un detector de caras para los bounding boxes, contaba con un dataset auxiliar de modelos $3D$ de personas sobre las que estaban marcados $27$ de los $30$ landmarks que se predicen. Lo cual sirvió para aumentar considerablemente el conjunto de datos de entrenamiento realizando proyecciones $2D$ a partir de estos modelos.
 
         \subsection{Métricas empleadas}
             \noindent La métrica empleada en el trabajo dónde se presenta el modelo es el \textbf{RMSE}. Se trata de la raíz del error cuadrático medio y su expresión es la siguiente: 
@@ -975,7 +985,7 @@
                 RMSE(y,\widehat{y})= \sqrt{\frac{1}{N} \sum_{i=1}^{N} (y_i-\widehat{y}_i)^2}
             \end{equation}
 
-            \noindent donde $y_i$ representa las coordenadas del landmark real y $\widehat{y_i}$ el predicho homólogo número $i$ del total de $N$ landmarks marcados.
+            \noindent donde $y_i$ representa las coordenadas del landmark real y $\widehat{y_i}$ el predicho homólogo número $i$ del total de $N$ landmarks marcados. Esta métrica nos proporciona el error en píxeles cometido en la predicción de cada landmark.
 
             \medskip
 
@@ -1048,6 +1058,11 @@
 
             \noindent Como podemos observar, en su mayoría los landmarks que el modelo basado en \textit{HyperFace-ResNet101} son más precisos que los marcados por nuestro modelo en una media de $2$ píxeles de diferencia.
            
+        \subsection{Conclusiones extraídas}
+
+            \noindent Como podemos ver en los resultados de la \autoref{table:comparativa-global}, a nivel de distribución de los datos en el conjunto
+            
+
 \endinput
 %------------------------------------------------------------------------------------
 % FIN DEL CAPÍTULO. 
