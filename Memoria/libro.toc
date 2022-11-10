@@ -109,8 +109,8 @@
 \contentsline {subsection}{\numberline {9.4.6}Elección de modelo y obtención de resultados}{124}{subsection.9.4.6}%
 \contentsline {section}{\numberline {9.5}Comparativa entre 3FabRec y HyperFace-ResNet101}{127}{section.9.5}%
 \contentsline {subsection}{\numberline {9.5.1}Preprocesamiento y base de datos empleada}{127}{subsection.9.5.1}%
-\contentsline {subsection}{\numberline {9.5.2}Métricas empleadas}{127}{subsection.9.5.2}%
-\contentsline {subsection}{\numberline {9.5.3}Comparación de resultados}{127}{subsection.9.5.3}%
+\contentsline {subsection}{\numberline {9.5.2}Métricas empleadas}{128}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}Comparación de resultados}{128}{subsection.9.5.3}%
 \contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{131}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{131}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{132}{section.10.2}%
@@ -122,4 +122,4 @@
 \contentsline {section}{\numberline {C.1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{147}{section.Alph3.1}%
 \contentsline {chapter}{\numberline {D}Apéndice D}{153}{appendix.Alph4}%
 \contentsline {section}{\numberline {D.1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{153}{section.Alph4.1}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{159}{chapter*.10}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{159}{chapter*.14}%

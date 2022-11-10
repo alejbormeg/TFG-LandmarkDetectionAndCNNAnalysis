@@ -454,7 +454,7 @@
 
 \section{Experimentación}
     \subsection{Hipótesis iniciales}
-        \noindent Debido a que partimos de \textbf{3fabRec}, un framework diseñado y probado de forma exahustiva por Björn Browatzki y Christian Wallraven, en los experimentos se va a respetar la arquitectura de la red en su totalidad, sin añadir ni eliminar capas. Del mismo modo, debido a que la elección del optimizador \textbf{Adam} empleado por los autores ha sido fruto de un proceso de experimentación exahustiva por parte de los mismos no, se va a probar a cambiarlo. Además, el optimizador Adam es adaptativo y tiene muy buen rendimiento en general, por lo que no tenemos ninguna razón que nos lleve a pensar que lograríamos grandes mejoras cambiando de optimizador.
+        \noindent Debido a que partimos de \textbf{3FabRec}, un framework diseñado y probado de forma exahustiva por Björn Browatzki y Christian Wallraven, en los experimentos se va a respetar la arquitectura de la red en su totalidad, sin añadir ni eliminar capas. Del mismo modo, debido a que la elección del optimizador \textbf{Adam} empleado por los autores ha sido fruto de un proceso de experimentación exahustiva por parte de los mismos no, se va a probar a cambiarlo. Además, el optimizador Adam es adaptativo y tiene muy buen rendimiento en general, por lo que no tenemos ninguna razón que nos lleve a pensar que lograríamos grandes mejoras cambiando de optimizador.
 
         \medskip
 
@@ -465,11 +465,11 @@
 
         \medskip
 
-        \noindent Se ha optado por usar como modelo base el que ha sido entrenado en \textit{AFLW} porque el número de landmarks que predice este modelo es similar al de nuestro problema, ya que predice 21 landmarks, y la estructura de estos landmarks (visibles y no visibles) es similar a la nuestra.
+        \noindent Se ha optado por usar como modelo base el que ha sido entrenado en \textit{AFLW}, porque el número de landmarks que predice este modelo es similar al de nuestro problema (21 landmarks), y la estructura de estos landmarks (visibles y no visibles) es similar a la nuestra.
 
         \medskip
 
-        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{ajuste fino} del encoder sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{60 épocas}, hasra la convergencia del \textit{mse} (que recordamos, es la medida de error entre los \textit{Heat-maps} predichos por el modelo y los reales), y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
+        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{ajuste fino} del encoder sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{60 épocas}, hasta la convergencia del \textit{mse} (que recordamos, es la medida de error entre los \textit{Heat-maps} predichos por el modelo y los reales), y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
 
         \begin{itemize}
             \item El \textit{learning rate} para el optimizador Adam usado en el entrenamiento de las ITLs se establece en $0.001$. 
@@ -477,7 +477,9 @@
             \item El valor del parámetro $\beta_2$ se establece en $0.999$.
         \end{itemize}
 
-        \noindent La predicción por imagen que resulta de concatenar la salida de \textbf{cross validation 5-fold } para cada partición se pueden encontrar en \autoref{ap:apendiceA}. Los resultados son los siguientes pueden verse en la \autoref{fig:boxplot_ModeloBase_NME} y la \autoref{table:ModelBase_images_results}:
+        \subsubsection*{Análisis cuantitativo}
+
+        \noindent La predicción por imagen, que resulta de concatenar la salida de \textbf{cross validation 5-fold } para cada partición, se pueden encontrar en \autoref{ap:apendiceA}. La información relativa a la distribución de los errores, tanto NME como reconstrucción, pueden verse en la \autoref{fig:boxplot_ModeloBase_NME} y la \autoref{table:ModelBase_images_results}.
 
         \begin{table}[!ht]
             \centering
@@ -493,16 +495,16 @@
          
         \medskip
 
-        \noindent Como podemo ver, la distribución del error NME es compacta, lo cual es un buen indicador, pues el modelo tiene un rendimiento similar en la mayoría de imágenes. Por otro lado, los outliers representan el $9,16 \%$ de los datos, un porcentaje no muy elevado pero que dada la poca cantidad de datos de la que disponemos, intentaremos reducir. Estos valores suelen corresponderse con imágenes especialmente complejas (de perfil y de baja calidad), en las que el error de reconstrucción también es muy elevado, llegando a ser el NME más alto superior a $30$. En cambio, en lo que respecta al error de reconstrucción, a distribución no está tan concentrada, los valores son en general altos, pero el número de outliers es mucho menor ($3.05\%$).
+        \noindent Como podemo ver, la distribución del error NME es compacta, lo cual es un buen indicador, pues buscamos un modelo robusto con un rendimiento similar en la mayoría de imágenes y casos del problema. Por otro lado, los outliers representan el $9,16 \%$ de los datos, un porcentaje no muy elevado pero que dada la poca cantidad de datos de la que disponemos, intentaremos reducir. Estos valores suelen corresponderse con imágenes especialmente complejas (de perfil y de baja calidad), en las que el error de reconstrucción también es muy elevado. En cambio, en lo que respecta al error de reconstrucción, la distribución no está tan concentrada, los valores son en general altos, pero el número de outliers es mucho menor ($3.05\%$).
 
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/boxplot_modelo_base.png}
-            \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento. Se han omitido los Outliers para una correcta visualización.}
+            \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento en el Modelo Base. Se han omitido los valores atípicos para una correcta visualización.}
             \label{fig:boxplot_ModeloBase_NME}
         \end{figure}
 
-        \noindent Podemos concluir por tanto, que la reconstrucción a nivel de pixel no es adecuada, aunque como vemos en la \autoref{fig:Ejemplo_ModelBase}, la reconstrucción de las caras es apropiada en general, es decir, almacena conocimiento implícito sobre la estructura facial correctamente. Como el framework emplea el conocimiento aprendido sobre la estructura facial para la predicción de landmarks, sería ideal que esta reconstrucción fuese lo más fiel posible. No obstante, el error en el marcado de landmarks cometido es bajo.
+        \noindent Podemos concluir, que la reconstrucción a nivel de pixel no es adecuada, aunque como vemos en la \autoref{fig:Ejemplo_ModelBase}, la reconstrucción de las caras es apropiada en general, es decir, almacena conocimiento implícito sobre la estructura facial correctamente. Como el framework emplea el conocimiento aprendido sobre la estructura facial para la predicción de landmarks, sería ideal que esta reconstrucción fuese lo más fiel posible. No obstante, el error en el marcado de landmarks cometido es bajo.
 
         \begin{table}[!ht]
             \centering
@@ -545,7 +547,7 @@
         \end{table}
         \medskip
 
-        \noindent Los resultados por landmark se puden ver en la \autoref{table:ModelBase_landmarkresume} y son buenos en general para tratarse del modelo base. El landmark mejor marcado en media es el \textit{Prosthion}, y el peor el \textit{Right Gonion}. Si recordamos la \autoref{fig:Histograma}, sorprende el hecho de que el \textit{Prosthion} es de los landmarks que menos presencia tiene en las imágenes (aparece en menos de $40$ imágenes), esto nos demuestra la capacidad de 3FabRec de aprender con pocos ejemplos de entrenamiento. Por otro lado, el \textit{Right Gonion}, pese a aparecer en unas $100$ imágenes, resulta más dificil para la red predecirlo. Esto puede deberse a que las imágenes con mayor error de reconstrucción son las de perfil, y es en este tipo de imágenes en las que mejor se aprecia dicho landmark. Por otro lado, pese a que el \textit{Vertex} no se encuentra correctamente marcado algunas de las imágenes, hemos optado por medir su rendimiento también.
+        \noindent Los resultados por landmark se puden ver en la \autoref{table:ModelBase_landmarkresume} y son buenos en general para tratarse del modelo base. El landmark mejor marcado en media es el \textit{Prosthion}, y el peor el \textit{Right Zygion}. Si recordamos la \autoref{fig:Histograma}, sorprende el hecho de que el \textit{Prosthion} es de los landmarks que menos presencia tiene en las imágenes (aparece en menos de $40$ imágenes), esto nos demuestra la capacidad de 3FabRec de aprender con pocos ejemplos de entrenamiento. Por otro lado, el \textit{Right Zygion}, pese a aparecer en unas $100$ imágenes, resulta más dificil para la red predecirlo. Esto puede deberse a que las imágenes con mayor error de reconstrucción son las de perfil, y es en este tipo de imágenes en las que mejor se aprecia dicho landmark. Por otro lado, pese a que el \textit{Vertex} no se encuentra correctamente marcado en la mayoría de las imágenes, hemos optado por medir su rendimiento también.
 
         \medskip
 
@@ -558,7 +560,12 @@
             \label{fig:Curvas_modelbase}
         \end{figure}
 
-        \noindent En resumen, los resultados son esperanzadores para tratarse de una primera aproximación. Sin embargo, consideramos que debido a la gran variabilidad del dataset tanto en posturas, como en calidad e iluminación de imagen, la reconstrucción de las imágenes se ha resentido, especialmente en las imágenes de perfil. Esto provoca que el modelo también marque peor los landmarks, por lo que vamos a intentar mejorar esto en los próximos modelos. Podemos ver el rendimiento del modelo en algunas imágenes en la \autoref{fig:Ejemplo_ModelBase}.
+        \noindent En resumen, los resultados son esperanzadores para tratarse de una primera aproximación. Sin embargo, consideramos que debido a la gran variabilidad del dataset tanto en posturas, como en calidad e iluminación de imagen, la reconstrucción de las imágenes se ha resentido, especialmente en las imágenes de perfil. Esto provoca que el modelo también marque peor los landmarks, por lo que vamos a intentar mejorar esto en los próximos modelos. 
+        
+        
+        \subsubsection*{Análisis cualitativo}
+        
+        \medskip Podemos ver el rendimiento del modelo en algunas imágenes en la \autoref{fig:Ejemplo_ModelBase}, en ellas podemos apreciar algunos ejemplos a color y en escalas de grises. Como podemos apreciar, los errores más altos de reconstrucción se producen en las imágenes en escalas de grises y con menor calidad, mientras que los errores más bajos se producen en las imágenes a color, que por lo general tiene mayor resolución. Por otro lado, se puede apreciar que el error cometido por el modelo es bajo en todos los casos, aunque como anticipamos en la sección anterior, el \textit{Vertex} apenas se aprecia en ningún ejemplo.
 
         \begin{figure}[H]
             \centering
@@ -568,15 +575,15 @@
         \end{figure}
 
     \subsection{Modelo con reentrenamiento del encoder}
-        \noindent A la luz de los resultados anteriores, vamos a cambiar el modelo de manera que ahora junto con las ITLs (que seguirán usando el mismo optimizador con los mismos parámetros por defecto), vamos a entrenar los pesos del \textit{encoder}. Con este enfoque queremos enseñar a la red a \textbf{codificar mejor} la información presente en las imágenes del dataset (que, son más difíciles que las de los datasets empleados anteriormente), a la par que la enseñamos a marcar landmarks en las mismas. Remarcamos, que la función de coste que se empleará tanto para el entrenamiento de los pesos de las ITLs como los del encoder será el \textit{MSE} entre los mapas de calor predichos y los reales.
+        \noindent A la luz de los resultados anteriores, vamos a cambiar el modelo de para entrenar las ITLs (que seguirán usando el mismo optimizador con los mismos parámetros por defecto), junto con los pesos del \textit{encoder}. Con este enfoque, se pretende asociar a cada imagen un vector latente que capte las nuevas variaciones del dataset junto con el entrenamiento en la predicción de landmarks.
 
         \medskip
 
-        \noindent Es importante aclarar que este proceso restringe el reisgo de producir \textit{overfitting}, pues durante las etapas de entrenamiento los pesos del \textit{decoder} permanecerán congelados, y serán únicamente los pesos del \textit{encoder} y las ITLs los que se actualicen con backpropagation. El optimizador empleado para el entrenamiento del \textit{encoder} es Adam, el mismo que ellos emplean y los parámetros se mantienen por defecto ($\beta_1=0.9$ y $\beta_2=0.999$) a excepción del \textit{learning rate}, que se establece a $2^{-6}$, en vez de $2^{-5}$. El motivo por el cual se realiza este cambio es porque experimentando en esta fase se vio que con el antiguo \textit{Learning rate} no se conseguía mejorar apenas la reconstrucción en validación, pues durante el entrenamiento el error de reconstrucción pronto quedaba estancado en un valor. Para evitar esto, se optó por reducir el learning rate consiguiendo mejorar un poco más el error de reconstrucción. El entrenamiento duró en total \textbf{100 épocas}, pues como veremos, el modelos mejora más lentamente en el reconocimiento de landmarks.
+        \noindent Este proceso restringe el riesgo de producir \textit{overfitting}, pues durante las etapas de entrenamiento los pesos del \textit{decoder} permanecerán congelados, y serán únicamente los pesos del \textit{encoder} y las ITLs los que se actualicen con backpropagation. El optimizador empleado para el entrenamiento del \textit{encoder} es Adam, junto con sus parámetros por defecto $\beta_1=0.9$ y $\beta_2=0.999$. El \textit{learning rate} se establece a $2^{-6}$, en vez de $2^{-5}$ pues, durante la experimentación, el antiguo \textit{learning rate} quedaba atrapado en extremos locales con facilidad. El entrenamiento duró en total \textbf{100 épocas}, pues como veremos, el modelos mejora más lentamente en el reconocimiento de landmarks.
 
-        \medskip
+        \subsubsection*{Análisis Cuantitativo}
 
-        \noindent Como podemos ver en la \autoref{fig:ModelEncoder_images_results} y la \autoref{fig:boxplot_ModeloEncoder_NME}, la distribución de los errores de reconstrucción y NME es prácticamente idéntica a la anterior, con la única salvedad de que se ha reducido el número de outliers en una unidad. Las tablas con las predicciones por imagen pueden consultarse en el \autoref{ap:apendiceB}.
+        \noindent Como podemos ver en la \autoref{table:ModelEncoder_images_results} y la \autoref{fig:boxplot_ModeloEncoder_NME}, la distribución de los errores de reconstrucción y NME es prácticamente idéntica a la anterior, con la única salvedad de que se ha reducido el número de outliers en una unidad. Las tablas con las predicciones por imagen pueden consultarse en el \autoref{ap:apendiceB}.
 
         \begin{table}[!ht]
             \centering
@@ -593,10 +600,9 @@
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/boxplot_encoder.png}
-            \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento. Se han omitido los Outliers para una correcta visualización.}
+            \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de ajuste fino del encoder. Se han omitido los Outliers para una correcta visualización.}
             \label{fig:boxplot_ModeloEncoder_NME}
         \end{figure}
-
 
         \begin{table}[!ht]
             \centering
@@ -638,12 +644,12 @@
             \label{table:Encode_landmarkresume}
         \end{table}
 
-    \noindent Como podemos observar en la \autoref{table:Encode_landmarkresume}, los valores son muy similares a los del modelo base, pese a que este ha entrenado durante más épocas. El \textit{Prosthion} sigue siendo el landmark mejor marcado, con un valor del error NME ligeramente superior al del modelo base. Sin embargo la verdadera mejora se aprecia en el marcado de landmarks de los perfiles, al mejorar la reconstrucción de los mismos, el \textit{Right Gonion} ha bajado su error a la mitad, y el \textit{Left Gonion} ha reducido su error en dos puntos con respecto al modelo base.
+    \noindent Como podemos observar en la \autoref{table:Encode_landmarkresume}, los valores son muy similares a los del modelo base, pese a que este ha entrenado durante más épocas. El \textit{Prosthion} sigue siendo el landmark mejor marcado, con un valor del error NME ligeramente inferior al del modelo base. Se puede apreciar una mejora en los landmarks peor marcados, todos ellos asociados a los laterales del rostro y con mayor presencia en imágenes de perfil. Esto confirma la relación entre la mejora de la reconstrucción en imágenes de perfil y el NME asociado a los landmarks de las mismas.
     
 
     \medskip
 
-    \noindent Finalmente podemos observar las curvas de aprendizaje para este modelo en la \autoref{fig:curvas_encoder}. A diferencia del modelo anterior, comienza a bajar la capacidad de generalización a partir de la época 20 aproximadamente. El error de entrenamiento comienza a descender muy lentamente con cada época mientras que el de validación se mantiene constante.
+    \noindent Finalmente podemos observar las curvas de aprendizaje para este modelo en la \autoref{fig:curvas_encoder}. A diferencia del modelo anterior, comienza a bajar la capacidad de generalización a partir de la época $20$-$30$ aproximadamente. El error de entrenamiento comienza a descender muy lentamente con cada época mientras que el de validación se mantiene constante.
 
     \begin{figure}[H]
         \centering
@@ -654,7 +660,16 @@
 
     \medskip
 
-    \noindent Viendo estos resultados no parece muy prometedora esta línea de investigación. Bien es cierto que hemos mejorado considerablemente el error de los dos landmarks peor marcados, pero el coste computacional que ha supuesto no compensa para la leve mejora global del modelo. Es por esto por lo que vamos a cambiar el enfoque sobre el \textit{fine-tuning} en el siguiente modelo. Podemos ver el comportamiento del modelo en algunas imágenes de validación de diversas particiones de \textit{cross-validation} en la \autoref{fig:Ejemplo_encoder}
+    \noindent Viendo estos resultados, no parece muy prometedora esta línea de investigación. Bien es cierto que hemos mejorado el error de los dos landmarks peor marcados, pero el coste computacional que ha supuesto no compensa para la leve mejora global del modelo. Es por esto por lo que vamos a cambiar el enfoque sobre el \textit{fine-tuning} en el siguiente modelo. 
+    
+    \medskip
+    
+    \noindent No obstante, consideramos que un reentrenamiento de los pesos del \textit{AAE} en la fase de aprendizaje no supervisado con imágenes complicadas en escalas de grises y de perfil habría sido una buena alternativa, pero lamentablemente no disponemos de los datos necesarios para realizar este eperimento.
+    
+    
+    \subsubsection*{Análisis Cualitativo}
+    
+    \noindent Podemos ver el comportamiento del modelo en algunas imágenes de validación de diversas particiones de \textit{cross-validation} en la \autoref{fig:Ejemplo_encoder}. Se puede ver una leve mejora del error de reconstrucción con respecto a las imágenes del modelo anterior. No obstante a nivel visual apenas se notan diferencias significativas tanto en el marcado de los landmarks como en la reconstrucción de las imágenes.
 
     \begin{figure}[H]
         \centering
@@ -666,9 +681,9 @@
     \subsection{Modelo con reentrenamiento del decoder}
         \noindent Del mismo modo en que se experimentó con el \textit{encoder} se hizo con el \textit{decoder}. En este enfoque asumimos que el framework sabe codificar correctamente las imágenes pero que no realiza lo suficientemente bien la reconstrucción de las mismas debido a la alta variabilidad del dataset. Esta etapa es completamente análoga a la del modelo anterior (incluyendo el mismo tipo de optimizadores, parámetros y regiones que permanecen congeladas de la red), pero actualizando los pesos del \textit{decoder} y las ITLs mientras se congelan los pesos del \textit{encoder}.
 
-        \medskip
+        \subsubsection*{Análisis Cuantitativo}
 
-        \noindent Podemos observar los resultados obtenidos en la \autoref{fig:boxplot_ModeloDecoder_NME} y la \autoref{table:ModelDecoder_images_results}. Como podemos observar, los resultados son muy similares a los anteriores modelos e incluso empeoran ligeramente en el marcado de landmarks, aumentando el número de outliers en la distribución de los errores NME a 13. Las tablas por partición se pueden consultar en \autoref{ap:apendiceC}
+        \noindent Podemos observar los resultados obtenidos en la \autoref{fig:boxplot_ModeloDecoder_NME} y la \autoref{table:ModelDecoder_images_results}. Los resultados son muy similares a los anteriores modelos e incluso empeoran ligeramente en el marcado de landmarks, aumentando el número de outliers en la distribución de los errores NME a 13. Las tablas por partición se pueden consultar en \autoref{ap:apendiceC}.
 
     \begin{table}[!ht]
             \centering
@@ -685,7 +700,7 @@
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/boxplot_decoder.png}
-            \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento. Se han omitido los Outliers para una correcta visualización.}
+            \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de ajuste fino del decoder. Se han omitido los Outliers para una correcta visualización.}
             \label{fig:boxplot_ModeloDecoder_NME}
         \end{figure}
 
@@ -730,7 +745,7 @@
         \end{table}
         \medskip 
 
-        \noindent De nuevo los errores por landmark que se muestran en la tabla \autoref{table:Decoder_landmarksresume} es muy similar a la de los dos modelos anteriores, por lo que no hemos logrado una gran mejora con este modelo tampoco. Lo único digno de mención es que de nuevo los landmarks que son más visibles en imágenes de perfil han reducido su error debido a la leve mejora de la reconstrucción de las imágenes, aunque esta mejora es prácticamente la misma que en el modelo anterior de ajuste fino del encoder.
+        \noindent De nuevo los errores por landmark que se muestran en la tabla \autoref{table:Decoder_landmarksresume} es muy similar a la de los dos modelos anteriores, por lo que no hemos logrado una gran mejora con este modelo tampoco.
 
         \medskip
 
@@ -745,7 +760,11 @@
 
         \medskip
 
-        \noindent Tras los resultados obtenidos se ha optado por abandonar también esta línea de investigación pues se obtienen resultados muy similares al modelo base y se debe entrenar por mucho más tiempo ($100$ épocas frente a $40$ del modelo base). Los resultados del modelo sobre algunas imágenes pueden verse en \autoref{fig:Ejemplo_decoder}
+        \noindent Tras los resultados obtenidos se ha optado por abandonar también esta línea de investigación pues se obtienen resultados muy similares al modelo base y se debe entrenar por mucho más tiempo ($100$ épocas frente a $40$ del modelo base). 
+        
+        \subsubsection*{Análisis Cualitativo}
+        
+        Los resultados del modelo sobre algunas imágenes pueden verse en \autoref{fig:Ejemplo_decoder}. Las conclusiones a extraer son las mismas que en el modelo anterior: Apenas mejora el error de reconstrucción (incluso empeora en el caso de la imagen a color), y no se aprecian diferencias significativas en el marcado de landmarks con respecto a los modelos anteriores.
 
         \begin{figure}[H]
             \centering
@@ -755,10 +774,10 @@
         \end{figure}
 
     \subsection{Modelo con Data Augmentation}
-        \noindent Vamos a optar a continuación por un nuevo enfoque. En lugar de mejorar el error de reconstrucción vamos a centrarnos en mejorar el marcado de landmarks en las imágenes reconstruidas que genera el modelo preentrenado. Como pudimos ver en el modelo base, se consiguieron buenos resultados del \textit{NME} pese a haber entrenado sin realizar técnicas de \textit{data augmentation}. Es por ello que en este segundo experimento vamos a realizar los siguientes cambios en el entrenamiento: 
+        \noindent Vamos a optar a continuación por un nuevo enfoque. En lugar de mejorar el error de reconstrucción, vamos a centrarnos en mejorar el marcado de landmarks en las imágenes reconstruidas que genera el modelo preentrenado. Como pudimos ver en el modelo base, se consiguieron buenos resultados del \textit{NME} pese a haber entrenado sin realizar técnicas de \textit{data augmentation}. Es por ello que en este segundo experimento vamos a realizar los siguientes cambios en el entrenamiento: 
         
         \begin{itemize}
-            \item En primer lugar se realizará un entrenamiento del modelo similar al del modelo base durante $40$ épocas.
+            \item Se realizará un entrenamiento del modelo similar al del modelo base durante $40$ épocas, ya que vimos que el error convergía tras la época 40.
             \item Tras esto, se entrenará el modelo con el dataset al cual se le aplicarán técnicas de data augmentation, para aumentar el número de datos de entrenamiento e incrementar aún más la variabilidad de los mismos, de manera que cada imagen del dataset sufrirá de manera aleatoria una traslación ($\pm 4\%$), un reescalado ($\pm 5\%$), una rotación ($\pm 30$ grados) y oclusiones parciales. El entrenamiento en este nuevo dataset será durante $40$ épocas tras acabar las de la etapa anterior.
             \item En total serán \textbf{$80$ épocas} de entrenamiento sumando las dos etapas anteriores.
         \end{itemize}
@@ -766,6 +785,10 @@
         \medskip
 
         \noindent De nuevo, el resto de parámetros continuarán con los valores por defecto de la etapa anterior, pues los resultados obtenidos han sido buenos hasta el momento y nada sugiere tener que cambiarlos.
+
+        \medskip
+
+        \noindent Los resultados por imagen de \textbf{cross-validation}, pueden consultarse en la \autoref{table:ModelDaug_images_results} y la \autoref{fig:boxplot_ModeloDaug_NME}. En este caso, se aprecia una considerable mejora en el error del NME, compactando mucho la distribución, como vemos, el rango intercuartílico (RI) es de $0,371$. Los valores atípicos suben a los $13$, lo que suponen un $10\%$ de los datos aproximadamente. No obstante, podemos concluir que le modelo es robusto, a pesar de la gran variabilidad de los datos empleados.
 
         \begin{table}[!ht]
             \centering
@@ -782,7 +805,7 @@
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/boxplot_daug.png}
-            \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento. Se han omitido los Outliers para una correcta visualización.}
+            \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de data augmentation. Se han omitido los Outliers para una correcta visualización.}
             \label{fig:boxplot_ModeloDaug_NME}
         \end{figure}
 
@@ -828,7 +851,7 @@
 
         \medskip
 
-        \noindent Como podemos ver en la \autoref{table:Daugmentation_landmarksresume}, los errores se han reducido en todos los landmarks. Además, la red ha conseguido aprender a marcar con un alto grado de precisión los puntos que se ven en el perfil de la cara también, siendo esta alternativa menos costosa que la de los dos modelos anteriores tanto en número de épocas como en parámetros que se actualizan de la red (en este nuevo modelo sólo se actualizan los pesos de las ITLs). El punto mejor marcado sería el \textit{prosthion} de nuevo, y el peor marcado el \textit{right zygion}. Sin embargo, la diferencia en términos de error entre ambos es mucho menor que en el caso del modelo base. 
+        \noindent Como podemos ver en la \autoref{table:Daugmentation_landmarksresume}, los errores se han reducido en todos los landmarks. Además, la red ha conseguido aprender a marcar con un alto grado de precisión los puntos que se ven en el perfil, siendo esta alternativa menos costosa que la de los dos modelos anteriores tanto en número de épocas como en parámetros que se actualizan de la red (en este nuevo modelo sólo se actualizan los pesos de las ITLs). El punto mejor marcado sería el \textit{prosthion} de nuevo, y el peor marcado el \textit{right zygion}. Sin embargo, la diferencia en términos de error entre ambos es mucho menor que en el caso del modelo base. 
 
         \medskip
 
@@ -855,6 +878,13 @@
     \subsection{Elección de modelo y obtención de resultados}
 
         \noindent Una vez analizados los distintos modelos que se proponen para resolver el problema, vemos que la alternativa más prometedora resulta ser la última, la de aplicar técnicas de \textit{data augmentation} al dataset. Es por ello que ahora tomaremos el conjunto de entrenamiento en su totalidad (sin realizar particiones como hicimos para \textit{cross validation}) y vamos a usarlo para entrenar el modelo durante las mismas épocas que en la sección anterior y con los mismos parámetros y transformaciones. Posteriormente usaremos el conjunto de test de $33$ imágenes que separamos al principio de esta sección, y que hasta ahora no hemos visto para evitar \textit{data snooping}, para validar el modelo.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/boxplot_sumarize.png}
+            \caption{Diagramas de cajas de todos los modelos probados concatenados. Para una correcta visualización se eliminan los Outliers del gráfico.}
+            \label{fig:boxplot_summary}
+        \end{figure}
 
         \begin{table}[!ht]
             \centering
