@@ -338,7 +338,9 @@
                 \item Imágenes de sujetos en posición de \textbf{perfil}: En este caso hay un total de $23$ imágenes y se clasifican correctamente $20$, lo que supone una precisión del \textbf{$87\%$}. Además, las imágenes que fallaban estaban en escala de grises y con malas condiciones de calidad e iluminación.
             \end{enumerate}
 
-            \noindent Por lo tanto, debido al bajo número de ejemplos en los que la red falla, se decidió mantener la red \textbf{Facenet} para determinar los \textit{bounding boxes} y además se excluyeron los tres ejemplos dónde fallaba del dataset, lo que hizo que en total se usaran $164$ de las $167$ imágenes originales.
+            \medskip
+
+            \noindent Por lo tanto, debido al bajo número de ejemplos en los que la red falla, se decidió mantener la red \textbf{Facenet} para determinar los \textit{bounding boxes} y además se excluyeron los tres ejemplos dónde fallaba del dataset, y se descartó otro ejemplo por tener los landmarks marcados de forma incorrecta. Esto hizo que en total se usaran $163$ de las $167$ imágenes originales.
 
             \medskip 
 
@@ -350,6 +352,10 @@
             \end{figure}
 
             \noindent Durante el estudio anterior, se observaron otros hechos dignos de mención. En primer lugar se identificaron dos imágenes repetidas, pero se decidió mantenerlas pues los landmarks presentes en una y otra eran diferentes, lo que podía ayudar al entrenamiento. Por otro lado, durante el entrenamiento se vió cómo había una imagen de un determinado sujeto en la que aprecían simultáneamente dos fotos, una  de frente y otra de perfil. Sin embargo, al estar los landmarks anotados únicamente en la imagen de frente se tomó el \textit{bounding box} de la imagen frontal desechando el otro para el perfil. En otras dos imágenes se pueden ver un conjunto de varias personas, y la red mostraba erróneamente los \textit{bounding boxes} de personas que no eran el sujeto de estudio, por lo que estudiar cuál de todos los \textit{bounding boxes} devueltos pertenecía al sujeto correcto.
+
+            \medskip
+
+            \noindent Además de todo lo anterior, se descubrió que una imagen tenía los landmarks marcados de forma incorrecta. Estp nos llevó a descartarlo para los experimentos, y así empleamos en total $163$ imágenes para el estudio.
 
         \subsection{Creación del fichero annotations en el dataset}
 
@@ -429,10 +435,10 @@
             \noindent Por lo expuesto anteriormente, se decide continuar con el reajuste que realiza el framework para lograr una mejor reconstrucción, aunque se pierda el marcado correcto del \textit{vertex}.
 
     \subsection{Separación en conjuntos de entrenamiento y validación}
-        \noindent Separamos la base de datos proporcionada en conjuntos de entrenamiento, validación y test. Por el limitado número de ejemplos que tenemos, será necesario emplear \textbf{validación cruzada} para la elección entre los modelos que se prueben. Así pues, de las \textbf{164 imágenes} que usaremos en total, establecemos una semilla para que los procesos aleatorios sean replicables en cualquier máquina y con ayuda de la función \textit{random-shuffle} de python separamos los datos en: 
+        \noindent Separamos la base de datos proporcionada en conjuntos de entrenamiento, validación y test. Por el limitado número de ejemplos que tenemos, será necesario emplear \textbf{validación cruzada} para la elección entre los modelos que se prueben. Así pues, de las \textbf{163 imágenes} que usaremos en total, establecemos una semilla para que los procesos aleatorios sean replicables en cualquier máquina y con ayuda de la función \textit{random-shuffle} de python separamos los datos en: 
 
         \begin{itemize}
-            \item \textbf{Conjunto de test}: 33 imágenes ($20\%$ del total de imágenes).
+            \item \textbf{Conjunto de test}: 32 imágenes ($20\%$ del total de imágenes).
             \item \textbf{Conjunto de entrenamiento:} 131 imágenes ($80\%$ del total de imágenes).
         \end{itemize}
 
