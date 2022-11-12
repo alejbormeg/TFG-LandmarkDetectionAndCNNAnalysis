@@ -6,6 +6,14 @@
 
 \noindent Los resultados obtenidos con el modelo presentado son prometedores y, aunque se encuentran por debajo en media con respecto al modelo de \textit{HF-ResNet}, cabe destacar el hecho de que el dataset empleado para esta tarea se ha ceñido únicamente a las $167$ proporcionadas, sin añadir ejemplos, como los modelos $3D$ que se emplearon en el otro trabajo para aumentar el dataset, a excepción de técnicas de \textit{data augmentation} que únicamente duplicaron el conjunto de datos de entrenamiento. La mediana del RMSE cometido por nuestro modelo es de $5.3862$ píxeles de error, frente a los $3.4106$ del modelo basado en \textit{HyperFace}. Podemos así concluir que esta alternativa de \textit{few-shot} learning es prometedora, pues con muchos menos ejemplos de entrenamiento se consiguen resultados competentes. Además resuelve un problema importante y que como hemos explicado conlleva mucho tiempo para el experto forense. Con este método el experto tendría que revisar los landmarks predichos para evitar errores, pero ahorraría tiempo.
 
+\medskip
+
+\noindent Por otra parte, no es frecuente contar con modelos $3D$ en los laboratorios forenses con los que ampliar el dataset de entrenamiento del modelo. Esto hace de nuestro modelo basado en \textit{3FabRec} una alternativa más realista para este tipo de tareas, que logra buenos resultados con pocos ejemplos de entrenamiento.
+
+\medskip
+
+\noindent Finalmente, cabe destacar la adaptación del framework \textit{3FabRec} para poder realizar el entrenamiento de imágenes con landmarks faltantes. Recordemos que en los datasets de landmarks faciales empleados durante el entrenamiento original del framework (\textit{AFLW}, \textit{300W} o \textit{WFLW}), en cada imagen de entrenamiento se encontraban todos los landmarks que se iban a predecir marcados. En nuestro caso hemos modificado la función de coste de la fase de aprendizaje supervisado de la red (el MSE entre los mapas de calor) para que, en cada mini batch de entrenamiento, tome en consideración únicamente los landmarks realmente presentes en las imágene, aquellos cuyas coordenadas no son $(-1,-1)$. Esto aumenta el potencial y la capacidad del framework para entrenar datasets más complejos y realistas, en los que hay valores perdidos.
+
 \section{Objetivos Satisfechos}
 
 Todos los objetivos que se habían propuesto al comienzo de este trabajo se han visto realizados con éxito:
@@ -24,7 +32,7 @@ Todos los objetivos que se habían propuesto al comienzo de este trabajo se han 
 
 \begin{enumerate}
     \item La integración del modelo en un proceso real de detección del landmarks cefalométricos por parte de un equipo de expertos y estudiar su rendimiento y precisión.
-    \item Realizar un ajuste fino previo de la parte no supervisada de la red para aprender a mejorar la reconstrucción de caras en imágenes de baja calidad, en escalas de grises y en distintas posiciones y ver el impacto de la mejora de la reconstrucción de las imágenes en el marcado de landmarks.
+    \item Realizar un ajuste fino previo de la parte no supervisada de la red para aprender a mejorar la reconstrucción de caras en imágenes de baja calidad, en escalas de grises y en distintas posiciones. Además, emplear un bounding box apropiado que permita ver correctamente todos los landmarks presentes en la imagen. Con todos estos cambios, ver el impacto en la mejora de la reconstrucción de las imágenes en el marcado de landmarks.
     \item Extender el conjunto de datos proporcionado aplicando diversas técnicas de \textit{data augmentation} a cada imagen del dataset, con el fin de mejorar aún más la precisión del marcado con más ejemplos de entrenamiento para el modelo.
 \end{enumerate}
 

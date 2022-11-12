@@ -875,9 +875,6 @@
 
         \noindent Una vez analizados los distintos modelos que se proponen para resolver el problema, vemos que la alternativa más prometedora resulta ser la última. Podemos ver una comparación de la distribución de los errores de NME y reconstrucción de todos los modelos en la \autoref{fig:boxplot_summary}, aquí podemos ver mejor la gran reducción del error NME lograda por el último modelo. Por otro lado, la distribución de los errores de reconstrucción apenas varía en los cuatro modelos probados. 
         
-        \medskip
-
-        \noindent Una vez elegido el modelo, tomamos el conjunto de entrenamiento en su totalidad (sin realizar particiones) y vamos a usarlo para entrenar el modelo durante las mismas épocas que en la sección anterior y con los mismos parámetros y transformaciones. Posteriormente usaremos el conjunto de test de $33$ imágenes que separamos al principio de esta sección, y que hasta ahora no hemos visto para evitar \textit{data snooping}, para validar el modelo.
 
         \begin{figure}[H]
             \centering
@@ -886,42 +883,49 @@
             \label{fig:boxplot_summary}
         \end{figure}
 
+        
+        \subsubsection*{Análisis Cuantitativo}
+        
+
+        \noindent Una vez elegido el modelo, tomamos el conjunto de entrenamiento en su totalidad (sin realizar particiones) y vamos a usarlo para entrenar el modelo durante las mismas épocas que en la sección anterior y con los mismos parámetros y transformaciones. Posteriormente usaremos el conjunto de test de $32$ imágenes que separamos al principio de esta sección, y que hasta ahora no hemos visto para evitar \textit{data snooping}, para validar el modelo.
+
+
         \begin{table}[!ht]
             \centering
             \caption{Tabla comparativa entre los resultados del modelo de data augmentation en el conjunto de validación y test.}
             \begin{tabular}{|l|l|l|}
             \hline
                 \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{NME Test} & \cellcolor{gray!25}\textbf{NME Validación} \\ \hline
-                \textbf{Menton} & \cellcolor{green!25}0.946 & 3.006 \\ \hline
-                \textbf{Gnathion} & 3.323 & \cellcolor{green!25}1.497 \\ \hline
-                \textbf{Pogonion} & 3.149 & \cellcolor{green!25}1.359 \\ \hline
-                \textbf{Prosthion} & 0.89 & \cellcolor{green!25}0.815 \\ \hline
-                \textbf{Labiale Superius} & \cellcolor{green!25}1.134 & 1.531 \\ \hline
-                \textbf{Subnasale} & 2.982 & \cellcolor{green!25}1.272 \\ \hline
-                \textbf{Nasion} & 3.1 & \cellcolor{green!25}1.241 \\ \hline
-                \textbf{Glabella} & 3.089 & \cellcolor{green!25}1.545 \\ \hline
-                \textbf{Vertex} & 6.568 & \cellcolor{green!25}3.99 \\ \hline
-                \textbf{Left Gonion} & 4.334 & \cellcolor{green!25}1.846 \\ \hline
-                \textbf{Right Gonion} & \cellcolor{green!25}1.297 & 1.673 \\ \hline
-                \textbf{Left Zygion} & 4.813 & \cellcolor{green!25}3.322 \\ \hline
-                \textbf{Right Zygion} & 4.465 & \cellcolor{green!25}4.441 \\ \hline
-                \textbf{Left Alare} & 3.531 & \cellcolor{green!25}1.585 \\ \hline
-                \textbf{Right Alare} & 3.641 & \cellcolor{green!25}1.362 \\ \hline
-                \textbf{Left Endocanthion} & 3.917 & \cellcolor{green!25}1.227 \\ \hline
-                \textbf{Right Endocanthion} & 4.685 & \cellcolor{green!25}1.129 \\ \hline
-                \textbf{Left Exocanthion} & 3.936 & \cellcolor{green!25}1.186 \\ \hline
-                \textbf{Right Exocanthion} & 4.526 & \cellcolor{green!25}1.12 \\ \hline
-                \textbf{Left Tragion} & 2.365 & \cellcolor{green!25}2.066 \\ \hline
-                \textbf{Right Tragion} & \cellcolor{green!25}1.678 & 2.234 \\ \hline
-                \textbf{Labiale inferius} & 1.083 & \cellcolor{green!25}1.032 \\ \hline
-                \textbf{Trichion} & \cellcolor{green!25}1.731 & 3.37 \\ \hline
-                \textbf{Supramentale} & \cellcolor{green!25}1.064 & 1.109 \\ \hline
-                \textbf{Left Frontotemporale} & \cellcolor{green!25}1.208 & 1.386 \\ \hline
-                \textbf{Right Frontotemporale} & \cellcolor{green!25}1.282 & 1.826 \\ \hline
-                \textbf{Left Frontozygomaticus} & \cellcolor{green!25}1.024 & 1.036 \\ \hline
-                \textbf{Right Frontozygomaticus} & \cellcolor{green!25}0.943 & 1.057 \\ \hline
-                \textbf{Left Midsurpaorbital} & \cellcolor{green!25}0.846 & 0.854 \\ \hline
-                \textbf{Right Midsupraorbital} & 2.027 & \cellcolor{green!25}0.945 \\ \hline
+                \textbf{Menton} & \cellcolor{green!25}0.929 & 3.006 \\ \hline
+                \textbf{Gnathion} & \cellcolor{green!25}1.13 & 1.497 \\ \hline
+                \textbf{Pogonion} & \cellcolor{green!25}1.262 & 1.359 \\ \hline
+                \textbf{Prosthion} & 1.24 & \cellcolor{green!25}0.815 \\ \hline
+                \textbf{Labiale Superius} & \cellcolor{green!25}1.135 & 1.531 \\ \hline
+                \textbf{Subnasale} & \cellcolor{green!25}0.863 & 1.272 \\ \hline
+                \textbf{Nasion} & \cellcolor{green!25}0.871 & 1.241 \\ \hline
+                \textbf{Glabella} & \cellcolor{green!25}1.161 & 1.545 \\ \hline
+                \textbf{Vertex} & \cellcolor{green!25}2.558 & 3.99 \\ \hline
+                \textbf{Left Gonion} & \cellcolor{green!25}1.406 & 1.846 \\ \hline
+                \textbf{Right Gonion} & \cellcolor{green!25}1.242 & 1.673 \\ \hline
+                \textbf{Left Zygion} & \cellcolor{green!25}1.585 & 3.322 \\ \hline
+                \textbf{Right Zygion} & \cellcolor{green!25}1.607 & 4.441 \\ \hline
+                \textbf{Left Alare} & \cellcolor{green!25}0.804 & 1.585 \\ \hline
+                \textbf{Right Alare} & \cellcolor{green!25}0.835 & 1.362 \\ \hline
+                \textbf{Left Endocanthion} & 1.377 & \cellcolor{green!25}1.227 \\ \hline
+                \textbf{Right Endocanthion} & 1.656 & \cellcolor{green!25}1.129 \\ \hline
+                \textbf{Left Exocanthion} & 1.772 & \cellcolor{green!25}1.186 \\ \hline
+                \textbf{Right Exocanthion} & 2.132 & \cellcolor{green!25}1.12 \\ \hline
+                \textbf{Left Tragion} & \cellcolor{green!25}1.47 & 2.066 \\ \hline
+                \textbf{Right Tragion} & \cellcolor{green!25}1.557 & 2.234 \\ \hline
+                \textbf{Labiale inferius} & 1.103 & \cellcolor{green!25}1.032 \\ \hline
+                \textbf{Trichion} & \cellcolor{green!25}1.544 & 3.37 \\ \hline
+                \textbf{Supramentale} & 1.241 & \cellcolor{green!25}1.109 \\ \hline
+                \textbf{Left Frontotemporale} & \cellcolor{green!25}1.293 & 1.386 \\ \hline
+                \textbf{Right Frontotemporale} & \cellcolor{green!25}1.17 & 1.826 \\ \hline
+                \textbf{Left Frontozygomaticus} & 1.038 & \cellcolor{green!25}1.036 \\ \hline
+                \textbf{Right Frontozygomaticus} & \cellcolor{green!25}1.031 & 1.057 \\ \hline
+                \textbf{Left Midsurpaorbital} & 0.864 & \cellcolor{green!25}0.854 \\ \hline
+                \textbf{Right Midsupraorbital} & 1.92 & \cellcolor{green!25}0.945 \\ \hline
             \end{tabular}
             \label{table:FinalModel_landmarks}
         \end{table}
@@ -931,14 +935,15 @@
         \noindent En primer lugar, como se puede apreciar en la \autoref{table:FinalModel_landmarks} obtenemos: 
 
         \begin{itemize}
-            \item El marcado de landmarks empeora ligeramente ligeramente con respecto a validación. Esto es normal, pues en la etapa anterior todas las decisiones para mejorar los modelos se tomaron en función de los resultados de validación. Sin embargo, estos datos nuevos en los que se está probando el modelos no han sido estudiados previamente, por lo que es normal que baje el rendimiento. No obstante, los resultados siguen siendo buenos, y no se empeoran excesivamente en la mayoría de casos. 
-            \item En total empeoran su error $19$ de los $30$ landmarks marcados. En algunos casos el error se duplica, como puede ser el \textit{Gnation} y en otros empeora levemente, como ocurre con el \textit{Left Zygion}. 
-            \item En total mejoran su error $11$ de los $30$ landmarks, destacando la importante mejora en la identificación del \textit{Menton}, y algunas más leves como las del \textit{Right/Left Frontotemporale}.
+            \item A primera vista los errores son similares en el conjunto de test que los obtenidos en validación, ligeramente mejores en algunos casos y peores en otros.  
+            \item Realizamos un test de \textbf{Kolmogorov-Smirnov} para ver si ambas distribuciones de errores proceden de la misma distribución (que será nuestra hipótesis nula) o no con un $95\%$ de confianza. Para ello empleamos la función \textit{ks\_2samp
+            } de la librería \textit{scipy} de python. Esta función nos permite realizar con facilidad el test descrito anteriormente obteniendo un $p-valor=0.594 > 0.05$, por lo que no tenemos evidencias para rechazar la hipótesis nula. Esto es algo deseable, pues los errores de test y validación  deberían seguir la misma distribución.
+
         \end{itemize}
 
         \medskip
 
-        \noindent Por otro lado, las curvas de aprendizaje durante el entrenamiento del modelo se pueden observar en la \autoref{fig:curvas_FinalModel}. En ellas podemos observar una mayor distancia entre la curva de entrenamiento y validación, fruto de nuevo de no haber usado el conjunto de test para tomar decisiones, como si que hicimos con los datos de validación en \textit{cross-validation}. Podemos ver el rendimiento del modelo en algunas imágenes en \autoref{fig:Ejemplo_finalmodel}.
+        \noindent Por otro lado, las curvas de aprendizaje durante el entrenamiento del modelo se pueden observar en la \autoref{fig:curvas_FinalModel}. En ellas podemos observar una gran capacidad de generalización del modelo, pues en todo momento la curva de entrenamiento y la de validación descienden tras cada época y cuando convergen parecen hacerlo al mismo valor. 
 
         \begin{figure}[H]
             \centering
@@ -946,6 +951,10 @@
             \caption{Curvas de aprendizaje durante el entrenamiento del modelo de data augmentation validado en el conjunto de test.}
             \label{fig:curvas_FinalModel}
         \end{figure}
+        
+        \subsubsection*{Análisis Cualitativo}
+
+        \noindent Podemos ver el rendimiento del modelo en algunas imágenes en \autoref{fig:Ejemplo_finalmodel}. Como podemo ver, la reconstrucción de las imágenes continua siendo adecuada y la precisión en el marcado de landmarks es muy elevada. Las imágenes más complicadas siguen siendo las de perfil, debido a la poca calidad de la reconstrucción del \textit{AAE} en este tipo de ejemplos. No obstante, los resultados en global son satisfactorios.
 
         \begin{figure}[H]
             \centering
@@ -955,6 +964,8 @@
         \end{figure}
 
         \medskip
+
+        \subsubsection*{Análisis de requisitos}
 
         \noindent Vamos a ver a continuación si el modelo elegido cumple con los requisitos deseables que nos habíamos impuesto al comienzo del trabajo: 
         \begin{itemize}
@@ -969,7 +980,7 @@
         \noindent Como podemos ver, en general el modelo cumple los requisitos que le habíamos impuesto, y podemos concluir que el modelo resuleve la tarea que nos habíamos propuesto con éxito. No obstante, insistimos en que el éxito real del modelo debe supervisarlo un experto forense, pues no sabemos si los errores cometidos en la identificación de landmarks son errores asumibles o si se requiere un mayor grado de precisión en el marcado.
 
     \section{Comparativa entre 3FabRec y HyperFace-ResNet101}
-        \noindent Vamos a comparar ahora el modelo final obtenido a partir de \textbf{3FabRec} con otro que fue diseñado para el mismo propósito basado en \textbf{HyperFace-Resnet101}, otra red especializada en el marcado de landmarks, realizado por Guillermo Gómez.
+        \noindent Vamos a comparar ahora el modelo final obtenido a partir de \textbf{3FabRec} con otro que fue diseñado para el mismo propósito basado en \textbf{HyperFace-Resnet101}, otra red especializada en el marcado de landmarks, realizado por Guillermo Gómez y que supone el estado del arte en el campo.
 
         \subsection{Preprocesamiento y base de datos empleada}
             \noindent En lo que respecta al preprocesamiento de los datos, nuestro modelo basado en \textit{3FabRec} únicamente emplea como etapa de preprocesamiento la identificación de bounding boxes en el conjunto de datos inicial de cara a poder entrenar la red. Por otro lado, este estudio se limita a usar las $167$ imágenes proporcionadas.
@@ -1000,51 +1011,52 @@
                 \begin{tabular}{|l|l|l|l|l|}
                 \hline
                     \cellcolor{gray!25}\textbf{Modelo} & \cellcolor{gray!25}\textbf{RMSE} & \cellcolor{gray!25}\textbf{P25} & \cellcolor{gray!25}\textbf{P50} & \cellcolor{gray!25}\textbf{P75} \\ \hline
-                    \textbf{Modelo HyperFace-Resnet101} & \cellcolor{green!25}3.4106 & \cellcolor{green!25}1.802 & \cellcolor{green!25}2.7569 & \cellcolor{green!25}4.2849 \\ \hline
-                    \textbf{Modelo 3FabRec} & 5.3862 & 3.0991 & 5.3862 & 5.9819 \\ \hline
+                    \textbf{Modelo HyperFace-Resnet101} & 3.4106 & \cellcolor{green!25}1.802 & 2.7569 & 4.2849 \\ \hline
+                    \textbf{Modelo 3FabRec} & \cellcolor{green!25} 2.7666 & 1.9561 & \cellcolor{green!25}2.3812 & \cellcolor{green!25}3.1201 \\ \hline
                 \end{tabular}
                 \label{table:comparativa-global}
             \end{table}
             
             \medskip
 
-            \noindent A nivel general, parece que el modelo basado en \textit{HyperFace-ResNet101} es mejor que el presentado en este trabajo, no obstante vamos a realizar una comparativa a nivel de landmark entre los dos modelos. Podemos ver esta comparativa en la \autoref{table:comparativa-Landmarks}.
+            \noindent A nivel general, parece que el modelo basado en \textit{3FabRec} es mejor que el basado en \textit{HF-Resnet101}. Como podemos ver en los resultados de la \autoref{table:comparativa-global}, a nivel de distribución del error RMSE en las imágenes de test, el RI en el modelo de \textit{HF-Resnet101} es de $2.48$ píxeles, mientras que en el modelo de \textit{3FabRec} es de $1.164$ píxeles, lo que supone una mejora considerable. No obstante, vamos a realizar una comparativa a nivel de landmark entre los dos modelos. Podemos ver esta comparativa en la \autoref{table:comparativa-Landmarks}.
+
             \begin{table}[!ht]
                 \centering
                 \caption{Tabla comparativa a nivel de landmarks entre el modelo final basado en 3FabRec y el de HyperFace-REsNet101.}
                 \begin{tabular}{|l|l|l|}
                 \hline
                     \cellcolor{gray!25}\textbf{Landmark} & \cellcolor{gray!25}\textbf{RMSE 3FabRec} & \cellcolor{gray!25}\textbf{RMSE HyperFace-Resnet101} \\ \hline
-                    \textbf{Menton} & 6.43 & \cellcolor{green!25} 4.97 \\ \hline
-                    \textbf{Gnathion} & 5.5 & \cellcolor{green!25}3.84 \\ \hline
-                    \textbf{Pogonion} & 5.5 & \cellcolor{green!25}3.99 \\ \hline
+                    \textbf{Menton} & \cellcolor{green!25}1.79 &  4.97 \\ \hline
+                    \textbf{Gnathion} & \cellcolor{green!25}2.28 & 3.84 \\ \hline
+                    \textbf{Pogonion} & \cellcolor{green!25}2.86 & 3.99 \\ \hline
                     \textbf{Prosthion} & \cellcolor{green!25}1.73 & 3.23 \\ \hline
-                    \textbf{Labiale Superius} & 3.35 & \cellcolor{green!25}2.35 \\ \hline
-                    \textbf{Subnasale} & 4.9 & \cellcolor{green!25}3.33 \\ \hline
-                    \textbf{Nasion} & 4.91 & \cellcolor{green!25}3.12 \\ \hline
-                    \textbf{Glabella} & 5.36 & \cellcolor{green!25}3.89 \\ \hline
-                    \textbf{Vertex} & 10.95 & \cellcolor{green!25}8.83 \\ \hline
-                    \textbf{Left Gonion} & 9.7 & \cellcolor{green!25}7.12 \\ \hline
-                    \textbf{Right Gonion} & 7.23 & \cellcolor{green!25}6.11 \\ \hline
-                    \textbf{Left Zygion} & 11.49 & \cellcolor{green!25}5.78 \\ \hline
-                    \textbf{Right Zygion} & 13.47 & \cellcolor{green!25}6.94 \\ \hline
-                    \textbf{Left Alare} & 5.6 & \cellcolor{green!25}3.50 \\ \hline
-                    \textbf{Right Alare} & 5.68 & \cellcolor{green!25}2.84 \\ \hline
-                    \textbf{Left Endocanthion} & 5.11 & \cellcolor{green!25}2.40 \\ \hline
-                    \textbf{Right Endocanthion} & 6.0 & \cellcolor{green!25}2.32 \\ \hline
-                    \textbf{Left Exocanthion} & 6.11 & \cellcolor{green!25}3.73 \\ \hline
-                    \textbf{Right Exocanthion} & 5.92 & \cellcolor{green!25}3.62 \\ \hline
-                    \textbf{Left Tragion} & \cellcolor{green!25}5.34 & 7.01 \\ \hline
-                    \textbf{Right Tragion} & \cellcolor{green!25}5.81 & 6.41 \\ \hline
-                    \textbf{Labiale inferius} & \cellcolor{green!25}2.43 & 3.11 \\ \hline
-                    \textbf{Trichion} & \cellcolor{green!25}5.41 & 7.02 \\ \hline
-                    \textbf{Supramentale} & \cellcolor{green!25}2.29 & 3.43 \\ \hline
-                    \textbf{Left Frontotemporale} & \cellcolor{green!25}3.16 & 3.78 \\ \hline
-                    \textbf{Right Frontotemporale} & \cellcolor{green!25}3.08 & 3.27 \\ \hline
-                    \textbf{Left Frontozygomaticus} & \cellcolor{green!25}2.25 & 2.75 \\ \hline
-                    \textbf{Right Frontozygomaticus} & \cellcolor{green!25}2.2 & 2.80 \\ \hline
-                    \textbf{Left Midsurpaorbital} & \cellcolor{green!25}1.91 & 2.57 \\ \hline
-                    \textbf{Right Midsupraorbital} & 3.05 & \cellcolor{green!25}2.24 \\ \hline
+                    \textbf{Labiale Superius} & \cellcolor{green!25}2.24 & 2.35 \\ \hline
+                    \textbf{Subnasale} & \cellcolor{green!25}1.56 & 3.33 \\ \hline
+                    \textbf{Nasion} & \cellcolor{green!25}1.51 & 3.12 \\ \hline
+                    \textbf{Glabella} & \cellcolor{green!25}2.4 & 3.89 \\ \hline
+                    \textbf{Vertex} & \cellcolor{green!25}4.3 & 8.83 \\ \hline
+                    \textbf{Left Gonion} & \cellcolor{green!25}3.38 & 7.12 \\ \hline
+                    \textbf{Right Gonion} & \cellcolor{green!25}2.3 & 6.11 \\ \hline
+                    \textbf{Left Zygion} & \cellcolor{green!25}2.93 & 5.78 \\ \hline
+                    \textbf{Right Zygion} & \cellcolor{green!25}3.23 & 6.94 \\ \hline
+                    \textbf{Left Alare} & \cellcolor{green!25}1.17 & 3.50 \\ \hline
+                    \textbf{Right Alare} & \cellcolor{green!25}1.42 & 2.84 \\ \hline
+                    \textbf{Left Endocanthion} & 3.18 & \cellcolor{green!25}2.40 \\ \hline
+                    \textbf{Right Endocanthion} & 4.56 & \cellcolor{green!25}2.32 \\ \hline
+                    \textbf{Left Exocanthion} & 4.92 & \cellcolor{green!25}3.73 \\ \hline
+                    \textbf{Right Exocanthion} & 6.98 & \cellcolor{green!25}3.62 \\ \hline
+                    \textbf{Left Tragion} & \cellcolor{green!25}2.87 & 7.01 \\ \hline
+                    \textbf{Right Tragion} & \cellcolor{green!25}2.65 & 6.41 \\ \hline
+                    \textbf{Labiale inferius} & \cellcolor{green!25}2.02 & 3.11 \\ \hline
+                    \textbf{Trichion} & \cellcolor{green!25}2.68 & 7.02 \\ \hline
+                    \textbf{Supramentale} & \cellcolor{green!25}2.19 & 3.43 \\ \hline
+                    \textbf{Left Frontotemporale} & \cellcolor{green!25}2.59 & 3.78 \\ \hline
+                    \textbf{Right Frontotemporale} & \cellcolor{green!25}2.37 & 3.27 \\ \hline
+                    \textbf{Left Frontozygomaticus} & \cellcolor{green!25}1.79 & 2.75 \\ \hline
+                    \textbf{Right Frontozygomaticus} & \cellcolor{green!25}1.94 & 2.80 \\ \hline
+                    \textbf{Left Midsurpaorbital} & \cellcolor{green!25}1.44 & 2.57 \\ \hline
+                    \textbf{Right Midsupraorbital} & 5.46 & \cellcolor{green!25}2.24 \\ \hline
                 \end{tabular}
                 \label{table:comparativa-Landmarks}
             \end{table}
@@ -1052,30 +1064,41 @@
             \medskip
             
             \begin{itemize}
-                \item En total $11$ landmarks se marcan con mayor precisión con el modelo basado en \textbf{3FabRec}.
-                \item En total $19$ landmarks se marcan mejor en con el modelo basado en \textbf{HyperFace-ResNet101}.
+                \item En total $25$ landmarks se marcan con mayor precisión con el modelo basado en \textit{3FabRec}.
+                \item En total $5$ landmarks se marcan mejor en con el modelo basado en \textit{HyperFace-ResNet101}.
             \end{itemize}
 
-            \noindent Como podemos observar, en su mayoría los landmarks que el modelo basado en \textit{HyperFace-ResNet101} son más precisos que los marcados por nuestro modelo en una media de $2$ píxeles de diferencia.
+            \noindent Como podemos observar, en su mayoría los landmarks marcados por el modelo basado en \textit{3FabRec} son más precisos. Sin embargo el \textit{Endocathion} y \textit{Exocanthion} son mejor marcados por el modelo basado en \textit{HF-Resnet101}.
            
+            \subsubsection*{Análisis Cualitativo}
+
+            \noindent A continuación vamos a ver una comparativa en el rendimiento entre ambos modelos en el conjunto de text (véase la \autoref{fig:comparativa_estado_arte}). En esta imagen podemos ver cómo la distancia euclídea se reduce en ambos ejemplos. 
+            
+            \begin{itemize}
+                \item En el primer caso, la imagen esta dentro del promedio del error cometido por el modelo de \textit{HF-ResNet101}. Como vemos la media de la distancia euclídea entre el punto real y predicho mejora levemente.
+                \item En el segundo ejemplo, vemos una mejora más considerable, pues el error cometido en el marcado de los landmarks se reduce hasta $10$ veces en el modelo de \textit{3FabRec} frente al modelo de \textit{HF-ResNet101}. 
+                \item Por otro lado, vemos cómo la visibilidad de algunos landmarks mejora en el caso del modelo de \textit{3FabRec}. Por ejemplo, en la segunda imagen el \textit{vertex} queda fuera en la imagen del modelo de \textit{HF-Resnet101}, mientras que en nuestro modelo se aprecia perfectamente.
+            \end{itemize}
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.9\textwidth]{img/compativa_cualitativa.png}
+                \caption{A la izquierda podemos ver las imágenes obtenidas con el modelo basado en \textit{3FabRec}, a la derecha las extraidas del TFG de Guillermo Gómez utilizando \textit{HF-ResNet}.}
+                \label{fig:comparativa_estado_arte}
+            \end{figure}
+            
         \subsection{Conclusiones extraídas}
 
-            \noindent Como podemos ver en los resultados de la \autoref{table:comparativa-global}, a nivel de distribución del error RMSE en las imágenes de test, el RI en el modelo de \textit{HF-Resnet101} es de $2.48$ píxeles, mientras que en el modelo de \textit{3FabRec} es de $2.97$ píxeles, la diferencia es muy pequeña entre ambos. Por otro lado, mientras que en el caso del modelo de \textit{HF-Resnet101} el valor de la mediana se sitúa aproximadamente en el punto medio entre el $P25$ y el $P75$ (que es $3.04$), podemos ver que los datos parecen distribuirse de manera uniforme. En cambio, en el modelo de $3FabRec$ la distribución parece estar inclinada a la derecha, pues la mediana es muy próxima al $P75$.
-
-            \medskip
-
-            \noindent Por otro lado, hemos visto que en el problema del marcado de landmarks cefalométricos, la mayor dificultad reside en la obtención de datos etiquetados, es decir, con landmarks marcados por un experto. Para el modelo basado en \textit{HF-Resnet101} se logró ampliar notablemente el dataset gracias a las proyecciones $2D$ de un conjunto de $99$ modelos $3D$, y pese a estar sesgada la información de este dataset (en lo referente a condiciones de luminosidad, ángulo y expresión facial), lo cierto es que se logró ampliar notablemente el conjunto de entrenamiento. En cambio, no es frecuente que todos los laboratorios forenses dispongan de una base de datos de modelos $3D$ etiquetados con los que ampliar el conjunto de entrenamiento. Es ahí donde crece el interés por el modelo presentado en este trabajo, pues en nuestro caso nos hemos ceñido exclusivamente a un pequeño dataset de apenas $167$ imágenes, que es un volumen de datos más frecuente en este tipo de problemas. 
+            \noindent Hemos visto que en el problema del marcado de landmarks cefalométricos, la mayor dificultad reside en la obtención de datos etiquetados, es decir, con landmarks marcados por un experto. Para el modelo basado en \textit{HF-Resnet101} se logró ampliar notablemente el dataset gracias a las proyecciones $2D$ de un conjunto de $99$ modelos $3D$, y pese a estar sesgada la información de este dataset (en lo referente a condiciones de luminosidad, ángulo y expresión facial), lo cierto es que se logró ampliar notablemente el conjunto de entrenamiento. En cambio, no es frecuente que todos los laboratorios forenses dispongan de una base de datos de modelos $3D$ etiquetados con los que ampliar el conjunto de entrenamiento. Es ahí donde crece el interés por el modelo presentado en este trabajo, pues en nuestro caso nos hemos ceñido exclusivamente a un pequeño dataset de apenas $167$ imágenes, que es un volumen de datos más frecuente en este tipo de problemas.
             
-            \noindent Teniendo en cuenta lo anterior, el rendimiento a nivel de landmark, es muy satisfactorio por parte del modelo presentado, pues pese a estar por detrás del error cometido por el modelo de \textit{HF-Resnet101}, y observamos dos hechos destacables: 
-
-            \begin{itemize}
-                \item La mayoría de los landmarks que nuestro modelo marca mejor (a excepción del \textit{Left Tragion} y \textit{Right Tragion}), se encuentran principalmente en imágenes frontales y de $3/4$, que coinciden con el tipo de imágenes que mejor reconstruye la red.
-                \item Los landmarks que aparecen generalmente en imágenes de perfil, son en general mucho mejor marcados por el modelo de \textit{HF-Resnet101}. Esto se debe a que \textit{3FabRec} reconstruía peor este tipo de imágenes, y como en el problema de regresión modificamos el encoder para un problema de regresión aprovechando el conocimiento implícito sobre la estructura facial, si dicho conocimiento es de baja calidad (como ocurre con las imágenes de perfil), el marcado de este tipo de landmarks también será de peor calidad, de ahí los errores cometidos.
-            \end{itemize}
-
             \medskip
 
-            \noindent Por todo lo mencionado anteriormente, considero que una buena alternativa sería conseguir un gran conjunto de datos de imágenes sin etiquetar con la misma variabilidad que la que teníamos presente en nuestro dataset y realizar un ajuste fino del \textit{AAE} con este dataset para aprender la distribución de imágenes que define este tipo de bases de datos. La obtención de este tipo de imágenes no es tan complicada como la de conseguir imágenes etiquetadas, la capacidad para \textit{few-shot} learning de $3FabRec$ considero probable que se mejoren estos resultados notablemente, en especial en las imágenes de perfil.
+            \noindent El rendimiento a nivel de landmark, es muy satisfactorio por parte del modelo presentado, pues mejor en global el error cometido por el modelo de \textit{HF-Resnet101} y en particular, la mayoría de landmakrs reducen su error. Por todo lo mencionado anteriormente, podemos considerar el modelo basado en \textit{3FabRec} como el estado del arte en el campo. 
+            
+            
+            \medskip
+            
+            \noindent Sin embargo, considero que una buena alternativa para mejorar aún más los resultados sería conseguir un gran conjunto de datos de imágenes sin etiquetar con la misma variabilidad que la que teníamos presente en nuestro dataset y realizar un ajuste fino del \textit{AAE} con este dataset para aprender la distribución de imágenes que define este tipo de bases de datos. La obtención de este tipo de imágenes no es tan complicada como la de conseguir imágenes etiquetadas, la capacidad para \textit{few-shot} learning de $3FabRec$ considero probable que se mejoren estos resultados notablemente, en especial en las imágenes de perfil.
             
 
 \endinput

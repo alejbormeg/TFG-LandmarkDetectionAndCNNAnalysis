@@ -74,7 +74,7 @@
 \contentsline {subsection}{\numberline {7.1.1}Evolución en la identificación forense de landmarks cefalométricos}{81}{subsection.7.1.1}%
 \contentsline {subsubsection}{\numberline {7.1.1.1}Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}{83}{subsubsection.7.1.1.1}%
 \contentsline {subsubsection}{\numberline {7.1.1.2}Automated facial landmark detection, comparison and visualization}{83}{subsubsection.7.1.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.1.3}Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}{83}{subsubsection.7.1.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.1.3}Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}{85}{subsubsection.7.1.1.3}%
 \contentsline {subsubsection}{\numberline {7.1.1.4}The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}{85}{subsubsection.7.1.1.4}%
 \contentsline {chapter}{\numberline {8}Implementación}{87}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Diseño del Sofware}{87}{section.8.1}%
@@ -108,19 +108,19 @@
 \contentsline {subsection}{\numberline {9.4.5}Modelo con Data Augmentation}{121}{subsection.9.4.5}%
 \contentsline {subsection}{\numberline {9.4.6}Elección de modelo y obtención de resultados}{124}{subsection.9.4.6}%
 \contentsline {section}{\numberline {9.5}Comparativa entre 3FabRec y HyperFace-ResNet101}{128}{section.9.5}%
-\contentsline {subsection}{\numberline {9.5.1}Preprocesamiento y base de datos empleada}{128}{subsection.9.5.1}%
-\contentsline {subsection}{\numberline {9.5.2}Métricas empleadas}{128}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.1}Preprocesamiento y base de datos empleada}{129}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Métricas empleadas}{129}{subsection.9.5.2}%
 \contentsline {subsection}{\numberline {9.5.3}Comparación de resultados}{129}{subsection.9.5.3}%
-\contentsline {subsection}{\numberline {9.5.4}Conclusiones extraídas}{129}{subsection.9.5.4}%
-\contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{131}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{131}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{132}{section.10.2}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{135}{chapter*.17}%
-\contentsline {chapter}{\nonumberline Apéndice A}{139}{chapter*.18}%
-\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo base}{139}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice B}{145}{chapter*.19}%
-\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{145}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice C}{151}{chapter*.20}%
-\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{151}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice D}{157}{chapter*.21}%
-\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{157}{section.Alph0.1}%
+\contentsline {subsection}{\numberline {9.5.4}Conclusiones extraídas}{131}{subsection.9.5.4}%
+\contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{133}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{134}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{134}{section.10.2}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{137}{chapter*.21}%
+\contentsline {chapter}{\nonumberline Apéndice A}{141}{chapter*.22}%
+\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo base}{141}{section.Alph0.1}%
+\contentsline {chapter}{\nonumberline Apéndice B}{147}{chapter*.23}%
+\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{147}{section.Alph0.1}%
+\contentsline {chapter}{\nonumberline Apéndice C}{153}{chapter*.24}%
+\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{153}{section.Alph0.1}%
+\contentsline {chapter}{\nonumberline Apéndice D}{159}{chapter*.25}%
+\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{159}{section.Alph0.1}%
