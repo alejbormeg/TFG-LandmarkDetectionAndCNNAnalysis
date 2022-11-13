@@ -11,7 +11,7 @@
 
 \medskip
 
-\noindent En primer lugar, se ha programado un \textit{notebook} de Jupyter independiente al proyecto general del framework, en el cual, se realiza el preprocesamiento de los datos, la identificación de las caras y la separación en conjunto de entrenamiento y test. El fichero se denomina \textit{Make-crop-split database.ipynb}.
+\noindent Se ha programado un \textit{notebook} de Jupyter independiente al proyecto general del framework, en el cual, se realiza el preprocesamiento de los datos, la identificación de las caras y la separación en conjunto de entrenamiento y test. El fichero se denomina \textit{Make\_crop\_split\_database.ipynb}. También se creó un fichero para la generación de diagramas de cajas y test de contraste de hipótesis denominado \textit{Boxplot\_hypothesis\_test.ipynb}.
 
 \medskip
 
@@ -26,7 +26,7 @@
 
 \medskip
 
-\noindent La estructura de paquetes la podemos ver en la \autoref{fig:Diagrama_paquetes}. Los paquetes en color rojo son los que han sido modificados o creados para este trabajo, el resto pertenecen al software original de \cite{browatzki20203fabrec}:
+\noindent La estructura de paquetes la podemos ver en la \autoref{fig:Diagrama_paquetes}. Los paquetes en color verde son los que han sido modificados o creados para este trabajo, el resto pertenecen al software original de \cite{browatzki20203fabrec}:
 
 \begin{itemize}
     \item \textcolor{mygreen}{\textbf{3FabRec.eval\_landmarks}}: Se lleva a acabo la evaluación del modelo en el conjunto de test y se extraen las métricas. Se adapta para extraer el \textbf{RMSE} por landmark teniendo en cuenta que cada landmark puede estar no marcado en algunas imágenes.

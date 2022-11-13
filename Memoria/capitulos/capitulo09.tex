@@ -1,6 +1,6 @@
 \chapter{Solución propuesta y experimentos realizados}
 
-    \noindent El reconocimiento automático de landmarks faciales es una área de gran importancia en la actualidad en tareas como el reconocimiento de personas y que se está viendo muy desarrollada gracias a las CNN. La principal diferencia entre este enfoque y el forense radica en el tipo de landmarks que se utilizan. Los utilizados en antropología forense son landmarks con justificación biológica. Dichos landmarks se correpsonden con localizaciones concretas del cráneo del ser humano, y los landmarks cefalométricos intentan predecir la posición de estos puntos sobre la piel, a diferencia de los que se emplean en las tareas de reconocimiento facial, que generalmente atienden a puntos de interés de la cara para su correcto reconocimiento y son independientes del cráneo del sujeto. Así pues existen diversas bases de datos empleadas para este cometido con multitud de imágenes etiquetadas, destacamos entre ellas: 
+    \noindent El reconocimiento automático de landmarks faciales es un procedimiento de gran importancia en la actualidad. Se emplea en tareas como el reconocimiento de personas y que se está viendo muy desarrollada gracias a las CNN. La principal diferencia entre este enfoque y el forense radica en el tipo de landmarks que se utilizan. Los utilizados en antropología forense son landmarks con justificación biológica. Dichos landmarks se correpsonden con localizaciones concretas del cráneo del ser humano, y los landmarks cefalométricos intentan predecir la posición de estos puntos sobre la piel, a diferencia de los que se emplean en las tareas de reconocimiento facial, que generalmente atienden a puntos de interés de la cara para su correcto reconocimiento,  independientemente del cráneo. Así pues, existen diversas bases de datos empleadas para este cometido con multitud de imágenes etiquetadas, destacamos entre ellas: 
 
     \begin{itemize}
     \item \textbf{300-W}: Se trata de un dataset compuesto por $3148$ imágenes de entrenamiento y $689$ imágenes de test \textit{in-the-wild}, es decir con multitud de poses, distinta iluminación y expresiones faciales. Está anotada por 51 landmarks o 68 landmarks si contamos el contorno del rostro \cite{300W}. Podemos ver los landmarks en la imagen \autoref{fig:300W}
@@ -23,11 +23,11 @@
 
     \medskip
 
-    \noindent El hecho es que existen actualmente CNN que son capaces de reconocer con un alto grado de precisión estos conjuntos de landmarks marcados por las bases de datos anteriores, lo que nos hace pensar que quizá podría emplearse el conocimiento adquirido por estas redes para reentrenarlas en un proceso de \textit{fine-tuning} sobre una base de datos forense con landmarks anotados por un experto para tratar de resolver el problema de la identificación automática de landmarks. De ahí nace nuestra propuesta, que en cierto modo trata hace como nexo de unión entre las dos vías de investigación. 
+    \noindent Actualmente, existen arquitecturas de red capaces de reconocer con un alto grado de precisión este problema gracias a las bases de datos presentadas anteriormente. Esto nos hace pensar que quizá podría emplearse el conocimiento adquirido por estas redes para reentrenarlas en un proceso de \textit{fine-tuning} sobre una base de datos forense con landmarks anotados por un experto para tratar de resolver el problema de la identificación automática de landmarks. De ahí nace nuestra propuesta, que en cierto modo trata hace como nexo de unión entre las dos vías de investigación. 
 
 
 \section{Framework empleado: 3FabRec }
-        \noindent La red empleada para la resolución del problema es la desarrollada por \textbf{Bjorn Browatzki et al} en $2020$ \cite{browatzki20203fabrec} denominada \textbf{3FabRec}. La red en cuestión es un \textbf{Adversarial Autoencoder} combiando con una red \textit{GAN} (por la presencia de un segundo discriminante propio de las GANs) que puede predecir landmarks gracias a la incorporación de unas capas convolucionales intermedias denominadas \textit{Interleaved Transfer Layers} (ITLs) en la etapa de reconstrucción. Todos estos elementos serán explicados en profundidad más adelante.      
+        \noindent La red empleada para la resolución del problema es la desarrollada por \textbf{Bjorn Browatzki et al} en $2020$ \cite{browatzki20203fabrec} denominada \textbf{3FabRec}. Se trata de un \textbf{Adversarial Autoencoder} combinado con una red \textit{GAN} (por la presencia de un segundo discriminante propio de las GANs) que puede predecir landmarks gracias a la incorporación de unas capas convolucionales intermedias denominadas \textit{Interleaved Transfer Layers} (ITLs) en la etapa de reconstrucción que modifican el generador para predecir \textit{HeatMaps}. Todos estos elementos pueden verse reflejados en la \autoref{fig:3FabRec Resumen}.      
 
         \medskip
 
@@ -54,9 +54,21 @@
                 \item \textbf{Decoder}: emplean la misma red ResNet-$18$ pero invertida.
             \end{itemize}
 
-            \noindent Para una mejor comprensión hemos realizado unos diagramas con la herramienta \textit{diagrams.net}. En la \autoref{fig:bloque_encoder} podemos ver la estructura básica de los bloques de la ResNet-$18$. Por otro lado en la \autoref{fig:Paso_encoder} podemos ver el paso de una imagen de entrada de tres canales y resolución $256 \times 256$ por el encoder.
+            \noindent Para una mejor comprensión hemos realizado unos diagramas con la herramienta \textit{diagrams.net}. En la \autoref{fig:bloque_encoder} podemos ver la estructura básica de los bloques de la ResNet-$18$. Por otro lado, en la \autoref{fig:Paso_encoder} podemos ver el paso de una imagen de entrada de tres canales y resolución $256 \times 256$ por el encoder. Por otro lado, en la \autoref{fig:Bloque_Decoder} podemos ver la estructura básica de un bloque en el Generador \textit{Inverse ResNet}, y un ejemplo del paso de un vector por el generador podemos verlo en la \autoref{fig:Paso_Generator}. 
 
-            \begin{figure}[htbp]
+
+            \medskip
+
+            \noindent Finalmente, necesitamos un Discriminador, que procure que los vectores del espacio vectorial latente sigan una determinada distribución. Dicha distribución será una normal multivariante estándar. Por otro lado, se añadirá un segundo discriminador propio de las redes \textbf{GAN} que nos dirá si la imagen reconstruida procede de la distribución que siguen los píxeles de la imagen de inicio. Este discriminador permite que la red genere imágenes más realistas. En la \autoref{fig:DGaussian} las redes neuronales que definen ambos discriminadores.
+
+            \subsubsection{Interleaved Transfer Layer (ITL)}
+                \noindent Se denominan ITLs a las capas convolucionales encargadas de la predicción de landmarks. Se tratan de una solución novedosa porque premiten adaptar un AAE pensado originalmente para tareas de aprendizaje no supervisado a un problema de \textbf{regresión}, típico del aprendizaje supervisado.
+
+                \medskip
+                
+                \noindent Se tratan de simples capas convolucionales que se intercalan entre las capas del Generador. La última de estas capas proporciona como salida un conjunto de mapas de calor, uno por cada landmark predicho. Estos mapas de calor luego se emplean para representar en la imagen reconstruida los landmarks. La arquitectura de esta etapa podemos verla en la \autoref{fig:Paso_Generator}.
+
+            \begin{figure}[h]
                 \centering
                 \includegraphics[width=0.95\textwidth]{img/bloque_basico_encoder.png}
                 \caption{Bloques básicos que utilza la red ResNet-$18$ en sus capas. Se trata de una sucesión clásica de Convolución 3x3 + Batch Normalization + ReLU que se repite dos veces. En el primer caso los filtros de convolución no reducen las dimensiones del tensor añadiendo un padding de 1. En el segundo caso se reduce la dimensión del tensor a la mitad tras la primera convolución y se manteiene la dimensionalidad en la segunda. En el primer caso, la suma residual puede realizarse con el tensor x sin problema, en el segundo caso el tensor debe reducirse para que casen las dimensiones.}
@@ -70,11 +82,8 @@
                 \label{fig:Paso_encoder}
             \end{figure}
 
-            \medskip
 
-            \noindent En la \autoref{fig:Bloque_Decoder} podemos ver la estructura básica de un bloque en el Generador \textit{Inverse ResNet}, y un ejemplo del paso de un vector por el generador podemos verlo en la \autoref{fig:Paso_Generator}
-
-            \begin{figure}[H]
+            \begin{figure}[h]
                 \centering
                 \includegraphics[width=0.96\textwidth]{img/bloque_invresnet.png}
                 \caption{En primer lugar se aplica una convolución transpuesta que duplica las dimensiones del tensor de entrada y tras esto se sigue la misma estructura que en el bloque básico de la ResNet-$18$, la segunda convolución $3\times 3$ mantiene las dimensiones. Como consecuencia, para sumar el tensor de entrada con la salida del bloque se aumentan las dimensiones de este.}
@@ -88,25 +97,16 @@
                 \label{fig:Paso_Generator}
             \end{figure}
 
-            \noindent Finalmente, necesitamos un Discriminador, que procure que los vectores del espacio vectorial latente sigan una determinada distribución. Dicha distribución será una normal multivariante estándar. Por otro lado, se añadirá un segundo discriminador propio de las redes \textbf{GAN} que nos dirá si la imagen reconstruida procede de la distribución que siguen los píxeles de la imagen de inicio. Este discriminador permite que la red genere imágenes más realistas. En la \autoref{fig:DGaussian} las redes neuronales que definen ambos discriminadores.
-
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.95\textwidth]{img/DGaussian.png}
                 \caption{En la imagen superior vemos el discriminante que se emplea para los vectores producidos por el Encoder y en la imagen inferior vemos el discriminante que se emplea para las imágenes generadas por el Generador. En ambos casos se da como salida un valor entre $0$ y $1$ que hace referencia a la probabilidad de pertenecer a la distribución deseada en el primer caso o a seguir la distribución de los píxeles de las imágenes en el segundo caso.}
                 \label{fig:DGaussian}
             \end{figure}
-
-            \subsubsection{Interleaved Transfer Layer (ITL)}
-                \noindent Se denominan ITLs a las capas convolucionales encargadas de la predicción de landmarks. Se tratan de una solución novedosa porque premiten adaptar una AAE pensado originalmente para tareas de aprendizaje no supervisado a un problema de \textbf{regresión}, típico del aprendizaje supervisado.
-
-                \medskip
-                
-                \noindent Se tratan de simples capas convolucionales que se intercalan entre las capas del Generador. La última de estas capas proporciona como salida un conjunto de mapas de calor, uno por cada landmark predicho. Estos mapas de calor luego se emplean para representar en la imagen reconstruida los landmarks. La arquitectura de esta etapa podemos verla en la \autoref{fig:Paso_Generator}.
             
         \subsection{Función de pérdida}
 
-            \noindent La red utiliza dos funciones de pérdida, la primera que presentaremos se emplea en el entrenamiento del \textit{Adversarial Autoencoder}, en la parte no supervisada, y la segunda se utiliza tanto en la parte de aprendizaje supervisado como en la de \textit{fine-tuning} del Encoder. Debido al interés que tiene en el estudio del framework se van a presentar y explicar ambas funciones de pérdida. Cabe resaltar, que debido a que el problema que vamos a resolver es de \textbf{regresión}, en la fase de experimentación únicamente tendrá interés la segunda función de coste, asociada al entrenamiento de la parte supervisada.
+            \noindent La red utiliza dos funciones de pérdida, la primera que presentaremos se emplea en el entrenamiento del \textit{Adversarial Autoencoder}  la parte no supervisada, y la segunda se utiliza tanto en la parte de aprendizaje supervisado como en la de \textit{fine-tuning} del Encoder. Debido al interés que tiene en el estudio del framework se van a presentar y explicar ambas funciones de pérdida. Cabe resaltar, que debido a que el problema que vamos a resolver es de \textbf{regresión}, en la fase de experimentación únicamente tendrá interés la segunda función de coste, asociada al entrenamiento de la parte supervisada.
 
             \medskip
 
@@ -166,8 +166,25 @@
 
             \medskip
 
-            \noindent Finalmente, en la etapa de \textit{fine-tuning} se computa la misma función de pérdida de antes, con la salvedad de que el error se propaga tanto por las \textit{ITLs} como por los pesos del \textit{Encoder}. Esto permite que el \textit{Encoder} se codifiquen con mayor precisión las imágenes y que se eliminen factores irrelevantes para la predicción de landmarks como son el género, el color de piel o la iluminación. Por otro lado se evita el overfitting ya que durante esta última etapa los pesos del \textit{Decoder} no se actualizan.
+            \noindent Finalmente, en la etapa de \textit{fine-tuning}, se computa la misma función de pérdida de antes, con la salvedad de que el error se propaga tanto por las \textit{ITLs} como por los pesos del \textit{Encoder}. Esto permite que el \textit{Encoder} se codifiquen con mayor precisión las imágenes y que se eliminen factores irrelevantes para la predicción de landmarks como son el género, el color de piel o la iluminación. Por otro lado restringe el riesgo de overfitting, ya que durante esta última etapa los pesos del \textit{Decoder} no se actualizan.
 
+            \subsubsection{Modificación de la función de pérdida}
+
+            \noindent Una de las principales aportaciones de este trabajo ha sido la de dotar a \textit{3FabRec} de la capacidad de entrenar con landmarks faltantes en las imágenes. 
+            
+            \medskip
+            
+            \noindent El enfoque elegido ha sido que los únicos landmarks que computen en la función de pérdida durante el entrenamiento sean únicamente los visibles en cada batch de imágenes. Para ello: 
+
+            \begin{itemize}
+                \item A cada imagen se le asigna una máscara, un vector de $30$ posiciones, en el cual se indica, para cada landmark, si está visible o no en la imagen indicando $1$ o $0$ respectivamente. 
+                \item Antes de calcular el $MSE$ entre los mapas de calor, se toman para cada imagen únicamente los mapas de calor predichos y reales de los landmarks visibles usando la máscara.
+                \item Se agrupan los \textit{Heat-maps} anteriores en dos vectores: uno con los predichos y otro con los reales. Se calcula el $MSE$ con estos dos vectores.
+            \end{itemize}
+            
+            \medskip
+
+            \noindent Durante todo el entrenamiento, será esta la función de coste que emplearemos.
         \subsection{Proceso de entrenamiento de la red}
 
             \subsubsection{Entrenamiento no-supervisado}
@@ -194,7 +211,7 @@
 
         \subsection{Bases de datos usadas por el framework}
             
-            \noindent Para el entrenamiento no supervisado del \textit{AAE}, se emplearon los siguientes datasets unidos: 
+            \noindent Para el \textbf{entrenamiento no supervisado} del \textit{AAE}, se emplearon los siguientes datasets unidos: 
 
             \begin{itemize}
                 \item \textbf{VGGFace2} : Contiene un total de $3.3$ millones de imágenes de rostros en distintas poses, edad, iluminación, etnia, etc \ldots  Del dataset eliminaron las imágenes de rostros que tuviera una altura menor a $100$ píxeles, quedando un total de $1.8$ millones de caras.
@@ -203,7 +220,7 @@
 
             \noindent En total usaron unas $2.1$ millones de imágenes.
 
-            \noindent Para el entrenamiento supervisado se emplearon los siguientes datasets: 
+            \noindent Para el \textbf{entrenamiento supervisado} se emplearon los siguientes datasets: 
 
             \begin{itemize}
                 \item \textbf{300-W} : une diversos datasets de rostros etiquetados con \textbf{$68$}landmarks de manera semi-automática como son \textbf{LFPW},\textbf{AFW}, \textbf{HELEN} y \textbf{XM2VTS}. Además de añadir datos propios. En total emplearon $3,148$ (aproximadamente el $80 \%$ )imágenes para el entrenamiento y $689$ para test, las cuales se dividieron en dos grupos, uno de $554$ imágenes considerado el grupo test estándar, y otro de $135$ imágenes difíciles.
@@ -213,7 +230,7 @@
 
             \medskip
 
-            \noindent Como podemos observar, los conjuntos de datos disponibles para el entrenamiento de redes especializadas en la identificación de landmarks faciales son variados y con muchos ejemplos de entrenamiento. En nuestro caso concreto, no contamos con tantos ejemplos y apenas hay bases de datos forenses con landmarks cefalométricos, lo cual es una dificultad añadida al problema, pues solo podremos entrenar con los datos que se nos proporcionan y como veremos son muy pocos.
+            \noindent Como podemos observar, los conjuntos de datos disponibles para el entrenamiento de redes especializadas en la identificación de landmarks faciales son variados y con muchos ejemplos de entrenamiento. En nuestro caso concreto, no contamos con tantos ejemplos y apenas hay bases de datos forenses con landmarks cefalométricos, lo cual es una dificultad añadida al problema, pues solo podremos entrenar con los datos que se nos proporcionan y como hemos explicado son muy pocos.
 
 \section{Métricas}
 
@@ -260,7 +277,7 @@
 
             \noindent Así, si en total se han identificado en las imágenes de validación un total de $n$ landmarks de cierto tipo en las imágenes de test o validación, se calcula la distancia $L_2$ entre el landmark de la imagen $i$ predicho y el real. Y tras esto se suman todos los valores obtenidos. Como podemos ver, idealmente $n$ debería ser el total de imágenes que hay en validación o test, pero no todos los landmarks aparecen en todas las imágenes, por lo tanto $n\leq M$ siendo $M$ el total de imágenes en validación.
 
-            \noindent En dicha expresión $N$ es el término por el que se normaliza, y varía según el problema. En nuestro caso normalizaremos la media del numerador por el ancho de la imagen que es de $256$ píxeles, ya que la distancia máxima permitida entre dos landmarks sería esta, y así todos los valores quedarían entre $0$ y $1$ siendo $0$ una estimación perfecta del landmark, y $1$ un error total en el marcado. Es importante la normalización debido a la heterogeneidad de los tamaños de los datos de entrada. Así, el NME extraído en cada dato es comparable con los del resto.
+            \noindent En dicha expresión $N$ es el término por el que se normaliza, y varía según el problema. En nuestro caso normalizaremos la media del numerador por la raiz cuadrada del área total del \textit{bounding box} en píxeles $N=\sqrt{256^2}=256$. Es importante la normalización debido a la heterogeneidad de los tamaños de los datos de entrada. Así, el NME extraído en cada dato es comparable con los del resto.
 
             \subsubsection{SSIM}
             \noindent Se trata del \textit{structural similarity index} (SSIM) y da una medida de \textit{similaridad} entre dos imágenes \cite{wang2004image}, su expresión es la siguiente: 
@@ -446,11 +463,7 @@
         
         \medskip
 
-        \noindent Para esta técnica se realizan cinco ejecuciones independientes en la cual se toman cuatro de los cinco subconjuntos de entrenamiento para entrenar el modelo y se deja el último subconjunto para validar el modelo. Así, en cada iteración se cambia el conjunto que se empleará para validación, con la finalidad de mejorar la calidad de las decisiones que se tomen sobre el rendimiento, pues la decisión estará mejor informada.
-
-        \medskip
-
-        \noindent Con cada propuesta de modelo, se medirá su rendimiento usando \textbf{5-fold cross-validation}, obteniendo 5 salidas de validación para cada modelo. Cada salida se compone de una tabla en la que aparece el NME medio por landmark (teniendo en cuenta sólamente los marcados en validación), y una tabla en la que para cada imagen de validación se obtiene su NME medio (haciendo la media del NME cometido por cada landmark), y el error de reconstrucción. Para la elección del modelo final se tendrá en cuenta: 
+        \noindent Para esta técnica se realizan cinco ejecuciones independientes en la cual se toman cuatro de los cinco subconjuntos de entrenamiento para entrenar el modelo y se deja el último subconjunto para validar el modelo. Así, en cada iteración se cambia el conjunto que se empleará para validación, con la finalidad de mejorar la calidad de las decisiones que se tomen sobre el rendimiento, pues la decisión estará mejor informada. Cada salida se compone de una tabla en la que aparece el NME medio por landmark (teniendo en cuenta sólamente los marcados en validación), y una tabla en la que para cada imagen de validación se obtiene su NME medio (haciendo la media del NME cometido por cada landmark), y el error de reconstrucción. Para la elección del modelo final se tendrá en cuenta: 
 
         \begin{itemize}
             \item Una tabla en la que se promedian las cinco tablas obtenidas con el NME medio por landmark.
@@ -467,15 +480,15 @@
         \noindent También, en la creación de los \textit{Heat-maps} se ha optado por mantener el valor de $\sigma =7$ que se recomienda en el paper \cite{browatzki20203fabrec}, ya que de nuevo ha sido probado minuciosamente por los autores del framework.
     
     \subsection{Modelo Base}
-        \noindent Buscamos un \textbf{modelo base} con el que obtener los primeros resultados, y que iremos refinando hasta obtener la solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos. Todos ellos han sido entrenados en la fase de aprendizaje no supervisado con la unión explicada de los datasets \textit{VGG2Face} y \textit{Affectnet}. Uno de ellos viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento y \textit{fine-tuning} del encoder een los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}.
+        \noindent Buscamos un \textbf{modelo base}, que iremos refinando hasta obtener la solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos. Todos ellos han sido entrenados en la fase de aprendizaje no supervisado con la unión explicada de los datasets \textit{VGG2Face} y \textit{Affectnet}. Uno de ellos viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento y \textit{fine-tuning} del encoder een los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}.
 
         \medskip
 
-        \noindent Se ha optado por usar como modelo base el que ha sido entrenado en \textit{AFLW}, porque el número de landmarks que predice este modelo es similar al de nuestro problema (21 landmarks), y la estructura de estos landmarks (visibles y no visibles) es similar a la nuestra.
+        \noindent Se ha optado por usar como modelo base el que ha sido entrenado en \textit{AFLW}, porque el número de landmarks que predice este modelo es similar al de nuestro problema (21 landmarks), y la estructura de estos landmarks (visibles y no visibles) es similar a la nuestra. Por otro lado, mientras que en otros datasets como \textit{300W} todos los landmakrs aparecen siempre en cada imagen, en \textit{AFLW} hay más restricciones de ángulos por lo que puede que en cada imagen no aparezcan todos los landmakrs.
 
         \medskip
 
-        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{ajuste fino} del encoder sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{60 épocas}, hasta la convergencia del \textit{mse} (que recordamos, es la medida de error entre los \textit{Heat-maps} predichos por el modelo y los reales), y no utilizaremos técnicas de \textit{data augmentation}. Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
+        \noindent Por otro lado, debido a que no conocemos todavía el efecto que tiene el entrenamiento con la etapa de \textit{ajuste fino} del encoder sobre los datos, vamos a realizar un entrenamiento únicamente de las \textbf{ITLs} durante un total de \textbf{60 épocas}, hasta la convergencia del \textit{mse} (que recordamos, es la medida de error entre los \textit{Heat-maps} predichos por el modelo y los reales). Por otro lado, los parámetros que se han usado han sido los que sugieren por defecto en el framework, ya que aún no tenemos información suficiente sobre el rendimiento como para cambiarlos. Dichos valores son: 
 
         \begin{itemize}
             \item El \textit{learning rate} para el optimizador Adam usado en el entrenamiento de las ITLs se establece en $0.001$. 
@@ -485,7 +498,7 @@
 
         \subsubsection*{Análisis cuantitativo}
 
-        \noindent La predicción por imagen, que resulta de concatenar la salida de \textbf{cross validation 5-fold } para cada partición, se pueden encontrar en \autoref{ap:apendiceA}. La información relativa a la distribución de los errores, tanto NME como reconstrucción, pueden verse en la \autoref{fig:boxplot_ModeloBase_NME} y la \autoref{table:ModelBase_images_results}.
+        \noindent La predicción por imagen, que resulta de concatenar la salida de \textbf{cross validation 5-fold } para cada partición, se pueden encontrar en Apéndice A. La información relativa a la distribución de los errores, tanto NME como reconstrucción, pueden verse en la \autoref{fig:boxplot_ModeloBase_NME} y la \autoref{table:ModelBase_images_results}.
 
         \begin{table}[!ht]
             \centering
@@ -503,14 +516,13 @@
 
         \noindent Como podemo ver, la distribución del error NME es compacta, lo cual es un buen indicador, pues buscamos un modelo robusto con un rendimiento similar en la mayoría de imágenes y casos del problema. Por otro lado, los outliers representan el $9,16 \%$ de los datos, un porcentaje no muy elevado pero que dada la poca cantidad de datos de la que disponemos, intentaremos reducir. Estos valores suelen corresponderse con imágenes especialmente complejas (de perfil y de baja calidad), en las que el error de reconstrucción también es muy elevado. En cambio, en lo que respecta al error de reconstrucción, la distribución no está tan concentrada, los valores son en general altos, pero el número de outliers es mucho menor ($3.05\%$).
 
+        \newpage
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/boxplot_modelo_base.png}
             \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento en el Modelo Base. Se han omitido los valores atípicos para una correcta visualización.}
             \label{fig:boxplot_ModeloBase_NME}
         \end{figure}
-
-        \noindent Podemos concluir, que la reconstrucción a nivel de pixel no es adecuada, aunque como vemos en la \autoref{fig:Ejemplo_ModelBase}, la reconstrucción de las caras es apropiada en general, es decir, almacena conocimiento implícito sobre la estructura facial correctamente. Como el framework emplea el conocimiento aprendido sobre la estructura facial para la predicción de landmarks, sería ideal que esta reconstrucción fuese lo más fiel posible. No obstante, el error en el marcado de landmarks cometido es bajo.
 
         \begin{table}[!ht]
             \centering
@@ -571,14 +583,16 @@
         
         \subsubsection*{Análisis cualitativo}
         
-        \medskip Podemos ver el rendimiento del modelo en algunas imágenes en la \autoref{fig:Ejemplo_ModelBase}, en ellas podemos apreciar algunos ejemplos a color y en escalas de grises. Como podemos apreciar, los errores más altos de reconstrucción se producen en las imágenes en escalas de grises y con menor calidad, mientras que los errores más bajos se producen en las imágenes a color, que por lo general tiene mayor resolución. Por otro lado, se puede apreciar que el error cometido por el modelo es bajo en todos los casos, aunque como anticipamos en la sección anterior, el \textit{Vertex} apenas se aprecia en ningún ejemplo.
+        \medskip Podemos ver el rendimiento del modelo en algunas imágenes en la \autoref{fig:Ejemplo_ModelBase}, en ellas podemos apreciar algunos ejemplos a color y en escalas de grises. Los errores más altos de reconstrucción se producen en las imágenes con menor calidad y de perfiles, mientras que los errores más bajos se producen en las imágenes frontales y de mayor resolución. Por otro lado, se puede apreciar que el error cometido por el modelo es bajo en todos los casos, aunque como anticipamos en la sección anterior, el \textit{Vertex} no está correctamente marcado en la mayoría de los ejemplos.
 
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/image_basemodel.png}
-            \caption{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf{modelo base}. Las imágenes de la fila superior son las imágenes reales, y las de la fila inferior las reconstruidas por la red. El marcado se realiza sobre las reconstruidas y luego se lleva a las superiores. Podemos apreciar en verde los landmarks reales y  en azul los predichos. El valor que aparece en la esquina inferior derecha es el NME global de la imagen (la media de los NMEs de cada landmark) y en la esquina inferior izquierda aparece el error de reconstrucción y encima el SSIM.}
+            \caption{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf{modelo base}. Las imágenes de la fila superior son las imágenes reales, y las de la fila inferior las reconstruidas por la red. Podemos apreciar en verde los landmarks reales y  en azul los predichos. El valor que aparece en la esquina inferior derecha es el NME global de la imagen (la media de los NMEs de cada landmark) y en la esquina inferior izquierda aparece el error de reconstrucción y encima el SSIM.}
             \label{fig:Ejemplo_ModelBase}
         \end{figure}
+
+        \noindent Podemos concluir, que la reconstrucción, a nivel de pixel, no es adecuada, aunque como vemos en la \autoref{fig:Ejemplo_ModelBase}, el framework parece captar correctamente la estructura facial. Como el framework emplea el conocimiento aprendido sobre la estructura facial para la predicción de landmarks, sería ideal que esta reconstrucción fuese lo más fiel posible. No obstante, el error en el marcado de landmarks cometido es bajo.
 
     \subsection{Modelo con reentrenamiento del encoder}
         \noindent A la luz de los resultados anteriores, vamos a cambiar el modelo de para entrenar las ITLs (que seguirán usando el mismo optimizador con los mismos parámetros por defecto), junto con los pesos del \textit{encoder}. Con este enfoque, se pretende asociar a cada imagen un vector latente que capte las nuevas variaciones del dataset junto con el entrenamiento en la predicción de landmarks.
@@ -589,7 +603,7 @@
 
         \subsubsection*{Análisis Cuantitativo}
 
-        \noindent Como podemos ver en la \autoref{table:ModelEncoder_images_results} y la \autoref{fig:boxplot_ModeloEncoder_NME}, la distribución de los errores de reconstrucción y NME es prácticamente idéntica a la anterior, con la única salvedad de que se ha reducido el número de outliers en una unidad. Las tablas con las predicciones por imagen pueden consultarse en el \autoref{ap:apendiceB}.
+        \noindent Como podemos ver en la \autoref{table:ModelEncoder_images_results} y la \autoref{fig:boxplot_ModeloEncoder_NME}, la distribución de los errores de reconstrucción y NME es prácticamente idéntica a la anterior, con la única salvedad de que se ha reducido el número de outliers en una unidad. Las tablas con las predicciones por imagen pueden consultarse en el Apéndice B.
 
         \begin{table}[!ht]
             \centering
@@ -602,6 +616,9 @@
             \end{tabular}
             \label{table:ModelEncoder_images_results}
         \end{table}
+
+        \newpage
+
 
         \begin{figure}[H]
             \centering
@@ -655,7 +672,9 @@
 
     \medskip
 
-    \noindent Finalmente podemos observar las curvas de aprendizaje para este modelo en la \autoref{fig:curvas_encoder}. A diferencia del modelo anterior, comienza a bajar la capacidad de generalización a partir de la época $20$-$30$ aproximadamente. El error de entrenamiento comienza a descender muy lentamente con cada época mientras que el de validación se mantiene constante.
+    \noindent Finalmente, podemos observar las curvas de aprendizaje para este modelo en la \autoref{fig:curvas_encoder}. A diferencia del modelo anterior, comienza a bajar la capacidad de generalización a partir de la época $20$-$30$ aproximadamente. El error de entrenamiento comienza a descender muy lentamente con cada época mientras que el de validación se mantiene constante.
+
+    \newpage
 
     \begin{figure}[H]
         \centering
@@ -689,7 +708,7 @@
 
         \subsubsection*{Análisis Cuantitativo}
 
-        \noindent Podemos observar los resultados obtenidos en la \autoref{fig:boxplot_ModeloDecoder_NME} y la \autoref{table:ModelDecoder_images_results}. Los resultados son muy similares a los anteriores modelos e incluso empeoran ligeramente en el marcado de landmarks, aumentando el número de outliers en la distribución de los errores NME a 13. Las tablas por partición se pueden consultar en \autoref{ap:apendiceC}.
+        \noindent Podemos observar los resultados obtenidos en la \autoref{fig:boxplot_ModeloDecoder_NME} y la \autoref{table:ModelDecoder_images_results}. Los resultados son muy similares a los anteriores modelos e incluso empeoran ligeramente en el marcado de landmarks, aumentando el número de outliers en la distribución de los errores NME a 13. Las tablas por partición se pueden consultar en el  Apéndice C.
 
     \begin{table}[!ht]
             \centering
@@ -808,7 +827,7 @@
             \label{table:ModelDaug_images_results}
         \end{table}
 
-        \begin{figure}[H]
+        \begin{figure}[h]
             \centering
             \includegraphics[width=0.9\textwidth]{img/boxplot_daug.png}
             \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de data augmentation. Se han omitido los Outliers para una correcta visualización.}
@@ -960,7 +979,7 @@
         
         \subsubsection*{Análisis Cualitativo}
 
-        \noindent Podemos ver el rendimiento del modelo en algunas imágenes en \autoref{fig:Ejemplo_finalmodel}. Como podemo ver, la reconstrucción de las imágenes continua siendo adecuada y la precisión en el marcado de landmarks es muy elevada. Las imágenes más complicadas siguen siendo las de perfil, debido a la poca calidad de la reconstrucción del \textit{AAE} en este tipo de ejemplos. No obstante, los resultados en global son satisfactorios.
+        \noindent Podemos ver el rendimiento del modelo en algunas imágenes en \autoref{fig:Ejemplo_finalmodel}. La reconstrucción de las imágenes continua siendo adecuada y la precisión en el marcado de landmarks es muy elevada. Las imágenes más complicadas siguen siendo las de perfil, debido a la poca calidad de la reconstrucción del \textit{AAE} en este tipo de ejemplos. No obstante, los resultados en global son satisfactorios.
 
         \begin{figure}[H]
             \centering
@@ -1086,7 +1105,7 @@
                 \item Por otro lado, vemos cómo la visibilidad de algunos landmarks mejora en el caso del modelo de \textit{3FabRec}. Por ejemplo, en la segunda imagen el \textit{vertex} queda fuera en la imagen del modelo de \textit{HF-Resnet101}, mientras que en nuestro modelo se aprecia perfectamente.
             \end{itemize}
 
-            \begin{figure}[h]
+            \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.9\textwidth]{img/compativa_cualitativa.png}
                 \caption{A la izquierda podemos ver las imágenes obtenidas con el modelo basado en \textit{3FabRec}, a la derecha las extraidas del TFG de Guillermo Gómez utilizando \textit{HF-ResNet}.}
@@ -1105,6 +1124,7 @@
             \medskip
             
             \noindent Sin embargo, considero que una buena alternativa para mejorar aún más los resultados sería conseguir un gran conjunto de datos de imágenes sin etiquetar con la misma variabilidad que la que teníamos presente en nuestro dataset y realizar un ajuste fino del \textit{AAE} con este dataset para aprender la distribución de imágenes que define este tipo de bases de datos. La obtención de este tipo de imágenes no es tan complicada como la de conseguir imágenes etiquetadas, la capacidad para \textit{few-shot} learning de $3FabRec$ considero probable que se mejoren estos resultados notablemente, en especial en las imágenes de perfil.
+
             
 
 \endinput
