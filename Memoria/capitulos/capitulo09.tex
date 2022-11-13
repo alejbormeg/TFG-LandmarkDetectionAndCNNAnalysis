@@ -484,7 +484,7 @@
 
         \medskip
 
-        \noindent Se ha optado por usar como modelo base el que ha sido entrenado en \textit{AFLW}, porque el número de landmarks que predice este modelo es similar al de nuestro problema (21 landmarks), y la estructura de estos landmarks (visibles y no visibles) es similar a la nuestra. Por otro lado, mientras que en otros datasets como \textit{300W} todos los landmakrs aparecen siempre en cada imagen, en \textit{AFLW} hay más restricciones de ángulos por lo que puede que en cada imagen no aparezcan todos los landmakrs.
+        \noindent Se ha optado por usar como modelo base el que ha sido entrenado en \textit{AFLW}, porque el número de landmarks que predice este modelo es similar al de nuestro problema (21 landmarks), y la estructura de estos landmarks (visibles y no visibles) es similar a la nuestra. Por otro lado, mientras que en otros datasets como \textit{300W} todos los landmarks aparecen siempre en cada imagen, en \textit{AFLW} hay más restricciones de ángulos por lo que puede que en cada imagen no aparezcan todos los landmarks.
 
         \medskip
 
@@ -571,6 +571,7 @@
 
         \noindent En la \autoref{fig:Curvas_modelbase} podemos observar las curvas de aprendizaje de cada partición. Podemos observar un rápido descenso del error en entrenamiento y validación hasta la época $30$-$40$, a partir de la cual tiende a estabilizarse el error.
 
+        \newpage
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/curvas_aprendizaje_modelbase.png}
@@ -617,15 +618,22 @@
             \label{table:ModelEncoder_images_results}
         \end{table}
 
-        \newpage
+        \noindent Como podemos observar en la \autoref{table:Encode_landmarkresume}, los valores son muy similares a los del modelo base, pese a que este ha entrenado durante más épocas. El \textit{Prosthion} sigue siendo el landmark mejor marcado, con un valor del error NME ligeramente inferior al del modelo base. Se puede apreciar una mejora en los landmarks peor marcados, todos ellos asociados a los laterales del rostro y con mayor presencia en imágenes de perfil. Esto confirma la relación entre la mejora de la reconstrucción en imágenes de perfil y el NME asociado a los landmarks de las mismas.
+    
 
+        \medskip
+    
+        \noindent Finalmente, podemos observar las curvas de aprendizaje para este modelo en la \autoref{fig:curvas_encoder}. A diferencia del modelo anterior, comienza a bajar la capacidad de generalización a partir de la época $20$-$30$ aproximadamente. El error de entrenamiento comienza a descender muy lentamente con cada época mientras que el de validación se mantiene constante.
+    
 
-        \begin{figure}[H]
+        \begin{figure}[h!]
             \centering
-            \includegraphics[width=0.9\textwidth]{img/boxplot_encoder.png}
+            \includegraphics[width=0.8\textwidth]{img/boxplot_encoder.png}
             \caption{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de ajuste fino del encoder. Se han omitido los Outliers para una correcta visualización.}
             \label{fig:boxplot_ModeloEncoder_NME}
         \end{figure}
+
+
 
         \begin{table}[!ht]
             \centering
@@ -666,13 +674,6 @@
             \end{tabular}
             \label{table:Encode_landmarkresume}
         \end{table}
-
-    \noindent Como podemos observar en la \autoref{table:Encode_landmarkresume}, los valores son muy similares a los del modelo base, pese a que este ha entrenado durante más épocas. El \textit{Prosthion} sigue siendo el landmark mejor marcado, con un valor del error NME ligeramente inferior al del modelo base. Se puede apreciar una mejora en los landmarks peor marcados, todos ellos asociados a los laterales del rostro y con mayor presencia en imágenes de perfil. Esto confirma la relación entre la mejora de la reconstrucción en imágenes de perfil y el NME asociado a los landmarks de las mismas.
-    
-
-    \medskip
-
-    \noindent Finalmente, podemos observar las curvas de aprendizaje para este modelo en la \autoref{fig:curvas_encoder}. A diferencia del modelo anterior, comienza a bajar la capacidad de generalización a partir de la época $20$-$30$ aproximadamente. El error de entrenamiento comienza a descender muy lentamente con cada época mientras que el de validación se mantiene constante.
 
     \newpage
 
@@ -722,6 +723,14 @@
             \label{table:ModelDecoder_images_results}
         \end{table}
 
+        \medskip 
+
+        \noindent De nuevo los errores por landmark que se muestran en la tabla \autoref{table:Decoder_landmarksresume} es muy similar a la de los dos modelos anteriores, por lo que no hemos logrado una gran mejora con este modelo tampoco.
+
+        \medskip
+
+        \noindent Las curvas de aprendizaje se pueden ver en la \autoref{fig:curvas_decoder}, y vuelven a mostrar un ligero overfitting a partir de la época $30$-$40$, en la mayoría de casos. 
+
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{img/boxplot_decoder.png}
@@ -768,13 +777,6 @@
             \end{tabular}
             \label{table:Decoder_landmarksresume}
         \end{table}
-        \medskip 
-
-        \noindent De nuevo los errores por landmark que se muestran en la tabla \autoref{table:Decoder_landmarksresume} es muy similar a la de los dos modelos anteriores, por lo que no hemos logrado una gran mejora con este modelo tampoco.
-
-        \medskip
-
-        \noindent Las curvas de aprendizaje se pueden ver en la \autoref{fig:curvas_decoder}, y vuelven a mostrar un ligero overfitting a partir de la época $30$-$40$, en la mayoría de casos. 
         
         \begin{figure}[H]
             \centering
@@ -895,7 +897,7 @@
             \caption{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf{modelo data augmentation}.}
             \label{fig:Ejemplo_daug}
         \end{figure}
-
+    \newpage
     \subsection{Elección de modelo y obtención de resultados}
 
         \noindent Una vez analizados los distintos modelos que se proponen para resolver el problema, vemos que la alternativa más prometedora resulta ser la última. Podemos ver una comparación de la distribución de los errores de NME y reconstrucción de todos los modelos en la \autoref{fig:boxplot_summary}, aquí podemos ver mejor la gran reducción del error NME lograda por el último modelo. Por otro lado, la distribución de los errores de reconstrucción apenas varía en los cuatro modelos probados. 
@@ -970,13 +972,14 @@
 
         \noindent Por otro lado, las curvas de aprendizaje durante el entrenamiento del modelo se pueden observar en la \autoref{fig:curvas_FinalModel}. En ellas podemos observar una gran capacidad de generalización del modelo, pues en todo momento la curva de entrenamiento y la de validación descienden tras cada época y cuando convergen parecen hacerlo al mismo valor. 
 
-        \begin{figure}[H]
+        \begin{figure}[h]
             \centering
-            \includegraphics[width=0.9\textwidth]{img/curvas_FinalModel.png}
+            \includegraphics[width=0.5\textwidth]{img/curvas_FinalModel.png}
             \caption{Curvas de aprendizaje durante el entrenamiento del modelo de data augmentation validado en el conjunto de test.}
             \label{fig:curvas_FinalModel}
         \end{figure}
         
+        \newpage
         \subsubsection*{Análisis Cualitativo}
 
         \noindent Podemos ver el rendimiento del modelo en algunas imágenes en \autoref{fig:Ejemplo_finalmodel}. La reconstrucción de las imágenes continua siendo adecuada y la precisión en el marcado de landmarks es muy elevada. Las imágenes más complicadas siguen siendo las de perfil, debido a la poca calidad de la reconstrucción del \textit{AAE} en este tipo de ejemplos. No obstante, los resultados en global son satisfactorios.
@@ -1046,6 +1049,13 @@
 
             \noindent A nivel general, parece que el modelo basado en \textit{3FabRec} es mejor que el basado en \textit{HF-Resnet101}. Como podemos ver en los resultados de la \autoref{table:comparativa-global}, a nivel de distribución del error RMSE en las imágenes de test, el RI en el modelo de \textit{HF-Resnet101} es de $2.48$ píxeles, mientras que en el modelo de \textit{3FabRec} es de $1.164$ píxeles, lo que supone una mejora considerable. No obstante, vamos a realizar una comparativa a nivel de landmark entre los dos modelos. Podemos ver esta comparativa en la \autoref{table:comparativa-Landmarks}.
 
+            \begin{itemize}
+                \item En total $25$ landmarks se marcan con mayor precisión con el modelo basado en \textit{3FabRec}.
+                \item En total $5$ landmarks se marcan mejor en con el modelo basado en \textit{HyperFace-ResNet101}.
+            \end{itemize}
+
+            \noindent Como podemos observar, en su mayoría los landmarks marcados por el modelo basado en \textit{3FabRec} son más precisos. Sin embargo el \textit{Endocathion} y \textit{Exocanthion} son mejor marcados por el modelo basado en \textit{HF-Resnet101}.
+           
             \begin{table}[!ht]
                 \centering
                 \caption{Tabla comparativa a nivel de landmarks entre el modelo final basado en 3FabRec y el de HyperFace-REsNet101.}
@@ -1087,14 +1097,8 @@
             \end{table}
 
             \medskip
-            
-            \begin{itemize}
-                \item En total $25$ landmarks se marcan con mayor precisión con el modelo basado en \textit{3FabRec}.
-                \item En total $5$ landmarks se marcan mejor en con el modelo basado en \textit{HyperFace-ResNet101}.
-            \end{itemize}
+            \newpage
 
-            \noindent Como podemos observar, en su mayoría los landmarks marcados por el modelo basado en \textit{3FabRec} son más precisos. Sin embargo el \textit{Endocathion} y \textit{Exocanthion} son mejor marcados por el modelo basado en \textit{HF-Resnet101}.
-           
             \subsubsection*{Análisis Cualitativo}
 
             \noindent A continuación vamos a ver una comparativa en el rendimiento entre ambos modelos en el conjunto de text (véase la \autoref{fig:comparativa_estado_arte}). En esta imagen podemos ver cómo la distancia euclídea se reduce en ambos ejemplos. 
@@ -1105,7 +1109,7 @@
                 \item Por otro lado, vemos cómo la visibilidad de algunos landmarks mejora en el caso del modelo de \textit{3FabRec}. Por ejemplo, en la segunda imagen el \textit{vertex} queda fuera en la imagen del modelo de \textit{HF-Resnet101}, mientras que en nuestro modelo se aprecia perfectamente.
             \end{itemize}
 
-            \begin{figure}[H]
+            \begin{figure}[h]
                 \centering
                 \includegraphics[width=0.9\textwidth]{img/compativa_cualitativa.png}
                 \caption{A la izquierda podemos ver las imágenes obtenidas con el modelo basado en \textit{3FabRec}, a la derecha las extraidas del TFG de Guillermo Gómez utilizando \textit{HF-ResNet}.}
@@ -1118,7 +1122,7 @@
             
             \medskip
 
-            \noindent El rendimiento a nivel de landmark, es muy satisfactorio por parte del modelo presentado, pues mejor en global el error cometido por el modelo de \textit{HF-Resnet101} y en particular, la mayoría de landmakrs reducen su error. Por todo lo mencionado anteriormente, podemos considerar el modelo basado en \textit{3FabRec} como el estado del arte en el campo. 
+            \noindent El rendimiento a nivel de landmark, es muy satisfactorio por parte del modelo presentado, pues mejor en global el error cometido por el modelo de \textit{HF-Resnet101} y en particular, la mayoría de landmarks reducen su error. Por todo lo mencionado anteriormente, podemos considerar el modelo basado en \textit{3FabRec} como el estado del arte en el campo. 
             
             
             \medskip
