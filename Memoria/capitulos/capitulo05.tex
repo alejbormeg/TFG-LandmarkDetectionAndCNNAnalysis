@@ -25,7 +25,7 @@
 
     \medskip
 
-    \noindent El marcado de landmarks cefalométricos no es una tarea sencilla, pues depende de factores diversos a tener en cuenta como son la calidad de la imagen, la posición del sujeto o el tejido blando facial (que separa el punto craneométrico de su homólogo cefalométrico). El desplazamiento ocasionado por el tejido blando facial no es constante ni se produce siempre en la misma dirección, podemos ver un ejemplo de este hecho en la \autoref{fig:landmarks_marcados}. Estos problemas, ocasionan que el experto forense tarde mucho en la tarea del marcado de landmarks y que el proceso sea difícilmente replicable. Por esto, pese a los avances actuales que se están llevando a cabo para automatizar esta tarea \cite{Huete2015PastPA}, la identificación de landmarks cefalométricos sigue realizándose a mano normalmente. En este contexto, el presente trabajo tratará de proporcionar una solución automática al proceso del marcado de \textbf{landmarks cefalométricos}.
+    \noindent El marcado de landmarks cefalométricos no es una tarea sencilla, pues depende de factores diversos a tener en cuenta como son la calidad de la imagen, la posición del sujeto o el tejido blando facial (que separa el punto craneométrico de su homólogo cefalométrico). El desplazamiento ocasionado por el tejido blando facial no es constante, ni se produce siempre en la misma dirección, podemos ver un ejemplo de este hecho en la \autoref{fig:landmarks_marcados}. Estos problemas, ocasionan que el experto forense tarde mucho en la tarea del marcado de landmarks y que el proceso sea difícilmente replicable. Por esto, pese a los avances actuales que se están llevando a cabo para automatizar esta tarea \cite{Huete2015PastPA}, la identificación de landmarks cefalométricos sigue realizándose a mano normalmente. En este contexto, el presente trabajo tratará de proporcionar una solución automática al proceso del marcado de \textbf{landmarks cefalométricos}.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.95\textwidth]{img/SCF.png}
@@ -52,7 +52,7 @@
         \caption{Landmarks que se intentarán predecir.}
         \begin{tabular}{ |c|l|l|c| } 
             \hline
-            & \textbf{Landmarks} & \textbf{Notación} \\
+            & \cellcolor{gray!25}\textbf{Landmarks} & \cellcolor{gray!25}\textbf{Notación} \\
             \hline
             1 & Menton & Me \\ 
             2 & Gnathion & Gn \\ 
@@ -110,16 +110,16 @@
                 \item $23$ imágenes de perfil.
             \end{itemize}
             \item Hay hasta un total de $30$ landmarks que pueden marcarse. Sin embargo, el número de landmarks en las imágenes es menor, como puede apreciarse en la \autoref{fig:Histograma}.
-            \item En la \autoref{fig:Histograma} también podemos apreciar como la aparición de algunos landmarks es extremadamente baja, como es el caso del \textit{prosthion} y el \textit{Tragion} (tanto el izquierdo como el derecho). El resto de landmarks aparecen en más de la mitad de las imágenes. Los landmarks que más aparecen son los que \entrecomillado{a priori} pueden aprenderse mejor. No obstante, el framework que usaremos cuenta con excelentes datos de rendimiento entrenando con pocas imágenes, por lo que los landmarks con menor aparición también pueden ser aprendidos.
+            \item En la \autoref{fig:Histograma} también podemos apreciar como la aparición de algunos landmarks es extremadamente baja, como es el caso del \textit{prosthion} y el \textit{tragion} (tanto el izquierdo como el derecho). El resto de landmarks aparecen en más de la mitad de las imágenes. Los landmarks que más aparecen son los que \textit{a priori} pueden aprenderse mejor. No obstante, el framework que usaremos cuenta con excelentes datos de rendimiento entrenando con pocas imágenes, por lo que los landmarks con menor aparición también pueden ser aprendidos.
         \end{itemize}
-            \begin{figure}[H]
+            \begin{figure}[h]
                 \centering
                 \includegraphics[width=0.5\textwidth]{img/imagenes_ejemplo_dataset.png}
                 \caption{Imágenes de ejemplo del dataset proporcionado. Como puede observarse hay gran variedad de tamaños, poses, condiciones de iluminación diferentes que añaden dificultad al problema.}
                 \label{fig:Imagenes_dataset}
             \end{figure}
 
-            \begin{figure}[H]
+            \begin{figure}[h]
                 \centering
                 \includegraphics[width=0.7\textwidth]{img/distribucion_landmarks_imagenes.png}
                 \caption{Histograma con la aparición de cada tipo de landmark en las imágenes del dataset.}
@@ -154,7 +154,7 @@
 \end{enumerate}
 
 \section{Planificación}
-    \noindent La planificación del proyecto, desde un comienzo, fue pensada para llevar a cabo el desarrollo del software siguiendo un modelo en cascada, evitando la vuelta atrás entre etapas. Sin embargo, debido a que el desarrollo consistirá principalmente en una adaptación de un software ya existente, se estimó desde un principio que en esta etapa no se desarrollaría un programa de gran complejidad. Una vez adaptado el framework a nuestro objetivo, sabíamos que el software podría sufrir ligeras modificaciones en función de los resultados obtenidos durante la experimentación. Es por ello, que se optó por un modelo de ciclo de vida en cascada retroalimentado como se puede ver en \autoref{Fig::Ciclo de vida}.
+    \noindent La planificación del proyecto, desde un comienzo, fue pensada para llevar a cabo el desarrollo del software siguiendo un modelo en cascada. Debido a que el desarrollo consistirá principalmente en una adaptación de un software ya existente, se estimó desde un principio que en esta etapa no se desarrollaría un programa de gran complejidad. Una vez adaptado el framework, sabíamos que el software podría sufrir ligeras modificaciones en función de los resultados obtenidos durante la experimentación. Es por ello, que se optó por un modelo de ciclo de vida en cascada retroalimentado como se puede ver en la \autoref{Fig::Ciclo de vida}.
 
 
     \begin{figure}[!h]
@@ -169,15 +169,15 @@
     \noindent Las etapas que se seguirán serán las siguientes:
 
     \begin{enumerate}
-        \item \textbf{Análisis del problema y requisitos}: En esta tapa se profundizará sobre el contexto y la importancia del problema a resolver y se llevarán a cabo reuniones con los tutores del trabajo para aclarar los requisitos y objetivos concreto del software a desarrollar. 
-        \item \textbf{Diseño}: En nuestro caso, en esta etapa se realizarán dos tareas: 
+        \item \textbf{Análisis del problema y requisitos}: en esta tapa se profundizará sobre el contexto y la importancia del problema a resolver y se llevarán a cabo reuniones con los tutores del trabajo para aclarar los requisitos y objetivos concreto del software a desarrollar. 
+        \item \textbf{Diseño}:
         
-        En primer lugar se realizará un análisis de la base de datos que emplearemos así como las transformaciones que deban sufrir los datos para poder ser empleados por el software de experimentación. 
+        En primer, lugar se realizará un análisis de la base de datos que emplearemos así como las transformaciones que deban sufrir los datos para poder ser empleados por el software de experimentación. 
 
-        En segundo lugar se diseñarán los experimentos a realizar así como las técnicas que se aplicarán, las métricas y los protocolos de validación que se usarán.
+        En segundo, lugar se diseñarán los experimentos a realizar así como las técnicas que se aplicarán, las métricas y los protocolos de validación que se usarán.
 
-        \item \textbf{Implementación}: Se implementan todas las técnicas diseñadas en la etapa anterior.
-        \item \textbf{Experimentación}: Se ponen en práctica todos los experimentos diseñados de forma teórica y se obtienen resultados. En función de estos se valora una vuelta atrás en el ciclo de vida del software para realizar modificaciones en el software.
+        \item \textbf{Implementación}: se implementan todas las técnicas diseñadas en la etapa anterior.
+        \item \textbf{Experimentación}: se ponen en práctica todos los experimentos diseñados de forma teórica y se obtienen resultados. En función de estos se valora una vuelta atrás en el ciclo de vida del software para realizar modificaciones en el software.
     \end{enumerate}
     
     \medskip
@@ -194,7 +194,7 @@
 
     \medskip
 
-    \noindent Dentro de la semana computan únicamente los días de Lunes a Viernes. Resalta a la vista la gran cantidad de semanas invertidas en las primeras dos etapas con respecto a las invertidas en las dos últimas. El principal motivo para repartir el tiempo de esta manera es que durante el curso se calculó que sería imposible dedicar al trabajo más de \textbf{cuatro horas por semana}. En cambio, una vez terminado el curso se previó dedicar una media de \textbf{seis horas diarias al trabajo}. Es por ello que a pesar de la gran diferencia de semanas, si miramos las horas obtenemos:
+    \noindent Dentro de la semana computan únicamente los días de Lunes a Viernes. Resalta el número de semanas invertidas en las primeras dos etapas con respecto a las invertidas en las dos últimas. El principal motivo para repartir el tiempo de esta manera, es que durante el curso se calculó que sería imposible dedicar al trabajo más de \textbf{cuatro horas por semana}. En cambio, una vez terminado el curso se previó dedicar una media de \textbf{seis horas diarias al trabajo}. Es por ello que a pesar de la gran diferencia de semanas, si miramos las horas obtenemos:
     
     \begin{itemize}
         \item Para la primera fase se invirtieron un total de \textbf{68 horas}.
@@ -203,7 +203,7 @@
         \item En total el tiempo estimado de desarrollo del proyecto fue de \textbf{344 horas}.
     \end{itemize}
         
-    \noindent No obstante, esta estimación resultó ser muy ajustada para completar el trabajo, lo que ocasionó que se retrasara la entrega del mismo a Noviembre, es por ello que el plan definitivo del proyecto se puede ver en la \autoref{Fig::Planificacion final}. Aquí se puede ver cómo desde Septiembre, a causa de los resultados obtenidos en la experimentación, se vuelve atrás en el ciclo de vida del software a la parte de análisis del problema y requisitos para consultar a los tutores con los resultados obtenidos y modificar el resto de etapas sucesivas. El tiempo invertido por día en esta segunda fase fue de \textbf{4 horas} diarias. Lo que incrementa el tiempo total invertido a:
+    \noindent No obstante, esta estimación resultó ser muy ajustada para completar el trabajo, lo que ocasionó que se retrasara la entrega del mismo a Noviembre, es por ello que el plan definitivo del proyecto se puede ver en la \autoref{Fig::Planificacion final}. Aquí se puede ver cómo, desde Septiembre, a causa de los resultados obtenidos en la experimentación, se vuelve atrás en el ciclo de vida del software a la parte de análisis del problema y requisitos para consultar a los tutores con los resultados obtenidos y modificar el resto de etapas sucesivas. El tiempo invertido por día en esta segunda fase fue de \textbf{4 horas} diarias. Lo que incrementa el tiempo total invertido a:
 
     \begin{itemize}
         \item \textbf{148 horas} para la primera fase.
