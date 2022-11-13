@@ -4,45 +4,45 @@ The top-level auxiliary file: libro.aux
 The style file: alpha.bst
 Database file #1: library.bib
 Warning--empty publisher in norvig2002modern
-You've used 36 entries,
+You've used 31 entries,
             2543 wiz_defined-function locations,
-            781 strings with 11438 characters,
-and the built_in function-call counts, 14476 in all, are:
-= -- 1416
-> -- 744
-< -- 21
-+ -- 264
-- -- 260
-* -- 1010
-:= -- 2390
-add.period$ -- 109
-call.type$ -- 36
-change.case$ -- 236
-chr.to.int$ -- 35
-cite$ -- 37
-duplicate$ -- 554
-empty$ -- 1036
-format.name$ -- 305
-if$ -- 2945
+            755 strings with 10511 characters,
+and the built_in function-call counts, 12392 in all, are:
+= -- 1223
+> -- 600
+< -- 20
++ -- 211
+- -- 207
+* -- 853
+:= -- 2026
+add.period$ -- 95
+call.type$ -- 31
+change.case$ -- 196
+chr.to.int$ -- 30
+cite$ -- 32
+duplicate$ -- 485
+empty$ -- 907
+format.name$ -- 247
+if$ -- 2541
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 33
-newline$ -- 185
-num.names$ -- 108
-pop$ -- 256
+missing$ -- 29
+newline$ -- 160
+num.names$ -- 93
+pop$ -- 216
 preamble$ -- 1
-purify$ -- 276
+purify$ -- 231
 quote$ -- 0
-skip$ -- 486
+skip$ -- 424
 stack$ -- 0
-substring$ -- 705
-swap$ -- 93
-text.length$ -- 21
-text.prefix$ -- 13
+substring$ -- 639
+swap$ -- 87
+text.length$ -- 20
+text.prefix$ -- 12
 top$ -- 0
-type$ -- 268
+type$ -- 228
 warning$ -- 1
-while$ -- 131
-width$ -- 40
-write$ -- 459
+while$ -- 112
+width$ -- 35
+write$ -- 398
 (There was 1 warning)
