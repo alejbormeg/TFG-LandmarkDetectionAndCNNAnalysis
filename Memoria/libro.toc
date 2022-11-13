@@ -97,7 +97,7 @@
 \contentsline {subsubsection}{\numberline {9.2.2.3}SSIM}{104}{subsubsection.9.2.2.3}%
 \contentsline {section}{\numberline {9.3}Preprocesamiento de los datos}{104}{section.9.3}%
 \contentsline {subsection}{\numberline {9.3.1}Identificación de caras en las imágenes}{104}{subsection.9.3.1}%
-\contentsline {subsection}{\numberline {9.3.2}Creación del fichero annotations en el dataset}{106}{subsection.9.3.2}%
+\contentsline {subsection}{\numberline {9.3.2}Creación del fichero annotations en el dataset}{107}{subsection.9.3.2}%
 \contentsline {subsection}{\numberline {9.3.3}Reajuste de los bounding boxes}{107}{subsection.9.3.3}%
 \contentsline {subsection}{\numberline {9.3.4}Separación en conjuntos de entrenamiento y validación}{110}{subsection.9.3.4}%
 \contentsline {section}{\numberline {9.4}Experimentación}{111}{section.9.4}%
