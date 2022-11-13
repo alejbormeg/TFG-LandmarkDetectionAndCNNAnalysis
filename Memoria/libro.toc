@@ -28,6 +28,7 @@
 \contentsline {section}{\numberline {3.1}No expansividad del operador de ventana en conjuntos de caminos}{35}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Invarianza por traslaciones}{38}{section.3.2}%
 \contentsline {chapter}{\numberline {4}Conclusiones y trabajos futuros}{43}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Trabajos futuros}{44}{section.4.1}%
 \contentsline {part}{\numberline {II}Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}{45}{part.2}%
 \contentsline {chapter}{\numberline {5}Introducción}{47}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Descripción del problema y Motivación}{47}{section.5.1}%
@@ -66,10 +67,6 @@
 \contentsline {chapter}{\numberline {7}Estado del Arte}{77}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Localización de landmarks cefalométricos en imágenes}{77}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Evolución en la identificación forense de landmarks cefalométricos}{77}{subsection.7.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.1.1}Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}{79}{subsubsection.7.1.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.1.2}Automated facial landmark detection, comparison and visualization}{79}{subsubsection.7.1.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.1.3}Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}{81}{subsubsection.7.1.1.3}%
-\contentsline {subsubsection}{\numberline {7.1.1.4}The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}{81}{subsubsection.7.1.1.4}%
 \contentsline {chapter}{\numberline {8}Implementación}{83}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Diseño del Sofware}{83}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Entorno de ejecución}{85}{section.8.2}%
@@ -110,12 +107,12 @@
 \contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{131}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{132}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{132}{section.10.2}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{135}{chapter*.21}%
-\contentsline {chapter}{\nonumberline Apéndice A}{137}{chapter*.22}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{135}{chapter*.26}%
+\contentsline {chapter}{\nonumberline Apéndice A}{137}{chapter*.27}%
 \contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo base}{137}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice B}{143}{chapter*.23}%
+\contentsline {chapter}{\nonumberline Apéndice B}{143}{chapter*.28}%
 \contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{143}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice C}{149}{chapter*.24}%
+\contentsline {chapter}{\nonumberline Apéndice C}{149}{chapter*.29}%
 \contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{149}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice D}{155}{chapter*.25}%
+\contentsline {chapter}{\nonumberline Apéndice D}{155}{chapter*.30}%
 \contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{155}{section.Alph0.1}%

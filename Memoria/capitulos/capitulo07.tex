@@ -1,11 +1,11 @@
 
 \chapter{Estado del Arte}
 
-    \noindent En esta sección nuestro objetivo será realizar una investigación por la literatura y los artículos publicados relacionados con el reconocimiento automático de landmarks cefalométricos en tareas de antropología forense para finalmente justificar nuestra elección en el presente trabajo para tratar de resolver el problema. Para ello utilizaremos la base de datos \textit{Scopus} para realizar la búsqueda y consulta de artículos científico publicados.
+    \noindent En esta sección, nuestro objetivo será realizar una investigación por la literatura y los artículos publicados relacionados con el reconocimiento automático de landmarks cefalométricos en tareas de antropología forense. Para ello utilizaremos la base de datos \textit{Scopus} para realizar la búsqueda y consulta de artículos científico publicados.
 
     \section{Localización de landmarks cefalométricos en imágenes}
 
-        \noindent Para hacernos una primera idea del estado actual del problema de reconocimiento de landmarks faciales en imágenes realizamos una primera consulta en \textit{SCOPUS} con la siguiente \textit{keyword} restringiendo los artículos a aquellos relacionados con la informática:
+        \noindent Realizamos una primera consulta en \textit{SCOPUS} con la siguiente \textit{keyword} restringiendo los artículos a aquellos relacionados con la informática:
         
         \begin{verbatim}
         TITLE-ABS-KEY (facial AND (landmarks OR keypoints)AND  detection ) AND 
@@ -32,29 +32,29 @@
         
         \medskip
         
-        \noindent Como podemos observar en las gráficas generadas para ambas \textit{keywords} en la \autoref{fig:SCOPUS}, actualmente existe una tendencia creciente en la publicación de papers relacionados con este tema, en particular esta tendencia comienza en los años en que surge el Deep Learning y las CNN comienzan a utilizarse en visión por computador para el tratamiento de imágenes. Sin embargo los artículos que se han encontrado no guardan una relación muy estrecha con el problema de deteción de landmarks cefalométricos en problemas de antropología forense. Con la segunda búsqueda anterior se obtienen un total de $14$ artículos, algo que nos confirma que es un área de investigación en la que apenas hay bibliografía o artículos.
+        \noindent Como podemos observar en las gráficas generadas para ambas \textit{keywords} en la \autoref{fig:SCOPUS}, actualmente existe una tendencia creciente en la publicación de papers relacionados con este tema, en particular esta tendencia comienza en los años en que surge el Deep Learning y las CNN comienzan a utilizarse en visión por computador para el tratamiento de imágenes. Sin embargo, los artículos que se han encontrado no guardan una relación muy estrecha con el problema de deteción de landmarks cefalométricos en problemas de antropología forense. Con la segunda búsqueda anterior se obtienen un total de $14$ artículos, algo que nos confirma que es un área de investigación en la que apenas hay bibliografía.
 
         
 
         \subsection{Evolución en la identificación forense de landmarks cefalométricos}
             
-            \noindent Como hemos visto antes, la literatura existente es prácticamente nula, además de los catorce artículos obtenidos con la búsqueda anterior, la mayoría no se centran en el reconocimiento de landmarks cefalométricos en imágenes de rostros, hay artículos que se centran en la superposición craneofacial y otros basados en la identificación de landmarks en cráneos. Por lo tanto, de los catorce artículos vamos a destacar los siguientes por la relación directa con nuestro problema ordenados de mayor a menor antigüedad. Podemos ver una taxonomía en la \autoref{table:taxonomy}. 
+            \noindent La literatura existente es prácticamente nula, además de los catorce artículos obtenidos con la búsqueda anterior, la mayoría no se centran en el reconocimiento de landmarks cefalométricos en imágenes de rostros, hay artículos que se centran en la superposición craneofacial y otros basados en la identificación de landmarks en cráneos. Por lo tanto, de los catorce artículos vamos a destacar los siguientes por la relación directa con nuestro problema ordenados de mayor a menor antigüedad. Podemos ver una taxonomía en la \autoref{table:taxonomy}. 
 
             \begin{table}[!ht]
                 \centering
-                \caption{Taxonomía de los artículos publicados que componen el estado del arte en el campo actualmente.}
+                \caption{Taxonomía de los artículos publicados que componen el estado del arte en el campo actualmente. A modo de aclaración, por dataset controlado nos referimos al uso de datasets de imágenes tomadas en entornos controlados.}
                 \begin{tabular}{|l|l|l|c|c|c|l|}
                 \hline
-                    \cellcolor{gray!50}\textbf{Autores} & \cellcolor{gray!50}\textbf{Año} & \cellcolor{gray!50}\textbf{Citas} & \cellcolor{gray!50}\textbf{Bancos de filtros} & \cellcolor{gray!50}\textbf{Aprendizaje Supervisado} & \cellcolor{gray!50}\textbf{CNN} & \cellcolor{gray!50}\textbf{Landmarks}\\ \hline
-                    Mohd et al & 2014 & 4 & \cellcolor{gray!15} \textbf{X} & ~ & ~ & 4 \\ \hline
-                    Galvánek et al & 2015 & 18 & ~ & ~ & ~ & 14 \\ \hline
+                    \cellcolor{gray!50}\textbf{Autores} & \cellcolor{gray!50}\textbf{Año} & \cellcolor{gray!50}\textbf{Citas} & \cellcolor{gray!50}\textbf{Bancos de filtros} & \cellcolor{gray!50}\textbf{Dataset controlado} & \cellcolor{gray!50}\textbf{CNN} & \cellcolor{gray!50}\textbf{Landmarks}\\ \hline
+                    Mohd et al & 2014 & 4 & \cellcolor{gray!15} \textbf{X} & \cellcolor{gray!15} \textbf{X} & ~ & 2 \\ \hline
+                    Galvánek et al & 2015 & 18 & ~ & \cellcolor{gray!15} \textbf{X} & ~ & 14 \\ \hline
                     Faria et al & 2019 & 12 & \cellcolor{gray!15}\textbf{X} & \cellcolor{gray!15}\textbf{X}& \cellcolor{gray!15}\textbf{X} & 28 \\ \hline
                     Anh Tuan et al & 2022 & 1 & ~ & \cellcolor{gray!15}\textbf{X} & \cellcolor{gray!15}\textbf{X}& 16 \\ \hline
                 \end{tabular}
                 \label{table:taxonomy}
             \end{table}
 
-            \subsubsection{Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}
+            \subsubsection*{Automatic craniofacial anthropometry landmarks detection and measurements for the orbital region}
                 \noindent Se trata de un artículo publicado en $2014$ por Salina Mohd et al \cite{asi2014automatic} en el que se pretende diseñar un método para calcular en una imagen de los ojos de un sujeto el \textit{endocathion} y el \textit{exocanthion} basado en el uso de un clasificador entrenado sobre filtros de Haar usados para la identificación de caras por Viola-Jones.
 
                 \medskip
@@ -69,7 +69,7 @@
 
                 \noindent Por otro lado, el conjunto de datos que se emplea se ha obtenido en entornos controlados con buena iluminación, algo que no guarda relación con nuestro problema pues se trata de imágenes en diversas posturas, iluminación, y resolución.
 
-            \subsubsection{Automated facial landmark detection, comparison and visualization}
+            \subsubsection*{Automated facial landmark detection, comparison and visualization}
                 \noindent Se trata de un trabajo realizado en $2015$ por Marek Galvánek et al. \cite{galvanek2015automated} para la detección automática de landmarks en modelos $3D$ de imágenes de personas. 
 
                 \medskip
@@ -104,7 +104,7 @@
 
                 \noindent En este trabajo, comenzamos a ver ya un problema similar al nuestro, la detección automática de landmarks cefalométricos con un mayor número de landmarks ($14$ frente a los $2$ del estudio anterior). Aunque se realiza sobte modelos $3$D de caras que evitan problemas de oclusión, mala iluminación o resolución.
 
-            \subsubsection{Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}
+            \subsubsection*{Automatic cephalometric landmarks detection on frontal faces: An approach based on supervised learning techniques}
 
                 \noindent El siguiente artículo es de $2019$ y fue realizado por Lucas Faria et al. Pretende desarrollar un algoritmo para el reconocimiento automático de landmarks cefalométricos en imágenes frontales a partir de técnicas de visión por computador y de métodos de aprendizaje supervisado \cite{porto2019automatic}.
 
@@ -126,7 +126,7 @@
 
                 \noindent Destaca este artículo por ser el primero en el cual comienzan a usarse técnicas de aprendizaje automático para la resolución del problema. Además en las imágenes de entrenamiento fueron marcados 28 landmarks que se emplearon para el entrenamiento, que coinciden con los mismos que tenemos en nuestro problema.
 
-            \subsubsection{The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}
+            \subsubsection*{The Improved Faster R-CNN for Detecting Small Facial Landmarks on Vietnamese Human Face Based on Clinical Diagnosis}
             
                 \noindent Este artículo es el más reciente pues fue publicado en Junio de $2022$ por Ho Nguyen Anh Tuan et al \cite{ImprovedfasterRCNN}. En él se utiliza una versión mejorada de la red faster R-CNN aplicada a la tarea del reconocimiento de landmarks cefalométricos. 
 
@@ -138,9 +138,13 @@
 
                 \noindent No obstante el trabajo restalta la gran importancia que está teniendo el Deep Learning y las CNN en tareas de reconocimiento de landmarks faciales (usualmente landmarks no biológicos como los que se emplean en tareas de antropología forense), y partiendo de esta base podemos justificar el trabajo que vamos a desarrollar, pues nos proponemos adaptar una red que ya ha sido entrenada para la identificación de landmarks faciales en grandes volúmenes de datos de imágenes en diversas posturas y resolución para la tarea del reconocimiento de landmarks forense.
 
+            \subsubsection*{Conclusiones extraídas de la búsqueda}
+
+                \noindent Todos los métodos que se han presentado en esta sección trataban de cumplir con el mismo objetivo, y han ido evolucionando con el paso de los años a la par que la informática, empezando por filtros de Haar y técnicas de visión por computador hasta finalmente usar CNN de Deep Learning. De esta manera y viendo con perspectiva el estado del arte en el campo, consideramos que la propuesta que presentamos puede traer buenos resultados, pues pretendemos enseñar a un sistema experto en el reconocimiento de landmarks no biológicos a identificar estos otros puntos, lo cual puede suponer un nexo de unión entre las dos líneas de investigación.
+
                 \medskip
 
-                \noindent Todos los métodos que se han presentado en esta sección trataban de cumplir con el mismo objetivo, y han ido evolucionando con el paso de los años a la par que la informática, empezando por tratar de aplicar algoritmos coevolutivos, después filtros de Haar y técnicas de visión por computador y finalmente usar CNN de Deep Learning. De esta manera y viendo con perspectiva el estado del arte en el campo, consideramos que la propuesta que presentamos puede traer buenos resultados, pues pretendemos enseñar a un sistema experto en el reconocimiento de landmarks no biológicos a identificar estos otros puntos, lo cual puede suponer un nexo de unión entre las dos líneas de investigación.
+                \noindent Por otro lado, destacamos el hecho de que en todos los artículos se trabaja con datasets de imágenes tomadas en entornos controlados de iluminación y distancia focal. Esto reduce la capacidad de generalización de estos métodos cuando tratamos con el tipo de imágenes con las que trabajan diariamente los antropólogos forenses. Esto hace nuestra propuesta atractiva, pues empleamos un dataset forense realista, con imágenes \textit{in-the-wild}. Así, el algoritmo que proponemos tendrá como objetivo poder ser utilizado en la práctica para este tipo de tareas.
    
 \endinput
 %------------------------------------------------------------------------------------
