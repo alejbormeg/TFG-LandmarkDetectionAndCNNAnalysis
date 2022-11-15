@@ -386,43 +386,13 @@
                 \item Finalmente, se almacena la posición en coordenadas de la esquina inferior izquierda del \textit{bounding box} junto con el ancho y el alto, para que el framework recorte la imagen quedándose con el rostro únicamente. 
             \end{itemize}
 
-        \subsection{Reajuste de los bounding boxes}
-            \noindent Finalmente, como parte del proceso de determinar los \textit{bounding boxes}, se vió que en todos los casos, dichos rectángulos cortaban parte de las caras de los sujetos (partes en las que había landmarks marcados). Es por ello, que se tuvo que realizar una transformación del \textit{bounding box} sugerido para que manteniendo el centro del mismo abarcase una mayor superficie y que contuviera el rostro completo del sujeto. 
-
-            \medskip
-
-            \noindent La transfomación consiste en desplazar la esquina superior izquierda del rectángulo una cantidad \textit{m} en el eje de ordenadas y abscisas y establecer el resto de esquinas de acuerdo a este parámetro como se muestra en la \autoref{fig:Transformacion_BB}.
-
-
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.8\textwidth]{img/Transformacion_rectangulo.png}
-                \caption{Proceso seguido para la transformación.}
-                \label{fig:Transformacion_BB}
-            \end{figure}
-
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.7\textwidth]{img/imagenes_ejemplo_cropping.png}
-                \caption{Recorte de las caras tras el reajuste del \textit{bounding box}.}
-                \label{fig:Reajuste_bb}
-            \end{figure}
-
-            \medskip
-
-            \noindent No obstante, el framework 3FabRec dispone de un método de recorte y redimensión automático de las caras empleando \textit{bounding boxes}. En un primer momento, forzamos al framework a respetar los \textit{bounding boxes} construidos durante el preprocesamiento, pero los errores de reconstrucción de estas imágenes eran muy elevados. No resultaba práctico para entrenar la red, pues el framework marca los puntos sobre localizaciones que no guardaban parecido con el lugar real del punto en la imagen original. Podemos ver algunos ejemplos de reconstrucción en la \autoref{fig:bb_custom}.
-
-
-            \begin{figure}[!h]
-                \centering
-                \includegraphics[width=0.7\textwidth]{img/bounding_box_custom.png}
-                \caption{Error estructural y de reconstrucción de las imágenes con el bounding box reajustado. El error de reconstrucción se encuentra en la esquina inferior izquierda, y el estructural encima del anterior. Como podemos observar, en todos los casos son muy elevados y la imagen reconstruida apenas guarda relación con la original.}
-                \label{fig:bb_custom}
-            \end{figure}
-
-            \medskip
-
-            \noindent Se probó entonces a aplicar al \textit{bounding box} definido, el reajuste que realiza 3FabRec. Este nuevo reajuste dejaba en la mayoría de casos mal marcado el \textit{vertex}, pues suele recortar la parte superior de la cabeza. No obstante los errores de reconstrucción eran mucho menores con esta alternativa y los landmarks predichos se localizaban en las imágenes reconstruidas sobre puntos que guardaban una estrecha relación con la localización real en la imagen original (véase la \autoref{fig:bb_3fabrec}). Se decidió entonces estudiar por qué ocurría esto.
+        \subsection{Reajuste de los bounding boxes por parte de 3FabRec}
+            \noindent El framework 3FabRec dispone de un método de recorte y redimensión automático de las imágenes de entrada empleando \textit{bounding boxes}. El reajuste que es el siguiente:
+            \begin{enumerate}
+                \item En primer lugar, se determina el tamaño de la región de interés (ROI, del inglés region of interest) en píxeles. Para ello, el framework por defecto calcula la diagonal del tamaño de las imágenes de entrada (en nuestro caso son $256 \times 256$), y lo redondea al entero superior más próximo (el resultado es de $363$ píxeles, en nuestro caso). De este valor se obtienen dos parámetros, el \textit{crop\_size} y el \textit{margin}, de manera que \textit{crop\_size + margin = roi} (en nuestro caso \textit{crop\_size}=$256$ y \textit{margin}=$107$).
+                \item En segundo lugar, se reajusta el bounding box convirtiéndolo siempre en cuadrado de lado $\max(ancho,alto)$. Se calcula el factor de escalado $escala = \frac{crop\_size + margin}{crop\_size}$, para ampliar el bounding box original uniformemente, de acuerdo al margin. 
+                \item  Finalmente se reescala el resultado a una imagen de tamaño $256\times 256$.
+            \end{enumerate}
 
             \begin{figure}[!h]
                 \centering
@@ -431,25 +401,11 @@
                 \label{fig:bb_3fabrec}
             \end{figure}
 
-            \noindent El reajuste que realiza 3FabRec es el siguiente:
-            \begin{enumerate}
-                \item En primer lugar, se determina el tamaño de la región de interés (ROI, del inglés region of interest) en píxeles. Para ello, el framework por defecto calcula la diagonal del tamaño de las imágenes de entrada (en nuestro caso son $256 \times 256$), y lo redondea al entero superior más próximo (el resultado es de $363$ píxeles, en nuestro caso). De este valor se obtienen dos parámetros, el \textit{crop\_size} y el \textit{margin}, de manera que \textit{crop\_size + margin = roi} (en nuestro caso \textit{crop\_size}=$256$ y \textit{margin}=$107$).
-                \item En segundo lugar, se reajusta el bounding box convirtiéndolo siempre en cuadrado de lado $\max(ancho,alto)$. Se calcula el factor de escalado $escala = \frac{crop\_size + margin}{crop\_size}$, para ampliar el bounding box original uniformemente, de acuerdo al margin. 
-                \item  Finalmente se reescala el resultado a una imagen de tamaño $256\times 256$.
-            \end{enumerate}
+            
 
             \medskip
 
-            \noindent Por otro lado, el entrenamiento no supervisado del \textit{AAE} hizo que la red aprendiera la distribución de un determinado dataset de imágenes. Estudiando minuciosamente los ficheros encargados de preparar los datos de entrenamiento (affectnet.py y vgg2face.py), se vio que en ambos, el tamaño de las imágenes es de $256 \times 256$, pero no se especifica un valor determinado para el ROI, por lo que este se calcula por el framework de la misma manera que hace con nuestras imágenes, realizando un ajuste de los bounding boxes idéntico al nuestro. Además, para el ajuste fino del encoder utilizando las imágenes de \textit{AFLW}, de nuevo se aplicaron estas transformaciones.
-            
-            \medskip
-            
-            \noindent Esto, puede explicar por qué en el primer caso no se reconstruyen bien las imágenes, ya que se fuerza a que no se apliquen estas transformaciones a las imágenes de entrada. De esta manera, la distribución de las imágenes de entrada cambia radicalmente con respecto a la distribución con la que fue entrenada la red y su posterior \textit{fine-tuning} con \textit{AFLW}. Sin embargo, si permitimos que 3FabRec realice las transformaciones descritas anteriormente, conseguimos que la distribución de los datos de entrada (pese a seguir siendo diferente) sea lo mas \entrecomillado{parecida} posible a la distribución sobre la que fue entrenada la red, mejorando la reconstrucción de las imágenes. 
-            
-            \medskip
-            
-            
-            \noindent Por lo expuesto anteriormente, se decide continuar con el reajuste que realiza el framework para lograr una mejor reconstrucción, aunque se pierda el marcado correcto del \textit{vertex}.
+            \noindent Dicho reajuste es importante, pues el entrenamiento no supervisado del \textit{AAE} hizo que la red aprendiera la distribución de un determinado dataset de imágenes. Estudiando minuciosamente los ficheros encargados de preparar los datos de entrenamiento (affectnet.py y vgg2face.py), se vio que en ambos, el tamaño de las imágenes es de $256 \times 256$, pero no se especifica un valor determinado para el ROI, por lo que este se calcula por el framework de la misma manera que hace con nuestras imágenes, realizando un ajuste de los bounding boxes idéntico al nuestro. Además, para el ajuste fino del encoder utilizando las imágenes de \textit{AFLW}, de nuevo se aplicaron estas transformaciones. Por lo tanto,aunque se pierda el marcado correcto del \textit{vertex}, entrenaremos la red aplicando estas transfomaciones a los \textit{bounding boxes}.
 
     \subsection{Separación en conjuntos de entrenamiento y validación}
         \noindent Separamos la base de datos proporcionada en conjuntos de entrenamiento, validación y test. Por el limitado número de ejemplos que tenemos, será necesario emplear \textbf{validación cruzada} para la elección entre los modelos que se prueben. Así pues, de las \textbf{163 imágenes} que usaremos en total, establecemos una semilla para que los procesos aleatorios sean replicables en cualquier máquina y con ayuda de la función \textit{random-shuffle} de python separamos los datos en: 
@@ -569,15 +525,7 @@
 
         \medskip
 
-        \noindent En la \autoref{fig:Curvas_modelbase} podemos observar las curvas de aprendizaje de cada partición. Podemos observar un rápido descenso del error en entrenamiento y validación hasta la época $30$-$40$, a partir de la cual tiende a estabilizarse el error.
-
-        \newpage
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.9\textwidth]{img/curvas_aprendizaje_modelbase.png}
-            \caption{Curvas de aprendizaje en cada partición del modelo base.}
-            \label{fig:Curvas_modelbase}
-        \end{figure}
+        \noindent En el Apéndice E podemos observar las curvas de aprendizaje de cada partición. Se observar un rápido descenso del error en entrenamiento y validación hasta la época $30$-$40$, a partir de la cual tiende a estabilizarse el error. No hay evidencias de sobreentrenamiento.
 
         \noindent En resumen, los resultados son esperanzadores para tratarse de una primera aproximación. Sin embargo, consideramos que debido a la gran variabilidad del dataset tanto en posturas, como en calidad e iluminación de imagen, la reconstrucción de las imágenes se ha resentido, especialmente en las imágenes de perfil. Esto provoca que el modelo también marque peor los landmarks, por lo que vamos a intentar mejorar esto en los próximos modelos. 
         
@@ -623,7 +571,7 @@
 
         \medskip
     
-        \noindent Finalmente, podemos observar las curvas de aprendizaje para este modelo en la \autoref{fig:curvas_encoder}. A diferencia del modelo anterior, comienza a bajar la capacidad de generalización a partir de la época $20$-$30$ aproximadamente. El error de entrenamiento comienza a descender muy lentamente con cada época mientras que el de validación se mantiene constante.
+        \noindent Finalmente, podemos observar las curvas de aprendizaje para este modelo en el Apéndice E. A diferencia del modelo anterior, comienza a bajar la capacidad de generalización a partir de la época $20$-$30$ aproximadamente. El error de entrenamiento comienza a descender muy lentamente con cada época mientras que el de validación se mantiene constante.
     
 
         \begin{figure}[h!]
@@ -675,15 +623,6 @@
             \label{table:Encode_landmarkresume}
         \end{table}
 
-    \newpage
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.9\textwidth]{img/curvas_encoder.png}
-        \caption{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}
-        \label{fig:curvas_encoder}
-    \end{figure}
-
     \medskip
 
     \noindent Viendo estos resultados, no parece muy prometedora esta línea de investigación. Bien es cierto que hemos mejorado el error de los dos landmarks peor marcados, pero el coste computacional que ha supuesto no compensa para la leve mejora global del modelo. Es por esto por lo que vamos a cambiar el enfoque sobre el \textit{fine-tuning} en el siguiente modelo. 
@@ -729,7 +668,7 @@
 
         \medskip
 
-        \noindent Las curvas de aprendizaje se pueden ver en la \autoref{fig:curvas_decoder}, y vuelven a mostrar un ligero overfitting a partir de la época $30$-$40$, en la mayoría de casos. 
+        \noindent Las curvas de aprendizaje se pueden ver en el Apéndice E, y como vemos, muestran un comportamiento similar al de los modelos anteriores. 
 
         \begin{figure}[H]
             \centering
@@ -778,13 +717,6 @@
             \label{table:Decoder_landmarksresume}
         \end{table}
         
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.9\textwidth]{img/curvas_decoder.png}
-            \caption{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}
-            \label{fig:curvas_decoder}
-        \end{figure}
-
         \medskip
 
         \noindent Tras los resultados obtenidos se ha optado por abandonar también esta línea de investigación pues se obtienen resultados muy similares al modelo base y se debe entrenar por mucho más tiempo ($100$ épocas frente a $40$ del modelo base). 
@@ -882,14 +814,7 @@
 
         
         \subsubsection*{Análisis Cualitativo}
-        \noindent Finalmente las curvas de aprendizaje obtenidas se pueden observar en \autoref{fig:curvas_daugmentation}. Como vemos presentan una gran capacidad de generalización, pues el error de entrenamiento y validación decrecen de forma continua y muy próxima. Algunas imágenes de ejemplo podemos verlas en la \autoref{fig:Ejemplo_daug}.
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.9\textwidth]{img/curvas_daugmentation.png}
-            \caption{Curvas de aprendizaje en cada partición del modelo de data augmentation.}
-            \label{fig:curvas_daugmentation}
-        \end{figure}
+        \noindent Finalmente las curvas de aprendizaje obtenidas se pueden observar en el Apéndice E. Como vemos presentan una gran capacidad de generalización, pues el error de entrenamiento y validación decrecen de forma continua y muy próxima. Algunas imágenes de ejemplo podemos verlas en la \autoref{fig:Ejemplo_daug}.
 
         \begin{figure}[H]
             \centering
@@ -974,7 +899,7 @@
 
         \begin{figure}[h]
             \centering
-            \includegraphics[width=0.5\textwidth]{img/curvas_FinalModel.png}
+            \includegraphics[width=0.7\textwidth]{img/curvas_FinalModel.png}
             \caption{Curvas de aprendizaje durante el entrenamiento del modelo de data augmentation validado en el conjunto de test.}
             \label{fig:curvas_FinalModel}
         \end{figure}

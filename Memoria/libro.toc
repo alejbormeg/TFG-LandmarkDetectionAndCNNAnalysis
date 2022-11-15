@@ -91,29 +91,31 @@
 \contentsline {section}{\numberline {9.3}Preprocesamiento de los datos}{101}{section.9.3}%
 \contentsline {subsection}{\numberline {9.3.1}Identificación de caras en las imágenes}{101}{subsection.9.3.1}%
 \contentsline {subsection}{\numberline {9.3.2}Creación del fichero annotations en el dataset}{103}{subsection.9.3.2}%
-\contentsline {subsection}{\numberline {9.3.3}Reajuste de los bounding boxes}{103}{subsection.9.3.3}%
-\contentsline {subsection}{\numberline {9.3.4}Separación en conjuntos de entrenamiento y validación}{106}{subsection.9.3.4}%
-\contentsline {section}{\numberline {9.4}Experimentación}{107}{section.9.4}%
-\contentsline {subsection}{\numberline {9.4.1}Hipótesis iniciales}{107}{subsection.9.4.1}%
-\contentsline {subsection}{\numberline {9.4.2}Modelo Base}{107}{subsection.9.4.2}%
-\contentsline {subsection}{\numberline {9.4.3}Modelo con reentrenamiento del encoder}{112}{subsection.9.4.3}%
-\contentsline {subsection}{\numberline {9.4.4}Modelo con reentrenamiento del decoder}{115}{subsection.9.4.4}%
-\contentsline {subsection}{\numberline {9.4.5}Modelo con Data Augmentation}{118}{subsection.9.4.5}%
-\contentsline {subsection}{\numberline {9.4.6}Elección de modelo y obtención de resultados}{122}{subsection.9.4.6}%
-\contentsline {section}{\numberline {9.5}Comparativa entre 3FabRec y HyperFace-ResNet101}{125}{section.9.5}%
-\contentsline {subsection}{\numberline {9.5.1}Preprocesamiento y base de datos empleada}{125}{subsection.9.5.1}%
-\contentsline {subsection}{\numberline {9.5.2}Métricas empleadas}{125}{subsection.9.5.2}%
-\contentsline {subsection}{\numberline {9.5.3}Comparación de resultados}{126}{subsection.9.5.3}%
-\contentsline {subsection}{\numberline {9.5.4}Conclusiones extraídas}{128}{subsection.9.5.4}%
-\contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{131}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{132}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{132}{section.10.2}%
-\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{135}{chapter*.25}%
-\contentsline {chapter}{\nonumberline Apéndice A}{137}{chapter*.26}%
-\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo base}{137}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice B}{143}{chapter*.27}%
-\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{143}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice C}{149}{chapter*.28}%
-\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{149}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice D}{155}{chapter*.29}%
-\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{155}{section.Alph0.1}%
+\contentsline {subsection}{\numberline {9.3.3}Reajuste de los bounding boxes por parte de 3FabRec}{103}{subsection.9.3.3}%
+\contentsline {subsection}{\numberline {9.3.4}Separación en conjuntos de entrenamiento y validación}{104}{subsection.9.3.4}%
+\contentsline {section}{\numberline {9.4}Experimentación}{105}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}Hipótesis iniciales}{105}{subsection.9.4.1}%
+\contentsline {subsection}{\numberline {9.4.2}Modelo Base}{105}{subsection.9.4.2}%
+\contentsline {subsection}{\numberline {9.4.3}Modelo con reentrenamiento del encoder}{109}{subsection.9.4.3}%
+\contentsline {subsection}{\numberline {9.4.4}Modelo con reentrenamiento del decoder}{112}{subsection.9.4.4}%
+\contentsline {subsection}{\numberline {9.4.5}Modelo con Data Augmentation}{115}{subsection.9.4.5}%
+\contentsline {subsection}{\numberline {9.4.6}Elección de modelo y obtención de resultados}{117}{subsection.9.4.6}%
+\contentsline {section}{\numberline {9.5}Comparativa entre 3FabRec y HyperFace-ResNet101}{121}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}Preprocesamiento y base de datos empleada}{121}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Métricas empleadas}{121}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}Comparación de resultados}{122}{subsection.9.5.3}%
+\contentsline {subsection}{\numberline {9.5.4}Conclusiones extraídas}{124}{subsection.9.5.4}%
+\contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{127}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{128}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{128}{section.10.2}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{131}{chapter*.25}%
+\contentsline {chapter}{\nonumberline Apéndice A}{133}{chapter*.26}%
+\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo base}{133}{section.Alph0.1}%
+\contentsline {chapter}{\nonumberline Apéndice B}{139}{chapter*.27}%
+\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{139}{section.Alph0.1}%
+\contentsline {chapter}{\nonumberline Apéndice C}{145}{chapter*.28}%
+\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{145}{section.Alph0.1}%
+\contentsline {chapter}{\nonumberline Apéndice D}{151}{chapter*.29}%
+\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{151}{section.Alph0.1}%
+\contentsline {chapter}{\nonumberline Apéndice E}{157}{chapter*.30}%
+\contentsline {section}{\numberline {1}Curvas de aprendizaje de los modelos probados}{158}{section.Alph0.1}%

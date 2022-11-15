@@ -517,107 +517,93 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {9.9}{\ignorespaces Imágenes de ejemplo del dataset con los \textit  {bounding boxes} marcados por \textit  {Facenet}. Como podemos observar, aunque son correctos, los \textit  {bounding boxes} marcados recortan excesivamente los límites del rostro, pudiendo incluso eliminar partes en las que hay landmarks marcados. Las imágenes han sido generadas con \textit  {matplotlib}.}}{102}{figure.9.9}\protected@file@percent }
 \newlabel{fig:Ejemplo_bb}{{9.9}{102}{Imágenes de ejemplo del dataset con los \textit {bounding boxes} marcados por \textit {Facenet}. Como podemos observar, aunque son correctos, los \textit {bounding boxes} marcados recortan excesivamente los límites del rostro, pudiendo incluso eliminar partes en las que hay landmarks marcados. Las imágenes han sido generadas con \textit {matplotlib}}{figure.9.9}{}}
 \BKM@entry{id=75,dest={73756273656374696F6E2E392E332E32},srcline={377}}{4372656163695C3336336E2064656C206669636865726F20616E6E6F746174696F6E7320656E20656C2064617461736574}
-\BKM@entry{id=76,dest={73756273656374696F6E2E392E332E33},srcline={389}}{5265616A75737465206465206C6F7320626F756E64696E6720626F786573}
+\BKM@entry{id=76,dest={73756273656374696F6E2E392E332E33},srcline={389}}{5265616A75737465206465206C6F7320626F756E64696E6720626F78657320706F722070617274652064652033466162526563}
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.3.2}Creación del fichero annotations en el dataset}{103}{subsection.9.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.3.3}Reajuste de los bounding boxes}{103}{subsection.9.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {9.10}{\ignorespaces Proceso seguido para la transformación.}}{104}{figure.9.10}\protected@file@percent }
-\newlabel{fig:Transformacion_BB}{{9.10}{104}{Proceso seguido para la transformación}{figure.9.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.11}{\ignorespaces Recorte de las caras tras el reajuste del \textit  {bounding box}.}}{104}{figure.9.11}\protected@file@percent }
-\newlabel{fig:Reajuste_bb}{{9.11}{104}{Recorte de las caras tras el reajuste del \textit {bounding box}}{figure.9.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.12}{\ignorespaces Error estructural y de reconstrucción de las imágenes con el bounding box reajustado. El error de reconstrucción se encuentra en la esquina inferior izquierda, y el estructural encima del anterior. Como podemos observar, en todos los casos son muy elevados y la imagen reconstruida apenas guarda relación con la original.}}{105}{figure.9.12}\protected@file@percent }
-\newlabel{fig:bb_custom}{{9.12}{105}{Error estructural y de reconstrucción de las imágenes con el bounding box reajustado. El error de reconstrucción se encuentra en la esquina inferior izquierda, y el estructural encima del anterior. Como podemos observar, en todos los casos son muy elevados y la imagen reconstruida apenas guarda relación con la original}{figure.9.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.13}{\ignorespaces Error estructural y de reconstrucción de las imágenes con el reajuste del bounding box de 3FabRec. Como podemos ver, sigue habiendo grandes errores de reconstrucción y estructurales, pero se consigue un mejor resultado de la estructura facial. No obstante, el vertex no se aprecia correctamente en las imágenes.}}{105}{figure.9.13}\protected@file@percent }
-\newlabel{fig:bb_3fabrec}{{9.13}{105}{Error estructural y de reconstrucción de las imágenes con el reajuste del bounding box de 3FabRec. Como podemos ver, sigue habiendo grandes errores de reconstrucción y estructurales, pero se consigue un mejor resultado de la estructura facial. No obstante, el vertex no se aprecia correctamente en las imágenes}{figure.9.13}{}}
-\BKM@entry{id=77,dest={73756273656374696F6E2E392E332E34},srcline={454}}{53657061726163695C3336336E20656E20636F6E6A756E746F7320646520656E7472656E616D69656E746F20792076616C69646163695C3336336E}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.3.4}Separación en conjuntos de entrenamiento y validación}{106}{subsection.9.3.4}\protected@file@percent }
-\BKM@entry{id=78,dest={73656374696F6E2E392E34},srcline={474}}{4578706572696D656E746163695C3336336E}
-\BKM@entry{id=79,dest={73756273656374696F6E2E392E342E31},srcline={475}}{4869705C333633746573697320696E696369616C6573}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3.3}Reajuste de los bounding boxes por parte de 3FabRec}{103}{subsection.9.3.3}\protected@file@percent }
+\BKM@entry{id=77,dest={73756273656374696F6E2E392E332E34},srcline={410}}{53657061726163695C3336336E20656E20636F6E6A756E746F7320646520656E7472656E616D69656E746F20792076616C69646163695C3336336E}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.10}{\ignorespaces Error estructural y de reconstrucción de las imágenes con el reajuste del bounding box de 3FabRec. Como podemos ver, sigue habiendo grandes errores de reconstrucción y estructurales, pero se consigue un mejor resultado de la estructura facial. No obstante, el vertex no se aprecia correctamente en las imágenes.}}{104}{figure.9.10}\protected@file@percent }
+\newlabel{fig:bb_3fabrec}{{9.10}{104}{Error estructural y de reconstrucción de las imágenes con el reajuste del bounding box de 3FabRec. Como podemos ver, sigue habiendo grandes errores de reconstrucción y estructurales, pero se consigue un mejor resultado de la estructura facial. No obstante, el vertex no se aprecia correctamente en las imágenes}{figure.9.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3.4}Separación en conjuntos de entrenamiento y validación}{104}{subsection.9.3.4}\protected@file@percent }
+\BKM@entry{id=78,dest={73656374696F6E2E392E34},srcline={430}}{4578706572696D656E746163695C3336336E}
+\BKM@entry{id=79,dest={73756273656374696F6E2E392E342E31},srcline={431}}{4869705C333633746573697320696E696369616C6573}
 \citation{browatzki20203fabrec}
-\BKM@entry{id=80,dest={73756273656374696F6E2E392E342E32},srcline={482}}{4D6F64656C6F2042617365}
-\@writefile{toc}{\contentsline {section}{\numberline {9.4}Experimentación}{107}{section.9.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.1}Hipótesis iniciales}{107}{subsection.9.4.1}\protected@file@percent }
-\@writefile{brf}{\backcite{browatzki20203fabrec}{{107}{9.4.1}{subsection.9.4.1}}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.2}Modelo Base}{107}{subsection.9.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {9.1}{\ignorespaces Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo base.}}{108}{table.9.1}\protected@file@percent }
-\newlabel{table:ModelBase_images_results}{{9.1}{108}{Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo base}{table.9.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.14}{\ignorespaces Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento en el Modelo Base. Se han omitido los valores atípicos para una correcta visualización.}}{109}{figure.9.14}\protected@file@percent }
-\newlabel{fig:boxplot_ModeloBase_NME}{{9.14}{109}{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento en el Modelo Base. Se han omitido los valores atípicos para una correcta visualización}{figure.9.14}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.2}{\ignorespaces Media del error NME obtenido por landmark entre todas las particiones de cross-validation. Marcamos en amarillo el vertex pues no está correctamente marcado en todas las imágenes.}}{110}{table.9.2}\protected@file@percent }
-\newlabel{table:ModelBase_landmarkresume}{{9.2}{110}{Media del error NME obtenido por landmark entre todas las particiones de cross-validation. Marcamos en amarillo el vertex pues no está correctamente marcado en todas las imágenes}{table.9.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.15}{\ignorespaces Curvas de aprendizaje en cada partición del modelo base.}}{110}{figure.9.15}\protected@file@percent }
-\newlabel{fig:Curvas_modelbase}{{9.15}{110}{Curvas de aprendizaje en cada partición del modelo base}{figure.9.15}{}}
-\BKM@entry{id=81,dest={73756273656374696F6E2E392E342E33},srcline={598}}{4D6F64656C6F20636F6E207265656E7472656E616D69656E746F2064656C20656E636F646572}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.16}{\ignorespaces Imágenes pertenecientes a distintos conjuntos de validación para el \textbf  {modelo base}. Las imágenes de la fila superior son las imágenes reales, y las de la fila inferior las reconstruidas por la red. Podemos apreciar en verde los landmarks reales y en azul los predichos. El valor que aparece en la esquina inferior derecha es el NME global de la imagen (la media de los NMEs de cada landmark) y en la esquina inferior izquierda aparece el error de reconstrucción y encima el SSIM.}}{111}{figure.9.16}\protected@file@percent }
-\newlabel{fig:Ejemplo_ModelBase}{{9.16}{111}{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf {modelo base}. Las imágenes de la fila superior son las imágenes reales, y las de la fila inferior las reconstruidas por la red. Podemos apreciar en verde los landmarks reales y en azul los predichos. El valor que aparece en la esquina inferior derecha es el NME global de la imagen (la media de los NMEs de cada landmark) y en la esquina inferior izquierda aparece el error de reconstrucción y encima el SSIM}{figure.9.16}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.3}Modelo con reentrenamiento del encoder}{112}{subsection.9.4.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {9.3}{\ignorespaces Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de ajuste fino del encoder.}}{112}{table.9.3}\protected@file@percent }
-\newlabel{table:ModelEncoder_images_results}{{9.3}{112}{Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de ajuste fino del encoder}{table.9.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.17}{\ignorespaces Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de ajuste fino del encoder. Se han omitido los Outliers para una correcta visualización.}}{113}{figure.9.17}\protected@file@percent }
-\newlabel{fig:boxplot_ModeloEncoder_NME}{{9.17}{113}{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de ajuste fino del encoder. Se han omitido los Outliers para una correcta visualización}{figure.9.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.18}{\ignorespaces Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}}{113}{figure.9.18}\protected@file@percent }
-\newlabel{fig:curvas_encoder}{{9.18}{113}{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder}{figure.9.18}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.4}{\ignorespaces Tabla comparativa entre los dos modelos explorados por ahora. Medimos el NME medio a nivel de landmark. En verde se resalta el mejor valor de marcado para cada landmark.}}{114}{table.9.4}\protected@file@percent }
-\newlabel{table:Encode_landmarkresume}{{9.4}{114}{Tabla comparativa entre los dos modelos explorados por ahora. Medimos el NME medio a nivel de landmark. En verde se resalta el mejor valor de marcado para cada landmark}{table.9.4}{}}
-\BKM@entry{id=82,dest={73756273656374696F6E2E392E342E34},srcline={707}}{4D6F64656C6F20636F6E207265656E7472656E616D69656E746F2064656C206465636F646572}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.19}{\ignorespaces Imágenes pertenecientes a distintos conjuntos de validación para el \textbf  {modelo de ajuste fino del encoder}.}}{115}{figure.9.19}\protected@file@percent }
-\newlabel{fig:Ejemplo_encoder}{{9.19}{115}{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf {modelo de ajuste fino del encoder}}{figure.9.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.4}Modelo con reentrenamiento del decoder}{115}{subsection.9.4.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {9.5}{\ignorespaces Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de ajuste fino del decoder.}}{115}{table.9.5}\protected@file@percent }
-\newlabel{table:ModelDecoder_images_results}{{9.5}{115}{Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de ajuste fino del decoder}{table.9.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.20}{\ignorespaces Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de ajuste fino del decoder. Se han omitido los Outliers para una correcta visualización.}}{116}{figure.9.20}\protected@file@percent }
-\newlabel{fig:boxplot_ModeloDecoder_NME}{{9.20}{116}{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de ajuste fino del decoder. Se han omitido los Outliers para una correcta visualización}{figure.9.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.21}{\ignorespaces Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}}{116}{figure.9.21}\protected@file@percent }
-\newlabel{fig:curvas_decoder}{{9.21}{116}{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder}{figure.9.21}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.6}{\ignorespaces Tabla comparativa entre los tres modelos probados. En este caso no se aprecia ninguna mejora considerable con respecto a las introducidas por el modelo de ajuste fino del encoder.}}{117}{table.9.6}\protected@file@percent }
-\newlabel{table:Decoder_landmarksresume}{{9.6}{117}{Tabla comparativa entre los tres modelos probados. En este caso no se aprecia ninguna mejora considerable con respecto a las introducidas por el modelo de ajuste fino del encoder}{table.9.6}{}}
-\BKM@entry{id=83,dest={73756273656374696F6E2E392E342E35},srcline={803}}{4D6F64656C6F20636F6E2044617461204175676D656E746174696F6E}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.22}{\ignorespaces Imágenes pertenecientes a distintos conjuntos de validación para el \textbf  {modelo de ajuste fino del decoder}.}}{118}{figure.9.22}\protected@file@percent }
-\newlabel{fig:Ejemplo_decoder}{{9.22}{118}{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf {modelo de ajuste fino del decoder}}{figure.9.22}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.5}Modelo con Data Augmentation}{118}{subsection.9.4.5}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {9.7}{\ignorespaces Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de data augmentation.}}{119}{table.9.7}\protected@file@percent }
-\newlabel{table:ModelDaug_images_results}{{9.7}{119}{Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de data augmentation}{table.9.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.23}{\ignorespaces Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de data augmentation. Se han omitido los Outliers para una correcta visualización.}}{119}{figure.9.23}\protected@file@percent }
-\newlabel{fig:boxplot_ModeloDaug_NME}{{9.23}{119}{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de data augmentation. Se han omitido los Outliers para una correcta visualización}{figure.9.23}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.8}{\ignorespaces Tabla comparativa entre todos los modelos probados.}}{120}{table.9.8}\protected@file@percent }
-\newlabel{table:Daugmentation_landmarksresume}{{9.8}{120}{Tabla comparativa entre todos los modelos probados}{table.9.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.24}{\ignorespaces Curvas de aprendizaje en cada partición del modelo de data augmentation.}}{120}{figure.9.24}\protected@file@percent }
-\newlabel{fig:curvas_daugmentation}{{9.24}{120}{Curvas de aprendizaje en cada partición del modelo de data augmentation}{figure.9.24}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.25}{\ignorespaces Imágenes pertenecientes a distintos conjuntos de validación para el \textbf  {modelo data augmentation}.}}{121}{figure.9.25}\protected@file@percent }
-\newlabel{fig:Ejemplo_daug}{{9.25}{121}{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf {modelo data augmentation}}{figure.9.25}{}}
-\BKM@entry{id=84,dest={73756273656374696F6E2E392E342E36},srcline={901}}{456C656363695C3336336E206465206D6F64656C6F2079206F6274656E63695C3336336E20646520726573756C7461646F73}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.6}Elección de modelo y obtención de resultados}{122}{subsection.9.4.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {9.26}{\ignorespaces Diagramas de cajas de todos los modelos probados concatenados. Para una correcta visualización se eliminan los outliers del gráfico.}}{122}{figure.9.26}\protected@file@percent }
-\newlabel{fig:boxplot_summary}{{9.26}{122}{Diagramas de cajas de todos los modelos probados concatenados. Para una correcta visualización se eliminan los outliers del gráfico}{figure.9.26}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.9}{\ignorespaces Tabla comparativa entre los resultados del modelo de data augmentation en el conjunto de validación y test.}}{123}{table.9.9}\protected@file@percent }
-\newlabel{table:FinalModel_landmarks}{{9.9}{123}{Tabla comparativa entre los resultados del modelo de data augmentation en el conjunto de validación y test}{table.9.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.27}{\ignorespaces Curvas de aprendizaje durante el entrenamiento del modelo de data augmentation validado en el conjunto de test.}}{124}{figure.9.27}\protected@file@percent }
-\newlabel{fig:curvas_FinalModel}{{9.27}{124}{Curvas de aprendizaje durante el entrenamiento del modelo de data augmentation validado en el conjunto de test}{figure.9.27}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.28}{\ignorespaces Rendimiento del modelo final elegido con data augmentation en imágenes del conjunto de test.}}{124}{figure.9.28}\protected@file@percent }
-\newlabel{fig:Ejemplo_finalmodel}{{9.28}{124}{Rendimiento del modelo final elegido con data augmentation en imágenes del conjunto de test}{figure.9.28}{}}
-\BKM@entry{id=85,dest={73656374696F6E2E392E35},srcline={1010}}{436F6D706172617469766120656E74726520334661625265632079204879706572466163652D5265734E6574313031}
-\BKM@entry{id=86,dest={73756273656374696F6E2E392E352E31},srcline={1013}}{50726570726F636573616D69656E746F20792062617365206465206461746F7320656D706C65616461}
-\BKM@entry{id=87,dest={73756273656374696F6E2E392E352E32},srcline={1020}}{4D5C33353174726963617320656D706C6561646173}
-\@writefile{toc}{\contentsline {section}{\numberline {9.5}Comparativa entre 3FabRec y HyperFace-ResNet101}{125}{section.9.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.5.1}Preprocesamiento y base de datos empleada}{125}{subsection.9.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.5.2}Métricas empleadas}{125}{subsection.9.5.2}\protected@file@percent }
-\BKM@entry{id=88,dest={73756273656374696F6E2E392E352E33},srcline={1033}}{436F6D7061726163695C3336336E20646520726573756C7461646F73}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.5.3}Comparación de resultados}{126}{subsection.9.5.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {9.10}{\ignorespaces Tabla comparativa a nivel global entre los dos modelos. Como podemos observar, el modelo basado en \textbf  {HyperFace-Resnet101} obtiene mejores resultados en global en todos los campos.}}{126}{table.9.10}\protected@file@percent }
-\newlabel{table:comparativa-global}{{9.10}{126}{Tabla comparativa a nivel global entre los dos modelos. Como podemos observar, el modelo basado en \textbf {HyperFace-Resnet101} obtiene mejores resultados en global en todos los campos}{table.9.10}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.11}{\ignorespaces Tabla comparativa a nivel de landmarks entre el modelo final basado en 3FabRec y el de HyperFace-REsNet101.}}{127}{table.9.11}\protected@file@percent }
-\newlabel{table:comparativa-Landmarks}{{9.11}{127}{Tabla comparativa a nivel de landmarks entre el modelo final basado en 3FabRec y el de HyperFace-REsNet101}{table.9.11}{}}
-\BKM@entry{id=89,dest={73756273656374696F6E2E392E352E34},srcline={1119}}{436F6E636C7573696F6E65732065787472615C333535646173}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.5.4}Conclusiones extraídas}{128}{subsection.9.5.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {9.29}{\ignorespaces A la izquierda podemos ver las imágenes obtenidas con el modelo basado en \textit  {3FabRec}, a la derecha las extraidas del TFG de Guillermo Gómez utilizando \textit  {HF-ResNet}.}}{129}{figure.9.29}\protected@file@percent }
-\newlabel{fig:comparativa_estado_arte}{{9.29}{129}{A la izquierda podemos ver las imágenes obtenidas con el modelo basado en \textit {3FabRec}, a la derecha las extraidas del TFG de Guillermo Gómez utilizando \textit {HF-ResNet}}{figure.9.29}{}}
+\BKM@entry{id=80,dest={73756273656374696F6E2E392E342E32},srcline={438}}{4D6F64656C6F2042617365}
+\@writefile{toc}{\contentsline {section}{\numberline {9.4}Experimentación}{105}{section.9.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.1}Hipótesis iniciales}{105}{subsection.9.4.1}\protected@file@percent }
+\@writefile{brf}{\backcite{browatzki20203fabrec}{{105}{9.4.1}{subsection.9.4.1}}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.2}Modelo Base}{105}{subsection.9.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9.1}{\ignorespaces Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo base.}}{106}{table.9.1}\protected@file@percent }
+\newlabel{table:ModelBase_images_results}{{9.1}{106}{Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo base}{table.9.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.11}{\ignorespaces Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento en el Modelo Base. Se han omitido los valores atípicos para una correcta visualización.}}{107}{figure.9.11}\protected@file@percent }
+\newlabel{fig:boxplot_ModeloBase_NME}{{9.11}{107}{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento en el Modelo Base. Se han omitido los valores atípicos para una correcta visualización}{figure.9.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9.2}{\ignorespaces Media del error NME obtenido por landmark entre todas las particiones de cross-validation. Marcamos en amarillo el vertex pues no está correctamente marcado en todas las imágenes.}}{108}{table.9.2}\protected@file@percent }
+\newlabel{table:ModelBase_landmarkresume}{{9.2}{108}{Media del error NME obtenido por landmark entre todas las particiones de cross-validation. Marcamos en amarillo el vertex pues no está correctamente marcado en todas las imágenes}{table.9.2}{}}
+\BKM@entry{id=81,dest={73756273656374696F6E2E392E342E33},srcline={546}}{4D6F64656C6F20636F6E207265656E7472656E616D69656E746F2064656C20656E636F646572}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.12}{\ignorespaces Imágenes pertenecientes a distintos conjuntos de validación para el \textbf  {modelo base}. Las imágenes de la fila superior son las imágenes reales, y las de la fila inferior las reconstruidas por la red. Podemos apreciar en verde los landmarks reales y en azul los predichos. El valor que aparece en la esquina inferior derecha es el NME global de la imagen (la media de los NMEs de cada landmark) y en la esquina inferior izquierda aparece el error de reconstrucción y encima el SSIM.}}{109}{figure.9.12}\protected@file@percent }
+\newlabel{fig:Ejemplo_ModelBase}{{9.12}{109}{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf {modelo base}. Las imágenes de la fila superior son las imágenes reales, y las de la fila inferior las reconstruidas por la red. Podemos apreciar en verde los landmarks reales y en azul los predichos. El valor que aparece en la esquina inferior derecha es el NME global de la imagen (la media de los NMEs de cada landmark) y en la esquina inferior izquierda aparece el error de reconstrucción y encima el SSIM}{figure.9.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.3}Modelo con reentrenamiento del encoder}{109}{subsection.9.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9.3}{\ignorespaces Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de ajuste fino del encoder.}}{110}{table.9.3}\protected@file@percent }
+\newlabel{table:ModelEncoder_images_results}{{9.3}{110}{Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de ajuste fino del encoder}{table.9.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.13}{\ignorespaces Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de ajuste fino del encoder. Se han omitido los Outliers para una correcta visualización.}}{110}{figure.9.13}\protected@file@percent }
+\newlabel{fig:boxplot_ModeloEncoder_NME}{{9.13}{110}{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de ajuste fino del encoder. Se han omitido los Outliers para una correcta visualización}{figure.9.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9.4}{\ignorespaces Tabla comparativa entre los dos modelos explorados por ahora. Medimos el NME medio a nivel de landmark. En verde se resalta el mejor valor de marcado para cada landmark.}}{111}{table.9.4}\protected@file@percent }
+\newlabel{table:Encode_landmarkresume}{{9.4}{111}{Tabla comparativa entre los dos modelos explorados por ahora. Medimos el NME medio a nivel de landmark. En verde se resalta el mejor valor de marcado para cada landmark}{table.9.4}{}}
+\BKM@entry{id=82,dest={73756273656374696F6E2E392E342E34},srcline={646}}{4D6F64656C6F20636F6E207265656E7472656E616D69656E746F2064656C206465636F646572}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.14}{\ignorespaces Imágenes pertenecientes a distintos conjuntos de validación para el \textbf  {modelo de ajuste fino del encoder}.}}{112}{figure.9.14}\protected@file@percent }
+\newlabel{fig:Ejemplo_encoder}{{9.14}{112}{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf {modelo de ajuste fino del encoder}}{figure.9.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.4}Modelo con reentrenamiento del decoder}{112}{subsection.9.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9.5}{\ignorespaces Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de ajuste fino del decoder.}}{112}{table.9.5}\protected@file@percent }
+\newlabel{table:ModelDecoder_images_results}{{9.5}{112}{Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de ajuste fino del decoder}{table.9.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.15}{\ignorespaces Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de ajuste fino del decoder. Se han omitido los Outliers para una correcta visualización.}}{113}{figure.9.15}\protected@file@percent }
+\newlabel{fig:boxplot_ModeloDecoder_NME}{{9.15}{113}{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de ajuste fino del decoder. Se han omitido los Outliers para una correcta visualización}{figure.9.15}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9.6}{\ignorespaces Tabla comparativa entre los tres modelos probados. En este caso no se aprecia ninguna mejora considerable con respecto a las introducidas por el modelo de ajuste fino del encoder.}}{114}{table.9.6}\protected@file@percent }
+\newlabel{table:Decoder_landmarksresume}{{9.6}{114}{Tabla comparativa entre los tres modelos probados. En este caso no se aprecia ninguna mejora considerable con respecto a las introducidas por el modelo de ajuste fino del encoder}{table.9.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.16}{\ignorespaces Imágenes pertenecientes a distintos conjuntos de validación para el \textbf  {modelo de ajuste fino del decoder}.}}{114}{figure.9.16}\protected@file@percent }
+\newlabel{fig:Ejemplo_decoder}{{9.16}{114}{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf {modelo de ajuste fino del decoder}}{figure.9.16}{}}
+\BKM@entry{id=83,dest={73756273656374696F6E2E392E342E35},srcline={735}}{4D6F64656C6F20636F6E2044617461204175676D656E746174696F6E}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.5}Modelo con Data Augmentation}{115}{subsection.9.4.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9.7}{\ignorespaces Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de data augmentation.}}{115}{table.9.7}\protected@file@percent }
+\newlabel{table:ModelDaug_images_results}{{9.7}{115}{Métricas obtenidas de la distribución de los errores cometidos en el conjunto de entrenamiento con el modelo de data augmentation}{table.9.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.17}{\ignorespaces Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de data augmentation. Se han omitido los Outliers para una correcta visualización.}}{116}{figure.9.17}\protected@file@percent }
+\newlabel{fig:boxplot_ModeloDaug_NME}{{9.17}{116}{Diagramas de cajas de los resultados de NME y error de validación en el conjunto de las imágenes de entrenamiento del modelo de data augmentation. Se han omitido los Outliers para una correcta visualización}{figure.9.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.18}{\ignorespaces Imágenes pertenecientes a distintos conjuntos de validación para el \textbf  {modelo data augmentation}.}}{116}{figure.9.18}\protected@file@percent }
+\newlabel{fig:Ejemplo_daug}{{9.18}{116}{Imágenes pertenecientes a distintos conjuntos de validación para el \textbf {modelo data augmentation}}{figure.9.18}{}}
+\BKM@entry{id=84,dest={73756273656374696F6E2E392E342E36},srcline={826}}{456C656363695C3336336E206465206D6F64656C6F2079206F6274656E63695C3336336E20646520726573756C7461646F73}
+\@writefile{lot}{\contentsline {table}{\numberline {9.8}{\ignorespaces Tabla comparativa entre todos los modelos probados.}}{117}{table.9.8}\protected@file@percent }
+\newlabel{table:Daugmentation_landmarksresume}{{9.8}{117}{Tabla comparativa entre todos los modelos probados}{table.9.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.6}Elección de modelo y obtención de resultados}{117}{subsection.9.4.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9.19}{\ignorespaces Diagramas de cajas de todos los modelos probados concatenados. Para una correcta visualización se eliminan los outliers del gráfico.}}{118}{figure.9.19}\protected@file@percent }
+\newlabel{fig:boxplot_summary}{{9.19}{118}{Diagramas de cajas de todos los modelos probados concatenados. Para una correcta visualización se eliminan los outliers del gráfico}{figure.9.19}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9.9}{\ignorespaces Tabla comparativa entre los resultados del modelo de data augmentation en el conjunto de validación y test.}}{119}{table.9.9}\protected@file@percent }
+\newlabel{table:FinalModel_landmarks}{{9.9}{119}{Tabla comparativa entre los resultados del modelo de data augmentation en el conjunto de validación y test}{table.9.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.20}{\ignorespaces Curvas de aprendizaje durante el entrenamiento del modelo de data augmentation validado en el conjunto de test.}}{120}{figure.9.20}\protected@file@percent }
+\newlabel{fig:curvas_FinalModel}{{9.20}{120}{Curvas de aprendizaje durante el entrenamiento del modelo de data augmentation validado en el conjunto de test}{figure.9.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.21}{\ignorespaces Rendimiento del modelo final elegido con data augmentation en imágenes del conjunto de test.}}{120}{figure.9.21}\protected@file@percent }
+\newlabel{fig:Ejemplo_finalmodel}{{9.21}{120}{Rendimiento del modelo final elegido con data augmentation en imágenes del conjunto de test}{figure.9.21}{}}
+\BKM@entry{id=85,dest={73656374696F6E2E392E35},srcline={935}}{436F6D706172617469766120656E74726520334661625265632079204879706572466163652D5265734E6574313031}
+\BKM@entry{id=86,dest={73756273656374696F6E2E392E352E31},srcline={938}}{50726570726F636573616D69656E746F20792062617365206465206461746F7320656D706C65616461}
+\BKM@entry{id=87,dest={73756273656374696F6E2E392E352E32},srcline={945}}{4D5C33353174726963617320656D706C6561646173}
+\@writefile{toc}{\contentsline {section}{\numberline {9.5}Comparativa entre 3FabRec y HyperFace-ResNet101}{121}{section.9.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.5.1}Preprocesamiento y base de datos empleada}{121}{subsection.9.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.5.2}Métricas empleadas}{121}{subsection.9.5.2}\protected@file@percent }
+\BKM@entry{id=88,dest={73756273656374696F6E2E392E352E33},srcline={958}}{436F6D7061726163695C3336336E20646520726573756C7461646F73}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.5.3}Comparación de resultados}{122}{subsection.9.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9.10}{\ignorespaces Tabla comparativa a nivel global entre los dos modelos. Como podemos observar, el modelo basado en \textbf  {HyperFace-Resnet101} obtiene mejores resultados en global en todos los campos.}}{122}{table.9.10}\protected@file@percent }
+\newlabel{table:comparativa-global}{{9.10}{122}{Tabla comparativa a nivel global entre los dos modelos. Como podemos observar, el modelo basado en \textbf {HyperFace-Resnet101} obtiene mejores resultados en global en todos los campos}{table.9.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9.11}{\ignorespaces Tabla comparativa a nivel de landmarks entre el modelo final basado en 3FabRec y el de HyperFace-REsNet101.}}{123}{table.9.11}\protected@file@percent }
+\newlabel{table:comparativa-Landmarks}{{9.11}{123}{Tabla comparativa a nivel de landmarks entre el modelo final basado en 3FabRec y el de HyperFace-REsNet101}{table.9.11}{}}
+\BKM@entry{id=89,dest={73756273656374696F6E2E392E352E34},srcline={1044}}{436F6E636C7573696F6E65732065787472615C333535646173}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.5.4}Conclusiones extraídas}{124}{subsection.9.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9.22}{\ignorespaces A la izquierda podemos ver las imágenes obtenidas con el modelo basado en \textit  {3FabRec}, a la derecha las extraidas del TFG de Guillermo Gómez utilizando \textit  {HF-ResNet}.}}{125}{figure.9.22}\protected@file@percent }
+\newlabel{fig:comparativa_estado_arte}{{9.22}{125}{A la izquierda podemos ver las imágenes obtenidas con el modelo basado en \textit {3FabRec}, a la derecha las extraidas del TFG de Guillermo Gómez utilizando \textit {HF-ResNet}}{figure.9.22}{}}
 \BKM@entry{id=90,dest={636861707465722E3130},srcline={1}}{436F6E636C7573696F6E657320792054726162616A6F732046757475726F73}
 \BKM@entry{id=91,dest={73656374696F6E2E31302E31},srcline={17}}{4F626A657469766F73205361746973666563686F73}
-\@writefile{toc}{\contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{131}{chapter.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {10}Conclusiones y Trabajos Futuros}{127}{chapter.10}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \BKM@entry{id=92,dest={73656374696F6E2E31302E32},srcline={29}}{54726162616A6F732046757475726F73207920636F6D656E746172696F73}
-\@writefile{toc}{\contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{132}{section.10.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{132}{section.10.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10.1}Objetivos Satisfechos}{128}{section.10.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{128}{section.10.2}\protected@file@percent }
 \BKM@entry{id=93,dest={424D2D5265666572656E636961732E2D31},srcline={267}}{5265666572656E636961732065205C3335356E6469636573}
 \bibstyle{alpha}
 \bibdata{library.bib}
@@ -638,7 +624,7 @@
 \bibcite{lecun2015deep}{LBH15}
 \bibcite{DistinctiveImageFeatures}{Low04}
 \bibcite{MallatWavelets}{Mal00}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{135}{chapter*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{131}{chapter*.25}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibcite{GroupInvariantScattering}{Mal12}
@@ -660,57 +646,72 @@
 \BKM@entry{id=95,dest={617070656E6469782E2D31},srcline={284}}{41705C3335316E6469636573}
 \BKM@entry{id=96,dest={636861707465722A2E3236},srcline={4}}{41705C3335316E646963652041}
 \BKM@entry{id=97,dest={73656374696F6E2E416C7068302E31},srcline={6}}{526573756C7461646F7320706F7220696D6167656E20647572616E746520656C20656E7472656E616D69656E746F2064656C206D6F64656C6F2062617365}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Apéndice A}{137}{chapter*.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Apéndice A}{133}{chapter*.26}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ap:apendiceA}{{10.2}{137}{Apéndice A}{chapter*.26}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo base}{137}{section.Alph0.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Predicciones cross-validation modelo base. Primera partición.}}{137}{table.Alph0.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Predicciones cross-validation modelo base. Segunda partición.}}{138}{table.Alph0.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Predicciones cross-validation modelo base. Tercera partición.}}{139}{table.Alph0.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Predicciones cross-validation modelo base. Cuarta partición.}}{140}{table.Alph0.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Predicciones cross-validation modelo base. Cuarta partición.}}{141}{table.Alph0.5}\protected@file@percent }
+\newlabel{ap:apendiceA}{{10.2}{133}{Apéndice A}{chapter*.26}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo base}{133}{section.Alph0.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Predicciones cross-validation modelo base. Primera partición.}}{133}{table.Alph0.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Predicciones cross-validation modelo base. Segunda partición.}}{134}{table.Alph0.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Predicciones cross-validation modelo base. Tercera partición.}}{135}{table.Alph0.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Predicciones cross-validation modelo base. Cuarta partición.}}{136}{table.Alph0.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Predicciones cross-validation modelo base. Cuarta partición.}}{137}{table.Alph0.5}\protected@file@percent }
 \BKM@entry{id=98,dest={636861707465722A2E3237},srcline={4}}{41705C3335316E646963652042}
 \BKM@entry{id=99,dest={73656374696F6E2E416C7068302E31},srcline={6}}{526573756C7461646F7320706F7220696D6167656E20647572616E746520656C20656E7472656E616D69656E746F2064656C206D6F64656C6F20646520656E7472656E616D69656E746F2064656C20656E636F646572}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Apéndice B}{143}{chapter*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Apéndice B}{139}{chapter*.27}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ap:apendiceB}{{1}{143}{Apéndice B}{chapter*.27}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{143}{section.Alph0.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del encoder. Primera partición.}}{143}{table.Alph0.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del encoder. Segunda partición.}}{144}{table.Alph0.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del encoder. Tercera partición.}}{145}{table.Alph0.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del encoder. Cuarta partición.}}{146}{table.Alph0.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del encoder. Quinta partición.}}{147}{table.Alph0.5}\protected@file@percent }
+\newlabel{ap:apendiceB}{{1}{139}{Apéndice B}{chapter*.27}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{139}{section.Alph0.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del encoder. Primera partición.}}{139}{table.Alph0.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del encoder. Segunda partición.}}{140}{table.Alph0.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del encoder. Tercera partición.}}{141}{table.Alph0.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del encoder. Cuarta partición.}}{142}{table.Alph0.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del encoder. Quinta partición.}}{143}{table.Alph0.5}\protected@file@percent }
 \BKM@entry{id=100,dest={636861707465722A2E3238},srcline={4}}{41705C3335316E646963652043}
 \BKM@entry{id=101,dest={73656374696F6E2E416C7068302E31},srcline={6}}{526573756C7461646F7320706F7220696D6167656E20647572616E746520656C20656E7472656E616D69656E746F2064656C206D6F64656C6F20646520656E7472656E616D69656E746F2064656C206465636F646572}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Apéndice C}{149}{chapter*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Apéndice C}{145}{chapter*.28}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ap:apendiceC}{{1}{149}{Apéndice C}{chapter*.28}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{149}{section.Alph0.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Primera partición.}}{149}{table.Alph0.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Segunda partición.}}{150}{table.Alph0.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Tercera partición.}}{151}{table.Alph0.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Cuarta partición.}}{152}{table.Alph0.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Quinta partición.}}{153}{table.Alph0.5}\protected@file@percent }
+\newlabel{ap:apendiceC}{{1}{145}{Apéndice C}{chapter*.28}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{145}{section.Alph0.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Primera partición.}}{145}{table.Alph0.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Segunda partición.}}{146}{table.Alph0.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Tercera partición.}}{147}{table.Alph0.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Cuarta partición.}}{148}{table.Alph0.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Quinta partición.}}{149}{table.Alph0.5}\protected@file@percent }
 \BKM@entry{id=102,dest={636861707465722A2E3239},srcline={4}}{41705C3335316E646963652044}
 \BKM@entry{id=103,dest={73656374696F6E2E416C7068302E31},srcline={6}}{526573756C7461646F7320706F7220696D6167656E20647572616E746520656C20656E7472656E616D69656E746F2064656C206D6F64656C6F20636F6E2064617461206175676D656E746174696F6E}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Apéndice D}{155}{chapter*.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Apéndice D}{151}{chapter*.29}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ap:apendiceD}{{1}{155}{Apéndice D}{chapter*.29}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{155}{section.Alph0.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Primera partición.}}{155}{table.Alph0.1}\protected@file@percent }
-\newlabel{table:Daugmentation_images_1}{{1}{155}{Predicciones cross-validation modelo de ajuste fino del decoder. Primera partición}{table.Alph0.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Segunda partición.}}{156}{table.Alph0.2}\protected@file@percent }
-\newlabel{table:Daugmentation_images_2}{{2}{156}{Predicciones cross-validation modelo de ajuste fino del decoder. Segunda partición}{table.Alph0.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Tercera partición.}}{157}{table.Alph0.3}\protected@file@percent }
-\newlabel{table:Daugmentation_images_3}{{3}{157}{Predicciones cross-validation modelo de ajuste fino del decoder. Tercera partición}{table.Alph0.3}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Cuarta partición.}}{158}{table.Alph0.4}\protected@file@percent }
-\newlabel{table:Daugmentation_images_4}{{4}{158}{Predicciones cross-validation modelo de ajuste fino del decoder. Cuarta partición}{table.Alph0.4}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Quinta partición.}}{159}{table.Alph0.5}\protected@file@percent }
-\newlabel{table:Daugmentation_images_5}{{5}{159}{Predicciones cross-validation modelo de ajuste fino del decoder. Quinta partición}{table.Alph0.5}{}}
+\newlabel{ap:apendiceD}{{1}{151}{Apéndice D}{chapter*.29}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{151}{section.Alph0.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Primera partición.}}{151}{table.Alph0.1}\protected@file@percent }
+\newlabel{table:Daugmentation_images_1}{{1}{151}{Predicciones cross-validation modelo de ajuste fino del decoder. Primera partición}{table.Alph0.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Segunda partición.}}{152}{table.Alph0.2}\protected@file@percent }
+\newlabel{table:Daugmentation_images_2}{{2}{152}{Predicciones cross-validation modelo de ajuste fino del decoder. Segunda partición}{table.Alph0.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Tercera partición.}}{153}{table.Alph0.3}\protected@file@percent }
+\newlabel{table:Daugmentation_images_3}{{3}{153}{Predicciones cross-validation modelo de ajuste fino del decoder. Tercera partición}{table.Alph0.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Cuarta partición.}}{154}{table.Alph0.4}\protected@file@percent }
+\newlabel{table:Daugmentation_images_4}{{4}{154}{Predicciones cross-validation modelo de ajuste fino del decoder. Cuarta partición}{table.Alph0.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Predicciones cross-validation modelo de ajuste fino del decoder. Quinta partición.}}{155}{table.Alph0.5}\protected@file@percent }
+\newlabel{table:Daugmentation_images_5}{{5}{155}{Predicciones cross-validation modelo de ajuste fino del decoder. Quinta partición}{table.Alph0.5}{}}
+\BKM@entry{id=104,dest={636861707465722A2E3330},srcline={4}}{41705C3335316E646963652045}
+\BKM@entry{id=105,dest={73656374696F6E2E416C7068302E31},srcline={6}}{43757276617320646520617072656E64697A616A65206465206C6F73206D6F64656C6F732070726F6261646F73}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Apéndice E}{157}{chapter*.30}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{ap:apendiceD}{{1}{158}{Apéndice E}{chapter*.30}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Curvas de aprendizaje de los modelos probados}{158}{section.Alph0.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Curvas de aprendizaje en cada partición del modelo base.}}{158}{figure.Alph0.1}\protected@file@percent }
+\newlabel{fig:Curvas_modelbase}{{1}{158}{Curvas de aprendizaje en cada partición del modelo base}{figure.Alph0.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}}{159}{figure.Alph0.2}\protected@file@percent }
+\newlabel{fig:curvas_encoder}{{2}{159}{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder}{figure.Alph0.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Curvas de aprendizaje en cada partición del modelo de finetuning del encoder.}}{160}{figure.Alph0.3}\protected@file@percent }
+\newlabel{fig:curvas_decoder}{{3}{160}{Curvas de aprendizaje en cada partición del modelo de finetuning del encoder}{figure.Alph0.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Curvas de aprendizaje en cada partición del modelo de data augmentation.}}{161}{figure.Alph0.4}\protected@file@percent }
+\newlabel{fig:curvas_daugmentation}{{4}{161}{Curvas de aprendizaje en cada partición del modelo de data augmentation}{figure.Alph0.4}{}}
 \global\csname @altsecnumformattrue\endcsname
 \global\@namedef{scr@dte@chapter@lastmaxnumwidth}{16.01686pt}
 \global\@namedef{scr@dte@section@lastmaxnumwidth}{23.99994pt}
