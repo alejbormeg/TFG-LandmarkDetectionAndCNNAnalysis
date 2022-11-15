@@ -428,6 +428,15 @@
 
 
 \section{Experimentación}
+
+    En esta sección se van a realizar los experimentos fundamentales del trabajo:
+    \begin{enumerate}
+        \item Se va a probar un \textbf{modelo base}, en el cual vamos a entrenar las ITLs de la red con los parámetros de entrenamiento por defecto de 3FabRec.
+        \item En base a los resultados anteriores se prueba con un \textbf{ajuste fino del encoder}, para tratar de mejorar la reconstrucción de las imágenes junto con el entrenamiento de las ITLs para mejorar la predicción de los landmarks.
+        \item Se realiza el mismo experimento de antes pero con un \textbf{ajuste fino del decoder}.
+        \item Finalmente, se prueba a entrenar las ITLs con técnicas de \textbf{data augmentation} para aumentar los datos de entrenamiento. Este modelo será el que mejor resultados obtenga.
+    \end{enumerate}
+
     \subsection{Hipótesis iniciales}
         \noindent Debido a que partimos de \textbf{3FabRec}, un framework diseñado y probado de forma exahustiva por Björn Browatzki y Christian Wallraven, en los experimentos se va a respetar la arquitectura de la red en su totalidad, sin añadir ni eliminar capas. Del mismo modo, debido a que la elección del optimizador \textbf{Adam} empleado por los autores ha sido fruto de un proceso de experimentación exahustiva por parte de los mismos no, se va a probar a cambiarlo. Además, el optimizador Adam es adaptativo y tiene muy buen rendimiento en general, por lo que no tenemos ninguna razón que nos lleve a pensar que lograríamos grandes mejoras cambiando de optimizador.
 

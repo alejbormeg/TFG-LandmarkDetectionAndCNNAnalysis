@@ -7,7 +7,7 @@
 
 \medskip
 
-\noindent En el ámbito de las \textbf{ciencias forenses}, aquellas que aplican el método científico a hechos presuntamente delictivos, con la finalidad de aportar pruebas a efectos judiciales. Dentro de este campo destacan principalmente dos disciplinas: 
+\noindent En el ámbito de las \textbf{ciencias forenses} \cite{saferstein2001criminalistics}, aquellas que aplican el método científico a hechos presuntamente delictivos, con la finalidad de aportar pruebas a efectos judiciales. Dentro de este campo destacan principalmente dos disciplinas: 
 
 \begin{itemize}
     \item La \textbf{Criminalística}: disciplina encargada del descubrimiento y verificación científica de presuntos hechos delictivos y quienes los cometen.
@@ -16,12 +16,12 @@
 
 \medskip
 
-\noindent Dentro de la medicina forense se encuentra la \textbf{antropología forense}, que principalmente se encarga de la identificación de personas a partir de restos óseos. Y es en este ámbito donde se encuentran los procesos que dan sentido a este trabajo. 
+\noindent Dentro de la medicina forense se encuentra la \textbf{antropología forense}, que principalmente se encarga de la identificación de personas a partir de restos óseos \cite{ubelaker2008forensic}. Y es en este ámbito donde se encuentran los procesos que dan sentido a este trabajo. 
 
 
 \section{Descripción del problema y Motivación}
 
-    \noindent Los \textbf{landmarks cefalométricos} son puntos localizados en la cara que nos permiten caracterizar la morfología de la cabeza. La correcta identificación de estos puntos es de extrema importancia en tareas como la extracción de índices de proporción antropométricos (por ejemplo, para problemas de clasificación o detección de patologías), la comparación facial forense y la identificación humana forense mediante la superposición craneofacial (SCF), en el cual se comparan imágenes de la persona difunta (imágenes ante-mortem) con una representación 3D de un cráneo candidato, con el fin de determinar si el cráneo pertenece a la persona de las imágenes o no. La correspondencia entre cara y cráneo se hace con ayuda del marcado en el cráneo de landmarks \textit{craneométricos}. Así, cada landmark \textit{cefalométricos} tiene un homólogo \textit{craneométrico} con el mismo nombre. En la \autoref{fig:procesoSCF}  podemos ver un esquema del proceso seguido.
+    \noindent Los \textbf{landmarks cefalométricos} \cite{thompson2006forensic} son puntos localizados en la cara que nos permiten caracterizar la morfología de la cabeza. La correcta identificación de estos puntos es de extrema importancia en tareas como la extracción de índices de proporción antropométricos (por ejemplo, para problemas de clasificación o detección de patologías), la comparación facial forense y la identificación humana forense mediante la superposición craneofacial (SCF), en el cual se comparan imágenes de la persona difunta (imágenes ante-mortem) con una representación 3D de un cráneo candidato, con el fin de determinar si el cráneo pertenece a la persona de las imágenes o no. La correspondencia entre cara y cráneo se hace con ayuda del marcado en el cráneo de landmarks \textit{craneométricos}. Así, cada landmark \textit{cefalométricos} tiene un homólogo \textit{craneométrico} con el mismo nombre. En la \autoref{fig:procesoSCF}  podemos ver un esquema del proceso seguido.
 
     \medskip
 
@@ -41,7 +41,7 @@
 
     \medskip 
 
-    \noindent Por otro lado, el reconocimiento de \textbf{landmarks faciales} (puntos de referencia marcados en la cara sin justificación biológica) es una tarea muy investigada actualmente, de la que existen  multitud de trabajos resueltos en su mayoría usando algoritmos de \textbf{deep learning}. Pese a no guardar relación con la morfología del cráneo, este tipo de landmarks son de gran utilidad para la identificación de personas en vídeos, el reconocimiento de gestos y posición de la cara, o determinar la dirección en la que un individuo mira. 
+    \noindent Por otro lado, el reconocimiento de \textbf{landmarks faciales} (puntos de referencia marcados en la cara sin justificación biológica) es una tarea muy investigada actualmente de la que existen competiciones internacionales \cite{sagonas2013300} y trabajos resueltos en su mayoría usando algoritmos de \textbf{deep learning} usando datasets con numerosos imágenes de entrenamiento \cite{koestinger2011annotated}. Pese a no guardar relación con la morfología del cráneo, este tipo de landmarks son de gran utilidad para la identificación de personas en vídeos, el reconocimiento de gestos y posición de la cara, o determinar la dirección en la que un individuo mira. 
 
     \medskip
 
@@ -92,7 +92,7 @@
 
     \medskip
 
-    \noindent En este contexto, el presente TFG comparte el mismo problema que el realizado por Guillermo Gómez \cite{guillermo2019}, que representa una medida del estado del arte en este campo, por lo que compararemos los resultados obtenidos por su modelo con los que obtengamos en este trabajo. Además, el enfoque de los datos a usar es distinto, pues aunque partimos del mismo dataset, vamos a explorar técnicas de \textit{few-shot learning}, es decir, trataremos de obtener un modelo competente con pocos datos de entrenamiento. Mientras que en este trabajo se amplió el conjunto de entrenamiento con un dataset extra de modelos $3D$ de rostros con landmarks anotados de los que se extrajeron proyecciones $2D$.
+    \noindent En este contexto, el presente TFG comparte el mismo problema que el realizado por Guillermo Gómez \cite{guillermo2019}, que representa una medida del estado del arte en este campo, por lo que compararemos los resultados obtenidos por su modelo con los que obtengamos en este trabajo. Además, el enfoque de los datos a usar es distinto, pues aunque partimos del mismo dataset, vamos a explorar técnicas de \textit{few-shot learning} \cite{wang2020generalizing}, es decir, trataremos de obtener un modelo competente con pocos datos de entrenamiento. Mientras que en este trabajo se amplió el conjunto de entrenamiento con un dataset extra de modelos $3D$ de rostros con landmarks anotados de los que se extrajeron proyecciones $2D$.
 
 
 

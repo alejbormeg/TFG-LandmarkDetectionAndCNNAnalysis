@@ -4,45 +4,46 @@ The top-level auxiliary file: libro.aux
 The style file: alpha.bst
 Database file #1: library.bib
 Warning--empty publisher in norvig2002modern
-You've used 32 entries,
+Warning--can't use both volume and number fields in saferstein2001criminalistics
+You've used 38 entries,
             2543 wiz_defined-function locations,
-            759 strings with 10614 characters,
-and the built_in function-call counts, 12655 in all, are:
-= -- 1249
-> -- 608
-< -- 21
-+ -- 213
-- -- 209
-* -- 866
-:= -- 2072
-add.period$ -- 98
-call.type$ -- 32
-change.case$ -- 201
-chr.to.int$ -- 31
-cite$ -- 33
-duplicate$ -- 499
-empty$ -- 927
-format.name$ -- 251
-if$ -- 2593
-int.to.chr$ -- 2
+            792 strings with 11714 characters,
+and the built_in function-call counts, 15415 in all, are:
+= -- 1528
+> -- 736
+< -- 27
++ -- 261
+- -- 255
+* -- 1054
+:= -- 2499
+add.period$ -- 117
+call.type$ -- 38
+change.case$ -- 239
+chr.to.int$ -- 35
+cite$ -- 40
+duplicate$ -- 620
+empty$ -- 1127
+format.name$ -- 305
+if$ -- 3177
+int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 30
-newline$ -- 165
-num.names$ -- 96
-pop$ -- 221
+missing$ -- 38
+newline$ -- 195
+num.names$ -- 114
+pop$ -- 267
 preamble$ -- 1
-purify$ -- 237
+purify$ -- 283
 quote$ -- 0
-skip$ -- 435
+skip$ -- 540
 stack$ -- 0
-substring$ -- 646
-swap$ -- 88
-text.length$ -- 21
-text.prefix$ -- 13
+substring$ -- 800
+swap$ -- 125
+text.length$ -- 27
+text.prefix$ -- 15
 top$ -- 0
-type$ -- 236
-warning$ -- 1
-while$ -- 114
-width$ -- 36
-write$ -- 410
-(There was 1 warning)
+type$ -- 276
+warning$ -- 2
+while$ -- 141
+width$ -- 41
+write$ -- 488
+(There were 2 warnings)

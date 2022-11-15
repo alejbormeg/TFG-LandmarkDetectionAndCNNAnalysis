@@ -1,5 +1,5 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{HNATT22}
+\begin{thebibliography}{KWRB11b}
 
 \bibitem[AIA{\etalchar{+}}14]{asi2014automatic}
 Salina~Mohd Asi, Nor~Hidayah Ismail, Roshahida Ahmad, Effirul~Ikhwan Ramlan,
@@ -74,7 +74,14 @@ J.Bruna.
 \newblock Operators commuting with diffeomorphisms.
 \newblock {\em CMAP Tech. REport}, 2012.
 
-\bibitem[KWRB11]{AFLW}
+\bibitem[KWRB11a]{koestinger2011annotated}
+Martin Koestinger, Paul Wohlhart, Peter~M Roth, and Horst Bischof.
+\newblock Annotated facial landmarks in the wild: A large-scale, real-world
+  database for facial landmark localization.
+\newblock In {\em 2011 IEEE international conference on computer vision
+  workshops (ICCV workshops)}, pages 2144--2151. IEEE, 2011.
+
+\bibitem[KWRB11b]{AFLW}
 Martin Köstinger, Paul Wohlhart, Peter~M. Roth, and Horst Bischof.
 \newblock Annotated facial landmarks in the wild: A large-scale, real-world
   database for facial landmark localization.
@@ -153,6 +160,12 @@ Azriel Rosenfeld.
 \newblock Computer vision: basic principles.
 \newblock {\em Proceedings of the IEEE}, 76(8):863--868, 1988.
 
+\bibitem[Saf01]{saferstein2001criminalistics}
+Richard Saferstein.
+\newblock {\em Criminalistics: An introduction to forensic science}, volume
+  201.
+\newblock Prentice Hall Upper Saddle River, NJ, 2001.
+
 \bibitem[SKK04]{savvides2004eigenphases}
 Marios Savvides, BVK~Vijaya Kumar, and Pradeep~K Khosla.
 \newblock Eigenphases vs eigenfaces.
@@ -164,12 +177,24 @@ Sagar Sharma, Simone Sharma, and Anidhya Athaiya.
 \newblock Activation functions in neural networks.
 \newblock {\em towards data science}, 6(12):310--316, 2017.
 
-\bibitem[STZP13]{300W}
+\bibitem[STZP13a]{sagonas2013300}
+Christos Sagonas, Georgios Tzimiropoulos, Stefanos Zafeiriou, and Maja Pantic.
+\newblock 300 faces in-the-wild challenge: The first facial landmark
+  localization challenge.
+\newblock In {\em Proceedings of the IEEE international conference on computer
+  vision workshops}, pages 397--403, 2013.
+
+\bibitem[STZP13b]{300W}
 Christos Sagonas, Georgios Tzimiropoulos, Stefanos Zafeiriou, and Maja Pantic.
 \newblock 300 faces in-the-wild challenge: The first facial landmark
   localization challenge.
 \newblock In {\em 2013 IEEE International Conference on Computer Vision
   Workshops}, pages 397--403, 2013.
+
+\bibitem[TB06]{thompson2006forensic}
+Tim Thompson and Sue Black.
+\newblock {\em Forensic human identification: an introduction}.
+\newblock CRC press, 2006.
 
 \bibitem[TLF10]{Daisy}
 Engin Tola, Vincent Lepetit, and Pascal Fua.
@@ -182,6 +207,12 @@ Guillermo~Gómez Trenado.
 \newblock Aprendizaje profundo y antropología forense.
 \newblock {\em Universidad de Granada}, 2019.
 
+\bibitem[Ube08]{ubelaker2008forensic}
+Douglas~H Ubelaker.
+\newblock Forensic anthropology: methodology and diversity of applications.
+\newblock {\em Biological anthropology of the human skeleton}, pages 41--69,
+  2008.
+
 \bibitem[WBSS04]{wang2004image}
 Zhou Wang, Alan~C Bovik, Hamid~R Sheikh, and Eero~P Simoncelli.
 \newblock Image quality assessment: from error visibility to structural
@@ -193,5 +224,10 @@ Math Works.
 \newblock Continuous wavelet transform and scale-based analysis.
 \newblock
   \url={https://www.mathworks.com/help/wavelet/gs/continuous-wavelet-transform-and-scale-based-analysis.html},.
+
+\bibitem[WYKN20]{wang2020generalizing}
+Yaqing Wang, Quanming Yao, James~T Kwok, and Lionel~M Ni.
+\newblock Generalizing from a few examples: A survey on few-shot learning.
+\newblock {\em ACM computing surveys (csur)}, 53(3):1--34, 2020.
 
 \end{thebibliography}
