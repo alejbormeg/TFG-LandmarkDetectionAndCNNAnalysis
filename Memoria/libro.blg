@@ -3,47 +3,48 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: libro.aux
 The style file: alpha.bst
 Database file #1: library.bib
+Warning--can't use both volume and number fields in mitchell1997machine
 Warning--empty publisher in norvig2002modern
 Warning--can't use both volume and number fields in saferstein2001criminalistics
-You've used 38 entries,
+You've used 40 entries,
             2543 wiz_defined-function locations,
-            792 strings with 11714 characters,
-and the built_in function-call counts, 15415 in all, are:
-= -- 1528
-> -- 736
-< -- 27
-+ -- 261
-- -- 255
-* -- 1054
-:= -- 2499
-add.period$ -- 117
-call.type$ -- 38
-change.case$ -- 239
-chr.to.int$ -- 35
-cite$ -- 40
-duplicate$ -- 620
-empty$ -- 1127
-format.name$ -- 305
-if$ -- 3177
+            805 strings with 12008 characters,
+and the built_in function-call counts, 16155 in all, are:
+= -- 1600
+> -- 774
+< -- 28
++ -- 273
+- -- 267
+* -- 1110
+:= -- 2625
+add.period$ -- 123
+call.type$ -- 40
+change.case$ -- 250
+chr.to.int$ -- 37
+cite$ -- 43
+duplicate$ -- 649
+empty$ -- 1180
+format.name$ -- 319
+if$ -- 3324
 int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 38
-newline$ -- 195
-num.names$ -- 114
-pop$ -- 267
+missing$ -- 41
+newline$ -- 205
+num.names$ -- 120
+pop$ -- 277
 preamble$ -- 1
-purify$ -- 283
+purify$ -- 297
 quote$ -- 0
-skip$ -- 540
+skip$ -- 565
 stack$ -- 0
-substring$ -- 800
-swap$ -- 125
-text.length$ -- 27
+substring$ -- 833
+swap$ -- 129
+text.length$ -- 28
 text.prefix$ -- 15
 top$ -- 0
-type$ -- 276
-warning$ -- 2
-while$ -- 141
-width$ -- 41
-write$ -- 488
-(There were 2 warnings)
+type$ -- 288
+warning$ -- 3
+while$ -- 149
+width$ -- 44
+write$ -- 514
+(There were 3 warnings)

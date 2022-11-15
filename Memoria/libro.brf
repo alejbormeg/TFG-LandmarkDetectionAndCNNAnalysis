@@ -25,6 +25,8 @@
 \backcite {browatzki20203fabrec}{{49}{5.1}{figure.5.2}}
 \backcite {guillermo2019}{{49}{5.1}{table.5.1}}
 \backcite {wang2020generalizing}{{49}{5.1}{table.5.1}}
+\backcite {norvig2002modern}{{57}{6.1}{section.6.1}}
+\backcite {mitchell1997machine}{{57}{6.1}{section.6.1}}
 \backcite {StanfordCourse}{{61}{6.1}{figure.6.1}}
 \backcite {savvides2004eigenphases}{{61}{6.1.3}{subsection.6.1.3}}
 \backcite {rosenfeld1988computer}{{61}{6.1.4}{subsection.6.1.4}}
@@ -56,6 +58,7 @@
 \backcite {AFLW}{{89}{9.2}{figure.9.2}}
 \backcite {300W}{{90}{9.1}{figure.9.1}}
 \backcite {browatzki20203fabrec}{{90}{9.1}{section.9.1}}
+\backcite {zhu2009introduction}{{90}{9.1}{section.9.1}}
 \backcite {browatzki20203fabrec}{{91}{9.3}{figure.9.3}}
 \backcite {wang2004image}{{100}{9.2.2.3}{subsubsection.9.2.2.3}}
 \backcite {browatzki20203fabrec}{{105}{9.4.1}{subsection.9.4.1}}
