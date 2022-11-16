@@ -190,7 +190,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
         \noindent Finalmente, en los últimos años esta rama ha experimentado un fuerte impulso en la comunidad científica debido al actual desarrollo del \textbf{Deep Learning} y su principal herramienta: las \textbf{redes convolucionales profundas}, que han permitido crear programas que obtienen un gran rendimiento en el tratamiento de imágenes.
 
     \subsection{Deep Learning}
-        Irónicamente, algunas de las tareas más fáciles para los seres humanos como son el reconocimiento del habla o la identificación de objetos en imágenes han suponen un verdadero reto para un odernador, y no ha sido hasta los últimos años con el nacimiento del \textbf{Deep Learning} que se han empezado a obtener resultados satisfactorios en este campo.
+        Irónicamente, algunas de las tareas más fáciles para los seres humanos como son el reconocimiento del habla o la identificación de objetos en imágenes han suponen un verdadero reto para un odernador, y no ha sido hasta los últimos años con el nacimiento del \textbf{Deep Learning} \cite{lecun2015deep} que se han empezado a obtener resultados satisfactorios en este campo.
 
         \medskip
         
@@ -417,10 +417,10 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \noindent Como hemos visto en las capas anteriores, una CNN actua de manera independiente de las dimensiones del volumen de entrada a la red salvo en las capas totalmente conectadas, es por ello que estas capas son las que normalmente determinan el volumen de entrada a la red para que esta funcione correctamente.
 
         \subsection{Batch Normalization}
-            \noindent Actualmente, es muy común en las CNN usar \textbf{Batch Normalization} que consiste en normalizar los datos de entrada a cada capa convolucional con la intención de hacer que las operaciones convolucionales sean independientes unas de otras, es decir, que la distribución de los datos de entrada a una capa no dependa de los parámetros aprendidos por la capa anterior. Además este procedimiento ayuda a prevenir el overfitting de la red, ayudando a la regularización.
+            \noindent Actualmente, es muy común en las CNN usar \textbf{Batch Normalization} \cite{ioffe2015batch} que consiste en normalizar los datos de entrada a cada capa convolucional con la intención de hacer que las operaciones convolucionales sean independientes unas de otras, es decir, que la distribución de los datos de entrada a una capa no dependa de los parámetros aprendidos por la capa anterior. Además este procedimiento ayuda a prevenir el overfitting de la red, ayudando a la regularización.
 
         \subsection{Optimizador Adam}
-            El proceso de aprendizaje en las CNN se realiza de manera similar al caso de las redes neuronales clásicas, mediante la técnica de Backpropagation. Sin embargo, el optimizador Gradiente Descendente que hemos presentado en secciones anteriores tiene un único learning rate para todos los pesos de la red y se mantiene fijo durante todo el entrenamiento. Es por ello que en su lugar generalmente se usa el optimizador Adam que permite establecer un learning rate distinto para cada parámetro y que además es adaptativo.
+            El proceso de aprendizaje en las CNN se realiza de manera similar al caso de las redes neuronales clásicas, mediante la técnica de Backpropagation. Sin embargo, el optimizador Gradiente Descendente que hemos presentado en secciones anteriores tiene un único learning rate para todos los pesos de la red y se mantiene fijo durante todo el entrenamiento. Es por ello que en su lugar generalmente se usa el optimizador Adam que permite establecer un learning rate distinto para cada parámetro y que además es adaptativo \cite{kingma2014adam}.
 
         \subsection{Proceso de entrenamiento de una CNN}
 
