@@ -397,7 +397,7 @@
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.7\textwidth]{img/bounding_box_3fabrec.png}
-                \caption{Error estructural y de reconstrucción de las imágenes con el reajuste del bounding box de 3FabRec. Como podemos ver, sigue habiendo grandes errores de reconstrucción y estructurales, pero se consigue un mejor resultado de la estructura facial. No obstante, el vertex no se aprecia correctamente en las imágenes.}
+                \caption{Error estructural y de reconstrucción de las imágenes con el reajuste del bounding box de 3FabRec. El error de reconstrucción y estructural es grande, pero se precia una correcta reconstrucción de la estructura facial a nivel cualitativo. Sin embargo, el vertex no se aprecia correctamente en las imágenes.}
                 \label{fig:bb_3fabrec}
             \end{figure}
 
@@ -445,7 +445,7 @@
         \noindent También, en la creación de los \textit{Heat-maps} se ha optado por mantener el valor de $\sigma =7$ que se recomienda en el paper \cite{browatzki20203fabrec}, ya que de nuevo ha sido probado minuciosamente por los autores del framework.
     
     \subsection{Modelo Base}
-        \noindent Buscamos un \textbf{modelo base}, que iremos refinando hasta obtener la solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos. Todos ellos han sido entrenados en la fase de aprendizaje no supervisado con la unión explicada de los datasets \textit{VGG2Face} y \textit{Affectnet}. Uno de ellos viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento y \textit{fine-tuning} del encoder een los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}.
+        \noindent Buscamos un \textbf{modelo base}, que iremos refinando hasta obtener la solución. El framework \textbf{3FabRec} viene por defecto con cuatro modelos. Todos ellos han sido entrenados en la fase de aprendizaje no supervisado con la unión explicada de los datasets \textit{VGG2Face} y \textit{Affectnet}. Uno de ellos viene sin entrenamiento posterior de landmarks en ningún dataset, y los otros tres vienen con un entrenamiento y \textit{fine-tuning} del encoder en los datasets \textit{300w}, \textit{AFLW} y \textit{WFLW}.
 
         \medskip
 
@@ -461,7 +461,7 @@
             \item El valor del parámetro $\beta_2$ se establece en $0.999$.
         \end{itemize}
 
-        \subsubsection*{Análisis cuantitativo}
+        \subsubsection*{Análisis Cuantitativo}
 
         \noindent La predicción por imagen, que resulta de concatenar la salida de \textbf{cross validation 5-fold } para cada partición, se pueden encontrar en Apéndice A. La información relativa a la distribución de los errores, tanto NME como reconstrucción, pueden verse en la \autoref{fig:boxplot_ModeloBase_NME} y la \autoref{table:ModelBase_images_results}.
 
@@ -539,7 +539,7 @@
         \noindent En resumen, los resultados son esperanzadores para tratarse de una primera aproximación. Sin embargo, consideramos que debido a la gran variabilidad del dataset tanto en posturas, como en calidad e iluminación de imagen, la reconstrucción de las imágenes se ha resentido, especialmente en las imágenes de perfil. Esto provoca que el modelo también marque peor los landmarks, por lo que vamos a intentar mejorar esto en los próximos modelos. 
         
         
-        \subsubsection*{Análisis cualitativo}
+        \subsubsection*{Análisis Cualitativo}
         
         \medskip Podemos ver el rendimiento del modelo en algunas imágenes en la \autoref{fig:Ejemplo_ModelBase}, en ellas podemos apreciar algunos ejemplos a color y en escalas de grises. Los errores más altos de reconstrucción se producen en las imágenes con menor calidad y de perfiles, mientras que los errores más bajos se producen en las imágenes frontales y de mayor resolución. Por otro lado, se puede apreciar que el error cometido por el modelo es bajo en todos los casos, aunque como anticipamos en la sección anterior, el \textit{Vertex} no está correctamente marcado en la mayoría de los ejemplos.
 

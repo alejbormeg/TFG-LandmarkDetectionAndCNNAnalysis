@@ -8,6 +8,11 @@ Salina~Mohd Asi, Nor~Hidayah Ismail, Roshahida Ahmad, Effirul~Ikhwan Ramlan,
   measurements for the orbital region.
 \newblock {\em Procedia Computer Science}, 42:372--377, 2014.
 
+\bibitem[Bis94]{bishop1994neural}
+Chris~M Bishop.
+\newblock Neural networks and their applications.
+\newblock {\em Review of scientific instruments}, 65(6):1803--1832, 1994.
+
 \bibitem[BM13]{bruna2013invariant}
 Joan Bruna and St{\'e}phane Mallat.
 \newblock Invariant scattering convolution networks.
@@ -56,6 +61,13 @@ Rafael~C. González.
   Woods}.
 \newblock Pearson Education Limited, Harlow, 4th ed., global ed. edition, 2017.
 
+\bibitem[HDO{\etalchar{+}}98]{hearst1998support}
+Marti~A. Hearst, Susan~T Dumais, Edgar Osuna, John Platt, and Bernhard
+  Scholkopf.
+\newblock Support vector machines.
+\newblock {\em IEEE Intelligent Systems and their applications}, 13(4):18--28,
+  1998.
+
 \bibitem[HIWK15]{Huete2015PastPA}
 Mar{\'i}a~Isabel Huete, {\'O}scar Ib{\'a}{\~n}ez, Caroline Wilkinson, and Tzipi
   Kahana.
@@ -85,6 +97,11 @@ J.Bruna.
 Diederik~P Kingma and Jimmy Ba.
 \newblock Adam: A method for stochastic optimization.
 \newblock {\em arXiv preprint arXiv:1412.6980}, 2014.
+
+\bibitem[Koz08]{kozma2008k}
+Laszlo Kozma.
+\newblock k nearest neighbors algorithm (knn).
+\newblock {\em Helsinki University of Technology}, 32, 2008.
 
 \bibitem[KWRB11a]{koestinger2011annotated}
 Martin Koestinger, Paul Wohlhart, Peter~M Roth, and Horst Bischof.
@@ -177,11 +194,21 @@ Azriel Rosenfeld.
 \newblock Computer vision: basic principles.
 \newblock {\em Proceedings of the IEEE}, 76(8):863--868, 1988.
 
+\bibitem[Rud16]{DBLP:journals/corr/Ruder16}
+Sebastian Ruder.
+\newblock An overview of gradient descent optimization algorithms.
+\newblock {\em CoRR}, abs/1609.04747, 2016.
+
 \bibitem[Saf01]{saferstein2001criminalistics}
 Richard Saferstein.
 \newblock {\em Criminalistics: An introduction to forensic science}, volume
   201.
 \newblock Prentice Hall Upper Saddle River, NJ, 2001.
+
+\bibitem[Sam59]{samuel1959machine}
+Arthur~L Samuel.
+\newblock Machine learning.
+\newblock {\em The Technology Review}, 62(1):42--45, 1959.
 
 \bibitem[SKK04]{savvides2004eigenphases}
 Marios Savvides, BVK~Vijaya Kumar, and Pradeep~K Khosla.

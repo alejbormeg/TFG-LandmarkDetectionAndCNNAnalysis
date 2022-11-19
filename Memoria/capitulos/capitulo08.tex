@@ -11,7 +11,7 @@
 
 \medskip
 
-\noindent Se ha programado un \textit{notebook} de Jupyter independiente al proyecto general del framework, en el cual, se realiza el preprocesamiento de los datos, la identificación de las caras y la separación en conjunto de entrenamiento y test. El fichero se denomina \textit{Make\_crop\_split\_database.ipynb}. También se creó un fichero para la generación de diagramas de cajas y test de contraste de hipótesis denominado \textit{Boxplot\_hypothesis\_test.ipynb}.
+\noindent Se han programado además varios \textit{notebooks} de Jupyter independientes al proyecto general del framework, en los cuales, se realiza el preprocesamiento de los datos, la identificación de las caras, la separación en conjunto de entrenamiento y test y las gráficas y test de hipótesis empleados en la fase de experimentación. Los ficheros se denominan \textit{Analisis\_DB.ipynb}, \textit{Crear\_Particiones.ipynb} y \textit{Boxplot\_y\_test\_Kolmogorov.ipynb}.
 
 \medskip
 
@@ -39,6 +39,7 @@
     \item El paquete \textbf{3FabRec.datasets} contiene todos los ficheros relativos a la creación de la clase \textit{Dataset} y \textit{Dataloader} para cada base de datos concreta que se emplea en el framework. Dentro de este paquete se crea el fichero \textcolor{mygreen}{\textbf{3FabRec.datasets.forense\_am}}, que se encarga de la lectura correcta de los datos de entrenamiento de la base de datos proporcionada.
 \end{itemize}
 
+\newpage
 
 \begin{figure}[!h]
     \centering
@@ -47,12 +48,14 @@
     \label{fig:Diagrama_clases}
 \end{figure}
 
+\medskip
+
 \begin{table}[!h]
     \centering
     \caption{Argumentos con los que se ha experimentado en la ejecución del fichero train-aae-landmarks.py}
     \begin{tabular}{|l|l|l|}
     \hline
-        Parámetro & Descripción & Valor por defecto \\ \hline
+        \cellcolor{gray!25}\textbf{Parámetro} & \cellcolor{gray!25}\textbf{Descripción} & \cellcolor{gray!25}\textbf{Valor por defecto} \\ \hline
         --train-encoder & Si es True reentrena el encoder & False \\ \hline
         --train-dencoder & Si True reentrena el dencoder & False \\ \hline
         --epochs & Número de épocas que queremos entrenar la red & None \\ \hline

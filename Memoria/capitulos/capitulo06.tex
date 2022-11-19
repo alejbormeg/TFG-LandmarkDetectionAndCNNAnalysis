@@ -7,11 +7,11 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
     \medskip
     
-    \noindent La primera y más clásica nos la proporciona Arthur Samuel en $1959$, en la cual define el AA como \textbf{el área de conocimiento que da a los ordenadores la capacidad de aprender sin ser programados explícitamente}. Esta definición es poco precisa, pero nos proporciona una perspectiva global de lo que se pretende: dotar a los ordenadores de la capacidad de \entrecomillado{aprender} a resolver un determinad problema a partir de una base de datos de entrenamiento.
+    \noindent La primera y más clásica nos la proporciona Arthur Samuel en $1959$ \cite{samuel1959machine}, en la cual define el AA como \textbf{el área de conocimiento que da a los ordenadores la capacidad de aprender sin ser programados explícitamente}. Esta definición es poco precisa, pero nos proporciona una perspectiva global de lo que se pretende: dotar a los ordenadores de la capacidad de \entrecomillado{aprender} a resolver un determinad problema a partir de una base de datos de entrenamiento.
     
     \medskip
     
-    \noindent Una definición más reciente de Tom Mitchell ($1998$) \cite{mitchell1997machine} nos dice que: \textbf{Un programa de ordenador se dice que aprende de la experiencia E en una tarea T y alguna medida de rendimiento P, si su rendimiento en T, medido por P, mejora con la experiencia E}. Ésta nos permite identificar los elementos necesarios para poder resolver un problema mediante técnicas de AA.
+    \noindent Una definición más reciente de Tom Mitchell ($1997$) \cite{mitchell1997machine} nos dice que: \textbf{Un programa de ordenador se dice que aprende de la experiencia E en una tarea T y alguna medida de rendimiento P, si su rendimiento en T, medido por P, mejora con la experiencia E}. Ésta nos permite identificar los elementos necesarios para poder resolver un problema mediante técnicas de AA.
 
     \medskip
 
@@ -87,14 +87,14 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \noindent En este tipo de problemas se pretende buscar una manera de definir lo mejor posible la frontera entre los diferentes tipos de datos que queremos separar. Algunos algoritmos de los más empleados en esta son los siguientes: 
 
              \begin{itemize}
-                \item \textbf{K-Nearest Neighbours}(K-NN): En este algoritmo asociamos a cada dato la etiqueta del conjunto al que pertenece de acuerdo a los $K$ (con $K \in \mathbb{N}$) vecinos más cercanos.
-                \item \textbf{Máquina de vector de soporte}(SVM): Se trata de buscar el hiperplano que tenga la mayor distancia (margen) con los pontos más cercanos a él de cada conjunto.
-                \item \textbf{Redes Neuronales}, que explicaremos en detalle en futuras secciones y destacando el \textit{perceptrón multicapa} (MLP).
+                \item \textbf{K-Nearest Neighbours}(K-NN) \cite{kozma2008k}: En este algoritmo asociamos a cada dato la etiqueta del conjunto al que pertenece de acuerdo a los $K$ (con $K \in \mathbb{N}$) vecinos más cercanos.
+                \item \textbf{Máquina de vector de soporte}(SVM)\cite{hearst1998support}: Se trata de buscar el hiperplano que tenga la mayor distancia (margen) con los pontos más cercanos a él de cada conjunto.
+                \item \textbf{Redes Neuronales} \cite{bishop1994neural}, que explicaremos en detalle en futuras secciones y destacando el \textit{perceptrón multicapa} (MLP).
              \end{itemize}
 
 
         \subsubsection{Gradiente Descendente}
-            \noindent Hasta ahora hemos hablado de qué es el AA y cómo se formalizan sus problemas para poder resolverlos. Sin embargo, no hemos hablado de ningún algoritmo que se use en la minimización de la función de coste. Es por ello que vamos a explicar a continuación el algoritmo que clásicamente se utiliza para esta tarea: el \textbf{Gradiente Descendente}. 
+            \noindent Hasta ahora hemos hablado de qué es el AA y cómo se formalizan sus problemas para poder resolverlos. Sin embargo, no hemos hablado de ningún algoritmo que se use en la minimización de la función de coste. Es por ello que vamos a explicar a continuación el algoritmo que clásicamente se utiliza para esta tarea: el \textbf{Gradiente Descendente} \cite{DBLP:journals/corr/Ruder16}. 
     
             \medskip
     
@@ -210,7 +210,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
             \begin{figure}[!h]
                 \centering
                 \includegraphics[width=0.7\textwidth]{img/single_hidden_layer.png}
-                \caption{Red neuronal con una capa oculta. Formalmente podría describirse como $f'(x)=(f_2(f_1(x)))$, donde $f_2$ hace referencia a la transformación de los datos de entrada a la capa oculta y $f_3$ de la capa oculta a la de salida.}
+                \caption{Red neuronal con una capa oculta. Formalmente podría describirse como $f'(x)=(f_2(f_1(x)))$, donde $f_1$ hace referencia a la transformación de los datos de entrada a la capa oculta y $f_2$ de la capa oculta a la de salida.}
                 \label{fig:red_neuronal_capa_oculta}
             \end{figure}
             \medskip
@@ -322,7 +322,7 @@ En esta sección se introducirán los conceptos teóricos más importantes en lo
 
         \medskip
 
-        \noindent Sin embargo, la expresión anterior es la definición en el caso continuo, por lo que al trabajar en un ordenador, el tiempo y las funciones que empleamos deben ser discretizado, por ello consideraremos que $t$ toma solo valores enteros.De esta forma, definimos la \textbf{convolución discreta} en una dimensión como: 
+        \noindent Sin embargo, la expresión anterior es la definición en el caso continuo, por lo que al trabajar en un ordenador, el tiempo y las funciones que empleamos deben ser discretizado, por ello consideraremos que $t$ toma solo valores enteros. De esta forma, definimos la \textbf{convolución discreta} en una dimensión como: 
 
         \begin{equation}
             f(t)= (g \ast h)(t) = \sum_{a=-\infty}^\infty g(a) h(t-a)

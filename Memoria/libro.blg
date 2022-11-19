@@ -6,45 +6,45 @@ Database file #1: library.bib
 Warning--can't use both volume and number fields in mitchell1997machine
 Warning--empty publisher in norvig2002modern
 Warning--can't use both volume and number fields in saferstein2001criminalistics
-You've used 42 entries,
+You've used 47 entries,
             2543 wiz_defined-function locations,
-            815 strings with 12324 characters,
-and the built_in function-call counts, 17022 in all, are:
-= -- 1693
-> -- 812
-< -- 29
-+ -- 285
-- -- 279
-* -- 1161
-:= -- 2760
-add.period$ -- 130
-call.type$ -- 42
-change.case$ -- 262
-chr.to.int$ -- 39
-cite$ -- 45
-duplicate$ -- 688
-empty$ -- 1244
-format.name$ -- 333
-if$ -- 3513
+            844 strings with 12955 characters,
+and the built_in function-call counts, 18766 in all, are:
+= -- 1871
+> -- 879
+< -- 33
++ -- 307
+- -- 300
+* -- 1289
+:= -- 3053
+add.period$ -- 145
+call.type$ -- 47
+change.case$ -- 291
+chr.to.int$ -- 44
+cite$ -- 50
+duplicate$ -- 760
+empty$ -- 1372
+format.name$ -- 362
+if$ -- 3857
 int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 43
-newline$ -- 215
-num.names$ -- 126
-pop$ -- 290
+missing$ -- 48
+newline$ -- 240
+num.names$ -- 141
+pop$ -- 308
 preamble$ -- 1
-purify$ -- 311
+purify$ -- 345
 quote$ -- 0
-skip$ -- 602
+skip$ -- 659
 stack$ -- 0
-substring$ -- 879
-swap$ -- 141
-text.length$ -- 29
-text.prefix$ -- 15
+substring$ -- 984
+swap$ -- 146
+text.length$ -- 33
+text.prefix$ -- 19
 top$ -- 0
-type$ -- 304
+type$ -- 344
 warning$ -- 3
-while$ -- 158
-width$ -- 46
-write$ -- 540
+while$ -- 175
+width$ -- 51
+write$ -- 605
 (There were 3 warnings)
