@@ -110,12 +110,7 @@
 \contentsline {section}{\numberline {10.2}Trabajos Futuros y comentarios}{128}{section.10.2}%
 \contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{131}{chapter*.25}%
 \contentsline {chapter}{\nonumberline Apéndice A}{135}{chapter*.26}%
-\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo base}{135}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice B}{141}{chapter*.27}%
-\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del encoder}{141}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice C}{147}{chapter*.28}%
-\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo de entrenamiento del decoder}{147}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice D}{153}{chapter*.29}%
-\contentsline {section}{\numberline {1}Resultados por imagen durante el entrenamiento del modelo con data augmentation}{153}{section.Alph0.1}%
-\contentsline {chapter}{\nonumberline Apéndice E}{159}{chapter*.30}%
-\contentsline {section}{\numberline {1}Curvas de aprendizaje de los modelos probados}{160}{section.Alph0.1}%
+\contentsline {chapter}{\nonumberline Apéndice B}{141}{chapter*.28}%
+\contentsline {chapter}{\nonumberline Apéndice C}{147}{chapter*.30}%
+\contentsline {chapter}{\nonumberline Apéndice D}{153}{chapter*.32}%
+\contentsline {chapter}{\nonumberline Apéndice E}{159}{chapter*.34}%
