@@ -93,6 +93,11 @@ J.Bruna.
 \newblock Operators commuting with diffeomorphisms.
 \newblock {\em CMAP Tech. REport}, 2012.
 
+\bibitem[Kau18]{DBLP:journals/corr/abs-1801-01450}
+Eric Kauderer{-}Abrams.
+\newblock Quantifying translation-invariance in convolutional neural networks.
+\newblock {\em CoRR}, abs/1801.01450, 2018.
+
 \bibitem[KB14]{kingma2014adam}
 Diederik~P Kingma and Jimmy Ba.
 \newblock Adam: A method for stochastic optimization.

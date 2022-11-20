@@ -1,0 +1,238 @@
+% !TeX document-id = {2870843d-1baa-4f6a-bd0a-a5c796104a32}
+% !BIB TS-program = biber
+% !TeX encoding = UTF-8
+% TU Delft beamer template
+
+\documentclass[aspectratio=43]{beamer}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{calc}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{comment}
+\usepackage{siunitx}
+\usepackage{MnSymbol,wasysym}
+\usepackage{array}
+\usepackage{qrcode}
+\useoutertheme[subsection=false]{miniframes}
+
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\mode<presentation>{\usetheme[verticalbar=false]{tud}}
+
+% BIB SETTINGS
+\usepackage[
+    backend=biber,
+    giveninits=true,
+    maxnames=30,
+    maxcitenames=20,
+    uniquename=init,
+    url=false,
+    style=authoryear,
+]{biblatex}
+\addbibresource{bibfile.bib}
+\setlength\bibitemsep{0.3cm} % space between entries in the reference list
+\renewcommand{\bibfont}{\normalfont\scriptsize}
+\setbeamerfont{footnote}{size=\tiny}
+\renewcommand{\cite}[1]{\footnote<.->[frame]{\fullcite{#1}}}
+\setlength{\TPHorizModule}{\paperwidth}
+\setlength{\TPVertModule}{\paperheight}
+
+\newcommand{\absimage}[4][0.5,0.5]{%
+	\begin{textblock}{#3}%width
+		[#1]% alignment anchor within image (centered by default)
+		(#2)% position on the page (origin is top left)
+		\includegraphics[width=#3\paperwidth]{#4}%
+\end{textblock}}
+
+\newcommand{\mininomen}[2][1]{{\let\thefootnote\relax%
+	\footnotetext{\begin{tabular}{*{#1}{@{\!}>{\centering\arraybackslash}p{1em}@{\;}p{\textwidth/#1-2em}}}%
+	#2\end{tabular}}}}
+
+\title[]{Localización de landmarks cefalométricos por medio de técnicas de few-shot learning y análisis de redes convolucionales}
+\institute[]{\textbf{Tutores}: Pablo Mesejo Santiago, Javier Merí de la Maza \and Universidad de Granada, España}
+\author{Alejandro Borrego Megías}
+\date{\today}
+
+\begin{document}
+
+{
+\setbeamertemplate{footline}{\usebeamertemplate*{minimal footline}}
+\frame{\titlepage}
+}
+
+% Parte de Matemáticas
+\part{Análisis de Redes convolucionales}
+
+\begin{frame}{Índice Primera Parte}
+  \textcolor{tudCyan}{\textbf{Análisis de redes convolucionales}}
+  \medskip
+  \tableofcontents[part=1]
+\end{frame}
+
+% Current section
+\AtBeginSection[ ]
+{
+\begin{frame}{Índice Primera Parte}
+    \tableofcontents[currentsection]
+\end{frame}
+}
+
+\section{Introducción}
+
+\section{Modelización}
+
+\section{Invarianza por traslaciones}
+
+\section{Conclusiones}
+
+% Parte de Informática
+\part{Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}
+
+\begin{frame}{Índice Segunda Parte}
+  \textcolor{tudCyan}{\textbf{Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}}
+  \medskip
+  \tableofcontents[part=2]
+\end{frame}
+
+% Current section
+\AtBeginSection[ ]
+{
+\begin{frame}{Índice Segunda Parte}
+    \tableofcontents[currentsection]
+\end{frame}
+}
+
+\section{Introducción}
+
+\section{Fundamentos Teóricos}
+
+\section{Estado del arte}
+
+\section{Experimentos}
+
+\section{Conclusiones}
+
+
+\begin{frame}[fragile]{Example frame 1} % some commands, e.g. \verb require [fragile]
+This is the first frame.
+
+You can set the blue bar vertical using the option \verb|\usetheme[verticalbar=true]{tud}|.
+
+Set the aspect ratio to 4:3 with the
+documentclass option aspectratio=43. Use aspectratio=169 for wide screen (16:9).
+\end{frame}
+
+\section{Examples}
+\begin{frame}{Example frame 2}
+  \begin{block}{Block}
+    \begin{itemize}
+      \item item 1
+      \item item 2
+    \end{itemize}
+  \end{block}
+
+  \begin{exampleblock}{Example}
+    \begin{enumerate}
+      \item Sugar in a stirred cup of tea gathers in the middle.
+      \item Rivers often take a detour through flat terrain.
+    \end{enumerate}
+  \end{exampleblock}
+
+  \begin{alertblock}{Alert}
+     Rivers and sweet tea do unexpected things.\cite{Einstein1926}
+  \end{alertblock}
+\end{frame}
+
+% \begin{frame}{Mass--energy equivalence}
+% 	They say every formula you add to a presentation, will reduce your audience by \SI{50}{\percent}. A simple yet effective way to mitigate this effect, is adding a compact nomenclature to the slides containing formulae.
+	
+% 	\[E=mc^2\]
+	
+% 	If you find this is taking up too much of your precious space, than you are doing something wrong, and it is not adding this little nomenclature.
+	
+% 	The optional argument specifies the number of column pairs.
+	
+%   \mininomen[2]{% number of columns
+%   $E$ & Energy (\unit{J})                     & $m$ & Mass (\unit{kg}) \\
+%   $c$ & Speed of light in vacuum (\unit{m/s}) \\[2ex] % may need some tweaking
+%   }
+% \end{frame}
+
+\begin{frame}{columns}
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.5\textwidth}
+      first column
+    \end{column}
+    \begin{column}{.5\textwidth}
+      % square filling the column
+      \textcolor{tudCyan}{\rule{1\columnwidth}{1\columnwidth}}
+      % place an image
+      % horizontal position = 73%
+      % vertical position = 45%
+      % width = 40% of page
+      \absimage{.73, .45}{.40}{logo-ugr.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}[fragile]{animation}
+  \vfill
+  Some commands take optional arguments in the form of \verb|<x-y>|,
+  where \verb|x| is the first `sub-frame' on which the context is shown,
+  and \verb|y| is the last. \verb|x| or \verb|y| can be replaced by \verb|+|,
+  referring to `the next sub-frame'. 
+  \vfill
+  \begin{columns}[onlytextwidth]
+  \begin{column}{.5\textwidth}
+    \begin{enumerate}
+      \item<+-> uncovered\ldots
+      \item<+-> one\ldots
+      \item<+-> by\ldots
+      \item<+-> one.
+    \end{enumerate}
+    \end{column}
+  \begin{column}{.5\textwidth}
+      Using only:\only<1>{1}\only<2>{2}\only<3>{3}
+
+      Using onslide:\onslide<1>{1}\onslide<2>{2}\onslide<3>{3}
+
+      Using pause:\pause1\pause2\pause3
+  \end{column}
+  \end{columns}
+  \vfill
+  For more advanced animations, see \S 14 of the manual:\\
+  \url{https://www.ctan.org/pkg/beamer}
+  % \url{https://www.ctan.org/pkg/animate}\\
+  % \url{https://www.ctan.org/pkg/media9}
+  \vfill
+  % \transduration{2} automatic progression of slides
+  \transpush<1>
+\end{frame}
+
+\begin{frame}
+  Thanks for your attention.
+
+  A digital version of this presentation can be found here:
+  \vfill
+  \url{https://gitlab.com/novanext/tudelft-beamer} 
+  \vfill  
+  \centering
+  \qrcode{https://gitlab.com/novanext/tudelft-beamer}
+  \vfill
+\end{frame}
+
+
+\begin{frame}[allowframebreaks,t]{\bibname}
+	% the 'I' is caused by 'allowframebreaks'
+	\AtNextBibliography{\footnotesize}% or in the preamble \AtBeginBibliography{\small}
+	\printbibliography
+\end{frame}
+
+
+\end{document}
+

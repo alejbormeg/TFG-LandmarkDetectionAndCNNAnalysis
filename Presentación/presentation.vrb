@@ -1,0 +1,32 @@
+\frametitle{animation}
+\vfill
+  Some commands take optional arguments in the form of \verb|<x-y>|,
+  where \verb|x| is the first `sub-frame' on which the context is shown,
+  and \verb|y| is the last. \verb|x| or \verb|y| can be replaced by \verb|+|,
+  referring to `the next sub-frame'.
+  \vfill
+  \begin{columns}[onlytextwidth]
+  \begin{column}{.5\textwidth}
+    \begin{enumerate}
+      \item<+-> uncovered\ldots
+      \item<+-> one\ldots
+      \item<+-> by\ldots
+      \item<+-> one.
+    \end{enumerate}
+    \end{column}
+  \begin{column}{.5\textwidth}
+      Using only:\only<1>{1}\only<2>{2}\only<3>{3}
+
+      Using onslide:\onslide<1>{1}\onslide<2>{2}\onslide<3>{3}
+
+      Using pause:\pause1\pause2\pause3
+  \end{column}
+  \end{columns}
+  \vfill
+  For more advanced animations, see \S 14 of the manual:\\
+  \url{https://www.ctan.org/pkg/beamer}
+  % \url{https://www.ctan.org/pkg/animate}\\
+  % \url{https://www.ctan.org/pkg/media9}
+  \vfill
+  % \transduration{2} automatic progression of slides
+  \transpush<1>
