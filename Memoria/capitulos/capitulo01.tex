@@ -77,7 +77,7 @@ $$\forall f,h \in L^2(\mathbb{R}^d)\; \| \Phi(f)-\Phi(h)\| \leq \|f-h\|$$
 
 
 \begin{definicion}
-  Una función diferenciable $f: \mathbb{R}^d \rightarrow \mathbb{R}^d$, es un \textit{difeomorfismo} si $f$ es una biyección y su inversa $f^{-1}:\mathbb{R}^d \rightarrow X$ es también diferenciable. 
+  Una función diferenciable $f: \mathbb{R}^d \rightarrow \mathbb{R}^d$, es un \textit{difeomorfismo} si $f$ es una biyección y su inversa $f^{-1}:\mathbb{R}^d \rightarrow \mathbb{R}^d$ es también diferenciable. 
 \end{definicion}
 
 
@@ -97,7 +97,7 @@ Denotemos $L_{\tau} f(x)=f(x-\tau(x))$ como la acción del difeomorfismo $\mathb
   $$d_N(f(x),f(y))\leq C d_M(x,y), \; \; \forall x,y \in M$$
 \end{definicion}
 
-\noindent En nuestro caso, dado que el espacio de partida es $L^2(\mathbb{R}^d)$ y los puntos que vamos a comparar son las funciones $f$ y $L_\tau f=f(x-\tau(x))$ sabemos que $\|\Phi(f) - \Phi(L_cf) \|$ estará acotada por $\|f\| · d(\mathbb{1}, \mathbb{1}-\tau)$, de manera que necesitamos definir una distancia entre el difeomorfismo $\mathbb{1}$ y $\mathbb{1}-\tau$. 
+\noindent En nuestro caso, dado que el espacio de partida es $L^2(\mathbb{R}^d)$ y los puntos que vamos a comparar son las funciones $f$ y $L_\tau f=f(x-\tau(x))$ sabemos que $\|\Phi(f) - \Phi(L_\tau f) \|$ estará acotada por $\|f\| · d(\mathbb{1}, \mathbb{1}-\tau)$, de manera que necesitamos definir una distancia entre el difeomorfismo $\mathbb{1}$ y $\mathbb{1}-\tau$. 
 
 \begin{definicion}
 Se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subconjunto compacto $\Omega$ de $\mathbb{R}^d$ como 
@@ -136,7 +136,7 @@ Se define una distancia entre $\mathbb{1}-\tau$ y $\mathbb{1}$ en cualquier subc
 \noindent Un operador invariante por traslaciones $\Phi$ se dice \entrecomillado{Lipchitz-continuo} por la acción de los difeomorfismos $C^2$  si para cualquier compacto $\Omega \subset \mathbb{R}^d$ existe una constante $C$ tal que para todo $f \in L^2(\mathbb{R}^d)$ con soporte en $\Omega$ y para todo $\tau \in C^2(\mathbb{R}^d)$ se cumple:
 
 \begin{equation} \label{eq::Lipschitz_condition}
-  \| \Phi(f)-\Phi(L_{\tau}f)\|_\mathcal{H} \leq C\|f\|(\|\nabla\tau\|_{\infty} + \|H \tau\|_\infty).
+  \| \Phi(f)-\Phi(L_{\tau}f)\| \leq C\|f\|(\|\nabla\tau\|_{\infty} + \|H \tau\|_\infty).
 \end{equation}
 \end{definicion}
 

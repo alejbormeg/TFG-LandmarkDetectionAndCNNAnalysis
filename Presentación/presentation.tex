@@ -57,6 +57,9 @@
 \author{Alejandro Borrego Megías}
 \date{\today}
 
+
+
+%%%%%%%%%%%%% EMPIEZA LA PRESENTACION %%%%%%%%%%%%%
 \begin{document}
 
 {
@@ -67,13 +70,14 @@
 % Parte de Matemáticas
 \part{Análisis de Redes convolucionales}
 
+%INDICE
 \begin{frame}{Índice Primera Parte}
   \textcolor{tudCyan}{\textbf{Análisis de redes convolucionales}}
   \medskip
   \tableofcontents[part=1]
 \end{frame}
 
-% Current section
+% DIAPOSITIVA ANTES DE CADA SECCION
 \AtBeginSection[ ]
 {
 \begin{frame}{Índice Primera Parte}
@@ -81,7 +85,91 @@
 \end{frame}
 }
 
+%INTRODUCCION
 \section{Introducción}
+  \begin{frame}[fragile]{Redes Neuronales Convolucionales}
+    \begin{itemize}
+      \item Buen rendimiento, comprobable empíricamente.
+      \item Vía de estudio abierta en lo que se refiere a
+      la modelización matemática y la justificación teórica de estos resultados.
+    \end{itemize}
+
+    Destacamos: 
+
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.4\textwidth]{imgs/translation_invariance.png}
+    \end{figure}
+
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.7\textwidth]{imgs/Deformaciones.png}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Invarianza por traslaciones}
+    Trabajamos sobre el espacio de funciones $L^2(\mathbb{R}^d)$.
+
+    \begin{block}{Definición de traslación}
+       Sea $f\in L^2(\mathbb{R}^d)$, $L_cf(x)=f(x-c)$ es la traslación de $f$ por $c \in \mathbb{R}^d$.
+    \end{block}
+
+    \begin{block}{Invarianza por traslaciones de un operador $\Phi$}
+      Decimos que un operador $\Phi$ sobre  $L^2(\mathbb{R}^d)$, es invariante por traslaciones si $\Phi(L_cf(x))=\Phi(f)$ para todo $f \in L^2(\mathbb{R}^d)$ y para todo $c \in \mathbb{R}^d$.
+   \end{block}
+  \end{frame}
+
+  \begin{frame}{Invarianza frente a pequeñas deformaciones}
+    \textcolor{tudCyan}{\textit{Deformación $\implies$ Difeomorfismo}}
+
+    \textcolor{tudCyan}{\textit{Deformaciones pequeñas $\implies$ Difeomorfismo cercanos a traslaciones}}  
+
+    \begin{block}{Definición}
+      Denotemos $L_{\tau} f(x)=f(x-\tau(x))$ como la acción del difeomorfismo $1-\tau$ sobre $f$.
+
+      Donde $\tau$ es el campo de desplazamiento. 
+    \end{block}
+
+    \textcolor{tudCyan}{\textbf{\centering Invarianza frente a pequeñas deformaciones \\ \centering $\Downarrow$ \\ \centering Lipschitz-continuidad frente a la acción de difeomorfismos}}  
+  \end{frame}
+
+  \begin{frame}{Invarianza frente a pequeñas deformaciones}
+
+    \begin{block}{Condición de Lipschitz clásica}
+      Sea $f: M \rightarrow N$ una función entre dos espacios métricos $M$ y $N$ con sus respectivas distancias $d_M$ y $d_N$. Se dice que $f$ satisface la condición de Lipschitz si $\exists C>0$ tal que: 
+      $$d_N(f(x),f(y))\leq C d_M(x,y), \; \; \forall x,y \in M$$ 
+    \end{block}
+
+    En nuestro caso: 
+
+    \begin{equation}
+      \|\Phi(f) - \Phi(L_\tau f) \| \leq \|f\| · d(1, 1-\tau)
+    \end{equation}
+
+    Necesitamos una definición para la distancia entre dichos difeomorfismos.
+  \end{frame}
+
+
+  \begin{frame}{Invarianza frente a pequeñas deformaciones}
+    \begin{block}{Distancia entre $1-\tau$ y $1$}
+      Se define una distancia entre $1-\tau$ y $1$ en cualquier subconjunto compacto $\Omega$ de $\mathbb{R}^d$ como 
+      \begin{equation} \label{eq::distancia}
+        d_\Omega(1,1-\tau) = \sup_{x \in \Omega} |\tau (x)| + \sup_{x \in \Omega} |\nabla \tau (x)| + \sup_{x \in \Omega}|H \tau (x)|
+      \end{equation}
+    \end{block}
+
+    La invarianza frente a pequeñas deformaciones de un operador $\Phi$ invariante por traslaciones viene determinada por: 
+
+    \begin{equation}
+      \| \Phi(f)-\Phi(L_{\tau}f)\|\leq C\|f\|(\|\nabla\tau\|_{\infty} + \|H \tau\|_\infty).
+    \end{equation}
+
+    Con $f\in L^2(\mathbb{R}^d)$ y $C>0$.
+  \end{frame}
+
+  \begin{frame}{Próximos pasos}
+    \centering \textcolor{tudCyan}{\textbf{¿Qué operador $\Phi$ tomar que cumpla todo lo anterior?}}
+  \end{frame}
 
 \section{Modelización}
 
@@ -174,7 +262,7 @@ documentclass option aspectratio=43. Use aspectratio=169 for wide screen (16:9).
       % horizontal position = 73%
       % vertical position = 45%
       % width = 40% of page
-      \absimage{.73, .45}{.40}{logo-ugr.pdf}
+      \absimage{.73, .45}{.40}{imgs/logo-ugr.pdf}
     \end{column}
   \end{columns}
 \end{frame}
