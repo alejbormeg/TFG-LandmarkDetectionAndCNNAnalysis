@@ -2,12 +2,12 @@
 \babel@toc {english}{}
 \beamer@sectionintoc {1}{Introducción}{3}{1}{1}
 \beamer@sectionintoc {2}{Modelización}{10}{1}{2}
-\beamer@sectionintoc {3}{Invarianza por traslaciones}{11}{1}{3}
-\beamer@sectionintoc {4}{Conclusiones}{12}{1}{4}
-\beamer@sectionintoc {5}{Introducción}{14}{2}{5}
-\beamer@sectionintoc {6}{Fundamentos Teóricos}{15}{2}{6}
-\beamer@sectionintoc {7}{Estado del arte}{16}{2}{7}
-\beamer@sectionintoc {8}{Experimentos}{17}{2}{8}
-\beamer@sectionintoc {9}{Conclusiones}{18}{2}{9}
-\beamer@sectionintoc {10}{Examples}{20}{2}{10}
-\beamer@sectionintoc {11}{Conclusion}{23}{2}{11}
+\beamer@sectionintoc {3}{Invarianza por traslaciones}{12}{1}{3}
+\beamer@sectionintoc {4}{Conclusiones}{13}{1}{4}
+\beamer@sectionintoc {5}{Introducción}{15}{2}{5}
+\beamer@sectionintoc {6}{Fundamentos Teóricos}{16}{2}{6}
+\beamer@sectionintoc {7}{Estado del arte}{17}{2}{7}
+\beamer@sectionintoc {8}{Experimentos}{18}{2}{8}
+\beamer@sectionintoc {9}{Conclusiones}{19}{2}{9}
+\beamer@sectionintoc {10}{Examples}{21}{2}{10}
+\beamer@sectionintoc {11}{Conclusion}{24}{2}{11}
