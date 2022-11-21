@@ -186,6 +186,134 @@
   Debemos buscar otro operador.
 \end{frame}
 
+\begin{frame}{Alternativa: Ondeletas}
+  
+  \begin{block}{Ondeleta Madre}
+    Una ondeleta madre escalada por un factor $2^{j}$ con $j \in \mathbb{Z}$ y rotada por $r \in G$ siendo $G$ el grupo finito de rotaciones, se escribe: 
+    $$\psi_{2^j r}(x)=2^{j} \psi(2^j r^{-1} x).$$
+  \end{block}
+
+  Usaremos ondeletas madre del tipo: 
+
+  \begin{equation}
+    \psi(x)=e^{i\eta x} \Theta(x)
+  \end{equation}
+  donde $\Theta(x)$ es una función real con soporte en una bola de baja frecuencia en $x=0$, cuyo radio es del orden de $\pi$.
+\end{frame}
+
+\begin{frame}{La transformada de Littlewood-Paley}
+  Con esta generamos la siguiente base ortonormal de ondeletas: 
+  \begin{equation}
+    \lbrace \psi_\lambda (x) \rbrace_{\lambda= 2^j r \in 2^\mathbb{Z} \times G}
+  \end{equation}
+
+  \begin{block}{transformada de Littlewood-Paley}
+    \begin{equation}
+      \forall x \in  \mathbb{R}^d \;\; W[\lambda]f(x)= f \ast \psi_\lambda(x)=\int f(u)\psi_\lambda(x-u) du .
+    \end{equation}
+    donde $\lambda \in 2^j r \in 2^\mathbb{Z} \times G$
+  \end{block}
+\end{frame}
+
+\begin{frame}{Problema: La escala}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/Relacion_escala_frecuencia.png}
+  \end{figure}
+  Fijada una escala $2^J \; \; J\in \mathbb{Z}$, se establece un umbral tal que solo se mantienen las ondeletas de escala $2^j > 2^{-J}$.
+\end{frame}
+
+\begin{frame}{Problema: La escala}
+  Surge la necesidad de promediar las frecuencias no cubiertas por el factor de escala fijado:
+
+  \begin{equation}
+    A_Jf=f \ast \phi_ {2^J} \; \; \text{con} \quad \; \phi_ {2^J}(x)=2^{-J} \phi(2^{-J}x).
+  \end{equation}
+
+  Así, los coeficientes obtenidos, fijada una escala son:
+
+  $$W_J f=\lbrace A_Jf,(W[\lambda]f)_{\lambda \in \Lambda_J} \rbrace$$ 
+
+  con $\Lambda_J=\lbrace \lambda=2^jr:\;r\in G^{+}, \; 2^j>2^{-J}\rbrace$.
+\end{frame}
+
+\begin{frame}{Coeficientes unitarios}
+  \begin{alertblock}{Condición $W_J$ unitario}
+    Para cualquier $J \in \mathbb{Z}$ o $J=\infty$, $W_J$ es unitario en el espacio de funciones reales o complejas de $L^2(\mathbb{R}^d)$ si y solo si para casi todo $\omega \in \mathbb{R}^d$ se cumple: 
+    \begin{equation}\label{eq::1.2}
+        \beta \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2=1 \; \; y
+        \;\;|\widehat{\phi}(\omega)|^2= \beta \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2,
+    \end{equation}
+    donde $\beta=1$ para funciones complejas y $\beta=\frac{1}{2}$ para funciones reales.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Convenios}
+  Tranajaremos con funciones reales.
+  \begin{itemize}
+    \item $W_J$ es unitario. 
+    \item $\widehat{\phi}(\omega)$ es real y simétrica, por lo que $\phi$ también lo será y $\phi(rx)=\phi(x) \;\; \forall r \in G$. 
+    \item Las derivadas de $\phi$ pertenecen a $L^1(\mathbb{R}^d)$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Operador de dispersión}
+  \begin{alertblock}{Operador de dispersión}
+    Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
+    \begin{equation}
+      \overline{S}f(p)=\int_{\mathbb{R}^d}U[p]f(x)dx 
+    \end{equation}
+  \end{alertblock}
+
+  Siendo $\overline{S}f(p)$ invariante a traslaciones para un $f$ fijo.
+\end{frame}
+
+
+\begin{frame}{Operador de dispersión}
+  \begin{alertblock}{Operador de dispersión}
+    Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
+    \begin{equation}
+      \overline{S}f(p)=\textcolor{tudCyan}{\int_{\mathbb{R}^d}U[p]f(x)dx} 
+    \end{equation}
+  \end{alertblock}
+
+  Siendo $\overline{S}f(p)$ invariante a traslaciones para un $f$ fijo.
+\end{frame}
+
+
+\begin{frame}{Propagador de dispersión}
+  El operador $W[\lambda]f=f\ast \psi_\lambda$ es Lipschitz-continuo bajo la acción de difeomorfismos para $f \in L^2(\mathbb{R}^d)$ fijo. 
+
+  \medskip
+
+  \textcolor{tudCyan}{¿Pero invariante a traslaciones?}
+
+  \medskip
+
+  \begin{alertblock}{Condición para coeficientes I.T.}
+    Si $U[\lambda]$ es un operador definido en $L^2(\mathbb{R}^d)$, no necesariamente lineal pero que conmuta con traslaciones, entonces $\int_{\mathbb{R}^d} U[\lambda]f(x)dx$ es invariante a traslaciones si es finito.
+  \end{alertblock}
+
+\end{frame}
+
+\begin{frame}{Operador de dispersión}
+  \begin{alertblock}{Operador de dispersión}
+    Sea \textcolor{tudGreen}{$\mathcal{P}_\infty$} el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino \textcolor{tudGreen}{$p \in \mathcal{P}_\infty$} como:
+    \begin{equation}
+      \overline{S}f(\textcolor{tudGreen}{p})=\int_{\mathbb{R}^d}U[\textcolor{tudGreen}{p}]f(x)dx 
+    \end{equation}
+  \end{alertblock}
+  
+  Siendo $\overline{S}f(p)$ invariante a traslaciones para un $f$ fijo.
+\end{frame}
+
+\begin{frame}{Caminos de frecuencias}
+  \begin{block}{Ondeleta Madre}
+    Una secuencia ordenada $p=(\lambda_1,\lambda_2, \ldots , \lambda_m)$ con $\lambda_k \in \Lambda_\infty=2^{\mathbb{Z}} \times G^{+} $ se denomina \textbf{camino}. Al camino vacío se le denota por $p=\emptyset$. 
+  \end{block}
+  
+  Usaremos caminos de frecuencias descendentes $p=(\lambda_k)_{k\leq m}$ en el cual $|\lambda_{k+1}| \leq |\lambda_k|$. Pues el propagador $U[\lambda]$ progresivamente lleva la energía de la señal a frecuencias cada vez menores.
+\end{frame}
 
 \section{Invarianza por traslaciones}
 
