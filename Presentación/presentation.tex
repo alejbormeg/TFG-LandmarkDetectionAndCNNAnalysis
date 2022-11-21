@@ -293,7 +293,21 @@
   \begin{alertblock}{Condición para coeficientes I.T.}
     Si $U[\lambda]$ es un operador definido en $L^2(\mathbb{R}^d)$, no necesariamente lineal pero que conmuta con traslaciones, entonces $\int_{\mathbb{R}^d} U[\lambda]f(x)dx$ es invariante a traslaciones si es finito.
   \end{alertblock}
+  \medskip
+  Pero como $\int_{\mathbb{R}^d} \psi(x)dx=0 \implies \int_{\mathbb{R}^d} f \ast \psi(x) dx=0$. 
+\end{frame}
 
+\begin{frame}{Propagador de dispersión}
+  Para obtener coeficientes invariantes por traslaciones. 
+  $$U[\lambda]f= \textcolor{red}{M[\lambda]} W[\lambda]$$
+
+  \medskip
+
+  El operador más sencillo que garantiza coeficientes invariantes por traslaciones y Lipschitz-continuidad frente a difeomorfismos es:
+
+  \begin{block}{Definición del operador $U[\lambda]$}
+    $$U[\lambda]f=M[\lambda]W[\lambda]f=|f \ast \psi_\lambda|=\left | \int_{\mathbb{R}^d} f(u)\psi_\lambda(x-u) du \right|$$
+  \end{block}
 \end{frame}
 
 \begin{frame}{Operador de dispersión}

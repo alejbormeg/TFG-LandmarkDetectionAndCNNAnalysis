@@ -527,6 +527,9 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-La
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolS12.tfm
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
@@ -647,12 +650,12 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-La
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.run.xml
 OUTPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.run.xml
 INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolS.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc
-INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol8.pfb
