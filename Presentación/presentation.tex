@@ -175,7 +175,7 @@
 
 \begin{frame}{Módulo de la transformada de Fourier}
   \textcolor{tudCyan}{Vamos a probar con el módulo de la transformada de Fourier:}
-  $$\Phi(f)=|\widehat{f}| f\in L^2(\mathbb{R}^2)$$.
+  $$\Phi(f)=|\widehat{f}| \;\; f\in L^2(\mathbb{R}^2)$$.
 
   Con este operador observamos que: 
   \begin{itemize}
@@ -271,6 +271,25 @@
 
 \begin{frame}{Operador de dispersión}
   \begin{alertblock}{Operador de dispersión}
+    Sea \textcolor{tudGreen}{$\mathcal{P}_\infty$} el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino \textcolor{tudGreen}{$p \in \mathcal{P}_\infty$} como:
+    \begin{equation}
+      \overline{S}f(\textcolor{tudGreen}{p})=\int_{\mathbb{R}^d}U[\textcolor{tudGreen}{p}]f(x)dx 
+    \end{equation}
+  \end{alertblock}
+  
+  Siendo $\overline{S}f(p)$ invariante a traslaciones para un $f$ fijo.
+\end{frame}
+
+\begin{frame}{Caminos de frecuencias}
+  \begin{block}{Ondeleta Madre}
+    Una secuencia ordenada $p=(\lambda_1,\lambda_2, \ldots , \lambda_m)$ con $\lambda_k \in \Lambda_\infty=2^{\mathbb{Z}} \times G^{+} $ se denomina \textbf{camino}. Al camino vacío se le denota por $p=\emptyset$. 
+  \end{block}
+  
+  Usaremos caminos de frecuencias descendentes $p=(\lambda_k)_{k\leq m}$ en el cual $|\lambda_{k+1}| \leq |\lambda_k|$. Pues el propagador $U[\lambda]$ progresivamente lleva la energía de la señal a frecuencias cada vez menores.
+\end{frame}
+
+\begin{frame}{Operador de dispersión}
+  \begin{alertblock}{Operador de dispersión}
     Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
     \begin{equation}
       \overline{S}f(p)=\textcolor{tudCyan}{\int_{\mathbb{R}^d}U[p]f(x)dx} 
@@ -310,28 +329,101 @@
   \end{block}
 \end{frame}
 
-\begin{frame}{Operador de dispersión}
-  \begin{alertblock}{Operador de dispersión}
-    Sea \textcolor{tudGreen}{$\mathcal{P}_\infty$} el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino \textcolor{tudGreen}{$p \in \mathcal{P}_\infty$} como:
-    \begin{equation}
-      \overline{S}f(\textcolor{tudGreen}{p})=\int_{\mathbb{R}^d}U[\textcolor{tudGreen}{p}]f(x)dx 
-    \end{equation}
-  \end{alertblock}
-  
-  Siendo $\overline{S}f(p)$ invariante a traslaciones para un $f$ fijo.
+\begin{frame}{Propagador de dispersión}
+  Así, sobre un camino $p$ definimos el \textbf{propagador de dispersión} como: 
+
+  $$  U[p]f=U[\lambda_m] \ldots U[\lambda_2]U[\lambda_1]=\left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | \ldots | \ast \psi_{\lambda_m} \right|
+  $$
+
+  \medskip
+
+  Además:
+
+  $$ \int_{\mathbb{R}^d} U[p]f(x)dx < \infty $$
 \end{frame}
 
-\begin{frame}{Caminos de frecuencias}
-  \begin{block}{Ondeleta Madre}
-    Una secuencia ordenada $p=(\lambda_1,\lambda_2, \ldots , \lambda_m)$ con $\lambda_k \in \Lambda_\infty=2^{\mathbb{Z}} \times G^{+} $ se denomina \textbf{camino}. Al camino vacío se le denota por $p=\emptyset$. 
+\begin{frame}{operador de ventana}
+  \begin{block}{Definición operador de ventana}
+    Sea $J \in \mathbb{Z}$ y $\mathcal{P}_J$ el conjunto de caminos finitos $p=(\lambda_1,\lambda_2,...,\lambda_m)$ con $\lambda_k \in \Lambda_J$ y $|\lambda_k|=2^{k}>2^{-J}$. Una ventana de transformada de dispersión se define para todo $p \in \mathcal{P}_J$ por
+    \begin{equation}
+      S_J[p]f(x)=U[p]f \ast \phi_{2^J}(x)=\int_{\mathbb{R}^d}U[p]f(u)\phi_{2^J}(x-u)du.
+    \end{equation}
+    \begin{equation}
+      S_J[p]f(x)=\left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | \ldots | \ast \psi_{\lambda_m} \right| \ast \phi_{2^J}(x).
+    \end{equation}
   \end{block}
-  
-  Usaremos caminos de frecuencias descendentes $p=(\lambda_k)_{k\leq m}$ en el cual $|\lambda_{k+1}| \leq |\lambda_k|$. Pues el propagador $U[\lambda]$ progresivamente lleva la energía de la señal a frecuencias cada vez menores.
+\end{frame}
+
+
+\begin{frame}{operador de ventana}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/ScatteringPropagator.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Diferencias y Similitudes con una Red convolucional}
+  \textbf{\textcolor{tudCyan}{Similitudes:}}
+  \begin{itemize}
+    \item Cascada de convoluciones (operador $W[\lambda]$).
+    \item Capas de \textit{pooling} (operador $M[\lambda]$ y $\phi_{2^J}$).
+    \item Si $p$ tiene longitud $m$: $S_J[p]f(x)$ equivale al resultado de la capa $m$ de la red.
+  \end{itemize}
+
+  \textbf{\textcolor{tudCyan}{Diferencias:}}
+  \begin{itemize}
+    \item Los pesos no se aprenden.
+  \end{itemize}
 \end{frame}
 
 \section{Invarianza por traslaciones}
 
-\section{Conclusiones}
+\begin{frame}{Ondeletas admisibles}
+  
+  \begin{block}{ondeletas admisibles}
+    Una ondeleta de dispersión se dice que es admisible si existe $\eta \in \mathbb{R}^d$ y una función $\rho \geq 0$, con $|\widehat{\rho}(\omega)| \leq |\widehat{\phi}(2\omega)|$ y $\widehat{\rho}(0)=1$, tal que la función: 
+
+    \begin{equation}\label{eq::1.6}
+      \widehat{\Psi}(\omega)=|\widehat{\rho}(\omega - \eta)|^2 - \sum_{k=1}^{+\infty} k(1-|\widehat{\rho}(2^{-k}(\omega - \eta))|^2)
+    \end{equation}
+      
+    \noindent satisface: 
+    \begin{equation} \label{eq::1.7}
+      \alpha= \inf_{1\leq|w|\leq2} \sum_{j=-\infty}^{\infty} \sum_{r\in G} \widehat{\Psi} (2^{-j}r^{-1}\omega)|\widehat{\psi}(2^{-j}r^{-1}\omega)|^2>0.
+    \end{equation}
+  \end{block}
+
+
+\end{frame}
+
+\begin{frame}{No-expansividad y conservación de la norma}
+
+  \begin{alertblock}{No-expansividad}
+    \noindent Para $f,h \in L^2(\mathbb{R}^d)$ y $J\in \mathbb{Z}$ se cumple
+
+    \begin{equation} \label{eq::1.10}
+      || S_{J+1} [\mathcal{P}_{J+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h ||. 
+    \end{equation}
+  \end{alertblock}
+
+  \begin{alertblock}{Conservación de la norma}
+    Si las ondeletas son admisibles, entonces para toda $f\in L^2(\mathbb{R}^d)$ se tiene que
+    \begin{equation}  
+      \lim_{m\rightarrow\infty} \|U[\Lambda_J^m]f \|^2=\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} \|S_J[\Lambda_J^n]f\|^2=0
+    \end{equation}
+    y
+    \begin{equation}
+      \|S_J[\mathcal{P}_J]f\|=\|f\|.
+    \end{equation}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Invarianza por traslaciones}
+  \begin{alertblock}{Invarianza por traslaciones}
+    Para ondeletas de dispersión admisibles se tiene que 
+    $$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\rightarrow \infty}||S_J[\mathcal{P}_J] f-S_J[\mathcal{P}_J] L_cf||=0.$$
+  \end{alertblock}
+\end{frame}
 
 % Parte de Informática
 \part{Localización de landmarks cefalométricos por medio de técnicas de few-shot learning}

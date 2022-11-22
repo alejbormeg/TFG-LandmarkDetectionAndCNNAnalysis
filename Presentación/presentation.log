@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  21 NOV 2022 20:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  22 NOV 2022 19:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1198,7 +1198,7 @@ Package biblatex Info: ... file 'presentation.bbl' found.
 Package biblatex Info: Reference section=0 on input line 63.
 Package biblatex Info: Reference segment=0 on input line 63.
  (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.nav)
-<imgs/logo-ugr.png, id=69, 647.2983pt x 180.1932pt>
+<imgs/logo-ugr.png, id=65, 647.2983pt x 180.1932pt>
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
 Package pdftex.def Info: imgs/logo-ugr.png  used on input line 63.
@@ -1271,12 +1271,12 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 \openout4 = `presentation.vrb'.
 
  (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb
-<imgs/translation_invariance.png, id=177, 587.19376pt x 227.85126pt>
+<imgs/translation_invariance.png, id=187, 587.19376pt x 227.85126pt>
 File: imgs/translation_invariance.png Graphic file (type png)
 <use imgs/translation_invariance.png>
 Package pdftex.def Info: imgs/translation_invariance.png  used on input line 12.
 (pdftex.def)             Requested size: 132.01866pt x 51.22607pt.
-<imgs/Deformaciones.png, id=178, 815.045pt x 208.78pt>
+<imgs/Deformaciones.png, id=188, 815.045pt x 208.78pt>
 File: imgs/Deformaciones.png Graphic file (type png)
 <use imgs/Deformaciones.png>
 Package pdftex.def Info: imgs/Deformaciones.png  used on input line 17.
@@ -1454,7 +1454,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [13
 
 ]
-<imgs/Relacion_escala_frecuencia.png, id=519, 453.695pt x 122.4575pt>
+<imgs/Relacion_escala_frecuencia.png, id=578, 453.695pt x 122.4575pt>
 File: imgs/Relacion_escala_frecuencia.png Graphic file (type png)
 <use imgs/Relacion_escala_frecuencia.png>
 Package pdftex.def Info: imgs/Relacion_escala_frecuencia.png  used on input line 224.
@@ -1556,13 +1556,13 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [19
 
 ]
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 298--298
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 289--289
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 298.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 289.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1572,13 +1572,13 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [20
 
 ]
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 311--311
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 300--300
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 311.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 300.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1588,13 +1588,13 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [21
 
 ]
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 322--322
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 317--317
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 322.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 317.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1619,39 +1619,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [23
 
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 332--332
-[]| []  
- []
-
-File: imgs/logo-ugr.png Graphic file (type png)
-<use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 332.
-(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
-
-Overfull \hbox (14.22638pt too wide) has occurred while \output is active
-[][][][]
- []
-
-[24
-
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 334--334
-[]| []  
- []
-
-File: imgs/logo-ugr.png Graphic file (type png)
-<use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 334.
-(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
-
-Overfull \hbox (14.22638pt too wide) has occurred while \output is active
-[][][][]
- []
-
-[25
-
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
+]
 Overfull \hbox (0.85355pt too wide) in paragraph at lines 343--343
 []| []  
  []
@@ -1665,25 +1633,9 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[26
+[24
 
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 353--353
-[]| []  
- []
-
-File: imgs/logo-ugr.png Graphic file (type png)
-<use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 353.
-(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
-
-Overfull \hbox (14.22638pt too wide) has occurred while \output is active
-[][][][]
- []
-
-[27
-
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
+]
 Overfull \hbox (0.85355pt too wide) in paragraph at lines 355--355
 []| []  
  []
@@ -1697,16 +1649,70 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[28
+[25
 
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 357--357
+]
+<imgs/ScatteringPropagator.png, id=1025, 987.69pt x 478.78876pt>
+File: imgs/ScatteringPropagator.png Graphic file (type png)
+<use imgs/ScatteringPropagator.png>
+Package pdftex.def Info: imgs/ScatteringPropagator.png  used on input line 363.
+(pdftex.def)             Requested size: 326.753pt x 158.39528pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 363--363
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 357.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 363.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[26
+
+ </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ScatteringPropagator.png>]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 377--377
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 377.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[27
+
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 379--379
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 379.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[28
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 397--397
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 397.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1715,14 +1721,14 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [29
 
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 359--359
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 419--419
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 359.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 419.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1731,101 +1737,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [30
 
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 361--361
-[]| []  
- []
-
-File: imgs/logo-ugr.png Graphic file (type png)
-<use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 361.
-(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
-
-Overfull \hbox (14.22638pt too wide) has occurred while \output is active
-[][][][]
- []
-
-[31
-
 ]
-\openout4 = `presentation.vrb'.
-
- (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 371--371
-[]| []  
- []
-
-File: imgs/logo-ugr.png Graphic file (type png)
-<use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 371.
-(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
-
-Overfull \hbox (14.22638pt too wide) has occurred while \output is active
-[][][][]
- []
-
-[32
-
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 373--373
-[]| []  
- []
-
-File: imgs/logo-ugr.png Graphic file (type png)
-<use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 373.
-(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
-
-Overfull \hbox (14.22638pt too wide) has occurred while \output is active
-[][][][]
- []
-
-[33
-
-]
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <6> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 392.
-
-
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 392--392
-[]| []  
- []
-
-File: imgs/logo-ugr.png Graphic file (type png)
-<use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 392.
-(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
-
-Overfull \hbox (14.22638pt too wide) has occurred while \output is active
-[][][][]
- []
-
-[34
-
-]
-<imgs/logo-ugr.pdf, id=1211, 682.02821pt x 244.3238pt>
-File: imgs/logo-ugr.pdf Graphic file (type pdf)
-<use imgs/logo-ugr.pdf>
-Package pdftex.def Info: imgs/logo-ugr.pdf  used on input line 424.
-(pdftex.def)             Requested size: 145.67592pt x 52.18561pt.
-
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 424--424
-[]| []  
- []
-
-File: imgs/logo-ugr.png Graphic file (type png)
-<use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 424.
-(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
-
-Overfull \hbox (14.22638pt too wide) has occurred while \output is active
-[][][][]
- []
-
-[35
-
- </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.pdf>] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
 Overfull \hbox (0.85355pt too wide) in paragraph at lines 426--426
 []| []  
  []
@@ -1839,19 +1751,96 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[36
+[31
 
-]
-\openout4 = `presentation.vrb'.
-
- (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 459--459
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 435--435
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 459.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 435.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[32
+
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 445--445
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 445.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[33
+
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 447--447
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 447.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[34
+
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 449--449
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 449.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[35
+
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 451--451
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 451.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[36
+
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 453--453
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 453.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1860,14 +1849,17 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [37
 
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 459--459
+]
+\openout4 = `presentation.vrb'.
+
+ (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 463--463
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 459.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 463.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1876,14 +1868,14 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [38
 
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 459--459
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 465--465
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 459.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 465.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1892,14 +1884,19 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [39
 
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 459--459
+]
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <6> not available
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 484.
+
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 484--484
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 459.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 484.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1908,14 +1905,20 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [40
 
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 459--459
+]
+<imgs/logo-ugr.pdf, id=1553, 682.02821pt x 244.3238pt>
+File: imgs/logo-ugr.pdf Graphic file (type pdf)
+<use imgs/logo-ugr.pdf>
+Package pdftex.def Info: imgs/logo-ugr.pdf  used on input line 516.
+(pdftex.def)             Requested size: 145.67592pt x 52.18561pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 516--516
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 459.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 516.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1924,14 +1927,14 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [41
 
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 459--459
+ </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.pdf>] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 518--518
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 459.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 518.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1940,14 +1943,17 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [42
 
-] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 459--459
+]
+\openout4 = `presentation.vrb'.
+
+ (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 551--551
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 459.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 551.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1957,13 +1963,13 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [43
 
 ] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 459--459
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 551--551
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 459.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 551.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1972,13 +1978,14 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [44
 
-] 
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 551--551
+[]| []  
+ []
 
-<QR code requested for "https://gitlab.com/novanext/tudelft-beamer" in version 0-M.>
-<Copying the QR code for "https://gitlab.com/novanext/tudelft-beamer" in version 3-M as previously calculated.>
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 471.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 551.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -1987,19 +1994,14 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [45
 
-]
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <9> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 478.
-
-
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 478--478
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 551--551
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 478.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 551.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2007,6 +2009,106 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
  []
 
 [46
+
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 551--551
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 551.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[47
+
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 551--551
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 551.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[48
+
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 551--551
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 551.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[49
+
+] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 551--551
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 551.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[50
+
+] 
+
+<QR code requested for "https://gitlab.com/novanext/tudelft-beamer" in version 0-M.>
+<Copying the QR code for "https://gitlab.com/novanext/tudelft-beamer" in version 3-M as previously calculated.>
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 563.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[51
+
+]
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <9> not available
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 570.
+
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 570--570
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 570.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[52
 
 ]
 \tf@nav=\write8
@@ -2018,31 +2120,31 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 \tf@snm=\write10
 \openout10 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 481.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 481.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 573.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 573.
  (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.aux <Reading QR code for "https://gitlab.com/novanext/tudelft-beamer" at level 3-M from aux file.>
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 481.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 481.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 573.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 573.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 000C35CBD3D0DAEBFD37E0EEB49E9DE3;892.
+(rerunfilecheck)             Checksum: BBA1203E20588576D0404DBC5C3DB8D4;835.
 Package logreq Info: Writing requests to 'presentation.run.xml'.
 \openout1 = `presentation.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34834 strings out of 481239
- 675901 string characters out of 5920378
- 1316717 words of memory out of 5000000
- 49278 multiletter control sequences out of 15000+600000
+ 34863 strings out of 481239
+ 676042 string characters out of 5920378
+ 1316873 words of memory out of 5000000
+ 49294 multiletter control sequences out of 15000+600000
  559405 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  58i,22n,82p,1131b,2257s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.pdf" (46 pages, 525674 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb>
+Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.pdf" (52 pages, 606120 bytes).
 PDF statistics:
- 1675 PDF objects out of 1728 (max. 8388607)
- 1568 compressed objects within 16 object streams
- 110 named destinations out of 1000 (max. 500000)
- 198 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2021 PDF objects out of 2073 (max. 8388607)
+ 1902 compressed objects within 20 object streams
+ 124 named destinations out of 1000 (max. 500000)
+ 195 words of extra memory for PDF output out of 10000 (max. 10000000)
 
