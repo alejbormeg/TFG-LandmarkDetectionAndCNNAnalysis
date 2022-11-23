@@ -442,16 +442,200 @@
 \end{frame}
 }
 
-\section{Introducción}
+\section{Definición del Problema}
+
+\begin{frame}{Landmarks faciales}
+  \begin{itemize}
+    \item Puntos de referencia marcados sobre la cara.
+    \item No guardan relación con la morfología del cráneo.
+    \item Se emplean para reconocimiento facial.
+  \end{itemize}
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{imgs/aflw.png}
+  \end{figure}
+
+\end{frame}
+
+\begin{frame}{Landmarks cefalométricos}
+  \begin{itemize}
+    \item Puntos de referencia que definen la morfología del cráneo.
+    \item Correspondencia directa cráneo-cara.
+    \item Se emplean en Antropología forense.
+  \end{itemize}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{imgs/marcado_landmarks.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Base de datos}
+  \begin{itemize}
+    \item 167 imágenes \textit{in-the-wild}.
+    \item Imágenes a color y escala de grises.
+    \item 30 landmarks a predecir.
+  \end{itemize}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{imgs/imagenes_ejemplo_dataset.png}
+  \end{figure}
+  \medskip
+\end{frame}
+
+\begin{frame}{Objetivos}
+  \begin{enumerate}
+    \item Revisión del \textbf{estado del arte}.
+    \item Investigación sobre los \textbf{Autoencoders} y \textbf{redes adversarias} existentes.
+    \item Estudio y \textbf{preprocesamiento} de la base de datos.
+    \item Estudio \textbf{experimental} usando diversos modelos que derivan del framework principal.
+  \end{enumerate}
+\end{frame}
 
 \section{Fundamentos Teóricos}
 
 \section{Estado del arte}
 
+\begin{frame}{Búsqueda Scopus}
+  \begin{itemize}
+    \item \textbf{Landmarks faciales}: Gran número y variedad de artículos usando en su mayoría Deep learning.
+    \item \textbf{Landmarks cefalométricos}: Escasa literatura y gran variedad de enfoques.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Búsqueda Scopus}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/Scopus_1.png}
+    \caption{Búsqueda sobre reconocimiento de landmarks faciales.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Búsqueda Scopus}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{imgs/Scopus_2.png}
+    \caption{Búsqueda sobre reconocimiento de landmarks cefalométricos.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Taxonomía}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/taxonomia.png}
+  \end{figure}
+\end{frame}
+
 \section{Experimentos}
+
+\begin{frame}{3FabRec}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/3fabrec_arquitectura.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{3FabRec}
+  \begin{block}{Función de pérdida parte no supervisada}
+    \begin{align*}
+      \min_{E,G} \max_{D_z,D_x} & \mathcal{L}_{AE}(E,G,D_z,D_x) = \\
+      & \lambda_{rec} \mathcal{L}_{rec}(E,G) + \lambda_{cs}\mathcal{L}_{cs}(E,G) \\
+      & + \lambda_{enc}\mathcal{L}_{enc}(E,D_z)+ \lambda_{adv} \mathcal{L}_{adv}(E,G,D_x)
+    \end{align*}
+  \end{block}
+  \begin{block}{Función de pérdida parte supervisada}
+    \begin{equation*}
+      \mathcal{L}_H(ITL) = \mathbb{E}_{x ~ p(x)} \left[ \| H-ITL(a)\|_2 \right]
+    \end{equation*}
+  \end{block}
+\end{frame}
+
+\begin{frame}{3FabRec}
+  \textcolor{tudCyan}{\textbf{Bases de datos de la parte no supervisada}}
+  \begin{itemize}
+    \item VGGFace2 + AffectNet
+    \item En total $2.1$ millones de imágenes.
+  \end{itemize}
+  \textcolor{tudCyan}{\textbf{Bases de datos de la parte supervisada}}
+  \begin{itemize}
+    \item 300W $= 3.148$ imágenes.
+    \item AFLW $= 24.386$ imágenes.
+    \item WFLW $= 10.000$ imágenes.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Preprocesamiento}
+  \begin{itemize}
+    \item Realizamos detección + \textit{cropping} de caras en las imágenes del dataset.
+    \item Empleamos red auxiliar \textcolor{tudCyan}{Facenet}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Preprocesamiento}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.55\textwidth]{imgs/imagenes_ejemplo_bb.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Reajuste 3FabRec}
+  \begin{itemize}
+      \item Bounding box cuadrado de lado $\max(h,w)$.
+      \item Ampliación uniforme por el factor $\frac{crop_size+margin}{crop_size}$.
+      \item Reescalado a tamaño $256 \times 256$.
+      \item \textbf{Problema}: Vertex suele quedar fuera.
+  \end{itemize}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{imgs/bounding_box_3fabrec.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Tabla comparativa modelos a nivel global}
+  
+\end{frame}
+
+\begin{frame}{Boxplots}
+  
+\end{frame}
+
+\begin{frame}{Tabla por landmark}
+  
+\end{frame}
+
+\begin{frame}{Imágenes cualitativas}
+  
+\end{frame}
+
+\begin{frame}{Elección modelo}
+  
+\end{frame}
+
+\begin{frame}{Comparativa}
+  
+\end{frame}
+
+\begin{frame}{Comparativa}
+  
+\end{frame}
+
+\begin{frame}{Comparativa}
+  
+\end{frame}
+
+\begin{frame}{Comparativa}
+  
+\end{frame}
+
+\begin{frame}{Comparativa}
+  
+\end{frame}
 
 \section{Conclusiones}
 
+\begin{frame}{Conclusiones}
+  
+\end{frame}
 
 \begin{frame}[fragile]{Example frame 1} % some commands, e.g. \verb require [fragile]
 This is the first frame.

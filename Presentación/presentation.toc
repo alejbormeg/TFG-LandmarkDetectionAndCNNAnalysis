@@ -3,10 +3,10 @@
 \beamer@sectionintoc {1}{Introducción}{3}{1}{1}
 \beamer@sectionintoc {2}{Modelización}{10}{1}{2}
 \beamer@sectionintoc {3}{Invarianza por traslaciones}{28}{1}{3}
-\beamer@sectionintoc {4}{Introducción}{33}{2}{4}
-\beamer@sectionintoc {5}{Fundamentos Teóricos}{34}{2}{5}
-\beamer@sectionintoc {6}{Estado del arte}{35}{2}{6}
-\beamer@sectionintoc {7}{Experimentos}{36}{2}{7}
-\beamer@sectionintoc {8}{Conclusiones}{37}{2}{8}
-\beamer@sectionintoc {9}{Examples}{39}{2}{9}
-\beamer@sectionintoc {10}{Conclusion}{42}{2}{10}
+\beamer@sectionintoc {4}{Definición del Problema}{33}{2}{4}
+\beamer@sectionintoc {5}{Fundamentos Teóricos}{38}{2}{5}
+\beamer@sectionintoc {6}{Estado del arte}{39}{2}{6}
+\beamer@sectionintoc {7}{Experimentos}{44}{2}{7}
+\beamer@sectionintoc {8}{Conclusiones}{61}{2}{8}
+\beamer@sectionintoc {9}{Examples}{64}{2}{9}
+\beamer@sectionintoc {10}{Conclusion}{67}{2}{10}
