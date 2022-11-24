@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex libro"] 1668873425 "libro.aux" "libro.bbl" "libro" 1669015379
+["bibtex libro"] 1668873425 "libro.aux" "libro.bbl" "libro" 1669056420
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/alpha.bst" 1292289607 23907 a5f93555796fb564b924339521f10a7c ""
   "library.bib" 1668873114 17961 ff29eb5421d7404aab053e9b824d44ba ""
   "libro.aux" 1669015379 94577 af6993e7d7bb0e61d9f59ef525bea783 "pdflatex"
   (generated)
   "libro.bbl"
   "libro.blg"
-["pdflatex"] 1669015350 "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.tex" "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" "libro" 1669015379
+["pdflatex"] 1669015350 "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.tex" "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf" "libro" 1669056420
   "/etc/texmf/web2c/texmf.cnf" 1607260065 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.aux" 1669015379 94577 af6993e7d7bb0e61d9f59ef525bea783 ""
   "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.tex" 1668620561 14435 54b45044c65deadafc49329362105ae4 ""
@@ -299,12 +299,12 @@
   "preliminares/tablacontenidos.tex" 1668627035 1330 ecec5444fb0dfd0b8b534d75117898f1 ""
   "preliminares/titulo.tex" 1668618868 1040 98b6ccb5bbd6f05ed5959d5166f20d47 ""
   (generated)
+  "libro.toc"
+  "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf"
+  "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.log"
   "libro.log"
   "libro.pdf"
-  "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.pdf"
-  "libro.out"
-  "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/libro.log"
   "libro.brf"
-  "libro.toc"
-  "libro.aux"
   "libro.lot"
+  "libro.out"
+  "libro.aux"
