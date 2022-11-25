@@ -494,6 +494,86 @@
 
 \section{Fundamentos Teóricos}
 
+\begin{frame}{Redes Neuronales Convolucionales}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/ArquitecturaRedNeuronal.png}
+    \caption{Imagen extraída de \cite{StanfordCourse}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Capas Convolucionales}
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.5\textwidth}
+       \textbf{Características:}
+      \begin{itemize}
+        \item Operación de convolución.
+        \item Menor número de pesos.
+        \item Mayor profundidad de red.
+      \end{itemize}
+      Imágenes extraída de \cite{StanfordCourse}.
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \absimage{.75, .30}{.50}{imgs/mapa_activacion.png}
+      \absimage{.75, .65}{.45}{imgs/sucesion_conv_layer.png}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Capa de Pooling}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/pooling.png}
+    \caption{Imagen extraída de \cite{StanfordCourse}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Capa totalmente conectada}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/single_hidden_layer.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Arquitectura de una red neuronal convolucional}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/ArquitecuraGeneral.png}
+    \caption{Imagen extraída de \cite{StanfordCourse}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Autoencoders}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/Autoencoder.png}
+    \caption{Imagen extraída de \cite{autoencoders2017}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{GAN}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/GAN.png}
+    \caption{Imagen extraída de \cite{autoencoders2017}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Variational Autoencoder (VAE)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/Autoencoder.png}
+    \caption{Imagen extraída de \cite{autoencoders2017}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Adversarial Autoencoder (AAE)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/AAE.png}
+    \caption{Imagen extraída de \cite{autoencoders2017}.}
+  \end{figure}
+\end{frame}
 \section{Estado del arte}
 
 \begin{frame}{Búsqueda Scopus}
@@ -591,159 +671,113 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{Tabla comparativa modelos a nivel global}
-  
+\begin{frame}{Experimentos}
+  \begin{itemize}
+    \item \textbf{Modelo Base}: entrenamiento ITLs.
+    \item \textbf{Ajuste fino del Encoder}: entrenamiento ITLs + Encoder.
+    \item \textbf{Ajuste fino del Decoder}: entrenamiento ITLs + Decoder.
+    \item \textbf{Data Augmentation}: entrenamiento ITLs con técnicas de Data Augmentation.
+  \end{itemize}
 \end{frame}
 
-\begin{frame}{Boxplots}
-  
+\begin{frame}{Análisis Cuantitativo}
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.5\textwidth}
+      \centering \textcolor{tudCyan}{\textbf{Análisis a nivel global}}
+      % square filling the column
+      % place an image
+      % horizontal position = 73%
+      % vertical position = 45%
+      % width = 40% of page
+      \absimage{.25, .50}{.45}{imgs/boxplot_sumarize.png}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \centering \textcolor{tudCyan}{\textbf{Análisis a nivel de landmark}}
+      % square filling the column
+      % place an image
+      % horizontal position = 73%
+      % vertical position = 45%
+      % width = 40% of page
+      \absimage{.75, .50}{.45}{imgs/tabla_landmarks.png}
+    \end{column}
+  \end{columns}
 \end{frame}
 
-\begin{frame}{Tabla por landmark}
-  
+
+\begin{frame}{Análisis Cualitativo: Modelo Data Augmentation}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/image_basemodel.png}
+  \end{figure}
 \end{frame}
 
-\begin{frame}{Imágenes cualitativas}
-  
-\end{frame}
+\begin{frame}{Elección de modelo $\rightarrow$ Data Augmentation}
 
-\begin{frame}{Elección modelo}
-  
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.35\textwidth}
+      % square filling the column
+      % place an image
+      % horizontal position = 73%
+      % vertical position = 45%
+      % width = 40% of page
+      \absimage{.23, .50}{.45}{imgs/curvas_FinalModel.png}
+    \end{column}
+    \begin{column}{.65\textwidth}
+      % square filling the column
+      % place an image
+      % horizontal position = 73%
+      % vertical position = 45%
+      % width = 40% of page
+      \absimage{.73, .50}{.5}{imgs/image_finalmodel.png}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Comparativa}
-  
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{imgs/tanle_comparativa1.png}
+  \end{figure}
 \end{frame}
 
 \begin{frame}{Comparativa}
-  
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.55\textwidth]{imgs/table_comparativa2.png}
+  \end{figure}
 \end{frame}
 
 \begin{frame}{Comparativa}
-  
-\end{frame}
-
-\begin{frame}{Comparativa}
-  
-\end{frame}
-
-\begin{frame}{Comparativa}
-  
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{imgs/compativa_cualitativa.png}
+  \end{figure}
 \end{frame}
 
 \section{Conclusiones}
 
 \begin{frame}{Conclusiones}
-  
+  Todos los objetivos cumplidos
+  \begin{enumerate}
+    \item Investigación + comparación con el estado del arte.
+    \item Estudio sobre los Autoencoders y redes adversarias.
+    \item Estudio de errores y preprocesamiento de los dato.
+    \item Estudio experimental.
+  \end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile]{Example frame 1} % some commands, e.g. \verb require [fragile]
-This is the first frame.
+\begin{frame}{Conclusiones}
+  Además, se han logrado otros objetivos adicionales:
+  \begin{itemize}
+    \item Entrenar 3FabRec con landmarks faltantes.
+    \item Método robusto con few-shot learning.
+  \end{itemize}
 
-You can set the blue bar vertical using the option \verb|\usetheme[verticalbar=true]{tud}|.
-
-Set the aspect ratio to 4:3 with the
-documentclass option aspectratio=43. Use aspectratio=169 for wide screen (16:9).
-\end{frame}
-
-\section{Examples}
-\begin{frame}{Example frame 2}
-  \begin{block}{Block}
-    \begin{itemize}
-      \item item 1
-      \item item 2
-    \end{itemize}
-  \end{block}
-
-  \begin{exampleblock}{Example}
-    \begin{enumerate}
-      \item Sugar in a stirred cup of tea gathers in the middle.
-      \item Rivers often take a detour through flat terrain.
-    \end{enumerate}
-  \end{exampleblock}
-
-  \begin{alertblock}{Alert}
-     Rivers and sweet tea do unexpected things.\cite{Einstein1926}
-  \end{alertblock}
-\end{frame}
-
-% \begin{frame}{Mass--energy equivalence}
-% 	They say every formula you add to a presentation, will reduce your audience by \SI{50}{\percent}. A simple yet effective way to mitigate this effect, is adding a compact nomenclature to the slides containing formulae.
-	
-% 	\[E=mc^2\]
-	
-% 	If you find this is taking up too much of your precious space, than you are doing something wrong, and it is not adding this little nomenclature.
-	
-% 	The optional argument specifies the number of column pairs.
-	
-%   \mininomen[2]{% number of columns
-%   $E$ & Energy (\unit{J})                     & $m$ & Mass (\unit{kg}) \\
-%   $c$ & Speed of light in vacuum (\unit{m/s}) \\[2ex] % may need some tweaking
-%   }
-% \end{frame}
-
-\begin{frame}{columns}
-  \begin{columns}[onlytextwidth]
-    \begin{column}{.5\textwidth}
-      first column
-    \end{column}
-    \begin{column}{.5\textwidth}
-      % square filling the column
-      \textcolor{tudCyan}{\rule{1\columnwidth}{1\columnwidth}}
-      % place an image
-      % horizontal position = 73%
-      % vertical position = 45%
-      % width = 40% of page
-      \absimage{.73, .45}{.40}{imgs/logo-ugr.pdf}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\section{Conclusion}
-\begin{frame}[fragile]{animation}
-  \vfill
-  Some commands take optional arguments in the form of \verb|<x-y>|,
-  where \verb|x| is the first `sub-frame' on which the context is shown,
-  and \verb|y| is the last. \verb|x| or \verb|y| can be replaced by \verb|+|,
-  referring to `the next sub-frame'. 
-  \vfill
-  \begin{columns}[onlytextwidth]
-  \begin{column}{.5\textwidth}
-    \begin{enumerate}
-      \item<+-> uncovered\ldots
-      \item<+-> one\ldots
-      \item<+-> by\ldots
-      \item<+-> one.
-    \end{enumerate}
-    \end{column}
-  \begin{column}{.5\textwidth}
-      Using only:\only<1>{1}\only<2>{2}\only<3>{3}
-
-      Using onslide:\onslide<1>{1}\onslide<2>{2}\onslide<3>{3}
-
-      Using pause:\pause1\pause2\pause3
-  \end{column}
-  \end{columns}
-  \vfill
-  For more advanced animations, see \S 14 of the manual:\\
-  \url{https://www.ctan.org/pkg/beamer}
-  % \url{https://www.ctan.org/pkg/animate}\\
-  % \url{https://www.ctan.org/pkg/media9}
-  \vfill
-  % \transduration{2} automatic progression of slides
-  \transpush<1>
-\end{frame}
-
-\begin{frame}
-  Thanks for your attention.
-
-  A digital version of this presentation can be found here:
-  \vfill
-  \url{https://gitlab.com/novanext/tudelft-beamer} 
-  \vfill  
-  \centering
-  \qrcode{https://gitlab.com/novanext/tudelft-beamer}
-  \vfill
+  Este método es importante pues: 
+  \begin{itemize}
+    \item Buenos resultados con pocas imágenes.
+    \item Situaciones similares al día día de un Antrpólogo forense.
+  \end{itemize}
 \end{frame}
 
 
@@ -752,7 +786,6 @@ documentclass option aspectratio=43. Use aspectratio=169 for wide screen (16:9).
 	\AtNextBibliography{\footnotesize}% or in the preamble \AtBeginBibliography{\small}
 	\printbibliography
 \end{frame}
-
 
 \end{document}
 

@@ -19,42 +19,52 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
-    \entry{Einstein1926}{article}{}
+    \entry{autoencoders2017}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=29a34a00e610eaed35baff40f473278f}{%
-           family={Einstein},
-           familyi={E\bibinitperiod},
-           given={A.},
+        {{un=0,uniquepart=base,hash=e98656a5ee5e80bda67096d53bf76a74}{%
+           family={Dertat},
+           familyi={D\bibinitperiod},
+           given={Arden},
            giveni={A\bibinitperiod},
            givenun=0}}%
       }
-      \list{publisher}{2}{%
-        {Springer Science}%
-        {Business Media {LLC}}%
-      }
-      \strng{namehash}{29a34a00e610eaed35baff40f473278f}
-      \strng{fullhash}{29a34a00e610eaed35baff40f473278f}
-      \strng{bibnamehash}{29a34a00e610eaed35baff40f473278f}
-      \strng{authorbibnamehash}{29a34a00e610eaed35baff40f473278f}
-      \strng{authornamehash}{29a34a00e610eaed35baff40f473278f}
-      \strng{authorfullhash}{29a34a00e610eaed35baff40f473278f}
-      \field{sortinit}{E}
-      \field{sortinithash}{c554bd1a0b76ea92b9f105fe36d9c7b0}
+      \strng{namehash}{e98656a5ee5e80bda67096d53bf76a74}
+      \strng{fullhash}{e98656a5ee5e80bda67096d53bf76a74}
+      \strng{bibnamehash}{e98656a5ee5e80bda67096d53bf76a74}
+      \strng{authorbibnamehash}{e98656a5ee5e80bda67096d53bf76a74}
+      \strng{authornamehash}{e98656a5ee5e80bda67096d53bf76a74}
+      \strng{authorfullhash}{e98656a5ee5e80bda67096d53bf76a74}
+      \field{sortinit}{D}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Die Naturwissenschaften}
-      \field{month}{3}
-      \field{number}{11}
-      \field{title}{Die {U}rsache der {M}äanderbildung der {F}lußläufe und des sogenannten {B}aerschen {G}esetzes}
-      \field{volume}{14}
-      \field{year}{1926}
-      \field{pages}{223\bibrangedash 224}
-      \range{pages}{2}
-      \verb{doi}
-      \verb 10.1007/bf01510300
-      \endverb
+      \field{howpublished}{\url = {https://towardsdatascience.com/applied-deep-learning-part-3-autoencoders-1c083af4d798},}
+      \field{title}{Applied Deep Learning}
+      \field{year}{2017}
+    \endentry
+    \entry{StanfordCourse}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e54a150fde659e84d44353337bf5fa28}{%
+           family={{Fei-Fei Li, Justin Johnson, Serena Young , Stanford University}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{e54a150fde659e84d44353337bf5fa28}
+      \strng{fullhash}{e54a150fde659e84d44353337bf5fa28}
+      \strng{bibnamehash}{e54a150fde659e84d44353337bf5fa28}
+      \strng{authorbibnamehash}{e54a150fde659e84d44353337bf5fa28}
+      \strng{authornamehash}{e54a150fde659e84d44353337bf5fa28}
+      \strng{authorfullhash}{e54a150fde659e84d44353337bf5fa28}
+      \field{sortinit}{F}
+      \field{sortinithash}{fb0c0faa89eb6abae8213bf60e6799ea}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url = {http://cs231n.stanford.edu/2017/syllabus.html},}
+      \field{title}{cs231n}
+      \field{year}{2017}
     \endentry
   \enddatalist
 \endrefsection
