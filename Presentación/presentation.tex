@@ -716,12 +716,23 @@
   \absimage{0.4, 0.7}{0.6}{imgs/bounding_box_3fabrec.png}
 \end{frame}
 
+\begin{frame}[t]{Partición de los datos}
+  Se dividen los datos en entrenamiento y test: 
+  \begin{itemize}
+      \item \textbf{131} imágenes para entrenamiento ($80\%$). Usaremos \textbf{cross-validation 5 fold}.
+      \item \textbf{32} imágenes para test ($20\%$).
+      \item Durante el preprocesamiento descartamos $4$ imágenes.
+  \end{itemize}
+
+  \absimage{0.5, 0.7}{0.8}{imgs/Particion_Datos.png}
+\end{frame}
+
 \begin{frame}[t]{Experimentos}
   \begin{itemize}
-    \item \textbf{Modelo Base}: entrenamiento ITLs.
-    \item \textbf{Ajuste fino del Encoder}: entrenamiento ITLs + Encoder.
-    \item \textbf{Ajuste fino del Decoder}: entrenamiento ITLs + Decoder.
-    \item \textbf{Data Augmentation}: entrenamiento ITLs con técnicas de Data Augmentation.
+    \item \small \textbf{Modelo Base}: entrenamiento ITLs $\rightarrow$ \textbf{Adam}
+    \item \small \textbf{Ajuste fino del Encoder}: entrenamiento ITLs + Encoder $\rightarrow$ \textbf{Adam}
+    \item \small \textbf{Ajuste fino del Decoder}: entrenamiento ITLs + Decoder $\rightarrow$ \textbf{Adam}
+    \item \small \textbf{Data Augmentation}: entrenamiento ITLs con técnicas de Data Augmentation $\rightarrow$ \textbf{Adam}
   \end{itemize}
 
   \absimage{0.5, 0.7}{0.85}{imgs/EsquemaModelos.png}
@@ -733,22 +744,36 @@
     \centering
     \includegraphics[width=0.99\textwidth]{imgs/5-fold-cv.png}
   \end{figure}
+
+  \absimage{0.87, 0.18}{0.15}{imgs/entrenamiento.png}
 \end{frame}
 
 \begin{frame}[t]{Métricas empleadas}
-\begin{columns}[onlytextwidth]
-  \begin{column}{.5\textwidth}
-    \textbf{Métricas entrenamiento}
+  \normalsize \textbf{Métricas entrenamiento}
     \begin{itemize}
-      \item NME medio.
-      \item Error de reconstrucción medio.
+      \item \small MSE:
+          \small \begin{equation*}
+            MSE = \frac{1}{N} \sum_{i=1}^{N} (y_i - \widehat{y}_i)^2
+          \end{equation*}
     \end{itemize}
-  \end{column}
-  \begin{column}{.5\textwidth}
-    \textbf{Métricas entrenamiento}
-  \end{column}
-\end{columns}
 
+    \normalsize \textbf{Métricas Validación}
+    \begin{itemize}
+      \item \small Error de reconstrucción:
+        \small \begin{equation*}
+          Reconstruction \; Loss = \frac{\sum_{i=1}^n |p_i -q_i|}{N}
+        \end{equation*}
+      \item \small NME:
+          \small \begin{equation*}
+          NME=\frac{\sqrt{\sum_{i=1}^{n}(p_{i,1} -q_{i,1})^2+ (p_{i,2} -q_{i,2})^2}}{N}
+        \end{equation*}
+      \item SSIM:
+          \small\begin{equation*}
+            cs(x,y)=\frac{1}{|w|} \sum{c(x_w,y_w)s(x_w,y_w)}_w
+          \end{equation*}
+    \end{itemize}
+    \absimage{0.75, 0.18}{0.15}{imgs/entrenamiento.png}
+    \absimage{0.87, 0.18}{0.10}{imgs/test.png}
 \end{frame}
 
 \begin{frame}[t]{Análisis Cuantitativo}
@@ -794,80 +819,75 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{Elección de modelo $\rightarrow$ Data Augmentation}
+\begin{frame}[t]{Elección de modelo $\rightarrow$ Data Augmentation}
 
   \begin{columns}[onlytextwidth]
-    \begin{column}{.35\textwidth}
-      % square filling the column
-      % place an image
-      % horizontal position = 73%
-      % vertical position = 45%
-      % width = 40% of page
-      \absimage{.23, .50}{.45}{imgs/curvas_FinalModel.png}
-    \end{column}
     \begin{column}{.65\textwidth}
-      % square filling the column
-      % place an image
-      % horizontal position = 73%
-      % vertical position = 45%
-      % width = 40% of page
-      \absimage{.73, .50}{.5}{imgs/image_finalmodel.png}
+      \begin{itemize}
+        \item Entrenamos el modelo final con \textbf{todo} el conjunto de entrenamiento.
+        \item No hay \textbf{overfitting}.
+      \end{itemize}
+      \absimage{.30, .60}{.5}{imgs/image_finalmodel.png}
+    \end{column}
+    \begin{column}{.35\textwidth}
+      \absimage{.77, .60}{.45}{imgs/curvas_FinalModel.png}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Comparativa}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{imgs/tanle_comparativa1.png}
-  \end{figure}
+\begin{frame}{Comparativa HF-Resnet}
+
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.4\textwidth}
+      \normalsize \textbf{Diferencias:}
+      \begin{itemize}
+        \item \scriptsize \textbf{Preprocesamiento}: mismo dataset + 99 modelos $3D$ de caras neutrales.
+        \item \scriptsize \textbf{Métricas: }
+            \begin{equation*}
+              RMSE(y,\widehat{y})= \sqrt{\frac{1}{N} \sum_{i=1}^{N} (y_i-\widehat{y}_i)^2}
+            \end{equation*}
+      \end{itemize}
+      \absimage{.25, .75}{.45}{imgs/tanle_comparativa1.png}
+    \end{column}
+    \begin{column}{.6\textwidth}
+      \absimage{.74, .50}{.5}{imgs/table_comparativa2.png}
+    \end{column}
+  \end{columns}
 \end{frame}
 
-\begin{frame}{Comparativa}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.55\textwidth]{imgs/table_comparativa2.png}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Comparativa}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{imgs/compativa_cualitativa.png}
-  \end{figure}
+\begin{frame}{Comparativa HF-Resnet}
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.4\textwidth}
+      \begin{itemize}
+        \item \textbf{Mejora} generalizada en el marcado.
+        \item \textbf{Reducción} de la distancia euclídea media.
+        \item \textbf{Mejora} el rendimiento en imágenes complicadas.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.6\textwidth}
+      \absimage{.74, .50}{.5}{imgs/compativa_cualitativa.png}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \section{Conclusiones}
 
-\begin{frame}{Conclusiones}
-  Todos los objetivos cumplidos
+\begin{frame}[t]{Conclusiones}
+  \normalsize \textbf{Todos los objetivos cumplidos}
   \begin{enumerate}
-    \item Investigación + comparación con el estado del arte.
-    \item Estudio sobre los Autoencoders y redes adversarias.
-    \item Estudio de errores y preprocesamiento de los dato.
-    \item Estudio experimental.
+    \item \small Investigación + comparación con el estado del arte.
+    \item \small Estudio sobre los Autoencoders y redes adversarias.
+    \item \small Estudio de errores y preprocesamiento de los dato.
+    \item \small Estudio experimental.
   \end{enumerate}
-\end{frame}
+  
+  \medskip
 
-\begin{frame}{Conclusiones}
-  Además, se han logrado otros objetivos adicionales:
+  \normalsize Además, se han logrado otros \textbf{objetivos adicionales}:
   \begin{itemize}
-    \item Entrenar 3FabRec con landmarks faltantes.
-    \item Método robusto con few-shot learning.
+    \item \small Entrenar 3FabRec con landmarks faltantes.
+    \item \small Método robusto con few-shot learning.
   \end{itemize}
-
-  Este método es importante pues: 
-  \begin{itemize}
-    \item Buenos resultados con pocas imágenes.
-    \item Situaciones similares al día día de un Antrpólogo forense.
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}[allowframebreaks,t]{\bibname}
-	% the 'I' is caused by 'allowframebreaks'
-	\AtNextBibliography{\footnotesize}% or in the preamble \AtBeginBibliography{\small}
-	\printbibliography
 \end{frame}
 
 \end{document}
