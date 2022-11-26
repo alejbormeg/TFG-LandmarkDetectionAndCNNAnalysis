@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  26 NOV 2022 12:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  26 NOV 2022 13:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1785,7 +1785,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [33
 
 ]
-<imgs/aflw.png, id=1386, 644.4075pt x 349.305pt>
+<imgs/aflw.png, id=1389, 644.4075pt x 349.305pt>
 File: imgs/aflw.png Graphic file (type png)
 <use imgs/aflw.png>
 Package pdftex.def Info: imgs/aflw.png  used on input line 460.
@@ -1820,7 +1820,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [34
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/aflw.png>]
-<imgs/marcado_landmarks.png, id=1440, 749.80125pt x 442.65375pt>
+<imgs/marcado_landmarks.png, id=1444, 749.80125pt x 442.65375pt>
 File: imgs/marcado_landmarks.png Graphic file (type png)
 <use imgs/marcado_landmarks.png>
 Package pdftex.def Info: imgs/marcado_landmarks.png  used on input line 473.
@@ -1846,12 +1846,12 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 499.
 
-<imgs/EjemplosBD.png, id=1489, 1696.3375pt x 1057.9525pt>
+<imgs/EjemplosBD.png, id=1494, 1696.3375pt x 1057.9525pt>
 File: imgs/EjemplosBD.png Graphic file (type png)
 <use imgs/EjemplosBD.png>
 Package pdftex.def Info: imgs/EjemplosBD.png  used on input line 499.
 (pdftex.def)             Requested size: 163.8868pt x 102.20154pt.
-<imgs/vertical.png, id=1490, 833.1125pt x 2587.6675pt>
+<imgs/vertical.png, id=1495, 833.1125pt x 2587.6675pt>
 File: imgs/vertical.png Graphic file (type png)
 <use imgs/vertical.png>
 Package pdftex.def Info: imgs/vertical.png  used on input line 499.
@@ -1905,7 +1905,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [38
 
 ]
-<imgs/ArquitecturaRedNeuronal.png, id=1638, 1409.265pt x 311.1625pt>
+<imgs/ArquitecturaRedNeuronal.png, id=1646, 1409.265pt x 311.1625pt>
 File: imgs/ArquitecturaRedNeuronal.png Graphic file (type png)
 <use imgs/ArquitecturaRedNeuronal.png>
 Package pdftex.def Info: imgs/ArquitecturaRedNeuronal.png  used on input line 519.
@@ -1927,12 +1927,12 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [39
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecturaRedNeuronal.png>]
-<imgs/mapa_activacion.png, id=1690, 863.225pt x 392.46625pt>
+<imgs/mapa_activacion.png, id=1699, 863.225pt x 392.46625pt>
 File: imgs/mapa_activacion.png Graphic file (type png)
 <use imgs/mapa_activacion.png>
 Package pdftex.def Info: imgs/mapa_activacion.png  used on input line 537.
 (pdftex.def)             Requested size: 182.09767pt x 82.78563pt.
-<imgs/sucesion_conv_layer.png, id=1691, 665.48625pt x 322.20375pt>
+<imgs/sucesion_conv_layer.png, id=1700, 665.48625pt x 322.20375pt>
 File: imgs/sucesion_conv_layer.png Graphic file (type png)
 <use imgs/sucesion_conv_layer.png>
 Package pdftex.def Info: imgs/sucesion_conv_layer.png  used on input line 537.
@@ -1954,7 +1954,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [40
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/mapa_activacion.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/sucesion_conv_layer.png>]
-<imgs/pooling.png, id=1740, 823.075pt x 261.97874pt>
+<imgs/pooling.png, id=1750, 823.075pt x 261.97874pt>
 File: imgs/pooling.png Graphic file (type png)
 <use imgs/pooling.png>
 Package pdftex.def Info: imgs/pooling.png  used on input line 545.
@@ -1976,7 +1976,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [41
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/pooling.png>]
-<imgs/single_hidden_layer.png, id=1791, 1105.12875pt x 527.9725pt>
+<imgs/single_hidden_layer.png, id=1802, 1105.12875pt x 527.9725pt>
 File: imgs/single_hidden_layer.png Graphic file (type png)
 <use imgs/single_hidden_layer.png>
 Package pdftex.def Info: imgs/single_hidden_layer.png  used on input line 552.
@@ -1998,7 +1998,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [42
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/single_hidden_layer.png>]
-<imgs/ArquitecuraGeneral.png, id=1839, 852.18375pt x 262.9825pt>
+<imgs/ArquitecuraGeneral.png, id=1851, 852.18375pt x 262.9825pt>
 File: imgs/ArquitecuraGeneral.png Graphic file (type png)
 <use imgs/ArquitecuraGeneral.png>
 Package pdftex.def Info: imgs/ArquitecuraGeneral.png  used on input line 560.
@@ -2020,7 +2020,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [43
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecuraGeneral.png>]
-<imgs/Autoencoder.png, id=1891, 1405.25pt x 332.24126pt>
+<imgs/Autoencoder.png, id=1904, 1405.25pt x 332.24126pt>
 File: imgs/Autoencoder.png Graphic file (type png)
 <use imgs/Autoencoder.png>
 Package pdftex.def Info: imgs/Autoencoder.png  used on input line 568.
@@ -2042,7 +2042,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [44
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Autoencoder.png (PNG copy)>]
-<imgs/GAN.png, id=1940, 702.625pt x 320.19624pt>
+<imgs/GAN.png, id=1954, 702.625pt x 320.19624pt>
 File: imgs/GAN.png Graphic file (type png)
 <use imgs/GAN.png>
 Package pdftex.def Info: imgs/GAN.png  used on input line 576.
@@ -2068,12 +2068,12 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [45
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/GAN.png (PNG copy)>]
-<imgs/VAE_1.png, id=1990, 1263.72125pt x 674.52pt>
+<imgs/VAE_1.png, id=2005, 1263.72125pt x 674.52pt>
 File: imgs/VAE_1.png Graphic file (type png)
 <use imgs/VAE_1.png>
 Package pdftex.def Info: imgs/VAE_1.png  used on input line 588.
 (pdftex.def)             Requested size: 182.09767pt x 97.19049pt.
-<imgs/VAE_2.png, id=1992, 1265.72874pt x 582.175pt>
+<imgs/VAE_2.png, id=2007, 1265.72874pt x 582.175pt>
 File: imgs/VAE_2.png Graphic file (type png)
 <use imgs/VAE_2.png>
 Package pdftex.def Info: imgs/VAE_2.png  used on input line 588.
@@ -2095,7 +2095,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [46
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/VAE_1.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/VAE_2.png>]
-<imgs/AAE.png, id=2041, 702.625pt x 514.92375pt>
+<imgs/AAE.png, id=2057, 702.625pt x 514.92375pt>
 File: imgs/AAE.png Graphic file (type png)
 <use imgs/AAE.png>
 Package pdftex.def Info: imgs/AAE.png  used on input line 596.
@@ -2133,12 +2133,12 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [48
 
 ]
-<imgs/Scopus_1.png, id=2142, 660.21657pt x 414.04688pt>
+<imgs/Scopus_1.png, id=2160, 660.21657pt x 414.04688pt>
 File: imgs/Scopus_1.png Graphic file (type png)
 <use imgs/Scopus_1.png>
 Package pdftex.def Info: imgs/Scopus_1.png  used on input line 629.
 (pdftex.def)             Requested size: 163.8868pt x 102.77858pt.
-<imgs/Scopus_2.png, id=2143, 660.21657pt x 414.04688pt>
+<imgs/Scopus_2.png, id=2161, 660.21657pt x 414.04688pt>
 File: imgs/Scopus_2.png Graphic file (type png)
 <use imgs/Scopus_2.png>
 Package pdftex.def Info: imgs/Scopus_2.png  used on input line 629.
@@ -2160,7 +2160,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [49
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Scopus_1.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Scopus_2.png>]
-<imgs/taxonomia.png, id=2193, 1665.22125pt x 252.945pt>
+<imgs/taxonomia.png, id=2213, 1665.22125pt x 252.945pt>
 File: imgs/taxonomia.png Graphic file (type png)
 <use imgs/taxonomia.png>
 Package pdftex.def Info: imgs/taxonomia.png  used on input line 641.
@@ -2198,19 +2198,19 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [51
 
 ]
-<imgs/3fabrec_arquitectura.png, id=2293, 1296.845pt x 649.42625pt>
+<imgs/3fabrec_arquitectura.png, id=2315, 1296.845pt x 649.42625pt>
 File: imgs/3fabrec_arquitectura.png Graphic file (type png)
 <use imgs/3fabrec_arquitectura.png>
-Package pdftex.def Info: imgs/3fabrec_arquitectura.png  used on input line 650.
-(pdftex.def)             Requested size: 326.753pt x 163.62457pt.
+Package pdftex.def Info: imgs/3fabrec_arquitectura.png  used on input line 651.
+(pdftex.def)             Requested size: 280.54596pt x 140.48604pt.
 
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 650--650
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 651--651
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 650.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 651.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2220,13 +2220,13 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [52
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/3fabrec_arquitectura.png>]
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 665--665
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 666--666
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 665.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 666.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2236,13 +2236,13 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [53
 
 ]
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 679--679
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 680--680
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 679.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 680.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2252,53 +2252,21 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [54
 
 ]
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 686--686
-[]| []  
+<imgs/bb_1.png, id=2459, 559.08875pt x 295.1025pt>
+File: imgs/bb_1.png Graphic file (type png)
+<use imgs/bb_1.png>
+Package pdftex.def Info: imgs/bb_1.png  used on input line 706.
+(pdftex.def)             Requested size: 163.8868pt x 86.50511pt.
+<imgs/bb_2.png, id=2460, 221.82875pt x 501.875pt>
+File: imgs/bb_2.png Graphic file (type png)
+<use imgs/bb_2.png>
+Package pdftex.def Info: imgs/bb_2.png  used on input line 706.
+(pdftex.def)             Requested size: 91.04883pt x 205.99216pt.
+
+Overfull \hbox (49.50572pt too wide) detected at line 706
+[][]$[]$[][][][][][][][] $[]$[][][][][][]
  []
 
-File: imgs/logo-ugr.png Graphic file (type png)
-<use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 686.
-(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
-
-Overfull \hbox (14.22638pt too wide) has occurred while \output is active
-[][][][]
- []
-
-[55
-
-]
-<imgs/imagenes_ejemplo_bb.png, id=2482, 480.79625pt x 533.995pt>
-File: imgs/imagenes_ejemplo_bb.png Graphic file (type png)
-<use imgs/imagenes_ejemplo_bb.png>
-Package pdftex.def Info: imgs/imagenes_ejemplo_bb.png  used on input line 693.
-(pdftex.def)             Requested size: 181.52943pt x 201.61652pt.
-
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 693--693
-[]| []  
- []
-
-
-Overfull \vbox (12.93626pt too high) detected at line 693
- []
-
-File: imgs/logo-ugr.png Graphic file (type png)
-<use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 693.
-(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
-
-Overfull \hbox (14.22638pt too wide) has occurred while \output is active
-[][][][]
- []
-
-[56
-
- </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/imagenes_ejemplo_bb.png>]
-<imgs/bounding_box_3fabrec.png, id=2531, 1036.87375pt x 521.95pt>
-File: imgs/bounding_box_3fabrec.png Graphic file (type png)
-<use imgs/bounding_box_3fabrec.png>
-Package pdftex.def Info: imgs/bounding_box_3fabrec.png  used on input line 706.
-(pdftex.def)             Requested size: 198.03304pt x 99.68124pt.
 
 Overfull \hbox (0.85355pt too wide) in paragraph at lines 706--706
 []| []  
@@ -2313,16 +2281,66 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[57
+[55
 
- </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/bounding_box_3fabrec.png>]
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 715--715
+ </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/bb_1.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/bb_2.png>]
+<imgs/bounding_box_3fabrec.png, id=2511, 1036.87375pt x 521.95pt>
+File: imgs/bounding_box_3fabrec.png Graphic file (type png)
+<use imgs/bounding_box_3fabrec.png>
+Package pdftex.def Info: imgs/bounding_box_3fabrec.png  used on input line 717.
+(pdftex.def)             Requested size: 218.51942pt x 109.99501pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 717--717
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 715.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 717.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[56
+
+ </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/bounding_box_3fabrec.png>]
+<imgs/EsquemaModelos.png, id=2561, 1225.57875pt x 482.80376pt>
+File: imgs/EsquemaModelos.png Graphic file (type png)
+<use imgs/EsquemaModelos.png>
+Package pdftex.def Info: imgs/EsquemaModelos.png  used on input line 728.
+(pdftex.def)             Requested size: 309.56827pt x 121.94566pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 728--728
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 728.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[57
+
+ </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/EsquemaModelos.png>]
+<imgs/5-fold-cv.png, id=2610, 939.51pt x 442.65375pt>
+File: imgs/5-fold-cv.png Graphic file (type png)
+<use imgs/5-fold-cv.png>
+Package pdftex.def Info: imgs/5-fold-cv.png  used on input line 736.
+(pdftex.def)             Requested size: 326.753pt x 153.95174pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 736--736
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 736.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2331,25 +2349,14 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [58
 
-]
-<imgs/boxplot_sumarize.png, id=2626, 441.65pt x 293.095pt>
-File: imgs/boxplot_sumarize.png Graphic file (type png)
-<use imgs/boxplot_sumarize.png>
-Package pdftex.def Info: imgs/boxplot_sumarize.png  used on input line 738.
-(pdftex.def)             Requested size: 163.8868pt x 108.76097pt.
-<imgs/tabla_landmarks.png, id=2627, 788.9475pt x 718.685pt>
-File: imgs/tabla_landmarks.png Graphic file (type png)
-<use imgs/tabla_landmarks.png>
-Package pdftex.def Info: imgs/tabla_landmarks.png  used on input line 738.
-(pdftex.def)             Requested size: 163.8868pt x 149.28336pt.
-
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 738--738
+ </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/5-fold-cv.png>]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 752--752
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 738.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 752.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2358,20 +2365,25 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [59
 
- </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/boxplot_sumarize.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/tabla_landmarks.png>]
-<imgs/image_basemodel.png, id=2676, 1031.855pt x 520.94624pt>
-File: imgs/image_basemodel.png Graphic file (type png)
-<use imgs/image_basemodel.png>
-Package pdftex.def Info: imgs/image_basemodel.png  used on input line 746.
-(pdftex.def)             Requested size: 326.753pt x 164.96538pt.
+]
+<imgs/boxplot_sumarize.png, id=2707, 441.65pt x 293.095pt>
+File: imgs/boxplot_sumarize.png Graphic file (type png)
+<use imgs/boxplot_sumarize.png>
+Package pdftex.def Info: imgs/boxplot_sumarize.png  used on input line 787.
+(pdftex.def)             Requested size: 163.8868pt x 108.76097pt.
+<imgs/tabla_landmarks.png, id=2708, 788.9475pt x 718.685pt>
+File: imgs/tabla_landmarks.png Graphic file (type png)
+<use imgs/tabla_landmarks.png>
+Package pdftex.def Info: imgs/tabla_landmarks.png  used on input line 787.
+(pdftex.def)             Requested size: 171.17226pt x 155.92891pt.
 
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 746--746
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 787--787
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 746.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 787.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2380,25 +2392,20 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [60
 
- </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/image_basemodel.png>]
-<imgs/curvas_FinalModel.png, id=2725, 462.528pt x 346.896pt>
-File: imgs/curvas_FinalModel.png Graphic file (type png)
-<use imgs/curvas_FinalModel.png>
-Package pdftex.def Info: imgs/curvas_FinalModel.png  used on input line 768.
-(pdftex.def)             Requested size: 163.8868pt x 122.91339pt.
-<imgs/image_finalmodel.png, id=2726, 1033.8625pt x 520.94624pt>
-File: imgs/image_finalmodel.png Graphic file (type png)
-<use imgs/image_finalmodel.png>
-Package pdftex.def Info: imgs/image_finalmodel.png  used on input line 768.
-(pdftex.def)             Requested size: 182.09767pt x 91.75517pt.
+ </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/boxplot_sumarize.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/tabla_landmarks.png>]
+<imgs/image_basemodel.png, id=2759, 1031.855pt x 520.94624pt>
+File: imgs/image_basemodel.png Graphic file (type png)
+<use imgs/image_basemodel.png>
+Package pdftex.def Info: imgs/image_basemodel.png  used on input line 795.
+(pdftex.def)             Requested size: 326.753pt x 164.96538pt.
 
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 768--768
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 795--795
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 768.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 795.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2407,20 +2414,25 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [61
 
- </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/curvas_FinalModel.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/image_finalmodel.png>]
-<imgs/tanle_comparativa1.png, id=2777, 996.72375pt x 127.47626pt>
-File: imgs/tanle_comparativa1.png Graphic file (type png)
-<use imgs/tanle_comparativa1.png>
-Package pdftex.def Info: imgs/tanle_comparativa1.png  used on input line 775.
-(pdftex.def)             Requested size: 165.02585pt x 21.10463pt.
+ </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/image_basemodel.png>]
+<imgs/curvas_FinalModel.png, id=2809, 462.528pt x 346.896pt>
+File: imgs/curvas_FinalModel.png Graphic file (type png)
+<use imgs/curvas_FinalModel.png>
+Package pdftex.def Info: imgs/curvas_FinalModel.png  used on input line 817.
+(pdftex.def)             Requested size: 163.8868pt x 122.91339pt.
+<imgs/image_finalmodel.png, id=2810, 1033.8625pt x 520.94624pt>
+File: imgs/image_finalmodel.png Graphic file (type png)
+<use imgs/image_finalmodel.png>
+Package pdftex.def Info: imgs/image_finalmodel.png  used on input line 817.
+(pdftex.def)             Requested size: 182.09767pt x 91.75517pt.
 
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 775--775
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 817--817
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 775.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 817.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2429,24 +2441,20 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [62
 
- </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/tanle_comparativa1.png>]
-<imgs/table_comparativa2.png, id=2825, 787.94376pt x 855.195pt>
-File: imgs/table_comparativa2.png Graphic file (type png)
-<use imgs/table_comparativa2.png>
-Package pdftex.def Info: imgs/table_comparativa2.png  used on input line 782.
-(pdftex.def)             Requested size: 181.52943pt x 197.01694pt.
+ </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/curvas_FinalModel.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/image_finalmodel.png>]
+<imgs/tanle_comparativa1.png, id=2862, 996.72375pt x 127.47626pt>
+File: imgs/tanle_comparativa1.png Graphic file (type png)
+<use imgs/tanle_comparativa1.png>
+Package pdftex.def Info: imgs/tanle_comparativa1.png  used on input line 824.
+(pdftex.def)             Requested size: 165.02585pt x 21.10463pt.
 
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 782--782
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 824--824
 []| []  
- []
-
-
-Overfull \vbox (8.33669pt too high) detected at line 782
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 782.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 824.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2455,24 +2463,24 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [63
 
- </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/table_comparativa2.png>]
-<imgs/compativa_cualitativa.png, id=2874, 560.0925pt x 651.43375pt>
-File: imgs/compativa_cualitativa.png Graphic file (type png)
-<use imgs/compativa_cualitativa.png>
-Package pdftex.def Info: imgs/compativa_cualitativa.png  used on input line 789.
-(pdftex.def)             Requested size: 165.02585pt x 191.94266pt.
+ </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/tanle_comparativa1.png>]
+<imgs/table_comparativa2.png, id=2911, 787.94376pt x 855.195pt>
+File: imgs/table_comparativa2.png Graphic file (type png)
+<use imgs/table_comparativa2.png>
+Package pdftex.def Info: imgs/table_comparativa2.png  used on input line 831.
+(pdftex.def)             Requested size: 181.52943pt x 197.01694pt.
 
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 789--789
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 831--831
 []| []  
  []
 
 
-Overfull \vbox (3.2624pt too high) detected at line 789
+Overfull \vbox (8.33669pt too high) detected at line 831
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 789.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 831.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2481,14 +2489,24 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [64
 
- </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/compativa_cualitativa.png>] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 791--791
+ </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/table_comparativa2.png>]
+<imgs/compativa_cualitativa.png, id=2961, 560.0925pt x 651.43375pt>
+File: imgs/compativa_cualitativa.png Graphic file (type png)
+<use imgs/compativa_cualitativa.png>
+Package pdftex.def Info: imgs/compativa_cualitativa.png  used on input line 838.
+(pdftex.def)             Requested size: 165.02585pt x 191.94266pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 838--838
 []| []  
+ []
+
+
+Overfull \vbox (3.2624pt too high) detected at line 838
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 791.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 838.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2497,14 +2515,14 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 
 [65
 
-]
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 801--801
+ </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/compativa_cualitativa.png>] (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc)
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 840--840
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 801.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 840.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2514,13 +2532,13 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [66
 
 ]
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 815--815
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 850--850
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 815.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 850.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2530,18 +2548,13 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [67
 
 ]
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <9> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 822.
-
-
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 822--822
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 864--864
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 822.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 864.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2551,13 +2564,18 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [68
 
 ]
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 822--822
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <9> not available
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 871.
+
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 871--871
 []| []  
  []
 
 File: imgs/logo-ugr.png Graphic file (type png)
 <use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 822.
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 871.
 (pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
 
 Overfull \hbox (14.22638pt too wide) has occurred while \output is active
@@ -2565,6 +2583,22 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
  []
 
 [69
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 871--871
+[]| []  
+ []
+
+File: imgs/logo-ugr.png Graphic file (type png)
+<use imgs/logo-ugr.png>
+Package pdftex.def Info: imgs/logo-ugr.png  used on input line 871.
+(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
+
+Overfull \hbox (14.22638pt too wide) has occurred while \output is active
+[][][][]
+ []
+
+[70
 
 
 ]
@@ -2577,11 +2611,11 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 \tf@snm=\write10
 \openout10 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 824.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 824.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 873.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 873.
  (/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 824.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 824.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 873.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 873.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: 5662D946524C2D038DD4F8496A16FE05;738.
 
@@ -2593,18 +2627,18 @@ Package logreq Info: Writing requests to 'presentation.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35176 strings out of 481239
- 679249 string characters out of 5920378
- 1283331 words of memory out of 5000000
- 49554 multiletter control sequences out of 15000+600000
- 570403 words of font info for 160 fonts, out of 8000000 for 9000
+ 35205 strings out of 481239
+ 679751 string characters out of 5920378
+ 1284410 words of memory out of 5000000
+ 49577 multiletter control sequences out of 15000+600000
+ 570697 words of font info for 161 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,22n,82p,937b,2257s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.pdf" (69 pages, 15363873 bytes).
+Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.pdf" (70 pages, 15404798 bytes).
 PDF statistics:
- 3300 PDF objects out of 3580 (max. 8388607)
- 3097 compressed objects within 31 object streams
- 162 named destinations out of 1000 (max. 500000)
- 313 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3395 PDF objects out of 3580 (max. 8388607)
+ 3184 compressed objects within 32 object streams
+ 165 named destinations out of 1000 (max. 500000)
+ 328 words of extra memory for PDF output out of 10000 (max. 10000000)
 

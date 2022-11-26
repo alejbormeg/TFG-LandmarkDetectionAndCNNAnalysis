@@ -19,6 +19,39 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{browatzki20203fabrec}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=7d0f3f9b4331941a1445cd8e998191dd}{%
+           family={Browatzki},
+           familyi={B\bibinitperiod},
+           given={Bjorn},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=134ac679a1681304bfc0c010f8975b11}{%
+           family={Wallraven},
+           familyi={W\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e56372e748126c5148848378e4ca68f3}
+      \strng{fullhash}{e56372e748126c5148848378e4ca68f3}
+      \strng{bibnamehash}{e56372e748126c5148848378e4ca68f3}
+      \strng{authorbibnamehash}{e56372e748126c5148848378e4ca68f3}
+      \strng{authornamehash}{e56372e748126c5148848378e4ca68f3}
+      \strng{authorfullhash}{e56372e748126c5148848378e4ca68f3}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}
+      \field{title}{3fabrec: Fast few-shot face alignment by reconstruction}
+      \field{year}{2020}
+      \field{pages}{6110\bibrangedash 6120}
+      \range{pages}{11}
+    \endentry
     \entry{damas2020handbook}{book}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=fffee0e18988c4d1c0bdbdc5c894fa65}{%

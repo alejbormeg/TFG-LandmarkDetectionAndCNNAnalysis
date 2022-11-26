@@ -642,10 +642,11 @@
 
 \section{Experimentos}
 
-\begin{frame}{3FabRec}
+\begin{frame}[t]{3FabRec}
   \begin{figure}
     \centering
-    \includegraphics[width=0.99\textwidth]{imgs/3fabrec_arquitectura.png}
+    \includegraphics[width=0.85\textwidth]{imgs/3fabrec_arquitectura.png}
+    \caption{Imagen extraída de \cite{browatzki20203fabrec}.}
   \end{figure}
 \end{frame}
 
@@ -678,61 +679,109 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Preprocesamiento}
-  \begin{itemize}
-    \item Realizamos detección + \textit{cropping} de caras en las imágenes del dataset.
-    \item Empleamos red auxiliar \textcolor{tudCyan}{Facenet}.
-  \end{itemize}
+\begin{frame}[t]{Preprocesamiento}
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.65\textwidth}
+      \begin{itemize}
+        \item Realizamos \textbf{detección + \textit{cropping}} de caras en las imágenes del dataset.
+        \item Empleamos red auxiliar \textbf{Facenet}.
+        \item \textbf{Problema}: Algunos landmarks quedan fuera del \textit{bounding box}. Se necesita un \textbf{reajuste}.
+      \end{itemize} 
+      % square filling the column
+      % place an image
+      % horizontal position = 73%
+      % vertical position = 45%
+      % width = 40% of page
+      \absimage{.3, .7}{.45}{imgs/bb_1.png}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      % square filling the column
+      % place an image
+      % horizontal position = 73%
+      % vertical position = 45%
+      % width = 40% of page
+      \absimage{.75, .49}{.25}{imgs/bb_2.png}
+    \end{column}
+  \end{columns}
 \end{frame}
 
-\begin{frame}{Preprocesamiento}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.55\textwidth]{imgs/imagenes_ejemplo_bb.png}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Reajuste 3FabRec}
+\begin{frame}[t]{Reajuste 3FabRec}
   \begin{itemize}
-      \item Bounding box cuadrado de lado $\max(h,w)$.
-      \item Ampliación uniforme por el factor $\frac{crop_size+margin}{crop_size}$.
-      \item Reescalado a tamaño $256 \times 256$.
+      \item Bounding box cuadrado de lado \textbf{$\max(h,w)$}.
+      \item Ampliación uniforme por el factor \textbf{$\frac{crop\_size+margin}{crop\_size}$}.
+      \item Reescalado a \textbf{tamaño $256 \times 256$}.
       \item \textbf{Problema}: Vertex suele quedar fuera.
   \end{itemize}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.6\textwidth]{imgs/bounding_box_3fabrec.png}
-  \end{figure}
+
+  \absimage{0.4, 0.7}{0.6}{imgs/bounding_box_3fabrec.png}
 \end{frame}
 
-\begin{frame}{Experimentos}
+\begin{frame}[t]{Experimentos}
   \begin{itemize}
     \item \textbf{Modelo Base}: entrenamiento ITLs.
     \item \textbf{Ajuste fino del Encoder}: entrenamiento ITLs + Encoder.
     \item \textbf{Ajuste fino del Decoder}: entrenamiento ITLs + Decoder.
     \item \textbf{Data Augmentation}: entrenamiento ITLs con técnicas de Data Augmentation.
   \end{itemize}
+
+  \absimage{0.5, 0.7}{0.85}{imgs/EsquemaModelos.png}
 \end{frame}
 
-\begin{frame}{Análisis Cuantitativo}
+\begin{frame}[t]{Validación de los modelos}
+  \textbf{Cross-Validation 5-fold}.
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/5-fold-cv.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Métricas empleadas}
+\begin{columns}[onlytextwidth]
+  \begin{column}{.5\textwidth}
+    \textbf{Métricas entrenamiento}
+    \begin{itemize}
+      \item NME medio.
+      \item Error de reconstrucción medio.
+    \end{itemize}
+  \end{column}
+  \begin{column}{.5\textwidth}
+    \textbf{Métricas entrenamiento}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}[t]{Análisis Cuantitativo}
   \begin{columns}[onlytextwidth]
     \begin{column}{.5\textwidth}
-      \centering \textcolor{tudCyan}{\textbf{Análisis a nivel global}}
       % square filling the column
       % place an image
       % horizontal position = 73%
       % vertical position = 45%
       % width = 40% of page
-      \absimage{.25, .50}{.45}{imgs/boxplot_sumarize.png}
+      Para cada imagen: 
+      \begin{itemize}
+        \item NME medio.
+        \item Error de reconstrucción medio.
+      \end{itemize}
+
+      Se concatenan las salidas de \textbf{cross validation}:
+      \absimage{.25, .67}{.45}{imgs/boxplot_sumarize.png}
     \end{column}
     \begin{column}{.5\textwidth}
-      \centering \textcolor{tudCyan}{\textbf{Análisis a nivel de landmark}}
+      Media por landmark de las predicciones de \textbf{cross validation}:
       % square filling the column
       % place an image
       % horizontal position = 73%
       % vertical position = 45%
       % width = 40% of page
-      \absimage{.75, .50}{.45}{imgs/tabla_landmarks.png}
+      \begin{itemize}
+        \item a
+        \item a
+        \item a
+        \item a
+      \end{itemize}
+      \absimage{.74, .59}{.47}{imgs/tabla_landmarks.png}
     \end{column}
   \end{columns}
 \end{frame}
