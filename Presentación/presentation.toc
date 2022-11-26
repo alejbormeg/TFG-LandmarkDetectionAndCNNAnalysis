@@ -6,5 +6,5 @@
 \beamer@sectionintoc {4}{Definición del Problema}{33}{2}{4}
 \beamer@sectionintoc {5}{Fundamentos Teóricos}{38}{2}{5}
 \beamer@sectionintoc {6}{Estado del arte}{48}{2}{6}
-\beamer@sectionintoc {7}{Experimentos}{53}{2}{7}
-\beamer@sectionintoc {8}{Conclusiones}{67}{2}{8}
+\beamer@sectionintoc {7}{Experimentos}{51}{2}{7}
+\beamer@sectionintoc {8}{Conclusiones}{65}{2}{8}

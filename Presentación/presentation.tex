@@ -446,42 +446,58 @@
 
 \begin{frame}{Landmarks faciales}
   \begin{itemize}
-    \item Puntos de referencia marcados sobre la cara.
-    \item No guardan relación con la morfología del cráneo.
-    \item Se emplean para reconocimiento facial.
+    \item Puntos de referencia \textbf{marcados sobre la cara}.
+    \item \textbf{No guardan relación} con la morfología del cráneo.
+    \item Se emplean para \textbf{reconocimiento facial}.
   \end{itemize}
 
   \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{imgs/aflw.png}
+    \caption{Landmarks marcados en AFLW \cite{AFLW}}
   \end{figure}
 
 \end{frame}
 
 \begin{frame}{Landmarks cefalométricos}
   \begin{itemize}
-    \item Puntos de referencia que definen la morfología del cráneo.
-    \item Correspondencia directa cráneo-cara.
-    \item Se emplean en Antropología forense.
+    \item Puntos de referencia que \textbf{definen la morfología del cráneo}.
+    \item \textbf{Correspondencia} directa \textbf{cráneo-cara}.
+    \item Se emplean en \textbf{Antropología forense}.
   \end{itemize}
   \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{imgs/marcado_landmarks.png}
+    \includegraphics[width=0.45\textwidth]{imgs/marcado_landmarks.png}
+    \caption{Imagen extraída de \cite{damas2020handbook}}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Base de datos}
-  \begin{itemize}
-    \item 167 imágenes \textit{in-the-wild}.
-    \item Imágenes a color y escala de grises.
-    \item 30 landmarks a predecir.
-  \end{itemize}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{imgs/imagenes_ejemplo_dataset.png}
-  \end{figure}
-  \medskip
+\begin{frame}[t]{Base de datos}
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.5\textwidth}
+      \begin{itemize}
+        \item 167 imágenes \textbf{\textit{in-the-wild}}.
+        \item Imágenes a \textbf{color y escala de grises}.
+        \item \textbf{30 landmarks} a predecir.
+      \end{itemize}  
+      % square filling the column
+      % place an image
+      % horizontal position = 73%
+      % vertical position = 45%
+      % width = 40% of page
+      \absimage{.3, .7}{.45}{imgs/EjemplosBD.png}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      % square filling the column
+      % place an image
+      % horizontal position = 73%
+      % vertical position = 45%
+      % width = 40% of page
+      \absimage{.75, .49}{.19}{imgs/vertical.png}
+    \end{column}
+  \end{columns}
 \end{frame}
+
 
 \begin{frame}{Objetivos}
   \begin{enumerate}
@@ -555,51 +571,69 @@
   \begin{figure}
     \centering
     \includegraphics[width=0.99\textwidth]{imgs/GAN.png}
-    \caption{Imagen extraída de \cite{autoencoders2017}.}
+    \caption{Imagen extraída de \cite{GAN}.}
   \end{figure}
 \end{frame}
 
 \begin{frame}{Variational Autoencoder (VAE)}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.99\textwidth]{imgs/Autoencoder.png}
-    \caption{Imagen extraída de \cite{autoencoders2017}.}
-  \end{figure}
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.5\textwidth}
+      \absimage{.25, .50}{.5}{imgs/VAE_1.png}
+      Imágenes extraída de \cite{VAE}.
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \absimage{.75, .53}{.5}{imgs/VAE_2.png}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Adversarial Autoencoder (AAE)}
   \begin{figure}
     \centering
-    \includegraphics[width=0.99\textwidth]{imgs/AAE.png}
-    \caption{Imagen extraída de \cite{autoencoders2017}.}
+    \includegraphics[width=0.6\textwidth]{imgs/AAE.png}
+    \caption{Imagen extraída de \cite{AAE}.}
   \end{figure}
 \end{frame}
+
 \section{Estado del arte}
 
-\begin{frame}{Búsqueda Scopus}
+\begin{frame}[t]{Búsqueda Scopus}
+
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.5\textwidth}
+      \textbf{Landmarks faciales}:
+      \begin{itemize}
+        \item Gran número de artículos.
+        \item Deep learning.
+      \end{itemize} 
+      % square filling the column
+      % place an image
+      % horizontal position = 73%
+      % vertical position = 45%
+      % width = 40% of page
+      \absimage{.25, .60}{.45}{imgs/Scopus_1.png}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \textbf{Landmarks cefalométricos}:
+      \begin{itemize}
+        \item Escasa literatura. \item Gran variedad de enfoques.
+      \end{itemize}
+      % square filling the column
+      % place an image
+      % horizontal position = 73%
+      % vertical position = 45%
+      % width = 40% of page
+      \absimage{.75, .60}{.45}{imgs/Scopus_2.png}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Taxonomía}
   \begin{itemize}
-    \item \textbf{Landmarks faciales}: Gran número y variedad de artículos usando en su mayoría Deep learning.
-    \item \textbf{Landmarks cefalométricos}: Escasa literatura y gran variedad de enfoques.
+    \item Encontramos 13 artículos en total.
+    \item Sólo 4 relacionados con el marcado de landmarks cefalométricos.
+    \item Emplean diversas técnicas de \textbf{visión por computador} y \textbf{aprendizaje automático}.
   \end{itemize}
-\end{frame}
-
-\begin{frame}{Búsqueda Scopus}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{imgs/Scopus_1.png}
-    \caption{Búsqueda sobre reconocimiento de landmarks faciales.}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Búsqueda Scopus}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{imgs/Scopus_2.png}
-    \caption{Búsqueda sobre reconocimiento de landmarks cefalométricos.}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Taxonomía}
   \begin{figure}
     \centering
     \includegraphics[width=0.99\textwidth]{imgs/taxonomia.png}

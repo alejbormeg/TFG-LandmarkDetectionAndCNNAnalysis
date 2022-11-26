@@ -19,6 +19,45 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{damas2020handbook}{book}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fffee0e18988c4d1c0bdbdc5c894fa65}{%
+           family={Damas},
+           familyi={D\bibinitperiod},
+           given={Sergio},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cdd6ca994d3f7970ef0f610fca38ffe6}{%
+           family={Cord{ó}n},
+           familyi={C\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=576c58aa3c03e1d81af4223f9b15eba9}{%
+           family={Ib{á}{ñ}ez},
+           familyi={I\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Nature}%
+      }
+      \strng{namehash}{eadc586cbcb3c9877bcfab0a8853d9d5}
+      \strng{fullhash}{eadc586cbcb3c9877bcfab0a8853d9d5}
+      \strng{bibnamehash}{eadc586cbcb3c9877bcfab0a8853d9d5}
+      \strng{authorbibnamehash}{eadc586cbcb3c9877bcfab0a8853d9d5}
+      \strng{authornamehash}{eadc586cbcb3c9877bcfab0a8853d9d5}
+      \strng{authorfullhash}{eadc586cbcb3c9877bcfab0a8853d9d5}
+      \field{sortinit}{D}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Handbook on craniofacial superimposition: The MEPROCS project}
+      \field{year}{2020}
+    \endentry
     \entry{autoencoders2017}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=e98656a5ee5e80bda67096d53bf76a74}{%
@@ -65,6 +104,133 @@
       \field{howpublished}{\url = {http://cs231n.stanford.edu/2017/syllabus.html},}
       \field{title}{cs231n}
       \field{year}{2017}
+    \endentry
+    \entry{AFLW}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=beef50ae52d54e29ec7346b40b21905c}{%
+           family={Köstinger},
+           familyi={K\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=57f2abc62a9b069a3f1b70bb60d0e7fe}{%
+           family={Wohlhart},
+           familyi={W\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=06fd5650e5478dc8a49639533c90579f}{%
+           family={Roth},
+           familyi={R\bibinitperiod},
+           given={Peter\bibnamedelima M.},
+           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a3e36d7b360de7388d78599c2446ac34}{%
+           family={Bischof},
+           familyi={B\bibinitperiod},
+           given={Horst},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{66c37437ae8d290f7b8ecfdd82e184b7}
+      \strng{fullhash}{66c37437ae8d290f7b8ecfdd82e184b7}
+      \strng{bibnamehash}{66c37437ae8d290f7b8ecfdd82e184b7}
+      \strng{authorbibnamehash}{66c37437ae8d290f7b8ecfdd82e184b7}
+      \strng{authornamehash}{66c37437ae8d290f7b8ecfdd82e184b7}
+      \strng{authorfullhash}{66c37437ae8d290f7b8ecfdd82e184b7}
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2011 IEEE International Conference on Computer Vision Workshops (ICCV Workshops)}
+      \field{title}{Annotated Facial Landmarks in the Wild: A large-scale, real-world database for facial landmark localization}
+      \field{year}{2011}
+      \field{pages}{2144\bibrangedash 2151}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/ICCVW.2011.6130513
+      \endverb
+    \endentry
+    \entry{AAE}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d2b05ffad6acf98358fcce2479bf46cb}{%
+           family={Rashad},
+           familyi={R\bibinitperiod},
+           given={Fathy},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d2b05ffad6acf98358fcce2479bf46cb}
+      \strng{fullhash}{d2b05ffad6acf98358fcce2479bf46cb}
+      \strng{bibnamehash}{d2b05ffad6acf98358fcce2479bf46cb}
+      \strng{authorbibnamehash}{d2b05ffad6acf98358fcce2479bf46cb}
+      \strng{authornamehash}{d2b05ffad6acf98358fcce2479bf46cb}
+      \strng{authorfullhash}{d2b05ffad6acf98358fcce2479bf46cb}
+      \field{sortinit}{R}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url={https://medium.com/vitrox-publication/adversarial-auto-encoder-aae-a3fc86f71758},}
+      \field{title}{Adversarial Auto Encoder (AAE)}
+      \field{year}{2020}
+    \endentry
+    \entry{GAN}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6aaaea242a73e6eea97578d681468442}{%
+           family={Rocca},
+           familyi={R\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6aaaea242a73e6eea97578d681468442}
+      \strng{fullhash}{6aaaea242a73e6eea97578d681468442}
+      \strng{bibnamehash}{6aaaea242a73e6eea97578d681468442}
+      \strng{authorbibnamehash}{6aaaea242a73e6eea97578d681468442}
+      \strng{authornamehash}{6aaaea242a73e6eea97578d681468442}
+      \strng{authorfullhash}{6aaaea242a73e6eea97578d681468442}
+      \field{extraname}{1}
+      \field{sortinit}{R}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url = {https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-cd6e4651a29},}
+      \field{title}{Understanding Generative Adversarial Networks (GANs)}
+      \field{year}{2019}
+    \endentry
+    \entry{VAE}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6aaaea242a73e6eea97578d681468442}{%
+           family={Rocca},
+           familyi={R\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6aaaea242a73e6eea97578d681468442}
+      \strng{fullhash}{6aaaea242a73e6eea97578d681468442}
+      \strng{bibnamehash}{6aaaea242a73e6eea97578d681468442}
+      \strng{authorbibnamehash}{6aaaea242a73e6eea97578d681468442}
+      \strng{authornamehash}{6aaaea242a73e6eea97578d681468442}
+      \strng{authorfullhash}{6aaaea242a73e6eea97578d681468442}
+      \field{extraname}{2}
+      \field{sortinit}{R}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url = {https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73},}
+      \field{title}{Understanding Variational Autoencoders (VAEs)}
+      \field{year}{2019}
     \endentry
   \enddatalist
 \endrefsection
