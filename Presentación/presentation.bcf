@@ -2183,10 +2183,10 @@
     <bcf:datasource type="file" datatype="bibtex">bibfile.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">AFLW</bcf:citekey>
-    <bcf:citekey order="2">AFLW</bcf:citekey>
-    <bcf:citekey order="3">damas2020handbook</bcf:citekey>
-    <bcf:citekey order="4">damas2020handbook</bcf:citekey>
+    <bcf:citekey order="1">damas2020handbook</bcf:citekey>
+    <bcf:citekey order="2">damas2020handbook</bcf:citekey>
+    <bcf:citekey order="3">AFLW</bcf:citekey>
+    <bcf:citekey order="4">AFLW</bcf:citekey>
     <bcf:citekey order="5">StanfordCourse</bcf:citekey>
     <bcf:citekey order="6">StanfordCourse</bcf:citekey>
     <bcf:citekey order="7">StanfordCourse</bcf:citekey>
@@ -2194,15 +2194,10 @@
     <bcf:citekey order="9">StanfordCourse</bcf:citekey>
     <bcf:citekey order="10">StanfordCourse</bcf:citekey>
     <bcf:citekey order="11">StanfordCourse</bcf:citekey>
-    <bcf:citekey order="12">autoencoders2017</bcf:citekey>
-    <bcf:citekey order="13">autoencoders2017</bcf:citekey>
-    <bcf:citekey order="14">GAN</bcf:citekey>
-    <bcf:citekey order="15">GAN</bcf:citekey>
-    <bcf:citekey order="16">VAE</bcf:citekey>
-    <bcf:citekey order="17">AAE</bcf:citekey>
-    <bcf:citekey order="18">AAE</bcf:citekey>
-    <bcf:citekey order="19">browatzki20203fabrec</bcf:citekey>
-    <bcf:citekey order="20">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="12">AAE</bcf:citekey>
+    <bcf:citekey order="13">AAE</bcf:citekey>
+    <bcf:citekey order="14">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="15">browatzki20203fabrec</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

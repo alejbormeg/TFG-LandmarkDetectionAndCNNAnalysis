@@ -55,7 +55,7 @@
 \title[]{Localización de landmarks cefalométricos por medio de técnicas de few-shot learning y análisis de redes convolucionales}
 \institute[]{\textbf{Tutores}: Pablo Mesejo Santiago, Javier Merí de la Maza \and Universidad de Granada, España}
 \author{Alejandro Borrego Megías}
-\date{\today}
+\date{27 de Noviembre de 2022}
 
 
 
@@ -78,12 +78,12 @@
 \end{frame}
 
 % DIAPOSITIVA ANTES DE CADA SECCION
-\AtBeginSection[ ]
-{
-\begin{frame}{Índice Primera Parte}
-    \tableofcontents[currentsection]
-\end{frame}
-}
+% \AtBeginSection[ ]
+% {
+% \begin{frame}{Índice Primera Parte}
+%     \tableofcontents[currentsection]
+% \end{frame}
+% }
 
 %INTRODUCCION
 \section{Introducción}
@@ -94,7 +94,7 @@
       la modelización matemática y la justificación teórica de estos resultados.
     \end{itemize}
 
-    Destacamos: 
+    propiedades: 
 
     \begin{figure}
       \centering
@@ -115,14 +115,14 @@
     \end{block}
 
     \begin{block}{Invarianza por traslaciones de un operador $\Phi$}
-      Decimos que un operador $\Phi$ sobre  $L^2(\mathbb{R}^d)$, es invariante por traslaciones si $\Phi(L_cf(x))=\Phi(f)$ para todo $f \in L^2(\mathbb{R}^d)$ y para todo $c \in \mathbb{R}^d$.
+      Decimos que un operador $\Phi$ sobre  $L^2(\mathbb{R}^d)$, es invariante por traslaciones si $\Phi(L_cf)=\Phi(f)$ para todo $f \in L^2(\mathbb{R}^d)$ y para todo $c \in \mathbb{R}^d$.
    \end{block}
   \end{frame}
 
-  \begin{frame}{Invarianza frente a pequeñas deformaciones}
+  \begin{frame}[t]{Invarianza frente a pequeñas deformaciones}
     \textcolor{tudCyan}{\textit{Deformación $\implies$ Difeomorfismo}}
 
-    \textcolor{tudCyan}{\textit{Deformaciones pequeñas $\implies$ Difeomorfismo cercanos a traslaciones}}  
+    \textcolor{tudCyan}{\textit{Deformaciones pequeñas $\implies$ Difeomorfismos cercanos a traslaciones}}  
 
     \begin{block}{Definición}
       Denotemos $L_{\tau} f(x)=f(x-\tau(x))$ como la acción del difeomorfismo $1-\tau$ sobre $f$.
@@ -130,52 +130,28 @@
       Donde $\tau$ es el campo de desplazamiento. 
     \end{block}
 
+  \end{frame}
+
+  \begin{frame}{Invarianza frente a pequeñas deformaciones}
     \textcolor{tudCyan}{\textbf{\centering Invarianza frente a pequeñas deformaciones \\ \centering $\Downarrow$ \\ \centering Lipschitz-continuidad frente a la acción de difeomorfismos}}  
-  \end{frame}
 
-  \begin{frame}{Invarianza frente a pequeñas deformaciones}
-
-    \begin{block}{Condición de Lipschitz clásica}
-      Sea $f: M \rightarrow N$ una función entre dos espacios métricos $M$ y $N$ con sus respectivas distancias $d_M$ y $d_N$. Se dice que $f$ satisface la condición de Lipschitz si $\exists C>0$ tal que: 
-      $$d_N(f(x),f(y))\leq C d_M(x,y), \; \; \forall x,y \in M$$ 
+    \begin{block}{Invarianza frente a pequeñas deformaciones de un operador $\Phi$}
+      \begin{equation*}
+        \| \Phi(f)-\Phi(L_{\tau}f)\|\leq C\|f\|(\|\nabla\tau\|_{\infty} + \|H \tau\|_\infty).
+      \end{equation*}
+      Con $f\in L^2(\mathbb{R}^d)$ y $C>0$.
     \end{block}
-
-    En nuestro caso: 
-
-    \begin{equation}
-      \|\Phi(f) - \Phi(L_\tau f) \| \leq \|f\| · d(1, 1-\tau)
-    \end{equation}
-
-    Necesitamos una definición para la distancia entre dichos difeomorfismos.
   \end{frame}
 
 
-  \begin{frame}{Invarianza frente a pequeñas deformaciones}
-    \begin{block}{Distancia entre $1-\tau$ y $1$}
-      Se define una distancia entre $1-\tau$ y $1$ en cualquier subconjunto compacto $\Omega$ de $\mathbb{R}^d$ como 
-      \begin{equation} \label{eq::distancia}
-        d_\Omega(1,1-\tau) = \sup_{x \in \Omega} |\tau (x)| + \sup_{x \in \Omega} |\nabla \tau (x)| + \sup_{x \in \Omega}|H \tau (x)|
-      \end{equation}
-    \end{block}
-
-    La invarianza frente a pequeñas deformaciones de un operador $\Phi$ invariante por traslaciones viene determinada por: 
-
-    \begin{equation}
-      \| \Phi(f)-\Phi(L_{\tau}f)\|\leq C\|f\|(\|\nabla\tau\|_{\infty} + \|H \tau\|_\infty).
-    \end{equation}
-
-    Con $f\in L^2(\mathbb{R}^d)$ y $C>0$.
-  \end{frame}
-
-  \begin{frame}{Próximos pasos}
-    \centering \textcolor{tudCyan}{\textbf{¿Qué operador $\Phi$ tomar que cumpla todo lo anterior?}}
+  \begin{frame}{Objetivo}
+    \centering \LARGE \textcolor{tudCyan}{\textbf{Encontrar un operador $\Phi$ que cumpla lo anterior y modelice una red convolucional}}
   \end{frame}
 
 \section{Modelización}
 
 \begin{frame}{Módulo de la transformada de Fourier}
-  \textcolor{tudCyan}{Vamos a probar con el módulo de la transformada de Fourier:}
-  $$\Phi(f)=|\widehat{f}| \;\; f\in L^2(\mathbb{R}^2)$$.
+  $$\Phi(f)=|\widehat{f}| \;\; f\in L^2(\mathbb{R}^2)$$
 
   Con este operador observamos que: 
   \begin{itemize}
@@ -187,32 +163,37 @@
 \end{frame}
 
 \begin{frame}{Alternativa: Ondeletas}
-  
-  \begin{block}{Ondeleta Madre}
+  Usaremos ondeletas madre del tipo: 
+
+  \begin{equation*}
+    \psi(x)=e^{i\eta x} \Theta(x)
+  \end{equation*}
+  donde $\Theta(x)$ es una función real con soporte en una bola de baja frecuencia en $x=0$, cuyo radio es del orden de $\pi$.
+
+  \begin{block}{Escalado y rotación de ondeleta madre}
     Una ondeleta madre escalada por un factor $2^{j}$ con $j \in \mathbb{Z}$ y rotada por $r \in G$ siendo $G$ el grupo finito de rotaciones, se escribe: 
     $$\psi_{2^j r}(x)=2^{j} \psi(2^j r^{-1} x).$$
   \end{block}
-
-  Usaremos ondeletas madre del tipo: 
-
-  \begin{equation}
-    \psi(x)=e^{i\eta x} \Theta(x)
-  \end{equation}
-  donde $\Theta(x)$ es una función real con soporte en una bola de baja frecuencia en $x=0$, cuyo radio es del orden de $\pi$.
 \end{frame}
 
 \begin{frame}{La transformada de Littlewood-Paley}
   Con esta generamos la siguiente base ortonormal de ondeletas: 
-  \begin{equation}
+  \begin{equation*}
     \lbrace \psi_\lambda (x) \rbrace_{\lambda= 2^j r \in 2^\mathbb{Z} \times G}
-  \end{equation}
+  \end{equation*}
 
-  \begin{block}{transformada de Littlewood-Paley}
-    \begin{equation}
+  \begin{block}{Transformada de Littlewood-Paley}
+    \begin{equation*}
       \forall x \in  \mathbb{R}^d \;\; W[\lambda]f(x)= f \ast \psi_\lambda(x)=\int f(u)\psi_\lambda(x-u) du .
-    \end{equation}
+    \end{equation*}
     donde $\lambda \in 2^j r \in 2^\mathbb{Z} \times G$
   \end{block}
+
+  El operador $W[\lambda]f=f\ast \psi_\lambda$ es Lipschitz-continuo bajo la acción de difeomorfismos para $f \in L^2(\mathbb{R}^d)$ fijo. 
+
+  \medskip
+
+  \textcolor{tudCyan}{¿Pero invariante a traslaciones?}
 \end{frame}
 
 \begin{frame}{Problema: La escala}
@@ -226,88 +207,31 @@
 \begin{frame}{Problema: La escala}
   Surge la necesidad de promediar las frecuencias no cubiertas por el factor de escala fijado:
 
-  \begin{equation}
+  \begin{equation*}
     A_Jf=f \ast \phi_ {2^J} \; \; \text{con} \quad \; \phi_ {2^J}(x)=2^{-J} \phi(2^{-J}x).
-  \end{equation}
+  \end{equation*}
 
   Así, los coeficientes obtenidos, fijada una escala son:
 
   $$W_J f=\lbrace A_Jf,(W[\lambda]f)_{\lambda \in \Lambda_J} \rbrace$$ 
 
   con $\Lambda_J=\lbrace \lambda=2^jr:\;r\in G^{+}, \; 2^j>2^{-J}\rbrace$.
+
+  \begin{itemize}
+    \item Bajo hipótesis no muy restrictivas sobre las ondeletas y $\phi$ los coeficientes cumplen $\| W_J \|=1$.
+  \end{itemize}
 \end{frame}
 
-\begin{frame}{Coeficientes unitarios}
-  \begin{alertblock}{Condición $W_J$ unitario}
-    Para cualquier $J \in \mathbb{Z}$ o $J=\infty$, $W_J$ es unitario en el espacio de funciones reales o complejas de $L^2(\mathbb{R}^d)$ si y solo si para casi todo $\omega \in \mathbb{R}^d$ se cumple: 
-    \begin{equation}\label{eq::1.2}
-        \beta \sum_{j=-\infty}^\infty \sum_{r \in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2=1 \; \; y
-        \;\;|\widehat{\phi}(\omega)|^2= \beta \sum_{j=-\infty}^0 \sum_{r\in G} |\widehat{\psi}(2^{-j}r^{-1}\omega)|^2,
-    \end{equation}
-    donde $\beta=1$ para funciones complejas y $\beta=\frac{1}{2}$ para funciones reales.
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}{Convenios}
+\begin{frame}{Restricciones}
   Tranajaremos con funciones reales.
   \begin{itemize}
     \item $W_J$ es unitario. 
-    \item $\widehat{\phi}(\omega)$ es real y simétrica, por lo que $\phi$ también lo será y $\phi(rx)=\phi(x) \;\; \forall r \in G$. 
+    \item $\widehat{\phi}(\omega)$ es real y simétrica, por lo que $\phi$ también lo será. 
     \item Las derivadas de $\phi$ pertenecen a $L^1(\mathbb{R}^d)$.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Operador de dispersión}
-  \begin{alertblock}{Operador de dispersión}
-    Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
-    \begin{equation}
-      \overline{S}f(p)=\int_{\mathbb{R}^d}U[p]f(x)dx 
-    \end{equation}
-  \end{alertblock}
-
-  Siendo $\overline{S}f(p)$ invariante a traslaciones para un $f$ fijo.
-\end{frame}
-
-
-\begin{frame}{Operador de dispersión}
-  \begin{alertblock}{Operador de dispersión}
-    Sea \textcolor{tudGreen}{$\mathcal{P}_\infty$} el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino \textcolor{tudGreen}{$p \in \mathcal{P}_\infty$} como:
-    \begin{equation}
-      \overline{S}f(\textcolor{tudGreen}{p})=\int_{\mathbb{R}^d}U[\textcolor{tudGreen}{p}]f(x)dx 
-    \end{equation}
-  \end{alertblock}
-  
-  Siendo $\overline{S}f(p)$ invariante a traslaciones para un $f$ fijo.
-\end{frame}
-
-\begin{frame}{Caminos de frecuencias}
-  \begin{block}{Ondeleta Madre}
-    Una secuencia ordenada $p=(\lambda_1,\lambda_2, \ldots , \lambda_m)$ con $\lambda_k \in \Lambda_\infty=2^{\mathbb{Z}} \times G^{+} $ se denomina \textbf{camino}. Al camino vacío se le denota por $p=\emptyset$. 
-  \end{block}
-  
-  Usaremos caminos de frecuencias descendentes $p=(\lambda_k)_{k\leq m}$ en el cual $|\lambda_{k+1}| \leq |\lambda_k|$. Pues el propagador $U[\lambda]$ progresivamente lleva la energía de la señal a frecuencias cada vez menores.
-\end{frame}
-
-\begin{frame}{Operador de dispersión}
-  \begin{alertblock}{Operador de dispersión}
-    Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
-    \begin{equation}
-      \overline{S}f(p)=\textcolor{tudCyan}{\int_{\mathbb{R}^d}U[p]f(x)dx} 
-    \end{equation}
-  \end{alertblock}
-
-  Siendo $\overline{S}f(p)$ invariante a traslaciones para un $f$ fijo.
-\end{frame}
-
-
 \begin{frame}{Propagador de dispersión}
-  El operador $W[\lambda]f=f\ast \psi_\lambda$ es Lipschitz-continuo bajo la acción de difeomorfismos para $f \in L^2(\mathbb{R}^d)$ fijo. 
-
-  \medskip
-
-  \textcolor{tudCyan}{¿Pero invariante a traslaciones?}
-
-  \medskip
 
   \begin{alertblock}{Condición para coeficientes I.T.}
     Si $U[\lambda]$ es un operador definido en $L^2(\mathbb{R}^d)$, no necesariamente lineal pero que conmuta con traslaciones, entonces $\int_{\mathbb{R}^d} U[\lambda]f(x)dx$ es invariante a traslaciones si es finito.
@@ -329,10 +253,16 @@
   \end{block}
 \end{frame}
 
+
 \begin{frame}{Propagador de dispersión}
+
+  \begin{block}{Camino}
+    Una secuencia ordenada $p=(\lambda_1,\lambda_2, \ldots , \lambda_m)$ con $\lambda_k \in \Lambda_\infty=2^{\mathbb{Z}} \times G^{+} $ se denomina \textbf{camino}. Al camino vacío se le denota por $p=\emptyset$. 
+  \end{block}
+
   Así, sobre un camino $p$ definimos el \textbf{propagador de dispersión} como: 
 
-  $$  U[p]f=U[\lambda_m] \ldots U[\lambda_2]U[\lambda_1]=\left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | \ldots | \ast \psi_{\lambda_m} \right|
+  $$  U[p]f=U[\lambda_m] \ldots U[\lambda_2]U[\lambda_1]f=\left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | \ldots | \ast \psi_{\lambda_m} \right|
   $$
 
   \medskip
@@ -342,27 +272,31 @@
   $$ \int_{\mathbb{R}^d} U[p]f(x)dx < \infty $$
 \end{frame}
 
-\begin{frame}{operador de ventana}
+
+% \begin{frame}{Operador de dispersión}
+%   \begin{alertblock}{Operador de dispersión}
+%     Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
+%     \begin{equation*}
+%       \overline{S}f(p)=\int_{\mathbb{R}^d}U[p]f(x)dx
+%     \end{equation*}
+%   \end{alertblock}
+
+%   Siendo $\overline{S}f(p)$ invariante a traslaciones para un $f$ fijo.
+% \end{frame}
+
+\begin{frame}{Operador de ventana}
   \begin{block}{Definición operador de ventana}
     Sea $J \in \mathbb{Z}$ y $\mathcal{P}_J$ el conjunto de caminos finitos $p=(\lambda_1,\lambda_2,...,\lambda_m)$ con $\lambda_k \in \Lambda_J$ y $|\lambda_k|=2^{k}>2^{-J}$. Una ventana de transformada de dispersión se define para todo $p \in \mathcal{P}_J$ por
-    \begin{equation}
+    \begin{equation*}
       S_J[p]f(x)=U[p]f \ast \phi_{2^J}(x)=\int_{\mathbb{R}^d}U[p]f(u)\phi_{2^J}(x-u)du.
-    \end{equation}
-    \begin{equation}
+    \end{equation*}
+    \begin{equation*}
       S_J[p]f(x)=\left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | \ldots | \ast \psi_{\lambda_m} \right| \ast \phi_{2^J}(x).
-    \end{equation}
+    \end{equation*}
   \end{block}
 \end{frame}
 
-
-\begin{frame}{operador de ventana}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.99\textwidth]{imgs/ScatteringPropagator.png}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Diferencias y Similitudes con una Red convolucional}
+\begin{frame}{Diferencias y Similitudes con una red convolucional}
   \textbf{\textcolor{tudCyan}{Similitudes:}}
   \begin{itemize}
     \item Cascada de convoluciones (operador $W[\lambda]$).
@@ -383,14 +317,14 @@
   \begin{block}{ondeletas admisibles}
     Una ondeleta de dispersión se dice que es admisible si existe $\eta \in \mathbb{R}^d$ y una función $\rho \geq 0$, con $|\widehat{\rho}(\omega)| \leq |\widehat{\phi}(2\omega)|$ y $\widehat{\rho}(0)=1$, tal que la función: 
 
-    \begin{equation}\label{eq::1.6}
+    \begin{equation*}\label{eq::1.6}
       \widehat{\Psi}(\omega)=|\widehat{\rho}(\omega - \eta)|^2 - \sum_{k=1}^{+\infty} k(1-|\widehat{\rho}(2^{-k}(\omega - \eta))|^2)
-    \end{equation}
+    \end{equation*}
       
     \noindent satisface: 
-    \begin{equation} \label{eq::1.7}
+    \begin{equation*} \label{eq::1.7}
       \alpha= \inf_{1\leq|w|\leq2} \sum_{j=-\infty}^{\infty} \sum_{r\in G} \widehat{\Psi} (2^{-j}r^{-1}\omega)|\widehat{\psi}(2^{-j}r^{-1}\omega)|^2>0.
-    \end{equation}
+    \end{equation*}
   \end{block}
 
 
@@ -401,20 +335,20 @@
   \begin{alertblock}{No-expansividad}
     \noindent Para $f,h \in L^2(\mathbb{R}^d)$ y $J\in \mathbb{Z}$ se cumple
 
-    \begin{equation} \label{eq::1.10}
+    \begin{equation*} \label{eq::1.10}
       || S_{J+1} [\mathcal{P}_{J+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h ||. 
-    \end{equation}
+    \end{equation*}
   \end{alertblock}
 
   \begin{alertblock}{Conservación de la norma}
     Si las ondeletas son admisibles, entonces para toda $f\in L^2(\mathbb{R}^d)$ se tiene que
-    \begin{equation}  
-      \lim_{m\rightarrow\infty} \|U[\Lambda_J^m]f \|^2=\lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} \|S_J[\Lambda_J^n]f\|^2=0
-    \end{equation}
+    \begin{equation*}  
+      \lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} \|S_J[\Lambda_J^n]f\|^2=0
+    \end{equation*}
     y
-    \begin{equation}
+    \begin{equation*}
       \|S_J[\mathcal{P}_J]f\|=\|f\|.
-    \end{equation}
+    \end{equation*}
   \end{alertblock}
 \end{frame}
 
@@ -435,14 +369,28 @@
 \end{frame}
 
 % Current section
-\AtBeginSection[ ]
-{
-\begin{frame}{Índice Segunda Parte}
-    \tableofcontents[currentsection]
-\end{frame}
-}
+% \AtBeginSection[ ]
+% {
+% \begin{frame}{Índice Segunda Parte}
+%     \tableofcontents[currentsection]
+% \end{frame}
+% }
 
 \section{Definición del Problema}
+
+
+\begin{frame}{Landmarks cefalométricos}
+  \begin{itemize}
+    \item Puntos de referencia que \textbf{definen la morfología del cráneo}.
+    \item \textbf{Correspondencia} directa \textbf{cráneo-cara}.
+    \item Se emplean en \textbf{Antropología forense}.
+  \end{itemize}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.45\textwidth]{imgs/marcado_landmarks.png}
+    \caption{Imagen extraída de \cite{damas2020handbook}}
+  \end{figure}
+\end{frame}
 
 \begin{frame}{Landmarks faciales}
   \begin{itemize}
@@ -457,19 +405,6 @@
     \caption{Landmarks marcados en AFLW \cite{AFLW}}
   \end{figure}
 
-\end{frame}
-
-\begin{frame}{Landmarks cefalométricos}
-  \begin{itemize}
-    \item Puntos de referencia que \textbf{definen la morfología del cráneo}.
-    \item \textbf{Correspondencia} directa \textbf{cráneo-cara}.
-    \item Se emplean en \textbf{Antropología forense}.
-  \end{itemize}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.45\textwidth]{imgs/marcado_landmarks.png}
-    \caption{Imagen extraída de \cite{damas2020handbook}}
-  \end{figure}
 \end{frame}
 
 \begin{frame}[t]{Base de datos}
@@ -510,10 +445,18 @@
 
 \section{Fundamentos Teóricos}
 
-\begin{frame}{Redes Neuronales Convolucionales}
+% \begin{frame}{Redes Neuronales Convolucionales}
+%   \begin{figure}
+%     \centering
+%     \includegraphics[width=0.99\textwidth]{imgs/ArquitecturaRedNeuronal.png}
+%     \caption{Imagen extraída de \cite{StanfordCourse}.}
+%   \end{figure}
+% \end{frame}
+
+\begin{frame}{Arquitectura de una red neuronal convolucional}
   \begin{figure}
     \centering
-    \includegraphics[width=0.99\textwidth]{imgs/ArquitecturaRedNeuronal.png}
+    \includegraphics[width=0.99\textwidth]{imgs/ArquitecuraGeneral.png}
     \caption{Imagen extraída de \cite{StanfordCourse}.}
   \end{figure}
 \end{frame}
@@ -551,41 +494,33 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{Arquitectura de una red neuronal convolucional}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.99\textwidth]{imgs/ArquitecuraGeneral.png}
-    \caption{Imagen extraída de \cite{StanfordCourse}.}
-  \end{figure}
-\end{frame}
+% \begin{frame}{Autoencoders}
+%   \begin{figure}
+%     \centering
+%     \includegraphics[width=0.99\textwidth]{imgs/Autoencoder.png}
+%     \caption{Imagen extraída de \cite{autoencoders2017}.}
+%   \end{figure}
+% \end{frame}
 
-\begin{frame}{Autoencoders}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.99\textwidth]{imgs/Autoencoder.png}
-    \caption{Imagen extraída de \cite{autoencoders2017}.}
-  \end{figure}
-\end{frame}
+% \begin{frame}{Variational Autoencoder (VAE)}
+%   \begin{columns}[onlytextwidth]
+%     \begin{column}{.5\textwidth}
+%       \absimage{.25, .50}{.5}{imgs/VAE_1.png}
+%       Imágenes extraída de \cite{VAE}.
+%     \end{column}
+%     \begin{column}{.5\textwidth}
+%       \absimage{.75, .53}{.5}{imgs/VAE_2.png}
+%     \end{column}
+%   \end{columns}
+% \end{frame}
 
-\begin{frame}{GAN}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.99\textwidth]{imgs/GAN.png}
-    \caption{Imagen extraída de \cite{GAN}.}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Variational Autoencoder (VAE)}
-  \begin{columns}[onlytextwidth]
-    \begin{column}{.5\textwidth}
-      \absimage{.25, .50}{.5}{imgs/VAE_1.png}
-      Imágenes extraída de \cite{VAE}.
-    \end{column}
-    \begin{column}{.5\textwidth}
-      \absimage{.75, .53}{.5}{imgs/VAE_2.png}
-    \end{column}
-  \end{columns}
-\end{frame}
+% \begin{frame}{Generative Adversarial Network(GAN)}
+%   \begin{figure}
+%     \centering
+%     \includegraphics[width=0.99\textwidth]{imgs/GAN.png}
+%     \caption{Imagen extraída de \cite{GAN}.}
+%   \end{figure}
+% \end{frame}
 
 \begin{frame}{Adversarial Autoencoder (AAE)}
   \begin{figure}
@@ -650,20 +585,20 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{3FabRec}
-  \begin{block}{Función de pérdida parte no supervisada}
-    \begin{align*}
-      \min_{E,G} \max_{D_z,D_x} & \mathcal{L}_{AE}(E,G,D_z,D_x) = \\
-      & \lambda_{rec} \mathcal{L}_{rec}(E,G) + \lambda_{cs}\mathcal{L}_{cs}(E,G) \\
-      & + \lambda_{enc}\mathcal{L}_{enc}(E,D_z)+ \lambda_{adv} \mathcal{L}_{adv}(E,G,D_x)
-    \end{align*}
-  \end{block}
-  \begin{block}{Función de pérdida parte supervisada}
-    \begin{equation*}
-      \mathcal{L}_H(ITL) = \mathbb{E}_{x ~ p(x)} \left[ \| H-ITL(a)\|_2 \right]
-    \end{equation*}
-  \end{block}
-\end{frame}
+% \begin{frame}{3FabRec}
+%   \begin{block}{Función de pérdida parte no supervisada}
+%     \begin{align*}
+%       \min_{E,G} \max_{D_z,D_x} & \mathcal{L}_{AE}(E,G,D_z,D_x) = \\
+%       & \lambda_{rec} \mathcal{L}_{rec}(E,G) + \lambda_{cs}\mathcal{L}_{cs}(E,G) \\
+%       & + \lambda_{enc}\mathcal{L}_{enc}(E,D_z)+ \lambda_{adv} \mathcal{L}_{adv}(E,G,D_x)
+%     \end{align*}
+%   \end{block}
+%   \begin{block}{Función de pérdida parte supervisada}
+%     \begin{equation*}
+%       \mathcal{L}_H(ITL) = \mathbb{E}_{x ~ p(x)} \left[ \| H-ITL(a)\|_2 \right]
+%     \end{equation*}
+%   \end{block}
+% \end{frame}
 
 \begin{frame}{3FabRec}
   \textcolor{tudCyan}{\textbf{Bases de datos de la parte no supervisada}}
@@ -713,7 +648,7 @@
       \item \textbf{Problema}: Vertex suele quedar fuera.
   \end{itemize}
 
-  \absimage{0.4, 0.7}{0.6}{imgs/bounding_box_3fabrec.png}
+  \absimage{0.6, 0.7}{0.6}{imgs/bounding_box_3fabrec.png}
 \end{frame}
 
 \begin{frame}[t]{Partición de los datos}
@@ -880,7 +815,7 @@
     \item \small Estudio de errores y preprocesamiento de los dato.
     \item \small Estudio experimental.
   \end{enumerate}
-  
+
   \medskip
 
   \normalsize Además, se han logrado otros \textbf{objetivos adicionales}:

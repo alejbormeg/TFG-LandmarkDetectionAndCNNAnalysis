@@ -91,31 +91,6 @@
       \field{title}{Handbook on craniofacial superimposition: The MEPROCS project}
       \field{year}{2020}
     \endentry
-    \entry{autoencoders2017}{misc}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=e98656a5ee5e80bda67096d53bf76a74}{%
-           family={Dertat},
-           familyi={D\bibinitperiod},
-           given={Arden},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{e98656a5ee5e80bda67096d53bf76a74}
-      \strng{fullhash}{e98656a5ee5e80bda67096d53bf76a74}
-      \strng{bibnamehash}{e98656a5ee5e80bda67096d53bf76a74}
-      \strng{authorbibnamehash}{e98656a5ee5e80bda67096d53bf76a74}
-      \strng{authornamehash}{e98656a5ee5e80bda67096d53bf76a74}
-      \strng{authorfullhash}{e98656a5ee5e80bda67096d53bf76a74}
-      \field{sortinit}{D}
-      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url = {https://towardsdatascience.com/applied-deep-learning-part-3-autoencoders-1c083af4d798},}
-      \field{title}{Applied Deep Learning}
-      \field{year}{2017}
-    \endentry
     \entry{StanfordCourse}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=e54a150fde659e84d44353337bf5fa28}{%
@@ -210,60 +185,6 @@
       \field{howpublished}{\url={https://medium.com/vitrox-publication/adversarial-auto-encoder-aae-a3fc86f71758},}
       \field{title}{Adversarial Auto Encoder (AAE)}
       \field{year}{2020}
-    \endentry
-    \entry{GAN}{misc}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=6aaaea242a73e6eea97578d681468442}{%
-           family={Rocca},
-           familyi={R\bibinitperiod},
-           given={Joseph},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{6aaaea242a73e6eea97578d681468442}
-      \strng{fullhash}{6aaaea242a73e6eea97578d681468442}
-      \strng{bibnamehash}{6aaaea242a73e6eea97578d681468442}
-      \strng{authorbibnamehash}{6aaaea242a73e6eea97578d681468442}
-      \strng{authornamehash}{6aaaea242a73e6eea97578d681468442}
-      \strng{authorfullhash}{6aaaea242a73e6eea97578d681468442}
-      \field{extraname}{1}
-      \field{sortinit}{R}
-      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
-      \field{extradate}{1}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url = {https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-cd6e4651a29},}
-      \field{title}{Understanding Generative Adversarial Networks (GANs)}
-      \field{year}{2019}
-    \endentry
-    \entry{VAE}{misc}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=6aaaea242a73e6eea97578d681468442}{%
-           family={Rocca},
-           familyi={R\bibinitperiod},
-           given={Joseph},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{6aaaea242a73e6eea97578d681468442}
-      \strng{fullhash}{6aaaea242a73e6eea97578d681468442}
-      \strng{bibnamehash}{6aaaea242a73e6eea97578d681468442}
-      \strng{authorbibnamehash}{6aaaea242a73e6eea97578d681468442}
-      \strng{authornamehash}{6aaaea242a73e6eea97578d681468442}
-      \strng{authorfullhash}{6aaaea242a73e6eea97578d681468442}
-      \field{extraname}{2}
-      \field{sortinit}{R}
-      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
-      \field{extradate}{2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url = {https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73},}
-      \field{title}{Understanding Variational Autoencoders (VAEs)}
-      \field{year}{2019}
     \endentry
   \enddatalist
 \endrefsection

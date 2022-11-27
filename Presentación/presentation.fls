@@ -454,10 +454,6 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-La
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 OUTPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.vrb
@@ -487,17 +483,33 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-La
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss17.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolF12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolF10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolE12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolE10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolA12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolA10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolB12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolB10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolC12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolC10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolD12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolD10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/wasy/wasy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/wasy/wasy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi17.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi10.tfm
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
@@ -509,6 +521,10 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-La
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Relacion_escala_frecuencia.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Relacion_escala_frecuencia.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Relacion_escala_frecuencia.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
@@ -531,78 +547,39 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-La
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolS12.tfm
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ScatteringPropagator.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ScatteringPropagator.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ScatteringPropagator.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/aflw.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/aflw.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/aflw.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/marcado_landmarks.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/marcado_landmarks.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/marcado_landmarks.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolF10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolF7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolE10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolE7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolA10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolA7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolB10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolB7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolC10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolC7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolD10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolD7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolS10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolS7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/wasy/wasy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/wasy/wasy7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssi8.tfm
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/aflw.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/aflw.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/aflw.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/marcado_landmarks.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/marcado_landmarks.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/marcado_landmarks.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/EjemplosBD.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/EjemplosBD.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/EjemplosBD.png
@@ -613,13 +590,14 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-La
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecturaRedNeuronal.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecturaRedNeuronal.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecturaRedNeuronal.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecturaRedNeuronal.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecturaRedNeuronal.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecturaRedNeuronal.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecuraGeneral.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecuraGeneral.png
+INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecuraGeneral.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/mapa_activacion.png
@@ -640,36 +618,9 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-La
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/single_hidden_layer.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecuraGeneral.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecuraGeneral.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecuraGeneral.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Autoencoder.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Autoencoder.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Autoencoder.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/GAN.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/GAN.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/GAN.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/VAE_1.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/VAE_1.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/VAE_1.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/VAE_2.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/VAE_2.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/VAE_2.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/AAE.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/AAE.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/AAE.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Scopus_1.png
@@ -685,15 +636,9 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-La
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/taxonomia.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/3fabrec_arquitectura.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/3fabrec_arquitectura.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/3fabrec_arquitectura.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
@@ -783,10 +728,6 @@ INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-La
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/compativa_cualitativa.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/compativa_cualitativa.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/compativa_cualitativa.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
-INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.toc
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
 INPUT /home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/logo-ugr.png
@@ -818,6 +759,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
