@@ -126,30 +126,30 @@
 
             \begin{itemize}
                 \item \textit{Error de reconstrucción}: Se trata de un error encargado de asegurarse de que la red reconstruya de forma apropiada las imágenes, para ello calcula la distancia $L_1$ entre la imagen original y la reconstruida pixel a pixel. Tiene la siguiente expresión, que coincide con la presentada en el apartado anterior de métricas.
-                \begin{equation}
+                \begin{equation*}
                     \mathcal{L}_{rec}(E,G)= \mathbb{E}_{x~p(x)}\left[\|x- G(E(x)) \|_1\right]
-                \end{equation}
+                \end{equation*}
                 \item \textit{Error estructural de la imagen}: Se trata de una variante del \textbf{SSIM} encargado de que la imagen real y la reconstruida tengan una estructura similar. La expresión de la función $cs$ que aparece en la fórmula se detalla más adelante.
-                \begin{equation}
+                \begin{equation*}
                     \mathcal{L}_{cs}(E,G)= \mathbb{E}_{x~p(x)}\left[cs(x, G(E(x)))\right]
-                \end{equation}
+                \end{equation*}
                 \item \textit{Error del Encoder}: es el error empleado comunmente en este tipo de redes y que se asegura que el vector latente que genera el encoder siga la distribución impuesta en el discriminador $D_z$. Su expresión es:
-                \begin{equation}
+                \begin{equation*}
                     \mathcal{L}_{enc}(E,D_z)=\mathbb{E}_{z^*~p(z)}[\log(D_z(z^*))] + \mathbb{E}_{x~p(x)}[\log(1-D_z(E(x)))]
-                \end{equation}
+                \end{equation*}
                 \item \textit{Error adversario de imagen}: normalmente las imágenes generadas por los Autoencoders suelen generar imágenes emborronadas. Es por ello que se introduce este error, que añade un discriminador típico de una red \textit{GAN} que pretende discernir entre si la imagen que recibe como salida de la red pertenece al conjunto de imágenes de entrenamiento o si es una imagen generada por la red, de esta forma se generan imágenes más realistas. Su expresión es la siguiente: 
-                \begin{equation}
+                \begin{equation*}
                     \mathcal{L}_{adv}(E,D_z)=\mathbb{E}_{x~p(x)}[\log(D_x(x))] + \mathbb{E}_{x~p(x)}[\log(1-D_x(G(E(x))))]
-                \end{equation}
+                \end{equation*}
             \end{itemize}
 
             \medskip
 
             \noindent Por otro lado, la función de pérdida que se empleará en el \textbf{entrenmiento de las \textit{ITLs}} será la siguiente: 
 
-            \begin{equation} \label{eq::L2}
+            \begin{equation*} \label{eq::L2}
                 \mathcal{L}_H(ITL) = \mathbb{E}_{x ~ p(x)} \left[ \| H-ITL(a)\|_2 \right]
-            \end{equation}
+            \end{equation*}
 
             \noindent Dónde $a$ serían los mapas de activación que genera la ResNet invertida para la imagen codificada $z=E(x)$ (siendo $x$ la imagen de entrada a la red). En este caso se computa la distancia \textbf{$L_2$} entre los \textit{Heat-maps} de los lanmarks originales de la imagen $x$ de entrada, y los predichos por las \textit{ITLs}. Propagando el error por los pesos de las \textit{ITLS} solamente, forzando a adaptarse a los pesos ya aprendidos del generador.
 
@@ -242,9 +242,9 @@
         \subsubsection{MSE}
             \noindent Se trata del error cuadrático medio, una función empleada típicamente en problemas de regresión y que tiene la siguiente expresión: 
 
-            \begin{equation}
+            \begin{equation*}
                 MSE = \frac{1}{N} \sum_{i=1}^{N} (y_i - \widehat{y}_i)^2
-            \end{equation}
+            \end{equation*}
 
             \noindent En nuestro caso concreto, este error se calcula entre los mapas de calor de los landmarks reales y predichos a nivel de pixel, es decir $y_i$ en la fórmula anterior corresponde a cada pixel del heatmap del landmark real y por tanto $\widehat{y}_i$ es el valor del pixel correspondiente en el heatmap predicho. Dichas diferencias se suman en todos los heatmaps y se divide por $N$ que en este caso es el número total de píxeles juntando todos los Heat-maps.
 
@@ -261,18 +261,18 @@
 
             \noindent Se trata de la función de coste \textbf{L1} que se aplica a la imagen original y la reconstruida  y nos porporciona una medida del error de reconstrucción a nivel de pixel. Su expresión es la siguiente:
 
-            \begin{equation}
+            \begin{equation*}
                 Reconstruction \; Loss = \frac{\sum_{i=1}^n |p_i -q_i|}{N}
-            \end{equation}
+            \end{equation*}
 
             \noindent Donde $p_i$ representa cada pixel de la imagen reconstruida por la red, $q_i$ el equivalente en la imagen real y $N$ el total de píxeles presentes en la imagen.
 
         \subsubsection{Normalized Mean Error}
             \noindent Este será el error utilizado para medir la bondad de los resultados. Tiene la siguiente expresión para cada landmark de los $30$: 
 
-            \begin{equation}
+            \begin{equation*}
                 NME=\frac{\sqrt{\sum_{i=1}^{n}(p_{i,1} -q_{i,1})^2+ (p_{i,2} -q_{i,2})^2}}{N}
-            \end{equation}
+            \end{equation*}
 
 
             \noindent Así, si en total se han identificado en las imágenes de validación un total de $n$ landmarks de cierto tipo en las imágenes de test o validación, se calcula la distancia $L_2$ entre el landmark de la imagen $i$ predicho y el real. Y tras esto se suman todos los valores obtenidos. Como podemos ver, idealmente $n$ debería ser el total de imágenes que hay en validación o test, pero no todos los landmarks aparecen en todas las imágenes, por lo tanto $n\leq M$ siendo $M$ el total de imágenes en validación.
@@ -282,9 +282,9 @@
             \subsubsection{SSIM}
             \noindent Se trata del \textit{structural similarity index} (SSIM) y da una medida de \textit{similaridad} entre dos imágenes \cite{wang2004image}, su expresión es la siguiente: 
 
-            \begin{equation}
+            \begin{equation*}
                 SSIM(x,y)=[l(x,y)]^\alpha[c(x,y)]^{\beta}[s(x,y)]^{\gamma}
-            \end{equation}
+            \end{equation*}
 
             \medskip
 
@@ -294,9 +294,9 @@
 
             \noindent La componente $c(x,y)$ hace referencia a la función de comparación del contraste de las dos imágenes y viene dada por la siguiente expresión: 
 
-            \begin{equation}
+            \begin{equation*}
                 c(x,y)=\frac{2\sigma_x \sigma_y + C}{\sigma_x^2+ \sigma_y^2+C}
-            \end{equation}
+            \end{equation*}
 
             \noindent Dónde $\sigma_x, \sigma_y$ hacen referencia a la desviación estándar de cada imagen.
 
@@ -304,9 +304,9 @@
 
             \noindent La componente $s(x,y)$ es la función de comparación estructural entre las dos imágenes y viene dada por la siguiente expresión:
 
-            \begin{equation}
+            \begin{equation*}
                 s(x,y)=\frac{\sigma_{xy}+C/2}{\sigma_x \sigma_y +C/2}
-            \end{equation}
+            \end{equation*}
 
             \noindent Dónde $\sigma_{xy}$ denota la covarianza.
 
@@ -318,9 +318,9 @@
 
             \noindent Por otra parte siguen las indicaciones del paper original de SSIM que recomiendan usar estas comparaciones en regiones de la imagen y promediarlas en vez de aplicarlas sobre todo el conjunto de píxeles de la imagen, es por ello que la expresión final queda:
 
-            \begin{equation}
+            \begin{equation*}
                 cs(x,y)=\frac{1}{|w|} \sum{c(x_w,y_w)s(x_w,y_w)}_w
-            \end{equation}
+            \end{equation*}
 
             \noindent Dónde $w$ representa la ventana sobre la que se aplica la función y $|w|$ el total de ventanas. En nuestro caso se emplean ventanas de tamaño $31\times 31$.
 
@@ -954,9 +954,9 @@
         \subsection{Métricas empleadas}
             \noindent La métrica empleada en el trabajo dónde se presenta el modelo es el \textbf{RMSE}. Se trata de la raíz del error cuadrático medio y su expresión es la siguiente: 
 
-            \begin{equation}
+            \begin{equation*}
                 RMSE(y,\widehat{y})= \sqrt{\frac{1}{N} \sum_{i=1}^{N} (y_i-\widehat{y}_i)^2}
-            \end{equation}
+            \end{equation*}
 
             \noindent donde $y_i$ representa las coordenadas del landmark real y $\widehat{y_i}$ el predicho homólogo número $i$ del total de $N$ landmarks marcados. Esta métrica nos proporciona el error en píxeles cometido en la predicción de cada landmark.
 
@@ -1045,7 +1045,7 @@
 
             \begin{figure}[h]
                 \centering
-                \includegraphics[width=0.9\textwidth]{img/compativa_cualitativa.png}
+                \includegraphics[width=0.9\textwidth]{img/cualitativa.png}
                 \caption{A la izquierda podemos ver las imágenes obtenidas con el modelo basado en \textit{3FabRec}, a la derecha las extraidas del TFG de Guillermo Gómez utilizando \textit{HF-ResNet}.}
                 \label{fig:comparativa_estado_arte}
             \end{figure}

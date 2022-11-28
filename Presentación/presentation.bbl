@@ -186,6 +186,102 @@
       \field{title}{Adversarial Auto Encoder (AAE)}
       \field{year}{2020}
     \endentry
+    \entry{DBLP:journals/corr/SchroffKP15}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=c62e96f68033a3d3cd4639e35a2de4da}{%
+           family={Schroff},
+           familyi={S\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6cbb997a11c6922af719c32863261918}{%
+           family={Kalenichenko},
+           familyi={K\bibinitperiod},
+           given={Dmitry},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1e9a1d678032dfffb4e871a0f622e030}{%
+           family={Philbin},
+           familyi={P\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{474363fec59aa6cdd11f5b6b8275a8f2}
+      \strng{fullhash}{474363fec59aa6cdd11f5b6b8275a8f2}
+      \strng{bibnamehash}{474363fec59aa6cdd11f5b6b8275a8f2}
+      \strng{authorbibnamehash}{474363fec59aa6cdd11f5b6b8275a8f2}
+      \strng{authornamehash}{474363fec59aa6cdd11f5b6b8275a8f2}
+      \strng{authorfullhash}{474363fec59aa6cdd11f5b6b8275a8f2}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{CoRR}
+      \field{title}{FaceNet: {A} Unified Embedding for Face Recognition and Clustering}
+      \field{volume}{abs/1503.03832}
+      \field{year}{2015}
+      \verb{eprint}
+      \verb 1503.03832
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1503.03832
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1503.03832
+      \endverb
+    \endentry
+    \entry{guillermo2019}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d99f33bfe36e6d51b81622cf0ae04078}{%
+           family={Trenado},
+           familyi={T\bibinitperiod},
+           given={Guillermo\bibnamedelima Gómez},
+           giveni={G\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d99f33bfe36e6d51b81622cf0ae04078}
+      \strng{fullhash}{d99f33bfe36e6d51b81622cf0ae04078}
+      \strng{bibnamehash}{d99f33bfe36e6d51b81622cf0ae04078}
+      \strng{authorbibnamehash}{d99f33bfe36e6d51b81622cf0ae04078}
+      \strng{authornamehash}{d99f33bfe36e6d51b81622cf0ae04078}
+      \strng{authorfullhash}{d99f33bfe36e6d51b81622cf0ae04078}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Universidad de Granada}
+      \field{title}{Aprendizaje Profundo y Antropología Forense}
+      \field{year}{2019}
+    \endentry
+    \entry{WAVELETS}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5fff6ac9a7c7803b938cf6074135618b}{%
+           family={Works},
+           familyi={W\bibinitperiod},
+           given={Math},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5fff6ac9a7c7803b938cf6074135618b}
+      \strng{fullhash}{5fff6ac9a7c7803b938cf6074135618b}
+      \strng{bibnamehash}{5fff6ac9a7c7803b938cf6074135618b}
+      \strng{authorbibnamehash}{5fff6ac9a7c7803b938cf6074135618b}
+      \strng{authornamehash}{5fff6ac9a7c7803b938cf6074135618b}
+      \strng{authorfullhash}{5fff6ac9a7c7803b938cf6074135618b}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url={https://www.mathworks.com/help/wavelet/gs/continuous-wavelet-transform-and-scale-based-analysis.html},}
+      \field{title}{Continuous Wavelet Transform and Scale-Based Analysis}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

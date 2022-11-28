@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  21 NOV 2022 08:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  28 NOV 2022 19:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1857,10 +1857,10 @@ LaTeX Info: Redefining \% on input line 1034.
 LaTeX Info: Redefining \. on input line 1044.
 LaTeX Info: Redefining \% on input line 1044.
  [123]
-<img/compativa_cualitativa.png, id=1462, 560.0925pt x 651.43375pt>
-File: img/compativa_cualitativa.png Graphic file (type png)
-<use img/compativa_cualitativa.png>
-Package pdftex.def Info: img/compativa_cualitativa.png  used on input line 1048.
+<img/cualitativa.png, id=1462, 560.0925pt x 651.43375pt>
+File: img/cualitativa.png Graphic file (type png)
+<use img/cualitativa.png>
+Package pdftex.def Info: img/cualitativa.png  used on input line 1048.
 (pdftex.def)             Requested size: 367.46489pt x 427.41287pt.
 
 
@@ -1872,7 +1872,7 @@ LaTeX Info: Redefining \% on input line 1.
  [124]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [125 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/compativa_cualitativa.png>] [126
+ [125 </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Memoria/img/cualitativa.png>] [126
 
 
 ]
@@ -2204,7 +2204,7 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  18018 strings out of 481239
- 316323 string characters out of 5920378
+ 316263 string characters out of 5920378
  734626 words of memory out of 5000000
  31755 multiletter control sequences out of 15000+600000
  758844 words of font info for 503 fonts, out of 8000000 for 9000

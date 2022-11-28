@@ -53,7 +53,7 @@
 	#2\end{tabular}}}}
 
 \title[]{Localización de landmarks cefalométricos por medio de técnicas de few-shot learning y análisis de redes convolucionales}
-\institute[]{\textbf{Tutores}: Pablo Mesejo Santiago, Javier Merí de la Maza \and Universidad de Granada, España}
+\institute[]{\textbf{Tutores}: Pablo Mesejo Santiago, Javier Merí de la Maza \and \textbf{Mentor}: Guillermo Gómez Trenado \and Doble Grado en Ingeniería Informática y Matemáticas \and Universidad de Granada, España}
 \author{Alejandro Borrego Megías}
 \date{27 de Noviembre de 2022}
 
@@ -94,7 +94,7 @@
       la modelización matemática y la justificación teórica de estos resultados.
     \end{itemize}
 
-    propiedades: 
+    propiedades:
 
     \begin{figure}
       \centering
@@ -122,18 +122,18 @@
   \begin{frame}[t]{Invarianza frente a pequeñas deformaciones}
     \textcolor{tudCyan}{\textit{Deformación $\implies$ Difeomorfismo}}
 
-    \textcolor{tudCyan}{\textit{Deformaciones pequeñas $\implies$ Difeomorfismos cercanos a traslaciones}}  
+    \textcolor{tudCyan}{\textit{Deformaciones pequeñas $\implies$ Difeomorfismos cercanos a traslaciones}}
 
     \begin{block}{Definición}
       Denotemos $L_{\tau} f(x)=f(x-\tau(x))$ como la acción del difeomorfismo $1-\tau$ sobre $f$.
 
-      Donde $\tau$ es el campo de desplazamiento. 
+      Donde $\tau$ es el campo de desplazamiento.
     \end{block}
 
   \end{frame}
 
   \begin{frame}{Invarianza frente a pequeñas deformaciones}
-    \textcolor{tudCyan}{\textbf{\centering Invarianza frente a pequeñas deformaciones \\ \centering $\Downarrow$ \\ \centering Lipschitz-continuidad frente a la acción de difeomorfismos}}  
+    \textcolor{tudCyan}{\textbf{\centering Invarianza frente a pequeñas deformaciones \\ \centering $\Downarrow$ \\ \centering Lipschitz-continuidad frente a la acción de difeomorfismos}}
 
     \begin{block}{Invarianza frente a pequeñas deformaciones de un operador $\Phi$}
       \begin{equation*}
@@ -153,7 +153,7 @@
 \begin{frame}{Módulo de la transformada de Fourier}
   $$\Phi(f)=|\widehat{f}| \;\; f\in L^2(\mathbb{R}^2)$$
 
-  Con este operador observamos que: 
+  Con este operador observamos que:
   \begin{itemize}
     \item Es invariante por traslaciones.
     \item No es Lipschitz continuo frente a pequeñas deformaciones.
@@ -163,7 +163,7 @@
 \end{frame}
 
 \begin{frame}{Alternativa: Ondeletas}
-  Usaremos ondeletas madre del tipo: 
+  Usaremos ondeletas madre del tipo:
 
   \begin{equation*}
     \psi(x)=e^{i\eta x} \Theta(x)
@@ -171,13 +171,13 @@
   donde $\Theta(x)$ es una función real con soporte en una bola de baja frecuencia en $x=0$, cuyo radio es del orden de $\pi$.
 
   \begin{block}{Escalado y rotación de ondeleta madre}
-    Una ondeleta madre escalada por un factor $2^{j}$ con $j \in \mathbb{Z}$ y rotada por $r \in G$ siendo $G$ el grupo finito de rotaciones, se escribe: 
+    Una ondeleta madre escalada por un factor $2^{j}$ con $j \in \mathbb{Z}$ y rotada por $r \in G$ siendo $G$ el grupo finito de rotaciones, se escribe:
     $$\psi_{2^j r}(x)=2^{j} \psi(2^j r^{-1} x).$$
   \end{block}
 \end{frame}
 
 \begin{frame}{La transformada de Littlewood-Paley}
-  Con esta generamos la siguiente base ortonormal de ondeletas: 
+  Con esta generamos la siguiente base ortonormal de ondeletas:
   \begin{equation*}
     \lbrace \psi_\lambda (x) \rbrace_{\lambda= 2^j r \in 2^\mathbb{Z} \times G}
   \end{equation*}
@@ -189,7 +189,7 @@
     donde $\lambda \in 2^j r \in 2^\mathbb{Z} \times G$
   \end{block}
 
-  El operador $W[\lambda]f=f\ast \psi_\lambda$ es Lipschitz-continuo bajo la acción de difeomorfismos para $f \in L^2(\mathbb{R}^d)$ fijo. 
+  El operador $W[\lambda]f=f\ast \psi_\lambda$ es Lipschitz-continuo bajo la acción de difeomorfismos para $f \in L^2(\mathbb{R}^d)$ fijo.
 
   \medskip
 
@@ -200,6 +200,7 @@
   \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{imgs/Relacion_escala_frecuencia.png}
+    \caption{Imagen extraída de \cite{WAVELETS}.}
   \end{figure}
   Fijada una escala $2^J \; \; J\in \mathbb{Z}$, se establece un umbral tal que solo se mantienen las ondeletas de escala $2^j > 2^{-J}$.
 \end{frame}
@@ -213,7 +214,7 @@
 
   Así, los coeficientes obtenidos, fijada una escala son:
 
-  $$W_J f=\lbrace A_Jf,(W[\lambda]f)_{\lambda \in \Lambda_J} \rbrace$$ 
+  $$W_J f=\lbrace A_Jf,(W[\lambda]f)_{\lambda \in \Lambda_J} \rbrace$$
 
   con $\Lambda_J=\lbrace \lambda=2^jr:\;r\in G^{+}, \; 2^j>2^{-J}\rbrace$.
 
@@ -225,8 +226,8 @@
 \begin{frame}{Restricciones}
   Tranajaremos con funciones reales.
   \begin{itemize}
-    \item $W_J$ es unitario. 
-    \item $\widehat{\phi}(\omega)$ es real y simétrica, por lo que $\phi$ también lo será. 
+    \item $W_J$ es unitario.
+    \item $\widehat{\phi}(\omega)$ es real y simétrica, por lo que $\phi$ también lo será.
     \item Las derivadas de $\phi$ pertenecen a $L^1(\mathbb{R}^d)$.
   \end{itemize}
 \end{frame}
@@ -237,11 +238,11 @@
     Si $U[\lambda]$ es un operador definido en $L^2(\mathbb{R}^d)$, no necesariamente lineal pero que conmuta con traslaciones, entonces $\int_{\mathbb{R}^d} U[\lambda]f(x)dx$ es invariante a traslaciones si es finito.
   \end{alertblock}
   \medskip
-  Pero como $\int_{\mathbb{R}^d} \psi(x)dx=0 \implies \int_{\mathbb{R}^d} f \ast \psi(x) dx=0$. 
+  Pero como $\int_{\mathbb{R}^d} \psi(x)dx=0 \implies \int_{\mathbb{R}^d} f \ast \psi(x) dx=0$.
 \end{frame}
 
 \begin{frame}{Propagador de dispersión}
-  Para obtener coeficientes invariantes por traslaciones. 
+  Para obtener coeficientes invariantes por traslaciones.
   $$U[\lambda]f= \textcolor{red}{M[\lambda]} W[\lambda]$$
 
   \medskip
@@ -257,10 +258,10 @@
 \begin{frame}{Propagador de dispersión}
 
   \begin{block}{Camino}
-    Una secuencia ordenada $p=(\lambda_1,\lambda_2, \ldots , \lambda_m)$ con $\lambda_k \in \Lambda_\infty=2^{\mathbb{Z}} \times G^{+} $ se denomina \textbf{camino}. Al camino vacío se le denota por $p=\emptyset$. 
+    Una secuencia ordenada $p=(\lambda_1,\lambda_2, \ldots , \lambda_m)$ con $\lambda_k \in \Lambda_\infty=2^{\mathbb{Z}} \times G^{+} $ se denomina \textbf{camino}. Al camino vacío se le denota por $p=\emptyset$.
   \end{block}
 
-  Así, sobre un camino $p$ definimos el \textbf{propagador de dispersión} como: 
+  Así, sobre un camino $p$ definimos el \textbf{propagador de dispersión} como:
 
   $$  U[p]f=U[\lambda_m] \ldots U[\lambda_2]U[\lambda_1]f=\left| |f \ast \psi_{\lambda_1} | \ast \psi_{\lambda_2} | \ldots | \ast \psi_{\lambda_m} \right|
   $$
@@ -313,15 +314,15 @@
 \section{Invarianza por traslaciones}
 
 \begin{frame}{Ondeletas admisibles}
-  
+
   \begin{block}{ondeletas admisibles}
-    Una ondeleta de dispersión se dice que es admisible si existe $\eta \in \mathbb{R}^d$ y una función $\rho \geq 0$, con $|\widehat{\rho}(\omega)| \leq |\widehat{\phi}(2\omega)|$ y $\widehat{\rho}(0)=1$, tal que la función: 
+    Una ondeleta de dispersión se dice que es admisible si existe $\eta \in \mathbb{R}^d$ y una función $\rho \geq 0$, con $|\widehat{\rho}(\omega)| \leq |\widehat{\phi}(2\omega)|$ y $\widehat{\rho}(0)=1$, tal que la función:
 
     \begin{equation*}\label{eq::1.6}
       \widehat{\Psi}(\omega)=|\widehat{\rho}(\omega - \eta)|^2 - \sum_{k=1}^{+\infty} k(1-|\widehat{\rho}(2^{-k}(\omega - \eta))|^2)
     \end{equation*}
-      
-    \noindent satisface: 
+
+    \noindent satisface:
     \begin{equation*} \label{eq::1.7}
       \alpha= \inf_{1\leq|w|\leq2} \sum_{j=-\infty}^{\infty} \sum_{r\in G} \widehat{\Psi} (2^{-j}r^{-1}\omega)|\widehat{\psi}(2^{-j}r^{-1}\omega)|^2>0.
     \end{equation*}
@@ -336,13 +337,13 @@
     \noindent Para $f,h \in L^2(\mathbb{R}^d)$ y $J\in \mathbb{Z}$ se cumple
 
     \begin{equation*} \label{eq::1.10}
-      || S_{J+1} [\mathcal{P}_{J+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h ||. 
+      || S_{J+1} [\mathcal{P}_{J+1}]f- S_{J+1}[\mathcal{P}_{J+1}]h || \leq ||S_J[\mathcal{P}_J]f - S_J[\mathcal{P}_J]h ||.
     \end{equation*}
   \end{alertblock}
 
   \begin{alertblock}{Conservación de la norma}
     Si las ondeletas son admisibles, entonces para toda $f\in L^2(\mathbb{R}^d)$ se tiene que
-    \begin{equation*}  
+    \begin{equation*}
       \lim_{m\rightarrow\infty} \sum_{n=m}^{\infty} \|S_J[\Lambda_J^n]f\|^2=0
     \end{equation*}
     y
@@ -354,7 +355,7 @@
 
 \begin{frame}{Invarianza por traslaciones}
   \begin{alertblock}{Invarianza por traslaciones}
-    Para ondeletas de dispersión admisibles se tiene que 
+    Para ondeletas de dispersión admisibles se tiene que
     $$\forall f \in L^2(\mathbb{R}^d), \; \forall c\in \mathbb{R}^d \;\;\; \lim_{J\rightarrow \infty}||S_J[\mathcal{P}_J] f-S_J[\mathcal{P}_J] L_cf||=0.$$
   \end{alertblock}
 \end{frame}
@@ -414,7 +415,7 @@
         \item 167 imágenes \textbf{\textit{in-the-wild}}.
         \item Imágenes a \textbf{color y escala de grises}.
         \item \textbf{30 landmarks} a predecir.
-      \end{itemize}  
+      \end{itemize}
       % square filling the column
       % place an image
       % horizontal position = 73%
@@ -461,38 +462,38 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{Capas Convolucionales}
-  \begin{columns}[onlytextwidth]
-    \begin{column}{.5\textwidth}
-       \textbf{Características:}
-      \begin{itemize}
-        \item Operación de convolución.
-        \item Menor número de pesos.
-        \item Mayor profundidad de red.
-      \end{itemize}
-      Imágenes extraída de \cite{StanfordCourse}.
-    \end{column}
-    \begin{column}{.5\textwidth}
-      \absimage{.75, .30}{.50}{imgs/mapa_activacion.png}
-      \absimage{.75, .65}{.45}{imgs/sucesion_conv_layer.png}
-    \end{column}
-  \end{columns}
-\end{frame}
+% \begin{frame}{Capas Convolucionales}
+%   \begin{columns}[onlytextwidth]
+%     \begin{column}{.5\textwidth}
+%        \textbf{Características:}
+%       \begin{itemize}
+%         \item Operación de convolución.
+%         \item Menor número de pesos.
+%         \item Mayor profundidad de red.
+%       \end{itemize}
+%       Imágenes extraída de \cite{StanfordCourse}.
+%     \end{column}
+%     \begin{column}{.5\textwidth}
+%       \absimage{.75, .30}{.50}{imgs/mapa_activacion.png}
+%       \absimage{.75, .65}{.45}{imgs/sucesion_conv_layer.png}
+%     \end{column}
+%   \end{columns}
+% \end{frame}
 
-\begin{frame}{Capa de Pooling}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.99\textwidth]{imgs/pooling.png}
-    \caption{Imagen extraída de \cite{StanfordCourse}.}
-  \end{figure}
-\end{frame}
+% \begin{frame}{Capa de Pooling}
+%   \begin{figure}
+%     \centering
+%     \includegraphics[width=0.99\textwidth]{imgs/pooling.png}
+%     \caption{Imagen extraída de \cite{StanfordCourse}.}
+%   \end{figure}
+% \end{frame}
 
-\begin{frame}{Capa totalmente conectada}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.99\textwidth]{imgs/single_hidden_layer.png}
-  \end{figure}
-\end{frame}
+% \begin{frame}{Capa totalmente conectada}
+%   \begin{figure}
+%     \centering
+%     \includegraphics[width=0.99\textwidth]{imgs/single_hidden_layer.png}
+%   \end{figure}
+% \end{frame}
 
 % \begin{frame}{Autoencoders}
 %   \begin{figure}
@@ -540,7 +541,7 @@
       \begin{itemize}
         \item Gran número de artículos.
         \item Deep learning.
-      \end{itemize} 
+      \end{itemize}
       % square filling the column
       % place an image
       % horizontal position = 73%
@@ -563,17 +564,29 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}[t]{Taxonomía}
+\begin{frame}[t]{Estado del arte}
   \begin{itemize}
-    \item Encontramos 13 artículos en total.
-    \item Sólo 4 relacionados con el marcado de landmarks cefalométricos.
-    \item Emplean diversas técnicas de \textbf{visión por computador} y \textbf{aprendizaje automático}.
+    \item TFG Realizado por Guillermo Gómez \cite{guillermo2019}.
+    \item Expuesto en Conferencia Forense en 2019.
+    \item Modelo basado en \textbf{HyperFace-ResNet}.
+    \item \textbf{Predicción} y \textbf{clasificación} de landmarks cefalométricos.
+    \item \textbf{Misma base de datos} + 99 modelos $3D$.
+    \item Se disponía del \textbf{código} y los \textbf{resultados}.
   \end{itemize}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.99\textwidth]{imgs/taxonomia.png}
-  \end{figure}
+
 \end{frame}
+
+% \begin{frame}[t]{Taxonomía}
+%   \begin{itemize}
+%     \item Encontramos 13 artículos en total.
+%     \item Sólo 4 relacionados con el marcado de landmarks cefalométricos.
+%     \item Emplean diversas técnicas de \textbf{visión por computador} y \textbf{aprendizaje automático}.
+%   \end{itemize}
+%   \begin{figure}
+%     \centering
+%     \includegraphics[width=0.99\textwidth]{imgs/taxonomia.png}
+%   \end{figure}
+% \end{frame}
 
 \section{Experimentos}
 
@@ -618,16 +631,16 @@
   \begin{columns}[onlytextwidth]
     \begin{column}{.65\textwidth}
       \begin{itemize}
-        \item Realizamos \textbf{detección + \textit{cropping}} de caras en las imágenes del dataset.
-        \item Empleamos red auxiliar \textbf{Facenet}.
-        \item \textbf{Problema}: Algunos landmarks quedan fuera del \textit{bounding box}. Se necesita un \textbf{reajuste}.
-      \end{itemize} 
+        \item \small Realizamos \textbf{detección + \textit{cropping}} de caras en las imágenes del dataset.
+        \item \small Empleamos red auxiliar \textbf{Facenet}\cite{DBLP:journals/corr/SchroffKP15}.
+        \item \small\textbf{Problema}: Algunos landmarks quedan fuera del \textit{bounding box}. Se necesita un \textbf{reajuste}.
+      \end{itemize}
       % square filling the column
       % place an image
       % horizontal position = 73%
       % vertical position = 45%
       % width = 40% of page
-      \absimage{.3, .7}{.45}{imgs/bb_1.png}
+      \absimage{.3, .65}{.45}{imgs/bb_1.png}
     \end{column}
     \begin{column}{.5\textwidth}
       % square filling the column
@@ -635,24 +648,24 @@
       % horizontal position = 73%
       % vertical position = 45%
       % width = 40% of page
-      \absimage{.75, .49}{.25}{imgs/bb_2.png}
+      \absimage{.75, .44}{.23}{imgs/bb_2.png}
     \end{column}
   \end{columns}
 \end{frame}
 
-% \begin{frame}[t]{Reajuste 3FabRec}
-%   \begin{itemize}
-%       \item Bounding box cuadrado de lado \textbf{$\max(h,w)$}.
-%       \item Ampliación uniforme por el factor \textbf{$\frac{crop\_size+margin}{crop\_size}$}.
-%       \item Reescalado a \textbf{tamaño $256 \times 256$}.
-%       \item \textbf{Problema}: Vertex suele quedar fuera.
-%   \end{itemize}
+\begin{frame}[t]{Reajuste 3FabRec}
+  \begin{itemize}
+      \item \small Bounding box cuadrado de lado \textbf{$\max(h,w)$}.
+      \item \small Ampliación uniforme por el factor \textbf{$\frac{crop\_size+margin}{crop\_size}$}.
+      \item \small Reescalado a \textbf{tamaño $256 \times 256$}.
+      \item \small \textbf{Importante} para que los datos sigan distribución similar a la usada para entrenar $3FabRec$.
+  \end{itemize}
 
-%   \absimage{0.6, 0.7}{0.6}{imgs/bounding_box_3fabrec.png}
-% \end{frame}
+  \absimage{0.51, 0.7}{0.9}{imgs/bounding_box_3fabrec.png}
+\end{frame}
 
 \begin{frame}[t]{Partición de los datos}
-  Se dividen los datos en entrenamiento y test: 
+  Se dividen los datos en entrenamiento y test:
   \begin{itemize}
       \item \textbf{131} imágenes para entrenamiento ($80\%$). Usaremos \textbf{cross-validation 5 fold}.
       \item \textbf{32} imágenes para test ($20\%$).
@@ -719,7 +732,7 @@
       % horizontal position = 73%
       % vertical position = 45%
       % width = 40% of page
-      Para cada imagen: 
+      Para cada imagen:
       \begin{itemize}
         \item NME medio.
         \item Error de reconstrucción medio.
@@ -770,14 +783,13 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Comparativa HF-Resnet}
+\begin{frame}{Comparativa HF-Resnet \cite{guillermo2019}}
 
   \begin{columns}[onlytextwidth]
     \begin{column}{.4\textwidth}
       \normalsize \textbf{Diferencias:}
       \begin{itemize}
-        \item \scriptsize \textbf{Preprocesamiento}: mismo dataset + 99 modelos $3D$ de caras neutrales.
-        \item \scriptsize \textbf{Métricas: }
+        \item \scriptsize \textbf{Métrica: }
             \begin{equation*}
               RMSE(y,\widehat{y})= \sqrt{\frac{1}{N} \sum_{i=1}^{N} (y_i-\widehat{y}_i)^2}
             \end{equation*}
