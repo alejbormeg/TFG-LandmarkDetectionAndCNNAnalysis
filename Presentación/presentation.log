@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  27 NOV 2022 21:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.4)  27 NOV 2022 22:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1591,7 +1591,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [22
 
 ]
-<imgs/marcado_landmarks.png, id=720, 749.80125pt x 442.65375pt>
+<imgs/marcado_landmarks.png, id=717, 749.80125pt x 442.65375pt>
 File: imgs/marcado_landmarks.png Graphic file (type png)
 <use imgs/marcado_landmarks.png>
 Package pdftex.def Info: imgs/marcado_landmarks.png  used on input line 393.
@@ -1613,7 +1613,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [23
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/marcado_landmarks.png>]
-<imgs/aflw.png, id=760, 644.4075pt x 349.305pt>
+<imgs/aflw.png, id=757, 644.4075pt x 349.305pt>
 File: imgs/aflw.png Graphic file (type png)
 <use imgs/aflw.png>
 Package pdftex.def Info: imgs/aflw.png  used on input line 408.
@@ -1652,12 +1652,12 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 434.
 
-<imgs/EjemplosBD.png, id=802, 1696.3375pt x 1057.9525pt>
+<imgs/EjemplosBD.png, id=798, 1696.3375pt x 1057.9525pt>
 File: imgs/EjemplosBD.png Graphic file (type png)
 <use imgs/EjemplosBD.png>
 Package pdftex.def Info: imgs/EjemplosBD.png  used on input line 434.
 (pdftex.def)             Requested size: 163.8868pt x 102.20154pt.
-<imgs/vertical.png, id=803, 833.1125pt x 2587.6675pt>
+<imgs/vertical.png, id=799, 833.1125pt x 2587.6675pt>
 File: imgs/vertical.png Graphic file (type png)
 <use imgs/vertical.png>
 Package pdftex.def Info: imgs/vertical.png  used on input line 434.
@@ -1695,29 +1695,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [26
 
 ]
-<imgs/ArquitecturaRedNeuronal.png, id=880, 1409.265pt x 311.1625pt>
-File: imgs/ArquitecturaRedNeuronal.png Graphic file (type png)
-<use imgs/ArquitecturaRedNeuronal.png>
-Package pdftex.def Info: imgs/ArquitecturaRedNeuronal.png  used on input line 454.
-(pdftex.def)             Requested size: 326.753pt x 72.14511pt.
-
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 454--454
-[]| []  
- []
-
-File: imgs/logo-ugr.png Graphic file (type png)
-<use imgs/logo-ugr.png>
-Package pdftex.def Info: imgs/logo-ugr.png  used on input line 454.
-(pdftex.def)             Requested size: 71.13188pt x 19.7993pt.
-
-Overfull \hbox (14.22638pt too wide) has occurred while \output is active
-[][][][]
- []
-
-[27
-
- </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecturaRedNeuronal.png>]
-<imgs/ArquitecuraGeneral.png, id=920, 852.18375pt x 262.9825pt>
+<imgs/ArquitecuraGeneral.png, id=874, 852.18375pt x 262.9825pt>
 File: imgs/ArquitecuraGeneral.png Graphic file (type png)
 <use imgs/ArquitecuraGeneral.png>
 Package pdftex.def Info: imgs/ArquitecuraGeneral.png  used on input line 462.
@@ -1736,15 +1714,15 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[28
+[27
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/ArquitecuraGeneral.png>]
-<imgs/mapa_activacion.png, id=962, 863.225pt x 392.46625pt>
+<imgs/mapa_activacion.png, id=914, 863.225pt x 392.46625pt>
 File: imgs/mapa_activacion.png Graphic file (type png)
 <use imgs/mapa_activacion.png>
 Package pdftex.def Info: imgs/mapa_activacion.png  used on input line 480.
 (pdftex.def)             Requested size: 182.09767pt x 82.78563pt.
-<imgs/sucesion_conv_layer.png, id=963, 665.48625pt x 322.20375pt>
+<imgs/sucesion_conv_layer.png, id=915, 665.48625pt x 322.20375pt>
 File: imgs/sucesion_conv_layer.png Graphic file (type png)
 <use imgs/sucesion_conv_layer.png>
 Package pdftex.def Info: imgs/sucesion_conv_layer.png  used on input line 480.
@@ -1763,10 +1741,10 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[29
+[28
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/mapa_activacion.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/sucesion_conv_layer.png>]
-<imgs/pooling.png, id=1002, 823.075pt x 261.97874pt>
+<imgs/pooling.png, id=954, 823.075pt x 261.97874pt>
 File: imgs/pooling.png Graphic file (type png)
 <use imgs/pooling.png>
 Package pdftex.def Info: imgs/pooling.png  used on input line 488.
@@ -1785,10 +1763,10 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[30
+[29
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/pooling.png>]
-<imgs/single_hidden_layer.png, id=1042, 1105.12875pt x 527.9725pt>
+<imgs/single_hidden_layer.png, id=993, 1105.12875pt x 527.9725pt>
 File: imgs/single_hidden_layer.png Graphic file (type png)
 <use imgs/single_hidden_layer.png>
 Package pdftex.def Info: imgs/single_hidden_layer.png  used on input line 495.
@@ -1807,10 +1785,10 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[31
+[30
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/single_hidden_layer.png>]
-<imgs/AAE.png, id=1082, 702.625pt x 514.92375pt>
+<imgs/AAE.png, id=1030, 702.625pt x 514.92375pt>
 File: imgs/AAE.png Graphic file (type png)
 <use imgs/AAE.png>
 Package pdftex.def Info: imgs/AAE.png  used on input line 531.
@@ -1829,15 +1807,15 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[32
+[31
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/AAE.png (PNG copy)>]
-<imgs/Scopus_1.png, id=1121, 660.21657pt x 414.04688pt>
+<imgs/Scopus_1.png, id=1070, 660.21657pt x 414.04688pt>
 File: imgs/Scopus_1.png Graphic file (type png)
 <use imgs/Scopus_1.png>
 Package pdftex.def Info: imgs/Scopus_1.png  used on input line 564.
 (pdftex.def)             Requested size: 163.8868pt x 102.77858pt.
-<imgs/Scopus_2.png, id=1122, 660.21657pt x 414.04688pt>
+<imgs/Scopus_2.png, id=1071, 660.21657pt x 414.04688pt>
 File: imgs/Scopus_2.png Graphic file (type png)
 <use imgs/Scopus_2.png>
 Package pdftex.def Info: imgs/Scopus_2.png  used on input line 564.
@@ -1856,10 +1834,10 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[33
+[32
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Scopus_1.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Scopus_2.png>]
-<imgs/taxonomia.png, id=1162, 1665.22125pt x 252.945pt>
+<imgs/taxonomia.png, id=1109, 1665.22125pt x 252.945pt>
 File: imgs/taxonomia.png Graphic file (type png)
 <use imgs/taxonomia.png>
 Package pdftex.def Info: imgs/taxonomia.png  used on input line 576.
@@ -1878,10 +1856,10 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[34
+[33
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/taxonomia.png>]
-<imgs/3fabrec_arquitectura.png, id=1200, 1296.845pt x 649.42625pt>
+<imgs/3fabrec_arquitectura.png, id=1146, 1296.845pt x 649.42625pt>
 File: imgs/3fabrec_arquitectura.png Graphic file (type png)
 <use imgs/3fabrec_arquitectura.png>
 Package pdftex.def Info: imgs/3fabrec_arquitectura.png  used on input line 586.
@@ -1900,7 +1878,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[35
+[34
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/3fabrec_arquitectura.png>]
 Overfull \hbox (0.85355pt too wide) in paragraph at lines 615--615
@@ -1916,15 +1894,15 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[36
+[35
 
 ]
-<imgs/bb_1.png, id=1275, 559.08875pt x 295.1025pt>
+<imgs/bb_1.png, id=1219, 559.08875pt x 295.1025pt>
 File: imgs/bb_1.png Graphic file (type png)
 <use imgs/bb_1.png>
 Package pdftex.def Info: imgs/bb_1.png  used on input line 641.
 (pdftex.def)             Requested size: 163.8868pt x 86.50511pt.
-<imgs/bb_2.png, id=1276, 221.82875pt x 501.875pt>
+<imgs/bb_2.png, id=1220, 221.82875pt x 501.875pt>
 File: imgs/bb_2.png Graphic file (type png)
 <use imgs/bb_2.png>
 Package pdftex.def Info: imgs/bb_2.png  used on input line 641.
@@ -1948,10 +1926,10 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[37
+[36
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/bb_1.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/bb_2.png>]
-<imgs/bounding_box_3fabrec.png, id=1316, 1036.87375pt x 521.95pt>
+<imgs/bounding_box_3fabrec.png, id=1258, 1036.87375pt x 521.95pt>
 File: imgs/bounding_box_3fabrec.png Graphic file (type png)
 <use imgs/bounding_box_3fabrec.png>
 Package pdftex.def Info: imgs/bounding_box_3fabrec.png  used on input line 652.
@@ -1970,10 +1948,10 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[38
+[37
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/bounding_box_3fabrec.png>]
-<imgs/Particion_Datos.png, id=1354, 553.06625pt x 206.7725pt>
+<imgs/Particion_Datos.png, id=1297, 553.06625pt x 206.7725pt>
 File: imgs/Particion_Datos.png Graphic file (type png)
 <use imgs/Particion_Datos.png>
 Package pdftex.def Info: imgs/Particion_Datos.png  used on input line 663.
@@ -1992,10 +1970,10 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[39
+[38
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Particion_Datos.png>]
-<imgs/EsquemaModelos.png, id=1393, 1225.57875pt x 482.80376pt>
+<imgs/EsquemaModelos.png, id=1334, 1225.57875pt x 482.80376pt>
 File: imgs/EsquemaModelos.png Graphic file (type png)
 <use imgs/EsquemaModelos.png>
 Package pdftex.def Info: imgs/EsquemaModelos.png  used on input line 674.
@@ -2014,15 +1992,15 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[40
+[39
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/EsquemaModelos.png>]
-<imgs/5-fold-cv.png, id=1431, 939.51pt x 442.65375pt>
+<imgs/5-fold-cv.png, id=1372, 939.51pt x 442.65375pt>
 File: imgs/5-fold-cv.png Graphic file (type png)
 <use imgs/5-fold-cv.png>
 Package pdftex.def Info: imgs/5-fold-cv.png  used on input line 684.
 (pdftex.def)             Requested size: 326.753pt x 153.95174pt.
-<imgs/entrenamiento.png, id=1432, 141.52875pt x 106.3975pt>
+<imgs/entrenamiento.png, id=1373, 141.52875pt x 106.3975pt>
 File: imgs/entrenamiento.png Graphic file (type png)
 <use imgs/entrenamiento.png>
 Package pdftex.def Info: imgs/entrenamiento.png  used on input line 684.
@@ -2041,14 +2019,14 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[41
+[40
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/5-fold-cv.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/entrenamiento.png>]
 File: imgs/entrenamiento.png Graphic file (type png)
 <use imgs/entrenamiento.png>
 Package pdftex.def Info: imgs/entrenamiento.png  used on input line 712.
 (pdftex.def)             Requested size: 54.62708pt x 41.06624pt.
-<imgs/test.png, id=1471, 101.37875pt x 106.3975pt>
+<imgs/test.png, id=1411, 101.37875pt x 106.3975pt>
 File: imgs/test.png Graphic file (type png)
 <use imgs/test.png>
 Package pdftex.def Info: imgs/test.png  used on input line 712.
@@ -2067,15 +2045,15 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[42
+[41
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/Test.png>]
-<imgs/boxplot_sumarize.png, id=1512, 441.65pt x 293.095pt>
+<imgs/boxplot_sumarize.png, id=1450, 441.65pt x 293.095pt>
 File: imgs/boxplot_sumarize.png Graphic file (type png)
 <use imgs/boxplot_sumarize.png>
 Package pdftex.def Info: imgs/boxplot_sumarize.png  used on input line 747.
 (pdftex.def)             Requested size: 163.8868pt x 108.76097pt.
-<imgs/tabla_landmarks.png, id=1513, 788.9475pt x 718.685pt>
+<imgs/tabla_landmarks.png, id=1451, 788.9475pt x 718.685pt>
 File: imgs/tabla_landmarks.png Graphic file (type png)
 <use imgs/tabla_landmarks.png>
 Package pdftex.def Info: imgs/tabla_landmarks.png  used on input line 747.
@@ -2094,10 +2072,10 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[43
+[42
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/boxplot_sumarize.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/tabla_landmarks.png>]
-<imgs/image_basemodel.png, id=1553, 1031.855pt x 520.94624pt>
+<imgs/image_basemodel.png, id=1490, 1031.855pt x 520.94624pt>
 File: imgs/image_basemodel.png Graphic file (type png)
 <use imgs/image_basemodel.png>
 Package pdftex.def Info: imgs/image_basemodel.png  used on input line 755.
@@ -2116,15 +2094,15 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[44
+[43
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/image_basemodel.png>]
-<imgs/image_finalmodel.png, id=1592, 1033.8625pt x 520.94624pt>
+<imgs/image_finalmodel.png, id=1528, 1033.8625pt x 520.94624pt>
 File: imgs/image_finalmodel.png Graphic file (type png)
 <use imgs/image_finalmodel.png>
 Package pdftex.def Info: imgs/image_finalmodel.png  used on input line 771.
 (pdftex.def)             Requested size: 182.09767pt x 91.75517pt.
-<imgs/curvas_FinalModel.png, id=1593, 462.528pt x 346.896pt>
+<imgs/curvas_FinalModel.png, id=1529, 462.528pt x 346.896pt>
 File: imgs/curvas_FinalModel.png Graphic file (type png)
 <use imgs/curvas_FinalModel.png>
 Package pdftex.def Info: imgs/curvas_FinalModel.png  used on input line 771.
@@ -2143,19 +2121,19 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[45
+[44
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/image_finalmodel.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/curvas_FinalModel.png>]
 Overfull \hbox (6.42345pt too wide) detected at line 791
 \OT1/mathkerncmss/m/sl/8 RMSE\OMX/MnSymbolE/m/n/8 �\OT1/mathkerncmss/m/sl/8 y\OML/cmm/m/it/8 ; []\OMX/MnSymbolE/m/n/8 � \U/MnSymbolD/m/n/8 ^^@ []
  []
 
-<imgs/tanle_comparativa1.png, id=1633, 996.72375pt x 127.47626pt>
+<imgs/tanle_comparativa1.png, id=1568, 996.72375pt x 127.47626pt>
 File: imgs/tanle_comparativa1.png Graphic file (type png)
 <use imgs/tanle_comparativa1.png>
 Package pdftex.def Info: imgs/tanle_comparativa1.png  used on input line 791.
 (pdftex.def)             Requested size: 163.8868pt x 20.95876pt.
-<imgs/table_comparativa2.png, id=1634, 787.94376pt x 855.195pt>
+<imgs/table_comparativa2.png, id=1569, 787.94376pt x 855.195pt>
 File: imgs/table_comparativa2.png Graphic file (type png)
 <use imgs/table_comparativa2.png>
 Package pdftex.def Info: imgs/table_comparativa2.png  used on input line 791.
@@ -2174,10 +2152,10 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[46
+[45
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/tanle_comparativa1.png> </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/table_comparativa2.png>]
-<imgs/compativa_cualitativa.png, id=1675, 560.0925pt x 651.43375pt>
+<imgs/compativa_cualitativa.png, id=1610, 560.0925pt x 651.43375pt>
 File: imgs/compativa_cualitativa.png Graphic file (type png)
 <use imgs/compativa_cualitativa.png>
 Package pdftex.def Info: imgs/compativa_cualitativa.png  used on input line 806.
@@ -2196,7 +2174,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[47
+[46
 
  </home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/imgs/compativa_cualitativa.png>]
 Overfull \hbox (0.85355pt too wide) in paragraph at lines 826--826
@@ -2212,7 +2190,7 @@ Overfull \hbox (14.22638pt too wide) has occurred while \output is active
 [][][][]
  []
 
-[48
+[47
 
 ]
 \tf@nav=\write8
@@ -2240,18 +2218,18 @@ Package logreq Info: Writing requests to 'presentation.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34981 strings out of 481239
- 673822 string characters out of 5920378
- 1280060 words of memory out of 5000000
- 49441 multiletter control sequences out of 15000+600000
+ 34970 strings out of 481239
+ 673566 string characters out of 5920378
+ 1280055 words of memory out of 5000000
+ 49433 multiletter control sequences out of 15000+600000
  570239 words of font info for 159 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,22n,82p,937b,2204s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.pdf" (48 pages, 15076889 bytes).
+Output written on "/home/alejandro/Escritorio/5ºDGIIM/Segundo Cuatrimestre/TFG/github/TFG-LandmarkDetectionAndCNNAnalysis/Presentación/presentation.pdf" (47 pages, 14829871 bytes).
 PDF statistics:
- 1866 PDF objects out of 2073 (max. 8388607)
- 1695 compressed objects within 17 object streams
- 110 named destinations out of 1000 (max. 500000)
- 310 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1797 PDF objects out of 2073 (max. 8388607)
+ 1630 compressed objects within 17 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 305 words of extra memory for PDF output out of 10000 (max. 10000000)
 

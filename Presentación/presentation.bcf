@@ -2192,12 +2192,10 @@
     <bcf:citekey order="7">StanfordCourse</bcf:citekey>
     <bcf:citekey order="8">StanfordCourse</bcf:citekey>
     <bcf:citekey order="9">StanfordCourse</bcf:citekey>
-    <bcf:citekey order="10">StanfordCourse</bcf:citekey>
-    <bcf:citekey order="11">StanfordCourse</bcf:citekey>
-    <bcf:citekey order="12">AAE</bcf:citekey>
-    <bcf:citekey order="13">AAE</bcf:citekey>
-    <bcf:citekey order="14">browatzki20203fabrec</bcf:citekey>
-    <bcf:citekey order="15">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="10">AAE</bcf:citekey>
+    <bcf:citekey order="11">AAE</bcf:citekey>
+    <bcf:citekey order="12">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="13">browatzki20203fabrec</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
