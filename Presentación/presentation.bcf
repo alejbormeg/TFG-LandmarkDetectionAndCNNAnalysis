@@ -2193,11 +2193,33 @@
     <bcf:citekey order="8">StanfordCourse</bcf:citekey>
     <bcf:citekey order="9">AAE</bcf:citekey>
     <bcf:citekey order="10">AAE</bcf:citekey>
-    <bcf:citekey order="11">guillermo2019</bcf:citekey>
-    <bcf:citekey order="12">browatzki20203fabrec</bcf:citekey>
-    <bcf:citekey order="13">browatzki20203fabrec</bcf:citekey>
-    <bcf:citekey order="14">DBLP:journals/corr/SchroffKP15</bcf:citekey>
+    <bcf:citekey order="11">AAE</bcf:citekey>
+    <bcf:citekey order="12">AAE</bcf:citekey>
+    <bcf:citekey order="13">AAE</bcf:citekey>
+    <bcf:citekey order="14">AAE</bcf:citekey>
     <bcf:citekey order="15">guillermo2019</bcf:citekey>
+    <bcf:citekey order="16">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="17">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="18">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="19">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="20">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="21">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="22">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="23">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="24">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="25">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="26">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="27">browatzki20203fabrec</bcf:citekey>
+    <bcf:citekey order="28">DBLP:journals/corr/SchroffKP15</bcf:citekey>
+    <bcf:citekey order="29">guillermo2019</bcf:citekey>
+    <bcf:citekey order="30">StanfordCourse</bcf:citekey>
+    <bcf:citekey order="31">StanfordCourse</bcf:citekey>
+    <bcf:citekey order="32">StanfordCourse</bcf:citekey>
+    <bcf:citekey order="33">autoencoders2017</bcf:citekey>
+    <bcf:citekey order="34">autoencoders2017</bcf:citekey>
+    <bcf:citekey order="35">VAE</bcf:citekey>
+    <bcf:citekey order="36">GAN</bcf:citekey>
+    <bcf:citekey order="37">GAN</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

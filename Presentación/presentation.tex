@@ -273,18 +273,6 @@
   $$ \int_{\mathbb{R}^d} U[p]f(x)dx < \infty $$
 \end{frame}
 
-
-% \begin{frame}{Operador de dispersión}
-%   \begin{alertblock}{Operador de dispersión}
-%     Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
-%     \begin{equation*}
-%       \overline{S}f(p)=\int_{\mathbb{R}^d}U[p]f(x)dx
-%     \end{equation*}
-%   \end{alertblock}
-
-%   Siendo $\overline{S}f(p)$ invariante a traslaciones para un $f$ fijo.
-% \end{frame}
-
 \begin{frame}{Operador de ventana}
   \begin{block}{Definición operador de ventana}
     Sea $J \in \mathbb{Z}$ y $\mathcal{P}_J$ el conjunto de caminos finitos $p=(\lambda_1,\lambda_2,...,\lambda_m)$ con $\lambda_k \in \Lambda_J$ y $|\lambda_k|=2^{k}>2^{-J}$. Una ventana de transformada de dispersión se define para todo $p \in \mathcal{P}_J$ por
@@ -446,14 +434,6 @@
 
 \section{Fundamentos Teóricos}
 
-% \begin{frame}{Redes Neuronales Convolucionales}
-%   \begin{figure}
-%     \centering
-%     \includegraphics[width=0.99\textwidth]{imgs/ArquitecturaRedNeuronal.png}
-%     \caption{Imagen extraída de \cite{StanfordCourse}.}
-%   \end{figure}
-% \end{frame}
-
 \begin{frame}{Arquitectura de una red neuronal convolucional}
   \begin{figure}
     \centering
@@ -462,71 +442,26 @@
   \end{figure}
 \end{frame}
 
-% \begin{frame}{Capas Convolucionales}
-%   \begin{columns}[onlytextwidth]
-%     \begin{column}{.5\textwidth}
-%        \textbf{Características:}
-%       \begin{itemize}
-%         \item Operación de convolución.
-%         \item Menor número de pesos.
-%         \item Mayor profundidad de red.
-%       \end{itemize}
-%       Imágenes extraída de \cite{StanfordCourse}.
-%     \end{column}
-%     \begin{column}{.5\textwidth}
-%       \absimage{.75, .30}{.50}{imgs/mapa_activacion.png}
-%       \absimage{.75, .65}{.45}{imgs/sucesion_conv_layer.png}
-%     \end{column}
-%   \end{columns}
-% \end{frame}
-
-% \begin{frame}{Capa de Pooling}
-%   \begin{figure}
-%     \centering
-%     \includegraphics[width=0.99\textwidth]{imgs/pooling.png}
-%     \caption{Imagen extraída de \cite{StanfordCourse}.}
-%   \end{figure}
-% \end{frame}
-
-% \begin{frame}{Capa totalmente conectada}
-%   \begin{figure}
-%     \centering
-%     \includegraphics[width=0.99\textwidth]{imgs/single_hidden_layer.png}
-%   \end{figure}
-% \end{frame}
-
-% \begin{frame}{Autoencoders}
-%   \begin{figure}
-%     \centering
-%     \includegraphics[width=0.99\textwidth]{imgs/Autoencoder.png}
-%     \caption{Imagen extraída de \cite{autoencoders2017}.}
-%   \end{figure}
-% \end{frame}
-
-% \begin{frame}{Variational Autoencoder (VAE)}
-%   \begin{columns}[onlytextwidth]
-%     \begin{column}{.5\textwidth}
-%       \absimage{.25, .50}{.5}{imgs/VAE_1.png}
-%       Imágenes extraída de \cite{VAE}.
-%     \end{column}
-%     \begin{column}{.5\textwidth}
-%       \absimage{.75, .53}{.5}{imgs/VAE_2.png}
-%     \end{column}
-%   \end{columns}
-% \end{frame}
-
-% \begin{frame}{Generative Adversarial Network(GAN)}
-%   \begin{figure}
-%     \centering
-%     \includegraphics[width=0.99\textwidth]{imgs/GAN.png}
-%     \caption{Imagen extraída de \cite{GAN}.}
-%   \end{figure}
-% \end{frame}
+\begin{frame}{Adversarial Autoencoder (AAE)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{imgs/AAE_1.png}
+    \caption{Imagen extraída de \cite{AAE}.}
+  \end{figure}
+\end{frame}
 
 \begin{frame}{Adversarial Autoencoder (AAE)}
   \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{imgs/AAE.png}
+    \includegraphics[width=0.6\textwidth]{imgs/AAE_2.png}
+    \caption{Imagen extraída de \cite{AAE}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Adversarial Autoencoder (AAE)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{imgs/AAE_3.png}
     \caption{Imagen extraída de \cite{AAE}.}
   \end{figure}
 \end{frame}
@@ -576,17 +511,6 @@
 
 \end{frame}
 
-% \begin{frame}[t]{Taxonomía}
-%   \begin{itemize}
-%     \item Encontramos 13 artículos en total.
-%     \item Sólo 4 relacionados con el marcado de landmarks cefalométricos.
-%     \item Emplean diversas técnicas de \textbf{visión por computador} y \textbf{aprendizaje automático}.
-%   \end{itemize}
-%   \begin{figure}
-%     \centering
-%     \includegraphics[width=0.99\textwidth]{imgs/taxonomia.png}
-%   \end{figure}
-% \end{frame}
 
 \section{Experimentos}
 
@@ -598,20 +522,45 @@
   \end{figure}
 \end{frame}
 
-% \begin{frame}{3FabRec}
-%   \begin{block}{Función de pérdida parte no supervisada}
-%     \begin{align*}
-%       \min_{E,G} \max_{D_z,D_x} & \mathcal{L}_{AE}(E,G,D_z,D_x) = \\
-%       & \lambda_{rec} \mathcal{L}_{rec}(E,G) + \lambda_{cs}\mathcal{L}_{cs}(E,G) \\
-%       & + \lambda_{enc}\mathcal{L}_{enc}(E,D_z)+ \lambda_{adv} \mathcal{L}_{adv}(E,G,D_x)
-%     \end{align*}
-%   \end{block}
-%   \begin{block}{Función de pérdida parte supervisada}
-%     \begin{equation*}
-%       \mathcal{L}_H(ITL) = \mathbb{E}_{x ~ p(x)} \left[ \| H-ITL(a)\|_2 \right]
-%     \end{equation*}
-%   \end{block}
-% \end{frame}
+\begin{frame}[t]{3FabRec}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.85\textwidth]{imgs/3FabRec_1.png}
+    \caption{Imagen extraída de \cite{browatzki20203fabrec}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[t]{3FabRec}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.85\textwidth]{imgs/3FabRec_2.png}
+    \caption{Imagen extraída de \cite{browatzki20203fabrec}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[t]{3FabRec}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.85\textwidth]{imgs/3FabRec_3.png}
+    \caption{Imagen extraída de \cite{browatzki20203fabrec}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[t]{3FabRec}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.85\textwidth]{imgs/3FabRec_4.png}
+    \caption{Imagen extraída de \cite{browatzki20203fabrec}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[t]{3FabRec}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.85\textwidth]{imgs/3FabRec_5.png}
+    \caption{Imagen extraída de \cite{browatzki20203fabrec}.}
+  \end{figure}
+\end{frame}
 
 \begin{frame}{3FabRec}
   \textcolor{tudCyan}{\textbf{Bases de datos de la parte no supervisada}}
@@ -824,7 +773,7 @@
   \begin{enumerate}
     \item \small Investigación + comparación con el estado del arte.
     \item \small Estudio sobre los Autoencoders y redes adversarias.
-    \item \small Estudio de errores y preprocesamiento de los dato.
+    \item \small Estudio de errores y preprocesamiento de los datos.
     \item \small Estudio experimental.
   \end{enumerate}
 
@@ -836,6 +785,113 @@
     \item \small Método robusto con few-shot learning.
   \end{itemize}
 \end{frame}
+
+
+\begin{frame}[c]{}
+  \Huge \centering \textcolor{tudCyan}{\textbf{Preguntas}}
+\end{frame}
+
+\part{Diapositivas auxiliares}
+
+\begin{frame}{Operador de dispersión}
+  \begin{alertblock}{Operador de dispersión}
+    Sea $\mathcal{P}_\infty$ el conjunto de todos los caminos finitos. La transformada de dispersión de $f \in L^1(\mathbb{R}^d)$ se define para cualquier camino $p \in \mathcal{P}_\infty$ como:
+    \begin{equation*}
+      \overline{S}f(p)=\int_{\mathbb{R}^d}U[p]f(x)dx
+    \end{equation*}
+  \end{alertblock}
+
+  Siendo $\overline{S}f(p)$ invariante a traslaciones para un $f$ fijo.
+\end{frame}
+
+\begin{frame}{Capas Convolucionales}
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.5\textwidth}
+       \textbf{Características:}
+      \begin{itemize}
+        \item Operación de convolución.
+        \item Menor número de pesos.
+        \item Mayor profundidad de red.
+      \end{itemize}
+      Imágenes extraída de \cite{StanfordCourse}.
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \absimage{.75, .30}{.50}{imgs/mapa_activacion.png}
+      \absimage{.75, .65}{.45}{imgs/sucesion_conv_layer.png}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Capa de Pooling}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/pooling.png}
+    \caption{Imagen extraída de \cite{StanfordCourse}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Capa totalmente conectada}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/single_hidden_layer.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Autoencoders}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/Autoencoder.png}
+    \caption{Imagen extraída de \cite{autoencoders2017}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Variational Autoencoder (VAE)}
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.5\textwidth}
+      \absimage{.25, .50}{.5}{imgs/VAE_1.png}
+      Imágenes extraída de \cite{VAE}.
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \absimage{.75, .53}{.5}{imgs/VAE_2.png}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Generative Adversarial Network(GAN)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/GAN.png}
+    \caption{Imagen extraída de \cite{GAN}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Taxonomía}
+  \begin{itemize}
+    \item Encontramos 13 artículos en total.
+    \item Sólo 4 relacionados con el marcado de landmarks cefalométricos.
+    \item Emplean diversas técnicas de \textbf{visión por computador} y \textbf{aprendizaje automático}.
+  \end{itemize}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.99\textwidth]{imgs/taxonomia.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{3FabRec}
+  \begin{block}{Función de pérdida parte no supervisada}
+    \begin{align*}
+      \min_{E,G} \max_{D_z,D_x} & \mathcal{L}_{AE}(E,G,D_z,D_x) = \\
+      & \lambda_{rec} \mathcal{L}_{rec}(E,G) + \lambda_{cs}\mathcal{L}_{cs}(E,G) \\
+      & + \lambda_{enc}\mathcal{L}_{enc}(E,D_z)+ \lambda_{adv} \mathcal{L}_{adv}(E,G,D_x)
+    \end{align*}
+  \end{block}
+  \begin{block}{Función de pérdida parte supervisada}
+    \begin{equation*}
+      \mathcal{L}_H(ITL) = \mathbb{E}_{x ~ p(x)} \left[ \| H-ITL(a)\|_2 \right]
+    \end{equation*}
+  \end{block}
+\end{frame}
+
 
 \end{document}
 
