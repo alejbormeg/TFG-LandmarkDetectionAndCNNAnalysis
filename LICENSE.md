@@ -1,4 +1,4 @@
-Localización de landmarks cefalométricos por medio de técnicas de few-shot learning y análisis de redes convolucionales
+The MIT License (MIT)
 =====================
 
 Copyright © `2021-2022` `Alejandro Borrego Megías`
